@@ -1,5 +1,10 @@
 " Configurations by filetype
-filetype on
+filetype off
+" Load submodules with pathogen
+load pathogen managed plugins
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
 " Plugins by filetype
 filetype plugin on
 " Indentation by filetype
@@ -21,6 +26,8 @@ set confirm
 set incsearch
 " Highlight search results 
 set hls
+" Don't continue comments when pushing o/O
+set formatoptions-=o                    
 " Ignore case while search
 set ignorecase
 " But if have a upcase letter use case sensitive
@@ -134,4 +141,10 @@ autocmd FileType cpp    set makeprg=g++\ %\ -o\ %<\ -lm"
 autocmd FileType ruby   set makeprg=ruby\ %
 autocmd FileType python set makeprg=python\ %
 " Just a shortcut
-map <F9> :w<cr>:make<cr>
+map <F9> :w<CR>:make<CR>
+
+""""""""""""""" PLUGINS CONFIGURATION
+
+" ColorSelect
+let g:CaseResultColorSelect=‘upcase’
+imap <F5> :ColorSelect<CR>
