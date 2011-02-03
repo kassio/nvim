@@ -31,7 +31,7 @@ To setup this configurations:
 ln -s ~/.vim/vimrc ~/.vimrc
 </pre>
 
-h2. Dependecies
+h2. Dependencies
 
 Some configurations dependes exuberant-tags, again if you using Debian or some children do:
 
