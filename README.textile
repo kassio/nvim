@@ -1,0 +1,47 @@
+h1. My Vim Configs
+
+* Author: Kássio Borges<kassioborgesm@gmail.com>
+* Since: 2011/02
+
+<b>All this configurations was created and tested only on linux.</b>
+
+h2. Usege
+
+The best way to install and follow the updates is using git. If you using Debian or some children do:
+
+<pre>aptitude install git-core</pre>
+
+To download this configurations do:
+
+<pre>
+git clone git://github.com/kassio/vim_configs.git ~/.vim
+</pre>
+
+To install plugins do:
+
+<pre>
+cd ~/.vim
+git submodule init
+git submodule update
+</pre>
+
+To setup this configurations:
+
+<pre>
+ln -s ~/.vim/vimrc ~/.vimrc
+</pre>
+
+h2. Dependecies
+
+Some configurations dependes exuberant-tags, again if you using Debian or some children do:
+
+<pre>aptitude install exuberant-ctags ncurses-term</pre>
+
+To ColorSelect(http://github.com/kassio/ColorSelect) works you need ruby with gtk gems working, to this see
+the follow link:
+
+http://dannnylo.wordpress.com/2010/07/08/instalando-gtk-no-rvm/
+
+h2. Features
+
+soon
