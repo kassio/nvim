@@ -55,3 +55,9 @@
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = https://github.com/akitaonrails/snipmate.vim.git
+[submodule "bundle/fuzzyfinder"]
+	path = bundle/fuzzyfinder
+	url = https://github.com/vim-scripts/FuzzyFinder.git
+[submodule "bundle/vim-l9"]
+	path = bundle/vim-l9
+	url = https://github.com/clones/vim-l9.git

@@ -70,6 +70,8 @@ set copyindent
 set foldenable
 " Show line with cursor
 set cursorline
+" Adding to autocomplete with current spell
+set complete+=kspell
 
 " My statusline
 " Verify if file is ruby to show ruby version on statusline
@@ -146,6 +148,13 @@ autocmd FileType python set makeprg=python\ %
 " Just a shortcut
 map <F9> :w<CR>:make<CR>
 
+" Spell
+set spelllang=en,pt
+let spell_auto_type="tex,mail,txt"
+autocmd FileType tex,txt,mail,text set spell
+map <F7> <esc>:set invspell<CR>
+map <F8> z=
+
 """"""""""""""" PLUGINS CONFIGURATION
 
 " ColorSelect
@@ -203,33 +212,51 @@ nnoremap <silent> <C-l>l :call FindInNERDTree()<CR>
 
 " Snipmate setup
 try
-  source ~/.vim/snippets/support_functions.vim
+	source ~/.vim/snippets/support_functions.vim
 catch
-  source ~/vimfiles/snippets/support_functions.vim
+	source ~/vimfiles/snippets/support_functions.vim
 endtry
 autocmd vimenter * call s:SetupSnippets()
 function! s:SetupSnippets()
-  "if we're in a rails env then read in the rails snippets
-  if filereadable("./config/environment.rb")
-    call ExtractSnips("~/.vim/snippets/ruby-rails", "ruby")
-    call ExtractSnips("~/.vim/snippets/eruby-rails", "eruby")
-  endif
-  call ExtractSnips("~/.vim/snippets/html", "eruby")
-  call ExtractSnips("~/.vim/snippets/html", "xhtml")
-  call ExtractSnips("~/.vim/snippets/html", "php")
+	"if we're in a rails env then read in the rails snippets
+	if filereadable("./config/environment.rb")
+		call ExtractSnips("~/.vim/snippets/ruby-rails", "ruby")
+		call ExtractSnips("~/.vim/snippets/eruby-rails", "eruby")
+	endif
+	call ExtractSnips("~/.vim/snippets/html", "eruby")
+	call ExtractSnips("~/.vim/snippets/html", "xhtml")
+	call ExtractSnips("~/.vim/snippets/html", "php")
 endfunction
 
 " Tabular
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
- 
+
 function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
+	let p = '^\s*|\s.*\s|\s*$'
+	if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+		let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+		let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+		Tabularize/|/l1
+		normal! 0
+		call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+	endif
 endfunction
 
+
+" FuzzyFinder
+function! FuzzyFinderFunc()
+	if getfsize(expand('%')) == -1
+		let g:fuf_keyOpen='<CR>'
+		let g:fuf_keyOpenTabpage='<C-l>'
+	else
+		let g:fuf_keyOpen='<C-l>'
+		let g:fuf_keyOpenTabpage='<CR>'
+	endif
+	silent! :FufFile ./**/
+endfunction
+map <leader>t :call FuzzyFinderFunc()<CR>
+
+" SuperTab
+let g:SuperTabMappingForward='<s-tab>'
+let g:SuperTabMappingBackward='<tab>'
+let g:SuperTabDefaultCompletionType="context"
