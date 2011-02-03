@@ -42,6 +42,8 @@ set lazyredraw
 set showcmd
 " Hide the mouse pointer while typing
 set mousehide
+" Mouse facility
+set mouse=a
 " These commands open folds
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 " Make the command-line completion better
@@ -68,10 +70,13 @@ set copyindent
 set foldenable
 
 " My statusline
+" Verify if file is ruby to show ruby version on statusline
+autocmd Filetype ruby let g:ft_ruby=1
+
 set statusline=%m                                                    " File modify signal
 set statusline+=%f                                                   " Filename
 set statusline+=[%{GitBranch()}]                                     " Git
-set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''}        " RVM
+set statusline+=%{exists('g:ft_ruby')?rvm#statusline():''}        " RVM
 set statusline+=%=                                                   " Separator
 set statusline+=[%b]						     " ASCII value of char under cursor
 set statusline+=[%c,%l/%L]                                           " Cursor [column,line/total] lines
@@ -113,6 +118,8 @@ noremap <F3> zM
 noremap <F4> zR
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
+" Show all buffers
+nmap <silent> ,ls :ls!<CR>
 " Delete current buffer
 nmap <silent> ,bd :bd!<CR>
 " Delete all buffers
@@ -186,6 +193,26 @@ vmap ( s(
 vmap { s{
 vmap ] s]
 vmap ) s)
-vmap } s}
-vmap " s"
-vmap ' s'
+
+" NerdTree
+let g:NERDTreeWinPos="right"
+silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
+nnoremap <silent> <C-l>l :call FindInNERDTree()<CR>
+
+" Snipmate setup
+try
+  source ~/.vim/snippets/support_functions.vim
+catch
+  source ~/vimfiles/snippets/support_functions.vim
+endtry
+autocmd vimenter * call s:SetupSnippets()
+function! s:SetupSnippets()
+  "if we're in a rails env then read in the rails snippets
+  if filereadable("./config/environment.rb")
+    call ExtractSnips("~/.vim/snippets/ruby-rails", "ruby")
+    call ExtractSnips("~/.vim/snippets/eruby-rails", "eruby")
+  endif
+  call ExtractSnips("~/.vim/snippets/html", "eruby")
+  call ExtractSnips("~/.vim/snippets/html", "xhtml")
+  call ExtractSnips("~/.vim/snippets/html", "php")
+endfunction
