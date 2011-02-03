@@ -1,16 +1,15 @@
-" Configurations by filetype
+" To pathogen works
 filetype off
-" Load submodules with pathogen
-load pathogen managed plugins
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-
 " Plugins by filetype
 filetype plugin on
 " Indentation by filetype
 filetype indent on
 " Enable syntax
 syntax on
+
+" Load submodules with pathogen
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
 " My world is utf8
 scriptencoding utf8
@@ -125,15 +124,10 @@ nmap <silent> ,nr :set invrelativenumber<CR>:set relativenumber?<CR>
 " Toogle wrap text
 nmap <silent> ,w :set invwrap<CR>:set wrap?<CR>
 
-" Function to change tab settings
-func! ChangeTabSet(size)
-	set tabstop=a:size expandtab shiftwidth=a:size softtabstop=a:size autoindent
-endfunc
-
 " Tabstop 2 to that filetypes
-autocmd FileType css,ruby,eruby,tex,c,sh,java call ChangeTabSet(2)
+autocmd FileType css,ruby,eruby,tex,c,sh,java set tabstop=2 expandtab shiftwidth=2 softtabstop=2 autoindent
 " Tabstop 4 to that
-autocmd FileType python,js,javascript call ChangeTabSet(4)
+autocmd FileType python,js,javascript set tabstop=4 expandtab shiftwidth=4 softtabstop=4 autoindent
 
 " :make  Compile/Execute some filetypes
 autocmd FileType c      set makeprg=gcc\ %\ -o\ %<\ -lm"
@@ -146,5 +140,52 @@ map <F9> :w<CR>:make<CR>
 """"""""""""""" PLUGINS CONFIGURATION
 
 " ColorSelect
-let g:CaseResultColorSelect=‘upcase’
-imap <F5> :ColorSelect<CR>
+let g:CaseResultColorSelect='upcase'
+imap <F5> <ESC>:ColorSelect<CR>
+
+" Rails
+vmap <C-p>p :Rextract
+
+" Wiki
+let potwiki_home=$HOME."/.wiki/HomePage"
+let potwiki_autowrite=1
+" My default wiki head
+function! WikiHead()
+	if getfsize(expand('<afile>')) == -1
+		normal gg
+		call append(0, "# Potwiki - Kássio Borges")
+		call append(1, "# Home: HomePage")
+		call append(2, "# Wiki: " . expand("%:t"))
+		call append(3, "#================================================")
+		call append(4, "")
+		normal G
+	endif
+endfunction
+" Input head on wiki files
+au BufNew,FileType potwiki call WikiHead()
+
+" Latex configs
+let g:tex_flavor='latex'
+let g:Tex_BibtexFlavor='bibtex'
+let g:Tex_BIBINPUTS="%\.bib"
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Imap_UsePlaceHolders=0 " Turn off placeholders
+" Turn off some boring shortcuts
+let g:Tex_AdvancedMath=0 
+let g:Tex_EnvironmentMaps=0
+let g:Tex_EnvironmentMenus=0
+let g:Tex_FontMaps=0
+let g:Tex_FontMenus=0
+let g:Tex_SectionMaps=0
+let g:Tex_SectionMenus=0
+
+" Surround
+" Autoclose in visual mode
+vmap [ s[ 
+vmap ( s(
+vmap { s{
+vmap ] s]
+vmap ) s)
+vmap } s}
+vmap " s"
+vmap ' s'
