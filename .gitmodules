@@ -46,3 +46,6 @@
 [submodule "bundle/vim-latex"]
 	path = bundle/vim-latex
 	url = git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex
+[submodule "bundle/git-vim"]
+	path = bundle/git-vim
+	url = https://github.com/motemen/git-vim.git

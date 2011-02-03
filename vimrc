@@ -70,7 +70,7 @@ set foldenable
 " My statusline
 set statusline=%m                                                    " File modify signal
 set statusline+=%f                                                   " Filename
-"set statusline+=[%{GitBranch()}]                                    " Git
+set statusline+=[%{GitBranch()}]                                     " Git
 set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''}        " RVM
 set statusline+=%=                                                   " Separator
 set statusline+=[%b]						     " ASCII value of char under cursor
