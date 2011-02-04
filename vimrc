@@ -70,6 +70,8 @@ set copyindent
 set foldenable
 " Show line with cursor
 set cursorline
+" Vertical split on right
+set splitright
 " Tab default with 4 size
 set tabstop=4
 set shiftwidth=4
@@ -194,6 +196,10 @@ vmap ( s(
 vmap { s{
 vmap ] s]
 vmap ) s)
+vmap } s}
+vmap > s>
+vmap " s"
+vmap ' s'
 
 " NerdTree
 let g:NERDTreeWinPos="right"

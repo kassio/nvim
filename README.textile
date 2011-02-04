@@ -1,6 +1,6 @@
 h1. My Vim Configs
 
-* Author: Kássio Borges<kassioborgesm@gmail.com>
+* Author: Kássio Borges<"kassioborgesm@gmail.com":kassioborgesm@gmail.com>
 * Since: 2011/02
 
 <b>All this configurations was created and tested only on linux.</b>
@@ -40,7 +40,7 @@ Some configurations dependes exuberant-tags, again if you using Debian or some c
 To ColorSelect(http://github.com/kassio/ColorSelect) works you need ruby with gtk gems working, to this see
 the follow link:
 
-http://dannnylo.wordpress.com/2010/07/08/instalando-gtk-no-rvm/
+"http://dannnylo.wordpress.com/2010/07/08/instalando-gtk-no-rvm/":http://dannnylo.wordpress.com/2010/07/08/instalando-gtk-no-rvm/ 
 
 h2. Features
 
