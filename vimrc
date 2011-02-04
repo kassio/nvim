@@ -72,6 +72,12 @@ set foldenable
 set cursorline
 " Adding to autocomplete with current spell
 set complete+=kspell
+" Vertical split on right
+set splitright
+" Tab default with 4 size
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 
 " My statusline
 " Verify if file is ruby to show ruby version on statusline
@@ -103,19 +109,14 @@ nnoremap Y y$
 " Full file indent
 noremap <C-f>f <ESC>:call FullFileIndent()<CR>
 func! FullFileIndent()
-	let pos = getpos(".")
-	silent! normal gg=G
-	call setpos(".",pos)
-	echo 'All file indented'
+  let pos = getpos(".")
+  silent! normal gg=G
+  call setpos(".",pos)
+  echo 'All file indented'
 endfunc
 
-" Make <c-l> clear the highlight
-nnoremap <C-L> :nohls<CR><C-L>
-nnoremap <C-L> <C-O>:nohls<CR><C-L>
-
-" Visual search mappings
-vnoremap * :normal gD
-vnoremap # :normal gd
+" Make <C-l> clear the highlight
+nnoremap <C-L> :nohls<CR>:set hls?<CR>
 
 " Foldmaps
 noremap <F3> zM
@@ -136,7 +137,7 @@ nmap <silent> ,nr :set invrelativenumber<CR>:set relativenumber?<CR>
 nmap <silent> ,w :set invwrap<CR>:set wrap?<CR>
 
 " Tabstop 2 to that filetypes
-autocmd FileType css,ruby,eruby,tex,c,sh,java set tabstop=2 expandtab shiftwidth=2 softtabstop=2 autoindent
+autocmd FileType vim,css,ruby,eruby,tex,c,sh,java set tabstop=2 expandtab shiftwidth=2 softtabstop=2 autoindent
 " Tabstop 4 to that
 autocmd FileType python,js,javascript set tabstop=4 expandtab shiftwidth=4 softtabstop=4 autoindent
 
@@ -170,15 +171,15 @@ let potwiki_home=$HOME."/.wiki/HomePage"
 let potwiki_autowrite=1
 " My default wiki head
 function! WikiHead()
-	if getfsize(expand('<afile>')) == -1
-		normal gg
-		call append(0, "# Potwiki - Kássio Borges")
-		call append(1, "# Home: HomePage")
-		call append(2, "# Wiki: " . expand("%:t"))
-		call append(3, "#================================================")
-		call append(4, "")
-		normal G
-	endif
+  if getfsize(expand('<afile>')) == -1
+    normal gg
+    call append(0, "# Potwiki - Kássio Borges")
+    call append(1, "# Home: HomePage")
+    call append(2, "# Wiki: " . expand("%:t"))
+    call append(3, "#================================================")
+    call append(4, "")
+    normal G
+  endif
 endfunction
 " Input head on wiki files
 au BufNew,FileType potwiki call WikiHead()
@@ -205,6 +206,10 @@ vmap ( s(
 vmap { s{
 vmap ] s]
 vmap ) s)
+vmap } s}
+vmap > s>
+vmap " s"
+vmap ' s'
 
 " NerdTree
 let g:NERDTreeWinPos="right"
