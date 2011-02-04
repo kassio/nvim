@@ -207,7 +207,6 @@ vmap { s{
 vmap ] s]
 vmap ) s)
 vmap } s}
-vmap > s>
 vmap " s"
 vmap ' s'
 
