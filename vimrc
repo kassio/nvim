@@ -238,6 +238,7 @@ function! s:SetupSnippets()
 endfunction
 
 " Tabular
+cnoreab tab Tabularize
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
 function! s:align()
