@@ -252,7 +252,6 @@ function! s:align()
     endif
 endfunction
 
-
 " FuzzyFinder
 function! FuzzyFinderFunc()
     if getfsize(expand('%')) == -1
