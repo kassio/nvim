@@ -62,6 +62,6 @@ Some features:
 # Portugues-Brasileiro dictionary(Native)
 # English dictionary(Native)
 # Many default vim facilities
-# Colorshcheme xoria256()
+# Colorshcheme xoria256("github":https://github.com/vim-scripts/xoria256.vim)
 # Full text indent()
 # Shortcuts
