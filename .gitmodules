@@ -64,3 +64,9 @@
 [submodule "bundle/vim-textile"]
 	path = bundle/vim-textile
 	url = git://github.com/kassio/textile.vim.git
+[submodule "bundle/color-xoria256"]
+	path = bundle/color-xoria256
+	url = git://github.com/vim-scripts/xoria256.vim.git
+[submodule "bundle/color-vividchalk"]
+	path = bundle/color-vividchalk
+	url = git://github.com/tpope/vim-vividchalk.git

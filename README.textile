@@ -46,21 +46,22 @@ h2. Features
 
 Some features:
 
-# ColorSelect
-# FuzzyFinder
-# NerdTree
-# Potwiki
-# RVM info
-# Git info
-# Tabular
-# Surround
-# Supertab
-# Snippets(Snipmate)
-# Latex
-# Ruby block select
-# Portugues-Brasileiro dictionary
-# English dictionary
+# ColorSelect("github":https://github.com/kassio/ColorSelect)
+# FuzzyFinder("github":https://github.com/vim-scripts/FuzzyFinder)
+# NerdTree("github":https://github.com/scrooloose/nerdtree)
+# Potwiki("github":https://github.com/kassio/potwiki.vim)
+# RVM info("github":https://github.com/csexton/rvm.vim)
+# Git info("github":https://github.com/motemen/git-vim)
+# Tabular("github":https://github.com/godlygeek/tabular)
+# Surround("github":https://github.com/tpope/vim-surround)
+# Supertab("github":https://github.com/ervandew/supertab)
+# Snipmate("github":https://github.com/akitaonrails/snipmate.vim)
+# Snippets("github":https://github.com/kassio/snipmate-snippets)
+# Latex("git":http://vim-latex.git.sourceforge.net/git/gitweb.cgi?p=vim-latex/vim-latex;a=summary)
+# Ruby block select("github":https://github.com/nelstrom/vim-textobj-rubyblock)
+# Portugues-Brasileiro dictionary(Native)
+# English dictionary(Native)
 # Many default vim facilities
-# Colorshcheme xoria256
-# Full text indent
+# Colorshcheme xoria256()
+# Full text indent()
 # Shortcuts
