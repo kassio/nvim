@@ -61,3 +61,6 @@
 [submodule "bundle/vim-l9"]
 	path = bundle/vim-l9
 	url = git://github.com/clones/vim-l9.git
+[submodule "bundle/vim-textile"]
+	path = bundle/vim-textile
+	url = git://github.com/kassio/textile.vim.git

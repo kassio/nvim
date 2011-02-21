@@ -44,4 +44,23 @@ the follow link:
 
 h2. Features
 
-soon
+Some features:
+
+# ColorSelect
+# FuzzyFinder
+# NerdTree
+# Potwiki
+# RVM info
+# Git info
+# Tabular
+# Surround
+# Supertab
+# Snippets(Snipmate)
+# Latex
+# Ruby block select
+# Portugues-Brasileiro dictionary
+# English dictionary
+# Many default vim facilities
+# Colorshcheme xoria256
+# Full text indent
+# Shortcuts

@@ -164,7 +164,7 @@ map <F8> z=
 """"""""""""""" PLUGINS CONFIGURATION
 
 " ColorSelect
-let g:CaseResultColorSelect='upcase'
+let g:FormatResultColorSelect='rgba'
 imap <F5> <ESC>:ColorSelect<CR>
 
 " Rails
@@ -269,3 +269,7 @@ map <leader>t :call FuzzyFinderFunc()<CR>
 let g:SuperTabMappingForward='<s-tab>'
 let g:SuperTabMappingBackward='<tab>'
 let g:SuperTabDefaultCompletionType="context"
+
+"Textile
+let g:TextileOS='linux'
+let g:TextileBrowser='google-chrome'
