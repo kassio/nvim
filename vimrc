@@ -216,7 +216,7 @@ vmap ' s'
 
 " NerdTree
 let g:NERDTreeWinPos="right"
-silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
+silent! nmap <silent> <Leader>p :NERDTreeMirrorToggle<CR>
 nnoremap <silent> <C-l>l :call FindInNERDTree()<CR>
 
 " Snipmate setup
