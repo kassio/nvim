@@ -58,6 +58,8 @@ set undolevels=1000
 set showbreak=..
 " File name on terminal title
 set title
+" Show number by default
+set number
 " Load external updates
 set autoread
 " Disable gui menu
@@ -263,13 +265,13 @@ function! FuzzyFinderFunc()
     endif
     silent! :FufFile ./**/
 endfunction
-map <leader>t :call FuzzyFinderFunc()<CR>
+map <Leader>t :call FuzzyFinderFunc()<CR>
 
 " SuperTab
 let g:SuperTabMappingForward='<s-tab>'
 let g:SuperTabMappingBackward='<tab>'
 let g:SuperTabDefaultCompletionType="context"
 
-"Textile
+" Textile
 let g:TextileOS='linux'
 let g:TextileBrowser='google-chrome'
