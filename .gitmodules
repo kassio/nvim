@@ -67,9 +67,9 @@
 [submodule "bundle/color-vividchalk"]
 	path = bundle/color-vividchalk
 	url = git://github.com/tpope/vim-vividchalk.git
-[submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
-	url = git://github.com/mscottford/nerdtree.git
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = git://github.com/kassio/nerdtree.git
