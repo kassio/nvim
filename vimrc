@@ -44,10 +44,14 @@ set showcmd
 set mousehide
 " Mouse facility
 set mouse=a
+" More spaced lines
+set linespace=3
 " These commands open folds
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 " Make the command-line completion better
 set wildmenu
+" More useful tab completion on menu
+set wildmode=list:longest,full
 " Add ignorance of whitespace to diff
 set diffopt+=iwhite
 " More history
@@ -264,6 +268,7 @@ function! FuzzyFinderFunc()
         let g:fuf_keyOpen='<C-l>'
         let g:fuf_keyOpenTabpage='<CR>'
     endif
+    silent! :FufRenewCache<CR>
     silent! :FufFile ./**/
 endfunction
 map <Leader>t :call FuzzyFinderFunc()<CR>
@@ -271,7 +276,6 @@ map <Leader>t :call FuzzyFinderFunc()<CR>
 " SuperTab
 let g:SuperTabMappingForward='<s-tab>'
 let g:SuperTabMappingBackward='<tab>'
-let g:SuperTabDefaultCompletionType="context"
 
 " Textile
 let g:TextileOS='linux'
