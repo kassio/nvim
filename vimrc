@@ -68,6 +68,9 @@ set number
 set autoread
 " Disable gui menu
 set guioptions-=T
+" Fullscreen
+set lines=99
+set columns=150
 " Indent by default
 set autoindent
 " Copy indent in/out
@@ -87,16 +90,16 @@ set softtabstop=4
 
 " My statusline
 " Verify if file is ruby to show ruby version on statusline
-autocmd Filetype ruby let g:ft_ruby=1
+autocmd Filetype ruby,rb,rails,eruby let g:ft_ruby=1
 
-set statusline=%m                                                    " File modify signal
-set statusline+=%f                                                   " Filename
-set statusline+=[%{GitBranch()}]                                     " Git
-set statusline+=%{exists('g:ft_ruby')?rvm#statusline():''}           " RVM
-set statusline+=%=                                                   " Separator
-set statusline+=[%b]						     " ASCII value of char under cursor
-set statusline+=[%c,%l/%L]                                           " Cursor [column,line/total] lines
-set statusline+=\ %P                                                 " Percent through file
+set statusline=%m                                          " File modify signal
+set statusline+=%f                                         " Filename
+set statusline+=%{exists(GitBranch())?[GitBranch()]:''}    " Git
+set statusline+=%{exists('g:ft_ruby')?rvm#statusline():''} " RVM
+set statusline+=%=                                         " Separator
+set statusline+=[%b]                                       " ASCII value of char under cursor
+set statusline+=[%c,%l/%L]                                 " Cursor [column,line/total] lines
+set statusline+=\ %P                                       " Percent through file
 set laststatus=2
 
 " Appearance
@@ -220,7 +223,7 @@ vmap } s}
 vmap " s"
 vmap ' s'
 
-" NerdTree
+" NERDTree
 let g:NERDTreeWinPos="right"
 let g:NERDTreeNewTabWithTree=1
 silent! nmap <silent> <Leader>p :NERDTreeMirrorToggle<CR>
