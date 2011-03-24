@@ -68,9 +68,10 @@ set number
 set autoread
 " Disable gui menu
 set guioptions-=T
-" Fullscreen
+" Fullscreen guioption 
 set lines=99
-set columns=150
+set columns=167
+autocmd GUIEnter * winpos 5 30
 " Indent by default
 set autoindent
 " Copy indent in/out
