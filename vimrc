@@ -68,10 +68,6 @@ set number
 set autoread
 " Disable gui menu
 set guioptions-=T
-" Fullscreen guioption 
-set lines=99
-set columns=167
-autocmd GUIEnter * winpos 5 30
 " Indent by default
 set autoindent
 " Copy indent in/out
@@ -178,7 +174,7 @@ let g:FormatResultColorSelect='rgba'
 imap <F5> <ESC>:ColorSelect<CR>
 
 " Rails
-vmap <C-p>p :Rextract
+vmap <C-p>p :Rextract 
 
 " Wiki
 let potwiki_home=$HOME."/.wiki/HomePage"
