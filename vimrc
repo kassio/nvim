@@ -174,6 +174,8 @@ let g:FormatResultColorSelect='rgba'
 imap <F5> <ESC>:ColorSelect<CR>
 
 " Rails
+map <C-p><C-r> :!rspec %<CR>
+map <C-p>r :!rspec %<CR>
 vmap <C-p>p :Rextract 
 
 " Wiki
