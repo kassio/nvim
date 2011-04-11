@@ -84,6 +84,9 @@ set splitright
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+" Column identifier 80
+set colorcolumn=80
+autocmd vimenter * highlight ColorColumn ctermbg=darkgray guibg=darkgray
 
 " My statusline
 " Verify if file is ruby to show ruby version on statusline
