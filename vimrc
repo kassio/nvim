@@ -4,6 +4,7 @@ filetype off
 filetype plugin on
 " Indentation by filetype
 filetype indent on
+
 " Enable syntax
 syntax on
 
@@ -44,8 +45,6 @@ set showcmd
 set mousehide
 " Mouse facility
 set mouse=a
-" More spaced lines
-set linespace=3
 " These commands open folds
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 " Make the command-line completion better
@@ -59,15 +58,13 @@ set history=1000
 " More undo
 set undolevels=1000
 " Show this when wrap a line
-set showbreak=..
+set showbreak=→ 
 " File name on terminal title
 set title
 " Show number by default
 set number
 " Load external updates
 set autoread
-" Disable gui menu
-set guioptions-=T
 " Indent by default
 set autoindent
 " Copy indent in/out
@@ -86,7 +83,19 @@ set shiftwidth=4
 set softtabstop=4
 " Column identifier 80
 set colorcolumn=80
-autocmd vimenter * highlight ColorColumn ctermbg=darkgray guibg=darkgray
+autocmd vimenter * highlight ColorColumn ctermbg=235 guibg=#262626
+
+if has("gui_running")
+  " Disable gui menu
+  set guioptions-=T
+  " More spaced lines on gui
+  set linespace=3
+  " FontSize on gui
+  set guifont=Droid\ Sans\ Mono\ 11
+  " Set window size on gui
+  set columns=999
+  set lines=33
+endif
 
 " My statusline
 " Verify if file is ruby to show ruby version on statusline
@@ -250,7 +259,6 @@ function! s:SetupSnippets()
 endfunction
 
 " Tabular
-cnoreab tab Tabularize
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
 function! s:align()
