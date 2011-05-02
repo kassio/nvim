@@ -75,6 +75,8 @@ set foldenable
 set cursorline
 " Adding to autocomplete with current spell
 set complete+=kspell
+" Removing tags from autocomplete
+set complete-=t,i
 " Vertical split on right
 set splitright
 " Tab default with 4 size
