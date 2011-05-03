@@ -58,13 +58,15 @@ set history=1000
 " More undo
 set undolevels=1000
 " Show this when wrap a line
-set showbreak=→ 
+set showbreak=¬
 " File name on terminal title
 set title
 " Show number by default
 set number
 " Load external updates
 set autoread
+" Write external updates
+set autowrite
 " Indent by default
 set autoindent
 " Copy indent in/out
@@ -295,3 +297,6 @@ let g:SuperTabMappingBackward='<tab>'
 " Textile
 let g:TextileOS='linux'
 let g:TextileBrowser='google-chrome'
+
+" Session
+let g:session_autosave=1

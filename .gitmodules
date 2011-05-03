@@ -73,3 +73,12 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git://github.com/kassio/nerdtree.git
+[submodule "plugin/fuf_textmate"]
+	path = plugin/fuf_textmate
+	url = git://github.com/jamis/fuzzyfinder_textmate.git
+[submodule "ruby/fuf_file_finder"]
+	path = ruby/fuf_file_finder
+	url = git://github.com/jamis/fuzzy_file_finder.git
+[submodule "bundle/session"]
+	path = bundle/session
+	url = https://github.com/vim-scripts/session.vim--Odding.git
