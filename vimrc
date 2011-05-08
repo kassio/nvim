@@ -241,7 +241,7 @@ vmap ' s'
 
 " NERDTree
 let g:NERDTreeWinPos="right"
-let g:NERDTreeNewTabWithTree=1
+let g:NERDTreeNewTabWithTree=0
 silent! nmap <silent> <Leader>p :NERDTreeMirrorToggle<CR>
 nnoremap <silent> <C-l>l :call FindInNERDTree()<CR>
 

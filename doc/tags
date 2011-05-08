@@ -1,0 +1,10 @@
+:AlignCenter	textformat.txt	/*:AlignCenter*
+:AlignJustify	textformat.txt	/*:AlignJustify*
+:AlignLeft	textformat.txt	/*:AlignLeft*
+:AlignRight	textformat.txt	/*:AlignRight*
+textformat-commands	textformat.txt	/*textformat-commands*
+textformat-config	textformat.txt	/*textformat-config*
+textformat-history	textformat.txt	/*textformat-history*
+textformat-keymap	textformat.txt	/*textformat-keymap*
+textformat-start	textformat.txt	/*textformat-start*
+textformat.txt	textformat.txt	/*textformat.txt*
