@@ -9,7 +9,7 @@ function! CreateDirSession()
 endfunction
 
 function! SessionFileName()
-  return g:session_dir . '/' . expand("%:p:h:t")
+  return g:session_dir . "/" . substitute(getcwd(), "\\/", "_", "g")
 endfunction
 
 function! SaveSession()
@@ -19,21 +19,27 @@ function! SaveSession()
 endfunction
 
 function! LoadSession()
-  if isdirectory(g:session_dir)
-    normal mz<CR>
-    execute "silent! source " . SessionFileName()
-    normal `zzz<CR>
+  if VerifySessionFile()
+    execute "source " . SessionFileName()
     redraw | echo 'Session Loaded'
+  else
+    redraw | echo 'No Session Saved'
   endif
 endfunction
 
 function! DeleteSession() 
   setlocal modifiable
-  if isdirectory(g:session_dir)
+  if VerifySessionFile()
     if delete(SessionFileName()) == 0
       redraw | echo 'Session Deleted'
     endif
+  else
+    redraw | echo 'No Session Saved'
   endif
+endfunction
+
+function! VerifySessionFile()
+  return isdirectory(g:session_dir) && filereadable(SessionFileName())
 endfunction
 
 nmap <silent> ,ss :call SaveSession()<CR>
