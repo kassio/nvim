@@ -82,3 +82,6 @@
 [submodule "bundle/html5"]
 	path = bundle/html5
 	url = https://github.com/briangershon/html5.vim.git
+[submodule "bundle/xoria256"]
+	path = bundle/xoria256
+	url = git://github.com/kassio/xoria256.vim.git

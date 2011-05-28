@@ -84,9 +84,6 @@ set splitright
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-" Column identifier 80
-set colorcolumn=80
-autocmd vimenter * highlight ColorColumn ctermbg=235 guibg=#262626
 
 if has("gui_running")
 	" Disable gui menu
@@ -174,6 +171,8 @@ nmap <silent> ,nn :set invnumber<CR>:set nu?<CR>
 nmap <silent> ,nr :set invrelativenumber<CR>:set relativenumber?<CR>
 " Toogle wrap text
 nmap <silent> ,w :set invwrap<CR>:set wrap?<CR>
+" Toogle list characters
+nmap <silent> ,ll :set invlist<CR>:set list?<CR>
 
 " Tabstop 2 to that filetypes
 autocmd FileType vim,css,ruby,eruby,tex,c,sh,java set tabstop=2 expandtab shiftwidth=2 softtabstop=2 autoindent
