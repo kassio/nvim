@@ -83,9 +83,10 @@ set complete-=t,i
 " Vertical split on right
 set splitright
 " Tab default with 4 size
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set noexpandtab
 
 if has("gui_running")
 	" Disable gui menu
@@ -177,9 +178,9 @@ nmap <silent> ,w :set invwrap<CR>:set wrap?<CR>
 nmap <silent> ,ll :set invlist<CR>:set list?<CR>
 
 " Tabstop 2 to that filetypes
-autocmd FileType vim,css,ruby,eruby,tex,c,sh,java set tabstop=2 expandtab shiftwidth=2 softtabstop=2 autoindent
+autocmd FileType vim,css,ruby,eruby,tex,c,sh,java set tabstop=2 shiftwidth=2 softtabstop=2 autoindent
 " Tabstop 4 to that
-autocmd FileType python,js,javascript set tabstop=4 expandtab shiftwidth=4 softtabstop=4 autoindent
+autocmd FileType python,js,javascript set tabstop=4 shiftwidth=4 softtabstop=4 autoindent
 
 " :make  Compile/Execute some filetypes
 autocmd FileType c      set makeprg=gcc\ %\ -o\ %<\ -lm"
