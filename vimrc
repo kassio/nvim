@@ -4,7 +4,6 @@ filetype off
 filetype plugin on
 " Indentation by filetype
 filetype indent on
-
 " Enable syntax
 syntax on
 
@@ -90,15 +89,28 @@ set colorcolumn=80
 autocmd vimenter * highlight ColorColumn ctermbg=235 guibg=#262626
 
 if has("gui_running")
-    " Disable gui menu
-    set guioptions-=T
-    " More spaced lines on gui
-    set linespace=3
-    " FontSize on gui
-    set guifont=Droid\ Sans\ Mono\ 11
-    " Set window size on gui
-    set columns=999
-    set lines=33
+	" Disable gui menu
+	set guioptions-=T
+	" More spaced lines on gui
+	set linespace=3
+	" FontSize on gui
+	set guifont=Droid\ Sans\ Mono\ 12
+	" Set window size on gui
+	autocmd vimenter * set lines=28 
+	autocmd vimenter * set columns=134
+
+	" Tab navigation
+	map <C-Tab> <esc>:tabnext<CR>
+	map <C-S-Tab> <esc>:tabprevious<CR>
+	map <A-1> <esc>:tabfirst<CR>
+	map <A-2> <esc>2gt<CR>
+	map <A-3> <esc>3gt<CR>
+	map <A-4> <esc>4gt<CR>
+	map <A-5> <esc>5gt<CR>
+	map <A-6> <esc>6gt<CR>
+	map <A-7> <esc>7gt<CR>
+	map <A-8> <esc>8gt<CR>
+	map <A-9> <esc>:tablast<CR>
 endif
 
 " My statusline
@@ -122,10 +134,10 @@ colorscheme xoria256
 
 " Search facilities
 function! s:VSetSearch()
-    let temp = @@
-    norm! gvy
-    let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
-    let @@ = temp
+	let temp = @@
+	norm! gvy
+	let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
+	let @@ = temp
 endfunction
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
 vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
@@ -200,15 +212,15 @@ let potwiki_home=$HOME."/.wiki/HomePage"
 let potwiki_autowrite=1
 " My default wiki head
 function! WikiHead()
-    if getfsize(expand('<afile>')) == -1
-        normal gg
-        call append(0, "# Potwiki - Kássio Borges")
-        call append(1, "# Home: HomePage")
-        call append(2, "# Wiki: " . expand("%:t"))
-        call append(3, "#================================================")
-        call append(4, "")
-        normal G
-    endif
+	if getfsize(expand('<afile>')) == -1
+		normal gg
+		call append(0, "# Potwiki - Kássio Borges")
+		call append(1, "# Home: HomePage")
+		call append(2, "# Wiki: " . expand("%:t"))
+		call append(3, "#================================================")
+		call append(4, "")
+		normal G
+	endif
 endfunction
 " Input head on wiki files
 au BufNew,FileType potwiki call WikiHead()
@@ -247,47 +259,47 @@ nnoremap <silent> <C-l>l :call FindInNERDTree()<CR>
 
 " Snipmate setup
 try
-    source ~/.vim/snippets/support_functions.vim
+	source ~/.vim/snippets/support_functions.vim
 catch
-    source ~/vimfiles/snippets/support_functions.vim
+	source ~/vimfiles/snippets/support_functions.vim
 endtry
 autocmd vimenter * call s:SetupSnippets()
 function! s:SetupSnippets()
-    "if we're in a rails env then read in the rails snippets
-    if filereadable("./config/environment.rb")
-        call ExtractSnips("~/.vim/snippets/ruby-rails", "ruby")
-        call ExtractSnips("~/.vim/snippets/eruby-rails", "eruby")
-    endif
-    call ExtractSnips("~/.vim/snippets/html", "eruby")
-    call ExtractSnips("~/.vim/snippets/html", "xhtml")
-    call ExtractSnips("~/.vim/snippets/html", "php")
+	"if we're in a rails env then read in the rails snippets
+	if filereadable("./config/environment.rb")
+		call ExtractSnips("~/.vim/snippets/ruby-rails", "ruby")
+		call ExtractSnips("~/.vim/snippets/eruby-rails", "eruby")
+	endif
+	call ExtractSnips("~/.vim/snippets/html", "eruby")
+	call ExtractSnips("~/.vim/snippets/html", "xhtml")
+	call ExtractSnips("~/.vim/snippets/html", "php")
 endfunction
 
 " Tabular
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-
 function! s:align()
-    let p = '^\s*|\s.*\s|\s*$'
-    if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-        let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-        let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-        Tabularize/|/l1
-        normal! 0
-        call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-    endif
+	let p = '^\s*|\s.*\s|\s*$'
+	if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+		let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+		let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+		Tabularize/|/l1
+		normal! 0
+		call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+	endif
 endfunction
 
 " FuzzyFinder
 function! FuzzyFinderFunc()
-    if getfsize(expand('%')) == -1
-        let g:fuf_keyOpen='<CR>'
-        let g:fuf_keyOpenTabpage='<C-l>'
-    else
-        let g:fuf_keyOpen='<C-l>'
-        let g:fuf_keyOpenTabpage='<CR>'
-    endif
-    silent! :FufRenewCache<CR>
-    silent! :FufFile ./**/
+	silent! :FufRenewCache<CR>
+	if getfsize(expand('%')) == -1
+		let g:fuf_keyOpen='<CR>'
+		let g:fuf_keyOpenTabpage='<C-l>'
+	else
+		let g:fuf_keyOpen='<C-l>'
+		let g:fuf_keyOpenTabpage='<CR>'
+	endif
+	silent! :FufFile ./**/
+	silent! :tabmove 9999
 endfunction
 map <Leader>t :call FuzzyFinderFunc()<CR>
 
