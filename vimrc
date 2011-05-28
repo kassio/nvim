@@ -48,6 +48,8 @@ set mouse=a
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 " Make the command-line completion better
 set wildmenu
+" Showing list chars
+set list
 " More useful tab completion on menu
 set wildmode=list:longest,full
 " Add ignorance of whitespace to diff
