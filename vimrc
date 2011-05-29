@@ -178,9 +178,9 @@ nmap <silent> ,w :set invwrap<CR>:set wrap?<CR>
 nmap <silent> ,ll :set invlist<CR>:set list?<CR>
 
 " Tabstop 2 to that filetypes
-autocmd FileType vim,css,ruby,eruby,tex,c,sh,java set tabstop=2 shiftwidth=2 softtabstop=2 autoindent
+autocmd FileType vim,css,ruby,eruby,tex,c,sh,java set smarttab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
 " Tabstop 4 to that
-autocmd FileType python,js,javascript set tabstop=4 shiftwidth=4 softtabstop=4 autoindent
+autocmd FileType python,js,javascript set smarttab tabstop=4 shiftwidth=4 softtabstop=4 autoindent
 
 " :make  Compile/Execute some filetypes
 autocmd FileType c      set makeprg=gcc\ %\ -o\ %<\ -lm"
