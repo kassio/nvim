@@ -66,6 +66,9 @@ set title
 set number
 " Load external updates
 set autoread
+" Behavior when switching between buffers
+set switchbuf=newtab
+set tabpagemax=20
 " Write external updates
 set autowrite
 " Indent by default
