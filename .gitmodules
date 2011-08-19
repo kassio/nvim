@@ -85,3 +85,6 @@
 [submodule "bundle/xoria256"]
 	path = bundle/xoria256
 	url = git://github.com/kassio/xoria256.vim.git
+[submodule "bundle/VisIncr"]
+	path = bundle/VisIncr
+	url = https://github.com/vim-scripts/VisIncr.git
