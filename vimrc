@@ -203,6 +203,13 @@ map <F7> <esc>:set invspell<CR>
 map <F6> zg
 map <F8> z=
 
+" Fixing some commands
+cab W  w
+cab Wq wq
+cab wQ wq
+cab WQ wq
+cab Q  q
+
 """"""""""""""" PLUGINS CONFIGURATION
 
 " ColorSelect
@@ -237,6 +244,7 @@ let g:tex_flavor='latex'
 let g:Tex_BibtexFlavor='bibtex'
 let g:Tex_BIBINPUTS="%\.bib"
 let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_ViewRuleComplete_pdf="evince ".expand('%:p:r').".pdf 2> /tmp/vim_latex_errors &"
 let g:Imap_UsePlaceHolders=0 " Turn off placeholders
 " Turn off some boring shortcuts
 let g:Tex_AdvancedMath=0 
