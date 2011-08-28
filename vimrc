@@ -127,7 +127,7 @@ set statusline+=%f                                         " Filename
 set statusline+=%{exists(GitBranch())?[GitBranch()]:''}    " Git
 set statusline+=%{exists('g:ft_ruby')?rvm#statusline():''} " RVM
 set statusline+=%=                                         " Separator
-set statusline+=[%b]                                       " ASCII value of char under cursor
+set statusline+=[ASCII=%b]                                 " ASCII value of char under cursor
 set statusline+=[%c,%l/%L]                                 " Cursor [column,line/total] lines
 set statusline+=\ %P                                       " Percent through file
 set laststatus=2
