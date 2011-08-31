@@ -2,4 +2,5 @@
 *swo
 *~
 .netrwhist
+bundle/**/doc/tag*
 bundle/*/doc/tag*
