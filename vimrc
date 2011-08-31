@@ -92,6 +92,8 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+" Session options
+set sessionoptions+=globals
 
 if has("gui_running")
   " Disable gui menu
@@ -128,6 +130,7 @@ set statusline+=%{exists(GitBranch())?[GitBranch()]:''}    " Git
 set statusline+=%{exists('g:ft_ruby')?rvm#statusline():''} " RVM
 set statusline+=%=                                         " Separator
 set statusline+=[ASCII=%b]                                 " ASCII value of char under cursor
+set statusline+=[HEX=%B]                                   " ASCII in HEX value of char under cursor
 set statusline+=[%c,%l/%L]                                 " Cursor [column,line/total] lines
 set statusline+=\ %P                                       " Percent through file
 set laststatus=2
