@@ -49,7 +49,7 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 " Make the command-line completion better
 set wildmenu
 " Showing list chars
-set list
+" set list
 " More useful tab completion on menu
 set wildmode=list:longest
 " Add ignorance of whitespace to diff
@@ -138,7 +138,8 @@ set laststatus=2
 " Appearance
 set t_Co=256
 set background=dark
-colorscheme xoria256
+let colorscheme_name='xoria256'
+exe 'colorscheme '.colorscheme_name
 
 " Search facilities
 function! s:VSetSearch()
@@ -184,6 +185,10 @@ nmap <silent> ,nr :set invrelativenumber<CR>:set relativenumber?<CR>
 nmap <silent> ,w :set invwrap<CR>:set wrap?<CR>
 " Toogle list characters
 nmap <silent> ,ll :set invlist<CR>:set list?<CR>
+" Toogle background color
+nmap <silent> ,nbg :hi Normal ctermbg=none<CR>
+" Retrive background color
+nmap <silent> ,bg :exe 'colorscheme '.colorscheme_name<CR>
 
 " Tabstop 2 to that filetypes
 autocmd FileType vim,css,ruby,eruby,tex,c,sh,java set smarttab tabstop=2 shiftwidth=2 softtabstop=2 autoindent expandtab
