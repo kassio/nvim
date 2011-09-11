@@ -230,7 +230,7 @@ map <C-p>r :!rspec %<CR>
 vmap <C-p>p :Rextract 
 
 " Wiki
-let potwiki_home=$HOME."/Dropbox/.wiki/HomePage"
+let potwiki_home=$HOME."/Dropbox/Public/.wiki/HomePage"
 let potwiki_autowrite=1
 " My default wiki head
 function! WikiHead()
