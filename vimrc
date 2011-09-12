@@ -141,16 +141,6 @@ set background=dark
 let colorscheme_name='xoria256'
 exe 'colorscheme '.colorscheme_name
 
-" Search facilities
-function! s:VSetSearch()
-  let temp = @@
-  norm! gvy
-  let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
-  let @@ = temp
-endfunction
-vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
-vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
-
 " Full copy/cut/past simple
 inoremap <C-v> <ESC>"+gpa
 vnoremap <C-c> "+y
@@ -200,6 +190,7 @@ autocmd FileType c      set makeprg=gcc\ %\ -o\ %<\ -lm"
 autocmd FileType cpp    set makeprg=g++\ %\ -o\ %<\ -lm"
 autocmd FileType ruby   set makeprg=ruby\ %
 autocmd FileType python set makeprg=python\ %
+autocmd FileType sh set makeprg=./%
 " Just a shortcut
 map <F9> :w<CR>:make<CR>
 
