@@ -80,11 +80,11 @@ set foldenable
 " Show line with cursor
 set cursorline
 " Adding to autocomplete with current spell
-set complete+=kspell
+set complete+=U,kspell
 " Removing tags from autocomplete
-set complete-=t,i
+set complete-=t
 " Words to search functions
-set iskeyword+=:,.
+set iskeyword+=:,.,-
 " Vertical split on right
 set splitright
 " Tab default with 4 size
@@ -179,6 +179,10 @@ nmap <silent> ,ll :set invlist<CR>:set list?<CR>
 nmap <silent> ,nbg :hi Normal ctermbg=none<CR>
 " Retrive background color
 nmap <silent> ,bg :exe 'colorscheme '.colorscheme_name<CR>
+" cd to the directory containing the file in the buffer
+nmap <silent> ,cd :lcd %:h<CR>
+" make file directory(recursivily)
+nmap <silent> ,md :!mkdir -p %:p:h<CR>
 
 " Tabstop 2 to that filetypes
 autocmd FileType vim,css,ruby,eruby,tex,c,sh,java set smarttab tabstop=2 shiftwidth=2 softtabstop=2 autoindent expandtab
