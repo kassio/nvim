@@ -84,7 +84,7 @@ set complete+=U,kspell
 " Removing tags from autocomplete
 set complete-=t
 " Words to search functions
-set iskeyword+=:,.,-
+set iskeyword+=-
 " Vertical split on right
 set splitright
 " Tab default with 4 size
@@ -322,8 +322,16 @@ endfunction
 map <Leader>t :call FuzzyFinderFunc()<CR>
 
 " SuperTab
+let g:SuperTabDefaultCompletionType='context'
 let g:SuperTabMappingForward='<s-tab>'
 let g:SuperTabMappingBackward='<tab>'
+
+" Ruby Completion
+let g:rubycomplete_rails = 1
+let g:rubycomplete_classes_in_global = 1
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_include_object = 1
+let g:rubycomplete_include_objectspace = 1
 
 " Textile
 let g:TextileOS='linux'
