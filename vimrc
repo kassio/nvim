@@ -323,6 +323,7 @@ map <Leader>t :call FuzzyFinderFunc()<CR>
 
 " SuperTab
 let g:SuperTabDefaultCompletionType='context'
+let g:SuperTabContextDefaultCompletionType='<c-n>'
 let g:SuperTabMappingForward='<s-tab>'
 let g:SuperTabMappingBackward='<tab>'
 
