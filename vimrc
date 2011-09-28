@@ -183,6 +183,8 @@ nmap <silent> ,bg :exe 'colorscheme '.colorscheme_name<CR>
 nmap <silent> ,cd :lcd %:h<CR>
 " make file directory(recursivily)
 nmap <silent> ,md :!mkdir -p %:p:h<CR>
+" renew fuzzyfinder cache
+nmap <silent> ,rff :FufRenewCache<CR>:echo 'Fuzzy Finder Cache Renewed'<CR>
 
 " Tabstop 2 to that filetypes
 autocmd FileType vim,css,ruby,eruby,tex,c,sh,java set smarttab tabstop=2 shiftwidth=2 softtabstop=2 autoindent expandtab
