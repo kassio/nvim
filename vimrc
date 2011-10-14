@@ -26,7 +26,7 @@ set incsearch
 " Highlight search results 
 set hls
 " Don't continue comments when pushing o/O
-set formatoptions-=o                    
+set formatoptions-=o
 " Ignore case while search
 set ignorecase
 " But if have a upcase letter use case sensitive
@@ -99,9 +99,9 @@ if has("gui_running")
   " Disable gui menu
   set guioptions-=T
   " More spaced lines on gui
-  set linespace=3
+  set linespace=2
   " FontSize on gui
-  set guifont=Droid\ Sans\ Mono\ 12
+  set guifont=Droid\ Sans\ Mono\ 10
   " Set window size on gui
   autocmd vimenter * set lines=28 
   autocmd vimenter * set columns=134
@@ -198,7 +198,7 @@ autocmd FileType ruby   set makeprg=ruby\ %
 autocmd FileType python set makeprg=python\ %
 autocmd FileType sh set makeprg=./%
 " Just a shortcut
-map <F9> :w<CR>:make<CR>
+map <F9> :!clear<CR>:w<CR>:make<CR>
 
 " Spell
 set spelllang=en,pt
@@ -326,8 +326,8 @@ map <Leader>t :call FuzzyFinderFunc()<CR>
 " SuperTab
 let g:SuperTabDefaultCompletionType='context'
 let g:SuperTabContextDefaultCompletionType='<c-n>'
-let g:SuperTabMappingForward='<s-tab>'
-let g:SuperTabMappingBackward='<tab>'
+let g:SuperTabMappingForward='<tab>'
+let g:SuperTabMappingBackward='<s-tab>'
 
 " Ruby Completion
 let g:rubycomplete_rails = 1
