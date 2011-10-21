@@ -262,14 +262,14 @@ let g:Tex_SectionMenus=0
 
 " Surround
 " Autoclose in visual mode
-vmap [ s[ 
-vmap ( s(
-vmap { s{
-vmap ] s]
-vmap ) s)
-vmap } s}
-vmap " s"
-vmap ' s'
+vmap [ S[ 
+vmap ( S(
+vmap { S{
+vmap ] S]
+vmap ) S)
+vmap } S}
+vmap " S"
+vmap ' S'
 
 " NERDTree
 let g:NERDTreeWinPos="right"
