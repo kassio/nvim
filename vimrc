@@ -138,7 +138,11 @@ set laststatus=2
 " Appearance
 set t_Co=256
 set background=dark
-let colorscheme_name='xoria256'
+"let colorscheme_name='xoria256'
+let g:solarized_termcolors=256
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+let colorscheme_name='solarized'
 exe 'colorscheme '.colorscheme_name
 
 " Full copy/cut/past simple
@@ -306,12 +310,14 @@ function! s:align()
   endif
 endfunction
 
-" FuzzyFinder
+" CommandT
 map <Leader>t :CommandT<CR>
+map <Leader>T :CommandTFlush<CR>
+map <Leader>m :CommandTBuffer<CR>
 
 " SuperTab
-let g:SuperTabDefaultCompletionType='context'
-let g:SuperTabContextDefaultCompletionType='<c-n>'
+let g:SuperTabDefaultCompletionType="context"
+"let g:SuperTabContextDefaultCompletionType='<c-n>'
 let g:SuperTabMappingForward='<tab>'
 let g:SuperTabMappingBackward='<s-tab>'
 
