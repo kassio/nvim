@@ -136,14 +136,20 @@ set statusline+=\ %P                                       " Percent through fil
 set laststatus=2
 
 " Appearance
-set t_Co=256
-set background=dark
-"let colorscheme_name='xoria256'
-let g:solarized_termcolors=256
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
-let colorscheme_name='solarized'
-exe 'colorscheme '.colorscheme_name
+function! SetColorscheme()
+  set t_Co=256
+  set background=dark
+  let g:solarized_termcolors=256
+  let g:solarized_contrast="high"
+  let g:solarized_visibility="high"
+  colorscheme solarized
+  let g:background_status = 1
+endfunction
+silent! :call SetColorscheme()<CR>
+" Set no-background
+nmap <silent> ,nbg :hi Normal ctermbg=none<CR>:echo 'No background'<CR>
+" Set colorscheme
+nmap <silent> ,bg :call SetColorscheme()<CR>:echo 'Colorscheme loaded'<CR>
 
 " Full copy/cut/past simple
 inoremap <C-v> <ESC>"+gpa
@@ -179,10 +185,6 @@ nmap <silent> ,nr :set invrelativenumber<CR>:set relativenumber?<CR>
 nmap <silent> ,w :set invwrap<CR>:set wrap?<CR>
 " Toogle list characters
 nmap <silent> ,ll :set invlist<CR>:set list?<CR>
-" Toogle background color
-nmap <silent> ,nbg :hi Normal ctermbg=none<CR>
-" Retrive background color
-nmap <silent> ,bg :exe 'colorscheme '.colorscheme_name<CR>
 " cd to the directory containing the file in the buffer
 nmap <silent> ,cd :lcd %:h<CR>
 " make file directory(recursivily)
