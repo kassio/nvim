@@ -311,9 +311,23 @@ function! s:align()
 endfunction
 
 " CommandT
-map <Leader>t :CommandT<CR>
+function! CommandTNewTabFunc()
+  if getfsize(expand('%')) == -1
+    let g:CommandTAcceptSelectionTabMap='<C-t>'
+    let g:CommandTAcceptSelectionMap='<CR>'
+  else
+    let g:CommandTAcceptSelectionTabMap='<CR>'
+    let g:CommandTAcceptSelectionMap='<C-t>'
+  endif
+  execute ':CommandT'
+  silent! :tabmove 9999 
+endfunction
+let g:CommandTCancelMap='<esc>'
+let g:CommandTMatchWindowAtTop=1
+map <Leader>t :call CommandTNewTabFunc()<CR>
 map <Leader>T :CommandTFlush<CR>
 map <Leader>m :CommandTBuffer<CR>
+
 
 " SuperTab
 let g:SuperTabDefaultCompletionType="context"
