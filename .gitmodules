@@ -70,10 +70,6 @@
 	path = bundle/snipmate
 	url = git://github.com/akitaonrails/snipmate.vim.git
   ignore = untracked
-[submodule "bundle/fuzzyfinder"]
-	path = bundle/fuzzyfinder
-	url = git://github.com/vim-scripts/FuzzyFinder.git
-  ignore = untracked
 [submodule "bundle/vim-l9"]
 	path = bundle/vim-l9
 	url = git://github.com/clones/vim-l9.git
@@ -117,4 +113,8 @@
 [submodule "bundle/VisIncr"]
 	path = bundle/VisIncr
 	url = https://github.com/vim-scripts/VisIncr.git
+  ignore = untracked
+[submodule "bundle/command-t"]
+	path = bundle/command-t
+	url = git://github.com/wincent/Command-T.git
   ignore = untracked
