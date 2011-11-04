@@ -183,8 +183,6 @@ nmap <silent> ,bg :exe 'colorscheme '.colorscheme_name<CR>
 nmap <silent> ,cd :lcd %:h<CR>
 " make file directory(recursivily)
 nmap <silent> ,md :!mkdir -p %:p:h<CR>
-" renew fuzzyfinder cache
-nmap <silent> ,rff :FufRenewCache<CR>:echo 'Fuzzy Finder Cache Renewed'<CR>
 
 " Tabstop 2 to that filetypes
 autocmd FileType vim,css,ruby,eruby,tex,c,sh,java set smarttab tabstop=2 shiftwidth=2 softtabstop=2 autoindent expandtab
@@ -309,19 +307,7 @@ function! s:align()
 endfunction
 
 " FuzzyFinder
-function! FuzzyFinderFunc()
-  silent! :FufRenewCache<CR>
-  if getfsize(expand('%')) == -1
-    let g:fuf_keyOpen='<CR>'
-    let g:fuf_keyOpenTabpage='<C-l>'
-  else
-    let g:fuf_keyOpen='<C-l>'
-    let g:fuf_keyOpenTabpage='<CR>'
-  endif
-  silent! :FufFile ./**/
-  silent! :tabmove 9999
-endfunction
-map <Leader>t :call FuzzyFinderFunc()<CR>
+map <Leader>t :CommandT<CR>
 
 " SuperTab
 let g:SuperTabDefaultCompletionType='context'
