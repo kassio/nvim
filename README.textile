@@ -27,9 +27,11 @@ git submodule update
 
 To compile Command-T:
 
+<pre>
 cd ~/.vim/bundle/command-t/ruby/command-t/
 ruby extconf.rb
 make
+</pre>
 
 To setup this configurations:
 
@@ -41,7 +43,7 @@ h2. Dependencies
 
 Some configurations dependes exuberant-tags, again if you using Debian or some children do:
 
-<pre>aptitude install exuberant-ctags ncurses-term ruby ruby-dev</pre>
+<pre>aptitude install exuberant-ctags ncurses-term</pre>
 
 To ColorSelect(http://github.com/kassio/ColorSelect) works you need ruby with gtk gems installed.
 
@@ -74,8 +76,8 @@ h2. Some Shortcuts
 \t - Command-t
 \cc - comment
 \cu - uncomment
-,ff - format
-,nbg - no backgraund(transparency)
+  ,ff - format
+  ,nbg - no backgraund(transparency)
 ,bg - force background(no transparency)
-F5 - ColorSelect
-and others
+  F5 - ColorSelect
+  and others
