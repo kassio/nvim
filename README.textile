@@ -25,6 +25,12 @@ git submodule init
 git submodule update
 </pre>
 
+To compile Command-T:
+
+cd ~/.vim/bundle/command-t/ruby/command-t/
+ruby extconf.rb
+make
+
 To setup this configurations:
 
 <pre>
@@ -35,12 +41,9 @@ h2. Dependencies
 
 Some configurations dependes exuberant-tags, again if you using Debian or some children do:
 
-<pre>aptitude install exuberant-ctags ncurses-term</pre>
+<pre>aptitude install exuberant-ctags ncurses-term ruby ruby-dev</pre>
 
-To ColorSelect(http://github.com/kassio/ColorSelect) works you need ruby with gtk gems working, to this see
-the follow link:
-
-"http://dannnylo.wordpress.com/2010/07/08/instalando-gtk-no-rvm/":http://dannnylo.wordpress.com/2010/07/08/instalando-gtk-no-rvm/ 
+To ColorSelect(http://github.com/kassio/ColorSelect) works you need ruby with gtk gems installed.
 
 h2. Features
 
@@ -65,3 +68,14 @@ Some features:
 # Colorshcheme xoria256("github":https://github.com/vim-scripts/xoria256.vim)
 # Full text indent()
 # Shortcuts
+
+h2. Some Shortcuts
+
+\t - Command-t
+\cc - comment
+\cu - uncomment
+,ff - format
+,nbg - no backgraund(transparency)
+,bg - force background(no transparency)
+F5 - ColorSelect
+and others
