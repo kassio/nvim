@@ -319,7 +319,6 @@ function! CommandTNewTabFunc()
     let g:CommandTAcceptSelectionMap='<C-t>'
   endif
   execute ':CommandT'
-  silent! :tabmove 9999 
 endfunction
 let g:CommandTCancelMap='<esc>'
 let g:CommandTMatchWindowAtTop=1
