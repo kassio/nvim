@@ -139,10 +139,7 @@ set laststatus=2
 function! SetColorscheme()
   set t_Co=256
   set background=dark
-  let g:solarized_termcolors=256
-  let g:solarized_contrast="high"
-  let g:solarized_visibility="high"
-  colorscheme solarized
+  colorscheme xoria256
   let g:background_status = 1
 endfunction
 silent! :call SetColorscheme()<CR>
