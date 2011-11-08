@@ -193,13 +193,22 @@ autocmd FileType vim,css,ruby,eruby,tex,c,sh,java set smarttab tabstop=2 shiftwi
 autocmd FileType python,js,javascript set smarttab tabstop=3 shiftwidth=3 softtabstop=3 autoindent expandtab
 
 " :make  Compile/Execute some filetypes
+" Just a shortcut
+map <F9> :!clear<CR>:w<CR>:make<CR>
+
 autocmd FileType c      set makeprg=gcc\ %\ -o\ %<\ -lm"
-autocmd FileType cpp    set makeprg=g++\ %\ -o\ %<\ -lm"
+autocmd FileType cpp    map <F9> :call CompileCPP()<CR>
 autocmd FileType ruby   set makeprg=ruby\ %
 autocmd FileType python set makeprg=python\ %
 autocmd FileType sh set makeprg=./%
-" Just a shortcut
-map <F9> :!clear<CR>:w<CR>:make<CR>
+
+function! CompileCPP()
+  if filereadable("makefile")
+    exec ":!clear; make; if [ $? -eq 0 ]; then clear; echo 'SUCCESS COMPILED'; fi"
+  else
+    echo "No make file founded"
+  endif
+endfunction
 
 " Spell
 set spelllang=en,pt
@@ -275,7 +284,7 @@ vmap ' S'
 " NERDTree
 let g:NERDTreeWinPos="right"
 let g:NERDTreeNewTabWithTree=0
-silent! nmap <silent> <Leader>p :NERDTreeMirrorToggle<CR>
+nmap <silent> <Leader>p :NERDTreeMirrorToggle<CR>
 nnoremap <silent> <C-l>l :call FindInNERDTree()<CR>
 
 " Snipmate setup
@@ -319,6 +328,7 @@ function! CommandTNewTabFunc()
     let g:CommandTAcceptSelectionMap='<C-t>'
   endif
   execute ':CommandT'
+  tabm
 endfunction
 let g:CommandTCancelMap='<esc>'
 let g:CommandTMatchWindowAtTop=1
