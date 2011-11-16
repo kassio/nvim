@@ -26,7 +26,7 @@ set incsearch
 " Highlight search results 
 set hls
 " Don't continue comments when pushing o/O
-set formatoptions-=o
+set formatoptions=tcq
 " Ignore case while search
 set ignorecase
 " But if have a upcase letter use case sensitive
@@ -135,6 +135,10 @@ set statusline+=[%c,%l/%L]                                 " Cursor [column,line
 set statusline+=\ %P                                       " Percent through file
 set laststatus=2
 
+" Limit line for Ruby programming
+autocmd Filetype ruby,rb,rails,eruby set tw=110
+autocmd Filetype ruby,rb,rails,eruby set formatoptions=tcq
+
 " Appearance
 function! SetColorscheme()
   set t_Co=256
@@ -204,7 +208,7 @@ autocmd FileType sh set makeprg=./%
 
 function! CompileCPP()
   if filereadable("makefile")
-    exec ":!clear; make; if [ $? -eq 0 ]; then clear; echo 'SUCCESS COMPILED'; fi"
+    exec ":!clear; make clean; make; if [ $? -eq 0 ]; then clear; echo 'SUCCESS COMPILED'; fi"
   else
     echo "No make file founded"
   endif

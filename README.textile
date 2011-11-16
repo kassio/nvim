@@ -43,7 +43,7 @@ h2. Dependencies
 
 Some configurations dependes exuberant-tags, again if you using Debian or some children do:
 
-<pre>aptitude install exuberant-ctags ncurses-term ruby-dev</pre>
+<pre>aptitude install exuberant-ctags ncurses-term ruby-dev libgtk2.0-dev</pre>
 
 To ColorSelect(http://github.com/kassio/ColorSelect) works you need ruby with gtk gems installed.
 
