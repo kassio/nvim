@@ -338,7 +338,7 @@ let g:CommandTCancelMap='<esc>'
 let g:CommandTMatchWindowAtTop=1
 map <Leader>t :call CommandTNewTabFunc()<CR>
 map <Leader>T :CommandTFlush<CR>
-map <Leader>m :CommandTBuffer<CR>
+map <Leader>b :CommandTBuffer<CR>
 
 
 " SuperTab
