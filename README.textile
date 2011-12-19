@@ -25,7 +25,7 @@ git submodule init
 git submodule update
 </pre>
 
-To compile Command-T:
+To compile Command-T(If using rvm require system ruby [rvm use system before next lines]):
 
 <pre>
 cd ~/.vim/bundle/command-t/ruby/command-t/
