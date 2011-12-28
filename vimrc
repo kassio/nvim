@@ -51,7 +51,7 @@ set wildmenu
 " Showing list chars
 " set list
 " More useful tab completion on menu
-set wildmode=list:longest
+set wildmode=list:longest,full
 " Add ignorance of whitespace to diff
 set diffopt+=iwhite
 " More history
@@ -82,16 +82,23 @@ set cursorline
 " Adding to autocomplete with current spell
 set complete+=U,kspell
 " Removing tags from autocomplete
-set complete-=t
+set complete-=t,i
+" Wait this long for mappings
+set timeoutlen=3000
+" Make esc work faster
+set ttimeoutlen=50
 " Words to search functions
 set iskeyword+=-
 " Vertical split on right
 set splitright
+" Horizontal split on below
+set splitbelow
 " Tab default with 4 size
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+set smarttab
 " Session options
 set sessionoptions+=globals
 
@@ -128,6 +135,7 @@ set statusline=%m                                          " File modify signal
 set statusline+=%f                                         " Filename
 set statusline+=%{exists(GitBranch())?[GitBranch()]:''}    " Git
 set statusline+=%{exists('g:ft_ruby')?rvm#statusline():''} " RVM
+set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%=                                         " Separator
 set statusline+=[ASCII=%b]                                 " ASCII value of char under cursor
 set statusline+=[HEX=%B]                                   " ASCII in HEX value of char under cursor
@@ -288,6 +296,7 @@ vmap ' S'
 " NERDTree
 let g:NERDTreeWinPos="right"
 let g:NERDTreeNewTabWithTree=0
+let NERDTreeHighlightCursorline=1
 nmap <silent> <Leader>p :NERDTreeMirrorToggle<CR>
 nnoremap <silent> <C-l>l :call FindInNERDTree()<CR>
 
@@ -357,3 +366,14 @@ let g:rubycomplete_include_objectspace = 1
 " Textile
 let g:TextileOS='linux'
 let g:TextileBrowser='google-chrome'
+
+" Syntastic
+let g:syntastic_enable_signs=1 "show markers next to each error/warning
+let g:syntastic_auto_loc_list=0 "don't pop up the Errors list automatically
+let g:syntastic_check_on_open=1
+let g:syntastic_mode_map = { 'mode': 'active',
+      \ 'active_filetypes': ['ruby', 'eruby', 'c', 'cpp', 'css',
+      \ 'cucumber', 'javascript', 'json', 'sh', 'tex', 'html', 'xml', 
+      \ 'xhtml', 'yaml' ],
+      \ 'passive_filetypes': ['puppet'] }
+:sign define piet text=>> texthl=Search
