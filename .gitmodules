@@ -55,8 +55,8 @@
 	url = https://github.com/kassio/potwiki.vim.git
   ignore = untracked
 [submodule "bundle/vim-latex"]
-	path = bundle/vim-latex
-	url = https://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex
+  path = bundle/vim-latex
+  url = https://github.com/mineiro/vim-latex.git
   ignore = untracked
 [submodule "bundle/git-vim"]
 	path = bundle/git-vim
