@@ -298,7 +298,7 @@ let g:NERDTreeWinPos="right"
 let g:NERDTreeNewTabWithTree=0
 let NERDTreeHighlightCursorline=1
 nmap <silent> <Leader>p :NERDTreeMirrorToggle<CR>
-nnoremap <silent> <C-l>l :call FindInNERDTree()<CR>
+nnoremap <silent> ,fl :call FindInNERDTree()<CR>
 
 " Snipmate setup
 try
@@ -351,10 +351,15 @@ map <Leader>b :CommandTBuffer<CR>
 
 
 " SuperTab
-let g:SuperTabDefaultCompletionType="context"
-"let g:SuperTabContextDefaultCompletionType='<c-n>'
-let g:SuperTabMappingForward='<tab>'
-let g:SuperTabMappingBackward='<s-tab>'
+if &omnifunc != ''
+  let g:SuperTabDefaultCompletionType="<C-X><C-O>"
+elseif &dictionary != ''
+  let g:SuperTabDefaultCompletionType="<C-X><C-k>"
+else
+  let g:SuperTabDefaultCompletionType="<C-n>"
+end
+let g:SuperTabMappingForward='<Tab>'
+let g:SuperTabMappingBackward='<S-Tab>'
 
 " Ruby Completion
 let g:rubycomplete_rails = 1
@@ -376,4 +381,3 @@ let g:syntastic_mode_map = { 'mode': 'active',
       \ 'cucumber', 'javascript', 'json', 'sh', 'tex', 'html', 'xml', 
       \ 'xhtml', 'yaml' ],
       \ 'passive_filetypes': ['puppet'] }
-:sign define piet text=>> texthl=Search
