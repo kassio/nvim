@@ -54,10 +54,6 @@
 	path = bundle/potwiki
 	url = https://github.com/kassio/potwiki.vim.git
   ignore = untracked
-[submodule "bundle/vim-latex"]
-  path = bundle/vim-latex
-  url = https://github.com/mineiro/vim-latex.git
-  ignore = untracked
 [submodule "bundle/git-vim"]
 	path = bundle/git-vim
 	url = https://github.com/motemen/git-vim.git
@@ -118,9 +114,11 @@
 	path = bundle/command-t
 	url = https://github.com/wincent/Command-T.git
   ignore = untracked
-[submodule "bundle/vim-colors-solarized"]
-	path = bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+  ignore = untracked
+[submodule "bundle/vim-latex"]
+	path = bundle/vim-latex
+	url = https://github.com/mineiro/vim-latex.git
+  ignore = untracked
