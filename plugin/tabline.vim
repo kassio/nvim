@@ -21,7 +21,7 @@ function! MyTabLine()
 
   " right-align the label to close the current tab page
   if tabpagenr('$') > 1
-    let s .= '%=%#TabLine#%999Xclose'
+    let s .= '%=%#TabLine#%999XX'
   endif
 
   return s
@@ -30,7 +30,7 @@ endfunction
 function! MyTabLabel(n)
   let buflist = tabpagebuflist(a:n)
   let winnr = tabpagewinnr(a:n)
-  return bufname(buflist[winnr - 1])
+  return fnamemodify(bufname(buflist[winnr - 1]), ":t")
 endfunction
 
 set tabline=%!MyTabLine()
