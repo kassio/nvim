@@ -133,7 +133,6 @@ autocmd Filetype ruby,rb,rails,eruby let g:ft_ruby=1
 
 set statusline=%m                                          " File modify signal
 set statusline+=%f                                         " Filename
-set statusline+=%{exists(GitBranch())?[GitBranch()]:''}    " Git
 set statusline+=%{exists('g:ft_ruby')?rvm#statusline():''} " RVM
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%=                                         " Separator
@@ -381,3 +380,6 @@ let g:syntastic_mode_map = { 'mode': 'active',
       \ 'cucumber', 'javascript', 'json', 'sh', 'tex', 'html', 'xml', 
       \ 'xhtml', 'yaml' ],
       \ 'passive_filetypes': ['puppet'] }
+
+" Powerline
+let g:Powerline_symbols = 'fancy'
