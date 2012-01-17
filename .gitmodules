@@ -98,10 +98,6 @@
 	path = bundle/session
 	url = https://github.com/vim-scripts/session.vim--Odding.git
   ignore = untracked
-[submodule "bundle/html5"]
-	path = bundle/html5
-	url = https://github.com/briangershon/html5.vim.git
-  ignore = untracked
 [submodule "bundle/xoria256"]
 	path = bundle/xoria256
 	url = https://github.com/kassio/xoria256.vim.git
