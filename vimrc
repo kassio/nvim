@@ -367,6 +367,10 @@ let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_include_object = 1
 let g:rubycomplete_include_objectspace = 1
 
+" HTML5
+let g:html_indent_strict = 1
+let g:html_indent_strict_table = 1
+
 " Textile
 let g:TextileOS='linux'
 let g:TextileBrowser='google-chrome'
