@@ -294,9 +294,8 @@ vmap ' S'
 
 " NERDTree
 let g:NERDTreeWinPos="right"
-let g:NERDTreeNewTabWithTree=0
 let NERDTreeHighlightCursorline=1
-nmap <silent> <Leader>p :NERDTreeMirrorToggle<CR>
+nmap <silent> <Leader>p :NERDTreeToggle<CR>
 nnoremap <silent> ,fl :call FindInNERDTree()<CR>
 
 " Snipmate setup

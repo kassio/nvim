@@ -126,3 +126,6 @@
 	path = bundle/html5
 	url = https://github.com/othree/html5.vim.git
   ignore = untracked
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
