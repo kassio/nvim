@@ -296,6 +296,7 @@ vmap ' S'
 let g:NERDTreeWinPos="right"
 let NERDTreeHighlightCursorline=1
 nmap <silent> <Leader>p :NERDTreeToggle<CR>
+nmap <silent> <Leader>P :NERDTreeMirror<CR>
 nnoremap <silent> ,fl :call FindInNERDTree()<CR>
 
 " Snipmate setup
