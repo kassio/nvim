@@ -236,9 +236,23 @@ cab wQ wq
 cab WQ wq
 cab Q  q
 
+" Sorting selected text
+" @shotcut ,ss
+vnoremap ,ss :sort<CR>
+
+" Execute ruby code and puts results on
+" next line
+" @shortcut <F8>
+function! ExecuteRubySelectedFunc()
+  let result = system('ruby -e "puts '.getreg('*').'"')
+  exe 'normal o'.result
+endfunction
+vnoremap <F8> :call ExecuteRubySelectedFunc()<CR><ESC>
+
 """"""""""""""" PLUGINS CONFIGURATION
 
 " ColorSelect
+" @shortcut <F5>
 let g:FormatResultColorSelect='rgba'
 imap <F5> <ESC>:ColorSelect<CR>
 
