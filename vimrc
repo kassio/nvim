@@ -284,7 +284,6 @@ let g:tex_flavor='latex'
 let g:Tex_BibtexFlavor='bibtex'
 let g:Tex_BIBINPUTS="%\.bib"
 let g:Tex_DefaultTargetFormat='pdf'
-let g:Tex_ViewRuleComplete_pdf="evince ".expand('%:p:r').".pdf 2> /tmp/vim_latex_errors &"
 let g:Imap_UsePlaceHolders=0 " Turn off placeholders
 " Turn off some boring shortcuts
 let g:Tex_AdvancedMath=0 
