@@ -411,7 +411,4 @@ let g:syntastic_mode_map = { 'mode': 'active',
       \ 'xhtml', 'yaml', 'vi' ],
       \ 'passive_filetypes': ['puppet'] }
 
-" Powerline
-let g:Powerline_symbols = 'fancy'
-
 command! NewRailsHashSyntax %s/\v:([^\ ]+)\ \=\>/\1:/g

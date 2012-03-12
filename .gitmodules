@@ -114,10 +114,6 @@
 	path = bundle/vim-latex
 	url = https://github.com/mineiro/vim-latex.git
   ignore = untracked
-[submodule "bundle/vim-powerline"]
-	path = bundle/vim-powerline
-	url = https://github.com/Lokaltog/vim-powerline.git
-  ignore = untracked
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
@@ -129,3 +125,4 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+  ignore = untracked
