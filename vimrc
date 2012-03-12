@@ -1,15 +1,13 @@
-" To pathogen works
-filetype off
-" Plugins by filetype
-filetype plugin on
-" Indentation by filetype
-filetype indent on
-" Enable syntax
-syntax on
-
 " Load submodules with pathogen
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+
+" Filetypes
+if has("autocmd")
+  filetype on
+  filetype indent on
+  filetype plugin on
+endif
 
 " My world is utf8
 scriptencoding utf8
@@ -93,12 +91,18 @@ set iskeyword+=-
 set splitright
 " Horizontal split on below
 set splitbelow
-" Tab default with 4 size
+" Tab default with 2 size
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+set nojoinspaces
+set shiftround
 set smarttab
+
+" Backspace
+set backspace=indent,eol,start
+
 " Session options
 set sessionoptions+=globals
 
@@ -153,7 +157,15 @@ function! SetColorscheme()
   colorscheme xoria256
   let g:background_status = 1
 endfunction
-silent! :call SetColorscheme()<CR>
+
+if has("syntax")
+  syntax enable
+  silent! :call SetColorscheme()<CR>
+  if has("folding")
+    set fillchars=diff:\ ,fold:\ ,vert:\ 
+  endif
+endif
+
 " Set no-background
 nmap <silent> ,nbg :hi Normal ctermbg=none<CR>:echo 'No background'<CR>
 " Set colorscheme
@@ -284,7 +296,7 @@ let g:tex_flavor='latex'
 let g:Tex_BibtexFlavor='bibtex'
 let g:Tex_BIBINPUTS="%\.bib"
 let g:Tex_DefaultTargetFormat='pdf'
-let g:Tex_ViewRuleComplete_pdf="evince ".expand('%:p:r').".pdf 2> /tmp/vim_latex_errors &"
+"let g:Tex_ViewRuleComplete_pdf="okular \".expand('%:p:r').".pdf 2> /tmp/vim_latex_errors &"
 let g:Imap_UsePlaceHolders=0 " Turn off placeholders
 " Turn off some boring shortcuts
 let g:Tex_AdvancedMath=0 
@@ -396,8 +408,10 @@ let g:syntastic_check_on_open=1
 let g:syntastic_mode_map = { 'mode': 'active',
       \ 'active_filetypes': ['ruby', 'eruby', 'c', 'cpp', 'css',
       \ 'cucumber', 'javascript', 'json', 'sh', 'tex', 'html', 'xml', 
-      \ 'xhtml', 'yaml' ],
+      \ 'xhtml', 'yaml', 'vi' ],
       \ 'passive_filetypes': ['puppet'] }
 
 " Powerline
 let g:Powerline_symbols = 'fancy'
+
+command! NewRailsHashSyntax %s/\v:([^\ ]+)\ \=\>/\1:/g
