@@ -30,10 +30,6 @@
 	path = bundle/scss-syntax
 	url = https://github.com/cakebaker/scss-syntax.vim.git
   ignore = untracked
-[submodule "bundle/supertab"]
-	path = bundle/supertab
-	url = https://github.com/ervandew/supertab.git
-  ignore = untracked
 [submodule "snippets"]
 	path = snippets
 	url = https://github.com/kassio/snipmate-snippets.git

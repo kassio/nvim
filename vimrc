@@ -150,6 +150,7 @@ autocmd Filetype ruby,rb,rails,eruby set formatoptions=tcq
 function! SetColorscheme()
   set t_Co=256
   set background=dark
+  set colorcolumn=110
   colorscheme xoria256
   let g:background_status = 1
 endfunction
@@ -357,18 +358,6 @@ let g:CommandTMatchWindowAtTop=1
 map <Leader>t :call CommandTNewTabFunc()<CR>
 map <Leader>T :CommandTFlush<CR>
 map <Leader>b :CommandTBuffer<CR>
-
-
-" SuperTab
-if &omnifunc != ''
-  let g:SuperTabDefaultCompletionType="<C-X><C-O>"
-elseif &dictionary != ''
-  let g:SuperTabDefaultCompletionType="<C-X><C-k>"
-else
-  let g:SuperTabDefaultCompletionType="<C-n>"
-end
-let g:SuperTabMappingForward='<Tab>'
-let g:SuperTabMappingBackward='<S-Tab>'
 
 " Ruby Completion
 let g:rubycomplete_rails = 1
