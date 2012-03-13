@@ -132,14 +132,10 @@ if has("gui_running")
 endif
 
 " My statusline
-" Verify if file is ruby to show ruby version on statusline
-autocmd Filetype ruby,rb,rails,eruby let g:ft_ruby=1
-
-set statusline=%m                                          " File modify signal
-set statusline+=%f                                         " Filename
-set statusline+=%{exists('g:ft_ruby')?rvm#statusline():''} " RVM
+set statusline=[%n]\ %<%.55f\ %h%w%m%r%y
+set statusline+=%#SyntasticError#
 set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%=                                         " Separator
+set statusline+=%#StatusLine#%=
 set statusline+=[ASCII=%b]                                 " ASCII value of char under cursor
 set statusline+=[HEX=%B]                                   " ASCII in HEX value of char under cursor
 set statusline+=[%c,%l/%L]                                 " Cursor [column,line/total] lines
@@ -305,17 +301,6 @@ let g:Tex_FontMaps=0
 let g:Tex_FontMenus=0
 let g:Tex_SectionMaps=0
 let g:Tex_SectionMenus=0
-
-" Surround
-" Autoclose in visual mode
-vmap [ S[ 
-vmap ( S(
-vmap { S{
-vmap ] S]
-vmap ) S)
-vmap } S}
-vmap " S"
-vmap ' S'
 
 " NERDTree
 let g:NERDTreeWinPos="right"
