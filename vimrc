@@ -138,19 +138,19 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%#StatusLine#%=
 set statusline+=[ASCII=%b]                                 " ASCII value of char under cursor
 set statusline+=[HEX=%B]                                   " ASCII in HEX value of char under cursor
-set statusline+=[%{GetFileSize()}]
 set statusline+=[%c,%l/%L]                                 " Cursor [column,line/total] lines
-set statusline+=\ %P                                       " Percent through file
+set statusline+=[%P]                                       " Percent through file
+set statusline+=[%{GetFileSize()}]
 set laststatus=2
 
 function! GetFileSize()
-  let filesize = getfsize(expand('%'))
-  if filesize < 1000
-    return filesize."bytes"
-  elseif filesize > 1000
-    return filesize/1000."Kb"
-  elseif filesize > 1000000
-    return filesize/1000000."Mb"
+  let filesize = getfsize(expand('%:p'))
+  if filesize < 1024
+    return filesize."b"
+  elseif filesize >= 1048576
+    return printf("%.2f", (filesize/1048576.00))."Mb"
+  else
+    return printf("%.2f", (filesize/1024.00))."Kb"
   endif
 endfunction
 
