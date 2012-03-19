@@ -138,9 +138,21 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%#StatusLine#%=
 set statusline+=[ASCII=%b]                                 " ASCII value of char under cursor
 set statusline+=[HEX=%B]                                   " ASCII in HEX value of char under cursor
+set statusline+=[%{GetFileSize()}]
 set statusline+=[%c,%l/%L]                                 " Cursor [column,line/total] lines
 set statusline+=\ %P                                       " Percent through file
 set laststatus=2
+
+function! GetFileSize()
+  let filesize = getfsize(expand('%'))
+  if filesize < 1000
+    return filesize."bytes"
+  elseif filesize > 1000
+    return filesize/1000."Kb"
+  elseif filesize > 1000000
+    return filesize/1000000."Mb"
+  endif
+endfunction
 
 " Limit line for Ruby programming
 autocmd Filetype ruby,rb,rails,eruby set tw=110
