@@ -396,3 +396,8 @@ let g:syntastic_mode_map = { 'mode': 'active',
       \ 'passive_filetypes': ['puppet'] }
 
 command! NewRailsHashSyntax %s/\v:([^\ ]+)\ \=\>/\1:/g
+
+" SuperTab
+let g:SuperTabSetDefaultCompletionType="context"
+let g:SuperTabMappingForward='<Tab>'
+let g:SuperTabMappingBackward='<S-Tab>'
