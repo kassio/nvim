@@ -78,9 +78,7 @@ set foldenable
 " Show line with cursor
 set cursorline
 " Adding to autocomplete with current spell
-set complete+=U,kspell
-" Removing tags from autocomplete
-set complete-=t,i
+set complete=.,w,b,u,kspell
 " Wait this long for mappings
 set timeoutlen=3000
 " Make esc work faster
@@ -396,8 +394,3 @@ let g:syntastic_mode_map = { 'mode': 'active',
       \ 'passive_filetypes': ['puppet'] }
 
 command! NewRailsHashSyntax %s/\v:([^\ ]+)\ \=\>/\1:/g
-
-" SuperTab
-let g:SuperTabSetDefaultCompletionType="context"
-let g:SuperTabMappingForward='<Tab>'
-let g:SuperTabMappingBackward='<S-Tab>'
