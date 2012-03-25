@@ -21,7 +21,7 @@ set nocompatible
 set confirm
 " Search while type
 set incsearch
-" Highlight search results 
+" Highlight search results
 set hls
 " Don't continue comments when pushing o/O
 set formatoptions=tcq
@@ -49,7 +49,7 @@ set wildmenu
 " Showing list chars
 " set list
 " More useful tab completion on menu
-set wildmode=list:longest,full
+set wildmode=list:longest,list:full
 " Add ignorance of whitespace to diff
 set diffopt+=iwhite
 " More history
@@ -62,6 +62,7 @@ set showbreak=..
 set title
 " Show number by default
 set number
+set numberwidth=5
 " Load external updates
 set autoread
 " Behavior when switching between buffers
@@ -114,7 +115,6 @@ if has("gui_running")
   " Set window size on gui
   autocmd vimenter * set lines=28 
   autocmd vimenter * set columns=134
-
   " Tab navigation
   map <C-Tab> <esc>:tabnext<CR>
   map <C-S-Tab> <esc>:tabprevious<CR>
@@ -161,7 +161,7 @@ function! SetColorscheme()
   set t_Co=256
   set background=dark
   set colorcolumn=110
-  colorscheme xoria256
+  colorscheme xoria256 
   let g:background_status = 1
 endfunction
 
@@ -267,6 +267,12 @@ function! ExecuteRubySelectedFunc()
   exe 'normal o'.result
 endfunction
 vnoremap <F8> :call ExecuteRubySelectedFunc()<CR><ESC>
+
+" Get off my lawn
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
 
 """"""""""""""" PLUGINS CONFIGURATION
 
