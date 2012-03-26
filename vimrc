@@ -80,6 +80,7 @@ set foldenable
 set cursorline
 " Adding to autocomplete with current spell
 set complete=.,w,b,u,kspell
+set completeopt=menu,preview,longest
 " Wait this long for mappings
 set timeoutlen=3000
 " Make esc work faster
