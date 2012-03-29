@@ -153,18 +153,16 @@ function! GetFileSize()
   endif
 endfunction
 
-" Limit line for Ruby programming
-autocmd Filetype ruby,rb,rails,eruby set tw=110
-autocmd Filetype ruby,rb,rails,eruby set formatoptions=tcq
-
 " Appearance
 function! SetColorscheme()
   set t_Co=256
   set background=dark
-  set colorcolumn=110
-  colorscheme xoria256 
+  colorscheme xoria256
   let g:background_status = 1
 endfunction
+
+" Limit line for Ruby programming
+autocmd Filetype ruby,rb,rails,eruby set tw=110 colorcolumn=110 formatoptions=tcq
 
 if has("syntax")
   syntax enable
@@ -229,8 +227,9 @@ map <F9> :!clear<CR>:w<CR>:make<CR>
 
 autocmd FileType c      set makeprg=gcc\ %\ -o\ %<\ -lm"
 autocmd FileType cpp    map <F9> :call CompileCPP()<CR>
-autocmd FileType ruby   set makeprg=ruby\ %
+autocmd FileType ruby   set makeprg=ruby\ % 
 autocmd FileType python set makeprg=python\ %
+autocmd FileType perl set makeprg=perl\ %
 autocmd FileType sh set makeprg=./%
 
 function! CompileCPP()
