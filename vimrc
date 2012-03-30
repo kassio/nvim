@@ -24,7 +24,7 @@ set incsearch
 " Highlight search results
 set hls
 " Don't continue comments when pushing o/O
-set formatoptions=tcq
+set formatoptions=twqan2
 " Ignore case while search
 set ignorecase
 " But if have a upcase letter use case sensitive
