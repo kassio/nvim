@@ -132,9 +132,8 @@ endif
 
 " My statusline
 set statusline=[%n]\ %<%.55f\ %h%w%m%r%y
-set statusline+=%#SyntasticError#
 set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%#StatusLine#%=
+set statusline+=%=
 set statusline+=[ASCII=%b]                                 " ASCII value of char under cursor
 set statusline+=[HEX=%B]                                   " ASCII in HEX value of char under cursor
 set statusline+=[%c,%l/%L]                                 " Cursor [column,line/total] lines
@@ -259,15 +258,6 @@ cab Q  q
 " @shotcut ,ss
 vnoremap ,ss :sort<CR>
 
-" Execute ruby code and puts results on
-" next line
-" @shortcut <F8>
-function! ExecuteRubySelectedFunc()
-  let result = system('ruby -e "puts '.getreg('*').'"')
-  exe 'normal o'.result
-endfunction
-vnoremap <F8> :call ExecuteRubySelectedFunc()<CR><ESC>
-
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
@@ -381,10 +371,6 @@ let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_include_object = 1
 let g:rubycomplete_include_objectspace = 1
 
-" HTML5
-let g:html_indent_strict = 1
-let g:html_indent_strict_table = 1
-
 " Textile
 let g:TextileOS='linux'
 let g:TextileBrowser='google-chrome'
@@ -399,4 +385,4 @@ let g:syntastic_mode_map = { 'mode': 'active',
       \ 'xhtml', 'yaml', 'vi' ],
       \ 'passive_filetypes': ['puppet'] }
 
-command! NewRailsHashSyntax %s/\v:([^\ ]+)\ \=\>/\1:/g
+command! NewRubyHashSyntax %s/\v:(\w+)\ ?\=\>/\1:/g
