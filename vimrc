@@ -308,11 +308,10 @@ let g:Tex_FontMenus=0
 let g:Tex_SectionMaps=0
 let g:Tex_SectionMenus=0
 
-" NERDTree
+"   echoNERDTree
 let g:NERDTreeWinPos="right"
 let NERDTreeHighlightCursorline=1
-nmap <silent> <Leader>p :NERDTreeToggle<CR>
-nmap <silent> <Leader>P :NERDTreeMirror<CR>
+nmap <silent> <Leader>p :NERDTreeMirrorToggle<CR>
 nnoremap <silent> ,fl :call FindInNERDTree()<CR>
 
 " Snipmate setup
@@ -385,3 +384,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
       \ 'passive_filetypes': ['puppet'] }
 
 command! NewRubyHashSyntax %s/\v:(\w+)\ ?\=\>/\1:/g
+
+" Color Highlight
+let g:colorizer_auto_color = 1
+let g:colorizer_x11_names = 1

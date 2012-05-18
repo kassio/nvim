@@ -122,3 +122,12 @@
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
   ignore = untracked
+[submodule "bundle/quicksilver"]
+	path = bundle/quicksilver
+	url = https://github.com/Bogdanp/quicksilver.vim.git
+[submodule "bundle/jsruntime"]
+	path = bundle/jsruntime
+	url = https://github.com/michalliu/jsruntime.vim.git
+[submodule "bundle/color_highlight"]
+	path = bundle/color_highlight
+	url = https://github.com/chrisbra/color_highlight.git
