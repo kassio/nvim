@@ -131,3 +131,6 @@
 [submodule "bundle/color_highlight"]
 	path = bundle/color_highlight
 	url = https://github.com/chrisbra/color_highlight.git
+[submodule "bundle/javascrip-indent"]
+	path = bundle/javascrip-indent
+	url = https://github.com/vim-scripts/JavaScript-Indent.git
