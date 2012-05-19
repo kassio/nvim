@@ -155,12 +155,12 @@ endfunction
 function! SetColorscheme()
   set t_Co=256
   set background=dark
-  colorscheme xoria256
+  colorscheme smyck
+  hi ColorColumn ctermbg=235 guibg=#262626
   let g:background_status = 1
 endfunction
 
-" Limit line for Ruby programming
-autocmd Filetype ruby,rb,rails,eruby set tw=110 colorcolumn=110 formatoptions=tcq
+set tw=130 colorcolumn=110 formatoptions=tcq
 
 if has("syntax")
   syntax enable
