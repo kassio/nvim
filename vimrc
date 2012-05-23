@@ -116,6 +116,8 @@ if has("gui_running")
   else
     set guifont=Droid\ Sans\ Mono:h10
   endif
+  set lines=999
+  set columns=9999
 endif
 
 " My statusline
@@ -302,6 +304,7 @@ let g:Tex_SectionMenus=0
 "   echoNERDTree
 let g:NERDTreeWinPos="right"
 let NERDTreeHighlightCursorline=1
+nmap <silent> <Leader>P :NERDTree<CR>
 nmap <silent> <Leader>p :NERDTreeMirrorToggle<CR>
 nnoremap <silent> ,fl :call FindInNERDTree()<CR>
 
