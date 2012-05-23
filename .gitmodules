@@ -120,7 +120,7 @@
   ignore = untracked
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
+	url = https://github.com/kassio/nerdtree.git
   ignore = untracked
 [submodule "bundle/quicksilver"]
 	path = bundle/quicksilver
@@ -134,3 +134,6 @@
 [submodule "bundle/javascrip-indent"]
 	path = bundle/javascrip-indent
 	url = https://github.com/vim-scripts/JavaScript-Indent.git
+[submodule "bundle/monokai"]
+	path = bundle/monokai
+	url = https://github.com/sickill/vim-monokai.git

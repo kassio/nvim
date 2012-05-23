@@ -111,22 +111,11 @@ if has("gui_running")
   " More spaced lines on gui
   set linespace=2
   " FontSize on gui
-  set guifont=Droid\ Sans\ Mono\ 10
-  " Set window size on gui
-  autocmd vimenter * set lines=28 
-  autocmd vimenter * set columns=134
-  " Tab navigation
-  map <C-Tab> <esc>:tabnext<CR>
-  map <C-S-Tab> <esc>:tabprevious<CR>
-  map <A-1> <esc>:tabfirst<CR>
-  map <A-2> <esc>2gt<CR>
-  map <A-3> <esc>3gt<CR>
-  map <A-4> <esc>4gt<CR>
-  map <A-5> <esc>5gt<CR>
-  map <A-6> <esc>6gt<CR>
-  map <A-7> <esc>7gt<CR>
-  map <A-8> <esc>8gt<CR>
-  map <A-9> <esc>:tablast<CR>
+  if has("gui_gtk2")
+    set guifont=Droid\ Sans\ Mono\ 10
+  else
+    set guifont=Droid\ Sans\ Mono:h10
+  endif
 endif
 
 " My statusline
@@ -142,7 +131,9 @@ set laststatus=2
 
 function! GetFileSize()
   let filesize = getfsize(expand('%:p'))
-  if filesize < 1024
+  if filesize < 0
+    return "-1"
+  elseif filesize < 1024
     return filesize."b"
   elseif filesize >= 1048576
     return printf("%.2f", (filesize/1048576.00))."Mb"
@@ -155,7 +146,7 @@ endfunction
 function! SetColorscheme()
   set t_Co=256
   set background=dark
-  colorscheme smyck
+  colorscheme Monokai
   hi ColorColumn ctermbg=235 guibg=#262626
   let g:background_status = 1
 endfunction
