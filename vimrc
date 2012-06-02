@@ -381,3 +381,6 @@ command! NewRubyHashSyntax %s/\v:(\w+)\ ?\=\>/\1:/g
 " Color Highlight
 let g:colorizer_auto_color = 1
 let g:colorizer_x11_names = 1
+
+" Supertab
+let g:SuperTabDefaultCompletionType = "context"
