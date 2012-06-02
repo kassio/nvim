@@ -148,12 +148,11 @@ endfunction
 function! SetColorscheme()
   set t_Co=256
   set background=dark
-  colorscheme Monokai
+  "colorscheme Monokai
+  colorscheme xoria256
   hi ColorColumn ctermbg=235 guibg=#262626
   let g:background_status = 1
 endfunction
-
-set tw=130 colorcolumn=110 formatoptions=tcq
 
 if has("syntax")
   syntax enable
@@ -162,6 +161,8 @@ if has("syntax")
     set fillchars=diff:\ ,fold:\ ,vert:\ 
   endif
 endif
+
+set tw=130 colorcolumn=110 formatoptions=tcq
 
 " Set no-background
 nmap <silent> ,nbg :hi Normal ctermbg=none<CR>:echo 'No background'<CR>
