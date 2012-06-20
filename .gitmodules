@@ -10,10 +10,6 @@
 	path = bundle/rails
 	url = https://github.com/tpope/vim-rails.git
   ignore = untracked
-[submodule "bundle/cucumber"]
-	path = bundle/cucumber
-	url = https://github.com/tpope/vim-cucumber.git
-  ignore = untracked
 [submodule "bundle/surround"]
 	path = bundle/surround
 	url = https://github.com/tpope/vim-surround.git
@@ -30,14 +26,6 @@
 	path = snippets
 	url = https://github.com/kassio/snipmate-snippets.git
   ignore = untracked
-[submodule "bundle/vim-textobj-user"]
-	path = bundle/vim-textobj-user
-	url = https://github.com/kana/vim-textobj-user.git
-  ignore = untracked
-[submodule "bundle/vim-textobj-rubyblock"]
-	path = bundle/vim-textobj-rubyblock
-	url = https://github.com/nelstrom/vim-textobj-rubyblock.git
-  ignore = untracked
 [submodule "bundle/tabublar"]
 	path = bundle/tabublar
 	url = https://github.com/godlygeek/tabular.git
@@ -45,14 +33,6 @@
 [submodule "bundle/potwiki"]
 	path = bundle/potwiki
 	url = https://github.com/kassio/potwiki.vim.git
-  ignore = untracked
-[submodule "bundle/git-vim"]
-	path = bundle/git-vim
-	url = https://github.com/motemen/git-vim.git
-  ignore = untracked
-[submodule "bundle/rvm-vim"]
-	path = bundle/rvm-vim
-	url = https://github.com/csexton/rvm.vim.git
   ignore = untracked
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
@@ -66,25 +46,9 @@
 	path = bundle/vim-textile
 	url = https://github.com/kassio/textile.vim.git
   ignore = untracked
-[submodule "bundle/color-vividchalk"]
-	path = bundle/color-vividchalk
-	url = https://github.com/tpope/vim-vividchalk.git
-  ignore = untracked
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
-  ignore = untracked
-[submodule "plugin/fuf_textmate"]
-	path = plugin/fuf_textmate
-	url = https://github.com/jamis/fuzzyfinder_textmate.git
-  ignore = untracked
-[submodule "ruby/fuf_file_finder"]
-	path = ruby/fuf_file_finder
-	url = https://github.com/jamis/fuzzy_file_finder.git
-  ignore = untracked
-[submodule "bundle/session"]
-	path = bundle/session
-	url = https://github.com/vim-scripts/session.vim--Odding.git
   ignore = untracked
 [submodule "bundle/xoria256"]
 	path = bundle/xoria256
@@ -106,10 +70,6 @@
 	path = bundle/vim-latex
 	url = https://github.com/mineiro/vim-latex.git
   ignore = untracked
-[submodule "bundle/fugitive"]
-	path = bundle/fugitive
-	url = https://github.com/tpope/vim-fugitive.git
-  ignore = untracked
 [submodule "bundle/html5"]
 	path = bundle/html5
 	url = https://github.com/kassio/html5.vim.git
@@ -118,24 +78,12 @@
 	path = bundle/nerdtree
 	url = https://github.com/kassio/nerdtree.git
   ignore = untracked
-[submodule "bundle/quicksilver"]
-	path = bundle/quicksilver
-	url = https://github.com/Bogdanp/quicksilver.vim.git
-[submodule "bundle/jsruntime"]
-	path = bundle/jsruntime
-	url = https://github.com/michalliu/jsruntime.vim.git
 [submodule "bundle/color_highlight"]
 	path = bundle/color_highlight
 	url = https://github.com/chrisbra/color_highlight.git
 [submodule "bundle/javascrip-indent"]
 	path = bundle/javascrip-indent
 	url = https://github.com/vim-scripts/JavaScript-Indent.git
-[submodule "bundle/monokai"]
-	path = bundle/monokai
-	url = https://github.com/sickill/vim-monokai.git
-[submodule "bundle/vim-rspec"]
-	path = bundle/vim-rspec
-	url = https://github.com/skwp/vim-rspec.git
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = https://github.com/ervandew/supertab.git
