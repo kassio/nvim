@@ -8,6 +8,8 @@ if has("autocmd")
   filetype plugin on
 endif
 
+let mapleader=','
+
 " My world is utf8
 scriptencoding utf8
 set encoding=utf8
@@ -110,12 +112,6 @@ if has("gui_running")
   set guioptions-=T
   " More spaced lines on gui
   set linespace=2
-  " FontSize on gui
-  if has("gui_gtk2")
-    set guifont=Droid\ Sans\ Mono\ 10
-  else
-    set guifont=Droid\ Sans\ Mono:h10
-  endif
   set lines=999
   set columns=9999
 endif
