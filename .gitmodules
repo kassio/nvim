@@ -58,10 +58,6 @@
 	path = bundle/VisIncr
 	url = https://github.com/vim-scripts/VisIncr.git
   ignore = untracked
-[submodule "bundle/command-t"]
-	path = bundle/command-t
-	url = https://github.com/wincent/Command-T.git
-  ignore = untracked
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
@@ -81,9 +77,16 @@
 [submodule "bundle/color_highlight"]
 	path = bundle/color_highlight
 	url = https://github.com/chrisbra/color_highlight.git
+  ignore = untracked
 [submodule "bundle/javascrip-indent"]
 	path = bundle/javascrip-indent
 	url = https://github.com/vim-scripts/JavaScript-Indent.git
+  ignore = untracked
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = https://github.com/ervandew/supertab.git
+  ignore = untracked
+[submodule "bundle/ctrlp"]
+	path = bundle/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git
+  ignore = untracked
