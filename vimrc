@@ -336,22 +336,19 @@ function! s:align()
   endif
 endfunction
 
-" CommandT
-function! CommandTNewTabFunc()
+" FuzzyFinder
+function! FuzzyFinderFunc()
   if getfsize(expand('%')) == -1
-    let g:CommandTAcceptSelectionTabMap='<C-t>'
-    let g:CommandTAcceptSelectionMap='<CR>'
+    let g:fuf_keyOpen='<CR>'
+    let g:fuf_keyOpenTabpage='<C-l>'
   else
-    let g:CommandTAcceptSelectionTabMap='<CR>'
-    let g:CommandTAcceptSelectionMap='<C-t>'
+    let g:fuf_keyOpen='<C-l>'
+    let g:fuf_keyOpenTabpage='<CR>'
   endif
-  execute ':CommandT'
+  silent! :FufFile ./**/
 endfunction
-let g:CommandTCancelMap='<esc>'
-let g:CommandTMatchWindowAtTop=1
-map <Leader>t :call CommandTNewTabFunc()<CR>
-map <Leader>T :CommandTFlush<CR>
-map <Leader>b :CommandTBuffer<CR>
+map <leader>t :call FuzzyFinderFunc()<CR>
+map <leader>T :FufRenewCache<CR>
 
 " Ruby Completion
 let g:rubycomplete_rails = 1
