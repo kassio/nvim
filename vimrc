@@ -335,19 +335,14 @@ function! s:align()
   endif
 endfunction
 
-" FuzzyFinder
-function! FuzzyFinderFunc()
-  if getfsize(expand('%')) == -1
-    let g:fuf_keyOpen='<CR>'
-    let g:fuf_keyOpenTabpage='<C-l>'
-  else
-    let g:fuf_keyOpen='<C-l>'
-    let g:fuf_keyOpenTabpage='<CR>'
-  endif
-  silent! :FufFile ./**/
-endfunction
-map <leader>t :call FuzzyFinderFunc()<CR>
-map <leader>T :FufRenewCache<CR>
+" CtrlP easy open files
+let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_max_height = 15
+let g:ctrlp_switch_buffer = 2
+let g:ctrlp_open_new_file = 't'
+let g:ctrlp_map = ',t'
+map <leader>r :CtrlPBuffer<CR>
 
 " Ruby Completion
 let g:rubycomplete_rails = 1
