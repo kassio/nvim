@@ -383,3 +383,6 @@ let g:colorizer_x11_names = 1
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "context"
+
+" Ack
+map ,as :Ack 
