@@ -386,3 +386,4 @@ let g:SuperTabDefaultCompletionType = "context"
 
 " Ack
 map ,as :Ack 
+let g:ackprg="ack -H -i --column"
