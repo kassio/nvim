@@ -345,6 +345,7 @@ let g:ctrlp_max_height = 15
 let g:ctrlp_switch_buffer = 2
 let g:ctrlp_open_new_file = 't'
 let g:ctrlp_tabpage_position = 'ac'
+let g:ctrlp_follow_symlinks = 1
 
 function! CtrlPPersonalOpenFunc()
   if getfsize(expand('%')) == -1
@@ -383,8 +384,5 @@ let g:colorizer_auto_color = 1
 let g:colorizer_x11_names = 1
 
 " Ack
-function! AckSearchCurrentWord()
-  exec ":Ack "expand('<cword>')
-endfunction
-map ,as :call AckSearchCurrentWord()<CR>
+map ,as :exec ":Ack "expand('<cword>')<CR>
 let g:ackprg="ack -H -i --column"
