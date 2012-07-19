@@ -100,6 +100,8 @@ set expandtab
 set nojoinspaces
 set shiftround
 set smarttab
+" Grep program
+set grepprg="ack -H -i --column"
 
 " Backspace
 set backspace=indent,eol,start
@@ -140,29 +142,19 @@ function! GetFileSize()
   endif
 endfunction
 
-" Appearance
-function! SetColorscheme()
+if has("syntax")
+  syntax enable
   set t_Co=256
   set background=dark
   colorscheme xoria256
   hi ColorColumn ctermbg=235 guibg=#262626
   let g:background_status = 1
-endfunction
-
-if has("syntax")
-  syntax enable
-  silent! :call SetColorscheme()<CR>
   if has("folding")
     set fillchars=diff:\ ,fold:\ ,vert:\ 
   endif
 endif
 
 set tw=130 colorcolumn=110 formatoptions=tcq
-
-" Set no-background
-nmap <silent> ,nbg :hi Normal ctermbg=none<CR>:echo 'No background'<CR>
-" Set colorscheme
-nmap <silent> ,bg :call SetColorscheme()<CR>:echo 'Colorscheme loaded'<CR>
 
 " Full copy/cut/past simple
 inoremap <C-v> <ESC>"+gpa
@@ -384,5 +376,5 @@ let g:colorizer_auto_color = 1
 let g:colorizer_x11_names = 1
 
 " Ack
-map ,as :exec ":Ack "expand('<cword>')<CR>
 let g:ackprg="ack -H -i --column"
+map ,as :exec ":Ack "expand('<cword>')<CR>
