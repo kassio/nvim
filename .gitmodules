@@ -94,3 +94,6 @@
 	path = bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
   ignore = untracked
+[submodule "bundle/vim-visual-star-search"]
+	path = bundle/vim-visual-star-search
+	url = https://github.com/bronson/vim-visual-star-search.git
