@@ -16,6 +16,9 @@ set encoding=utf8
 set fileencoding=utf8
 set termencoding=utf8
 
+" Integrates with UI clipboard
+set clipboard=unnamed
+
 " No want compatible with VI
 set nocompatible
 " Confirm before close
@@ -25,7 +28,10 @@ set incsearch
 " Highlight search results
 set hls
 " Don't continue comments when pushing o/O
-set formatoptions=twqan2
+set formatoptions=tcwqan2
+" Default textwidth
+set tw=120
+set colorcolumn=110
 " Ignore case while search
 set ignorecase
 " But if have a upcase letter use case sensitive
@@ -47,8 +53,7 @@ set mouse=a
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 " Make the command-line completion better
 set wildmenu
-" Showing list chars
-" set list
+set wildignore+=*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
 " More useful tab completion on menu
 set wildmode=list:longest,list:full
 " Add ignorance of whitespace to diff
@@ -59,6 +64,8 @@ set history=1000
 set undolevels=1000
 " Show this when wrap a line
 set showbreak=..
+" Default nowrap
+set nowrap
 " File name on terminal title
 set title
 " Show number by default
@@ -81,7 +88,7 @@ set foldenable
 set cursorline
 " Adding to autocomplete with current spell
 set complete=.,w,b,u,kspell
-set completeopt=menu,preview,longest
+set completeopt=menu,menuone,longest,preview
 " Wait this long for mappings
 set timeoutlen=3000
 " Make esc work faster
@@ -154,8 +161,6 @@ if has("syntax")
   endif
 endif
 
-set tw=130 colorcolumn=110 formatoptions=tcq
-
 " Full copy/cut/past simple
 inoremap <C-v> <ESC>"+gpa
 vnoremap <C-c> "+y
@@ -205,11 +210,11 @@ autocmd FileType python,js,javascript set smarttab tabstop=3 shiftwidth=3 softta
 map <F9> :!clear<CR>:w<CR>:make<CR>
 
 autocmd FileType c      set makeprg=gcc\ %\ -o\ %<\ -lm"
+autocmd FileType sh     set makeprg=./%
 autocmd FileType cpp    map <F9> :call CompileCPP()<CR>
-autocmd FileType ruby   set makeprg=ruby\ % 
+autocmd FileType ruby   set makeprg=ruby\ %
+autocmd FileType perl   set makeprg=perl\ %
 autocmd FileType python set makeprg=python\ %
-autocmd FileType perl set makeprg=perl\ %
-autocmd FileType sh set makeprg=./%
 
 function! CompileCPP()
   if filereadable("makefile")
