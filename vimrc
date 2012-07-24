@@ -16,9 +16,6 @@ set encoding=utf8
 set fileencoding=utf8
 set termencoding=utf8
 
-" Integrates with UI clipboard
-set clipboard=unnamed
-
 " No want compatible with VI
 set nocompatible
 " Confirm before close
@@ -160,11 +157,6 @@ if has("syntax")
     set fillchars=diff:\ ,fold:\ ,vert:\ 
   endif
 endif
-
-" Full copy/cut/past simple
-inoremap <C-v> <ESC>"+gpa
-vnoremap <C-c> "+y
-vnoremap <C-x> "+x
 
 " Make Y consistent with C and D
 nnoremap Y y$
