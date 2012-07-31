@@ -373,5 +373,5 @@ let g:colorizer_auto_color = 1
 let g:colorizer_x11_names = 1
 
 " Ack
-let g:ackprg="ack -H -i --column"
+let g:ackprg="ack -H -i --column --follow"
 map ,as :exec ":Ack "expand('<cword>')<CR>
