@@ -52,7 +52,7 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 set wildmenu
 set wildignore+=*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
 " More useful tab completion on menu
-set wildmode=list:longest,list:full
+set wildmode=list:longest
 " Add ignorance of whitespace to diff
 set diffopt+=iwhite
 " More history
@@ -70,6 +70,7 @@ set number
 set numberwidth=5
 " Load external updates
 set autoread
+set autowrite
 " Behavior when switching between buffers
 set switchbuf=newtab
 set tabpagemax=20
