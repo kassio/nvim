@@ -89,6 +89,7 @@
 [submodule "bundle/vim-visual-star-search"]
 	path = bundle/vim-visual-star-search
 	url = git://github.com/bronson/vim-visual-star-search.git
+  ignore = untracked
 [submodule "bundle/color-jellybeans"]
 	path = bundle/color-jellybeans
 	url = git://github.com/nanotech/jellybeans.vim.git
