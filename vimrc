@@ -152,7 +152,7 @@ if has("syntax")
   syntax enable
   set t_Co=256
   set background=dark
-  colorscheme xoria256
+  colorscheme jellybeans
   hi ColorColumn ctermbg=235 guibg=#262626
   let g:background_status = 1
   if has("folding")
