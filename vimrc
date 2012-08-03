@@ -152,7 +152,12 @@ if has("syntax")
   syntax enable
   set t_Co=256
   set background=dark
-  colorscheme jellybeans
+  let g:solarized_bold=1
+  let g:solarized_underline=1
+  let g:solarized_termcolors=256
+  let g:solarized_contrast="normal"
+  let g:solarized_visibility="low"
+  colorscheme solarized
   hi ColorColumn ctermbg=235 guibg=#262626
   let g:background_status = 1
   if has("folding")
