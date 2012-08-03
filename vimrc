@@ -289,11 +289,10 @@ let g:Tex_FontMenus=0
 let g:Tex_SectionMaps=0
 let g:Tex_SectionMenus=0
 
-"   echoNERDTree
+" NERDTree
 let g:NERDTreeWinPos="right"
 let NERDTreeHighlightCursorline=1
-nmap <silent> <Leader>P :NERDTree<CR>
-nmap <silent> <Leader>p :NERDTreeMirrorToggle<CR>
+nmap <silent> <Leader>p :execute "NERDTreeToggle \| :silent NERDTreeMirror"<CR>
 nnoremap <silent> ,fl :call FindInNERDTree()<CR>
 
 " Snipmate setup
