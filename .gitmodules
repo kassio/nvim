@@ -1,90 +1,82 @@
 [submodule "vim-pathogen"]
 	path = vim-pathogen
-  url = https://github.com/tpope/vim-pathogen.git
+  url = git://github.com/tpope/vim-pathogen.git
   ignore = untracked
 [submodule "bundle/ColorSelect"]
 	path = bundle/ColorSelect
-	url = https://github.com/kassio/ColorSelect.git
+	url = git://github.com/kassio/ColorSelect.git
   ignore = untracked
 [submodule "bundle/rails"]
 	path = bundle/rails
-	url = https://github.com/tpope/vim-rails.git
+	url = git://github.com/tpope/vim-rails.git
   ignore = untracked
 [submodule "bundle/surround"]
 	path = bundle/surround
-	url = https://github.com/tpope/vim-surround.git
+	url = git://github.com/tpope/vim-surround.git
   ignore = untracked
 [submodule "bundle/vim-ruby"]
 	path = bundle/vim-ruby
-	url = https://github.com/vim-ruby/vim-ruby.git
+	url = git://github.com/vim-ruby/vim-ruby.git
   ignore = untracked
 [submodule "bundle/scss-syntax"]
 	path = bundle/scss-syntax
-	url = https://github.com/cakebaker/scss-syntax.vim.git
+	url = git://github.com/cakebaker/scss-syntax.vim.git
   ignore = untracked
 [submodule "snippets"]
 	path = snippets
-	url = https://github.com/kassio/snipmate-snippets.git
+	url = git://github.com/kassio/snipmate-snippets.git
   ignore = untracked
 [submodule "bundle/tabublar"]
 	path = bundle/tabublar
-	url = https://github.com/godlygeek/tabular.git
+	url = git://github.com/godlygeek/tabular.git
   ignore = untracked
 [submodule "bundle/potwiki"]
 	path = bundle/potwiki
-	url = https://github.com/kassio/potwiki.vim.git
+	url = git://github.com/kassio/potwiki.vim.git
   ignore = untracked
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
-	url = https://github.com/akitaonrails/snipmate.vim.git
+	url = git://github.com/akitaonrails/snipmate.vim.git
   ignore = untracked
 [submodule "bundle/vim-l9"]
 	path = bundle/vim-l9
-	url = https://github.com/clones/vim-l9.git
-  ignore = untracked
-[submodule "bundle/vim-textile"]
-	path = bundle/vim-textile
-	url = https://github.com/kassio/textile.vim.git
+	url = git://github.com/clones/vim-l9.git
   ignore = untracked
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter.git
-  ignore = untracked
-[submodule "bundle/xoria256"]
-	path = bundle/xoria256
-	url = https://github.com/kassio/xoria256.vim.git
+	url = git://github.com/scrooloose/nerdcommenter.git
   ignore = untracked
 [submodule "bundle/VisIncr"]
 	path = bundle/VisIncr
-	url = https://github.com/vim-scripts/VisIncr.git
+	url = git://github.com/vim-scripts/VisIncr.git
   ignore = untracked
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
+	url = git://github.com/scrooloose/syntastic.git
   ignore = untracked
 [submodule "bundle/vim-latex"]
 	path = bundle/vim-latex
-	url = https://github.com/mineiro/vim-latex.git
+	url = git://github.com/mineiro/vim-latex.git
   ignore = untracked
 [submodule "bundle/html5"]
 	path = bundle/html5
-	url = https://github.com/kassio/html5.vim.git
+  url = git://github.com/othree/html5.vim.git
   ignore = untracked
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
-	url = https://github.com/kassio/nerdtree.git
+  url = git://github.com/scrooloose/nerdtree.git
   ignore = untracked
 [submodule "bundle/color_highlight"]
 	path = bundle/color_highlight
-	url = https://github.com/chrisbra/color_highlight.git
+	url = git://github.com/chrisbra/color_highlight.git
   ignore = untracked
 [submodule "bundle/javascrip-indent"]
 	path = bundle/javascrip-indent
-	url = https://github.com/vim-scripts/JavaScript-Indent.git
+	url = git://github.com/vim-scripts/JavaScript-Indent.git
   ignore = untracked
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
-	url = https://github.com/kien/ctrlp.vim.git
+	url = git://github.com/kien/ctrlp.vim.git
   ignore = untracked
 [submodule "bundle/vim-repeat"]
 	path = bundle/vim-repeat
@@ -92,11 +84,11 @@
   ignore = untracked
 [submodule "bundle/ack"]
 	path = bundle/ack
-	url = https://github.com/mileszs/ack.vim.git
+	url = git://github.com/mileszs/ack.vim.git
   ignore = untracked
 [submodule "bundle/vim-visual-star-search"]
 	path = bundle/vim-visual-star-search
-	url = https://github.com/bronson/vim-visual-star-search.git
+	url = git://github.com/bronson/vim-visual-star-search.git
 [submodule "bundle/color-jellybeans"]
 	path = bundle/color-jellybeans
 	url = git://github.com/nanotech/jellybeans.vim.git
