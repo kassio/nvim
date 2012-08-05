@@ -131,7 +131,7 @@ endif
 nnoremap Y y$
 
 " Full file indent
-noremap ,ff <ESC>:normal mzgg=G`zzz<CR>
+noremap ,ff <ESC>:normal mzgg=G`z<CR>
 
 " Make <C-l> clear the highlight
 nnoremap <C-L> :nohls<CR>:set hls?<CR>
