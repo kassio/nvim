@@ -10,120 +10,82 @@ endif
 
 let mapleader=','
 
-" My world is utf8
+set nocompatible
+
 scriptencoding utf8
 set encoding=utf8
 set fileencoding=utf8
 set termencoding=utf8
 
-" No want compatible with VI
-set nocompatible
-" Confirm before close
+set showmatch matchpairs+=<:>
+
 set confirm
-" Search while type
-set incsearch
-" Highlight search results
-set hls
-" Don't continue comments when pushing o/O
+
+set incsearch hls ignorecase smartcase
+
 set formatoptions=tcwqan2
-" Default textwidth
-set tw=120
-set colorcolumn=110
-" Ignore case while search
-set ignorecase
-" But if have a upcase letter use case sensitive
-set smartcase
-" Search wrap the file
-set wrapscan
-" Make sure that unsaved buffers that are to be put in the background are
-" Allowed to go in there (ie. the 'must save first' error doesn't come up)
-set hidden
-" Don't update the display while executing macros
+set tw=120 colorcolumn=110
+
 set lazyredraw
-" Show the current command in the lower right corner
 set showcmd
-" Hide the mouse pointer while typing
-set mousehide
-" Mouse facility
-set mouse=a
-" These commands open folds
-set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
-" Make the command-line completion better
-set wildmenu
-set wildignore+=*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
-" More useful tab completion on menu
+
+set mousehide mouse=a
+
+set wildmenu wildignorecase
 set wildmode=list:longest
-" Add ignorance of whitespace to diff
+set wildignore+=*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
+
 set diffopt+=iwhite
-" More history
-set history=1000
-" More undo
-set undolevels=1000
-" Show this when wrap a line
-set showbreak=..
-" Default nowrap
-set nowrap
-" File name on terminal title
+
+set hidden
+
+set history=1000 undolevels=1000
+
+set nowrap wrapscan showbreak=..
+
 set title
-" Show number by default
-set number
-set numberwidth=5
-" Load external updates
-set autoread
-set autowrite
-" Behavior when switching between buffers
+
+set number numberwidth=5
+
+set autoread autowrite
+
 set switchbuf=newtab
 set tabpagemax=20
-" Write external updates
-set autowrite
-" Indent by default
-set autoindent
-" Copy indent in/out
-set copyindent
-" Enable folds
+
 set foldenable
-" Show line with cursor
+set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
+
 set cursorline
-" Adding to autocomplete with current spell
+
 set complete=.,w,b,u,kspell
 set completeopt=menu,menuone,longest,preview
-" Wait this long for mappings
-set timeoutlen=3000
-" Make esc work faster
-set ttimeoutlen=50
-" Words to search functions
-set iskeyword+=-
-" Vertical split on right
-set splitright
-" Horizontal split on below
-set splitbelow
-" Tab default with 2 size
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-set nojoinspaces
-set shiftround
-set smarttab
-" Grep program
-set grepprg="ack -H -i --column"
 
-" Backspace
+set timeoutlen=3000
+set ttimeoutlen=50
+
+set iskeyword+=-
+
+set splitright splitbelow
+
+set autoindent copyindent cindent smartindent
+set tabstop=2 shiftwidth=2 softtabstop=2 
+set nojoinspaces expandtab smarttab shiftround
+
+set grepprg="ack -H -i --column --follow"
+
 set backspace=indent,eol,start
 
-" Session options
 set sessionoptions+=globals
 
+set term=builtin_ansi
+
 if has("gui_running")
-  " Disable gui menu
   set guioptions-=T
-  " More spaced lines on gui
   set linespace=2
   set lines=999
   set columns=9999
 endif
 
-" My statusline
 set statusline=[%n]\ %<%.55f\ %h%w%m%r%y
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%{fugitive#statusline()}
