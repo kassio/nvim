@@ -25,6 +25,10 @@ set incsearch hls ignorecase smartcase
 
 set formatoptions=tcwqan2
 set tw=120 colorcolumn=110
+hi link ExtraWhitespace Error
+au BufNewFile,BufRead,InsertLeave * match ExtraWhitespace /\s\+$/
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+command! Trim %s/\v\s+$//
 
 set lazyredraw
 set showcmd
@@ -68,8 +72,8 @@ set iskeyword+=-
 set splitright splitbelow
 
 set autoindent copyindent cindent smartindent
-set tabstop=2 shiftwidth=2 softtabstop=2 
-set nojoinspaces expandtab smarttab shiftround
+set tabstop=2 shiftwidth=2 softtabstop=2
+set expandtab smarttab shiftround
 
 set grepprg="ack -H -i --column --follow"
 
@@ -123,7 +127,7 @@ if has("syntax")
   hi ColorColumn ctermbg=235 guibg=#262626
   let g:background_status = 1
   if has("folding")
-    set fillchars=diff:\ ,fold:\ ,vert:\ 
+    set fillchars=diff:\ ,fold:\ ,vert:\
   endif
 endif
 
@@ -220,7 +224,7 @@ imap <F5> <ESC>:ColorSelect<CR>
 " Rails
 map <C-p><C-r> :!rspec %<CR>
 map <C-p>r :!rspec %<CR>
-vmap <C-p>p :Rextract 
+vmap <C-p>p :Rextract
 
 " Wiki
 let potwiki_home=$HOME."/Dropbox/Public/.wiki/HomePage"
@@ -248,7 +252,7 @@ let g:Tex_BIBINPUTS="%\.bib"
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Imap_UsePlaceHolders=0 " Turn off placeholders
 " Turn off some boring shortcuts
-let g:Tex_AdvancedMath=0 
+let g:Tex_AdvancedMath=0
 let g:Tex_EnvironmentMaps=0
 let g:Tex_EnvironmentMenus=0
 let g:Tex_FontMaps=0
