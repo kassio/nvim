@@ -8,13 +8,15 @@ let g:ctrlp_open_new_file = 't'
 let g:ctrlp_tabpage_position = 'ac'
 let g:ctrlp_follow_symlinks = 1
 
-function! CtrlPPersonalOpenFunc()
+function! CtrlPPersonalOpenFunc(command_name)
   if getfsize(expand('%')) == -1
     let g:ctrlp_prompt_mappings = { 'AcceptSelection("e")': ['<cr>', '<2-LeftMouse>'], 'AcceptSelection("t")': ['<c-t>'] }
   else
     let g:ctrlp_prompt_mappings = { 'AcceptSelection("e")': ['<c-t>'], 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'] }
   endif
-  silent! :CtrlP<CR>
+  exec a:command_name
 endfunction
-map <leader>t :call CtrlPPersonalOpenFunc()<CR>
+
+map <leader>t :call CtrlPPersonalOpenFunc('CtrlP')<CR>
+map <leader>T :call CtrlPPersonalOpenFunc('CtrlPMRUFiles')<CR>
 map <leader>r :CtrlPBuffer<CR>
