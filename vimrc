@@ -25,10 +25,7 @@ set incsearch hls ignorecase smartcase
 
 set formatoptions=tcwqan2
 set tw=90 colorcolumn=80
-hi link ExtraWhitespace Error
-au BufNewFile,BufRead,InsertLeave * match ExtraWhitespace /\s\+$/
-au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-command! Trim %s/\v\s+$//
+autocmd BufWritePre * :%s/\s\+$//e
 
 set lazyredraw
 set showcmd
