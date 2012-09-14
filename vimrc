@@ -56,7 +56,9 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 
 set cursorline
 
-set complete=.,w,b,u,kspell
+set tag+=../.tags
+
+set complete=.,w,b,u,kspell,t
 set completeopt=menu,menuone,longest,preview
 
 set timeoutlen=3000
