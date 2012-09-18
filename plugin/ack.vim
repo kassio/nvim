@@ -8,4 +8,4 @@ function! VAckSearch()
   return ':Ack "' . substitute(escape(@s, '\'), '\n', '\\n', 'g') . '"'
 endfunction
 
-vmap ,asv :<C-u>exec VAckSearch()<CR>
+vmap ,as :<C-u>exec VAckSearch()<CR>

@@ -3,9 +3,9 @@ call pathogen#infect()
 
 " Filetypes
 if has("autocmd")
-  filetype on
-  filetype indent on
-  filetype plugin on
+	filetype on
+	filetype indent on
+	filetype plugin on
 endif
 
 let mapleader=','
@@ -25,10 +25,21 @@ set incsearch hls ignorecase smartcase
 
 set formatoptions=tcwqan2
 set tw=90 colorcolumn=80
-autocmd BufWritePre * :%s/\s\+$//e
+
+function! ClearTrailingSpaces()
+normal mz
+normal Hmy
+%s/\s\+$//e
+call histdel("search", -1)
+normal 'yzt
+normal `z
+endfunction
+autocmd BufWritePre * call ClearTrailingSpaces()
 
 set lazyredraw
 set showcmd
+
+set lcs=eol:¬,tab:→\ ,trail:·
 
 set wildmenu wildignorecase
 set wildmode=list:longest
@@ -70,7 +81,7 @@ set splitright splitbelow
 
 set autoindent copyindent cindent smartindent
 set tabstop=2 shiftwidth=2 softtabstop=2
-set expandtab smarttab shiftround
+set noexpandtab smarttab shiftround
 
 set backspace=indent,eol,start
 
@@ -79,10 +90,10 @@ set sessionoptions+=globals
 set mousehide mouse=a ttymouse=xterm2
 
 if has("gui_running")
-  set guioptions-=T
-  set linespace=2
-  set lines=999
-  set columns=9999
+	set guioptions-=T
+	set linespace=2
+	set lines=999
+	set columns=9999
 endif
 
 set statusline=[%n]\ %<%.55f\ %h%w%m%r%y
@@ -97,40 +108,48 @@ set statusline+=[%{GetFileSize()}]
 set laststatus=2
 
 function! GetFileSize()
-  let filesize = getfsize(expand('%:p'))
-  if filesize < 0
-    return "-1"
-  elseif filesize < 1024
-    return filesize."b"
-  elseif filesize >= 1048576
-    return printf("%.2f", (filesize/1048576.00))."Mb"
-  else
-    return printf("%.2f", (filesize/1024.00))."Kb"
-  endif
+let filesize = getfsize(expand('%:p'))
+if filesize < 0
+	return "-1"
+elseif filesize < 1024
+	return filesize."b"
+elseif filesize >= 1048576
+	return printf("%.2f", (filesize/1048576.00))."Mb"
+else
+	return printf("%.2f", (filesize/1024.00))."Kb"
+endif
 endfunction
 
 if has("syntax")
-  syntax enable
-  set t_Co=256
-  set background=dark
-  let g:solarized_bold=1
-  let g:solarized_underline=1
-  let g:solarized_termcolors=256
-  let g:solarized_contrast="normal"
-  let g:solarized_visibility="low"
-  colorscheme solarized
-  hi ColorColumn ctermbg=235 guibg=#262626
-  let g:background_status = 1
-  if has("folding")
-    set fillchars=diff:\ ,fold:\ ,vert:\
-  endif
+	syntax enable
+	set t_Co=256
+	set background=dark
+	let g:solarized_bold=1
+	let g:solarized_underline=1
+	let g:solarized_termcolors=256
+	let g:solarized_contrast="normal"
+	let g:solarized_visibility="low"
+	colorscheme solarized
+	hi ColorColumn ctermbg=235 guibg=#262626
+	let g:background_status = 1
+	if has("folding")
+		set fillchars=diff:\ ,fold:\ ,vert:\
+	endif
 endif
 
 " Make Y consistent with C and D
 nnoremap Y y$
 
 " Full file indent
-noremap ,ff <ESC>:normal mzgg=G`zzz<CR>
+function! IndentAllFile()
+normal mz
+normal Hmy
+normal gg=G
+normal 'yzt
+normal `z
+endfunction
+
+noremap ,ff :call IndentAllFile()<CR>
 
 " Make <C-l> clear the highlight
 nnoremap <C-L> :nohls<CR>:set hls?<CR>
@@ -161,9 +180,9 @@ nmap <silent> ,cd :lcd %:h<CR>
 nmap <silent> ,md :!mkdir -p %:p:h<CR>
 
 " Tabstop 2 to that filetypes
-autocmd FileType vim,css,ruby,eruby,tex,c,sh,java set smarttab tabstop=2 shiftwidth=2 softtabstop=2 autoindent expandtab
+autocmd FileType vim,css,ruby,eruby,tex,c,sh,java set smarttab tabstop=2 shiftwidth=2 softtabstop=2 autoindent noexpandtab
 " Tabstop 4 to that
-autocmd FileType python,js,javascript set smarttab tabstop=3 shiftwidth=3 softtabstop=3 autoindent expandtab
+autocmd FileType python,js,javascript set smarttab tabstop=3 shiftwidth=3 softtabstop=3 autoindent noexpandtab
 
 " :make  Compile/Execute some filetypes
 " Just a shortcut
@@ -177,11 +196,11 @@ autocmd FileType perl   set makeprg=perl\ %
 autocmd FileType python set makeprg=python\ %
 
 function! CompileCPP()
-  if filereadable("makefile")
-    exec ":!clear; make clean; make; if [ $? -eq 0 ]; then clear; echo 'SUCCESS COMPILED'; fi"
-  else
-    echo "No make file founded"
-  endif
+if filereadable("makefile")
+	exec ":!clear; make clean; make; if [ $? -eq 0 ]; then clear; echo 'SUCCESS COMPILED'; fi"
+else
+	echo "No make file founded"
+endif
 endfunction
 
 " Spell
