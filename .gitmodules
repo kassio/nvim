@@ -70,10 +70,6 @@
 	path = bundle/color_highlight
 	url = git://github.com/chrisbra/color_highlight.git
   ignore = untracked
-[submodule "bundle/javascrip-indent"]
-	path = bundle/javascrip-indent
-	url = git://github.com/vim-scripts/JavaScript-Indent.git
-  ignore = untracked
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
 	url = git://github.com/kien/ctrlp.vim.git
@@ -101,15 +97,24 @@
 [submodule "bundle/vim-colors_solarized"]
 	path = bundle/vim-colors_solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+  ignore = untracked
 [submodule "bundle/vim-cucumber"]
 	path = bundle/vim-cucumber
 	url = git://github.com/tpope/vim-cucumber.git
+  ignore = untracked
 [submodule "bundle/vim-textobj-rubyblock"]
 	path = bundle/vim-textobj-rubyblock
 	url = git://github.com/nelstrom/vim-textobj-rubyblock.git
+  ignore = untracked
 [submodule "bundle/vim-textobj-user"]
 	path = bundle/vim-textobj-user
 	url = git://github.com/kana/vim-textobj-user.git
+  ignore = untracked
 [submodule "bundle/vim-bundler"]
 	path = bundle/vim-bundler
 	url = git://github.com/tpope/vim-bundler.git
+  ignore = untracked
+[submodule "bundle/vim-javascript"]
+	path = bundle/vim-javascript
+	url = git://github.com/pangloss/vim-javascript.git
+  ignore = untracked
