@@ -75,7 +75,7 @@ set completeopt=menu,menuone,longest,preview
 set timeoutlen=3000
 set ttimeoutlen=50
 
-set iskeyword+=-,?,!
+set iskeyword+=-,?,!,@
 
 set splitright splitbelow
 
