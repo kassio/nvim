@@ -62,11 +62,6 @@ set autoread autowrite
 set switchbuf=newtab
 set tabpagemax=20
 
-set foldenable
-set foldnestmax=4
-set foldcolumn=1
-set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
-
 set cursorline
 
 set tag+=../.tags
@@ -157,6 +152,8 @@ noremap ,ff :call IndentAllFile()<CR>
 nnoremap <C-L> :nohls<CR>:set hls?<CR>
 
 " Foldmaps
+set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
+
 function! ToggleFoldMethod()
 if &foldmethod == 'manual'
 	set foldmethod=syntax
@@ -164,12 +161,12 @@ else
 	set foldmethod=manual
 endif
 endfunction
-nnoremap ,fm :call ToggleFoldMethod()<CR>:echo &foldmethod<CR>
+nnoremap ,zm :call ToggleFoldMethod()<CR>:echo &foldmethod<CR>
 
 noremap <F3> zM
 noremap <F4> zR
-nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
-autocmd FileType vim,ruby,c,sh,java set foldmethod=syntax
+nnoremap <space> za
+autocmd FileType vim,ruby,c,sh,java set foldmethod=syntax foldenable foldcolumn=1 foldlevel=999
 
 
 " Show all buffers
