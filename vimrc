@@ -39,7 +39,7 @@ autocmd BufWritePre * call ClearTrailingSpaces()
 set lazyredraw
 set showcmd
 
-set lcs=eol:¬,tab:→\ ,trail:·
+set lcs=eol:¬,tab:▸\ ,trail:·
 
 set wildmenu wildignorecase
 set wildmode=list:longest
@@ -63,6 +63,8 @@ set switchbuf=newtab
 set tabpagemax=20
 
 set foldenable
+set foldnestmax=4
+set foldcolumn=1
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 
 set cursorline
@@ -155,29 +157,40 @@ noremap ,ff :call IndentAllFile()<CR>
 nnoremap <C-L> :nohls<CR>:set hls?<CR>
 
 " Foldmaps
+function! ToggleFoldMethod()
+if &foldmethod == 'manual'
+	set foldmethod=syntax
+else
+	set foldmethod=manual
+endif
+endfunction
+nnoremap ,fm :call ToggleFoldMethod()<CR>:echo &foldmethod<CR>
+
 noremap <F3> zM
 noremap <F4> zR
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+autocmd FileType vim,ruby,c,sh,java set foldmethod=syntax
+
 
 " Show all buffers
-nmap <silent> ,ls :ls!<CR>
+nnoremap <silent> ,ls :ls!<CR>
 " Delete current buffer
-nmap <silent> ,bd :bd!<CR>
+nnoremap <silent> ,bd :bd!<CR>
 " Delete all buffers
-nmap <silent> ,da :exec "1," . bufnr('$') . "bd"<CR>
+nnoremap <silent> ,da :exec "1," . bufnr('$') . "bd"<CR>
 
 " Toogle numbers
-nmap <silent> ,nn :set invnumber<CR>:set nu?<CR>
+nnoremap <silent> ,nn :set invnumber<CR>:set nu?<CR>
 " Toogle relative numbers
-nmap <silent> ,nr :set invrelativenumber<CR>:set relativenumber?<CR>
+nnoremap <silent> ,nr :set invrelativenumber<CR>:set relativenumber?<CR>
 " Toogle wrap text
-nmap <silent> ,w :set invwrap<CR>:set wrap?<CR>
+nnoremap <silent> ,w :set invwrap<CR>:set wrap?<CR>
 " Toogle list characters
-nmap <silent> ,ll :set invlist<CR>:set list?<CR>
+nnoremap <silent> ,ll :set invlist<CR>:set list?<CR>
 " cd to the directory containing the file in the buffer
-nmap <silent> ,cd :lcd %:h<CR>
+nnoremap <silent> ,cd :lcd %:h<CR>
 " make file directory(recursivily)
-nmap <silent> ,md :!mkdir -p %:p:h<CR>
+nnoremap <silent> ,md :!mkdir -p %:p:h<CR>
 
 " Tabstop 2 to that filetypes
 autocmd FileType vim,css,ruby,eruby,tex,c,sh,java set smarttab tabstop=2 shiftwidth=2 softtabstop=2 autoindent noexpandtab
@@ -186,11 +199,11 @@ autocmd FileType python,js,javascript set smarttab tabstop=3 shiftwidth=3 softta
 
 " :make  Compile/Execute some filetypes
 " Just a shortcut
-map <F9> :!clear<CR>:w<CR>:make<CR>
+noremap <F9> :!clear<CR>:w<CR>:make<CR>
 
 autocmd FileType c      set makeprg=gcc\ %\ -o\ %<\ -lm"
 autocmd FileType sh     set makeprg=./%
-autocmd FileType cpp    map <F9> :call CompileCPP()<CR>
+autocmd FileType cpp    noremap <F9> :call CompileCPP()<CR>
 autocmd FileType ruby   set makeprg=ruby\ %
 autocmd FileType perl   set makeprg=perl\ %
 autocmd FileType python set makeprg=python\ %
@@ -207,9 +220,9 @@ endfunction
 set spelllang=en,pt
 let spell_auto_type="tex,mail,txt"
 autocmd FileType tex,txt,mail,text set spell
-map <F7> <esc>:set invspell<CR>
-map <F6> zg
-map <F8> z=
+noremap <F7> <esc>:set invspell<CR>
+noremap <F6> zg
+noremap <F8> z=
 
 " Fixing some commands
 cab W  w
@@ -223,7 +236,7 @@ cab Q  q
 vnoremap ,ss :sort<CR>
 
 " Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+nnoremap <Up>     :echoe "Use k"<CR>
+nnoremap <Right>  :echoe "Use l"<CR>
+nnoremap <Down>   :echoe "Use j"<CR>
+nnoremap <Left>   :echoe "Use h"<CR>

@@ -1,11 +1,15 @@
 " Ack
-let g:ackprg="ack -H -i --column --follow"
-map ,as :exec ":Ack "expand('<cword>')<CR>
-
 function! VAckSearch()
-  let temp = @s
-  norm! gv"sy
-  return ':Ack "' . substitute(escape(@s, '\'), '\n', '\\n', 'g') . '"'
+let temp = @s
+norm! gv"sy
+return ':Ack "' . EscapeAllString(@s) . '"'
 endfunction
 
-vmap ,as :<C-u>exec VAckSearch()<CR>
+function! EscapeAllString(text)
+return substitute(escape(a:text, '.?/\|{[()]}'), '\n', '\\n', 'g')
+endfunction
+
+let g:ackprg="ack -H -i --column --follow"
+let g:ackhighlight=1
+vnoremap ,as :<C-u>exec VAckSearch()<CR>
+nnoremap ,as :Ack<CR>
