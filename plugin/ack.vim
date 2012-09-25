@@ -6,7 +6,7 @@ return ':Ack "' . EscapeAllString(@s) . '"'
 endfunction
 
 function! EscapeAllString(text)
-return substitute(escape(a:text, '.?/\|{[()]}'), '\n', '\\n', 'g')
+return substitute(escape(a:text, '*^$.?/\|{[()]}'), '\n', '\\n', 'g')
 endfunction
 
 let g:ackprg="ack -H -i --column --follow"

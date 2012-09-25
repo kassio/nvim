@@ -66,7 +66,7 @@ set cursorline
 
 set tag+=../.tags
 
-set complete=.,w,b,u,kspell,t
+set complete=.,w,b,u,kspell
 set completeopt=menu,menuone,longest,preview
 
 set timeoutlen=3000
@@ -150,24 +150,6 @@ noremap ,ff :call IndentAllFile()<CR>
 
 " Make <C-l> clear the highlight
 nnoremap <C-L> :nohls<CR>:set hls?<CR>
-
-" Foldmaps
-set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
-
-function! ToggleFoldMethod()
-if &foldmethod == 'manual'
-	set foldmethod=syntax
-else
-	set foldmethod=manual
-endif
-endfunction
-nnoremap ,zm :call ToggleFoldMethod()<CR>:echo &foldmethod<CR>
-
-noremap <F3> zM
-noremap <F4> zR
-nnoremap <space> za
-autocmd FileType vim,ruby,c,sh,java set foldmethod=syntax foldenable foldcolumn=1 foldlevel=999
-
 
 " Show all buffers
 nnoremap <silent> ,ls :ls!<CR>
