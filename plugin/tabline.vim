@@ -8,7 +8,7 @@ function! MyTabLine()
       let s .= '%#TabLine#'
     endif
 
-    let s .= '%' . (i + 1) . 'T'
+		let s .= '%' . (i + 1) . 'T'
 
     let s .= MyTabLabel(i + 1)
   endfor
@@ -16,7 +16,7 @@ function! MyTabLine()
   let s .= '%#TabLineFill#%T'
 
   if tabpagenr('$') > 1
-    let s .= '%=%#TabLine#%999XX'
+    let s .= '%=%#TabLine#%999X✗'
   endif
 
   return s
@@ -28,7 +28,7 @@ function! MyTabLabel(n)
   if(strlen(bufname) >= 15)
 		let bufname = strpart(bufname, 0, 12) . "..."
 	endif
-  return ' ' . a:n . '· ' . bufname
+  return ' ' . a:n . '·' . bufname . ' '
 endfunction
 
 set tabline=%!MyTabLine()
