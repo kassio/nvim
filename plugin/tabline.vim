@@ -26,7 +26,7 @@ function! MyTabLabel(n)
   let buflist = tabpagebuflist(a:n)
   let bufname = fnamemodify(bufname(buflist[0]), ":t")
   if(strlen(bufname) >= 15)
-		let bufname = strpart(bufname, 0, 12) . "..."
+		let bufname = strpart(bufname, 0, 19) . "‥"
 	endif
   return ' ' . a:n . '·' . bufname . ' '
 endfunction
