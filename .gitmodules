@@ -118,3 +118,6 @@
 	path = bundle/vim-javascript
 	url = git://github.com/pangloss/vim-javascript.git
   ignore = untracked
+[submodule "bundle/vim-endwise"]
+	path = bundle/vim-endwise
+	url = git://github.com/tpope/vim-endwise.git

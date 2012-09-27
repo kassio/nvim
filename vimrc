@@ -128,6 +128,7 @@ if has("syntax")
 	let g:solarized_visibility="low"
 	colorscheme solarized
 	hi ColorColumn ctermbg=235 guibg=#262626
+	hi IncSearch ctermbg=0
 	let g:background_status = 1
 	if has("folding")
 		set fillchars=diff:\ ,fold:\ ,vert:\
