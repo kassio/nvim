@@ -127,9 +127,11 @@ if has("syntax")
 	let g:solarized_contrast="normal"
 	let g:solarized_visibility="low"
 	colorscheme solarized
+	let g:background_status = 1
 	hi ColorColumn ctermbg=235 guibg=#262626
 	hi IncSearch ctermbg=0
-	let g:background_status = 1
+	hi link Comment SpecialKey
+	hi link Comment NonText
 	if has("folding")
 		set fillchars=diff:\ ,fold:\ ,vert:\
 	endif
