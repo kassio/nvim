@@ -78,7 +78,7 @@ set splitright splitbelow
 
 set autoindent copyindent cindent smartindent
 set tabstop=2 shiftwidth=2 softtabstop=2
-set noexpandtab smarttab shiftround
+set expandtab smarttab shiftround
 
 set backspace=indent,eol,start
 
@@ -175,9 +175,9 @@ nnoremap <silent> ,cd :lcd %:h<CR>
 nnoremap <silent> ,md :!mkdir -p %:p:h<CR>
 
 " Tabstop 2 to that filetypes
-autocmd FileType vim,css,ruby,eruby,tex,c,sh,java set smarttab tabstop=2 shiftwidth=2 softtabstop=2 autoindent noexpandtab
+autocmd FileType vim,css,ruby,eruby,tex,c,sh,java set smarttab tabstop=2 shiftwidth=2 softtabstop=2 autoindent expandtab
 " Tabstop 4 to that
-autocmd FileType python,js,javascript set smarttab tabstop=3 shiftwidth=3 softtabstop=3 autoindent noexpandtab
+autocmd FileType python,js,javascript set smarttab tabstop=3 shiftwidth=3 softtabstop=3 autoindent expandtab
 
 " :make  Compile/Execute some filetypes
 " Just a shortcut
