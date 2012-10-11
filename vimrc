@@ -97,11 +97,7 @@ set statusline=[%n]\ %<%.55f\ %h%w%m%r%y
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%{fugitive#statusline()}
 set statusline+=%=
-set statusline+=[ASCII=%b]                                 " ASCII value of char under cursor
-set statusline+=[HEX=%B]                                   " ASCII in HEX value of char under cursor
-set statusline+=[%c,%l/%L]                                 " Cursor [column,line/total] lines
-set statusline+=[%P]                                       " Percent through file
-set statusline+=[%{GetFileSize()}]
+set statusline+=[%c,%l/%L\|%P\|%{GetFileSize()}]
 set laststatus=2
 
 function! GetFileSize()
