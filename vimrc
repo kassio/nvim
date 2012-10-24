@@ -24,7 +24,7 @@ set confirm
 set incsearch hls ignorecase smartcase
 
 set formatoptions=tcwqan2
-set tw=90 colorcolumn=80
+set colorcolumn=80
 
 function! ClearTrailingSpaces()
 normal mz
@@ -38,6 +38,10 @@ autocmd BufWritePre * call ClearTrailingSpaces()
 
 set lazyredraw
 set showcmd
+
+" Prevent Vim from clobbering the scrollback buffer. See
+" http://www.shallowsky.com/linux/noaltscreen.html
+set t_ti= t_te=
 
 set lcs=eol:¬,tab:▸\ ,trail:·
 
@@ -197,7 +201,7 @@ endfunction
 " Spell
 set spelllang=en,pt
 let spell_auto_type="tex,mail,txt"
-autocmd FileType tex,txt,mail,text set spell
+autocmd FileType tex,txt,mail,text set spell tw=90
 noremap <F7> <esc>:set invspell<CR>
 noremap <F6> zg
 noremap <F8> z=
