@@ -3,9 +3,9 @@ call pathogen#infect()
 
 " Filetypes
 if has("autocmd")
-	filetype on
-	filetype indent on
-	filetype plugin on
+  filetype on
+  filetype indent on
+  filetype plugin on
 endif
 
 let mapleader=','
@@ -91,10 +91,10 @@ set sessionoptions+=globals
 set mousehide mouse=a ttymouse=xterm2
 
 if has("gui_running")
-	set guioptions-=T
-	set linespace=2
-	set lines=999
-	set columns=9999
+  set guioptions-=T
+  set linespace=2
+  set lines=999
+  set columns=9999
 endif
 
 set statusline=[%n]\ %<%.55f\ %h%w%m%r%y
@@ -107,34 +107,34 @@ set laststatus=2
 function! GetFileSize()
 let filesize = getfsize(expand('%:p'))
 if filesize < 0
-	return "-1"
+  return "-1"
 elseif filesize < 1024
-	return filesize."b"
+  return filesize."b"
 elseif filesize >= 1048576
-	return printf("%.2f", (filesize/1048576.00))."Mb"
+  return printf("%.2f", (filesize/1048576.00))."Mb"
 else
-	return printf("%.2f", (filesize/1024.00))."Kb"
+  return printf("%.2f", (filesize/1024.00))."Kb"
 endif
 endfunction
 
 if has("syntax")
-	syntax enable
-	set t_Co=256
-	set background=dark
-	let g:solarized_bold=1
-	let g:solarized_underline=1
-	let g:solarized_termcolors=256
-	let g:solarized_contrast="normal"
-	let g:solarized_visibility="low"
-	colorscheme solarized
-	let g:background_status = 1
-	hi ColorColumn ctermbg=235 guibg=#262626
-	hi IncSearch ctermbg=0
-	hi link Comment SpecialKey
-	hi link Comment NonText
-	if has("folding")
-		set fillchars=diff:\ ,fold:\ ,vert:\
-	endif
+  syntax enable
+  set t_Co=256
+  set background=dark
+  let g:solarized_bold=1
+  let g:solarized_underline=1
+  let g:solarized_termcolors=256
+  let g:solarized_contrast="normal"
+  let g:solarized_visibility="low"
+  colorscheme solarized
+  let g:background_status = 1
+  hi ColorColumn ctermbg=235 guibg=#262626
+  hi IncSearch ctermbg=0
+  hi link Comment SpecialKey
+  hi link Comment NonText
+  if has("folding")
+    set fillchars=diff:\ ,fold:\ ,vert:\
+  endif
 endif
 
 " Make Y consistent with C and D
@@ -192,9 +192,9 @@ autocmd FileType python set makeprg=python\ %
 
 function! CompileCPP()
 if filereadable("makefile")
-	exec ":!clear; make clean; make; if [ $? -eq 0 ]; then clear; echo 'SUCCESS COMPILED'; fi"
+  exec ":!clear; make clean; make; if [ $? -eq 0 ]; then clear; echo 'SUCCESS COMPILED'; fi"
 else
-	echo "No make file founded"
+  echo "No make file founded"
 endif
 endfunction
 
