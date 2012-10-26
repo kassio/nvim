@@ -1,5 +1,6 @@
 " Load submodules with pathogen
 call pathogen#infect()
+call pathogen#helptags()
 
 " Filetypes
 if has("autocmd")
@@ -18,6 +19,7 @@ set fileencoding=utf8
 set termencoding=utf8
 
 set showmatch matchpairs+=<:>
+runtime macros/matchit.vim
 
 set confirm
 
