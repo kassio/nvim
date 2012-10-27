@@ -20,3 +20,4 @@ endfunction
 map <leader>t :call CtrlPPersonalOpenFunc('CtrlP')<CR>
 map <leader>T :call CtrlPPersonalOpenFunc('CtrlPMRUFiles')<CR>
 map <leader>r :CtrlPBuffer<CR>
+map <leader>y :CtrlPLine<CR>
