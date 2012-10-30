@@ -35,4 +35,4 @@ map <leader>t :call CtrlPPersonalOpenFunc('CtrlP')<CR>
 map <leader>T :call CtrlPPersonalOpenFunc('CtrlPMRUFiles')<CR>
 map <leader>r :call CtrlPPersonalOpenFunc('CtrlPBuffer')<CR>
 map <leader>yy :call CtrlPDefaultOpenFunc('CtrlPLine')<CR>
-map <leader>yd :call CtrlPDefaultOpenFunc('CtrlPLine')<CR>def
+map <leader>yd :call CtrlPDefaultOpenFunc('CtrlPLine')<CR><c-r>def<space>
