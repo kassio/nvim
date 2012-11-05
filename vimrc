@@ -123,13 +123,8 @@ if has("syntax")
   syntax enable
   set t_Co=256
   set background=dark
-  let g:solarized_bold=1
-  let g:solarized_underline=1
   let g:solarized_termcolors=256
-  let g:solarized_contrast="normal"
-  let g:solarized_visibility="low"
   colorscheme solarized
-  let g:background_status = 1
   hi ColorColumn ctermbg=235 guibg=#262626
   hi IncSearch ctermbg=0
   hi link Comment SpecialKey
