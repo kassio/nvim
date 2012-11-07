@@ -25,7 +25,7 @@ set confirm
 
 set incsearch hls ignorecase smartcase
 
-set formatoptions=tcwqan2
+set formatoptions=tcwqn2
 set colorcolumn=80
 
 function! ClearTrailingSpaces()

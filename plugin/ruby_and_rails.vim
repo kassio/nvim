@@ -5,6 +5,8 @@ let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_include_object = 1
 let g:rubycomplete_include_objectspace = 1
 
+set formatoptions-=a
+
 autocmd FileType ruby,eruby
       \ let g:surround_35 = "#{\r}"             |
       \ let g:surround_45 = "<% \r %>"          |
