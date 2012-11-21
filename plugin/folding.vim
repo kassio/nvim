@@ -13,6 +13,6 @@ nnoremap ,zm :call ToggleFoldMethod()<CR>:echo &foldmethod<CR>
 noremap <F3> zM
 noremap <F4> zR
 nnoremap <space> za
-autocmd FileType ruby,c,sh,java set foldmethod=syntax foldenable foldcolumn=1 foldlevel=999
+autocmd FileType ruby,c,sh,java set foldmethod=syntax foldenable foldcolumn=0 foldlevel=99
 
 hi FoldColumn ctermfg=182
