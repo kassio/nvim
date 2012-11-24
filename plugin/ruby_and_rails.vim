@@ -16,7 +16,7 @@ autocmd FileType ruby,eruby
       \ let g:surround_119 = "%w[\r]"
 
 command! NewRubyHashSyntax %s/\v:(\w+)\ ?\=\>/\1:/g
-command! OldRubyHashSyntax %s/\v(\w+):\ ?/:\1 => /g
+command! OldRubyHashSyntax %s/\v(\w+):\ ?\ze[^:]/:\1 => /g
 
 " Rails
 map <C-p><C-r> :!rspec %<CR>
