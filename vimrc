@@ -17,6 +17,7 @@ scriptencoding utf8
 set encoding=utf8
 set fileencoding=utf8
 set termencoding=utf8
+set nobomb
 
 set showmatch matchpairs+=<:>
 runtime macros/matchit.vim
