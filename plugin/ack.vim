@@ -1,6 +1,5 @@
 " Ack
 function! VAckSearch()
-let temp = @s
 norm! gv"sy
 return ':Ack "' . EscapeAllString(@s) . '"'
 endfunction
