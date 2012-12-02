@@ -5,20 +5,14 @@ let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_include_object = 1
 let g:rubycomplete_include_objectspace = 1
 
-set formatoptions-=a
-
-autocmd FileType ruby,eruby
-      \ let g:surround_35 = "#{\r}"             |
-      \ let g:surround_45 = "<% \r %>"          |
-      \ let g:surround_61 = "<%= \r %>"         |
-      \ let g:surround_98 = "begin\n  \r\nend"  |
-      \ let g:surround_100 = "do\n  \r\nend"    |
-      \ let g:surround_119 = "%w[\r]"
+autocmd FileType ruby,eruby,rails let g:surround_35  = "#{\r}"             " #
+autocmd FileType ruby,eruby,rails let g:surround_45  = "<% \r %>"          " -
+autocmd FileType ruby,eruby,rails let g:surround_61  = "<%= \r %>"         " =
+autocmd FileType ruby,eruby,rails let g:surround_98  = "begin\n\t\r\nend"  " b
+autocmd FileType ruby,eruby,rails let g:surround_99  = "class\n\t\r\nend"  " c
+autocmd FileType ruby,eruby,rails let g:surround_100 = "do\n\t\r\nend"     " d
+autocmd FileType ruby,eruby,rails let g:surround_109 = "module\n\t\r\nend" " m
+autocmd FileType ruby,eruby,rails let g:surround_119 = "%w[\r]"            " w
 
 command! NewRubyHashSyntax %s/\v:(\w+)\ ?\=\>/\1:/g
 command! OldRubyHashSyntax %s/\v(\w+):\ ?\ze[^:]/:\1 => /g
-
-" Rails
-map <C-p><C-r> :!rspec %<CR>
-map <C-p>r :!rspec %<CR>
-vmap <C-p>p :Rextract
