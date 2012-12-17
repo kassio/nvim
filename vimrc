@@ -29,7 +29,7 @@ set incsearch hls ignorecase smartcase
 set formatoptions=tcwqn2
 set colorcolumn=80
 
-function! ClearTrailingSpaces()
+function! TrimFunc()
 normal mz
 normal Hmy
 %s/\s\+$//e
@@ -37,7 +37,9 @@ call histdel("search", -1)
 normal 'yzt
 normal `z
 endfunction
-autocmd BufWritePre * call ClearTrailingSpaces()
+autocmd BufWritePre * call TrimFunc()
+
+command! Trim call TrimFunc()<CR>
 
 set lazyredraw
 set showcmd
@@ -135,6 +137,12 @@ if has("syntax")
   endif
 endif
 
+" Folding
+set foldmethod=manual
+noremap <F3> zM
+noremap <F4> zR
+nnoremap <space> za
+
 " Make Y consistent with C and D
 nnoremap Y y$
 
@@ -195,7 +203,6 @@ else
   echo "No make file founded"
 endif
 endfunction
-
 " Spell
 set spelllang=en,pt
 let spell_auto_type="tex,mail,txt"
