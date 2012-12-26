@@ -16,3 +16,6 @@ autocmd FileType ruby,eruby,rails let g:surround_119 = "%w[\r]"            " w
 
 command! NewRubyHashSyntax %s/\v:(\w+)\ ?\=\>/\1:/g
 command! OldRubyHashSyntax %s/\v(\w+):\ ?\ze[^:]/:\1 => /g
+
+let g:RubyRunner_key = '<leader>ef'
+let g:RubyRunner_keep_focus_key = '<leader>ee'
