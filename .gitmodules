@@ -127,3 +127,6 @@
 [submodule "bundle/vim-ruby-runner"]
 	path = bundle/vim-ruby-runner
 	url = git://github.com/henrik/vim-ruby-runner.git
+[submodule "bundle/splitjoin"]
+	path = bundle/splitjoin
+	url = git@github.com:AndrewRadev/splitjoin.vim.git
