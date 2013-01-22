@@ -1,6 +1,8 @@
 " NERDTree
 let g:NERDTreeWinPos="right"
 let NERDTreeHighlightCursorline=1
+let NERDTreeMinimalUI=1
+
 
 function! MyNERDTreeOpen()
 exec "NERDTreeToggle \| :silent NERDTreeMirror"
@@ -11,5 +13,5 @@ endif
 endfunction
 
 nmap <silent> <Leader>p :call MyNERDTreeOpen()<cr>
-nnoremap <silent> <Leader>fl :call FindInNERDTree()<cr>
+nnoremap <silent> <Leader>fl :NERDTreeFind<cr>
 command! E exec ":NERDTree ".expand('%:p')
