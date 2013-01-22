@@ -195,6 +195,7 @@ autocmd FileType cpp    noremap <F9> :call CompileCPP()<CR>
 autocmd FileType ruby   set makeprg=ruby\ %
 autocmd FileType perl   set makeprg=perl\ %
 autocmd FileType python set makeprg=python\ %
+autocmd FileType sml    set makeprg=sml\ %
 
 function! CompileCPP()
 if filereadable("makefile")
