@@ -52,7 +52,7 @@ set lcs=eol:¬,tab:▸\ ,trail:·
 
 set wildmenu wildignorecase
 set wildmode=list:longest
-set wildignore+=*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
+set wildignore+=*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov,*/.git/*,*/.hg/*,*/.svn/*
 
 set diffopt+=iwhite
 
