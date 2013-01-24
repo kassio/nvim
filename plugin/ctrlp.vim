@@ -11,10 +11,10 @@ let g:ctrlp_abbrev = {
   \ 'gmode': 't',
   \ 'abbrevs': [
     \ { 'pattern': '^a/', 'expanded': 'app/' },
-    \ { 'pattern': '^c/', 'expanded': 'app/controllers' },
-    \ { 'pattern': '^m/', 'expanded': 'app/models' },
-    \ { 'pattern': '^v/', 'expanded': 'app/views' },
-    \ { 'pattern': '^h/', 'expanded': 'app/helpers' },
+    \ { 'pattern': '^c/', 'expanded': 'app/controllers/' },
+    \ { 'pattern': '^m/', 'expanded': 'app/models/' },
+    \ { 'pattern': '^v/', 'expanded': 'app/views/' },
+    \ { 'pattern': '^h/', 'expanded': 'app/helpers/' },
     \ { 'pattern': '^s/', 'expanded': 'spec/' }
     \ ]
   \ }
