@@ -48,7 +48,7 @@ set showcmd
 " http://www.shallowsky.com/linux/noaltscreen.html
 set t_ti= t_te=
 
-set lcs=eol:¬,tab:▸\ ,trail:·
+set listchars=eol:¬,tab:▸\ ,trail:·,nbsp:·
 
 set wildmenu wildignorecase
 set wildmode=list:longest
@@ -64,7 +64,7 @@ set nowrap wrapscan showbreak=..
 
 set title
 
-set number numberwidth=5
+set relativenumber numberwidth=5
 
 set autoread autowrite
 
@@ -132,9 +132,6 @@ if has("syntax")
   hi IncSearch ctermbg=0
   hi link Comment SpecialKey
   hi link Comment NonText
-  if has("folding")
-    set fillchars=diff:\ ,fold:\ ,vert:\
-  endif
 endif
 
 " Folding
@@ -224,7 +221,11 @@ cab Q  q
 vnoremap ,ss :sort<CR>
 
 " Get off my lawn
-nnoremap <Up>     :echoe "Use k"<CR>
-nnoremap <Right>  :echoe "Use l"<CR>
-nnoremap <Down>   :echoe "Use j"<CR>
-nnoremap <Left>   :echoe "Use h"<CR>
+nmap <Up>     <nop>
+nmap <Right>  <nop>
+nmap <Down>   <nop>
+nmap <Left>   <nop>
+imap <Up>     <nop>
+imap <Right>  <nop>
+imap <Down>   <nop>
+imap <Left>   <nop>
