@@ -19,31 +19,8 @@ let g:ctrlp_abbrev = {
     \ ]
   \ }
 
-function! CtrlPPersonalOpenFunc(command_name)
-if getfsize(expand('%')) == -1
-  let g:ctrlp_prompt_mappings = {
-        \ 'AcceptSelection("e")': ['<cr>', '<2-LeftMouse>'],
-        \ 'AcceptSelection("t")': ['<c-t>']
-        \ }
-else
-  let g:ctrlp_prompt_mappings = {
-        \ 'AcceptSelection("e")': ['<c-t>'],
-        \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>']
-        \ }
-endif
-exec a:command_name
-endfunction
-
-function! CtrlPDefaultOpenFunc(command_name)
-let g:ctrlp_prompt_mappings = {
-      \ 'AcceptSelection("t")': ['<c-t>'],
-      \ 'AcceptSelection("e")': ['<cr>', '<2-LeftMouse>']
-      \ }
-exec a:command_name
-endfunction
-
-map <leader>t :call CtrlPPersonalOpenFunc('CtrlP')<CR>
-map <leader>T :call CtrlPPersonalOpenFunc('CtrlPMRUFiles')<CR>
-map <leader>r :call CtrlPPersonalOpenFunc('CtrlPBuffer')<CR>
-map <leader>yy :call CtrlPDefaultOpenFunc('CtrlPLine')<CR>
-map <leader>yd :call CtrlPDefaultOpenFunc('CtrlPLine')<CR><c-r>def<space>
+map <leader>t :CtrlP<CR>
+map <leader>T :CtrlPMRUFiles<CR>
+map <leader>r :CtrlPBuffer<CR>
+map <leader>yy :CtrlPLine<CR>
+map <leader>yd :CtrlPLine<CR><c-r>def<space>
