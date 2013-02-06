@@ -22,10 +22,6 @@
 	path = bundle/scss-syntax
 	url = git://github.com/cakebaker/scss-syntax.vim.git
   ignore = untracked
-[submodule "snippets"]
-	path = snippets
-	url = git://github.com/kassio/snipmate-snippets.git
-  ignore = untracked
 [submodule "bundle/tabublar"]
 	path = bundle/tabublar
 	url = git://github.com/godlygeek/tabular.git
