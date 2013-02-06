@@ -113,15 +113,16 @@
 [submodule "bundle/vim-endwise"]
 	path = bundle/vim-endwise
 	url = git://github.com/tpope/vim-endwise.git
+  ignore = untracked
 [submodule "bundle/vim-elixir"]
 	path = bundle/vim-elixir
 	url = git://github.com/elixir-lang/vim-elixir.git
-[submodule "bundle/vim-ruby-runner"]
-	path = bundle/vim-ruby-runner
-	url = git://github.com/henrik/vim-ruby-runner.git
+  ignore = untracked
 [submodule "bundle/splitjoin"]
 	path = bundle/splitjoin
 	url = git://github.com/AndrewRadev/splitjoin.vim.git
+  ignore = untracked
 [submodule "bundle/ultisnips"]
 	path = bundle/ultisnips
 	url = git://github.com/SirVer/ultisnips.git
+  ignore = untracked
