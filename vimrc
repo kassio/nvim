@@ -27,7 +27,7 @@ set confirm
 set incsearch hls ignorecase smartcase
 
 set formatoptions=tcwqn2
-set colorcolumn=80
+set colorcolumn=80,120
 
 function! TrimFunc()
 normal mz
