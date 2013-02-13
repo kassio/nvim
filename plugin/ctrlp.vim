@@ -19,8 +19,4 @@ let g:ctrlp_abbrev = {
     \ ]
   \ }
 
-map <leader>t :CtrlP<CR>
-map <leader>T :CtrlPMRUFiles<CR>
-map <leader>r :CtrlPBuffer<CR>
-map <leader>yy :CtrlPLine<CR>
-map <leader>yd :CtrlPLine<CR><c-r>def<space>
+map <c-/> :CtrlPLine<CR>
