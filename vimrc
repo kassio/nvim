@@ -1,6 +1,4 @@
-" Load submodules with pathogen
-call pathogen#infect()
-call pathogen#helptags()
+source ~/.vim/vundle.vim
 
 " Filetypes
 if has("autocmd")
