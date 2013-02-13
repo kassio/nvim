@@ -124,12 +124,14 @@ if has("syntax")
   syntax enable
   set t_Co=256
   set background=dark
-  let g:solarized_termcolors=256
-  colorscheme solarized
-  hi ColorColumn ctermbg=235 guibg=#262626
-  hi IncSearch ctermbg=0
-  hi link Comment SpecialKey
-  hi link Comment NonText
+  if !empty(globpath(&rtp, "colors/solarized.vim"))
+    let g:solarized_termcolors=256
+    colorscheme solarized
+    hi ColorColumn ctermbg=235 guibg=#262626
+    hi IncSearch ctermbg=0
+    hi link Comment SpecialKey
+    hi link Comment NonText
+  endif
 endif
 
 " Folding
