@@ -126,7 +126,6 @@ if has("syntax")
   set background=dark
 
   if !empty(globpath(&rtp, "colors/solarized.vim"))
-    let g:solarized_termcolors=256
     colorscheme solarized
     hi! link SpecialKey Comment
     hi! link NonText Comment
