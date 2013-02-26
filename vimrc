@@ -47,6 +47,7 @@ set showcmd
 set t_ti= t_te=
 
 set listchars=eol:¬,tab:▸\ ,trail:·,nbsp:·
+set list
 
 set wildmenu wildignorecase
 set wildmode=list:longest
@@ -71,15 +72,15 @@ set tabpagemax=20
 
 set cursorline
 
-set tag+=../.tags
+set tag=
 
-set complete=.,w,b,u,kspell
+set complete=.,w,b,u
 set completeopt=menu,menuone,longest,preview
 
 set timeoutlen=3000
 set ttimeoutlen=50
 
-set iskeyword+=-,?,!,@
+set iskeyword+=-
 
 set splitright splitbelow
 
@@ -207,23 +208,6 @@ noremap <F7> <esc>:set invspell<CR>
 noremap <F6> zg
 noremap <F8> z=
 
-" Fixing some commands
-cab W  w
-cab Wq wq
-cab wQ wq
-cab WQ wq
-cab Q  q
-
 " Sorting selected text
 " @shotcut ,ss
 vnoremap ,ss :sort<CR>
-
-" Get off my lawn
-nmap <Up>     <nop>
-nmap <Right>  <nop>
-nmap <Down>   <nop>
-nmap <Left>   <nop>
-imap <Up>     <nop>
-imap <Right>  <nop>
-imap <Down>   <nop>
-imap <Left>   <nop>
