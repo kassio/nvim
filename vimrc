@@ -42,10 +42,6 @@ command! Trim call TrimFunc()<CR>
 set lazyredraw
 set showcmd
 
-" Prevent Vim from clobbering the scrollback buffer. See
-" http://www.shallowsky.com/linux/noaltscreen.html
-set t_ti= t_te=
-
 set listchars=eol:¬,tab:▸\ ,trail:·,nbsp:·
 set list
 
