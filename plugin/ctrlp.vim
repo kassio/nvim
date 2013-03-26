@@ -19,4 +19,4 @@ let g:ctrlp_abbrev = {
     \ ]
   \ }
 
-map <c-/> :CtrlPLine<CR>
+map <c-n> :CtrlPLine<CR>
