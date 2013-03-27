@@ -65,6 +65,7 @@ set autoread autowrite
 
 set switchbuf=newtab
 set tabpagemax=20
+command! TS tab sball
 
 set cursorline
 
