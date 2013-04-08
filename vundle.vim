@@ -5,23 +5,18 @@ set rtp+=~/.vim/vundle/
 call vundle#rc()
 
 Bundle 'AndrewRadev/splitjoin.vim'
-Bundle 'SirVer/ultisnips'
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'bronson/vim-visual-star-search'
 Bundle 'cakebaker/scss-syntax.vim'
-Bundle 'chrisbra/color_highlight'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'godlygeek/tabular'
 Bundle 'kana/vim-textobj-user'
 Bundle 'kassio/potwiki.vim'
-Bundle 'kassio/ultisnips-snippets'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
-Bundle 'rking/ag.vim'
-Bundle 'nanotech/jellybeans.vim'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'othree/html5.vim'
 Bundle 'pangloss/vim-javascript'
+Bundle 'rking/ag.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
@@ -34,5 +29,17 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/VisIncr'
+
+" Colors
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'chrisbra/color_highlight'
+Bundle 'nanotech/jellybeans.vim'
+
+" Snippets
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "honza/vim-snippets"
+Bundle "garbas/vim-snipmate"
+Bundle 'kassio/my-snippets'
 
 Bundle 'L9'
