@@ -38,7 +38,6 @@ Bundle 'nanotech/jellybeans.vim'
 " Snippets
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle "honza/vim-snippets"
 Bundle "garbas/vim-snipmate"
 Bundle 'kassio/my-snippets'
 
