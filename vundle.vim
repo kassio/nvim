@@ -1,8 +1,12 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/vundle/
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
+" Vundle
+Bundle 'gmarik/vundle'
+
 
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'bronson/vim-visual-star-search'
@@ -41,4 +45,5 @@ Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
 Bundle 'kassio/my-snippets'
 
+" Dependencies
 Bundle 'L9'
