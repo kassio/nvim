@@ -9,8 +9,6 @@ endif
 
 let mapleader=','
 
-set nocompatible
-
 scriptencoding utf8
 set encoding=utf8
 set fileencoding=utf8
