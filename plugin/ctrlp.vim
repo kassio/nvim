@@ -4,7 +4,7 @@ let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_switch_buffer = 'E'
 let g:ctrlp_follow_symlinks = 1
-let g:ctrlp_custom_ignore = '\v[\/](.git|log|b)$'
+let g:ctrlp_custom_ignore = '\v[\/](.git|log|bbin)$'
 let g:ctrlp_abbrev = {
   \ 'abbrevs': [
     \ { 'pattern': '^a/', 'expanded': 'app/assets' },
