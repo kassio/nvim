@@ -8,6 +8,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Tools
+Bundle 'tomtom/quickfixsigns_vim'
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
