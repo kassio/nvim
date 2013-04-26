@@ -1,6 +1,7 @@
 " NERDTree
 let g:NERDTreeWinPos="right"
 let NERDTreeHighlightCursorline=1
+let NERDTreeAutoDeleteBuffer=1
 let NERDTreeMinimalUI=1
 
 
