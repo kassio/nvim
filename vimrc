@@ -176,6 +176,9 @@ autocmd FileType vim,css,ruby,eruby,tex,c,sh,java set smarttab tabstop=2 shiftwi
 " Tabstop 4 to that
 autocmd FileType python,js,javascript set smarttab tabstop=2 shiftwidth=2 softtabstop=2 autoindent expandtab
 
+" better commit msgs
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
 " :make  Compile/Execute some filetypes
 " Just a shortcut
 noremap <F9> :!clear<CR>:w<CR>:make<CR>
