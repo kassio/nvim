@@ -6,14 +6,14 @@ let g:ctrlp_switch_buffer = 'E'
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_custom_ignore = '\v[\/](.git|log|bbin)$'
 let g:ctrlp_abbrev = {
-  \ 'abbrevs': [
-    \ { 'pattern': '^a/', 'expanded': 'app/assets' },
-    \ { 'pattern': '^c/', 'expanded': 'app/controllers/' },
-    \ { 'pattern': '^m/', 'expanded': 'app/models/' },
-    \ { 'pattern': '^v/', 'expanded': 'app/views/' },
-    \ { 'pattern': '^h/', 'expanded': 'app/helpers/' },
-    \ { 'pattern': '^s/', 'expanded': 'spec/' }
-    \ ]
-  \ }
+      \ 'abbrevs': [
+      \ { 'pattern': '\v(^|\/)a/', 'expanded': 'assets' },
+      \ { 'pattern': '\v(^|\/)c/', 'expanded': 'controllers/' },
+      \ { 'pattern': '\v(^|\/)m/', 'expanded': 'models/' },
+      \ { 'pattern': '\v(^|\/)v/', 'expanded': 'views/' },
+      \ { 'pattern': '\v(^|\/)h/', 'expanded': 'helpers/' },
+      \ { 'pattern': '^s/', 'expanded': 'spec/' }
+      \ ]
+      \ }
 
 map <c-n> :CtrlPLine<CR>
