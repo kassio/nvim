@@ -44,7 +44,7 @@ set listchars=eol:¬,tab:▸\ ,trail:·,nbsp:·
 set list
 
 set wildmenu wildignorecase
-set wildmode=list:longest
+set wildmode=list:full,list:longest
 set wildignore+=*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov,*/.git/*,*/.hg/*,*/.svn/*
 
 set diffopt+=iwhite
