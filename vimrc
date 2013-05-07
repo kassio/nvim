@@ -176,9 +176,6 @@ autocmd FileType vim,css,ruby,eruby,tex,c,sh,java set smarttab tabstop=2 shiftwi
 " Tabstop 4 to that
 autocmd FileType python,js,javascript set smarttab tabstop=2 shiftwidth=2 softtabstop=2 autoindent expandtab
 
-" better commit msgs
-autocmd Filetype gitcommit setlocal spell textwidth=72
-
 " :make  Compile/Execute some filetypes
 " Just a shortcut
 noremap <F9> :!clear<CR>:w<CR>:make<CR>
@@ -198,13 +195,17 @@ else
   echo "No make file founded"
 endif
 endfunction
+
 " Spell
 set spelllang=en,pt
 let spell_auto_type="tex,mail,txt"
-autocmd FileType tex,txt,mail,text set spell tw=90
 noremap <F7> <esc>:set invspell<CR>
 noremap <F6> zg
 noremap <F8> z=
+
+autocmd FileType tex,txt,mail,text,markdown setlocal spell textwidth=80
+autocmd Filetype gitcommit setlocal spell textwidth=72
+autocmd FileType tex,txt,mail,text,markdown,gitcommit setlocal formatoptions+=a
 
 " Sorting selected text
 " @shotcut ,ss
