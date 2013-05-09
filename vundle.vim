@@ -26,6 +26,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-abolish'
 Bundle 'vim-scripts/VisIncr'
+Bundle 'kshenoy/vim-signature'
 Bundle 'L9'
 
 " scss
