@@ -26,12 +26,11 @@ set formatoptions=tcwqn2
 set colorcolumn=80,120
 
 function! TrimFunc()
-normal mz
-normal Hmy
+let l = line(".")
+let c = col(".")
 %s/\s\+$//e
 call histdel("search", -1)
-normal 'yzt
-normal `z
+call cursor(l, c)
 endfunction
 autocmd BufWritePre * call TrimFunc()
 
