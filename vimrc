@@ -26,11 +26,13 @@ set formatoptions=tcwqn2
 set colorcolumn=80,120
 
 function! TrimFunc()
-  let l = line(".")
-  let c = col(".")
-  %s/\s\+$//e
-  call histdel("search", -1)
-  call cursor(l, c)
+normal mz
+normal Hmy
+%s/\s\+$//e
+call histdel("search", -1)
+normal 'yzt
+normal `z
+delm z y
 endfunction
 autocmd BufWritePre * call TrimFunc()
 
@@ -103,16 +105,16 @@ set statusline+=[%c,%l/%L\|%P\|%{GetFileSize()}]
 set laststatus=2
 
 function! GetFileSize()
-  let filesize = getfsize(expand('%:p'))
-  if filesize < 0
-    return "-1"
-  elseif filesize < 1024
-    return filesize."b"
-  elseif filesize >= 1048576
-    return printf("%.2f", (filesize/1048576.00))."Mb"
-  else
-    return printf("%.2f", (filesize/1024.00))."Kb"
-  endif
+let filesize = getfsize(expand('%:p'))
+if filesize < 0
+  return "-1"
+elseif filesize < 1024
+  return filesize."b"
+elseif filesize >= 1048576
+  return printf("%.2f", (filesize/1048576.00))."Mb"
+else
+  return printf("%.2f", (filesize/1024.00))."Kb"
+endif
 endfunction
 
 if has("syntax")
@@ -138,10 +140,12 @@ nnoremap Y y$
 
 " Full file indent
 function! IndentAllFile()
-  let l = line(".")
-  let c = col(".")
-  normal gg=G
-  call cursor(l, c)
+normal mz
+normal Hmy
+normal gg=G
+normal 'yzt
+normal `z
+delm z y
 endfunction
 
 noremap ,ff :call IndentAllFile()<CR>
@@ -187,11 +191,11 @@ autocmd FileType python set makeprg=python\ %
 autocmd FileType sml    set makeprg=sml\ %
 
 function! CompileCPP()
-  if filereadable("makefile")
-    exec ":!clear; make clean; make; if [ $? -eq 0 ]; then clear; echo 'SUCCESS COMPILED'; fi"
-  else
-    echo "No make file founded"
-  endif
+if filereadable("makefile")
+  exec ":!clear; make clean; make; if [ $? -eq 0 ]; then clear; echo 'SUCCESS COMPILED'; fi"
+else
+  echo "No make file founded"
+endif
 endfunction
 
 " Spell
