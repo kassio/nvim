@@ -40,6 +40,7 @@ Bundle 'othree/html5.vim'
 
 " Ruby, rails, relatives
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rbenv'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-cucumber'
