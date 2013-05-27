@@ -7,7 +7,7 @@
 
 ## Download
 
-    git clone git://github.com/kassio/vim_configs.git ~/.vim
+    git clone git://github.com/kassio/vimfiles.git ~/.vim
 
 ## Setup
 
