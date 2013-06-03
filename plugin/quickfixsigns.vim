@@ -1,10 +1,8 @@
-let g:quickfixsigns_classes=['qfl', 'loc', 'marks', 'vcsdiff']
+let g:quickfixsigns_classes=['loc', 'vcsdiff']
 let g:quickfixsigns_events=[
       \ 'BufEnter',
       \ 'CursorHold',
-      \ 'CursorHoldI',
       \ 'CursorMoved',
-      \ 'CursorMovedI',
       \ 'InsertChange',
       \ 'InsertEnter',
       \ 'InsertLeave',
