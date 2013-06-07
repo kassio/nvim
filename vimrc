@@ -58,7 +58,7 @@ set nowrap wrapscan showbreak=..
 
 set title
 
-set relativenumber numberwidth=5
+set number relativenumber numberwidth=5
 
 set autoread autowrite
 
