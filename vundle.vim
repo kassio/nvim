@@ -45,7 +45,6 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-cucumber'
 
 " Javascript
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'pangloss/vim-javascript'
 
 " Colors
