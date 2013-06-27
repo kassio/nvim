@@ -48,7 +48,6 @@ Bundle 'pangloss/vim-javascript'
 
 " Colors
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'chrisbra/color_highlight'
 Bundle 'nanotech/jellybeans.vim'
 
 " Snippets

@@ -22,6 +22,6 @@ command! OldRubyHashSyntax %s/\v(\w+):\ ?\ze[^:]/:\1 => /g
 let g:RubyRunner_key = '<leader>ef'
 let g:RubyRunner_keep_focus_key = '<leader>ee'
 
-  let g:rails_abbreviations = { "p[": "params[:" }
+let g:rails_abbreviations = { "p[": "params[:" }
 
 command! FR set ft=ruby
