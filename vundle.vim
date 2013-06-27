@@ -8,22 +8,17 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Tools
-Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'bronson/vim-visual-star-search'
 Bundle 'godlygeek/tabular'
 Bundle 'kana/vim-textobj-user'
-Bundle 'kassio/potwiki.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-abolish'
-Bundle 'vim-scripts/VisIncr'
 Bundle 'tomtom/quickfixsigns_vim'
 Bundle 'L9'
 
@@ -38,7 +33,6 @@ Bundle 'othree/html5.vim'
 
 " Ruby, rails, relatives
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-rbenv'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-cucumber'
@@ -48,7 +42,6 @@ Bundle 'pangloss/vim-javascript'
 
 " Colors
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'nanotech/jellybeans.vim'
 
 " Snippets
 Bundle "MarcWeber/vim-addon-mw-utils"
