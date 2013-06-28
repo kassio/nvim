@@ -179,8 +179,8 @@ noremap <F7> <esc>:set invspell<CR>
 noremap <F6> zg
 noremap <F8> z=
 
-autocmd FileType tex,txt,mail,text,markdown textwidth=80
-autocmd Filetype gitcommit textwidth=72
+autocmd FileType tex,txt,mail,text,markdown set textwidth=80
+autocmd Filetype gitcommit set textwidth=72
 autocmd FileType tex,txt,mail,text,markdown,gitcommit setlocal
       \ spell
       \ formatoptions+=a
