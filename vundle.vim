@@ -8,14 +8,12 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Tools
-Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'bronson/vim-visual-star-search'
 Bundle 'godlygeek/tabular'
 Bundle 'kana/vim-textobj-user'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
-Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tomtom/quickfixsigns_vim'
