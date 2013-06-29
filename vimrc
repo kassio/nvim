@@ -37,8 +37,6 @@ set wildignore+=*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,
 
 set diffopt+=iwhite
 
-set hidden
-
 set history=1000 undolevels=1000
 
 set nowrap wrapscan showbreak=..
@@ -56,7 +54,7 @@ set cursorline
 
 set tag=
 
-set complete=.,w,b,u
+set complete=.,w,b,u,U,i,d
 set completeopt=menu,menuone,longest,preview
 
 set timeoutlen=3000
@@ -64,17 +62,13 @@ set ttimeoutlen=50
 
 set iskeyword+=-
 
-set splitright splitbelow
-
 set autoindent copyindent cindent smartindent
 set tabstop=2 shiftwidth=2 softtabstop=2
 set expandtab smarttab shiftround
 
 set backspace=indent,eol,start
 
-set sessionoptions+=globals
-
-set mousehide mouse=a ttymouse=xterm2
+set mousehide mouse= ttymouse=xterm2
 
 if has("gui_running")
   set guioptions-=T
@@ -133,8 +127,6 @@ function! TrimFunc()
   delm z y
 endfunction
 autocmd BufWritePre * call TrimFunc()
-
-command! Trim call TrimFunc()<CR>
 
 " Full file indent
 function! IndentAllFile()
