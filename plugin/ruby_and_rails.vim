@@ -1,4 +1,4 @@
-set iskeyword+=?,!,@
+autocmd FileType ruby,eruby set iskeyword+=?,!,@
 
 " Ruby Completion
 let g:rubycomplete_rails = 1
