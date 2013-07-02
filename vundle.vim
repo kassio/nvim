@@ -19,12 +19,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tomtom/quickfixsigns_vim'
 Bundle 'L9'
 
-" scss
-Bundle 'cakebaker/scss-syntax.vim'
-
-" elixir
-Bundle 'elixir-lang/vim-elixir'
-
 " html
 Bundle 'othree/html5.vim'
 
@@ -33,9 +27,6 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-cucumber'
-
-" Javascript
-Bundle 'pangloss/vim-javascript'
 
 " Colors
 Bundle 'altercation/vim-colors-solarized'
