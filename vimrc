@@ -77,10 +77,10 @@ if has("gui_running")
   set columns=9999
 endif
 
-set statusline=[%n]\ %<%.55f\ %h%w%m%r%y
+set statusline=%<%.55f\ %h%w%m%r%y
 set statusline+=%{fugitive#statusline()}
 set statusline+=%=
-set statusline+=[%c,%l/%L\|%P\|%{GetFileSize()}]
+set statusline+=[%c,%l/%L\|%{GetFileSize()}]
 set laststatus=2
 
 function! GetFileSize()
@@ -88,11 +88,11 @@ function! GetFileSize()
   if filesize < 0
     return "-1"
   elseif filesize < 1024
-    return filesize."b"
+    return filesize."B"
   elseif filesize >= 1048576
-    return printf("%.2f", (filesize/1048576.00))."Mb"
+    return printf("%.2f", (filesize/1048576.00))."MB"
   else
-    return printf("%.2f", (filesize/1024.00))."Kb"
+    return printf("%.2f", (filesize/1024.00))."KB"
   endif
 endfunction
 
