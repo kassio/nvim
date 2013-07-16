@@ -112,7 +112,6 @@ endif
 set foldmethod=manual
 noremap <F3> zM
 noremap <F4> zR
-nnoremap <space> za
 
 " Make Y consistent with C and D
 nnoremap Y y$
