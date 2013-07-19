@@ -117,24 +117,18 @@ noremap <F4> zR
 nnoremap Y y$
 
 function! TrimFunc()
-  normal mz
-  normal Hmy
+  mkview!
   %s/\s\+$//e
   call histdel("search", -1)
-  normal 'yzt
-  normal `z
-  delm z y
+  loadview
 endfunction
 autocmd BufWritePre * call TrimFunc()
 
 " Full file indent
 function! IndentAllFile()
-  normal mz
-  normal Hmy
+  mkview!
   normal gg=G
-  normal 'yzt
-  normal `z
-  delm z y
+  loadview
 endfunction
 
 noremap ,ff :call IndentAllFile()<CR>
