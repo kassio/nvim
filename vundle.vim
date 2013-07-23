@@ -28,7 +28,8 @@ Bundle 'kassio/my-snippets'
 
 " HTML, javascript
 Bundle 'othree/html5.vim'
-Bundle 'jelera/vim-javascript-syntax'
+Bundle 'othree/javascript-libraries-syntax.vim'
+Bundle 'pangloss/vim-javascript'
 
 " Ruby, rails, relatives
 Bundle 'vim-ruby/vim-ruby'
