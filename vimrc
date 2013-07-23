@@ -79,6 +79,9 @@ endif
 
 set statusline=%<%.55f\ %h%w%m%r%y
 set statusline+=%{fugitive#statusline()}
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 set statusline+=%=
 set statusline+=[%c,%l/%L\|%{GetFileSize()}]
 set laststatus=2
