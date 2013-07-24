@@ -119,22 +119,9 @@ noremap <F4> zR
 " Make Y consistent with C and D
 nnoremap Y y$
 
-function! TrimFunc()
-  mkview!
-  %s/\s\+$//e
-  call histdel("search", -1)
-  loadview
-endfunction
-autocmd BufWritePre * call TrimFunc()
+autocmd BufWritePre * call Preserve('%s/\\s\\+$//e')
 
-" Full file indent
-function! IndentAllFile()
-  mkview!
-  normal gg=G
-  loadview
-endfunction
-
-noremap ,ff :call IndentAllFile()<CR>
+noremap ,ff :call Preserve('normal gg=G')<CR>
 
 " Make <C-l> clear the highlight
 nnoremap <C-L> :nohls<CR>:set hls?<CR>
