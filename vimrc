@@ -119,7 +119,8 @@ noremap <F4> zR
 " Make Y consistent with C and D
 nnoremap Y y$
 
-autocmd BufWritePre * call Preserve('%s/\\s\\+$//e')
+autocmd BufWritePre * call Preserve('%s/\s\+$//e')
+autocmd BufWritePre * call Preserve('%s/\v($\n\s*)+%$//e')
 
 noremap ,ff :call Preserve('normal gg=G')<CR>
 
