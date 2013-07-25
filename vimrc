@@ -20,6 +20,9 @@ runtime macros/matchit.vim
 
 set confirm
 
+set splitright
+set splitbelow
+
 set incsearch hls ignorecase smartcase
 
 set formatoptions=tcwqn2
@@ -119,9 +122,14 @@ noremap <F4> zR
 " Make Y consistent with C and D
 nnoremap Y y$
 
+" Remove trailing spaces and lines
 autocmd BufWritePre * call Preserve('%s/\s\+$//e')
 autocmd BufWritePre * call Preserve('%s/\v($\n\s*)+%$//e')
 
+" Search current word/select but stay here! :)
+noremap ! * <c-o>
+
+" Indent all file
 noremap ,ff :call Preserve('normal gg=G')<CR>
 
 " Make <C-l> clear the highlight
