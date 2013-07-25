@@ -17,6 +17,6 @@ autocmd FileType ruby,eruby,rails let g:surround_109 = "module\n\t\r\nend" " m
 autocmd FileType ruby,eruby,rails let g:surround_119 = "%w[\r]"            " w
 
 command! NewRubyHashSyntax :call Preserve('%s/\v:(\w+)\s*\=\>/\1:/g')<CR>
-command! OldRubyHashSyntax :call Preserve('%s/\v(\w+):\s*\ze[^:]/:\1\ =>\ /g')
+command! OldRubyHashSyntax :call Preserve('%s/\v(\w+):\s*\ze[^:]/:\1\ =>\ /g')<CR>
 
 command! FR set ft=ruby

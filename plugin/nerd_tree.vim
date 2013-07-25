@@ -12,13 +12,13 @@ endfunction
 
 
 function! MyNERDTreeOpen()
-exec "NERDTreeToggle \| :silent NERDTreeMirror"
+  exec "NERDTreeToggle \| :silent NERDTreeMirror"
 
-if (match(bufname(''), '^NERD_tree.*') == 0) && (len(getline(0,'$')) <= 1)
-  exec "NERDTree"
-endif
+  if (match(bufname(''), '^NERD_tree.*') == 0) && (len(getline(0,'$')) <= 1)
+    exec "NERDTree"
+  endif
 endfunction
 
-nmap <silent> <Leader>p :call MyNERDTreeOpen()<cr>
-nnoremap <silent> <Leader>fl :NERDTreeFind<cr>
+nmap <silent> <leader>p :call MyNERDTreeOpen()<CR>
+nnoremap <silent> <leader>fl :NERDTreeFind<CR>
 command! E exec ":NERDTree ".expand('%:p')
