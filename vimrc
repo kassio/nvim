@@ -80,8 +80,11 @@ if has("gui_running")
   set columns=9999
 endif
 
-set statusline=%<%.55f\ %h%w%m%r%y
+set statusline=%<%t\ %h%w%m%r%y
 set statusline+=%{fugitive#statusline()}
+set statusline+=%#warningmsg#
+set statusline+=%{NextVCSLineChange()}
+set statusline+=%*
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
