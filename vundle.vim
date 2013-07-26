@@ -37,5 +37,8 @@ Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-cucumber'
 
+" Elixir
+Bundle 'elixir-lang/vim-elixir'
+
 " Colorscheme
 Bundle 'altercation/vim-colors-solarized'
