@@ -12,11 +12,10 @@ endfunction
 
 function! OpenNERDTreeMirror()
   try
-    :NERDTreeToggle
-    :NERDTreeMirror
+    :NERDTreeToggle | NERDTreeMirror
   catch
     echo 'No NERDTree found, opening a new'
-    :NERDTree
+    :NERDTree | NERDTreeClose | NERDTreeToggle
   endtry
 endfunction
 
