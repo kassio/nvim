@@ -10,6 +10,16 @@ function! MyNERDTreeStatusLine()
   return tlib#string#Strip(current_line)
 endfunction
 
-nmap <silent> <leader>p :NERDTreeToggle<CR> :NERDTreeMirror<CR>
+function! OpenNERDTreeMirror()
+  try
+    :NERDTreeToggle
+    :NERDTreeMirror
+  catch
+    echo 'No NERDTree found, opening a new'
+    :NERDTree
+  endtry
+endfunction
+
+nmap <silent> <leader>p :call OpenNERDTreeMirror()<CR>
 nnoremap <silent> <leader>fl :NERDTreeFind<CR>
 command! E exec ":NERDTree ".expand('%:p')
