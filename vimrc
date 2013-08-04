@@ -83,7 +83,7 @@ endif
 set statusline=%<%t\ %h%w%m%r%y
 set statusline+=%{fugitive#statusline()}
 set statusline+=%#warningmsg#
-set statusline+=%{NextVCSLineChange()}
+set statusline+=%{FirstVCSDiffLine()}
 set statusline+=%*
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
