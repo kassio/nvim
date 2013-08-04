@@ -15,7 +15,7 @@ endfunction
 
 
 function! GetVCSDiffSymbol(signs, id, symbol_map)
-  if empty(a:signs)
+  if empty(a:signs) || a:id >= len(a:signs)
     return ""
   endif
 
