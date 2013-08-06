@@ -13,9 +13,10 @@ endfunction
 function! OpenNERDTreeMirror()
   try
     :NERDTreeToggle | NERDTreeMirror
+  catch /^Vim\%((\a\+)\)\=:E121/
+    :NERDTree
   catch
-    echo 'No NERDTree found, opening a new'
-    :NERDTree | NERDTreeClose | NERDTreeToggle
+    redraw
   endtry
 endfunction
 
