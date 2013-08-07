@@ -3,6 +3,11 @@ let g:quickfixsigns_blacklist_buffer="^\\(NERD_tree_.*\\|ControlP\\)$"
 
 function! FirstVCSDiffLine()
   let signs = QuickfixsignsListBufferSigns(bufnr('%'))
+  call filter(signs, 'v:val.name =~ "QFS_VCS"')
+
+  if empty(signs)
+    return ""
+  end
 
   let symbol_map = {
         \ 'QFS_VCS_ADD': '+',
@@ -10,20 +15,8 @@ function! FirstVCSDiffLine()
         \ 'QFS_VCS_DEL': '-',
         \ }
 
-  return GetVCSDiffSymbol(signs, 0, symbol_map)
-endfunction
+  let signs_count = len(signs)
+  let first_sign = get(symbol_map, signs[0]['name'], '')
 
-
-function! GetVCSDiffSymbol(signs, id, symbol_map)
-  if empty(a:signs) || a:id >= len(a:signs)
-    return ""
-  endif
-
-  let symbol = get(a:symbol_map, a:signs[a:id]['name'], '')
-
-  if symbol != ''
-    return  "[" . symbol . " " . a:signs[a:id]['lnum'] . "]"
-  else
-    return GetVCSDiffSymbol(a:signs, a:id + 1, a:symbol_map)
-  endif
+  return "[" . first_sign . " " . signs[0]['lnum'] . " #" . signs_count . "]"
 endfunction
