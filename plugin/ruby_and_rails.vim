@@ -16,7 +16,27 @@ autocmd FileType ruby,eruby,rails let g:surround_100 = "do\n\t\r\nend"     " d
 autocmd FileType ruby,eruby,rails let g:surround_109 = "module\n\t\r\nend" " m
 autocmd FileType ruby,eruby,rails let g:surround_119 = "%w[\r]"            " w
 
-command! NewRubyHashSyntax :call Preserve('%s/\v:(\w+)\s*\=\>/\1:/g')<CR>
-command! OldRubyHashSyntax :call Preserve('%s/\v(\w+):\s*\ze[^:]/:\1\ =>\ /g')<CR>
+command! NewRubyHashSyntax :call Preserve('%s/\v:(\w+)\s*\=\>/\1:/ge')<CR>
+command! OldRubyHashSyntax :call Preserve('%s/\v(\w+):\s*\ze[^:]/:\1\ =>\ /ge')<CR>
 
-command! FR set ft=ruby
+function! FormatRuby()
+  echo 'Formatting ruby'
+
+  let @p=''
+  let @p='f{cs{}cs}{%@p'
+  call Preserve('g/[^#]{[^}]\+}/normal @p')
+
+  let @o=''
+  let @o='f(cs()%@o'
+  call Preserve('g/([^)]\+)/normal @o')
+
+  let @i=''
+  let @i='f[cs[]%@i'
+  call Preserve('g/\[[^]]\+\]/normal @i')
+
+  let @p=''
+  silent normal ,ff
+  echo ''
+endfunction
+
+nnoremap ,fr :call FormatRuby()<CR>
