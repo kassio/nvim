@@ -42,3 +42,6 @@ Bundle 'elixir-lang/vim-elixir'
 
 " Colorscheme
 Bundle 'altercation/vim-colors-solarized'
+
+" tmux
+Bundle 'jgdavey/tslime.vim'
