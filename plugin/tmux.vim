@@ -17,7 +17,7 @@ function! SelectTestCommand()
     return AutoSegRSpecSelector()
   elseif match(s:thisFile, "_test.rb") != -1
     return {
-          \ "command": "ruby -I".expand("%:p:h")." ",
+          \ "command": "ruby -I".matchstr(expand("%:h"), ".*test")." ",
           \ "file": expand('%'),
           \ "line": " -n /" . GetCurrentTest() . "/"
           \ }
