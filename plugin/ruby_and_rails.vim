@@ -19,14 +19,12 @@ augroup ruby_setup
   autocmd FileType ruby,eruby,rails let g:surround_119 = "%w[\r]"            " w
 augroup END
 
-command! NewRubyHashSyntax :call Preserve('%s/\v:(\w+)\s*\=\>/\1:/ge')<CR>
-command! OldRubyHashSyntax :call Preserve('%s/\v(\w+):\s*\ze[^:]/:\1\ =>\ /ge')<CR>
+command! NewRubyHashSyntax :call Preserve('%s/\v:(\w+)\s*\=\>/\1:/ge')
+command! OldRubyHashSyntax :call Preserve('%s/\v(\w+):\s*\ze[^:]/:\1\ =>\ /ge')
 
-function! FormatRuby()
-  echo 'Formatting ruby'
-
+function! FormatRubyBlocks()
   let @p=''
-  let @p='f{cs{}cs}{%@p'
+  let @p='f{ cs{}cs }{%@p'
   call Preserve('g/[^#]{[^}]\+}/normal @p')
 
   let @o=''
@@ -36,10 +34,13 @@ function! FormatRuby()
   let @i=''
   let @i='f[cs[]%@i'
   call Preserve('g/\[[^]]\+\]/normal @i')
-
-  let @p=''
-  silent normal ,ff
-  echo ''
 endfunction
 
-nnoremap ,fr :call FormatRuby()<CR>
+function! FullRubyFormat()
+  silent IndentAllFile
+  silent NewRubyHashSyntax
+  silent :call FormatRubyBlocks()
+  echo 'formatted'
+endfunction
+
+nnoremap ,fr :call FullRubyFormat()<CR>

@@ -136,7 +136,8 @@ augroup END
 noremap ! * <c-o>
 
 " Indent all file
-noremap ,ff :call Preserve('normal gg=G')<CR>
+command! IndentAllFile :call Preserve('normal gg=G')
+noremap ,ff :IndentAllFile<CR>
 
 " Make <C-l> clear the highlight
 nnoremap <C-L> :nohls<CR>:set hls?<CR>
