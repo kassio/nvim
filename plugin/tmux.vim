@@ -1,11 +1,10 @@
 function! RunTest(...)
-  let s:thisFile = expand("%")
-  let command = SelectTestCommand()
+  let s:command = SelectTestCommand()
 
   if a:0 " run all file
-    let g:lastTmuxCmd = command["command"].s:thisFile."\n"
+    let g:lastTmuxCmd = s:command["command"].s:command["file"]."\n"
   else
-    let g:lastTmuxCmd = command["command"].s:thisFile.command["line"]."\n"
+    let g:lastTmuxCmd = s:command["command"].s:command["file"].s:command["line"]."\n"
   endif
 
   call Send_to_Tmux(g:lastTmuxCmd)
@@ -15,13 +14,11 @@ function! SelectTestCommand()
   let s:thisFile = expand("%")
 
   if match(s:thisFile, "_feature.rb") != -1 || match(s:thisFile, "_spec.rb") != -1
-    return {
-          \ "command": AutoSegRSpecSelector(),
-          \ "line": ":".line(".")
-          \ }
+    return AutoSegRSpecSelector()
   elseif match(s:thisFile, "_test.rb") != -1
     return {
           \ "command": "ruby -I".expand("%:p:h")." ",
+          \ "file": expand('%'),
           \ "line": " -n /" . GetCurrentTest() . "/"
           \ }
   endif
@@ -29,16 +26,22 @@ endfunction
 
 function! AutoSegRSpecSelector()
   let s:file_path = expand("%:p:h")
+  let s:data = { "line": ":".line(".") }
 
   if match(s:file_path, "AutoSeg") != -1
+    let s:data["file"] = matchstr(expand("%"), "spec.*")
+
     if match(s:file_path, "cliente") != -1
-      return "bundle exec rake spec:client:all SPEC="
+      let s:data["command"] = "bundle exec rake spec:client:all SPEC="
     else
-      return "bundle exec rake spec:padrao:all SPEC="
+      let s:data["command"] = "bundle exec rake spec:padrao:all SPEC="
     endif
   else
-    return "bundle exec rspec "
+    let s:data["command"] = "bundle exec rake spec:padrao:all SPEC="
+    let s:data["file"] = expand('%')
   endif
+
+  return s:data
 endfunction
 
 function! GetCurrentTest()
