@@ -126,8 +126,10 @@ noremap <F4> zR
 nnoremap Y y$
 
 " Remove trailing spaces and lines
-autocmd BufWritePre * call Preserve('%s/\s\+$//e')
-autocmd BufWritePre * call Preserve('%s/\v($\n\s*)+%$//e')
+augroup remove_trailling_spaces
+  autocmd BufWritePre * call Preserve('%s/\s\+$//e')
+  autocmd BufWritePre * call Preserve('%s/\v($\n\s*)+%$//e')
+augroup END
 
 " Search current word/select but stay here! :)
 noremap ! * <c-o>
@@ -147,30 +149,30 @@ nnoremap <silent> ,da :exec "1," . bufnr('$') . "bd"<CR>
 " Toogle list characters
 nnoremap <silent> ,ll :set invlist<CR>:set list?<CR>
 
-" Tabstop 2 to that filetypes
-autocmd FileType vim,css,ruby,eruby,tex,c,sh,java,python,js,javascript set
-      \ autoindent
-      \ copyindent
-      \ cindent
-      \ smartindent
-      \ tabstop=2
-      \ shiftwidth=2
-      \ softtabstop=2
-      \ expandtab
-      \ smarttab
-      \ shiftround
+augroup filetype_setup
+  autocmd FileType vim,css,ruby,eruby,tex,c,sh,java,python,js,javascript set
+        \ autoindent
+        \ copyindent
+        \ cindent
+        \ smartindent
+        \ tabstop=2
+        \ shiftwidth=2
+        \ softtabstop=2
+        \ expandtab
+        \ smarttab
+        \ shiftround
+  autocmd FileType tex,txt,mail,text,markdown set textwidth=80
+  autocmd Filetype gitcommit set textwidth=72
+  autocmd FileType tex,txt,mail,text,markdown,gitcommit setlocal
+        \ spell
+        \ formatoptions+=a
+augroup END
 
 " Spell
 set spelllang=en,pt
 noremap <F7> <esc>:set invspell<CR>
 noremap <F6> zg
 noremap <F8> z=
-
-autocmd FileType tex,txt,mail,text,markdown set textwidth=80
-autocmd Filetype gitcommit set textwidth=72
-autocmd FileType tex,txt,mail,text,markdown,gitcommit setlocal
-      \ spell
-      \ formatoptions+=a
 
 " Sorting selected text
 vnoremap ,ss :sort<CR>

@@ -1,4 +1,3 @@
-autocmd FileType ruby,eruby set iskeyword+=?,!,@
 
 " Ruby Completion
 let g:rubycomplete_rails = 1
@@ -7,14 +6,17 @@ let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_include_object = 1
 let g:rubycomplete_include_objectspace = 1
 
-autocmd FileType ruby,eruby,rails let g:surround_35  = "#{\r}"             " #
-autocmd FileType ruby,eruby,rails let g:surround_45  = "<% \r %>"          " -
-autocmd FileType ruby,eruby,rails let g:surround_61  = "<%= \r %>"         " =
-autocmd FileType ruby,eruby,rails let g:surround_98  = "begin\n\t\r\nend"  " b
-autocmd FileType ruby,eruby,rails let g:surround_99  = "class\n\t\r\nend"  " c
-autocmd FileType ruby,eruby,rails let g:surround_100 = "do\n\t\r\nend"     " d
-autocmd FileType ruby,eruby,rails let g:surround_109 = "module\n\t\r\nend" " m
-autocmd FileType ruby,eruby,rails let g:surround_119 = "%w[\r]"            " w
+augroup ruby_setup
+  autocmd FileType ruby,eruby set iskeyword+=?,!,@
+  autocmd FileType ruby,eruby,rails let g:surround_35  = "#{\r}"             " #
+  autocmd FileType ruby,eruby,rails let g:surround_45  = "<% \r %>"          " -
+  autocmd FileType ruby,eruby,rails let g:surround_61  = "<%= \r %>"         " =
+  autocmd FileType ruby,eruby,rails let g:surround_98  = "begin\n\t\r\nend"  " b
+  autocmd FileType ruby,eruby,rails let g:surround_99  = "class\n\t\r\nend"  " c
+  autocmd FileType ruby,eruby,rails let g:surround_100 = "do\n\t\r\nend"     " d
+  autocmd FileType ruby,eruby,rails let g:surround_109 = "module\n\t\r\nend" " m
+  autocmd FileType ruby,eruby,rails let g:surround_119 = "%w[\r]"            " w
+augroup END
 
 command! NewRubyHashSyntax :call Preserve('%s/\v:(\w+)\s*\=\>/\1:/ge')<CR>
 command! OldRubyHashSyntax :call Preserve('%s/\v(\w+):\s*\ze[^:]/:\1\ =>\ /ge')<CR>
