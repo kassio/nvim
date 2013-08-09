@@ -127,6 +127,7 @@ nnoremap Y y$
 
 " Remove trailing spaces and lines
 augroup remove_trailling_spaces
+  autocmd!
   autocmd BufWritePre * call Preserve('%s/\s\+$//e')
   autocmd BufWritePre * call Preserve('%s/\v($\n\s*)+%$//e')
 augroup END
@@ -150,6 +151,7 @@ nnoremap <silent> ,da :exec "1," . bufnr('$') . "bd"<CR>
 nnoremap <silent> ,ll :set invlist<CR>:set list?<CR>
 
 augroup filetype_setup
+  autocmd!
   autocmd FileType vim,css,ruby,eruby,tex,c,sh,java,python,js,javascript set
         \ autoindent
         \ copyindent

@@ -7,6 +7,7 @@ let g:rubycomplete_include_object = 1
 let g:rubycomplete_include_objectspace = 1
 
 augroup ruby_setup
+  autocmd!
   autocmd FileType ruby,eruby set iskeyword+=?,!,@
   autocmd FileType ruby,eruby,rails let g:surround_35  = "#{\r}"             " #
   autocmd FileType ruby,eruby,rails let g:surround_45  = "<% \r %>"          " -
