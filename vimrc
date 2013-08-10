@@ -179,3 +179,5 @@ noremap <F8> z=
 
 " Sorting selected text
 vnoremap ,ss :sort<CR>
+
+command! Reload :so ~/.vimrc
