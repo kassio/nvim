@@ -26,20 +26,17 @@ endfunction
 
 function! AutoSegRSpecSelector()
   let s:file_path = expand("%:p:h")
-  let s:data = { "line": ":".line(".") }
+  let s:data = {
+        \ "line": ":".line("."),
+        \ "file": matchstr(expand("%"), "spec.*"),
+        \ "command": ""
+        \ }
 
-  if match(s:file_path, "AutoSeg") != -1
-    let s:data["file"] = matchstr(expand("%"), "spec.*")
-
-    if match(s:file_path, "cliente") != -1
-      let s:data["command"] = "bundle exec rake spec:client:all SPEC="
-    else
-      let s:data["command"] = "bundle exec rake spec:padrao:all SPEC="
-    endif
-  else
-    let s:data["command"] = "bundle exec rake spec:padrao:all SPEC="
-    let s:data["file"] = expand('%')
+  if (match(s:file_path, "AutoSeg") != -1) && (match(s:file_path, "cliente") != -1)
+      let s:data["command"] = s:data["command"] . "CLIENT_EXTENSIONS_DISABLED=true "
   endif
+
+    let s:data["command"] = s:data["command"] . "rspec "
 
   return s:data
 endfunction
@@ -54,5 +51,5 @@ nmap <leader>rl :call RunTest()<CR>
 
 nmap <leader>rr :call Send_to_Tmux(g:lastTmuxCmd)<CR>
 
-nmap <leader>rp :call Send_to_Tmux("bundle exec rake spec:padrao:all\n")<CR>
-nmap <leader>rc :call Send_to_Tmux("bundle exec rake spec:client:all\n")<CR>
+nmap <leader>rp :call Send_to_Tmux("rake spec:padrao:all\n")<CR>
+nmap <leader>rc :call Send_to_Tmux("rake spec:client:all\n")<CR>
