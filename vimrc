@@ -180,4 +180,13 @@ noremap <F8> z=
 " Sorting selected text
 vnoremap ,ss :sort<CR>
 
+" open file in the last position
+augroup line_return
+  au!
+  au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"' |
+        \ endif
+augroup END
+
 command! Reload :so ~/.vimrc
