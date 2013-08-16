@@ -32,7 +32,7 @@ function! AutoSegRSpecSelector()
         \ "command": ""
         \ }
 
-  if (match(s:file_path, "AutoSeg") != -1) && (match(s:file_path, "cliente") != -1)
+  if (match(s:file_path, "AutoSeg") != -1) && (match(s:file_path, "cliente") == -1)
       let s:data["command"] = s:data["command"] . "CLIENT_EXTENSIONS_DISABLED=true "
   endif
 
