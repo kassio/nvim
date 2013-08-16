@@ -7,6 +7,8 @@ function! RunTest(...)
     let g:lastTmuxCmd = s:command["command"].s:command["file"].s:command["line"]."\n"
   endif
 
+  call Send_keys_to_Tmux('C-c')
+  call Send_keys_to_Tmux('C-l')
   call Send_to_Tmux(g:lastTmuxCmd)
 endfunction
 
