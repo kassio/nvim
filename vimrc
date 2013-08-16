@@ -132,9 +132,6 @@ augroup remove_trailling_spaces
   autocmd BufWritePre * call Preserve('%s/\v($\n\s*)+%$//e')
 augroup END
 
-" Search current word/select but stay here! :)
-noremap ! * <c-o>
-
 " Indent all file
 command! IndentAllFile :call Preserve('normal gg=G')
 noremap ,ff :IndentAllFile<CR>
