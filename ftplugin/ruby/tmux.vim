@@ -7,8 +7,9 @@ function! RunTest(...)
     let g:lastTmuxCmd = s:command["command"].s:command["file"].s:command["line"]."\n"
   endif
 
+  let g:lastTmuxCmd = "clear\n" . g:lastTmuxCmd
+
   call Send_keys_to_Tmux('C-c')
-  call Send_keys_to_Tmux('C-l')
   call Send_to_Tmux(g:lastTmuxCmd)
 endfunction
 
@@ -51,7 +52,7 @@ endfunction
 nmap <leader>rf :call RunTest(1)<CR>
 nmap <leader>rl :call RunTest()<CR>
 
-nmap <leader>rr :call Send_to_Tmux(g:lastTmuxCmd)<CR>
+nmap <leader>rr :call Send_keys_to_Tmux('C-c')<CR>:call Send_to_Tmux(g:lastTmuxCmd)<CR>
 
 nmap <leader>rp :call Send_to_Tmux("rake spec:padrao:all\n")<CR>
 nmap <leader>rc :call Send_to_Tmux("rake spec:client:all\n")<CR>
