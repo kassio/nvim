@@ -36,17 +36,30 @@ function! AutoSegRSpecSelector()
         \ }
 
   if (match(s:file_path, "AutoSeg") != -1) && (match(s:file_path, "cliente") == -1)
-      let s:data["command"] = s:data["command"] . "CLIENT_EXTENSIONS_DISABLED=true "
+    let s:data["command"] = s:data["command"] . "CLIENT_EXTENSIONS_DISABLED=true "
   endif
 
-    let s:data["command"] = s:data["command"] . "rspec "
+  let s:data["command"] = s:data["command"] . "rspec "
 
   return s:data
 endfunction
 
 function! GetCurrentTest()
+  let l = line(".")
+  let c = col(".")
+
   let s:line = search("def\ test_", "b")
-  return matchstr(getline(s:line), 'def\s\zstest_.*')
+  if s:line != 0
+    let s:test_name = matchstr(getline(s:line), "test_.*")
+  else
+    let s:line = search('test\s["'']', 'b')
+    let s:test_string = split(getline(s:line), '[''"]')[1]
+
+    let s:test_name = join(split(tolower(s:test_string), " "), "_")
+  endif
+
+  call cursor(l, c)
+  return s:test_name
 endfunction
 
 nmap <leader>rf :call RunTest(1)<CR>
