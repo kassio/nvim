@@ -62,7 +62,7 @@ function! GetCurrentTest()
   return s:test_name
 endfunction
 
-nmap <leader>rf :call RunTest(1)<CR>
+nmap <leader>rf :call RunTest('file')<CR>
 nmap <leader>rl :call RunTest()<CR>
 
 nmap <leader>rr :call Send_keys_to_Tmux('C-c')<CR>:call Send_to_Tmux(g:lastTmuxCmd)<CR>
