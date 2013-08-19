@@ -45,3 +45,5 @@ Bundle 'altercation/vim-colors-solarized'
 
 " tmux
 Bundle 'jgdavey/tslime.vim'
+
+Bundle 'bling/vim-airline'

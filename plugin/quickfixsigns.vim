@@ -1,7 +1,7 @@
 call filter(g:quickfixsigns_lists, 'v:key == "vcsdiff"')
 let g:quickfixsigns_blacklist_buffer="^\\(NERD_tree_.*\\|ControlP\\)$"
 
-function! FirstVCSDiffLine()
+function! Quickfixsigns#StatusLine()
   let signs = QuickfixsignsListBufferSigns(bufnr('%'))
   call filter(signs, 'v:val.name =~ "QFS_VCS"')
 
@@ -18,5 +18,5 @@ function! FirstVCSDiffLine()
   let signs_count = len(signs)
   let first_sign = get(symbol_map, signs[0]['name'], '')
 
-  return "[" . first_sign . " " . signs[0]['lnum'] . " #" . signs_count . "]"
+  return "[".first_sign.signs[0]['lnum']." (#".signs_count.")]"
 endfunction
