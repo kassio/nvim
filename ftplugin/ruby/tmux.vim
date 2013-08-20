@@ -1,71 +1,68 @@
-function! RunTest(...)
-  let s:command = SelectTestCommand()
+function! s:TmuxRunTest(full)
+  let command = s:TestFrameworkSelector()
 
-  if a:0 " run all file
-    let g:lastTmuxCmd = s:command["command"].s:command["file"]."\n"
+  if a:full == 'file' " run all file
+    let g:lastTmuxCmd = command["command"].command["file"]."\n"
   else
-    let g:lastTmuxCmd = s:command["command"].s:command["file"].s:command["line"]."\n"
+    let g:lastTmuxCmd = command["command"].command["file"].command["line"]."\n"
   endif
 
   let g:lastTmuxCmd = "clear\n" . g:lastTmuxCmd
 
-  call Send_keys_to_Tmux('C-c')
-  call Send_to_Tmux(g:lastTmuxCmd)
+  call SendKeysToTmux('C-c')
+  call SendToTmux(g:lastTmuxCmd)
 endfunction
 
-function! SelectTestCommand()
-  let s:thisFile = expand("%")
+function! s:TestFrameworkSelector()
+  let thisFile = expand("%")
 
-  if match(s:thisFile, "_feature.rb") != -1 || match(s:thisFile, "_spec.rb") != -1
-    return AutoSegRSpecSelector()
-  elseif match(s:thisFile, "_test.rb") != -1
+  if match(thisFile, "_feature.rb") != -1 || match(thisFile, "_spec.rb") != -1
+    return {
+          \ "line": ":".line("."),
+          \ "file": matchstr(expand("%"), "spec.*"),
+          \ "command": s:TmuxRspecCommand()
+          \ }
+  elseif match(thisFile, "_test.rb") != -1
     return {
           \ "command": "ruby -I".matchstr(expand("%:h"), ".*test")." ",
           \ "file": expand('%'),
-          \ "line": " -n /" . GetCurrentTest() . "/"
+          \ "line": " -n /" . PreserveFN('TmuxTestUnitCurrentTest') . "/"
           \ }
   endif
 endfunction
 
-function! AutoSegRSpecSelector()
-  let s:file_path = expand("%:p:h")
-  let s:data = {
-        \ "line": ":".line("."),
-        \ "file": matchstr(expand("%"), "spec.*"),
-        \ "command": ""
-        \ }
+function! s:TmuxRspecCommand()
+  let rspec_command = ""
+  let file_path = expand("%:p:h")
 
-  if (match(s:file_path, "AutoSeg") != -1) && (match(s:file_path, "cliente") == -1)
-    let s:data["command"] = s:data["command"] . "CLIENT_EXTENSIONS_DISABLED=true "
+  if (match(file_path, "AutoSeg") != -1) && (match(file_path, "cliente") == -1)
+    let rspec_command .= "CLIENT_EXTENSIONS_DISABLED=true "
   endif
 
-  let s:data["command"] = s:data["command"] . "rspec "
+  let rspec_command .= "rspec "
 
-  return s:data
+  return rspec_command
 endfunction
 
-function! GetCurrentTest()
-  let l = line(".")
-  let c = col(".")
+function! TmuxTestUnitCurrentTest()
+  let current_test = search("def\ test_", "b")
 
-  let s:line = search("def\ test_", "b")
-  if s:line != 0
-    let s:test_name = matchstr(getline(s:line), "test_.*")
+  if current_test != 0
+    let test_name = matchstr(getline(current_test), "test_.*")
   else
-    let s:line = search('test\s["'']', 'b')
-    let s:test_string = split(getline(s:line), '[''"]')[1]
+    let current_test = search('test\s["'']', 'b')
 
-    let s:test_name = join(split(tolower(s:test_string), " "), "_")
+    let test_string = split(getline(current_test), '[''"]')[1]
+    let test_name = join(split(tolower(test_string), " "), "_")
   endif
 
-  call cursor(l, c)
-  return s:test_name
+  return test_name
 endfunction
 
-nmap <leader>rf :call RunTest('file')<CR>
-nmap <leader>rl :call RunTest()<CR>
+nmap <leader>rf :call <SID>TmuxRunTest('file')<CR>
+nmap <leader>rl :call <SID>TmuxRunTest('current')<CR>
 
-nmap <leader>rr :call Send_keys_to_Tmux('C-c')<CR>:call Send_to_Tmux(g:lastTmuxCmd)<CR>
+nmap <leader>rr :call SendKeysToTmux('C-c')<CR>:call SendToTmux(g:lastTmuxCmd)<CR>
 
-nmap <leader>rp :call Send_to_Tmux("rake spec:padrao:all\n")<CR>
-nmap <leader>rc :call Send_to_Tmux("rake spec:client:all\n")<CR>
+nmap <leader>rp :call SendToTmux("rake spec:padrao:all\n")<CR>
+nmap <leader>rc :call SendToTmux("rake spec:client:all\n")<CR>
