@@ -1,4 +1,3 @@
-let g:airline_section_c = g:airline_section_c . ' %{Quickfixsigns#StatusLine()}'
 let g:airline_section_z = '%c,%l %L %{GetFileSize()}'
 
 let g:airline_detect_whitespace = 0

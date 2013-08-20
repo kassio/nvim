@@ -83,9 +83,6 @@ endif
 set statusline=%<%t\ %h%w%m%r%y
 set statusline+=%{fugitive#statusline()}
 set statusline+=%#warningmsg#
-set statusline+=%{Quickfixsigns#StatusLine()}
-set statusline+=%*
-set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set statusline+=%=

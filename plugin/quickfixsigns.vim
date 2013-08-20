@@ -1,22 +1,18 @@
 call filter(g:quickfixsigns_lists, 'v:key == "vcsdiff"')
 let g:quickfixsigns_blacklist_buffer="^\\(NERD_tree_.*\\|ControlP\\)$"
 
-function! Quickfixsigns#StatusLine()
+function! Quickfixsigns#GoToNextDiff()
   let signs = QuickfixsignsListBufferSigns(bufnr('%'))
   call filter(signs, 'v:val.name =~ "QFS_VCS"')
 
+  let current_line = line('.')
+  call filter(signs, 'v:val.lnum > '.current_line)
+
   if empty(signs)
-    return ""
+    return
   end
 
-  let symbol_map = {
-        \ 'QFS_VCS_ADD': '+',
-        \ 'QFS_VCS_CHANGE': '=',
-        \ 'QFS_VCS_DEL': '-',
-        \ }
-
-  let signs_count = len(signs)
-  let first_sign = get(symbol_map, signs[0]['name'], '')
-
-  return "[".first_sign.signs[0]['lnum']." (#".signs_count.")]"
+  call cursor(signs[0].lnum, col('.'))
 endfunction
+
+map <leader>qn :call Quickfixsigns#GoToNextDiff()<CR>
