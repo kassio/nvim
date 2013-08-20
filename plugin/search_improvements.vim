@@ -1,1 +1,1 @@
-nnoremap ! :normal l*`'h<CR>
+nnoremap ! :normal *<c-o><CR>
