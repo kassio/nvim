@@ -1,3 +1,4 @@
+set noshowmode
 AirlineTheme bubblegum
 let g:airline_section_z = '%c,%l %L %{GetFileSize()}'
 
