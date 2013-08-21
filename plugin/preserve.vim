@@ -1,3 +1,5 @@
+" Executes a command an keeps
+" the current view
 function! Preserve(command)
   let _s=@/
 
@@ -13,6 +15,8 @@ function! Preserve(command)
   let @/=_s
 endfunction
 
+" Executes a global function and keeps
+" the current view
 function! PreserveFN(fn, ...)
   if a:0
     let args = "(".join(a:000, ",").")"
