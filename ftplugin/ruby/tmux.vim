@@ -63,6 +63,3 @@ nmap <leader>rf :call <SID>TmuxRunTest('file')<CR>
 nmap <leader>rl :call <SID>TmuxRunTest('current')<CR>
 
 nmap <leader>rr :call SendKeysToTmux('C-c')<CR>:call SendToTmux(g:lastTmuxCmd)<CR>
-
-nmap <leader>rp :call SendToTmux("rake spec:padrao:all\n")<CR>
-nmap <leader>rc :call SendToTmux("rake spec:client:all\n")<CR>
