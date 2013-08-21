@@ -26,13 +26,14 @@ set splitbelow
 set incsearch hls ignorecase smartcase
 
 set formatoptions=tcwqn2
-set colorcolumn=80,120
+set colorcolumn=80
 
 set lazyredraw
-set showcmd
+set showcmd ruler
 
-set listchars=eol:¬,tab:▸\ ,trail:·,nbsp:·
-set list
+set list listchars=eol:¬,tab:▸\ ,trail:·,nbsp:·
+
+set laststatus=2
 
 set wildmenu wildignorecase
 set wildmode=list:longest,list:full
@@ -44,14 +45,9 @@ set history=1000 undolevels=1000
 
 set nowrap wrapscan showbreak=..
 
-set title
-
 set number relativenumber numberwidth=5
 
 set autoread autowrite
-
-set switchbuf=newtab
-set tabpagemax=20
 
 set cursorline
 
@@ -79,28 +75,6 @@ if has("gui_running")
   set lines=999
   set columns=9999
 endif
-
-set statusline=%<%t\ %h%w%m%r%y
-set statusline+=%{fugitive#statusline()}
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-set statusline+=%=
-set statusline+=[%c,%l/%L\|%{GetFileSize()}]
-set laststatus=2
-
-function! GetFileSize()
-  let filesize = getfsize(expand('%:p'))
-  if filesize < 0
-    return "-1"
-  elseif filesize < 1024
-    return filesize."B"
-  elseif filesize >= 1048576
-    return printf("%.2f", (filesize/1048576.00))."MB"
-  else
-    return printf("%.2f", (filesize/1024.00))."KB"
-  endif
-endfunction
 
 if has("syntax")
   syntax enable
@@ -175,7 +149,7 @@ noremap <F8> z=
 vnoremap ,ss :sort<CR>
 
 " open file in the last position
-augroup line_return
+augroup last_position_on_open
   au!
   au BufReadPost *
         \ if line("'\"") > 0 && line("'\"") <= line("$") |
