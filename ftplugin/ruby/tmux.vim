@@ -1,5 +1,12 @@
 function! s:TmuxRunTest(full)
-  let command = s:TestFrameworkSelector()
+  let thisFile = expand("%")
+
+  if !s:isRspecFile(thisFile) && !s:isTestUnitFile(thisFile)
+    echo 'Not a test file'
+    return
+  endif
+
+  let command = s:TestFrameworkSelector(thisFile)
 
   if a:full == 'file' " run all file
     let g:lastTmuxCmd = command["command"].command["file"]."\n"
@@ -13,19 +20,26 @@ function! s:TmuxRunTest(full)
   call SendToTmux(g:lastTmuxCmd)
 endfunction
 
-function! s:TestFrameworkSelector()
-  let thisFile = expand("%")
+function! s:isRspecFile(file)
+  return (match(a:file, "_feature.rb") != -1)
+        \ || (match(a:file, "_spec.rb") != -1)
+endfunction
 
-  if match(thisFile, "_feature.rb") != -1 || match(thisFile, "_spec.rb") != -1
+function! s:isTestUnitFile(file)
+  return (match(a:file, "_test.rb") != -1)
+endfunction
+
+function! s:TestFrameworkSelector(file)
+  if s:isRspecFile(a:file)
     return {
           \ "line": ":".line("."),
-          \ "file": matchstr(expand("%"), "spec.*"),
+          \ "file": matchstr(a:file, "spec.*"),
           \ "command": s:TmuxRspecCommand()
           \ }
-  elseif match(thisFile, "_test.rb") != -1
+  elseif isTestUnitFile(a:file)
     return {
           \ "command": "ruby -I".matchstr(expand("%:h"), ".*test")." ",
-          \ "file": expand('%'),
+          \ "file": a:file,
           \ "line": " -n /" . PreserveFN('TmuxTestUnitCurrentTest') . "/"
           \ }
   endif
