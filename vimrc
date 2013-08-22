@@ -107,8 +107,8 @@ augroup END
 command! IndentAllFile :call Preserve('normal gg=G')
 noremap ,ff :IndentAllFile<CR>
 
-" Make <C-l> clear the highlight
-nnoremap <C-L> :nohls<CR>:set hls?<CR>
+" Make <CR> clear the highlight
+nnoremap <CR> :nohls<CR>:set hls?<CR>
 
 " Show all buffers
 nnoremap <silent> ,ls :ls!<CR>
