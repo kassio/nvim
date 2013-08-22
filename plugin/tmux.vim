@@ -6,6 +6,8 @@ nmap ,tp :call SendKeysToTmux('C-c')<CR>
       \ :call SendKeysToTmux('C-p')<CR>
       \ :call SendKeysToTmux('Enter')<CR>
 
-vmap ,ts <Plug>SendSelectionToTmux "rygv :call Send_to_Tmux(@r)<CR>
+vmap ,ts <Plug>SendSelectionToTmux "rygv :call SendToTmux(@r)<CR>
 nmap ,ts <Plug>NormalModeSendToTmux vip <Plug>SendSelectionToTmux
 nmap ,tr <Plug>SetTmuxVars
+
+nmap ,cc :normal ,tc,tl<CR>:call SendToTmux("cucumber\n")<CR>
