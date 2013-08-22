@@ -15,29 +15,29 @@ set fileencoding=utf8
 set termencoding=utf8
 set nobomb
 
-set showmatch matchpairs+=<:>
+set showmatch
 runtime macros/matchit.vim
 
 set confirm
 
-set splitright
-set splitbelow
+set splitright splitbelow
 
 set incsearch hls ignorecase smartcase
 
 set formatoptions=tcwqn2
 set colorcolumn=80
+set cursorline
 
 set lazyredraw
-set showcmd ruler
+set laststatus=2 showcmd
 
 set list listchars=eol:¬,tab:▸\ ,trail:·,nbsp:·
 
-set laststatus=2
-
 set wildmenu wildignorecase
 set wildmode=list:longest,list:full
-set wildignore+=*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov,*/.git/*,*/.hg/*,*/.svn/*
+set wildignore+=*.zip,*.gz,*.bz,*.tar,
+set wildignore+=*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov,
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 
 set diffopt+=iwhite
 
@@ -49,10 +49,7 @@ set number relativenumber numberwidth=5
 
 set autoread autowrite
 
-set cursorline
-
 set tag=
-
 set complete=.,w,b,u,U,i,d
 set completeopt=menu,menuone,longest,preview
 
