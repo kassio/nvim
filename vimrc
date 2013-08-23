@@ -30,6 +30,9 @@ set cursorline
 
 set lazyredraw
 set laststatus=2 showcmd
+set statusline=%<%t\ %h%w%m%r%y
+set statusline+=%=
+set statusline+=[%c,%l/%L]
 
 set list listchars=eol:¬,tab:▸\ ,trail:·,nbsp:·
 
