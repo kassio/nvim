@@ -29,10 +29,11 @@ set colorcolumn=80
 set cursorline
 
 set lazyredraw
-set laststatus=2 showcmd
+set showcmd
 set statusline=%<%f%r%y%m
 set statusline+=%=
 set statusline+=[%c,%l/%L]
+set laststatus=2
 
 set list listchars=eol:¬,tab:▸\ ,trail:·,nbsp:·
 
