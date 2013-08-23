@@ -35,9 +35,8 @@ set list listchars=eol:¬,tab:▸\ ,trail:·,nbsp:·
 
 set wildmenu wildignorecase
 set wildmode=list:longest,list:full
-set wildignore+=*.zip,*.gz,*.bz,*.tar,
-set wildignore+=*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov,
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+set wildignore+=*.zip,*.gz,*.bz,*.tar
+set wildignore+=*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
 
 set diffopt+=iwhite
 
