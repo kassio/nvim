@@ -36,7 +36,7 @@ function! s:TestFrameworkSelector(file)
           \ "file": matchstr(a:file, "spec.*"),
           \ "command": s:TmuxRspecCommand()
           \ }
-  elseif isTestUnitFile(a:file)
+  elseif s:isTestUnitFile(a:file)
     return {
           \ "command": "ruby -I".matchstr(expand("%:h"), ".*test")." ",
           \ "file": a:file,
