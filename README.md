@@ -18,6 +18,12 @@
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
     vim +BundleInstall +quit
 
+## Upgrade vim
+
+    * Dependences: curl
+
+    cd ~/.vim && ./upgrade
+
 ## Files you need to read
 
     * vimrc
