@@ -52,7 +52,7 @@ set number relativenumber numberwidth=5
 
 set autoread autowrite
 
-set tag=
+set tags=./tags,tags
 set complete=.,w,b,u,U,i,d
 set completeopt=menu,menuone,longest,preview
 
@@ -158,3 +158,10 @@ augroup last_position_on_open
 augroup END
 
 command! Reload :so ~/.vimrc
+
+nmap K <nop>
+nmap Q <nop>
+nmap <up> <nop>
+nmap <right> <nop>
+nmap <down> <nop>
+nmap <left> <nop>
