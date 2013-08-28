@@ -53,7 +53,7 @@ set number relativenumber numberwidth=5
 set autoread autowrite
 
 set tags=./tags,tags
-set complete=.,w,b,u,U,i,d
+set complete=.,w,b,u,U,i,d,t
 set completeopt=menu,menuone,longest,preview
 
 set timeoutlen=3000
