@@ -3,14 +3,9 @@
 function! Preserve(command)
   let _s=@/
 
-  silent normal mz
-  silent normal Hmy
-  silent normal `z
-
+  let l:winview = winsaveview()
   silent execute a:command
-
-  silent normal 'yzt
-  silent normal `z
+  call winrestview(l:winview)
 
   let @/=_s
 endfunction

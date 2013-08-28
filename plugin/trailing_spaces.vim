@@ -1,4 +1,3 @@
-" Remove trailing spaces and lines
 augroup remove_trailling_spaces
   autocmd!
   autocmd BufWritePre * call Preserve('%s/\s\+$//e')
