@@ -64,7 +64,7 @@ function! TmuxTestUnitCurrentTest()
   if current_test != 0
     let test_name = matchstr(getline(current_test), "test_.*")
   else
-    let current_test = search('test\s["'']', 'b')
+    let current_test = search('\(test\s["'']\|it\s["'']\)', 'b')
 
     let test_string = split(getline(current_test), '[''"]')[1]
     let test_name = join(split(tolower(test_string), " "), "_")
