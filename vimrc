@@ -7,8 +7,6 @@ if has("autocmd")
   filetype plugin on
 endif
 
-let mapleader=','
-
 scriptencoding utf8
 set encoding=utf8
 set fileencoding=utf8
@@ -90,34 +88,6 @@ endif
 
 " Folding
 set foldmethod=manual
-noremap <F3> zM
-noremap <F4> zR
-
-" Make Y consistent with C and D
-nnoremap Y y$
-
-" Remove trailing spaces and lines
-augroup remove_trailling_spaces
-  autocmd!
-  autocmd BufWritePre * call Preserve('%s/\s\+$//e')
-  autocmd BufWritePre * call Preserve('%s/\v($\n\s*)+%$//e')
-augroup END
-
-" Indent all file
-command! IndentAllFile :call Preserve('normal gg=G')
-noremap ,ff :IndentAllFile<CR>
-
-" Make <CR> clear the highlight
-nnoremap <CR> :nohls<CR>:set hls?<CR><CR>
-
-" Show all buffers
-nnoremap <silent> ,ls :ls!<CR>
-" Delete current buffer
-nnoremap <silent> ,bd :bd!<CR>
-" Delete all buffers
-nnoremap <silent> ,da :exec "1," . bufnr('$') . "bd"<CR>
-" Toogle list characters
-nnoremap <silent> ,ll :set invlist<CR>:set list?<CR>
 
 augroup filetype_setup
   autocmd!
@@ -139,15 +109,6 @@ augroup filetype_setup
         \ formatoptions+=a
 augroup END
 
-" Spell
-set spelllang=en,pt
-noremap <F7> <esc>:set invspell<CR>
-noremap <F6> zg
-noremap <F8> z=
-
-" Sorting selected text
-vnoremap ,ss :sort<CR>
-
 " open file in the last position
 augroup last_position_on_open
   au!
@@ -158,10 +119,3 @@ augroup last_position_on_open
 augroup END
 
 command! Reload :so ~/.vimrc
-
-nmap K <nop>
-nmap Q <nop>
-nmap <up> <nop>
-nmap <right> <nop>
-nmap <down> <nop>
-nmap <left> <nop>
