@@ -1,17 +1,9 @@
 source ~/.vim/vundle.vim
 
-" Filetypes
-if has("autocmd")
-  filetype on
-  filetype indent on
-  filetype plugin on
-endif
+filetype plugin indent on
 
 scriptencoding utf8
-set encoding=utf8
-set fileencoding=utf8
-set termencoding=utf8
-set nobomb
+set encoding=utf8 fileencoding=utf8 termencoding=utf8 nobomb
 
 set showmatch
 runtime macros/matchit.vim
@@ -23,14 +15,13 @@ set splitright splitbelow
 set incsearch hls ignorecase smartcase
 
 set formatoptions=tcwqn2
-set colorcolumn=80
-set cursorline
+set cursorline colorcolumn=80
 
 set lazyredraw
 set showcmd
 set statusline=%<%f%r%y%m
 set statusline+=%=
-set statusline+=[%c,%l/%L]
+set statusline+=[%c,%l]\ %L
 set laststatus=2
 
 set list listchars=eol:¬,tab:▸\ ,trail:·,nbsp:·
@@ -67,6 +58,8 @@ set backspace=indent,eol,start
 
 set mousehide mouse= ttymouse=xterm2
 
+set foldmethod=manual
+
 if has("gui_running")
   set guioptions-=T
   set linespace=2
@@ -85,9 +78,6 @@ if has("syntax")
     hi! link NonText Comment
   endif
 endif
-
-" Folding
-set foldmethod=manual
 
 augroup filetype_setup
   autocmd!
@@ -117,5 +107,3 @@ augroup last_position_on_open
         \     execute 'normal! g`"' |
         \ endif
 augroup END
-
-command! Reload :so ~/.vimrc
