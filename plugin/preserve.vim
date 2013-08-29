@@ -3,7 +3,7 @@
 function! Preserve(command)
   let _s=@/
 
-  let l:winview = winsaveview()
+  let winview = winsaveview()
   silent execute a:command
   call winrestview(l:winview)
 
