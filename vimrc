@@ -62,9 +62,6 @@ set foldmethod=manual
 
 if has("gui_running")
   set guioptions-=T
-  set linespace=2
-  set lines=999
-  set columns=9999
 endif
 
 if has("syntax")
@@ -79,9 +76,9 @@ if has("syntax")
   endif
 endif
 
-augroup filetype_setup
-  autocmd!
-  autocmd FileType vim,css,ruby,eruby,tex,c,sh,java,python,js,javascript set
+aug filetype_setup
+  au!
+  au FileType vim,css,ruby,eruby,tex,c,sh,java,python,js,javascript set
         \ autoindent
         \ copyindent
         \ cindent
@@ -92,18 +89,18 @@ augroup filetype_setup
         \ expandtab
         \ smarttab
         \ shiftround
-  autocmd FileType tex,txt,mail,text,markdown set textwidth=80
-  autocmd Filetype gitcommit set textwidth=72
-  autocmd FileType tex,txt,mail,text,markdown,gitcommit setlocal
+  au FileType tex,txt,mail,text,markdown set textwidth=80
+  au Filetype gitcommit set textwidth=72
+  au FileType tex,txt,mail,text,markdown,gitcommit setlocal
         \ spell
         \ formatoptions+=a
-augroup END
+aug END
 
 " open file in the last position
-augroup last_position_on_open
+aug last_position_on_open
   au!
   au BufReadPost *
         \ if line("'\"") > 0 && line("'\"") <= line("$") |
         \     execute 'normal! g`"' |
         \ endif
-augroup END
+aug END
