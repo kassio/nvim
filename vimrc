@@ -58,7 +58,7 @@ set backspace=indent,eol,start
 
 set mousehide mouse= ttymouse=xterm2
 
-set foldmethod=manual
+set foldmethod=manual nofoldenable
 
 if has("gui_running")
   set guioptions-=T
