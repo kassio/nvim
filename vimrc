@@ -94,7 +94,7 @@ aug filetype_setup
   au FileType tex,txt,mail,text,markdown,gitcommit setlocal
         \ spell
         \ formatoptions+=a
-  au BufReadPost *.md set ft=markdown
+  au BufNewFile,BufReadPost *.md set ft=markdown
 aug END
 
 " open file in the last position
