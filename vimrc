@@ -105,3 +105,5 @@ aug last_position_on_open
         \     execute 'normal! g`"' |
         \ endif
 aug END
+
+let mapleader=','

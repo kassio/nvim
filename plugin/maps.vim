@@ -1,5 +1,3 @@
-let mapleader=','
-
 " Folding
 noremap <F3> zM
 noremap <F4> zR
