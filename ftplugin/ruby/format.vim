@@ -1,5 +1,5 @@
-command! NewRubyHashSyntax :call Preserve('%s/\v:(\w+)\s*\=\>/\1:/ge')
-command! OldRubyHashSyntax :call Preserve('%s/\v(\w+):\s*\ze[^:]/:\1\ =>\ /ge')
+command! NewRubyHashSyntax call Preserve('%s/\v:(\w+)\s*\=\>/\1:/ge')
+command! OldRubyHashSyntax call Preserve('%s/\v(\w+):\s*\ze[^:]/:\1\ =>\ /ge')
 
 function! FormatRubyBlocks()
   " space between {}
@@ -21,8 +21,8 @@ endfunction
 function! FullRubyFormat()
   silent IndentAllFile
   silent NewRubyHashSyntax
-  silent :call FormatRubyBlocks()
+  silent call FormatRubyBlocks()
   echo 'formatted'
 endfunction
 
-nnoremap ,fr :call FullRubyFormat()<CR>
+nnoremap <leader>fr call FullRubyFormat()

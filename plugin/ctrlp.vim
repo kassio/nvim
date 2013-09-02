@@ -12,7 +12,13 @@ let g:ctrlp_abbrev = {
       \ { 'pattern': '\v(^|\/)m/', 'expanded': 'models/' },
       \ { 'pattern': '\v(^|\/)v/', 'expanded': 'views/' },
       \ { 'pattern': '\v(^|\/)h/', 'expanded': 'helpers/' },
-      \ { 'pattern': '^s/', 'expanded': 'spec/' }
+      \ { 'pattern': '^s/', 'expanded': 'spec/' },
+      \ { 'pattern': '^am/', 'expanded': 'activemodel/' },
+      \ { 'pattern': '^aml/', 'expanded': 'actionmailer/' },
+      \ { 'pattern': '^ap/', 'expanded': 'actionpack/' },
+      \ { 'pattern': '^ar/', 'expanded': 'activerecord/' },
+      \ { 'pattern': '^as/', 'expanded': 'activesupport/' },
+      \ { 'pattern': '^av/', 'expanded': 'actionview/' }
       \ ]
       \ }
 
