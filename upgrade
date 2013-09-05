@@ -2,6 +2,7 @@
 
 old_path="$PWD"
 ruby_version="$(rbenv version-name)"
+force_upgrade="$1"
 rbenv global system
 
 config_opts="--enable-gui=no \
@@ -43,8 +44,14 @@ update() {
 }
 
 hasChanges() {
-  curl https://vim.googlecode.com/hg/.hgtags > $remote_tags
-  [[ -n "$(diff $remote_tags $local_tags)" ]] && true || false;
+  curl -s https://vim.googlecode.com/hg/.hgtags > $remote_tags
+  if [ -n "$(diff $remote_tags $local_tags)" -o -n $force_upgrade ]
+  then
+    return 0
+  fi
+
+  echo "nothing to do"
+  return -1
 }
 
 compile() {
