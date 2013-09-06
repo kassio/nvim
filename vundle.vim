@@ -38,7 +38,7 @@ Bundle 'elixir-lang/vim-elixir'
 Bundle 'altercation/vim-colors-solarized'
 
 " tmux
-Bundle 'jgdavey/tslime.vim'
+Bundle 'kassio/tslime.vim'
 
 " puppet
 Bundle 'rodjek/vim-puppet'
