@@ -22,4 +22,4 @@ let g:ctrlp_abbrev = {
       \ ]
       \ }
 
-noremap <c-n> :CtrlPLine<CR>
+noremap <c-n> :exec "CtrlPLine " . bufname('%')<CR>
