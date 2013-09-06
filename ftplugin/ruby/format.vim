@@ -25,4 +25,4 @@ function! FullRubyFormat()
   echo 'formatted'
 endfunction
 
-nnoremap <leader>fr call FullRubyFormat()
+nnoremap <leader>fr :call FullRubyFormat()<CR>
