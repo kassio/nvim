@@ -5,8 +5,8 @@ noremap <F4> zR
 " Make Y consistent with C and D
 nnoremap Y y$
 
-" Make <CR> clear the highlight
-nnoremap <CR> :nohls<CR>:set hls?<CR><CR>
+" Make <C-l> clear the highlight
+nnoremap <C-l> :nohls<CR>:set hls?<CR><CR>
 
 " Show all buffers
 nnoremap <silent> ,ls :ls!<CR>
