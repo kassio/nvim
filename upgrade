@@ -45,13 +45,13 @@ update() {
 
 hasChanges() {
   curl -s https://vim.googlecode.com/hg/.hgtags > $remote_tags
-  if [ -n "$(diff $remote_tags $local_tags)" -o -n $force_upgrade ]
+  if [[ -z "$(diff $remote_tags $local_tags)" && -z $force_upgrade ]]
   then
+    echo "nothing to do"
+    return -1
+  else
     return 0
   fi
-
-  echo "nothing to do"
-  return -1
 }
 
 compile() {
