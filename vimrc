@@ -62,6 +62,8 @@ set foldmethod=manual nofoldenable
 
 set spellfile=$HOME/.vim/spell/custom.utf-8.add
 
+set clipboard=unnamed
+
 if has("gui_running")
   set guioptions-=T
   set gfn=Monaco:h16
