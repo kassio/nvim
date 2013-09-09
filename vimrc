@@ -64,6 +64,7 @@ set spellfile=$HOME/.vim/spell/custom.utf-8.add
 
 if has("gui_running")
   set guioptions-=T
+  set gfn=Monaco:h16
 endif
 
 if has("syntax")
