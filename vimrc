@@ -65,7 +65,7 @@ set spellfile=$HOME/.vim/spell/custom.utf-8.add
 set clipboard=unnamed
 
 if has("gui_running")
-  set guioptions-=T
+  set guioptions=ec
   set gfn=Monaco:h16
 endif
 
