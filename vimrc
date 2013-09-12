@@ -10,6 +10,8 @@ runtime macros/matchit.vim
 
 set confirm
 
+set shortmess=atTI
+
 set splitright splitbelow
 
 set incsearch hls ignorecase smartcase
