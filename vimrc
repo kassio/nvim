@@ -43,7 +43,7 @@ set number relativenumber numberwidth=5
 
 set autoread autowrite
 
-set tags=./tags,tags
+set tags=./tags,tags,../tags
 set complete=.,w,b,u,U,i,d,t
 set completeopt=menu,menuone,longest,preview
 
@@ -64,11 +64,10 @@ set foldmethod=manual nofoldenable
 
 set spellfile=$HOME/.vim/spell/custom.utf-8.add
 
-set clipboard=unnamed
-
 if has("gui_running")
   set guioptions=ec
   set gfn=Monaco:h16
+  set clipboard=unnamed
 endif
 
 if has("syntax")
@@ -112,6 +111,11 @@ aug last_position_on_open
         \ if exists('b:open_at_first_line') && line("'\"") > 0 && line("'\"") <= line("$") |
         \     execute 'normal! g`"' |
         \ endif
+aug END
+
+aug retag_all_files
+  au!
+  au BufWritePost * call system("ctags --tag-relative -Rf.git/tags.$$ --exclude=.git --languages=-javascript,sql")
 aug END
 
 let mapleader=','
