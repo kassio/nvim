@@ -31,6 +31,10 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-cucumber'
 
+" Ruby Block
+Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'kana/vim-textobj-user'
+
 " Elixir
 Bundle 'elixir-lang/vim-elixir'
 
