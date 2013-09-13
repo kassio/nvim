@@ -4,6 +4,7 @@ old_path="$PWD"
 ruby_version="$(rbenv version-name)"
 force_upgrade="$1"
 rbenv global system
+rbenv rehash
 
 config_opts="--enable-gui=no \
   --without-x \
@@ -57,9 +58,11 @@ hasChanges() {
 compile() {
   cd src
   make clean
+  make distclean
   ./configure $config_opts
   make
   sudo make install $make_install_opts
+  vim --version
 }
 
 if [[ ! -d $vim_src_path ]]
@@ -76,3 +79,4 @@ fi
 
 cd $old_path
 rbenv global $ruby_version
+rbenv rehash
