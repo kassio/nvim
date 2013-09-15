@@ -114,7 +114,10 @@ aug END
 
 aug retag_all_files
   au!
-  au BufWritePost * call system("ctags --tag-relative -Rf.git/tags.$$ --exclude=.git --languages=-javascript,sql")
+  au BufWritePost *
+        \ if filereadable('tags') |
+        \   call system('ctags -a ' . expand('%')) |
+        \ endif
 aug END
 
 let mapleader=','
