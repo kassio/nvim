@@ -6,7 +6,7 @@ noremap <F4> zR
 nnoremap Y y$
 
 " Make <C-l> clear the highlight
-nnoremap <C-l> :nohls<CR>:set hls?<CR><CR>
+nnoremap <C-l> :nohls<CR>:set hls?<CR>
 
 " Show all buffers
 nnoremap <silent> ,ls :ls!<CR>
