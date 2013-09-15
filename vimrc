@@ -103,8 +103,7 @@ aug filetype_setup
   au BufNewFile,BufReadPost *.md set ft=markdown
 aug END
 
-" open file in the last position
-aug last_position_on_open
+aug open_file_in_the_last_position
   au!
   au FileType gitcommit let b:open_at_first_line = 1
   au BufReadPost *
