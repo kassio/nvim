@@ -8,13 +8,14 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Tools
-Bundle 'tpope/vim-surround'
+Bundle 'L9'
 Bundle 'bronson/vim-visual-star-search'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-fugitive'
-Bundle 'L9'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-abolish'
 
 " Snippets
 Bundle 'MarcWeber/vim-addon-mw-utils'
