@@ -5,6 +5,11 @@ noremap <F4> zR
 " Make Y consistent with C and D
 nnoremap Y y$
 
+" insert blank line below current without entering insert mode
+nnoremap ,o o<esc>
+" insert blank line above current without entering insert mode
+nnoremap ,O O<esc>
+
 " Make <C-l> clear the highlight
 nnoremap <C-l> :nohls<CR>:set hls?<CR>
 
