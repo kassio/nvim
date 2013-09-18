@@ -16,6 +16,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-repeat'
 
 " Snippets
 Bundle 'MarcWeber/vim-addon-mw-utils'
