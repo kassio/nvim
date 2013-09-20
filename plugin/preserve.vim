@@ -1,4 +1,4 @@
-" Executes a command an keeps
+" Executes a command and keeps
 " the current view
 function! Preserve(command)
   let _s=@/

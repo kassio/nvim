@@ -1,15 +1,16 @@
-" NERDTree
 let g:NERDTreeWinPos="right"
-let NERDTreeHighlightCursorline=1
-let NERDTreeAutoDeleteBuffer=1
-let NERDTreeMinimalUI=1
-let NERDTreeStatusline="%{MyNERDTreeStatusLine()}"
+let g:NERDTreeHighlightCursorline=1
+let g:NERDTreeAutoDeleteBuffer=1
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeStatusline="%{MyNERDTreeStatusLine()}"
 
+" Shows only the current NERDTree line on statusline
 function! MyNERDTreeStatusLine()
   let current_line = getline('.')
   return tlib#string#Strip(current_line)
 endfunction
 
+" If possible open a NERDTreeMirror
 function! OpenNERDTreeMirror()
   try
     :NERDTreeToggle | NERDTreeMirror

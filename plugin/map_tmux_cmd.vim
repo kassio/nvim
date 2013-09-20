@@ -5,4 +5,9 @@ function! s:mapTmuxCmd(...)
   exe "nnoremap " . l:key . " :normal ,tc,tl<CR>:call SendToTmux(\"" . l:cmd . "\\n\")<CR>"
 endfunction
 
+" Command to create a dynamic map to send a command to tmux
+" Example:
+"   :MapTmuxCmd ,tt mix test
+"
+" This always create a nnoremap
 command! -nargs=* MapTmuxCmd call s:mapTmuxCmd(<q-args>)

@@ -15,6 +15,7 @@ let g:ackprg="ack --smart-case --column --follow"
 vnoremap ,as :<C-u>exec VAckSearch()<CR>
 nnoremap ,as :MyAck<CR>
 
+" Always open Ack result in a new tab
 function! MyAck(args)
   let l:cmd = "Ack " . (empty(a:args) ? expand('<cword>') : a:args)
   tabnew
