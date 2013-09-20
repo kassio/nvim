@@ -17,6 +17,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-repeat'
+Bundle 'kassio/vim-session_manager'
 
 " Snippets
 Bundle 'MarcWeber/vim-addon-mw-utils'
