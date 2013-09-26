@@ -35,8 +35,6 @@ set wildignore+=*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
 
 set diffopt+=iwhite
 
-set history=1000 undolevels=1000
-
 set nowrap wrapscan showbreak=..
 
 set number relativenumber numberwidth=5
