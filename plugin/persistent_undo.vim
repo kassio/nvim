@@ -8,5 +8,6 @@ endfunction
 
 aug persist_undo
   au!
+  au FileType gitcommit setlocal noundofile
   au BufWritePre * call PersistUndoTree()
 aug END
