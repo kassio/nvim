@@ -12,3 +12,5 @@ nmap <leader>tr <Plug>SetTmuxVars
 
 nmap <leader>cc :normal ,tc,tl<CR>
       \ :call SendToTmux("cucumber\n")<CR>
+
+cabbrev T Tmux
