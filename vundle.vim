@@ -33,6 +33,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-cucumber'
+Bundle 'sunaku/vim-ruby-minitest'
 
 " Ruby Block
 Bundle 'nelstrom/vim-textobj-rubyblock'
