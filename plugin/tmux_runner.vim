@@ -32,6 +32,10 @@ function! TmuxRunner.Run(full)
 endfunction
 
 function! TmuxRunner.selectFramework()
+  if len(g:tmuxRunnerFrameworks) == 1
+    return g:tmuxRunnerFrameworks[0]
+  endif
+
   return input("Choose a runner: ", "", "customlist,FrameworksCompletion")
 endfunction
 
