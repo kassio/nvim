@@ -3,12 +3,12 @@ function! s:Validator(file)
 endfunction
 
 function! s:CommandBuilder(file, full)
-  let command = "ruby -I".matchstr(a:file, ".*test")
+  if a:full == "all"
+    let command = "rake test"
+  else
+    let command = "ruby -Itest ".a:file
 
-  if a:full != 'all'
-    let command .= " ".a:file
-
-    if a:full == 'current'
+    if a:full == "current"
       let command .= " -n /" . s:GetCurrentTest() . "/"
     endif
   endif
@@ -24,10 +24,10 @@ function! s:GetCurrentTest()
   if current_test != 0
     let test_name = matchstr(getline(current_test), "test_.*")
   else
-    let current_test = search('\(test\s["'']\|it\s["'']\)', 'b')
+    let current_test = search('\(test\s["'']\|it\s["'']\)', "b")
 
     let test_string = split(getline(current_test), '[''"]')[1]
-    let test_name = join(split(tolower(test_string), " "), "_")
+    let test_name = substitute(tolower(test_string), "\ ", "_", "g")
   endif
 
   call winrestview(l:winview)
@@ -36,8 +36,8 @@ endfunction
 
 let s:test_unit = {
       \ "name": "test_unit",
-      \ "validate": function('s:Validator'),
-      \ "run": function('s:CommandBuilder')
+      \ "validate": function("s:Validator"),
+      \ "run": function("s:CommandBuilder")
       \ }
 
 call TmuxRunner.register(s:test_unit)
