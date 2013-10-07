@@ -15,10 +15,10 @@ function! TmuxRunner.Run(full)
   endif
 
   if empty(self.framework)
-    let self.framework = self.frameworks[self.selectFramework()]
+    self.selectFramework()
   endif
 
-  let thisFile = expand("%")
+  let thisFile = expand("%:p")
 
   if a:full != "all" && !self.framework.validate(thisFile)
     echo "Not a test file"
@@ -36,13 +36,16 @@ function! TmuxRunner.selectFramework()
     return g:tmuxRunnerFrameworks[0]
   endif
 
-  return input("Choose a runner: ", "", "customlist,FrameworksCompletion")
+  let selected = input("Choose a runner: ", "", "customlist,FrameworksCompletion")
+  let self.framework = self.frameworks[selected]
 endfunction
 
 function! FrameworksCompletion(A, L, P)
-  return g:tmuxRunnerFrameworks
+  let frameworks = copy(g:tmuxRunnerFrameworks)
+  return filter(frameworks, 'v:val =~ "' . a:A . '"')
 endfunction
 
+nmap <leader>ct :call TmuxRunner.selectFramework()<CR>
 nmap <leader>rt :call TmuxRunner.Run("all")<CR>
 nmap <leader>rf :call TmuxRunner.Run("file")<CR>
 nmap <leader>rl :call TmuxRunner.Run("current")<CR>
