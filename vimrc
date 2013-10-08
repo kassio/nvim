@@ -46,7 +46,7 @@ set number relativenumber numberwidth=5
 
 set autoread autowrite
 
-set sessionoptions=buffers,curdir,localoptions,tabpages
+set sessionoptions=buffers,tabpages,curdir
 
 set tags=./tags,tags,../tags,./gems.tags,gems.tags,config/gems.tags
 set complete=.,w,b,u,U,i,d,t
