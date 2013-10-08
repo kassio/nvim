@@ -1,5 +1,5 @@
-if !exists("TmuxRunner")
-  let TmuxRunner = { "frameworks": {}, "framework": "" }
+if !exists('TmuxRunner')
+  let TmuxRunner = { 'frameworks': {}, 'framework': '' }
 endif
 
 function! TmuxRunner.register(framework)
@@ -9,25 +9,25 @@ function! TmuxRunner.register(framework)
 endfunction
 
 function! TmuxRunner.Run(full)
-  if !exists("g:tmuxRunnerFrameworks")
-    echo "No TmuxRunner framework registred"
+  if !exists('g:tmuxRunnerFrameworks')
+    echo 'No TmuxRunner framework registred'
     return
   endif
 
   if empty(self.framework)
-    self.selectFramework()
+    call self.selectFramework()
   endif
 
-  let thisFile = expand("%:p")
+  let thisFile = expand('%:p')
 
-  if a:full != "all" && !self.framework.validate(thisFile)
-    echo "Not a test file"
+  if a:full != 'all' && !self.framework.validate(thisFile)
+    echo 'Not a test file'
     return
   endif
 
   let g:lastTmuxCmd = self.framework.run(thisFile, a:full) . "\n"
 
-  call SendKeysToTmux("C-c C-l")
+  call SendKeysToTmux('C-c C-l')
   call SendToTmux(g:lastTmuxCmd)
 endfunction
 
@@ -36,7 +36,7 @@ function! TmuxRunner.selectFramework()
     return g:tmuxRunnerFrameworks[0]
   endif
 
-  let selected = input("Choose a runner: ", "", "customlist,FrameworksCompletion")
+  let selected = input('Choose a runner: ', '', 'customlist,FrameworksCompletion')
   let self.framework = self.frameworks[selected]
 endfunction
 
@@ -46,8 +46,8 @@ function! FrameworksCompletion(A, L, P)
 endfunction
 
 nmap <leader>ct :call TmuxRunner.selectFramework()<CR>
-nmap <leader>rt :call TmuxRunner.Run("all")<CR>
-nmap <leader>rf :call TmuxRunner.Run("file")<CR>
-nmap <leader>rl :call TmuxRunner.Run("current")<CR>
-nmap <leader>rr :call SendKeysToTmux("C-c C-l")<CR>
+nmap <leader>rt :call TmuxRunner.Run('all')<CR>
+nmap <leader>rf :call TmuxRunner.Run('file')<CR>
+nmap <leader>rl :call TmuxRunner.Run('current')<CR>
+nmap <leader>rr :call SendKeysToTmux('C-c C-l')<CR>
       \ :call SendToTmux(g:lastTmuxCmd)<CR>
