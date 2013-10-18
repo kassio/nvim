@@ -11,20 +11,23 @@
 
 ## Setup
 
-    ln -s ~/.vim/vimrc ~/.vimrc
-
-### [Vundle](https://github.com/gmarik/vundle)
+* install [vundle](https://github.com/gmarik/vundle) to manage all plugins:
 
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
     vim +BundleInstall +quit
+
+* If your vim version < 7.4 so you'll need the vimrc in you $HOME
+
+    ln -s $HOME/.vim/vimrc $HOME/.vimrc
 
 ## Upgrade vim
 
     * Dependences: curl
 
-    cd ~/.vim && ./upgrade
+    $HOME/.vim/upgrade
 
-## Files you need to read
+## Files that you should to read
 
     * vimrc
+    * vundle.vim
     * plugins/* # Custom plugins configuration
