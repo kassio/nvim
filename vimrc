@@ -16,11 +16,13 @@ set splitright splitbelow
 
 set incsearch hls ignorecase smartcase
 
-set formatoptions=tcwqn2
-set cursorline colorcolumn=80
+set formatoptions=tcwqnj2
+set cursorline colorcolumn=80 winwidth=80
 
 set lazyredraw
 set showcmd
+
+set switchbuf=useopen,usetab,split
 
 set statusline=
 set statusline+=[%n]
