@@ -1,6 +1,16 @@
 set nocompatible
 filetype off
 
+" Setting up Vundle - the vim plugin bundler
+let vundle_readme = expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme)
+  echo "Installing Vundle.."
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+  let firstInstall = 1
+endif
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -50,3 +60,12 @@ Bundle 'kassio/tslime.vim'
 
 " puppet
 Bundle 'rodjek/vim-puppet'
+
+" ctags
+Bundle 'majutsushi/tagbar'
+
+if exists('firstInstall') && firstInstall == 1
+  echo "Installing Bundles, please ignore key map error messages"
+  echo ""
+  :BundleInstall
+endif
