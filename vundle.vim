@@ -27,15 +27,10 @@ Bundle 'kassio/my-snippets'
 
 " HTML, javascript
 Bundle 'othree/html5.vim'
-Bundle 'pangloss/vim-javascript'
 
-" Ruby, rails, relatives
+" Ruby
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-cucumber'
-Bundle 'sunaku/vim-ruby-minitest'
-
-" Ruby Block
+Bundle 'Keithbsmiley/rspec.vim'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'kana/vim-textobj-user'
 
@@ -47,9 +42,3 @@ Bundle 'altercation/vim-colors-solarized'
 
 " tmux
 Bundle 'kassio/tslime.vim'
-
-" puppet
-Bundle 'rodjek/vim-puppet'
-
-" ctags
-Bundle 'majutsushi/tagbar'

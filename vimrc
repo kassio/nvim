@@ -44,7 +44,7 @@ set diffopt+=iwhite
 
 set nowrap wrapscan showbreak=..
 
-set number relativenumber numberwidth=5
+set number relativenumber numberwidth=4
 
 set autoread autowrite
 
@@ -54,8 +54,7 @@ set tags=./tags,tags,../tags,./gems.tags,gems.tags,config/gems.tags
 set complete=.,w,b,u,U,i,d,t
 set completeopt=menu,menuone,longest,preview
 
-set timeoutlen=3000
-set ttimeoutlen=50
+set timeoutlen=1000 ttimeoutlen=50
 
 set iskeyword+=-
 
