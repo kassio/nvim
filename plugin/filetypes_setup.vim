@@ -6,8 +6,6 @@ aug filetype_setup
         \ cindent
         \ smartindent
         \ tabstop=2
-        \ shiftwidth=2
-        \ softtabstop=2
         \ expandtab
         \ smarttab
         \ shiftround
