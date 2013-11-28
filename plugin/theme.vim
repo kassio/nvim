@@ -5,7 +5,7 @@ if has("syntax")
 
   if !empty(globpath(&rtp, "colors/solarized.vim"))
     colorscheme solarized
-    hi! link SpecialKey Comment
-    hi! link NonText Comment
+    hi! SpecialKey ctermfg=239 ctermbg=NONE guifg=Gray30 guibg=NONE
+    hi! link NonText SpecialKey
   endif
 endif
