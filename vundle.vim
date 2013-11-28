@@ -43,3 +43,6 @@ Bundle 'altercation/vim-colors-solarized'
 
 " tmux
 Bundle 'kassio/tslime.vim'
+
+" tagbar
+Bundle 'majutsushi/tagbar'
