@@ -1,6 +1,6 @@
 function! VAckSearch()
   norm! gv"sy
-  return ':MyAck "' . EscapeAllString(@s) . '"'
+  return ':Ack "' . EscapeAllString(@s) . '"'
 endfunction
 
 function! EscapeAllString(text)
@@ -13,14 +13,6 @@ let g:ackhighlight=1
 let g:ackprg="ack --smart-case --column --follow"
 
 vnoremap ,as :<C-u>exec VAckSearch()<CR>
-nnoremap ,as :MyAck<CR>
-
-" Always open Ack result in a new tab
-function! MyAck(args)
-  let l:cmd = "Ack " . (empty(a:args) ? expand('<cword>') : a:args)
-  tabnew
-  echo l:cmd
-  exe l:cmd
-endfunction
+nnoremap ,as :Ack<CR>
 
 command! -bang -nargs=* -complete=file MyAck call MyAck(<q-args>)
