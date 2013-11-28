@@ -18,6 +18,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-repeat'
 Bundle 'kassio/vim-session_manager'
+Bundle 'Yggdroot/indentLine'
 
 " Snippets
 Bundle 'MarcWeber/vim-addon-mw-utils'
