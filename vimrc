@@ -59,8 +59,7 @@ set timeoutlen=1000 ttimeoutlen=50
 set iskeyword+=-
 
 set autoindent copyindent cindent smartindent
-set shiftwidth=0 softtabstop=0
-set tabstop=2
+set tabstop=2 shiftwidth=2 softtabstop=2
 set expandtab smarttab shiftround
 
 set backspace=indent,eol,start
