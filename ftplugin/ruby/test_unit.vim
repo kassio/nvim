@@ -2,13 +2,13 @@ function! s:Validator(file)
   return (match(a:file, "_test.rb") != -1)
 endfunction
 
-function! s:CommandBuilder(file, full)
-  if a:full == "all"
+function! s:CommandBuilder(file, scope)
+  if a:scope == "all"
     let command = "rake test"
   else
     let command = "ruby -Itest ".a:file
 
-    if a:full == "current"
+    if a:scope == "current"
       let command .= " -n /" . s:GetCurrentTest() . "/"
     endif
   endif
@@ -37,7 +37,7 @@ endfunction
 let s:test_unit = {
       \ "name": "test_unit",
       \ "validate": function("s:Validator"),
-      \ "run": function("s:CommandBuilder")
+      \ "commandFor": function("s:CommandBuilder")
       \ }
 
 call TmuxRunner.register(s:test_unit)

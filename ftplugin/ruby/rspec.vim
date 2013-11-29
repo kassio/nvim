@@ -5,13 +5,13 @@ function! s:Validator(file)
         \ || (match(a:file, '_spec.rb') != -1)
 endfunction
 
-function! s:CommandBuilder(file, full)
+function! s:CommandBuilder(file, scope)
   let rspec_command = <SID>disableAutoSegClientExtensions(a:file)
 
-  if a:full != 'all'
+  if a:scope != 'all'
     let rspec_command .= ' '.matchstr(a:file, 'spec.*')
 
-    if a:full == 'current'
+    if a:scope == 'current'
       let rspec_command .= ':'.line('.')
     endif
   endif
@@ -34,7 +34,7 @@ endfunction
 let s:rspec = {
       \ 'name': 'rspec',
       \ 'validate': function('s:Validator'),
-      \ 'run': function('s:CommandBuilder')
+      \ 'commandFor': function('s:CommandBuilder')
       \ }
 
 call TmuxRunner.register(s:rspec)

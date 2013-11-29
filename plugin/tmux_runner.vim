@@ -8,7 +8,7 @@ function! TmuxRunner.register(framework)
   let g:tmuxRunnerFrameworks =  keys(self.frameworks)
 endfunction
 
-function! TmuxRunner.Run(full)
+function! TmuxRunner.Run(scope)
   if !exists('g:tmuxRunnerFrameworks')
     echo 'No TmuxRunner framework registred'
     return
@@ -20,12 +20,12 @@ function! TmuxRunner.Run(full)
 
   let thisFile = expand('%:p')
 
-  if a:full != 'all' && !self.framework.validate(thisFile)
+  if a:scope != 'all' && !self.framework.validate(thisFile)
     echo 'Not a test file'
     return
   endif
 
-  let g:lastTmuxCmd = self.framework.run(thisFile, a:full) . "\n"
+  let g:lastTmuxCmd = self.framework.commandFor(thisFile, a:scope) . "\n"
 
   call SendKeysToTmux('C-c C-l')
   call SendToTmux(g:lastTmuxCmd)

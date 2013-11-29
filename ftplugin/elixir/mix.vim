@@ -11,7 +11,7 @@ endfunction
 let s:mix = {
       \ "name": "mix",
       \ "validate": function('s:Validator'),
-      \ "run": function('s:CommandBuilder')
+      \ "commandFor": function('s:CommandBuilder')
       \ }
 
 call TmuxRunner.register(s:mix)
