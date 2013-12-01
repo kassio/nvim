@@ -42,7 +42,7 @@ Bundle 'elixir-lang/vim-elixir'
 Bundle 'altercation/vim-colors-solarized'
 
 " tmux
-Bundle 'kassio/tslime.vim'
+Bundle 'kassio/tmux_runner'
 
 " tagbar
 Bundle 'majutsushi/tagbar'

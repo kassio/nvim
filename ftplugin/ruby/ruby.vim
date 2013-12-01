@@ -14,3 +14,6 @@ let g:surround_99  = "class\n\t\r\nend"  " c
 let g:surround_100 = "do\n\t\r\nend"     " d
 let g:surround_109 = "module\n\t\r\nend" " m
 let g:surround_119 = "%w[\r]"            " w
+
+command! MinitestAutoComplete set completefunc=syntaxcomplete#Complete
+command! LetToVariable call Preserve('s/\vlet.?\(:(.{-})\)\s\{\s(\_.{-})\s\}/@\1\ =\ \2/ge')
