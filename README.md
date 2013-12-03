@@ -7,27 +7,27 @@
 
 ## Download
 
-    git clone git://github.com/kassio/vimfiles.git ~/.vim
+        git clone git://github.com/kassio/vimfiles.git ~/.vim
 
 ## Setup
 
 * install [vundle](https://github.com/gmarik/vundle) to manage all plugins:
 
-    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-    vim +BundleInstall +quit
+        git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+        vim +BundleInstall +quit
 
-* If your vim version < 7.4 so you'll need the vimrc in you $HOME
+* If your vim version < 7.4 so you'll need the `.vimrc` in you $HOME
 
-    ln -s $HOME/.vim/vimrc $HOME/.vimrc
+        ln -s $HOME/.vim/vimrc $HOME/.vimrc
 
 ## Upgrade vim
 
-    * Dependences: curl
+* Dependences: curl
 
-    $HOME/.vim/upgrade
+        $HOME/.vim/upgrade
 
 ## Files that you should to read
 
-    * vimrc
-    * vundle.vim
-    * plugins/* # Custom plugins configuration
+* vimrc # Vim customizations
+* vundle.vim # Plugins list
+* plugins/* # Plugins' customizations
