@@ -20,3 +20,4 @@ command! LetToVariable call Preserve('s/\vlet\!?\s?\(:(.{-})\)\s\{\s(\_.{-})\s\}
 command! VariableToLet call Preserve('s/\v^\s*\zs\@?([^ ]+)\s*\=\s*(.+)$/let(:\1)\ {\ \2\ }/ge')
 
 let g:ruby_path=system('echo "$RBENV_ROOT/versions/$(rbenv version-name)/bin/ruby"')
+set re=1

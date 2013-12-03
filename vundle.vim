@@ -15,10 +15,8 @@ Bundle 'kassio/ack.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-repeat'
 Bundle 'kassio/vim-session_manager'
-Bundle 'Yggdroot/indentLine'
 
 " Snippets
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -43,6 +41,3 @@ Bundle 'altercation/vim-colors-solarized'
 
 " tmux
 Bundle 'kassio/tmux_runner'
-
-" tagbar
-Bundle 'majutsushi/tagbar'

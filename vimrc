@@ -19,7 +19,6 @@ set incsearch hls ignorecase smartcase
 set formatoptions=tcwqnj2
 set cursorline colorcolumn=80 winwidth=80
 
-set lazyredraw
 set showcmd
 
 set switchbuf=useopen,usetab,split
@@ -44,7 +43,7 @@ set diffopt+=iwhite
 
 set nowrap wrapscan showbreak=..
 
-set number relativenumber numberwidth=4
+set number relativenumber numberwidth=3
 
 set autoread autowrite
 
