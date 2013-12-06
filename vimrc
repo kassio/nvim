@@ -21,7 +21,7 @@ set cursorline colorcolumn=80 winwidth=80
 
 set showcmd
 
-set switchbuf=useopen,usetab,split
+set switchbuf=useopen,usetab,newtab
 
 set statusline=
 set statusline+=[%n]
@@ -49,7 +49,7 @@ set autoread autowrite
 
 set sessionoptions=buffers,tabpages,curdir
 
-set tags=./tags,tags,../tags,./gems.tags,gems.tags,config/gems.tags
+set tags=tags,./tags,../tags,gems.tags,./gems.tags,../gems.tags,config/gems.tags
 set complete=.,w,b,u,U,i,d,t
 set completeopt=menu,menuone,longest,preview
 
