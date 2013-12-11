@@ -6,4 +6,5 @@ if has("syntax")
   colorscheme solarized
   hi! SpecialKey ctermfg=239 ctermbg=NONE guifg=Gray30 guibg=NONE
   hi! link NonText SpecialKey
+  hi! VertSplit ctermbg=NONE
 endif
