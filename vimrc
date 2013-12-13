@@ -32,7 +32,7 @@ set statusline+=\ %{&ff}
 set statusline+=%=[%c,%l]\ %L
 set laststatus=2
 
-set list listchars=eol:¬,tab:▸\ ,trail:·,nbsp:·
+set list listchars=tab:▸\ ,trail:·,nbsp:·
 
 set wildmenu wildignorecase
 set wildmode=list:longest,list:full
