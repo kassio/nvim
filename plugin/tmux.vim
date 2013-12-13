@@ -8,5 +8,5 @@ noremap <leader>ct :call TmuxRunner.selectRunner()<CR>
 noremap <leader>rt :call TmuxRunner.run('unscoped')<CR>
 noremap <leader>rf :call TmuxRunner.run('file')<CR>
 noremap <leader>rl :call TmuxRunner.run('current')<CR>
-noremap <leader>rr :call TmuxRunner.sendKeys('C-c C-l')<CR>
-      \ :call TmuxRunner.execute(TmuxRunner.lastCommand)<CR>
+noremap <leader>rr :call TmuxRunner.sendKeys('C-c C-l') \|
+      \ call TmuxRunner.reExecute()<CR>
