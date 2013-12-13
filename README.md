@@ -1,5 +1,7 @@
 # vimfiles
 
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/kassio/vimfiles/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
 * Author: Kassio Borges <<kassioborgesm@gmail.com>>
 * Since: 2011/02
 
@@ -31,7 +33,3 @@
 * vimrc # Vim customizations
 * vundle.vim # Plugins list
 * plugins/* # Plugins' customizations
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/kassio/vimfiles/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
