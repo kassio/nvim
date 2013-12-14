@@ -1,8 +1,8 @@
-let g:NERDTreeWinPos="right"
-let g:NERDTreeHighlightCursorline=1
-let g:NERDTreeAutoDeleteBuffer=1
-let g:NERDTreeMinimalUI=1
-let g:NERDTreeStatusline="%{MyNERDTreeStatusLine()}"
+let NERDTreeWinPos="right"
+let NERDTreeHighlightCursorline=1
+let NERDTreeAutoDeleteBuffer=1
+let NERDTreeMinimalUI=1
+let NERDTreeStatusline="%{MyNERDTreeStatusLine()}"
 
 " Shows only the current NERDTree line on statusline
 function! MyNERDTreeStatusLine()
