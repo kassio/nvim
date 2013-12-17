@@ -41,3 +41,6 @@ Bundle 'altercation/vim-colors-solarized'
 
 " tmux
 Bundle 'kassio/tmux_runner'
+
+" tomdoc
+Bundle 'duwanis/tomdoc.vim'
