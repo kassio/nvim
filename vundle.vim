@@ -40,7 +40,7 @@ Bundle 'elixir-lang/vim-elixir'
 Bundle 'altercation/vim-colors-solarized'
 
 " tmux
-Bundle 'kassio/tmux_runner'
+Bundle 'kassio/vim-tmux-runner'
 
 " tomdoc
 Bundle 'duwanis/tomdoc.vim'
