@@ -23,15 +23,6 @@ set showcmd
 
 set switchbuf=useopen,usetab,newtab
 
-set statusline=
-set statusline+=[%n]
-set statusline+=\ %<%F
-set statusline+=\ %y%r%m
-set statusline+=\ %{&fenc!=''?&fenc:&enc}
-set statusline+=\ %{&ff}
-set statusline+=%=[%c,%l]\ %L
-set laststatus=2
-
 set list listchars=tab:▸\ ,trail:·,nbsp:·
 
 set wildmenu wildignorecase
