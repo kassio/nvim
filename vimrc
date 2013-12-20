@@ -25,6 +25,8 @@ set switchbuf=useopen,usetab,newtab
 
 set list listchars=tab:▸\ ,trail:·,nbsp:·
 
+set virtualedit=block
+
 set wildmenu wildignorecase
 set wildmode=list:longest,list:full
 set wildignore+=*.zip,*.gz,*.bz,*.tar
