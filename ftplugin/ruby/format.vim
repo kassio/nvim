@@ -26,3 +26,4 @@ function! FullRubyFormat()
 endfunction
 
 nnoremap <leader>fr :call FullRubyFormat()<CR>
+nnoremap <leader>fi :call Preserve('normal =ir')<CR>
