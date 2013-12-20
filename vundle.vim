@@ -10,7 +10,7 @@ Bundle 'gmarik/vundle'
 " Tools
 Bundle 'L9'
 Bundle 'bronson/vim-visual-star-search'
-Bundle 'godlygeek/tabular'
+Bundle 'junegunn/vim-easy-align'
 Bundle 'kassio/ack.vim'
 Bundle 'kassio/vim-session_manager'
 Bundle 'kien/ctrlp.vim'
