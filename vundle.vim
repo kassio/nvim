@@ -10,13 +10,14 @@ Bundle 'gmarik/vundle'
 " Tools
 Bundle 'L9'
 Bundle 'bronson/vim-visual-star-search'
-Bundle 'kien/ctrlp.vim'
+Bundle 'godlygeek/tabular'
 Bundle 'kassio/ack.vim'
+Bundle 'kassio/vim-session_manager'
+Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
-Bundle 'kassio/vim-session_manager'
+Bundle 'tpope/vim-surround'
 
 " Snippets
 Bundle 'MarcWeber/vim-addon-mw-utils'
