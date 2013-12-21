@@ -1,27 +1,38 @@
-command! -range NewRubyHashSyntax call Preserve(<line1>.','.<line2>.'s/\v:(\w+)\s*\=\>/\1:/ge')
+command! -range NewRubyHashSyntax call Preserve(<line1>.','.<line2>.'s/\v:(\w+)\s*\=\>/\1:\ /ge')
 command! -range OldRubyHashSyntax call Preserve(<line1>.','.<line2>.'s/\v(\w+):\s*\ze[^:]/:\1\ =>\ /ge')
 
 function! FormatRubyBlocks()
-  " space between {}
-  let @p=''
-  let @p='f{ cs{}cs }{%@p'
-  call Preserve('g/[^#]{[^}]\+}/normal @p')
+  " no space before ) ] ,
+  call Preserve('%s/\v\s*([)\],])/\1/g')
 
-  " no space between ()
-  let @o=''
-  let @o='f(cs()%@o'
-  call Preserve('g/([^)]\+)/normal @o')
+  " no space after ( [
+  call Preserve('%s/\v([(\[])\s*/\1/g')
 
-  " no space between []
-  let @i=''
-  let @i='f[cs[]%@i'
-  call Preserve('g/\[[^]]\+\]/normal @i')
+  " space before }
+  " except for #{} blocks
+  call Preserve('%s/\v\s*\}/\ }/g')
+
+  " space after { ,
+  " except for #{} blocks
+  call Preserve('%s/\v([\{,])\s*/\1\ /g')
+
+  " no space before } or after {
+  " for #{} blocks
+  call Preserve('%s/\v#\{\s*([^ ][^}]+[^ ])\s*\}/#{\1}/g')
 endfunction
 
 function! FullRubyFormat()
-  silent IndentAllFile
-  silent %NewRubyHashSyntax
-  silent call FormatRubyBlocks()
+  %NewRubyHashSyntax
+  call FormatRubyBlocks()
+
+  " indent all file
+  call Preserve('normal gg=G')
+
+  " remove trailing spaces
+  call Preserve('%s/\s\+$//e')
+  " remove trailing lines
+  call Preserve('%s/\v($\n\s*)+%$//e')
+
   echo 'formatted'
 endfunction
 
