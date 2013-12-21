@@ -1,17 +1,15 @@
-" Executes a command and keeps
-" the current view
+" Executes a command and keeps the current view
 function! Preserve(command)
-  let _s=@/
+  let last_search=@/
 
-  let winview = winsaveview()
+  let last_view = winsaveview()
   silent execute a:command
-  call winrestview(l:winview)
+  call winrestview(last_view)
 
-  let @/=_s
+  let @/=last_search
 endfunction
 
-" Executes a global function and keeps
-" the current view
+" Executes a global function and keeps the current view
 function! PreserveFN(fn, ...)
   if a:0
     let args = "(".join(a:000, ",").")"
