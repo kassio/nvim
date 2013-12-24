@@ -1,6 +1,4 @@
-source ~/.vim/vundle.vim
-
-filetype plugin indent on
+source ~/.vim/neobundle.vim
 
 scriptencoding utf8
 set encoding=utf8 fileencoding=utf8 termencoding=utf8 nobomb
