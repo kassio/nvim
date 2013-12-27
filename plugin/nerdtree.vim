@@ -17,3 +17,9 @@ endfunction
 nmap <silent> <leader>p :call OpenNERDTreeMirror()<CR>
 nnoremap <silent> <leader>fl :NERDTreeFind<CR>
 command! E exec ":NERDTree ".expand('%:p')
+
+aug nerdtree_view
+  au!
+  au BufLeave *NERD_tree* let b:NERDTreeView=winsaveview()
+  au BufEnter *NERD_tree* call winrestview(b:NERDTreeView)
+aug END
