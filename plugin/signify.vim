@@ -1,2 +1,2 @@
-nmap <leader>vn <plug>(signify-next-hunk)
-nmap <leader>vp <plug>(signify-prev-hunk)
+nmap <leader>sn <plug>(signify-next-hunk)
+nmap <leader>sp <plug>(signify-prev-hunk)
