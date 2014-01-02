@@ -1,24 +1,24 @@
-command! -range NewRubyHashSyntax call Preserve(<line1>.','.<line2>.'s/\v:(\w+)\s*\=\>/\1:\ /ge')
+command! -range NewRubyHashSyntax call Preserve(<line1>.','.<line2>.'s/\v:(\w+)\s*\=\>\s*/\1:\ /ge')
 command! -range OldRubyHashSyntax call Preserve(<line1>.','.<line2>.'s/\v(\w+):\s*\ze[^:]/:\1\ =>\ /ge')
 
 function! FormatRubyBlocks()
   " no space before ) ] ,
-  call Preserve('%s/\v\s*([)\],])/\1/g')
+  call Preserve('%s/\v\s*([)\],])/\1/ge')
 
   " no space after ( [
-  call Preserve('%s/\v([(\[])\s*/\1/g')
+  call Preserve('%s/\v([(\[])\s*/\1/ge')
 
   " space before }
   " except for #{} blocks
-  call Preserve('%s/\v\s*\}/\ }/g')
+  call Preserve('%s/\v\s*\}/\ }/ge')
 
   " space after { ,
   " except for #{} blocks
-  call Preserve('%s/\v([\{,])\s*/\1\ /g')
+  call Preserve('%s/\v([\{,])\s*/\1\ /ge')
 
   " no space before } or after {
   " for #{} blocks
-  call Preserve('%s/\v#\{\s*([^ ][^}]+[^ ])\s*\}/#{\1}/g')
+  call Preserve('%s/\v#\{\s*([^ ][^}]+[^ ])\s*\}/#{\1}/ge')
 endfunction
 
 function! FullRubyFormat()
