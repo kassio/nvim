@@ -11,7 +11,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Tools
 NeoBundle 'L9'
 NeoBundle 'bronson/vim-visual-star-search'
-NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'godlygeek/tabular'
 NeoBundle 'kassio/ack.vim'
 NeoBundle 'kassio/vim-session_manager'
 NeoBundle 'kien/ctrlp.vim'
