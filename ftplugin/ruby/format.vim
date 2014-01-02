@@ -2,6 +2,39 @@ command! -range NewRubyHashSyntax call Preserve(<line1>.','.<line2>.'s/\v:(\w+)\
 command! -range OldRubyHashSyntax call Preserve(<line1>.','.<line2>.'s/\v(\w+):\s*\ze[^:]/:\1\ =>\ /ge')
 
 function! FormatRubyBlocks()
+  " space after commas
+  call Preserve('g/./Tabularize /,/l0r1')
+
+  " space around operators
+  let operators='('.
+        \ '\*\*|'.
+        \ '\*\=|'.
+        \ '\*|'.
+        \ '\=\=\=|'.
+        \ '\>\>\=|'.
+        \ '\<\<\=|'.
+        \ '\&\&\=|'.
+        \ '\|\|\=|'.
+        \ '\=\=|'.
+        \ '\<\=\>|'.
+        \ '\<\=|'.
+        \ '\>\=|'.
+        \ '\!\=|'.
+        \ '\=\~|'.
+        \ '!\~|'.
+        \ '\&\&|'.
+        \ '\|\||'.
+        \ '\-\=|'.
+        \ '\+\=|'.
+        \ '\<\<|'.
+        \ '\-\>|'.
+        \ '\=|'.
+        \ '\+|'.
+        \ '\-|'.
+        \ '\&.'.
+        \ ')'
+  call Preserve('v/^\s*#/s/\v\s*'.operators.'\s*/\ \1\ /ge')
+
   " no space before ) ] ,
   call Preserve('%s/\v\s*([)\],])/\1/ge')
 
