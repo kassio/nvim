@@ -16,8 +16,20 @@ let g:surround_109 = "module\n\t\r\nend" " m
 let g:surround_119 = "%w[\r]"            " w
 
 command! MinitestAutoComplete set completefunc=syntaxcomplete#Complete
-command! LetToVariable call Preserve('s/\vlet\!?\s?\(:(.{-})\)\s\{\s(\_.{-})\s\}/@\1\ =\ \2/ge')
-command! VariableToLet call Preserve('s/\v^\s*\zs\@?([^ ]+)\s*\=\s*(.+)$/let(:\1)\ {\ \2\ }/ge')
+
+function! s:letToVariable(line1, line2)
+  let regexp = 's/\vlet\!?\s?\(:(.{-})\)\s\{\s(\_.{-})\s\}/@\1\ =\ \2/ge'
+  let cmd = printf("%d,%d%s", a:line1, a:line2, regexp)
+  call Preserve(cmd)
+endfunction
+command! -range LetToVariable call <SID>letToVariable(<line1>, <line2>)
+
+function! s:variableToLet(line1, line2)
+  let regexp = 's/\v^\s*\zs\@?([^ ]+)\s*\=\s*(.+)$/let(:\1)\ {\ \2\ }/ge'
+  let cmd = printf("%d,%d%s", a:line1, a:line2, regexp)
+  call Preserve(cmd)
+endfunction
+command! -range VariableToLet call <SID>variableToLet(<line1>, <line2>)
 
 let g:ruby_path=system('echo "$RBENV_ROOT/versions/$(rbenv version-name)/bin/ruby"')
 set iskeyword+=\?,\!
