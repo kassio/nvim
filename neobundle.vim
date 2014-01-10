@@ -34,6 +34,7 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'Keithbsmiley/rspec.vim'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
+NeoBundle 'kana/vim-textobj-user'
 
 " Elixir
 NeoBundle 'elixir-lang/vim-elixir'
