@@ -1,4 +1,4 @@
-set undofile undolevels=1000 undoreload=10000 undodir=~/.v_undo
+set undofile undolevels=1000 undoreload=10000 undodir=~/.vim/tmp/persistent_undo
 
 function! PersistUndoTree()
   if !isdirectory(expand(&undodir))
