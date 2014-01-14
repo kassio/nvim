@@ -24,5 +24,6 @@ aug nerdtree_view
   au BufEnter *NERD_tree*
         \ if exists('b:NERDTreeView') |
         \   call winrestview(b:NERDTreeView) |
+        \   unlet b:NERDTreeView |
         \ endif
 aug END
