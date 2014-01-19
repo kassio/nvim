@@ -19,36 +19,6 @@ function! FormatRuby(line1, line2)
   " space after commas
   call <SID>preserveIn(a:line1, a:line2, 'g/./Tabularize /,/l0r1')
 
-  " space around operators
-  let operators='('.
-        \ '\*\*|'.
-        \ '\*\=|'.
-        \ '\*|'.
-        \ '\=\=\=|'.
-        \ '\>\>\=|'.
-        \ '\<\<\=|'.
-        \ '\&\&\=|'.
-        \ '\|\|\=|'.
-        \ '\=\=|'.
-        \ '\<\=\>|'.
-        \ '\<\=|'.
-        \ '\>\=|'.
-        \ '\!\=|'.
-        \ '\=\~|'.
-        \ '!\~|'.
-        \ '\&\&|'.
-        \ '\|\||'.
-        \ '\-\=|'.
-        \ '\+\=|'.
-        \ '\<\<|'.
-        \ '\-\>|'.
-        \ '\=|'.
-        \ '\+|'.
-        \ '\-|'.
-        \ '\&.'.
-        \ ')'
-  call <SID>preserveIn(a:line1, a:line2, 'v/^\s*#/s/\v\s*'.operators.'\s*/\ \1\ /ge')
-
   " no space before ) ] ,
   call <SID>preserveIn(a:line1, a:line2, 's/\v\s*([)\],])/\1/ge')
 
