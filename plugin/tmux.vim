@@ -15,3 +15,5 @@ noremap <leader>rn :call TmuxRunner.run('nearest')<CR>
 noremap <leader>rc :call TmuxRunner.run('custom')<CR>
 noremap <leader>rr :call TmuxRunner.sendKeys('C-c C-l') \|
       \ call TmuxRunner.reExecute()<CR>
+
+cnoreabbrev t Tmux
