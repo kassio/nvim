@@ -28,3 +28,6 @@ nmap <up> <nop>
 nmap <right> <nop>
 nmap <down> <nop>
 nmap <left> <nop>
+
+" Indent all file
+noremap <leader>ff :call Preserve('normal gg=G')<CR>
