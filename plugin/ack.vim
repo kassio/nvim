@@ -14,5 +14,3 @@ let g:ackprg="ack --smart-case --column --follow"
 
 vnoremap ,as :<C-u>exec VAckSearch()<CR>
 nnoremap ,as :Ack<CR>
-
-command! -bang -nargs=* -complete=file MyAck call MyAck(<q-args>)
