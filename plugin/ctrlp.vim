@@ -6,19 +6,10 @@ let g:ctrlp_custom_ignore = '\v[\/](tags|gem.tags|.git|log|vendor/bundler/bin)$'
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
 let g:ctrlp_abbrev = {
       \ 'abbrevs': [
-      \ { 'pattern': '^j/', 'expanded': 'assets/javascripts/' },
-      \ { 'pattern': '^style/', 'expanded': 'assets/stylesheets/' },
       \ { 'pattern': '\v(^|\/)c/', 'expanded': 'controllers/' },
       \ { 'pattern': '\v(^|\/)m/', 'expanded': 'models/' },
       \ { 'pattern': '\v(^|\/)v/', 'expanded': 'views/' },
-      \ { 'pattern': '\v(^|\/)h/', 'expanded': 'helpers/' },
-      \ { 'pattern': '^s/', 'expanded': 'spec/' },
-      \ { 'pattern': '^am/', 'expanded': 'activemodel/' },
-      \ { 'pattern': '^aml/', 'expanded': 'actionmailer/' },
-      \ { 'pattern': '^ap/', 'expanded': 'actionpack/' },
-      \ { 'pattern': '^ar/', 'expanded': 'activerecord/' },
-      \ { 'pattern': '^as/', 'expanded': 'activesupport/' },
-      \ { 'pattern': '^av/', 'expanded': 'actionview/' }
+      \ { 'pattern': '^s/', 'expanded': 'spec/' }
       \ ]
       \ }
 
