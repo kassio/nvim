@@ -22,6 +22,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'bling/vim-airline'
 
 " Snippets
 NeoBundle 'MarcWeber/vim-addon-mw-utils'
