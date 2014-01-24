@@ -1,15 +1,15 @@
-" Alert if the local git email is not set
 set statusline=
 set statusline+=[%n]
 set statusline+=\ %<%F
 set statusline+=\ %y%r%m
 set statusline+=\ %{&fenc!=''?&fenc:&enc}
 set statusline+=\ %{&ff}
-set statusline+=\ %#error#%{GitEmailAlert()}%*
+set statusline+=\ %#errormsg#%{GitEmailAlert()}%*
+set statusline+=\ %#StatusLineNC#%{SyntasticStatuslineFlag()}%*
 set statusline+=%=[%c,%l]\ %L
 set laststatus=2
 
-" Cloned from github.com/rafaelfranca/vimfiles
+" Cloned from https://github.com/rafaelfranca/vimfiles
 function! GitEmailAlert()
   if !exists("g:gitemail_alert")
     let s:email = system("git config --local --get user.email")
