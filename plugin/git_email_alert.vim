@@ -4,7 +4,7 @@ function! GitEmailAlert()
     let s:email = system("git config --local --get user.email")
 
     if s:email == ''
-      let g:gitemail_alert = '[Configure git local email]'
+      let g:gitemail_alert = ' [Configure git local email] '
     else
       let g:gitemail_alert = ''
     endif

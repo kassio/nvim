@@ -14,13 +14,13 @@ hi! link SyntasticWarningSign Search
 hi! link SyntasticErrorSign ErrorMsg
 let g:syntastic_stl_format = ""
       \ . "%W{"
-      \ . "%#SyntasticWarningSign#"
-      \ . "[".g:syntastic_warning_symbol." %fw(%w)]"
-      \ . "}"
+      \ . "%#STLWarningAlert#"
+      \ . "\ [".g:syntastic_warning_symbol." %fw(%w)]"
+      \ . "}\ "
       \ . "%E{"
-      \ . "%#SyntasticErrorSign#"
-      \ . "[".g:syntastic_error_symbol." %fe(%e)]"
-      \ . "}"
+      \ . "%#STLErrorAlert#"
+      \ . "\ [".g:syntastic_error_symbol." %fe(%e)]"
+      \ . "}\ "
       \ . "%*"
 
 nnoremap <leader>sc :Errors<CR>

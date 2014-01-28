@@ -7,15 +7,17 @@ aug END
 
 function! StatuslineBuild()
   let l:stl=""
-        \ . "%2n"
-        \ . "\ %<%F%m"
-        \ . "\ %r%y"
-        \ . "[%{&ff}][%{&fenc!=''?&fenc:&enc}]"
-        \ . "%#ErrorMsg#"
-        \ . GitEmailAlert()
-        \ . "%*"
+        \ . <SID>highlighSTL("\ %n\ ", "STLBufferNumber")
+        \ . <SID>highlighSTL("\ %<%F%m\ ", "STLFileName")
+        \ . <SID>highlighSTL("\ %r%y", "STLFileData")
+        \ . <SID>highlighSTL("[%{&ff}][%{&fenc!=''?&fenc:&enc}]\ ", "STLFileData")
+        \ . <SID>highlighSTL(GitEmailAlert(), "STLErrorAlert")
         \ . "%="
         \ . SyntasticStatuslineFlag()
-        \ . "[%c,%l/%L]"
+        \ . <SID>highlighSTL("\ %c,%l/%L\ ", "STLStats")
   return l:stl
+endfunction
+
+function! s:highlighSTL(value, color)
+  return "\%#" . a:color . "#" . a:value . "%*"
 endfunction
