@@ -1,10 +1,21 @@
-set statusline=
-set statusline+=%2n
-set statusline+=\ %<%F%m
-set statusline+=\ %r%y
-set statusline+=[%{&ff}][%{&fenc!=''?&fenc:&enc}]
-set statusline+=%#errormsg#%{GitEmailAlert()}%*
-set statusline+=%=
-set statusline+=%#errormsg#%{SyntasticStatuslineFlag()}%*
-set statusline+=[%c,%l/%L]
 set laststatus=2
+
+aug build_status_line
+  au!
+  autocmd VimEnter * set statusline=%!StatuslineBuild()
+aug END
+
+function! StatuslineBuild()
+  let l:stl=""
+        \ . "%2n"
+        \ . "\ %<%F%m"
+        \ . "\ %r%y"
+        \ . "[%{&ff}][%{&fenc!=''?&fenc:&enc}]"
+        \ . "%#ErrorMsg#"
+        \ . GitEmailAlert()
+        \ . "%*"
+        \ . "%="
+        \ . SyntasticStatuslineFlag()
+        \ . "[%c,%l/%L]"
+  return l:stl
+endfunction
