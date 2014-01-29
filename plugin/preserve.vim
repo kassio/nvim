@@ -1,5 +1,6 @@
 " Executes a command and keeps the current view
 function! Preserve(command)
+  setlocal lazyredraw
   let last_search=@/
 
   let last_view = winsaveview()
@@ -7,6 +8,8 @@ function! Preserve(command)
   call winrestview(last_view)
 
   let @/=last_search
+  redraw
+  setlocal nolazyredraw
 endfunction
 
 " Executes a global function and keeps the current view
