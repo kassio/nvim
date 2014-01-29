@@ -1,6 +1,6 @@
 " Folding
-noremap <F3> zM
-noremap <F4> zR
+nnoremap <silent> <F3> zM
+nnoremap <silent> <F4> zR
 
 " Make Y consistent with C and D
 nnoremap Y y$
@@ -15,12 +15,12 @@ nnoremap <silent> <leader>bd :bd!<CR>
 " Delete all buffers
 nnoremap <silent> <leader>da :exec "1," . bufnr('$') . "bd"<CR>
 " Move current window to currend file path
-nnoremap <leader>cd :silent! lcd %:p:h<CR>:pwd<CR>
+nnoremap <silent> <leader>cd :lcd %:p:h<CR>:pwd<CR>
 
 " Spell
-noremap <F7> <esc>:set invspell<CR>
-noremap <F6> zg
-noremap <F8> z=
+noremap <silent> <F7> <esc>:set invspell<CR>
+noremap <silent> <F6> zg
+noremap <silent> <F8> z=
 
 nnoremap <silent> !
       \ :silent exec "let g:star_view=winsaveview()" \|
@@ -35,4 +35,4 @@ nmap <down> <nop>
 nmap <left> <nop>
 
 " Indent all file
-noremap <leader>ff :call Preserve('normal gg=G')<CR>
+noremap <silent> <leader>ff :call Preserve('normal gg=G')<CR>
