@@ -22,6 +22,11 @@ noremap <silent> <F7> <esc>:set invspell<CR>
 noremap <silent> <F6> zg
 noremap <silent> <F8> z=
 
+nnoremap <silent> # g#
+nnoremap <silent> g# #
+nnoremap <silent> * g*
+nnoremap <silent> g* *
+
 nnoremap <silent> !
       \ :silent exec "let g:star_view=winsaveview()" \|
       \ silent exec "normal *" \|
