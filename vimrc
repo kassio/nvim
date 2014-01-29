@@ -56,7 +56,7 @@ set mousehide mouse= ttymouse=xterm2
 
 set foldmethod=manual nofoldenable
 
-set spellfile=$HOME/.vim/spell/custom.utf-8.add
+set spellfile=~/.vim/spell/custom.utf-8.add
 
 set fileformats+=mac
 
