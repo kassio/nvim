@@ -8,9 +8,8 @@ aug END
 function! StatuslineBuild()
   let l:stl=""
         \ . <SID>highlighSTL("\ %n\ ", "STLBufferNumber")
+        \ . <SID>highlighSTL("\ %r%y[%{&ff}][%{&fenc!=''?&fenc:&enc}]\ ", "STLFileData")
         \ . <SID>highlighSTL("\ %<%F%m\ ", "STLFileName")
-        \ . <SID>highlighSTL("\ %r%y", "STLFileData")
-        \ . <SID>highlighSTL("[%{&ff}][%{&fenc!=''?&fenc:&enc}]\ ", "STLFileData")
         \ . <SID>highlighSTL(GitEmailAlert(), "STLErrorAlert")
         \ . <SID>highlighSTL("%=", "STLSeparation")
         \ . SyntasticStatuslineFlag()
