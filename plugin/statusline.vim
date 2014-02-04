@@ -12,7 +12,7 @@ function! StatuslineBuild()
         \ . <SID>highlighSTL("\ %r%y", "STLFileData")
         \ . <SID>highlighSTL("[%{&ff}][%{&fenc!=''?&fenc:&enc}]\ ", "STLFileData")
         \ . <SID>highlighSTL(GitEmailAlert(), "STLErrorAlert")
-        \ . "%="
+        \ . <SID>highlighSTL("%=", "STLSeparation")
         \ . SyntasticStatuslineFlag()
         \ . <SID>highlighSTL("\ %c,%l/%L\ ", "STLStats")
   return l:stl

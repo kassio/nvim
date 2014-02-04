@@ -9,10 +9,11 @@ if has("syntax")
   hi! link NonText SpecialKey
   hi! VertSplit ctermbg=NONE
   " statusline colors
-  hi! STLBufferNumber  ctermbg=17  ctermfg=190 term=bold
-  hi! STLFileName      ctermbg=4   ctermfg=17  term=bold
-  hi! STLFileData      ctermbg=255 ctermfg=17  term=bold
-  hi! STLErrorAlert    ctermbg=1   ctermfg=16  term=bold
-  hi! STLWarningAlert  ctermbg=3   ctermfg=16  term=bold
+  hi! STLSeparation    ctermbg=242 ctermfg=242           guibg=#555555 guifg=#555555
+  hi! STLBufferNumber  ctermbg=17  ctermfg=190 term=bold guibg=#00005f guifg=#dfff00
+  hi! STLFileName      ctermbg=81  ctermfg=17  term=bold guibg=#268bd2 guifg=#00005f
+  hi! STLFileData      ctermbg=255 ctermfg=17  term=bold guibg=#eeeeee guifg=#00005f
+  hi! STLErrorAlert    ctermbg=1   ctermfg=0   term=bold guibg=#800000 guifg=#000000
+  hi! STLWarningAlert  ctermbg=3   ctermfg=0   term=bold guibg=#808000 guifg=#000000
   hi! link STLStats    STLFileData
 endif
