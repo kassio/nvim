@@ -1,5 +1,5 @@
 noremap <silent> <leader>tr :call TmuxRunner.setTmuxPane()<CR>
-noremap <silent> <leader>ct :call TmuxRunner.selectRunner()<CR>
+noremap <silent> <leader>ct :call TmuxRunner.setRunner()<CR>
 
 noremap <silent> <leader>tc :call TRKill()<CR>
 noremap <silent> <leader>tl :call TRClear()<CR>

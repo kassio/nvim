@@ -3,7 +3,7 @@ nnoremap <silent> <F3> zM
 nnoremap <silent> <F4> zR
 
 " Make Y consistent with C and D
-nnoremap Y y$
+nnoremap <silent> Y y$
 
 " Make <C-l> clear the highlight
 nnoremap <silent> <C-l> :nohls<CR>
