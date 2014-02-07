@@ -31,6 +31,7 @@ NeoBundle 'kassio/my-snippets'
 
 " HTML, javascript
 NeoBundle 'othree/html5.vim'
+NeoBundle 'kassio/vim-javascript'
 
 " Ruby
 NeoBundle 'vim-ruby/vim-ruby'
