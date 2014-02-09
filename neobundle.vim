@@ -31,7 +31,7 @@ NeoBundle 'kassio/my-snippets'
 
 " HTML, javascript
 NeoBundle 'othree/html5.vim'
-NeoBundle 'kassio/vim-javascript'
+NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 
 " Ruby
 NeoBundle 'vim-ruby/vim-ruby'
