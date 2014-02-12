@@ -1,9 +1,6 @@
 set laststatus=2
 
-aug build_status_line
-  au!
-  autocmd VimEnter * set statusline=%!StatuslineBuild()
-aug END
+set statusline=%!StatuslineBuild()
 
 function! StatuslineBuild()
   let l:stl=""
