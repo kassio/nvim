@@ -1,13 +1,10 @@
-set undofile undolevels=1000 undoreload=10000 undodir=~/.vim/tmp/persistent_undo
+set undofile undolevels=1000 undoreload=10000 undodir=~/.vim_data/undo
 
-function! PersistUndoTree()
-  if !isdirectory(expand(&undodir))
-    call mkdir(expand(&undodir), "", 0700)
-  endif
-endfunction
-
-aug persist_undo
+aug undo_dir
   au!
   au FileType gitcommit setlocal noundofile
-  au BufWritePre * call PersistUndoTree()
+  au VimEnter *
+        \ if !isdirectory(&undodir) |
+        \   call mkdir(expand(&undodir), "p", 0700) |
+        \ endif
 aug END
