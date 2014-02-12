@@ -9,12 +9,21 @@ function! StatuslineBuild()
   let l:stl=""
         \ . <SID>highlighSTL("\ %n\ ", "STLBufferNumber")
         \ . <SID>highlighSTL("\ %r%y[%{&ff}][%{&fenc!=''?&fenc:&enc}]\ ", "STLFileData")
-        \ . <SID>highlighSTL("\ %<%F%m\ ", "STLFileName")
+        \ . <SID>filenameModifiedAlert()
         \ . <SID>highlighSTL(GitEmailAlert(), "STLErrorAlert")
         \ . <SID>highlighSTL("%=", "STLSeparation")
         \ . SyntasticStatuslineFlag()
         \ . <SID>highlighSTL("\ %c,%l/%L\ ", "STLStats")
   return l:stl
+endfunction
+
+function! s:filenameModifiedAlert()
+  if &modified
+    let highlight="STLWarningAlert"
+  else
+    let highlight="STLFileName"
+  endif
+  return <SID>highlighSTL("\ %<%F%m\ ", highlight)
 endfunction
 
 function! s:highlighSTL(value, color)
