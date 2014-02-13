@@ -2,6 +2,8 @@
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_switch_buffer = 'ETV'
 let g:ctrlp_follow_symlinks = 1
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_cache_dir = expand('~/.vim_data/ctrlp')
 let g:ctrlp_custom_ignore = '\v[\/](tags|gem.tags|.git|log|vendor/bundler/bin)$'
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
 let g:ctrlp_abbrev = {
@@ -14,3 +16,11 @@ let g:ctrlp_abbrev = {
       \ }
 
 noremap <c-n> :CtrlPBufferLines<CR>
+
+aug ctrlp_cache_dir
+  au!
+  au VimEnter *
+        \ if !isdirectory(g:ctrlp_cache_dir) |
+        \   call mkdir(expand(g:ctrlp_cache_dir), "p", 0700) |
+        \ endif
+aug END
