@@ -1,14 +1,12 @@
 " Cloned from https://github.com/rafaelfranca/vimfiles
 function! GitEmailAlert()
-  if !exists("g:gitemail_alert")
-    let s:email = system("git config --local --get user.email")
+  if char2nr(system("git status &>/dev/null && echo 1"))
+    let l:email = system("git config --local --get user.email")
 
-    if s:email == ''
-      let g:gitemail_alert = ' [Configure git local email] '
-    else
-      let g:gitemail_alert = ''
+    if l:email == ''
+      return ' [Configure git local email] '
     endif
   endif
 
-  return g:gitemail_alert
+  return ''
 endfunction
