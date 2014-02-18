@@ -1,4 +1,3 @@
-let g:autosave_session=1
 let g:session_dir=expand('~/.vim_data/sessions')
 
 aug session_dir
