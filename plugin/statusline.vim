@@ -1,7 +1,5 @@
 set laststatus=2
 
-set statusline=%!StatuslineBuild()
-
 function! StatuslineBuild()
   let l:stl=""
         \ . <SID>highlighSTL("\ %n\ ", "STLBufferNumber")
@@ -26,3 +24,9 @@ endfunction
 function! s:highlighSTL(value, color)
   return "\%#" . a:color . "#" . a:value . "%*"
 endfunction
+
+aug statusline_setup
+  au!
+  au! BufEnter * setlocal statusline=%!StatuslineBuild()
+  au! BufLeave,WinLeave * setlocal statusline=""
+aug END
