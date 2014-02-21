@@ -40,7 +40,7 @@ set autoread autowrite
 
 set sessionoptions=buffers,tabpages,curdir
 
-set tags=tags,./tags,../tags,gems.tags,./gems.tags,../gems.tags,config/gems.tags
+set tags=tags,../tags,gems.tags,../gems.tags,config/gems.tags
 set complete=.,w,b,u,U,i,d
 set completeopt=menu,menuone,longest,preview
 
