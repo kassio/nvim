@@ -32,6 +32,7 @@ NeoBundle 'kassio/my-snippets'
 " HTML, javascript
 NeoBundle 'othree/html5.vim'
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+NeoBundle 'guileen/simple-javascript-indenter'
 
 " Ruby
 NeoBundle 'vim-ruby/vim-ruby'
