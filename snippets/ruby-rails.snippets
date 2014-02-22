@@ -1,0 +1,12 @@
+snippet anaf
+	accepts_nested_attributes_for :${1:object}
+snippet bt
+	belongs_to :${1:association}
+snippet habtm
+	has_and_belongs_to_many :${1:object}, :join_table => '${2:table_name}', :foreign_key => '${3}_id'${4}
+snippet hm
+	has_many :${1:object}
+snippet ho
+	has_one :${1:object}
+snippet pa
+	params[:${1:id}]${2}

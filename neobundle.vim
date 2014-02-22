@@ -24,10 +24,8 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/syntastic'
 
 " Snippets
-NeoBundle 'MarcWeber/vim-addon-mw-utils'
-NeoBundle 'tomtom/tlib_vim'
-NeoBundle 'garbas/vim-snipmate'
-NeoBundle 'kassio/my-snippets'
+NeoBundle 'Shougo/neocomplete'
+NeoBundle 'Shougo/neosnippet'
 
 " HTML, javascript
 NeoBundle 'othree/html5.vim'

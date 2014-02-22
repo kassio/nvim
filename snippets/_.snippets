@@ -1,0 +1,30 @@
+snippet lorem
+	Lorem ipsum dolor sit amet, consectetur magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+	ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+	velit esse cillum dolore eu fugiat nulla pariatur.  Excepteur sint occaecat cupidatat non proident, sunt in
+	culpa qui officia deserunt mollit anim id est laborum${1}
+snippet vim
+	`my_snippet#modeline()`
+snippet today
+	`strftime("%Y-%m-%d")`
+snippet note
+	${1:`my_snippet#start_comment()`} ${2:TODO} `strftime("%Y-%m-%d")`: ${3}
+snippet knote
+	${1:`my_snippet#start_comment()`} ${2:TODO} Kassio Borges `strftime("%Y-%m-%d")`: ${3}
+snippet '
+options word
+	'${1}'${2}
+snippet "
+options word
+	"${1}"${2}
+snippet (
+options word
+	(${1})${2}
+snippet [
+options word
+	[${1}]${2}
+snippet {
+options word
+	{${1}}${2}
+snippet tdoc
+	`my_snippet#start_comment()`${1:Public}: ${2} `my_snippet#end_comment()`
