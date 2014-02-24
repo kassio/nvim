@@ -1,8 +1,8 @@
-function! my_snippet#ruby_class_name_from_filename(...)
+function! snippet#ruby_class_name_from_filename(...)
   let name = expand("%:t:r")
   if len(name) == 0
     if a:0 == 0
-      let name = 'my_class'
+      let name = 'MyClass'
     else
       let name = a:1
     endif
@@ -17,15 +17,15 @@ function! s:camelcase(s)
   return substitute(to_return, '_\(.\)', '\=toupper(submatch(1))', 'g')
 endfunction
 
-function! my_snippet#modeline()
+function! snippet#modeline()
   return self.start_comment() . " vim:${1:ft=rb:tw=80:hls:}:" . self.end_comment()
 endfunction
 
-function! my_snippet#start_comment()
+function! snippet#start_comment()
   return <SID>set_comment_dict().begin
 endfunction
 
-function! my_snippet#end_comment()
+function! snippet#end_comment()
   return <SID>set_comment_dict().end
 endfunction
 
