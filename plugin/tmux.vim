@@ -5,10 +5,11 @@ noremap <silent> <leader>tc :call TRKill()<CR>
 noremap <silent> <leader>tl :call TRClear()<CR>
 noremap <silent> <leader>tp :call TmuxRunner.sendKeys('C-p Enter', 'TRClear')<CR>
 
-noremap <silent> <leader>rt :call TmuxRunner.run('unscoped', 'TRClear')<CR>
-noremap <silent> <leader>rf :call TmuxRunner.run('file', 'TRClear')<CR>
-noremap <silent> <leader>rn :call TmuxRunner.run('nearest', 'TRClear')<CR>
-noremap <silent> <leader>rc :call TmuxRunner.run('custom', 'TRClear')<CR>
+noremap <silent> <leader>rt :call TmuxRunner.runUnscoped('TRClear')<CR>
+noremap <silent> <leader>rf :call TmuxRunner.runFile('TRClear')<CR>
+noremap <silent> <leader>rn :call TmuxRunner.runNearest('TRClear')<CR>
+noremap <silent> <leader>rc :call TmuxRunner.runCustom('TRClear')<CR>
+
 noremap <silent> <leader>rr :call TmuxRunner.reExecute('TRClear')<CR>
 
 cnoreabbrev t Tmux
