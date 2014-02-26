@@ -1,6 +1,6 @@
 snippet class
 alias cla
-	class ${1:`snippet#ruby_class_name_from_filename()`}${2}
+	class ${1:`helper#ruby_class_name_from_filename()`}${2}
 		${3}
 	end
 snippet defi
@@ -29,6 +29,6 @@ options head
 	# encoding: UTF-8
 snippet module
 alias mod
-	module ${1:`snippet#ruby_class_name_from_filename()`}
+	module ${1:`helper#ruby_class_name_from_filename()`}
 		${2}
 	end

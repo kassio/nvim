@@ -1,4 +1,4 @@
-function! snippet#ruby_class_name_from_filename(...)
+function! helper#ruby_class_name_from_filename(...)
   let name = expand("%:t:r")
   if len(name) == 0
     if a:0 == 0
@@ -17,15 +17,15 @@ function! s:camelcase(s)
   return substitute(to_return, '_\(.\)', '\=toupper(submatch(1))', 'g')
 endfunction
 
-function! snippet#modeline()
+function! helper#modeline()
   return self.start_comment() . " vim:${1:ft=rb:tw=80:hls:}:" . self.end_comment()
 endfunction
 
-function! snippet#start_comment()
+function! helper#start_comment()
   return <SID>set_comment_dict().begin
 endfunction
 
-function! snippet#end_comment()
+function! helper#end_comment()
   return <SID>set_comment_dict().end
 endfunction
 

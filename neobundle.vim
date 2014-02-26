@@ -11,25 +11,19 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Tools
 NeoBundle 'L9'
 NeoBundle 'bronson/vim-visual-star-search'
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'kassio/ack.vim'
 NeoBundle 'kassio/vim-session_manager'
 NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'kassio/ctrlp-buffer-lines'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'mhinz/vim-signify'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/syntastic'
 
 " Snippets
-NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 
 " HTML, javascript
 NeoBundle 'othree/html5.vim'
-NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+NeoBundleLazy 'jelera/vim-javascript-syntax', { 'autoload': { 'filetypes': ['javascript'] } }
 NeoBundle 'guileen/simple-javascript-indenter'
 
 " Ruby
@@ -46,9 +40,6 @@ NeoBundle 'altercation/vim-colors-solarized'
 
 " tmux
 NeoBundle 'kassio/vim-tmux-runner'
-
-" tomdoc
-NeoBundle 'duwanis/tomdoc.vim'
 
 filetype plugin indent on
 NeoBundleCheck

@@ -13,16 +13,13 @@
 
 ## Setup
 
-* install [neobundle](https://github.com/Shougo/neobundle.vim) to manage all
-plugins:
-
-        mkdir -p ~/.vim/bundle
-        git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-        vim +BundleUpdate +qall
-
 * If your vim version < 7.4 so you'll need the `.vimrc` in you $HOME
 
         ln -s $HOME/.vim/vimrc $HOME/.vimrc
+
+* Install NeoBundle and all bundles:
+
+	cd $HOME/.vim && ./setup
 
 ## Files you should to read
 
@@ -36,4 +33,4 @@ All the plugins customizations are located on `plugin` folder.
 ## Snippets
 
 It's being used `neosnippets` and all my snippets are located on `snippets`
-folder, the helper functions are located on `autoload/my_snippet.vim`
+folder, the helper functions are located on `autoload/helper.vim`
