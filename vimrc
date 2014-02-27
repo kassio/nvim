@@ -60,4 +60,7 @@ set spellfile=~/.vim/spell/custom.utf-8.add
 
 set fileformats+=mac
 
+set t_ti= t_te=
+set lazyredraw
+
 let mapleader=','
