@@ -12,7 +12,7 @@ noremap <silent> <leader>rc :call TmuxRunner.runCustom('TRClear')<CR>
 
 noremap <silent> <leader>rr :call TmuxRunner.reExecute('TRClear')<CR>
 
-cnoreabbrev t Tmux
+cnoreabbrev tm Tmux
 
 function! TRKill()
   silent call g:TmuxRunner.sendKeys('C-c')
