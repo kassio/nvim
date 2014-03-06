@@ -1,4 +1,5 @@
 let g:keep_trailing_spaces = 0
+
 command! -nargs=? KeepTrailingSpaces
       \ if <q-args> == "" |
       \   let g:keep_trailing_spaces = 1 |
@@ -10,7 +11,13 @@ aug remove_trailing_spaces
   au!
   au BufWritePre *
         \ if ! g:keep_trailing_spaces |
-        \   call Preserve('%s/\s\+$//e') |
-        \   call Preserve('%s/\v($\n\s*)+%$//e') |
+        \   call Trim() |
         \ endif
 aug END
+
+function! Trim()
+  call Preserve('%s/\s\+$//e')
+  call Preserve('%s/\v($\n\s*)+%$//e')
+endfunction
+command! Trim
+      \ call Trim()
