@@ -3,12 +3,11 @@ set laststatus=2
 function! StatuslineBuild()
   let l:stl=""
         \ . <SID>highlighSTL("\ %n\ ", "STLBufferNumber")
-        \ . <SID>highlighSTL("\ %r%y[%{&ff}][%{&fenc!=''?&fenc:&enc}]\ ", "STLFileData")
         \ . <SID>filenameModifiedAlert()
         \ . <SID>highlighSTL(git#check_user(), "STLErrorAlert")
         \ . <SID>highlighSTL("%=", "STLSeparation")
         \ . SyntasticStatuslineFlag()
-        \ . <SID>highlighSTL("\ %c,%l/%L\ ", "STLStats")
+        \ . <SID>highlighSTL("\ %r%y[%{&ff}][%{&fenc!=''?&fenc:&enc}][%c,%l/%L]", "STLStats")
   return l:stl
 endfunction
 
