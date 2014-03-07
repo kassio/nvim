@@ -15,11 +15,17 @@ noremap <silent> <leader>rr :call TmuxRunner.reExecute('TRClear')<CR>
 cnoreabbrev tm Tmux
 
 function! TRKill()
+  silent call <SID>kill_and_wait()
+  silent call <SID>kill_and_wait()
+endfunction
+
+function! s:kill_and_wait()
   silent call g:TmuxRunner.sendKeys('C-c')
-  sleep 30 m
+  sleep 10 m
 endfunction
 
 function! TRClear()
   silent call TRKill()
+  sleep 20 m
   silent call g:TmuxRunner.sendKeys('C-l')
 endfunction
