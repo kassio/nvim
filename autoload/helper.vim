@@ -1,4 +1,4 @@
-function! helper#ruby_class_name_from_filename(...)
+function! helper#filename_camelized(...)
   let name = expand("%:t:r")
   if len(name) == 0
     if a:0 == 0
@@ -22,14 +22,14 @@ function! helper#modeline()
 endfunction
 
 function! helper#start_comment()
-  return <SID>set_comment_dict().begin
+  return <SID>comment_dict().begin
 endfunction
 
 function! helper#end_comment()
-  return <SID>set_comment_dict().end
+  return <SID>comment_dict().end
 endfunction
 
-function! s:set_comment_dict()
+function! s:comment_dict()
   if !exists('b:comment_dict')
     let comments = split(&commentstring, '%s')
     let b:comment_dict = { 'begin': get(comments, 0, ''), 'end': get(comments, 1, '') }

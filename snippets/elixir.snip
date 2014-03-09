@@ -1,4 +1,4 @@
-snippet def def .. do .. end
+snippet def
 	def ${1:name} do
 		${2}
 	end
@@ -11,7 +11,7 @@ snippet defma
 		${2}
 	end
 snippet defmo
-	defmodule ${1:module_name} do
+	defmodule ${1:`helper#filename_camelized()`} do
 		${2}
 	end
 snippet defp
