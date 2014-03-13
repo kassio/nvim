@@ -62,6 +62,6 @@ set fileformats+=mac
 
 set t_ti= t_te=
 
-set nobackup nowritebackup
+set nobackup nowritebackup noswapfile
 
 let mapleader=','
