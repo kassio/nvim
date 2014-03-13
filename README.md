@@ -34,3 +34,19 @@ All the plugins customizations are located on `plugin` folder.
 
 It's being used `neosnippets` and all my snippets are located on `snippets`
 folder, the helper functions are located on `autoload/helper.vim`
+
+## Vim with zsh(on Mac, at least)
+
+In a sunny day I tried to run `ruby` from my vim with: `:!ruby %` and then I
+figured out that the vim was using the wrong `ruby`.
+
+[To fix it](https://coderwall.com/p/w7fnxa):
+
+edit `/etc/zshenv` and comment it:
+
+```console
+# system-wide environment settings for zsh(1)
+#if [ -x /usr/libexec/path_helper ]; then
+  #eval `/usr/libexec/path_helper -s`
+#fi
+```
