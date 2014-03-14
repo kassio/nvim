@@ -1,6 +1,5 @@
 function! VAckSearch()
-  norm! gv"sy
-  return ':Ack "' . EscapeAllString(@s) . '"'
+  return ':Ack "' . EscapeAllString(visual_text#get()) . '"'
 endfunction
 
 function! EscapeAllString(text)
