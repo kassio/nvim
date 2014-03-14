@@ -10,7 +10,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Tools
 NeoBundle 'L9'
-NeoBundle 'bronson/vim-visual-star-search'
 NeoBundle 'kassio/vim-session_manager'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'tpope/vim-fugitive'
