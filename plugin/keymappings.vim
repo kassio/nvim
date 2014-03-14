@@ -27,10 +27,8 @@ nnoremap <silent> g# #
 nnoremap <silent> * g*
 nnoremap <silent> g* *
 
-nnoremap <silent> !
-      \ :silent exec "let g:star_view=winsaveview()" \|
-      \ silent exec "normal *" \|
-      \ silent exec "call winrestview(g:star_view)"<CR>
+nnoremap <silent> ! :set hls \| let @/=expand('<cword>')<CR>
+vnoremap <silent> ! :<c-u>set hls \| let @/=visual_text#get()<CR>
 
 nmap K <nop>
 nmap Q <nop>
