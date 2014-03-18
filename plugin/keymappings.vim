@@ -6,7 +6,7 @@ nnoremap <silent> <F4> zR
 nnoremap <silent> Y y$
 
 " Make <C-l> clear the highlight
-nnoremap <silent> <C-l> :nohls<CR>
+nnoremap <silent> <C-l> :nohls \| :redraw!<CR>
 
 " Show all buffers
 nnoremap <silent> <leader>ls :ls!<CR>
@@ -27,8 +27,8 @@ nnoremap <silent> g# #
 nnoremap <silent> * g*
 nnoremap <silent> g* *
 
-nnoremap <silent> ! :set hls \| let @/=expand('<cword>')<CR>
-vnoremap <silent> ! :<c-u>set hls \| let @/=visual_text#get()<CR>
+nnoremap <silent> ! :call text#highlight(expand('<cword>'))<CR>
+vnoremap <silent> ! :<c-u>call text#highlight(text#get_visual())<CR>
 
 nnoremap K <nop>
 nnoremap Q <nop>
