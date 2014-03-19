@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+vim_src=${1:-/opt/vim}
+vim_prefix=${2:-/usr/local}
+old_path=$PWD
+
+# Download vim source
+sudo mkdir -p $vim_src
+sudo chmod 777 $vim_src
+cd $vim_src
+hg clone https://vim.googlecode.com/hg/ .
+
+# compile vim source
+cd src
+make clean
+make distclean
+./configure \
+  --enable-gui=no \
+  --without-x \
+  --enable-multibyte \
+  --with-tlib=ncurses \
+  --enable-cscope \
+  --with-features=huge \
+  --enable-pythoninterp \
+  --enable-rubyinterp \
+  --prefix=$vim_prefix
+make
+sudo make install prefix=$vim_prefix
+
+vim --version
+cd $old_path
