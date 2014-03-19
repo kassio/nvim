@@ -1,3 +1,5 @@
+let g:ruby_path=system('echo "$RBENV_ROOT/versions/$(rbenv version-name)/bin/ruby"')
+
 " Ruby Completion
 let g:rubycomplete_rails = 1
 let g:rubycomplete_classes_in_global = 1
@@ -31,5 +33,9 @@ function! s:variableToLet(line1, line2)
 endfunction
 command! -range VariableToLet call <SID>variableToLet(<line1>, <line2>)
 
-let g:ruby_path=system('echo "$RBENV_ROOT/versions/$(rbenv version-name)/bin/ruby"')
+command! -range NewRubyHashSyntax
+      \ call Preserve(<line1>.','.<line2>.'s/\v:(\w+)\s*\=\>\s*/\1:\ /ge')
+command! -range OldRubyHashSyntax
+      \ call Preserve(<line1>.','.<line2>.'s/\v(\w+):\s*\ze[^:]/:\1\ =>\ /ge')
+
 set iskeyword+=\?,\!
