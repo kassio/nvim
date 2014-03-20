@@ -37,5 +37,11 @@ nnoremap <right> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 
+inoremap '<tab> ''<left>
+inoremap "<tab> ""<left>
+inoremap [<tab> []<left>
+inoremap {<tab> {}<left>
+inoremap (<tab> ()<left>
+
 " Indent all file
 nnoremap <silent> <leader>ff :call Preserve('normal gg=G')<CR>
