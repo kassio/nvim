@@ -3,7 +3,7 @@ set laststatus=2
 function! ActiveStatuslineBuild()
   let l:stl=""
         \ . <SID>highlighSTL("\ %n\ ", "STLBufferNumber")
-        \ . <SID>filenameModifiedAlert()
+        \ . <SID>highlighSTL("\ %t%m\ ", <SID>filenameModifiedColor())
         \ . <SID>highlighSTL(git#check_user(), "STLErrorAlert")
         \ . <SID>highlighSTL("%=", "STLSeparation")
         \ . SyntasticStatuslineFlag()
@@ -12,13 +12,16 @@ function! ActiveStatuslineBuild()
 endfunction
 set statusline=%!ActiveStatuslineBuild()
 
-function! s:filenameModifiedAlert()
+function! InactiveStatuslineBuild()
+  return "[%n]\ %t%m%=%r%y[%{&ff}][%{&fenc!=''?&fenc:&enc}]"
+endfunction
+
+function! s:filenameModifiedColor()
   if &modified
-    let highlight="STLWarningAlert"
+    return "STLWarningAlert"
   else
-    let highlight="STLFileName"
+    return "STLFileName"
   endif
-  return <SID>highlighSTL("\ %<%F%m\ ", highlight)
 endfunction
 
 function! s:highlighSTL(value, color)
@@ -27,12 +30,12 @@ endfunction
 
 aug statusline_setup
   au!
-  au! BufEnter *
+  au! VimEnter,WinEnter,BufWinEnter,FileType,BufUnload,VimResized *
         \ if &ft != "qf" |
-        \   setlocal statusline< |
+        \   set statusline< |
         \ endif
   au! BufLeave,WinLeave *
         \ if &ft != "qf" |
-        \   setlocal statusline="[%n]%<%F%m%=%r%y[%{&ff}][%{&fenc!=''?&fenc:&enc}][%c,%l/%L]"
+        \   setlocal statusline=%!InactiveStatuslineBuild() |
         \ endif
 aug END
