@@ -9,7 +9,10 @@ function! text#get_visual()
 endfunction
 
 function! text#highlight(text)
-  echom a:text
   let @/=a:text
   call feedkeys(":let &hlsearch=1\<CR>", "n")
+endfunction
+
+function! text#escape_all(text)
+  return substitute(escape(a:text, '*^$.?/\|{[()]}'), '\n', '\\n', 'g')
 endfunction
