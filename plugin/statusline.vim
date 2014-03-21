@@ -1,6 +1,6 @@
 set laststatus=2
 
-function! StatuslineBuild()
+function! ActiveStatuslineBuild()
   let l:stl=""
         \ . <SID>highlighSTL("\ %n\ ", "STLBufferNumber")
         \ . <SID>filenameModifiedAlert()
@@ -10,6 +10,7 @@ function! StatuslineBuild()
         \ . <SID>highlighSTL("\ %r%y[%{&ff}][%{&fenc!=''?&fenc:&enc}][%c,%l/%L]", "STLStats")
   return l:stl
 endfunction
+set statusline=%!ActiveStatuslineBuild()
 
 function! s:filenameModifiedAlert()
   if &modified
@@ -26,6 +27,12 @@ endfunction
 
 aug statusline_setup
   au!
-  au! BufEnter * setlocal statusline=%!StatuslineBuild()
-  au! BufLeave,WinLeave * setlocal statusline=""
+  au! BufEnter *
+        \ if &ft != "qf" |
+        \   setlocal statusline< |
+        \ endif
+  au! BufLeave,WinLeave *
+        \ if &ft != "qf" |
+        \   setlocal statusline="[%n]%<%F%m%=%r%y[%{&ff}][%{&fenc!=''?&fenc:&enc}][%c,%l/%L]"
+        \ endif
 aug END
