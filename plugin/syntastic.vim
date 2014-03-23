@@ -23,5 +23,3 @@ let g:syntastic_stl_format = ""
       \ . "\ [".g:syntastic_error_symbol." %fe(%e)]"
       \ . "}\ "
       \ . "%*"
-
-nnoremap <leader>sc :Errors<CR>
