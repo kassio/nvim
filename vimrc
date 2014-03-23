@@ -38,6 +38,8 @@ set number relativenumber numberwidth=3
 
 set autoread autowrite
 
+set viminfo^=!
+
 set sessionoptions=buffers,tabpages,curdir
 
 set tags=tags,../tags,config/tags
