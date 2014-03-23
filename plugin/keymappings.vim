@@ -43,5 +43,10 @@ inoremap [<tab> []<left>
 inoremap {<tab> {}<left>
 inoremap (<tab> ()<left>
 
+cnoremap ,,w <C-R>=expand('<cword>')<CR>
+cnoremap %h <C-R>=expand('%:h').'/'<CR>
+cnoremap %t <C-R>=expand('%:t')<CR>
+cnoremap %% <C-R>=expand('%')<CR>
+
 " Indent all file
 nnoremap <silent> <leader>ff :call Preserve('normal gg=G')<CR>
