@@ -1,9 +1,7 @@
 call textobj#user#plugin('entire', {
       \   '-': {
       \     'select-a-function': 'textobj#entire_file',
-      \     'select-a': 'ae',
-      \     'select-i-function': 'EntireFile',
-      \     'select-i': 'ie',
+      \     'select-a': 'ae'
       \   },
       \ })
 
