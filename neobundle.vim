@@ -9,7 +9,6 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Tools
-NeoBundle 'L9'
 NeoBundle 'kassio/vim-session_manager'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'tpope/vim-fugitive'
