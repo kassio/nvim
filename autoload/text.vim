@@ -14,5 +14,5 @@ function! text#highlight(text)
 endfunction
 
 function! text#escape_all(text)
-  return substitute(escape(a:text, '*^$.?/\|{[()]}'), '\n', '\\n', 'g')
+  return substitute(escape(a:text, '#*^$.?/\|{[()]}'), '\n', '\\n', 'g')
 endfunction
