@@ -16,4 +16,7 @@ if has("syntax")
   hi! STLErrorAlert    ctermbg=1   ctermfg=0   term=bold guibg=#800000 guifg=#000000
   hi! STLWarningAlert  ctermbg=3   ctermfg=0   term=bold guibg=#dfdf00 guifg=#000000
   hi! link STLStats    STLFileData
+
+  hi! link TrailingSpaces STLErrorAlert
+  match TrailingSpaces /\s\+$\| \+\ze\\t/
 endif
