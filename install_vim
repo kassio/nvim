@@ -1,14 +1,33 @@
 #!/usr/bin/env bash
 
-vim_src=${1:-/opt/vim}
-vim_prefix=${2:-/usr/local}
+if [ "$1" = "-h" ]
+then
+  echo -e "usage: install_vim [updating [source_path] [prefix_path]]
+\t updating:
+\t\t 0 or 1 (default: 0)
+\t source_path:
+\t\t default: /opt/vim
+\t prefix_path:
+\t\t default: /usr/local"
+
+  exit 0
+fi
+
+updating=${1:-0}
+vim_src=${2:-/opt/vim}
+vim_prefix=${3:-/usr/local}
 old_path=$PWD
 
-# Download vim source
-sudo mkdir -p $vim_src
-sudo chmod 777 $vim_src
-cd $vim_src
-hg clone https://vim.googlecode.com/hg/ .
+if [[ $updating ]]
+then
+  cd $vim_src
+  hg update && hg pull
+else
+  sudo mkdir -p $vim_src
+  sudo chmod 777 $vim_src
+  cd $vim_src
+  hg clone https://vim.googlecode.com/hg/ .
+fi
 
 # compile vim source
 cd src
