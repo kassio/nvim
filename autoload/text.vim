@@ -13,6 +13,10 @@ function! text#highlight(text)
   call feedkeys(":let &hlsearch=1\<CR>", "n")
 endfunction
 
+function! text#highlight_visual()
+  call text#highlight(text#get_visual())
+endfunction
+
 function! text#escape_all(text)
   return substitute(escape(a:text, '#*^$.?/\|{[()]}'), '\n', '\\n', 'g')
 endfunction

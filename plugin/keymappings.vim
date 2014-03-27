@@ -27,8 +27,10 @@ nnoremap <silent> g# #
 nnoremap <silent> * g*
 nnoremap <silent> g* *
 
+vmap * :<C-u>call text#highlight_visual()<CR>//<CR>
+vmap # :<C-u>call text#highlight_visual()<CR>??<CR>
+vnoremap <silent> ! :<c-u>call text#highlight_visual()<CR>
 nnoremap <silent> ! :call text#highlight(expand('<cword>'))<CR>
-vnoremap <silent> ! :<c-u>call text#highlight(text#get_visual())<CR>
 
 nnoremap K <nop>
 nnoremap Q <nop>
