@@ -21,7 +21,7 @@ old_path=$PWD
 if [[ $updating ]]
 then
   cd $vim_src
-  hg update && hg pull
+  hg pull && hg update
 else
   sudo mkdir -p $vim_src
   sudo chmod 777 $vim_src
