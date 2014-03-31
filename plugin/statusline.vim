@@ -1,6 +1,7 @@
 if exists('b:statusline_setup_loaded')
   finish
 endif
+let b:statusline_setup_loaded=1
 
 set laststatus=2
 set statusline=%!statusline#default()

@@ -1,6 +1,7 @@
 if exists('b:textobj_user_setup_loaded')
   finish
 endif
+let b:textobj_user_setup_loaded=1
 
 call textobj#user#plugin('entire', {
       \   '-': {

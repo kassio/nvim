@@ -1,6 +1,7 @@
 if exists('b:theme_setup_loaded')
   finish
 endif
+let b:theme_setup_loaded=1
 
 if has("syntax")
   syntax enable

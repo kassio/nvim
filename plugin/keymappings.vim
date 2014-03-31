@@ -1,6 +1,7 @@
 if exists('b:keymappings_setup_loaded')
   finish
 endif
+let b:keymappings_setup_loaded=1
 
 " Folding
 nnoremap <silent> <F3> zM

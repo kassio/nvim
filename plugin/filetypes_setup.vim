@@ -1,6 +1,7 @@
 if exists('b:filetypes_setup_loaded')
   finish
 endif
+let b:filetypes_setup_loaded=1
 
 aug filetype_setup
   au!

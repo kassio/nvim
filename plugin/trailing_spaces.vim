@@ -1,6 +1,7 @@
 if exists('b:trailing_spaces_setup_loaded')
   finish
 endif
+let b:trailing_spaces_setup_loaded=1
 
 let g:keep_trailing_spaces = 0
 

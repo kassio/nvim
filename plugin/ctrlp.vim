@@ -1,6 +1,7 @@
 if exists('b:ctrlp_setup_loaded')
   finish
 endif
+let b:ctrlp_setup_loaded=1
 
 " CtrlP easy open files
 let g:ctrlp_working_path_mode = 0

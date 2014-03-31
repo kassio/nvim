@@ -1,6 +1,7 @@
 if exists('b:neosnippets_setup_loaded')
   finish
 endif
+let b:neosnippets_setup_loaded=1
 
 let g:neosnippet#snippets_directory = '~/.vim/snippets'
 let g:neosnippet#disable_runtime_snippets = { '_' : 1 }

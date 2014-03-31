@@ -1,6 +1,7 @@
 if exists('b:preserve_loaded')
   finish
 endif
+let b:preserve_loaded=1
 
 " Executes a command and keeps the current view
 function! Preserve(command)
