@@ -1,8 +1,11 @@
+if exists('b:neosnippets_setup_loaded')
+  finish
+endif
+
 let g:neosnippet#snippets_directory = '~/.vim/snippets'
 let g:neosnippet#disable_runtime_snippets = { '_' : 1 }
 
 let g:neosnippet#scope_aliases = {}
-" let g:neosnippet#scope_aliases['elixir'] = 'elixir'
 let g:neosnippet#scope_aliases['ruby'] = 'ruby,ruby-rails,ruby-rspec'
 let g:neosnippet#scope_aliases['eruby'] = 'eruby,html'
 let g:neosnippet#scope_aliases['javascript'] = 'javascript,javascript-jasmine'

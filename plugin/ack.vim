@@ -1,3 +1,7 @@
+if exists('b:ack_setup_loaded')
+  finish
+endif
+
 let g:ack_qhandler = "botright cwindow 5"
 let g:ack_apply_qmappings = 1
 let g:ackhighlight = 1

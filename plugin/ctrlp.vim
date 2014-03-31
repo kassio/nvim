@@ -1,3 +1,7 @@
+if exists('b:ctrlp_setup_loaded')
+  finish
+endif
+
 " CtrlP easy open files
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_switch_buffer = 'ETV'

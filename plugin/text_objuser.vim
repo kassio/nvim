@@ -1,3 +1,7 @@
+if exists('b:textobj_user_setup_loaded')
+  finish
+endif
+
 call textobj#user#plugin('entire', {
       \   '-': {
       \     'select-a-function': 'textobj#entire_file',

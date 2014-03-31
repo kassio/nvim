@@ -1,3 +1,7 @@
+if exists('b:syntastic_setup_loaded')
+  finish
+endif
+
 let g:syntastic_check_on_open = 1
 let g:syntastic_enable_balloons = 0
 let g:syntastic_auto_jump = 0

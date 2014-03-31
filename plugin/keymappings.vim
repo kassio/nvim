@@ -1,3 +1,7 @@
+if exists('b:keymappings_setup_loaded')
+  finish
+endif
+
 " Folding
 nnoremap <silent> <F3> zM
 nnoremap <silent> <F4> zR

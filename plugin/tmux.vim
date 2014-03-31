@@ -1,3 +1,7 @@
+if exists('b:tmux_setup_loaded')
+  finish
+endif
+
 noremap <silent> <leader>tr :call TmuxRunner.setTmuxPane()<CR>
 noremap <silent> <leader>ct :call TmuxRunner.setRunner()<CR>
 

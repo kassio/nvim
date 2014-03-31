@@ -1,3 +1,7 @@
+if exists('b:retag_setup_loaded')
+  finish
+endif
+
 aug retag
   au!
   au FileType vim,css,ruby,eruby,tex,c,sh,java,python,js,javascript,elixir

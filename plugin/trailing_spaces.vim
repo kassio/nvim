@@ -1,3 +1,7 @@
+if exists('b:trailing_spaces_setup_loaded')
+  finish
+endif
+
 let g:keep_trailing_spaces = 0
 
 command! -nargs=? KeepTrailingSpaces

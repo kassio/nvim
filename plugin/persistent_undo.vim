@@ -1,3 +1,7 @@
+if exists('b:persistent_undo_setup_loaded')
+  finish
+endif
+
 set undofile undolevels=1000 undoreload=10000 undodir=~/.vim_data/undo
 
 aug undo_dir

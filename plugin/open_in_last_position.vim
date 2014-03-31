@@ -1,3 +1,7 @@
+if exists('b:open_last_position_setup_loaded')
+  finish
+endif
+
 aug open_file_in_the_last_position
   au!
   au FileType gitcommit let b:open_at_first_line = 1

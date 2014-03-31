@@ -1,3 +1,7 @@
+if exists('b:statusline_setup_loaded')
+  finish
+endif
+
 set laststatus=2
 
 function! ActiveStatuslineBuild()
