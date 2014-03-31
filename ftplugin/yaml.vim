@@ -1,1 +1,1 @@
-set cursorcolumn
+setlocal cursorcolumn
