@@ -20,6 +20,7 @@ set cursorline colorcolumn=80
 set showcmd
 
 set switchbuf=useopen,usetab,newtab
+set tabpagemax=50
 
 set list listchars=tab:▸\ ,trail:·,nbsp:·
 
