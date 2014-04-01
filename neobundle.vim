@@ -16,6 +16,7 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'mileszs/ack.vim'
+NeoBundle 'scrooloose/nerdtree'
 
 " Snippets
 NeoBundle 'Shougo/neosnippet'
