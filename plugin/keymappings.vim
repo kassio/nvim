@@ -13,8 +13,7 @@ nnoremap <silent> Y y$
 " Make <C-l> clear the highlight
 nnoremap <silent> <C-l> :nohls<CR><C-l>
 
-" Show all buffers
-nnoremap <silent> <leader>ls :ls!<CR>
+nnoremap <c-w><c-t> :tabnew<CR>
 " Delete current buffer
 nnoremap <silent> <leader>bd :bw!<CR>
 " Delete all buffers
