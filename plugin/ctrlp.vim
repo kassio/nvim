@@ -20,7 +20,7 @@ let g:ctrlp_abbrev = {
       \ ]
       \ }
 
-noremap <c-n> :CtrlPLine %<CR>
+nnoremap <c-n> :CtrlPBufLine<CR>
 
 aug ctrlp_cache_dir
   au!
