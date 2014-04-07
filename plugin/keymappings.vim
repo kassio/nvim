@@ -15,9 +15,9 @@ nnoremap <silent> <C-l> :nohls<CR><C-l>
 
 nnoremap <c-w><c-t> :tabnew<CR>
 " Delete current buffer
-nnoremap <silent> <leader>bd :bw!<CR>
+nnoremap <silent> <leader>bd :call buffer#kill()<CR>
 " Delete all buffers
-nnoremap <silent> <leader>da :exec "1," . bufnr('$') . "bw"<CR>
+nnoremap <silent> <leader>da :silent bufdo call buffer#kill()<CR>
 " Move current window to currend file path
 nnoremap <silent> <leader>cd :lcd %:p:h<CR>:pwd<CR>
 
