@@ -19,7 +19,7 @@ if has("syntax")
   hi! STLFileName      ctermbg=81  ctermfg=17  term=bold guibg=#268bd2 guifg=#00005f
   hi! STLFileData      ctermbg=255 ctermfg=17  term=bold guibg=#eeeeee guifg=#00005f
   hi! STLErrorAlert    ctermbg=1   ctermfg=0   term=bold guibg=#800000 guifg=#000000
-  hi! STLSuccessAlert  ctermbg=22  ctermfg=15  term=bold guibg=#800000 guifg=#000000
+  hi! STLSuccessAlert  ctermbg=22  ctermfg=0   term=bold guibg=#800000 guifg=#000000
   hi! STLWarningAlert  ctermbg=3   ctermfg=0   term=bold guibg=#dfdf00 guifg=#000000
   hi! link STLStats    STLFileData
 
