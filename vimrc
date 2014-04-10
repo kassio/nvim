@@ -6,6 +6,8 @@ set encoding=utf8 fileencoding=utf8 termencoding=utf8 nobomb
 set showmatch
 runtime macros/matchit.vim
 
+set lazyredraw ttyfast
+
 set confirm
 
 set shortmess=atTI

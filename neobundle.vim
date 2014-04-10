@@ -18,6 +18,9 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'mileszs/ack.vim'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'kassio/vim-tmux-runner'
 
 " Snippets
 NeoBundle 'Shougo/neosnippet'
@@ -25,22 +28,15 @@ NeoBundle 'Shougo/neosnippet'
 " HTML, javascript
 NeoBundle 'othree/html5.vim'
 NeoBundleLazy 'jelera/vim-javascript-syntax', { 'autoload': { 'filetypes': ['javascript'] } }
-NeoBundle 'guileen/simple-javascript-indenter'
+NeoBundleLazy 'guileen/simple-javascript-indenter', { 'autoload': { 'filetypes': ['javascript'] } }
 
 " Ruby
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'Keithbsmiley/rspec.vim'
-NeoBundle 'nelstrom/vim-textobj-rubyblock'
-NeoBundle 'kana/vim-textobj-user'
+NeoBundleLazy 'vim-ruby/vim-ruby', { 'autoload': { 'filetypes': ['ruby', 'eruby'] } }
+NeoBundleLazy 'Keithbsmiley/rspec.vim', { 'autoload': { 'filetypes': ['ruby', 'eruby'] } }
+NeoBundleLazy 'nelstrom/vim-textobj-rubyblock', { 'autoload': { 'filetypes': ['ruby', 'eruby'] } }
 
 " Elixir
-NeoBundle 'elixir-lang/vim-elixir'
-
-" Colorscheme
-NeoBundle 'altercation/vim-colors-solarized'
-
-" tmux
-NeoBundle 'kassio/vim-tmux-runner'
+NeoBundleLazy 'elixir-lang/vim-elixir', { 'autoload': { 'filetypes': ['elixir'] } }
 
 filetype plugin indent on
 NeoBundleCheck
