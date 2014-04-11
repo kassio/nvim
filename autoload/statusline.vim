@@ -2,7 +2,6 @@ function! statusline#default()
   let stl=""
         \ . <SID>highlight("\ %n\ ", "STLBufferNumber")
         \ . <SID>highlight("\ %t%m\ ", <SID>isFilenameModified())
-        \ . <SID>highlight(git#check_user(), "STLErrorAlert")
         \ . <SID>highlight("%=", "STLSeparation")
         \ . <SID>tmux()
         \ . SyntasticStatuslineFlag()
