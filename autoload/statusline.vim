@@ -1,11 +1,11 @@
 function! statusline#default()
   let stl=""
-        \ . <SID>highlight("\ %n\ ", "STLBufferNumber")
-        \ . <SID>highlight("\ %t%m\ ", <SID>isFilenameModified())
+        \ . <SID>highlight(" %n ", "STLBufferNumber")
+        \ . <SID>highlight(" %t%m ", <SID>isFilenameModified())
         \ . <SID>highlight("%=", "STLSeparation")
-        \ . " " . tmux_runner#statusline#tmux() . " "
+        \ . tmux_runner#statusline#tmux(" [t: %s] ", "s", "F")
         \ . SyntasticStatuslineFlag()
-        \ . <SID>highlight("\ %r%y[%{&ff}][%{&fenc!=''?&fenc:&enc}][%c,%l/%L]", "STLStats")
+        \ . <SID>highlight(" %r%y[%{&ff}][%{&fenc!=''?&fenc:&enc}][%c,%l/%L]", "STLStats")
   return stl
 endfunction
 
