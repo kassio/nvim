@@ -31,9 +31,9 @@ NeoBundleLazy 'jelera/vim-javascript-syntax', { 'autoload': { 'filetypes': ['jav
 NeoBundleLazy 'guileen/simple-javascript-indenter', { 'autoload': { 'filetypes': ['javascript'] } }
 
 " Ruby
-NeoBundleLazy 'vim-ruby/vim-ruby', { 'autoload': { 'filetypes': ['ruby', 'eruby'] } }
-NeoBundleLazy 'Keithbsmiley/rspec.vim', { 'autoload': { 'filetypes': ['ruby', 'eruby'] } }
-NeoBundleLazy 'nelstrom/vim-textobj-rubyblock', { 'autoload': { 'filetypes': ['ruby', 'eruby'] } }
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'nelstrom/vim-textobj-rubyblock'
+NeoBundle 'Keithbsmiley/rspec.vim'
 
 " Elixir
 NeoBundleLazy 'elixir-lang/vim-elixir', { 'autoload': { 'filetypes': ['elixir'] } }
