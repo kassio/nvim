@@ -4,22 +4,16 @@ endif
 let b:statusline_setup_loaded=1
 
 set laststatus=2
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_theme='dark'
 
-aug statusline_setup
-  au!
-   au! BufEnter,WinEnter,BufWritePost,CursorMoved,CursorMovedI *
-         \ if &ft != "qf" && &ft != "nerdtree" |
-         \ let &statusline="" |
-         \ let &statusline.="%1*\ %n\ %*" |
-         \ let &statusline.="%2*\ %t\ " |
-         \ let &statusline.="%3*%m%*%*" |
-         \ let &statusline.="%4*%=%*" |
-         \ let &statusline.=SyntasticStatuslineFlag() |
-         \ let &statusline.=tmux_runner#statusline#tmux(" [t: %s] ", "s", "F") |
-         \ let &statusline.="%5*\ %r%y[%{&ff}][%{&fenc!=''?&fenc:&enc}][%c,%l/%L]\ %*" |
-         \ endif
-   au! BufLeave,WinLeave *
-         \ if &ft != "qf" && &ft != "nerdtree" |
-         \   let &l:statusline="[%n]\ %t%m%=%r%y[%{&ff}][%{&fenc!=''?&fenc:&enc}]" |
-         \ endif
-aug END
+let g:airline#extensions#default#layout = [
+      \ [ 'a', 'b', 'c', 'gutter' ],
+      \ [ 'warning', 'x', 'y', 'z' ]
+      \ ]
+
+let g:airline_section_a = "%n"
+let g:airline_section_c = "%t%m"
+let g:airline_section_z = "%c,%l/%L"
+let g:airline_section_warning = "%{SyntasticStatuslineFlag()}"

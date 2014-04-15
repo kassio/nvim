@@ -15,16 +15,6 @@ let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [
       \ 'css',
       \ 'vim' ] }
 
-hi! link SyntasticWarningSign Search
-hi! link SyntasticErrorSign ErrorMsg
-let g:syntastic_stl_format = ""
-      \ . "%W{"
-      \ . "%#WarningAlert#"
-      \ . "\ [".g:syntastic_warning_symbol." %fw(%w)]"
-      \ . "}"
-      \ . "%B{\ }"
-      \ . "%E{"
-      \ . "%#ErrorAlert#"
-      \ . "\ [".g:syntastic_error_symbol." %fe(%e)]"
-      \ . "}\ "
-      \ . "%*"
+let g:syntastic_stl_format =
+      \ "%W{[".g:syntastic_warning_symbol." %fw(%w)]}"
+      \ . "%E{[".g:syntastic_error_symbol." %fe(%e)]}"

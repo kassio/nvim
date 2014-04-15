@@ -21,6 +21,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'kassio/vim-tmux-runner'
+NeoBundle 'bling/vim-airline'
 
 " Snippets
 NeoBundle 'Shougo/neosnippet'
