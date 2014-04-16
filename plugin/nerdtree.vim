@@ -9,17 +9,8 @@ let NERDTreeAutoDeleteBuffer=1
 let NERDTreeMinimalUI=1
 let NERDTreeStatusline="%{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
 
-" If possible open a NERDTreeMirror
-function! OpenNERDTreeMirror()
-  try
-    NERDTreeMirror | NERDTreeToggle
-  catch
-    NERDTree
-  endtry
-endfunction
-
 nmap <silent> <leader>p :NERDTreeMirror \| NERDTreeToggle<CR>
-nnoremap <silent> <leader>fl :NERDTreeFind<CR>
+nnoremap <silent> <leader>fl :NERDTreeMirror \| NERDTreeToggle \| NERDTreeFind<CR>
 command! E exec ":NERDTree ".expand('%:p')
 
 aug nerdtree_view
