@@ -15,5 +15,5 @@ let g:airline#extensions#default#layout = [
 
 let g:airline_section_a = "%n"
 let g:airline_section_c = "%t%m"
-let g:airline_section_z = "%c,%l/%L"
+let g:airline_section_z = "%c,%l/%L %P"
 let g:airline_section_warning = "%{SyntasticStatuslineFlag()}"
