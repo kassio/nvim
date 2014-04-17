@@ -11,7 +11,6 @@ let NERDTreeStatusline="%{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
 
 nmap <silent> <leader>p :NERDTreeMirror \| NERDTreeToggle<CR>
 nnoremap <silent> <leader>fl :NERDTreeMirror \| NERDTreeToggle \| NERDTreeFind<CR>
-command! E exec ":NERDTree ".expand('%:p')
 
 aug nerdtree_view
   au!
