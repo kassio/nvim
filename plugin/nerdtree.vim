@@ -3,11 +3,10 @@ if exists('b:nerdree_setup_loaded')
 endif
 let b:nerdree_setup_loaded=1
 
-let NERDTreeWinPos="right"
-let NERDTreeHighlightCursorline=1
-let NERDTreeAutoDeleteBuffer=1
-let NERDTreeMinimalUI=1
-let NERDTreeStatusline="%{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
+let NERDTreeWinPos = "right"
+let NERDTreeMinimalUI = 1
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeHighlightCursorline = 1
 
 function! NERDTreeMirrorFind()
   let l:previous_winnr = winnr()
