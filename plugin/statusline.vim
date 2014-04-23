@@ -9,22 +9,25 @@ let g:lightline.active = {
       \   'left': [
       \      [ 'bufnum' ],
       \      [ 'filename', 'modified' ],
-      \      ['ctrlpmark']
+      \      [ 'ctrlpmark' ]
       \   ],
       \   'right': [
-      \     [ 'lineinfo' ],
+      \     [ 'lineinfo', 'nerdtree' ],
       \     [ 'fileformat', 'fileencoding', 'filetype' ],
       \     [ 'syntastic' ]
       \   ]
       \ }
-let g:lightline.component = {
-      \   'lineinfo': '%c,%l/%L %P',
-      \ }
+let g:lightline.component          = { 'lineinfo': '%c,%l/%L %P' }
 let g:lightline.component_type     = { 'syntastic': 'error' }
-let g:lightline.component_expand   = { 'syntastic': 'SyntasticStatuslineFlag' }
-let g:lightline.component_function = { 'ctrlpmark': 'CtrlPMark' }
+let g:lightline.separator          = { 'left': '', 'right': '' }
+let g:lightline.subseparator       = { 'left': '', 'right': '' }
+let g:lightline.component_function = { 'ctrlpmark': 'CtrlPSTL' }
+let g:lightline.component_expand   = {
+      \ 'syntastic': 'SyntasticStatuslineFlag',
+      \ 'nerdtree': 'NERDTreeSTL'
+      \ }
 
-function! CtrlPMark()
+function! CtrlPSTL()
   if expand('%:t') =~ 'ControlP'
     call lightline#link('iR'[g:lightline.ctrlp_regex])
     return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
@@ -34,16 +37,12 @@ function! CtrlPMark()
   endif
 endfunction
 
-let g:ctrlp_status_func = {
-      \ 'main': 'CtrlPStatusMain',
-      \ 'prog': 'CtrlPStatusProg',
-      \ }
-
+let g:ctrlp_status_func = { 'main': 'CtrlPStatusMain', 'prog': 'CtrlPStatusProg' }
 function! CtrlPStatusMain(focus, byfname, regex, prev, item, next, marked)
   let g:lightline.ctrlp_regex = a:regex
-  let g:lightline.ctrlp_prev = a:item
-  let g:lightline.ctrlp_item = a:prev
-  let g:lightline.ctrlp_next = a:next
+  let g:lightline.ctrlp_prev  = a:item
+  let g:lightline.ctrlp_item  = a:prev
+  let g:lightline.ctrlp_next  = a:next
   return lightline#statusline(0)
 endfunction
 
@@ -51,9 +50,12 @@ function! CtrlPStatusProg(str)
   return lightline#statusline(0)
 endfunction
 
-let NERDTreeStatusline="%!NERDTreeStatus"
-function! NERDTreeStatus()
-  return matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')
+function! NERDTreeSTL()
+  if &ft == 'nerdtree'
+    return "%=%-28{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
+  else
+    return ''
+  endif
 endfunction
 
 let g:lightline.tabline = { 'left': [ [ 'tabs' ] ], 'right': [ [ '' ] ] }
