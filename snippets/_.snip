@@ -4,15 +4,13 @@ snippet lorem
 	velit esse cillum dolore eu fugiat nulla pariatur.  Excepteur sint occaecat cupidatat non proident, sunt in
 	culpa qui officia deserunt mollit anim id est laborum${1}
 snippet knote
-	${1:`helper#start_comment()`} ${2:TODO} Kassio Borges `strftime("%Y-%m-%d")`: ${3}
+	${1:`helper#start_comment()`} ${2:TODO} (Kassio Borges) `strftime("%Y-%m-%d")`: ${3}
 snippet note
-	${1:`helper#start_comment()`} ${2:TODO} `strftime("%Y-%m-%d")`: ${3}
+	${1:`helper#start_comment()`} ${2:TODO `strftime("%Y-%m-%d")`}: ${3}
 snippet today
 	`strftime("%Y-%m-%d")`
 snippet tdoc
-	`helper#start_comment()`${1:Public}: ${2} `helper#end_comment()`
-snippet vim
-	`helper#modeline()`
+	`helper#start_comment()` ${1:Public}: ${2} `helper#end_comment()`
 snippet #!
 options head
-  #!/usr/bin/env ${1}
+  #!/usr/bin/env ${1:bash}
