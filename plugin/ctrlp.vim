@@ -12,12 +12,21 @@ let g:ctrlp_cache_dir = expand('~/.vim_data/ctrlp')
 let g:ctrlp_custom_ignore = '\v[\/](tags|gem.tags|.git|log|tmp/cache|vendor/cache|vendor/bundler/bin)$'
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
 let g:ctrlp_abbrev = {
-      \ 'abbrevs': [
-      \ { 'pattern': '\v(^|\/)c/', 'expanded': 'controllers/' },
-      \ { 'pattern': '\v(^|\/)m/', 'expanded': 'models/' },
-      \ { 'pattern': '\v(^|\/)v/', 'expanded': 'views/' },
-      \ { 'pattern': '^s/', 'expanded': 'spec/' }
-      \ ]
+      \   'abbrevs': [
+      \     { 'pattern': '\v(^|\/)c/', 'expanded': 'controllers/' },
+      \     { 'pattern': '\v(^|\/)m/', 'expanded': 'models/' },
+      \     { 'pattern': '\v(^|\/)v/', 'expanded': 'views/' },
+      \     { 'pattern': '^s/', 'expanded': 'spec/' }
+      \   ]
+      \ }
+
+
+let g:ctrlp_user_command = {
+      \   'types': {
+      \     1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
+      \     2: ['.hg', 'hg --cwd %s locate -I .'],
+      \   },
+      \   'fallback': 'find %s -type f'
       \ }
 
 nnoremap <c-n> :CtrlPBufLine<CR>
