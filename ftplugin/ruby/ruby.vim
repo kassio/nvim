@@ -8,14 +8,14 @@ let g:rubycomplete_include_object = 1
 let g:rubycomplete_include_objectspace = 1
 
 " Surround stuff
-let g:surround_35  = "#{\r}"             " #
-let g:surround_45  = "<% \r %>"          " -
-let g:surround_61  = "<%= \r %>"         " =
-let g:surround_98  = "begin\n\t\r\nend"  " b
-let g:surround_99  = "class\n\t\r\nend"  " c
-let g:surround_100 = "do\n\t\r\nend"     " d
-let g:surround_109 = "module\n\t\r\nend" " m
-let g:surround_119 = "%w[\r]"            " w
+let g:surround_{char2nr("#")} = "#{\r}"
+let g:surround_{char2nr("-")} = "<% \r %>"
+let g:surround_{char2nr("=")} = "<%= \r %>"
+let g:surround_{char2nr("b")} = "begin\n\t\r\nend"
+let g:surround_{char2nr("c")} = "class\n\t\r\nend"
+let g:surround_{char2nr("d")} = "do\n\t\r\nend"
+let g:surround_{char2nr("m")} = "module\n\t\r\nend"
+let g:surround_{char2nr("w")} = "%w[\r]"
 
 command! MinitestAutoComplete set completefunc=syntaxcomplete#Complete
 
