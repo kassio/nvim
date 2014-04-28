@@ -43,11 +43,14 @@ nnoremap <right> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 
-inoremap '<tab> ''<left>
-inoremap "<tab> ""<left>
-inoremap [<tab> []<left>
-inoremap {<tab> {}<left>
-inoremap (<tab> ()<left>
-
 " Indent all file
 nnoremap <silent> <leader>ff :call Preserve('normal gg=G')<CR>
+
+inoremap <TAB> <C-R>=SnippetOrCloserGetOut()<CR>
+function! SnippetOrCloserGetOut()
+  if neosnippet#expandable_or_jumpable()
+    return neosnippet#mappings#expand_or_jump_impl()
+  else
+    return closer#get_out() . "\<right>"
+  endif
+endfunction
