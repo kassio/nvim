@@ -14,3 +14,5 @@ for sym in keys(g:closers)
     execute printf("inoremap %s<TAB> <C-R>=closer#open(%s%s%s)<CR><LEFT>", sym, '"',  sym, '"')
   endif
 endfor
+
+au! InsertLeave * let g:closer_stack = []
