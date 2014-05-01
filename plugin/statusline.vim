@@ -17,10 +17,17 @@ let g:lightline.active = {
       \     [ 'syntastic' ]
       \   ]
       \ }
+let g:lightline.inactive = {
+      \   'left': [
+      \      [ 'bufnum' ],
+      \      [ 'filename', 'modified' ]
+      \   ],
+      \   'right': [
+      \     [ 'fileformat', 'fileencoding', 'filetype' ]
+      \   ]
+      \ }
 let g:lightline.component          = { 'lineinfo': '%c,%l/%L %P' }
 let g:lightline.component_type     = { 'syntastic': 'error' }
-let g:lightline.separator          = { 'left': '', 'right': '' }
-let g:lightline.subseparator       = { 'left': '', 'right': '' }
 let g:lightline.component_function = { 'ctrlpmark': 'CtrlPSTL' }
 let g:lightline.component_expand   = {
       \ 'syntastic': 'SyntasticStatuslineFlag',
