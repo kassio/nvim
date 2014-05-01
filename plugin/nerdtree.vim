@@ -9,9 +9,11 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeHighlightCursorline = 1
 
 function! NERDTreeMirrorFind()
-  let l:previous_winnr = winnr()
-  call NERDTreeMirrorOrCreate()
-  execute bufwinnr(l:previous_winnr) . "wincmd w"
+  if !nerdtree#isTreeOpen()
+    let l:previous_winnr = winnr()
+    call NERDTreeMirrorOrCreate()
+    execute l:previous_winnr . "wincmd w"
+  endif
 
   silent NERDTreeFind
 endfunction
