@@ -19,8 +19,14 @@ function! NERDTreeMirrorFind()
 endfunction
 
 function! NERDTreeMirrorOrCreate()
+  if exists('t:NERDTreeBufName') && t:NERDTreeBufName != 'NERD_tree_1'
+    let t:NERDTreeBufName = 'NERD_tree_1'
+  endif
+
   let l:previous_winnr = winnr("$")
-  silent NERDTreeMirror
+  if !nerdtree#isTreeOpen()
+    silent NERDTreeMirror
+  endif
 
   if l:previous_winnr == winnr("$")
     silent NERDTreeToggle
