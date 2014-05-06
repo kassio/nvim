@@ -8,33 +8,8 @@ let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeHighlightCursorline = 1
 
-function! NERDTreeMirrorFind()
-  if !nerdtree#isTreeOpen()
-    let l:previous_winnr = winnr()
-    call NERDTreeMirrorOrCreate()
-    execute l:previous_winnr . "wincmd w"
-  endif
-
-  silent NERDTreeFind
-endfunction
-
-function! NERDTreeMirrorOrCreate()
-  if exists('t:NERDTreeBufName') && t:NERDTreeBufName != 'NERD_tree_1'
-    let t:NERDTreeBufName = 'NERD_tree_1'
-  endif
-
-  let l:previous_winnr = winnr("$")
-  if !nerdtree#isTreeOpen()
-    silent NERDTreeMirror
-  endif
-
-  if l:previous_winnr == winnr("$")
-    silent NERDTreeToggle
-  endif
-endfunction
-
-nmap <silent> <leader>p :call NERDTreeMirrorOrCreate()<CR>
-nnoremap <silent> <leader>fl :call NERDTreeMirrorFind()<CR>
+nmap <silent> <leader>p :call my_nerdtree#mirror_or_create()<CR>
+nnoremap <silent> <leader>fl :call my_nerdtree#mirror_find()<CR>
 
 aug nerdtree_view
   au!
