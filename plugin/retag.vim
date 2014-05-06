@@ -1,8 +1,3 @@
-if exists('b:retag_setup_loaded')
-  finish
-endif
-let b:retag_setup_loaded=1
-
 aug retag
   au!
   au FileType vim,css,ruby,eruby,tex,c,sh,java,python,js,javascript,elixir

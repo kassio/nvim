@@ -1,8 +1,3 @@
-if exists('b:nerdree_setup_loaded')
-  finish
-endif
-let b:nerdree_setup_loaded=1
-
 let NERDTreeWinPos = "right"
 let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1

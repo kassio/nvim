@@ -1,8 +1,3 @@
-if exists('b:filetypes_setup_loaded')
-  finish
-endif
-let b:filetypes_setup_loaded=1
-
 aug filetype_setup
   au!
   au FileType vim,css,ruby,eruby,tex,c,sh,java,python,js,javascript setlocal

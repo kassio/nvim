@@ -1,8 +1,3 @@
-if exists('b:standard_plugins_setup_loaded')
-  finish
-endif
-let b:standard_plugins_setup_loaded=1
-
 let g:loaded_getscriptPlugin=1
 let loaded_gzip=1
 let g:loaded_netrwPlugin=1
