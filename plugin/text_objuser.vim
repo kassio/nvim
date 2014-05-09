@@ -16,7 +16,7 @@ call textobj#user#plugin('line', {
 
 call textobj#user#plugin('erb', {
       \   '-': {
-      \     'pattern': ['<%=\?', '%>'],
+      \     'pattern': ['<%=\?\s\?', '\s\?%>'],
       \     'select-a': 'a=',
       \     'select-i': 'i=',
       \   },
