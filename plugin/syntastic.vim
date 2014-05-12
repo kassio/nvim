@@ -10,6 +10,14 @@ let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [
       \ 'css',
       \ 'vim' ] }
 
-let g:syntastic_stl_format =
-      \ "%W{[".g:syntastic_warning_symbol." %fw(%w)]}"
-      \ . "%E{[".g:syntastic_error_symbol." %fe(%e)]}"
+let g:syntastic_stl_format = ""
+      \ . "%W{"
+      \ . "%#STLWarningAlert#"
+      \ . "\ [".g:syntastic_warning_symbol." %fw(%w)]"
+      \ . "}"
+      \ . "%B{\ }"
+      \ . "%E{"
+      \ . "%#STLErrorAlert#"
+      \ . "\ [".g:syntastic_error_symbol." %fe(%e)]"
+      \ . "}\ "
+      \ . "%*"
