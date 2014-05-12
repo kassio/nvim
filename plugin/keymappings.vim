@@ -41,6 +41,7 @@ nnoremap <left> <nop>
 " Indent all file
 nnoremap <silent> <leader>ff :call Preserve('normal gg=G')<CR>
 
+
 inoremap <TAB> <C-R>=SnippetOrCloserGetOut()<CR>
 function! SnippetOrCloserGetOut()
   if neosnippet#expandable_or_jumpable()
@@ -49,3 +50,7 @@ function! SnippetOrCloserGetOut()
     return closer#get_out() . "\<right>"
   endif
 endfunction
+
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
