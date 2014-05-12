@@ -1,6 +1,6 @@
 let g:ack_apply_qmappings = 1
 let g:ackhighlight = 1
-let g:ackprg = "ack -s -H --column --smart-case --follow"
+let g:ackprg = 'ag --smart-case --nogroup --nocolor --column --follow 2>/dev/null'
 
 let g:ack_mappings = {
       \ "t": "<C-W><CR>zz<C-W>T",
