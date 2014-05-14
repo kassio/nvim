@@ -2,7 +2,7 @@ let NERDTreeWinPos = "right"
 let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeHighlightCursorline = 1
-let NERDTreeStatusline="%-28{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
+let NERDTreeStatusline="\ %-28{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
 
 nmap <silent> <leader>p :call my_nerdtree#mirror_or_create()<CR>
 nnoremap <silent> <leader>fl :call my_nerdtree#mirror_find()<CR>
