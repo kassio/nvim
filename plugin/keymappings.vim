@@ -8,7 +8,6 @@ nnoremap <silent> Y y$
 " Make <C-l> clear the highlight
 nnoremap <silent> <C-l> :nohls<CR><C-l>
 
-nnoremap <c-w><c-t> :tabnew<CR>
 " Delete current buffer
 nnoremap <silent> <leader>bd :call buffer#kill()<CR>
 " Delete all buffers
@@ -42,7 +41,7 @@ nnoremap <left> <nop>
 nnoremap <silent> <leader>ff :call Preserve('normal gg=G')<CR>
 
 
-inoremap <TAB> <C-R>=SnippetOrCloserGetOut()<CR>
+inoremap <TAB> <C-R>=SnippetOrCloserGetOut()<CR><tab>
 function! SnippetOrCloserGetOut()
   if neosnippet#expandable_or_jumpable()
     return neosnippet#mappings#expand_or_jump_impl()
