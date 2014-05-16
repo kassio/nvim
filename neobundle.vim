@@ -38,5 +38,8 @@ NeoBundle 'Keithbsmiley/rspec.vim'
 " Elixir
 NeoBundleLazy 'elixir-lang/vim-elixir', { 'autoload': { 'filetypes': ['elixir'] } }
 
+" Puppet
+NeoBundle 'rodjek/vim-puppet'
+
 filetype plugin indent on
 NeoBundleCheck
