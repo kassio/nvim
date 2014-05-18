@@ -41,12 +41,14 @@ nnoremap <left> <nop>
 nnoremap <silent> <leader>ff :call Preserve('normal gg=G')<CR>
 
 
-inoremap <TAB> <C-R>=SnippetOrCloserGetOut()<CR><tab>
+inoremap <TAB> <C-R>=SnippetOrCloserGetOut()<CR>
 function! SnippetOrCloserGetOut()
   if neosnippet#expandable_or_jumpable()
     return neosnippet#mappings#expand_or_jump_impl()
-  else
+  elseif len(g:closer_stack)
     return closer#get_out() . "\<right>"
+  else
+    return "\<tab>"
   endif
 endfunction
 
