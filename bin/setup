@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
-mkdir -p $HOME/.vim/bundle
-git clone https://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim
-vim -u $HOME/.vim/vimrc +NeoBundleInstall! +qall
+if [[ -d $HOME/.vim/bundle ]]
+then
+  vim +NeoBundleClean! +NeoBundleUpdate! +qall
+else
+  mkdir -p $HOME/.vim/bundle
+  git clone https://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim
+  vim -u $HOME/.vim/vimrc +NeoBundleInstall! +qall
+fi
