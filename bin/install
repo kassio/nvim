@@ -2,9 +2,7 @@
 
 if [ "$1" = "-h" ]
 then
-  echo -e "usage: install_vim [updating [source_path] [prefix_path]]
-\t updating:
-\t\t 0 or 1 (default: 0)
+  echo -e "usage: bin/install [source_path] [prefix_path]
 \t source_path:
 \t\t default: /opt/vim
 \t prefix_path:
@@ -13,24 +11,23 @@ then
   exit 0
 fi
 
-updating=${1:-0}
-vim_src=${2:-/opt/vim}
-vim_prefix=${3:-/usr/local}
 old_path=$PWD
+src_path=${1:-/opt/vim}
+vim_prefix=${2:-/usr/local}
 
-if [[ $updating ]]
+if [[ -e $src_path ]]
 then
-  cd $vim_src
-  hg pull && hg update
+  cd $src_path
+  hg pull
+  hg update
 else
-  sudo mkdir -p $vim_src
-  sudo chmod 777 $vim_src
-  cd $vim_src
+  sudo mkdir -p -m 755 $src_path
+  cd $src_path
   hg clone https://vim.googlecode.com/hg/ .
 fi
 
-# compile vim source
 cd src
+
 make clean
 make distclean
 ./configure \
@@ -46,5 +43,5 @@ make distclean
 make
 sudo make install prefix=$vim_prefix
 
-vim --version
 cd $old_path
+vim --version
