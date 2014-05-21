@@ -12,6 +12,7 @@ then
 fi
 
 old_path=$PWD
+current_user=$(whoami)
 src_path=${1:-/opt/vim}
 vim_prefix=${2:-/usr/local}
 
@@ -22,6 +23,7 @@ then
   hg update
 else
   sudo mkdir -p -m 755 $src_path
+  sudo chown -R "$current_user:" $src_path
   cd $src_path
   hg clone https://vim.googlecode.com/hg/ .
 fi
