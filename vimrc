@@ -19,6 +19,8 @@ set incsearch hls ignorecase smartcase
 set formatoptions=tcwqnj2
 set cursorline colorcolumn=80
 
+set nrformats-=octal
+
 set showcmd
 
 set switchbuf=useopen,usetab,newtab
@@ -27,6 +29,18 @@ set tabpagemax=50
 set list listchars=tab:▸\ ,trail:·,nbsp:·
 
 set virtualedit=block
+
+if !&scrolloff
+  set scrolloff=1
+endif
+if !&sidescrolloff
+  set sidescrolloff=5
+endif
+set display+=lastline
+
+if &shell =~# 'fish$'
+  set shell=/bin/bash
+endif
 
 set wildmenu wildignorecase
 set wildmode=list:longest,list:full
@@ -50,7 +64,7 @@ set tags+=gems.tags,../gems.tags,config/gems.tags
 set complete=.,w,b,u,U,i,d
 set completeopt=menu,menuone,longest,preview
 
-set timeoutlen=1000 ttimeoutlen=50
+set timeoutlen=1000 ttimeout ttimeoutlen=50
 
 set autoindent copyindent cindent smartindent
 set tabstop=2 shiftwidth=2 softtabstop=2

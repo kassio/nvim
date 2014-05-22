@@ -5,8 +5,10 @@ nnoremap <silent> <F4> zR
 " Make Y consistent with C and D
 nnoremap <silent> Y y$
 
-" Make <C-l> clear the highlight
-nnoremap <silent> <C-l> :nohls<CR><C-l>
+" Use <C-L> to clear the highlighting of :set hlsearch.
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+endif
 
 " Delete current buffer
 nnoremap <silent> <leader>bd :call buffer#kill()<CR>
