@@ -26,28 +26,14 @@ set showcmd
 set switchbuf=useopen,usetab,newtab
 set tabpagemax=50
 
-set list listchars=tab:▸\ ,trail:·,nbsp:·
+set list listchars=tab:▸\ ,trail:·
 
 set virtualedit=block
-
-if !&scrolloff
-  set scrolloff=1
-endif
-if !&sidescrolloff
-  set sidescrolloff=5
-endif
-set display+=lastline
-
-if &shell =~# 'fish$'
-  set shell=/bin/bash
-endif
 
 set wildmenu wildignorecase
 set wildmode=list:longest,list:full
 set wildignore+=*.zip,*.gz,*.bz,*.tar
 set wildignore+=*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
-
-set diffopt+=iwhite
 
 set nowrap wrapscan showbreak=..
 
