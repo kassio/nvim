@@ -2,9 +2,6 @@
 nnoremap <silent> <F3> zM
 nnoremap <silent> <F4> zR
 
-" Make Y consistent with C and D
-nnoremap <silent> Y y$
-
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
