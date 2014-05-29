@@ -25,7 +25,7 @@ NeoBundle 'wellle/targets.vim'
 NeoBundle 'mhinz/vim-signify'
 
 " Snippets
-NeoBundle 'Shougo/neosnippet'
+NeoBundle 'sirver/ultisnips'
 
 " HTML, javascript
 NeoBundle 'othree/html5.vim'
