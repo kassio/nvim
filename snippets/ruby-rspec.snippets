@@ -1,37 +1,37 @@
 snippet cont
-	context '${1}' do
-		${2}
-	end
+context '$1' do
+  $2
+end
 endsnippet
 
 snippet desc
-	describe '${1}' do
-		${2}
-	end
+describe '$1' do
+$2
+end
 endsnippet
 
 snippet it
-	it '${1}' do
-		${2}
-	end
+it '$1' do
+  $2
+end
 endsnippet
 
 snippet itb
-	it { ${1} }
+it { $1 }
 endsnippet
 
 snippet feat
-	feature '${1:name}' do
-		${2}
-	end
+feature '${1:name}' do
+  $2
+end
 endsnippet
 
 snippet let
-	let(${1}) { ${2} }${3}
+let($1)  $2 $3
 endsnippet
 
 snippet scen
-	scenario '${1}' do
-		${2}
-	end
+scenario '$1' do
+  $2
+end
 endsnippet

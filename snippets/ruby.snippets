@@ -1,53 +1,52 @@
 extends ruby, ruby-rails, ruby-rspec
 
 snippet class
-	class ${1:`helper#filename_camelized()`}${2}
-		${3}
-	end
+class ${1:`helper#filename_camelized()`}$2
+  $3
+end
 endsnippet
 
 snippet defi
-	def initialize${1}
-		${2}
-	end
+def initialize$1
+  $2
+end
 endsnippet
 
 snippet defp
-	def ${1:name}
-		${3}
-	end
-	${2:private} :$1
+def ${1:name}
+  $3
+end
+${2:private} :$1
 endsnippet
 
 snippet def
-	def ${1:name}
-		${3}
-	end
+def ${1:name}
+  $3
+end
 endsnippet
 
 snippet do
-	do
-		${1}
-	end
+do
+  $1
+end
 endsnippet
 
 snippet dop
-	do |${1:param}|
-		${2}
-	end
+do |${1:param}|
+  $2
+end
 endsnippet
 
-snippet enc
-options head
-	# encoding: UTF-8
+snippet enc "" b
+# encoding: UTF-8
 endsnippet
 
 snippet module
-	module ${1:`helper#filename_camelized()`}
-		${2}
-	end
+module ${1:`helper#filename_camelized()`}
+  $2
+end
 endsnippet
 
 snippet hr
-	puts "${1:*}"*80${2}
+puts "${1:*}"*80$2
 endsnippet

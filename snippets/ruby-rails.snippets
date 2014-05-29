@@ -1,29 +1,23 @@
-snippet anaf
-options head
-	accepts_nested_attributes_for :${1:object}
+snippet anaf "" b
+accepts_nested_attributes_for :${1:object}
 endsnippet
 
-snippet bt
-options head
-	belongs_to :${1:association}
+snippet bt "" b
+belongs_to :${1:association}
 endsnippet
 
-snippet habtm
-options head
-	has_and_belongs_to_many :${1:object}
+snippet habtm "" b
+has_and_belongs_to_many :${1:object}
 endsnippet
 
-snippet hm
-options head
-	has_many :${1:object}
+snippet hm "" b
+has_many :${1:object}
 endsnippet
 
-snippet ho
-options head
-	has_one :${1:object}
+snippet ho "" b
+has_one :${1:object}
 endsnippet
 
-snippet pa
-options word
-	params[:${1:id}]${2}
+snippet pa "" b
+params[:${1:id}]$2
 endsnippet
