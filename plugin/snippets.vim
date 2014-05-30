@@ -1,4 +1,4 @@
-let g:UltiSnipsSnippetDirectories=['~/.vim/snippets']
+let g:UltiSnipsSnippetDirectories=['snips']
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
