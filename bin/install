@@ -16,13 +16,14 @@ current_user=$(whoami)
 src_path=${1:-/opt/vim}
 vim_prefix=${2:-/usr/local}
 
-if [[ -e $src_path ]]
+if [[ -d $src_path ]]
 then
   cd $src_path
   hg pull
   hg update
 else
-  sudo mkdir -p -m 755 $src_path
+  sudo mkdir -p  $src_path
+  sudo chmod -R 755 $src_path
   sudo chown -R "$current_user:" $src_path
   cd $src_path
   hg clone https://vim.googlecode.com/hg/ .
