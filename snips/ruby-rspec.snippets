@@ -1,0 +1,41 @@
+snippet cont
+context '$1' do
+  $2
+end
+endsnippet
+
+snippet desc
+describe '$1' do
+$2
+end
+endsnippet
+
+snippet exp
+expect($1).${2:to} $3
+endsnippet
+
+snippet it
+it '$1' do
+  $2
+end
+endsnippet
+
+snippet itb
+it { $1 }
+endsnippet
+
+snippet feat
+feature '${1:name}' do
+  $2
+end
+endsnippet
+
+snippet let
+let($1)  $2 $3
+endsnippet
+
+snippet scen
+scenario '$1' do
+  $2
+end
+endsnippet
