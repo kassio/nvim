@@ -7,21 +7,13 @@ end
 endsnippet
 
 snippet defi
-def initialize$1
-  $2
+def initialize${2:($3)}${3/(\w+),? ?/\n  @$1 = $1/g}$4
 end
-endsnippet
-
-snippet defp
-def ${1:name}
-  $3
-end
-${2:private} :$1
 endsnippet
 
 snippet def
-def ${1:name}
-  $3
+def ${1:name${2:($3)}}
+  $4
 end
 endsnippet
 
