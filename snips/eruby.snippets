@@ -1,7 +1,6 @@
 extends html
 
-snippet e
-options word
+snippet e "" w
 <%= $1 %>
 endsnippet
 
@@ -9,12 +8,10 @@ snippet end
 <% end %>
 endsnippet
 
-snippet er
-options word
+snippet er "" w
 <% $1 %>
 endsnippet
 
-snippet lt
-options word
+snippet lt "" w
 <%= link_to ${1:name} %>
 endsnippet
