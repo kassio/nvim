@@ -19,7 +19,16 @@
 
 * Install NeoBundle and all bundles:
 
-	cd $HOME/.vim && ./setup
+```console
+$HOME/.vim/bin/setup
+```
+
+### Dependencies
+
+This setup depends of vim compiled with python options. If you want to compile
+vim by yourself we have a script to do this for you in `bin/install`.
+
+PS.: in some linux you'll need to install `python-dev` package
 
 ## Files you should to read
 
@@ -29,11 +38,6 @@
 ## Plugins customizations
 
 All the plugins customizations are located on `plugin` folder.
-
-## Snippets
-
-It's being used `neosnippets` and all my snippets are located on `snippets`
-folder, the helper functions are located on `autoload/helper.vim`
 
 ## Vim with zsh(on Mac, at least)
 
