@@ -21,3 +21,14 @@ call textobj#user#plugin('erb', {
       \     'select-i': 'i=',
       \   },
       \ })
+
+
+for sym in split(', . ; : \+ - = ~ _ * # / \| \\ & $', ' ')
+  call textobj#user#plugin('symbols', {
+        \   '-': {
+        \     'pattern': [sym, sym],
+        \     'select-a': "a".sym,
+        \     'select-i': "i".sym,
+        \   },
+        \ })
+endfor
