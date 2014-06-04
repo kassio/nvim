@@ -15,5 +15,3 @@ let g:ack_mappings = {
 
 vnoremap ,as :<C-u>exec 'Ack "' . text#escape_all(text#get_visual()) . '"'<CR>
 nnoremap ,as :Ack<CR>
-
-cnoreabbrev ack Ack
