@@ -38,16 +38,3 @@ nnoremap <left> <nop>
 
 " Indent all file
 nnoremap <silent> <leader>ff :call Preserve('normal gg=G')<CR>
-
-inoremap <TAB> <C-R>=SnippetOrCloserGetOut()<CR>
-let g:ulti_expand_or_jump_res = 0
-function! SnippetOrCloserGetOut()
-  call UltiSnips#ExpandSnippetOrJump()
-  if g:ulti_expand_or_jump_res
-    return ""
-  elseif len(g:closer_stack)
-    return closer#get_out() . "\<right>"
-  else
-    return "\<tab>"
-  endif
-endfunction

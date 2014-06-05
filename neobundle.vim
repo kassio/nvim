@@ -18,10 +18,14 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'mileszs/ack.vim'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'kassio/vim-tmux-runner'
 NeoBundle 'mhinz/vim-signify'
+
+" textobjs
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'thinca/vim-textobj-between'
+NeoBundle 'nelstrom/vim-textobj-rubyblock'
 
 " Snippets
 NeoBundle 'sirver/ultisnips'
@@ -33,7 +37,6 @@ NeoBundleLazy 'guileen/simple-javascript-indenter', { 'autoload': { 'filetypes':
 
 " Ruby
 NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'nelstrom/vim-textobj-rubyblock'
 NeoBundle 'Keithbsmiley/rspec.vim'
 
 " Elixir
