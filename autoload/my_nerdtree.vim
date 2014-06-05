@@ -1,24 +1,23 @@
-function! my_nerdtree#mirror_find()
+function! my_nerdtree#mirror_toggle()
   if !nerdtree#isTreeOpen()
-    let l:previous_winnr = winnr()
-    call my_nerdtree#mirror_or_create()
-    execute l:previous_winnr . "wincmd w"
+    call s:mirror_or_create()
+  else
+    NERDTreeToggle
   endif
+endfunction
 
+function! my_nerdtree#mirror_find()
+  call s:mirror_or_create()
+  execute "wincmd p"
   silent NERDTreeFind
 endfunction
 
-function! my_nerdtree#mirror_or_create()
-  if exists('t:NERDTreeBufName') && t:NERDTreeBufName != 'NERD_tree_1'
-    let t:NERDTreeBufName = 'NERD_tree_1'
-  endif
+function! s:mirror_or_create()
+  silent NERDTreeMirror
 
-  let l:previous_winnr = winnr("$")
-  if !nerdtree#isTreeOpen()
-    silent NERDTreeMirror
-  endif
-
-  if l:previous_winnr == winnr("$")
+  if exists('t:NERDTreeBufName')
     silent NERDTreeToggle
+  else
+    silent NERDTree
   endif
 endfunction
