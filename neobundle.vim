@@ -24,8 +24,8 @@ NeoBundle 'mhinz/vim-signify'
 
 " textobjs
 NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'thinca/vim-textobj-between'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
+NeoBundle 'paradigm/TextObjectify'
 
 " Snippets
 NeoBundle 'sirver/ultisnips'
