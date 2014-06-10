@@ -14,11 +14,11 @@ function! s:camelcase(s)
 endfunction
 
 function! helper#start_comment()
-  return <SID>comment_dict().begin
+  return substitute(<SID>comment_dict().begin, '\s*$', '', 'g')
 endfunction
 
 function! helper#end_comment()
-  return <SID>comment_dict().end
+  return substitute(<SID>comment_dict().end, '\s*$', '', 'g')
 endfunction
 
 function! s:comment_dict()
