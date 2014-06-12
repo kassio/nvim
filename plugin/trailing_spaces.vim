@@ -16,8 +16,8 @@ aug remove_trailing_spaces
 aug END
 
 function! Trim()
-  call Preserve('%s/\s\+$//e')
-  call Preserve('%s/\v($\n\s*)+%$//e')
+  call preserve#preserve('%s/\s\+$//e')
+  call preserve#preserve('%s/\v($\n\s*)+%$//e')
 endfunction
 command! Trim
       \ call Trim()
