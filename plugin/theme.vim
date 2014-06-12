@@ -11,6 +11,8 @@ if has("syntax")
   hi! link NonText SpecialKey
   hi! VertSplit ctermbg=NONE
 
-  " Statusline colors
+  hi! StatusLineNC ctermfg=10 ctermbg=0
+
+  " Statusline section colors
   hi User1 term=reverse cterm=reverse ctermfg=1 ctermbg=14 gui=bold,reverse
 endif
