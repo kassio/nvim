@@ -9,6 +9,7 @@ let g:ctrlp_custom_ignore = '\v(tags|gem\.tags|\.git|log|tmp/cache|vendor/cache|
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
 let g:ctrlp_abbrev = {
       \   'abbrevs': [
+      \     { 'pattern': '\v(^|\/)a/', 'expanded': 'app/' },
       \     { 'pattern': '\v(^|\/)c/', 'expanded': 'controllers/' },
       \     { 'pattern': '\v(^|\/)m/', 'expanded': 'models/' },
       \     { 'pattern': '\v(^|\/)v/', 'expanded': 'views/' },
