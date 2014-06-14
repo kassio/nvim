@@ -4,11 +4,16 @@ let g:syntastic_auto_jump = 0
 let g:syntastic_error_symbol = 'e:'
 let g:syntastic_warning_symbol = 'w:'
 let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [
-      \ 'ruby',
-      \ 'elixir',
-      \ 'js',
       \ 'css',
-      \ 'vim' ] }
+      \ 'elixir',
+      \ 'eruby',
+      \ 'javascript',
+      \ 'ruby',
+      \ 'scss',
+      \ 'sh',
+      \ 'vim',
+      \ 'yaml',
+      \ 'zsh' ] }
 
 let g:syntastic_stl_format = ""
       \ . "%W{"
