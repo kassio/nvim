@@ -9,6 +9,7 @@ endfunction
 function! personal#nerdtree#mirror_find()
   call s:mirror_or_create()
   execute "wincmd p"
+
   silent NERDTreeFind
 endfunction
 
@@ -16,7 +17,11 @@ function! s:mirror_or_create()
   silent NERDTreeMirror
 
   if exists('t:NERDTreeBufName')
-    silent NERDTreeToggle
+    if nerdtree#isTreeOpen()
+      silent NERDTreeFocus
+    else
+      silent NERDTreeToggle
+    endif
   else
     silent NERDTree
   endif
