@@ -4,8 +4,8 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeHighlightCursorline = 1
 let NERDTreeStatusline="\ %-28{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
 
-nmap <silent> <leader>p :call my_nerdtree#mirror_toggle()<CR>
-nnoremap <silent> <leader>fl :call my_nerdtree#mirror_find()<CR>
+nmap <silent> <leader>p :call personal#nerdtree#mirror_toggle()<CR>
+nnoremap <silent> <leader>fl :call personal#nerdtree#mirror_find()<CR>
 
 aug nerdtree_view
   au!

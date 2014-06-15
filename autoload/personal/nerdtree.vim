@@ -1,4 +1,4 @@
-function! my_nerdtree#mirror_toggle()
+function! personal#nerdtree#mirror_toggle()
   if !nerdtree#isTreeOpen()
     call s:mirror_or_create()
   else
@@ -6,7 +6,7 @@ function! my_nerdtree#mirror_toggle()
   endif
 endfunction
 
-function! my_nerdtree#mirror_find()
+function! personal#nerdtree#mirror_find()
   call s:mirror_or_create()
   execute "wincmd p"
   silent NERDTreeFind

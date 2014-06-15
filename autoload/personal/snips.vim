@@ -1,4 +1,4 @@
-function! helper#filename_camelized()
+function! personal#snips#filename_camelized()
   let name = expand("%:t:r")
   if len(name) == 0
     if a:0 == 0
@@ -13,11 +13,11 @@ function! s:camelcase(s)
   return substitute(a:s, '\v(^|_)(.)', '\U\2', 'g')
 endfunction
 
-function! helper#start_comment()
+function! personal#snips#start_comment()
   return substitute(<SID>comment_dict().begin, '\s*$', '', 'g')
 endfunction
 
-function! helper#end_comment()
+function! personal#snips#end_comment()
   return substitute(<SID>comment_dict().end, '\s*$', '', 'g')
 endfunction
 

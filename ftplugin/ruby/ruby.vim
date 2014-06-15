@@ -19,10 +19,10 @@ let g:surround_{char2nr("w")} = "%w[\r]"
 
 command! MinitestAutoComplete set completefunc=syntaxcomplete#Complete
 
-command! -range LetToVariable call ruby_helpers#let_to_variable(<line1>, <line2>)
-command! -range VariableToLet call ruby_helpers#variable_to_let(<line1>, <line2>)
+command! -range LetToVariable call personal#ruby#let_to_variable(<line1>, <line2>)
+command! -range VariableToLet call personal#ruby#variable_to_let(<line1>, <line2>)
 
-command! -range NewRubyHashSyntax call ruby_helpers#new_ruby_hash_syntax(<line1>, <line2>)
-command! -range OldRubyHashSyntax call ruby_helpers#old_ruby_hash_syntax(<line1>, <line2>)
+command! -range NewRubyHashSyntax call personal#ruby#new_ruby_hash_syntax(<line1>, <line2>)
+command! -range OldRubyHashSyntax call personal#ruby#old_ruby_hash_syntax(<line1>, <line2>)
 
 set iskeyword+=\?,\!
