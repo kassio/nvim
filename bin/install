@@ -1,12 +1,19 @@
 #!/usr/bin/env bash
 
+tty -s
+if [[ -z "$DEBUG" ]] ; then
+  exec 3>&1 &>/dev/null
+else
+  exec 3>&1
+fi
+
 if [ "$1" = "-h" ]
 then
   echo -e "usage: bin/install [source_path] [prefix_path]
 \t source_path:
 \t\t default: /opt/vim
 \t prefix_path:
-\t\t default: /usr/local"
+\t\t default: /usr/local" >&3
 
   exit 0
 fi
@@ -16,6 +23,7 @@ current_user=$(whoami)
 src_path=${1:-/opt/vim}
 vim_prefix=${2:-/usr/local}
 
+echo "Downloading" >&3
 if [[ -d $src_path ]]
 then
   cd $src_path
@@ -31,6 +39,7 @@ fi
 
 cd src
 
+echo "Compiling" >&3
 make clean
 make distclean
 ./configure \
@@ -48,6 +57,7 @@ sudo make install prefix=$vim_prefix
 
 VIMRUNTIME=`vim -e -T dumb --cmd 'exe "set t_cm=\<C-M>"|echo $VIMRUNTIME|quit' | tr -d '\015' `
 
+echo "Remove unused default plugins" >&3
 # Remove some useless
 cd $VIMRUNTIME
 sudo rm -rf $(find . \
@@ -60,4 +70,4 @@ sudo rm -rf $(find . \
   -iname "*rrhelper*")
 
 cd $old_path
-vim --version
+vim --version >&3
