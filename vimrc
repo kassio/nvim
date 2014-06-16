@@ -58,7 +58,7 @@ set expandtab smarttab shiftround
 
 set backspace=indent,eol,start
 
-set mousehide mouse=a ttymouse=xterm2
+set mousehide mouse= ttymouse=xterm2
 
 set foldmethod=manual nofoldenable
 
