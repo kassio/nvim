@@ -16,8 +16,10 @@ aug remove_trailing_spaces
 aug END
 
 function! Trim()
-  call preserve#preserve('%s/\s\+$//e')
+  let l:hls = &hls
+  setlocal nohls
+  call preserve#preserve('%s/\v\s+$//e')
   call preserve#preserve('%s/\v($\n\s*)+%$//e')
-  nohlsearch
+  let &hls = l:hls
 endfunction
 command! Trim call Trim()
