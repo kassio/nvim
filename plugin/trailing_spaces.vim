@@ -18,6 +18,6 @@ aug END
 function! Trim()
   call preserve#preserve('%s/\s\+$//e')
   call preserve#preserve('%s/\v($\n\s*)+%$//e')
+  nohlsearch
 endfunction
-command! Trim
-      \ call Trim()
+command! Trim call Trim()
