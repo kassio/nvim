@@ -30,6 +30,9 @@ NeoBundle 'paradigm/TextObjectify'
 " Snippets
 NeoBundle 'sirver/ultisnips'
 
+" Tomdoc
+NeoBundle 'wellbredgrapefruit/tomdoc.vim'
+
 " HTML, javascript
 NeoBundle 'othree/html5.vim'
 NeoBundleLazy 'jelera/vim-javascript-syntax', { 'autoload': { 'filetypes': ['javascript'] } }
