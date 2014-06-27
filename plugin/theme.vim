@@ -4,7 +4,7 @@ if has("syntax")
   set background=dark
   set synmaxcol=500
 
-  colorscheme tomorrow_night
+  colorscheme solarized
 
   hi! SpecialKey ctermfg=239 ctermbg=NONE guifg=Gray30 guibg=NONE
 
