@@ -15,6 +15,8 @@ let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [
       \ 'zsh'
       \ ] }
 
+let g:syntastic_javascript_jshint_args = '--config ~/.jshintrc'
+
 let g:syntastic_stl_format = ""
       \ . "%W{"
       \ . "[".g:syntastic_warning_symbol." %fw(%w)]"
