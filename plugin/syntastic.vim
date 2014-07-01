@@ -15,8 +15,6 @@ let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [
       \ 'zsh'
       \ ] }
 
-let g:syntastic_javascript_jshint_args = '--config ~/.jshintrc'
-
 let g:syntastic_stl_format = ""
       \ . "%W{"
       \ . "[".g:syntastic_warning_symbol." %fw(%w)]"
@@ -24,3 +22,9 @@ let g:syntastic_stl_format = ""
       \ . "%E{"
       \ . "[".g:syntastic_error_symbol." %fe(%e)]"
       \ . "}"
+
+if file_readable('.jshintrc')
+  let g:syntastic_javascript_jshint_args = '--config .jshintrc'
+else
+  let g:syntastic_javascript_jshint_args = '--config ~/.jshintrc'
+endif
