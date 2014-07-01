@@ -11,9 +11,9 @@ let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [
       \ 'ruby',
       \ 'scss',
       \ 'sh',
-      \ 'vim',
       \ 'yaml',
-      \ 'zsh' ] }
+      \ 'zsh'
+      \ ] }
 
 let g:syntastic_stl_format = ""
       \ . "%W{"
