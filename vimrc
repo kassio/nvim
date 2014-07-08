@@ -37,8 +37,6 @@ set wildignore+=*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
 
 set nowrap wrapscan showbreak=..
 
-set number relativenumber numberwidth=3
-
 set autoread autowrite
 
 set viminfo^=!
