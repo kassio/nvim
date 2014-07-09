@@ -22,6 +22,8 @@ old_path=$PWD
 current_user=$(whoami)
 src_path=${1:-/opt/vim}
 vim_prefix=${2:-/usr/local}
+lua_path=$(which lua)
+lua_prefix=${lua_path%/bin/lua}
 
 echo "Downloading" >&3
 if [[ -d $src_path ]]
@@ -43,14 +45,25 @@ echo "Compiling" >&3
 make clean
 make distclean
 ./configure \
-  --enable-gui=no \
-  --without-x \
-  --enable-multibyte \
-  --with-tlib=ncurses \
-  --enable-cscope \
   --with-features=huge \
+  --with-tlib=ncurses \
+  --disable-gui \
+  --without-x \
+  --disable-nls \
+  --disable-gpm \
+  --disable-netbeans \
+  --disable-arabic \
+  --disable-farsi \
+  --disable-cscope \
+  --disable-emacs_tags \
+  --disable-keymap \
+  --disable-langmap \
+  --enable-feature=browse \
+  --enable-multibyte \
   --enable-pythoninterp \
   --enable-rubyinterp \
+  --enable-luainterp \
+  --with-lua-prefix=$lua_prefix \
   --prefix=$vim_prefix
 make
 sudo make install prefix=$vim_prefix
