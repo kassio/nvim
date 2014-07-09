@@ -10,8 +10,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Tools
 NeoBundle 'kassio/vim-session_manager'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'kassio/ctrlp-bufline.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
