@@ -10,8 +10,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Tools
 NeoBundle 'kassio/vim-session_manager'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
@@ -21,6 +19,18 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'kassio/vim-tmux-runner'
 NeoBundle 'mhinz/vim-signify'
+
+" Unite
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/vimproc.vim', {
+      \ 'build' : {
+      \     'windows' : 'tools\\update-dll-mingw',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
 
 " textobjs
 NeoBundle 'kana/vim-textobj-user'

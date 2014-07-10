@@ -1,22 +1,21 @@
 let g:unite_data_directory = expand('~/.vim_data/unite')
+let g:unite_source_rec_async_command = 'ack -f --nofilter'
 
-call unite#custom#source('line,buffer,file_mru,file_rec', 'sorters', 'sorter_rank')
-call unite#custom#source('line,buffer,file_mru,file_rec', 'matchers', 'matcher_fuzzy')
+call unite#custom#source('line,buffer,file_mru,file_rec/async', 'sorters', 'sorter_rank')
+call unite#custom#source('line,buffer,file_mru,file_rec/async', 'matchers', 'matcher_fuzzy')
 
-nnoremap ,nr :<C-u>Unite -start-insert file_rec:./<CR>
-nnoremap ,nm :<C-u>Unite -start-insert file_mru<CR>
-nnoremap ,nb :<C-u>Unite -start-insert buffer<CR>
-nnoremap ,nl :<C-u>Unite -start-insert line<CR>
-
-" Temporary
-nnoremap <C-p> :<C-u>Unite -start-insert file_rec:./<CR>
+nnoremap <silent><C-p> :<C-u>Unite -start-insert file_rec/async:!<CR>
+nnoremap <silent><C-m> :<C-u>Unite -start-insert file_mru<CR>
+nnoremap <silent><C-n> :<C-u>Unite -start-insert line<CR>
 
 autocmd FileType unite call s:unite_settings()
 
 function! s:unite_settings()
-  imap <silent><buffer><expr> <C-s> unite#do_action('split')
-  imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
-  imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
+  inoremap <silent><buffer><expr> <C-s> unite#do_action('split')
+  inoremap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+  inoremap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
+
+  nmap <silent><buffer> <esc> <Plug>(unite_exit)
 endfunction
 
 aug unite_cache_dir
