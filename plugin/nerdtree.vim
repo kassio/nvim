@@ -13,6 +13,6 @@ aug nerdtree_view
         \ let s:NERDTreeCurrentLine=line('.')
   au BufEnter *NERD_tree*
         \ if exists('s:NERDTreeCurrentLine') && s:NERDTreeCurrentLine > 0 |
-        \   setpos('.', [0, s:NERDTreeCurrentLine, 1, 0]) |
+        \   call setpos('.', [0, s:NERDTreeCurrentLine, 1, 0]) |
         \ endif
 aug END
