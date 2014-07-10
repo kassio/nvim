@@ -1,5 +1,50 @@
 #!/usr/bin/env bash
 
+echo "Checking the environment."
+
+red() {
+  echo -e "\033[31m $1\033[0m"
+}
+
+green() {
+  echo -e "\033[0;32m$1\033[0m"
+}
+
+white() {
+  echo -e "\033[0;37m$1\033[0m"
+}
+
+command_exists() {
+  command -v "$1" &>/dev/null
+}
+
+test_dependency() {
+  if command_exists "$1"; then
+    green "  ✔  $2 is already installed."
+  else
+    exec >&2
+    red "   ✖  You need to install $2.\c"
+    if [[ -n "$3" ]]; then
+      white "\n     $3\n"
+    else
+      echo " If you use Homebrew, you can run:"
+      white "     brew install $2\n"
+    fi
+    return 1
+  fi
+}
+
+(
+  set -e
+  test_dependency "lua" "lua"
+  test_dependency "jshint" "jshint" "npm install -g jshint"
+)
+
+if (( $? != 0 )); then
+  exit $?
+fi
+
+##
 tty -s
 if [[ -z "$DEBUG" ]] ; then
   exec 3>&1 &>/dev/null
