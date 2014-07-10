@@ -9,9 +9,10 @@ nnoremap <silent> <leader>fl :call personal#nerdtree#mirror_find()<CR>
 
 aug nerdtree_view
   au!
-  au BufLeave *NERD_tree* let s:NERDTreeLine=line('.')
-  au BufReadPost *NERD_tree*
-        \ if exists('s:NERDTreeLine') |
-        \    setpos('.', [0, s:NERDTreeLine, 1, 0]) |
+  au CursorMoved *NERD_tree*
+        \ let s:NERDTreeCurrentLine=line('.')
+  au BufEnter *NERD_tree*
+        \ if exists('s:NERDTreeCurrentLine') && s:NERDTreeCurrentLine > 0 |
+        \   setpos('.', [0, s:NERDTreeCurrentLine, 1, 0]) |
         \ endif
 aug END
