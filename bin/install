@@ -30,7 +30,6 @@ test_dependency() {
       echo " If you use Homebrew, you can run:"
       white "     brew install $2\n"
     fi
-    return 1
   fi
 }
 
