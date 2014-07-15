@@ -1,12 +1,33 @@
 let g:unite_data_directory = expand('~/.vim_data/unite')
 let g:unite_source_rec_async_command = 'ack -f --nofilter'
 
-call unite#custom#source('line,buffer,file_mru,file_rec/async', 'sorters', 'sorter_rank')
-call unite#custom#source('line,buffer,file_mru,file_rec/async', 'matchers', 'matcher_fuzzy')
+call unite#filters#sorter_default#use('sorter_rank')
+call unite#filters#matcher_default#use('matcher_fuzzy')
 
-nnoremap <silent><C-p> :<C-u>Unite -start-insert file_rec/async<CR>
-nnoremap <silent><C-m> :<C-u>Unite -start-insert file_mru<CR>
-nnoremap <silent><C-n> :<C-u>Unite -start-insert line<CR>
+call unite#custom#profile('default', 'substitute_patterns', {
+      \ 'pattern': '\v(^|\/)a/',
+      \ 'subst': 'app/',
+      \ 'priority': 0 })
+call unite#custom#profile('default', 'substitute_patterns', {
+      \ 'pattern': '\v(^|\/)c/',
+      \ 'subst': 'controllers/',
+      \ 'priority': 0 })
+call unite#custom#profile('default', 'substitute_patterns', {
+      \ 'pattern': '\v(^|\/)m/',
+      \ 'subst': 'models/',
+      \ 'priority': 0 })
+call unite#custom#profile('default', 'substitute_patterns', {
+      \ 'pattern': '\v(^|\/)v/',
+      \ 'subst': 'views/',
+      \ 'priority': 0 })
+
+call unite#custom#profile('default', 'context', {
+      \   'start_insert' : 1
+      \ })
+
+nnoremap <silent><C-p> :<C-u>Unite file_rec/async<CR>
+nnoremap <silent><C-m> :<C-u>Unite file_mru<CR>
+nnoremap <silent><C-n> :<C-u>Unite line<CR>
 
 autocmd FileType unite call s:unite_settings()
 
