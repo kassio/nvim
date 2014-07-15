@@ -33,6 +33,7 @@ autocmd FileType unite call s:unite_settings()
 
 function! s:unite_settings()
   imap <C-j> <nop>
+  imap <C-k> <nop>
   inoremap <silent><buffer><expr> <C-s> unite#do_action('split')
   inoremap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
   inoremap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
