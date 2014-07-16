@@ -107,6 +107,7 @@ make distclean
   --enable-pythoninterp \
   --enable-rubyinterp \
   --enable-luainterp \
+  --enable-perlinterp \
   --with-lua-prefix=$lua_prefix \
   --prefix=$vim_prefix
 make
