@@ -7,34 +7,36 @@ call unite#filters#matcher_default#use('matcher_fuzzy')
 call unite#custom#profile('default', 'substitute_patterns', {
       \ 'pattern': '\v(^|\/)a/',
       \ 'subst': 'app/',
-      \ 'priority': 0 })
+      \ 'priority': 0
+      \ })
 call unite#custom#profile('default', 'substitute_patterns', {
       \ 'pattern': '\v(^|\/)c/',
       \ 'subst': 'controllers/',
-      \ 'priority': 0 })
+      \ 'priority': 0
+      \ })
 call unite#custom#profile('default', 'substitute_patterns', {
       \ 'pattern': '\v(^|\/)m/',
       \ 'subst': 'models/',
-      \ 'priority': 0 })
+      \ 'priority': 0
+      \ })
 call unite#custom#profile('default', 'substitute_patterns', {
       \ 'pattern': '\v(^|\/)v/',
       \ 'subst': 'views/',
-      \ 'priority': 0 })
+      \ 'priority': 0
+      \ })
 
 call unite#custom#profile('default', 'context', {
-      \   'start_insert' : 1
+      \ 'start_insert' : 1,
+      \ 'resume': 1
       \ })
 
 nnoremap <silent><C-p> :<C-u>Unite
-      \ -resume
       \ -buffer-name='file_rec/async'
       \ file_rec/async<CR>
 nnoremap <silent><C-m> :<C-u>Unite
-      \ -resume
       \ -buffer-name='file_mru'
       \ file_mru<CR>
 nnoremap <silent><C-n> :<C-u>Unite
-      \ -resume
       \ -buffer-name='line'
       \ line<CR>
 
