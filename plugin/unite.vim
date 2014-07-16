@@ -25,9 +25,18 @@ call unite#custom#profile('default', 'context', {
       \   'start_insert' : 1
       \ })
 
-nnoremap <silent><C-p> :<C-u>Unite file_rec/async<CR>
-nnoremap <silent><C-m> :<C-u>Unite file_mru<CR>
-nnoremap <silent><C-n> :<C-u>Unite line<CR>
+nnoremap <silent><C-p> :<C-u>Unite
+      \ -resume
+      \ -buffer-name='file_rec/async'
+      \ file_rec/async<CR>
+nnoremap <silent><C-m> :<C-u>Unite
+      \ -resume
+      \ -buffer-name='file_mru'
+      \ file_mru<CR>
+nnoremap <silent><C-n> :<C-u>Unite
+      \ -resume
+      \ -buffer-name='line'
+      \ line<CR>
 
 autocmd FileType unite call s:unite_settings()
 
