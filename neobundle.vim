@@ -26,11 +26,9 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
+      \     'mac' : 'make clean; make -f make_mac.mak',
+      \     'unix' : 'make clean; make -f make_unix.mak'
+      \    }
       \ }
 
 " textobjs
