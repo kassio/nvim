@@ -1,5 +1,4 @@
 let g:unite_data_directory = expand('~/.vim_data/unite')
-let g:unite_source_rec_async_command = 'ack -f --nofilter'
 
 call unite#filters#sorter_default#use('sorter_rank')
 call unite#filters#matcher_default#use('matcher_fuzzy')
@@ -32,7 +31,7 @@ call unite#custom#profile('default', 'context', {
 
 nnoremap <silent><C-p> :<C-u>Unite
       \ -buffer-name='file_rec/async'
-      \ file_rec/async<CR>
+      \ file_rec/async:!<CR>
 nnoremap <silent><C-m> :<C-u>Unite
       \ -buffer-name='file_mru'
       \ file_mru<CR>
