@@ -16,7 +16,7 @@ endfunction
 function! s:mirror_or_create()
   silent NERDTreeMirror
 
-  if nerdtree#treeExistsForTab()
+  if g:NERDTree.ExistsForTab()
     if nerdtree#isTreeOpen()
       silent NERDTreeFocus
     else
