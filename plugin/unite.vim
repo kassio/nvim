@@ -60,14 +60,28 @@ call unite#custom#profile('default', 'substitute_patterns', {
 
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--smart-case --no-heading --no-color -k -H'
+  let g:unite_source_grep_default_opts = '-i --line-numbers --nocolor --nogroup --hidden'
   let g:unite_source_grep_recursive_opt = '-R'
 elseif executable('ack')
   let g:unite_source_grep_command = 'ack'
-  let g:unite_source_grep_default_opts = '--smart-case --no-heading --no-color -k -H'
+  let g:unite_source_grep_default_opts = '-H -s --smart-case --column --nogroup --nocolor --follow'
   let g:unite_source_grep_recursive_opt = '-R'
 endif
-command! -nargs=+ F execute "Unite grep:.::" . <q-args>
+
+function! UniteGrep(...)
+  if len(a:000) == 2
+    let place = a:2
+  else
+    let place = '.'
+  endif
+
+  let term = a:1
+
+  execute 'Unite -no-resume grep:' . place . '::' . term
+endfunction
+command! -nargs=+ F call UniteGrep(<q-args>)
+vnoremap ,as :<C-u>call UniteGrep(text#escape_all(text#get_visual()))<CR>
+nnoremap ,as :<C-u>call UniteGrep(expand('<cword>'))<CR>
 
 aug unite_cache_dir
   au!

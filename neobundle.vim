@@ -14,7 +14,6 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'mileszs/ack.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'kassio/vim-tmux-runner'
@@ -44,8 +43,12 @@ NeoBundle 'wellbredgrapefruit/tomdoc.vim'
 
 " HTML, javascript
 NeoBundle 'othree/html5.vim'
-NeoBundleLazy 'jelera/vim-javascript-syntax', { 'autoload': { 'filetypes': ['javascript'] } }
-NeoBundleLazy 'guileen/simple-javascript-indenter', { 'autoload': { 'filetypes': ['javascript'] } }
+NeoBundleLazy 'jelera/vim-javascript-syntax', {
+      \ 'autoload': { 'filetypes': ['javascript'] }
+      \ }
+NeoBundleLazy 'guileen/simple-javascript-indenter', {
+      \ 'autoload': { 'filetypes': ['javascript'] }
+      \ }
 
 " Ruby
 NeoBundle 'vim-ruby/vim-ruby'
