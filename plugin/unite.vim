@@ -68,20 +68,26 @@ elseif executable('ack')
   let g:unite_source_grep_recursive_opt = '-R'
 endif
 
-function! UniteGrep(...)
-  if len(a:000) == 2
-    let place = a:2
-  else
-    let place = '.'
-  endif
+function! s:uniteGrep(text)
+  let list = split(a:text, ':')
 
-  let term = a:1
+  if len(list) == 1
+    let place = '.'
+    let term = escape(get(list, 0), ' \')
+  else
+    let place = get(list, 0)
+    let term = escape(get(list, 1), ' \')
+  endif
 
   execute 'Unite -no-resume grep:' . place . '::' . term
 endfunction
-command! -nargs=+ F call UniteGrep(<q-args>)
-vnoremap ,as :<C-u>call UniteGrep(text#escape_all(text#get_visual()))<CR>
-nnoremap ,as :<C-u>call UniteGrep(expand('<cword>'))<CR>
+command! -nargs=+ -complete=dir F call <SID>uniteGrep(<q-args>)
+
+function! s:uniteLocalGrep(term)
+  execute 'Unite -no-resume grep:.::' . a:term
+endfunction
+vnoremap ,as :<C-u>call <SID>uniteLocalGrep(text#escape_all(text#get_visual()))<CR>
+nnoremap ,as :<C-u>call <SID>uniteLocalGrep(expand('<cword>'))<CR>
 
 aug unite_cache_dir
   au!
