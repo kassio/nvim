@@ -14,6 +14,8 @@ set shortmess=atTI
 
 set splitright splitbelow
 
+set number relativenumber numberwidth=3
+
 set incsearch hls ignorecase smartcase
 
 set formatoptions=tcwqnj2
