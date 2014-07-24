@@ -2,7 +2,7 @@ extends ruby, ruby-rails, ruby-rspec
 
 snippet class
 class ${1:`!v personal#snips#filename_camelized()`}$2
-  $3
+  ${0:${VISUAL}}
 end
 endsnippet
 
@@ -13,19 +13,19 @@ endsnippet
 
 snippet def
 def ${1:name${2:($3)}}
-  $4
+  ${0:${VISUAL}}
 end
 endsnippet
 
 snippet do
 do
-  $1
+  ${0:${VISUAL}}
 end
 endsnippet
 
 snippet dop
 do |${1:param}|
-  $2
+  ${0:${VISUAL}}
 end
 endsnippet
 
@@ -35,7 +35,7 @@ endsnippet
 
 snippet module
 module ${1:`!v personal#snips#filename_camelized()`}
-  $2
+  ${0:${VISUAL}}
 end
 endsnippet
 

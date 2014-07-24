@@ -1,30 +1,30 @@
 snippet def
 def ${1:name} do
-  $2
+  ${0:${VISUAL}}
 end
 endsnippet
 
 snippet defi
 defimpl ${1:protocol_name}, for: ${2:data_type} do
-  $3
+  ${0:${VISUAL}}
 end
 endsnippet
 
 snippet defma
 defmacro ${1:name} do
-  $2
+  ${0:${VISUAL}}
 end
 endsnippet
 
 snippet defmo
 defmodule ${1:`!v return personal#snips#filename_camelized()`} do
-  $2
+  ${0:${VISUAL}}
 end
 endsnippet
 
 snippet defp
 defp ${1:name} do
-  $2
+  ${0:${VISUAL}}
 end
 endsnippet
 
@@ -38,13 +38,13 @@ endsnippet
 
 snippet do
 do
-  $1
+  ${0:${VISUAL}}
 end
 endsnippet
 
 snippet doc
 @doc """
-$1
+${0:${VISUAL}}
 """
 endsnippet
 
@@ -67,6 +67,6 @@ endsnippet
 
 snippet test
 test "${1:test_name}" do
-  $2
+  ${0:${VISUAL}}
 end
 endsnippet

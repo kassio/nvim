@@ -8,17 +8,17 @@ snippet html
     <link rel='stylesheets' type='text/css' href='application.css'/>
   </head>
   <body>
-    $1
+    ${0:${VISUAL}}
   </body>
 </html>
 endsnippet
 
 snippet t
 <${1:div${2: class='$3'}}>
-  $4
+  ${0:${VISUAL}}
 </${1/(\w+).*/$1/}>
 endsnippet
 
 snippet ti
-<${1:span${2: class='$3'}}>$4</${1/(\w+).*/$1/}>
+<${1:span${2: class='$3'}}>${0:${VISUAL}}</${1/(\w+).*/$1/}>
 endsnippet

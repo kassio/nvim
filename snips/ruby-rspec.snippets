@@ -1,12 +1,12 @@
 snippet cont
 context '$1' do
-  $2
+  ${0:${VISUAL}}
 end
 endsnippet
 
 snippet desc
 describe '$1' do
-$2
+  ${0:${VISUAL}}
 end
 endsnippet
 
@@ -16,7 +16,7 @@ endsnippet
 
 snippet it
 it '$1' do
-  $2
+  ${0:${VISUAL}}
 end
 endsnippet
 
@@ -26,7 +26,7 @@ endsnippet
 
 snippet feat
 feature '${1:name}' do
-  $2
+  ${0:${VISUAL}}
 end
 endsnippet
 
@@ -36,6 +36,6 @@ endsnippet
 
 snippet scen
 scenario '$1' do
-  $2
+  ${0:${VISUAL}}
 end
 endsnippet
