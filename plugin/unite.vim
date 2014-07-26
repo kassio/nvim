@@ -35,6 +35,7 @@ function! s:unite_settings()
   inoremap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
 
   nmap <silent><buffer> <ESC> <Plug>(unite_exit)
+  imap <silent><buffer> <ESC> <Plug>(unite_exit)
 endfunction
 
 call unite#custom#profile('default', 'substitute_patterns', {
