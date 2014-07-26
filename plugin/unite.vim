@@ -1,6 +1,6 @@
 let g:unite_data_directory = expand('~/.vim_data/unite')
 
-call unite#filters#sorter_default#use('sorter_rank')
+call unite#filters#sorter_default#use(['sorter_rank', 'sorter_selecta', 'sorter_length'])
 call unite#filters#matcher_default#use('matcher_fuzzy')
 
 call unite#custom#profile('default', 'context', {
