@@ -18,7 +18,6 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'kassio/vim-tmux-runner'
 NeoBundle 'mhinz/vim-signify'
-NeoBundle 'terryma/vim-smooth-scroll'
 
 " Unite
 NeoBundle 'Shougo/unite.vim'
