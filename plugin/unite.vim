@@ -3,6 +3,8 @@ let g:unite_data_directory = expand('~/.vim_data/unite')
 call unite#filters#sorter_default#use(['sorter_rank', 'sorter_selecta', 'sorter_length'])
 call unite#filters#matcher_default#use('matcher_fuzzy')
 
+call unite#custom#source('file_rec/async', 'ignore_pattern', '\.sass-cache')
+
 call unite#custom#profile('default', 'context', {
       \ 'start_insert' : 1,
       \ 'resume': 1
