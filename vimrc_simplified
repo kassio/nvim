@@ -1,0 +1,177 @@
+scriptencoding utf8
+set encoding=utf8 fileencoding=utf8 termencoding=utf8 nobomb
+
+set showmatch
+runtime macros/matchit.vim
+
+set ttyfast
+
+set confirm
+
+set shortmess=atTI
+
+set splitright splitbelow
+
+set diffopt+=vertical
+
+set number numberwidth=3
+
+set incsearch hls ignorecase smartcase
+
+set formatoptions=tcwqn2
+set cursorline
+
+set nrformats-=octal
+
+set showcmd
+
+set switchbuf=useopen,usetab,newtab
+set tabpagemax=50
+
+set list listchars=tab:▸\ ,trail:·
+
+set virtualedit=block
+
+set wildmenu
+set wildmode=list:longest,list:full
+set wildignore+=*.zip,*.gz,*.bz,*.tar
+set wildignore+=*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
+
+set nowrap wrapscan showbreak=..
+
+set autoread autowrite
+
+set viminfo^=!
+
+set sessionoptions=buffers,tabpages,curdir
+
+set tags=tags,../tags,config/tags
+set tags+=gems.tags,../gems.tags,config/gems.tags
+set complete=.,w,b,u,U,i,d
+set completeopt=menu,menuone,longest,preview
+
+set timeoutlen=1000 ttimeout ttimeoutlen=50
+
+set autoindent copyindent cindent smartindent
+set tabstop=2 shiftwidth=2 softtabstop=2
+set expandtab smarttab shiftround
+
+set backspace=indent,eol,start
+
+set mousehide mouse= ttymouse=xterm2
+
+set foldmethod=manual nofoldenable
+
+set t_ti= t_te=
+
+set nobackup nowritebackup noswapfile
+
+let mapleader=','
+
+
+set statusline=
+set statusline+=[%n]
+set statusline+=%t%m
+set statusline+=%=
+set statusline+=%r%y
+set statusline+=[%{&ff}]
+set statusline+=[%{&fenc!=''?&fenc:&enc}]
+set statusline+=[%c,%l/%L\ %P]
+set laststatus=2
+
+
+" Use <C-L> to clear the highlighting of :set hlsearch.
+if maparg('<C-L>', 'n') ==# ''
+nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+endif
+
+" Delete current buffer
+nnoremap <silent> <leader>bd :bw<CR>
+" Delete all buffers
+nnoremap <silent> <leader>da :silent bufdo bw<CR>
+
+nnoremap <silent> # g#
+nnoremap <silent> g# #
+nnoremap <silent> * g*
+nnoremap <silent> g* *
+
+vnoremap <silent> * :<C-u>call HighlightVisual()<CR>//<CR>
+vnoremap <silent> # :<C-u>call HighlightVisual()<CR>??<CR>
+vnoremap <silent> ! :<c-u>call HighlightVisual()<CR>
+nnoremap <silent> ! :call Highlight(expand('<cword>'))<CR>
+
+nnoremap K <nop>
+nnoremap Q <nop>
+nnoremap <up> <nop>
+nnoremap <right> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+
+" Indent all file
+nnoremap <silent> <leader>ff :call Preserve('normal gg=G')<CR>
+
+" Make Y behave like C and D
+nnoremap Y y$
+
+" Make cw behave like dw and yw
+onoremap w :execute 'normal! '.v:count1.'w'<CR>
+
+
+let g:loaded_vimballPlugin=1
+let g:loaded_zipPlugin=1
+let loaded_gzip=1
+let g:loaded_tarPlugin=1
+let g:loaded_netrwPlugin=1
+let g:loaded_getscriptPlugin=1
+let loaded_rrhelper=1
+
+
+aug remove_trailing_spaces
+  au!
+  au BufWritePre * call Trim()
+aug END
+
+function! Trim()
+  let l:hls = &hls
+  setlocal nohls
+  call Preserve('%s/\v\s+$//e')
+  call Preserve('%s/\v($\n\s*)+%$//e')
+  let &hls = l:hls
+endfunction
+command! Trim call Trim()
+
+function! Preserve(command)
+  setlocal lazyredraw
+  let l:search=@/
+
+  let last_view = winsaveview()
+  silent execute a:command
+  call winrestview(last_view)
+
+  let @/=l:search
+  redraw
+  setlocal nolazyredraw
+endfunction
+
+function! GetVisual()
+  try
+    let temp = @s
+    norm! gv"sy
+    return substitute(escape(@s, '\*'), '\n', '\\n', 'g')
+  finally
+    let @s = temp
+  endtry
+endfunction
+
+function! Highlight(text)
+  let @/=a:text
+  call feedkeys(":let v:hlsearch=1\<CR>", "n")
+endfunction
+
+function! HighlightVisual()
+  call Highlight(GetVisual())
+endfunction
+
+function! EscapeAll(text)
+  return substitute(escape(a:text, '#*^$.?/\|{[()]}'), '\n', '\\n', 'g')
+endfunction
