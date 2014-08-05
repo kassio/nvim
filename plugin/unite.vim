@@ -23,7 +23,7 @@ nnoremap <silent>[unite]l :<C-u>Unite
       \ -buffer-name='line'
       \ line<CR>
 nnoremap <silent>[unite]b :<C-u>Unite
-      \ -buffer-name='bufer'
+      \ -buffer-name='buffer'
       \ -quick-match
       \ buffer<CR>
 
