@@ -36,10 +36,6 @@ nnoremap <silent> ! :call text#highlight(expand('<cword>'))<CR>
 
 nnoremap K <nop>
 nnoremap Q <nop>
-nnoremap <up> <nop>
-nnoremap <right> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
 
 " Indent all file
 nnoremap <silent> <leader>ff :call preserve#preserve('normal gg=G')<CR>
