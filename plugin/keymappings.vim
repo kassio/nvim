@@ -24,6 +24,11 @@ nnoremap <silent> g# #
 nnoremap <silent> * g*
 nnoremap <silent> g* *
 
+nnoremap <silent>g] :execute 'tselect ' . expand('<cword>')<CR>
+nnoremap <silent><C-]> :execute 'tjump ' . expand('<cword>')<CR>
+nnoremap <silent><C-w>g] :execute 'stselect ' . expand('<cword>')<CR>
+nnoremap <silent><C-w><C-]> :execute 'stjump ' . expand('<cword>')<CR>
+
 vnoremap <silent> * :<C-u>call text#highlight_visual()<CR>//<CR>
 vnoremap <silent> # :<C-u>call text#highlight_visual()<CR>??<CR>
 vnoremap <silent> ! :<c-u>call text#highlight_visual()<CR>
