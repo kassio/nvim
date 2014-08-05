@@ -25,4 +25,4 @@ command! -range VariableToLet call personal#ruby#variable_to_let(<line1>, <line2
 command! -range NewRubyHashSyntax call personal#ruby#new_ruby_hash_syntax(<line1>, <line2>)
 command! -range OldRubyHashSyntax call personal#ruby#old_ruby_hash_syntax(<line1>, <line2>)
 
-set iskeyword+=\?,\!
+setlocal iskeyword+=\?,\!
