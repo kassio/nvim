@@ -1,10 +1,21 @@
 #!/usr/bin/env bash
 
-if [[ -d $HOME/.vim/bundle ]]
+if [[ -d "$HOME/.vim/bundle" ]]
 then
-  vim +NeoBundleClean! +NeoBundleUpdate! +NeoBundleUpdatesLog +qall
+  vim -u $HOME/.vim/neobundle.vim \
+    +silent!\ NeoBundleClean! \
+    +silent!\ NeoBundleUpdate! \
+    +NeoBundleUpdatesLog \
+    +qall
+  cat ~/.vim_data/neobundle.log
 else
   mkdir -p $HOME/.vim/bundle
-  git clone https://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim
-  vim -u $HOME/.vim/vimrc +NeoBundleInstall! +qall
+
+  git clone \
+    https://github.com/Shougo/neobundle.vim \
+    $HOME/.vim/bundle/neobundle.vim
+
+  vim -u $HOME/.vim/neobundle.vim \
+    +NeoBundleInstall! \
+    +qall
 fi
