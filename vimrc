@@ -62,13 +62,15 @@ set backspace=indent,eol,start
 
 set mousehide mouse=a ttymouse=xterm2
 
+set scrolloff=3
+
 set foldmethod=manual nofoldenable
 
 set spellfile=~/.vim/spell/custom.utf-8.add
 
 set fileformats+=mac
 
-set t_ti= t_te=
+set t_ti= t_te= t_ut=
 
 set nobackup nowritebackup noswapfile
 
