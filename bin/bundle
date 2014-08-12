@@ -7,7 +7,6 @@ then
     +silent!\ NeoBundleUpdate! \
     +NeoBundleUpdatesLog \
     +qall
-  cat ~/.vim_data/neobundle.log
 else
   mkdir -p $HOME/.vim/bundle
 
