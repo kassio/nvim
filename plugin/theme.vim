@@ -15,4 +15,6 @@ if has("syntax")
 
   " Statusline section colors
   hi User1 term=reverse cterm=reverse ctermfg=1 ctermbg=14 gui=bold,reverse
+
+  hi! link markdownItalic markdownBold
 endif

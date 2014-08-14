@@ -18,7 +18,7 @@ aug filetype_setup
   au FileType gitcommit setlocal
         \ textwidth=72
 
-  au FileType tex,txt,mail,text,markdown,gitcommit setlocal
+  au FileType tex,txt,mail,text,gitcommit setlocal
         \ spell
         \ formatoptions+=a
 
