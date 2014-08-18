@@ -35,9 +35,13 @@ autocmd FileType unite call s:unite_settings()
 function! s:unite_settings()
   inoremap <silent><buffer><C-j> <nop>
   inoremap <silent><buffer><C-k> <nop>
+
   inoremap <silent><buffer><expr> <C-s> unite#do_action('split')
   inoremap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
   inoremap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
+  nmap <silent><buffer><expr> <C-s> unite#do_action('split')
+  nmap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+  nmap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
 
   nmap <silent><buffer> <ESC> <Plug>(unite_exit)
   imap <silent><buffer> <ESC> <Plug>(unite_exit)
