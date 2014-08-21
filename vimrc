@@ -21,7 +21,7 @@ set number relativenumber numberwidth=3
 set incsearch hls ignorecase smartcase
 
 set formatoptions=tcwqnj2
-set cursorline colorcolumn=80
+set cursorline
 
 set nrformats-=octal
 

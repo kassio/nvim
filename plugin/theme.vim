@@ -2,7 +2,8 @@ if has("syntax")
   syntax enable
   set t_Co=256
   set background=dark
-  set synmaxcol=500
+  set synmaxcol=200
+  set colorcolumn=80
 
   colorscheme solarized
 
@@ -16,5 +17,6 @@ if has("syntax")
   " Statusline section colors
   hi User1 term=reverse cterm=reverse ctermfg=1 ctermbg=14 gui=bold,reverse
 
+  " Markdown styles
   hi! link markdownItalic markdownBold
 endif
