@@ -61,3 +61,4 @@ I use [syntastic](https://github.com/scrooloose/syntastic) to lint some files,
 but some linters need to be installed manually:
 
 - javascript: npm install -g jshint
+- scss: gem install scss-lint

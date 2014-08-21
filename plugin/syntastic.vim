@@ -28,3 +28,5 @@ if file_readable('.jshintrc')
 else
   let g:syntastic_javascript_jshint_args = '--config ~/.jshintrc'
 endif
+
+let g:syntastic_scss_checkers = ['scss_lint']
