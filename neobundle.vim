@@ -21,6 +21,7 @@ NeoBundle 'mhinz/vim-signify'
 
 " Unite
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {

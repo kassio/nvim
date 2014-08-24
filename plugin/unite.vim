@@ -23,6 +23,9 @@ nnoremap <silent>[unite]l :<C-u>Unite
       \ -start-insert
       \ -resume
       \ line<CR>
+nnoremap <silent>[unite]o :<C-u>Unite
+      \ -buffer-name='outline'
+      \ outline<CR>
 nnoremap <silent>[unite]b :<C-u>Unite
       \ -buffer-name='buffer'
       \ -start-insert
