@@ -37,6 +37,7 @@ test_dependency() {
   set -e
   test_dependency "lua" "lua"
   test_dependency "jshint" "jshint" "npm install -g jshint"
+  test_dependency "scss-lint" "scss-lint" "gem install scss-lint"
 )
 
 if (( $? != 0 )); then
