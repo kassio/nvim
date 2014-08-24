@@ -10,43 +10,6 @@ call unite#custom#profile('default', 'context', {
       \   'resume': 1
       \ })
 
-nnoremap [unite] <Nop>
-nmap <leader>u [unite]
-
-nnoremap <silent>[unite]r :<C-u>Unite
-      \ -buffer-name='file_rec/async'
-      \ file_rec/async:!<CR>
-nnoremap <silent>[unite]m :<C-u>Unite
-      \ -buffer-name='file_mru'
-      \ file_mru<CR>
-nnoremap <silent>[unite]l :<C-u>Unite
-      \ -buffer-name='line'
-      \ line<CR>
-nnoremap <silent>[unite]o :<C-u>Unite
-      \ -buffer-name='outline'
-      \ outline<CR>
-nnoremap <silent>[unite]b :<C-u>Unite
-      \ -buffer-name='buffer'
-      \ -quick-match
-      \ buffer<CR>
-
-autocmd FileType unite call s:unite_settings()
-
-function! s:unite_settings()
-  inoremap <silent><buffer><C-j> <nop>
-  inoremap <silent><buffer><C-k> <nop>
-
-  inoremap <silent><buffer><expr> <C-s> unite#do_action('split')
-  inoremap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
-  inoremap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
-  nmap <silent><buffer><expr> <C-s> unite#do_action('split')
-  nmap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
-  nmap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
-
-  nmap <silent><buffer> <ESC> <Plug>(unite_exit)
-  imap <silent><buffer> <ESC> <Plug>(unite_exit)
-endfunction
-
 call unite#custom#profile('default', 'substitute_patterns', {
       \ 'pattern': '\v(^|\/)a/',
       \ 'subst': 'app/',
@@ -68,15 +31,33 @@ call unite#custom#profile('default', 'substitute_patterns', {
       \ 'priority': 0
       \ })
 
-if executable('ag')
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '-i --line-numbers --nocolor --nogroup --hidden'
-  let g:unite_source_grep_recursive_opt = '-R'
-elseif executable('ack')
-  let g:unite_source_grep_command = 'ack'
-  let g:unite_source_grep_default_opts = '-H -s --smart-case --column --nogroup --nocolor --follow'
-  let g:unite_source_grep_recursive_opt = '-R'
-endif
+let my_open = { 'is_selectable' : 1 }
+function! my_open.func(candidates)
+  let l:bname = a:candidates[0].action__path
+  if bufexists(l:bname)
+    execute 'sbuffer ' . l:bname
+  else
+    execute 'badd ' . l:bname
+    execute 'sbuffer ' . l:bname
+  end
+endfunction
+call unite#custom_action('file,buffer', 'my_open', my_open)
+call unite#custom#default_action('file,file_rec,file_rec/async,buffer,file_mru', 'my_open')
+
+let my_tabopen = { 'is_selectable' : 1 }
+function! my_tabopen.func(candidates)
+  let l:bname = a:candidates[0].action__path
+  echo l:bname
+
+  if bufexists(l:bname)
+    execute 'sbuffer ' . l:bname
+  else
+    execute 'tabedit ' .l:bname
+  endif
+endfunction
+call unite#custom#action('file,buffer', 'tabopen', my_tabopen)
+
+autocmd FileType unite call personal#unite#settings()
 
 aug unite_cache_dir
   au!

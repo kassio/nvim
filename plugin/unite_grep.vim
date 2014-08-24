@@ -24,3 +24,13 @@ function! s:uniteLocalGrep(term)
 endfunction
 vnoremap ,as :<C-u>call <SID>uniteLocalGrep(text#escape_all(text#get_visual()))<CR>
 nnoremap ,as :<C-u>call <SID>uniteLocalGrep(expand('<cword>'))<CR>
+
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '-i --line-numbers --nocolor --nogroup --hidden'
+  let g:unite_source_grep_recursive_opt = '-R'
+elseif executable('ack')
+  let g:unite_source_grep_command = 'ack'
+  let g:unite_source_grep_default_opts = '-H -s --smart-case --column --nogroup --nocolor --follow'
+  let g:unite_source_grep_recursive_opt = '-R'
+endif
