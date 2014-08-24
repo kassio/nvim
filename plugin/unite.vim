@@ -5,31 +5,28 @@ call unite#filters#matcher_default#use('matcher_fuzzy')
 
 call unite#custom#source('file_rec/async', 'ignore_pattern', '\.sass-cache')
 
+call unite#custom#profile('default', 'context', {
+      \   'start_insert': 1,
+      \   'resume': 1
+      \ })
+
 nnoremap [unite] <Nop>
 nmap <leader>u [unite]
 
 nnoremap <silent>[unite]r :<C-u>Unite
       \ -buffer-name='file_rec/async'
-      \ -start-insert
-      \ -resume
       \ file_rec/async:!<CR>
 nnoremap <silent>[unite]m :<C-u>Unite
       \ -buffer-name='file_mru'
-      \ -start-insert
-      \ -resume
       \ file_mru<CR>
 nnoremap <silent>[unite]l :<C-u>Unite
       \ -buffer-name='line'
-      \ -start-insert
-      \ -resume
       \ line<CR>
 nnoremap <silent>[unite]o :<C-u>Unite
       \ -buffer-name='outline'
       \ outline<CR>
 nnoremap <silent>[unite]b :<C-u>Unite
       \ -buffer-name='buffer'
-      \ -start-insert
-      \ -resume
       \ -quick-match
       \ buffer<CR>
 
