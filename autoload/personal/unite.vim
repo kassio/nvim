@@ -23,10 +23,10 @@ function! personal#unite#my_action(cmd)
     let l:bname = expand(a:candidates[0].action__path)
 
     if bufexists(l:bname)
-      execute 'sbuffer ' . l:bname
+      execute 'silent sbuffer ' . l:bname
     else
-      execute 'badd ' . l:bname
-      execute self.cmd . ' ' . l:bname
+      execute 'silent badd ' . l:bname
+      execute 'silent ' . self.cmd . ' ' . l:bname
     end
   endfunction
 
