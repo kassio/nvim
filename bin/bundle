@@ -3,9 +3,9 @@
 if [[ -d "$HOME/.vim/bundle" ]]
 then
   vim -u $HOME/.vim/neobundle.vim \
-    +silent!\ NeoBundleClean! \
-    +silent!\ NeoBundleUpdate! \
-    +NeoBundleUpdatesLog \
+    +silent\ NeoBundleClean! \
+    +silent\ NeoBundleUpdate! \
+    +unsilent\ NeoBundleUpdatesLog \
     +qall
 else
   mkdir -p $HOME/.vim/bundle
