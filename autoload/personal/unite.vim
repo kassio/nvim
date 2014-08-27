@@ -32,3 +32,21 @@ function! personal#unite#my_action(cmd)
 
   return my_action
 endfunction
+
+function! personal#unite#local_grep(term)
+  execute 'Unite grep:.::' . a:term
+endfunction
+
+function! personal#unite#unite_grep(text)
+  let list = split(a:text, ':')
+
+  if len(list) == 1
+    let place = '.'
+    let term = escape(get(list, 0), ' \')
+  else
+    let place = get(list, 0)
+    let term = escape(get(list, 1), ' \')
+  endif
+
+  execute 'Unite grep:' . place . '::' . term
+endfunction
