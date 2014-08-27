@@ -2,11 +2,11 @@
 
 if [[ -d "$HOME/.vim/bundle" ]]
 then
-  vim -u $HOME/.vim/neobundle.vim \
-    +silent\ NeoBundleClean! \
+  vim -n -e \
+    +unsilent\ NeoBundleClean! \
     +silent\ NeoBundleUpdate! \
     +unsilent\ NeoBundleUpdatesLog \
-    +qall
+    +qall 2>&1
 else
   mkdir -p $HOME/.vim/bundle
 
