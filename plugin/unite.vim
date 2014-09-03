@@ -21,7 +21,7 @@ call unite#custom#default_action('file,file_rec,file_rec/async,buffer,file_mru,g
 
 autocmd FileType unite call personal#unite#settings()
 
-command! -nargs=+ -complete=dir F call <SID>uniteGrep(<q-args>)
+command! -nargs=+ -complete=dir F call personal#unite#unite_grep(<q-args>)
 
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
