@@ -1,7 +1,7 @@
 extends html, ruby, ruby-rails
 
 snippet e "" w
-<%= $1 %>
+<%= ${0:${VISUAL}} %>
 endsnippet
 
 snippet end
@@ -9,9 +9,9 @@ snippet end
 endsnippet
 
 snippet er "" w
-<% $1 %>
+<% ${0:${VISUAL}} %>
 endsnippet
 
 snippet lt "" w
-<%= link_to ${1:name} %>
+<%= link_to ${0:${VISUAL}} %>
 endsnippet
