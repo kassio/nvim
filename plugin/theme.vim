@@ -2,7 +2,7 @@ if has("syntax")
   syntax enable
   set t_Co=256
   set background=dark
-  set synmaxcol=200
+  set synmaxcol=150
   set colorcolumn=80
 
   colorscheme solarized
