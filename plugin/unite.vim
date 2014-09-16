@@ -4,7 +4,7 @@ call unite#filters#sorter_default#use(['sorter_ftime', 'sorter_rank', 'sorter_wo
 call unite#filters#matcher_default#use('matcher_fuzzy')
 
 call unite#custom#profile('default', 'context', { 'start_insert': 1, 'unique': 1, 'resume': 1 })
-call unite#custom#profile('source/grep', 'context', { 'start_insert': 0 })
+call unite#custom#profile('source/grep', 'context', { 'start_insert': 0, 'resume': 0 })
 call unite#custom#source('file_rec/async', 'ignore_pattern', '\.sass-cache')
 
 call unite#custom#profile('default', 'substitute_patterns', { 'pattern': '\v(^|\/)a/', 'subst': 'app/','priority': 0 })
