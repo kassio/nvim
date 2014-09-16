@@ -49,9 +49,4 @@ nmap <leader>u [unite]
 
 nnoremap <silent>[unite]r :<C-u>Unite -buffer-name='file_rec/async' file_rec/async:!<CR>
 nnoremap <silent>[unite]l :<C-u>Unite -buffer-name='line' line<CR>
-nnoremap <silent>[unite]o :<C-u>Unite -buffer-name='outline' outline<CR>
 nnoremap <silent>[unite]b :<C-u>Unite -buffer-name='buffer' -quick-match buffer<CR>
-
-" Signify
-nmap <leader>gj <plug>(signify-next-hunk)
-nmap <leader>gk <plug>(signify-prev-hunk)
