@@ -21,8 +21,6 @@ NeoBundle 'mhinz/vim-signify'
 
 " Unite
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/unite-outline'
-NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {
       \     'mac' : 'make clean; make -f make_mac.mak',
@@ -33,7 +31,6 @@ NeoBundle 'Shougo/vimproc.vim', {
 " textobjs
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
-NeoBundle 'paradigm/TextObjectify'
 
 " Snippets
 NeoBundle 'sirver/ultisnips'
@@ -55,7 +52,9 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'Keithbsmiley/rspec.vim'
 
 " Elixir
-NeoBundleLazy 'elixir-lang/vim-elixir', { 'autoload': { 'filetypes': ['elixir'] } }
+NeoBundleLazy 'elixir-lang/vim-elixir', {
+      \ 'autoload': { 'filetypes': ['elixir'] }
+      \ }
 
 " Puppet
 NeoBundle 'rodjek/vim-puppet'
