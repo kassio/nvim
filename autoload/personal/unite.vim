@@ -9,7 +9,7 @@ function! personal#unite#settings()
   nmap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
   nmap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
 
-  " imap <silent><buffer> <C-e> <Plug>(unite_insert_leave)<Plug>(unite_append_end)
+  imap <silent><buffer> <C-e> <Plug>(unite_insert_leave)<Plug>(unite_append_end)
 
   nmap <silent><buffer> <ESC> <Plug>(unite_exit)
   imap <silent><buffer> <ESC> <Plug>(unite_exit)
