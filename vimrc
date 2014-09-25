@@ -45,7 +45,7 @@ set autoread autowrite
 
 set viminfo^=!
 
-set sessionoptions=buffers,tabpages,curdir,help,winsize,localoptions
+set sessionoptions=buffers,tabpages,help
 
 set tags=tags,../tags,config/tags
 set tags+=gems.tags,../gems.tags,config/gems.tags
