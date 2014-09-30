@@ -30,7 +30,6 @@ NeoBundle 'Shougo/vimproc.vim', {
 
 " textobjs
 NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'nelstrom/vim-textobj-rubyblock'
 
 " Snippets
 NeoBundle 'sirver/ultisnips'
