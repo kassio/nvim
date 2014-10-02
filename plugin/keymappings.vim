@@ -41,7 +41,7 @@ nnoremap K <nop>
 nnoremap Q <nop>
 
 " Indent all file
-nnoremap <silent> <leader>ff :call preserve#preserve('normal gg=G')<CR>
+nnoremap <silent> <leader>ff :call preserve#preserve('silent normal gg=G')<CR>
 
 " Unite
 nnoremap [unite] <Nop>

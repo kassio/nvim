@@ -18,8 +18,8 @@ aug END
 function! Trim()
   let l:hls = &hls
   setlocal nohls
-  call preserve#preserve('%s/\v\s+$//e')
-  call preserve#preserve('%s/\v($\n\s*)+%$//e')
+  call preserve#preserve('silent %s/\v\s+$//e')
+  call preserve#preserve('silent %s/\v($\n\s*)+%$//e')
   let &hls = l:hls
 endfunction
 command! Trim call Trim()

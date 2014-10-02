@@ -11,6 +11,7 @@ endfunction
 function! text#highlight(text)
   let @/=a:text
   call feedkeys(":let v:hlsearch=1\<CR>", "n")
+  call feedkeys(":call preserve#preserve('%s//&/gn')\<CR>", "n")
 endfunction
 
 function! text#highlight_visual()
