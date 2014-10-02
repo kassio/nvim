@@ -10,7 +10,7 @@ set ttyfast
 
 set confirm
 
-set shortmess=atTI
+set shortmess=aI
 
 set splitright splitbelow
 
