@@ -11,6 +11,8 @@ function! personal#unite#settings()
 
   imap <silent><buffer> <C-e> <Plug>(unite_insert_leave)<Plug>(unite_append_end)
 
+  imap <silent><buffer> <C-]> <Plug>(unite_insert_leave)
+
   nmap <silent><buffer> <ESC> <Plug>(unite_exit)
   imap <silent><buffer> <ESC> <Plug>(unite_exit)
 endfunction
