@@ -1,5 +1,5 @@
 let g:session_dir=expand('~/.vim_data/sessions')
 
-nmap <leader>ss <Plug>SaveSession
-nmap <leader>sl <Plug>LoadSession
-nmap <leader>sd <Plug>DeleteSession
+nnoremap <leader>ss <Plug>SaveSession
+nnoremap <leader>sl <Plug>LoadSession
+nnoremap <leader>sd <Plug>DeleteSession
