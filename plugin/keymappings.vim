@@ -19,9 +19,7 @@ nnoremap <silent> <F7> <esc>:set invspell<CR>
 nnoremap <silent> <F6> zg
 nnoremap <silent> <F8> z=
 
-nnoremap <silent> # g#
 nnoremap <silent> g# #
-nnoremap <silent> * g*
 nnoremap <silent> g* *
 
 nnoremap <silent>g] :execute 'tselect ' . expand('<cword>')<CR>
