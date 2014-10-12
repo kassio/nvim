@@ -19,14 +19,8 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'kassio/vim-tmux-runner'
 NeoBundle 'mhinz/vim-signify'
 
-" Unite
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'mac' : 'make clean; make -f make_mac.mak',
-      \     'unix' : 'make clean; make -f make_unix.mak'
-      \    }
-      \ }
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'kassio/ctrlp-bufline.vim'
 
 " textobjs
 NeoBundle 'kana/vim-textobj-user'
@@ -56,7 +50,9 @@ NeoBundleLazy 'elixir-lang/vim-elixir', {
       \ }
 
 " Puppet
-NeoBundle 'rodjek/vim-puppet'
+NeoBundle 'rodjek/vim-puppet', {
+      \ 'autoload': { 'filetypes': ['puppet'] }
+      \ }
 
 call neobundle#end()
 

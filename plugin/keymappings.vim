@@ -42,11 +42,3 @@ nnoremap Q <nop>
 
 " Indent all file
 nnoremap <silent> <leader>ff :call preserve#preserve('silent normal gg=G')<CR>
-
-" Unite
-nnoremap [unite] <Nop>
-nmap <leader>u [unite]
-
-nnoremap <silent>[unite]r :<C-u>Unite -buffer-name='file_rec/async' file_rec/async:!<CR>
-nnoremap <silent>[unite]l :<C-u>Unite -buffer-name='line' line<CR>
-nnoremap <silent>[unite]b :<C-u>Unite -buffer-name='buffer' -quick-match buffer<CR>
