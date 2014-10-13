@@ -116,19 +116,5 @@ make distclean
 make
 sudo make install prefix=$vim_prefix
 
-VIMRUNTIME=`vim -e -T dumb --cmd 'exe "set t_cm=\<C-M>"|echo $VIMRUNTIME|quit' | tr -d '\015' `
-
-echo "Remove unused default plugins" >&3
-# Remove some useless
-cd $VIMRUNTIME
-sudo rm -rf $(find . \
-  -iname "*vimball.vim" -o \
-  -iname "*zip.vim" -o \
-  -iname "*tex.vim" -o \
-  -iname "*tar.vim" -o \
-  -iname "*netrw*" -o \
-  -iname "*getscript*" -o \
-  -iname "*rrhelper*")
-
 cd $old_path
 vim --version >&3
