@@ -32,9 +32,6 @@ vnoremap <silent> # :<C-u>call text#highlight_visual()<CR>??<CR>
 vnoremap <silent> ! :<c-u>call text#highlight_visual()<CR>
 nnoremap <silent> ! :call text#highlight(expand('<cword>'))<CR>
 
-vnoremap ,as :<C-u>call personal#unite#local_grep(text#escape_all(text#get_visual()))<CR>
-nnoremap ,as :<C-u>call personal#unite#local_grep(expand('<cword>'))<CR>
-
 nnoremap K <nop>
 nnoremap Q <nop>
 
