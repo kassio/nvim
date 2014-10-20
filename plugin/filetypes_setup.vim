@@ -25,6 +25,6 @@ aug filetype_setup
   au BufNewFile,BufReadPost,BufWritePre,FileWritePre *.md setlocal
         \ ft=markdown
 
-  au FileType html,javascript,css,eruby,sass,scss setlocal
+  au FileType html,javascript,css,eruby,sass,scss,yaml setlocal
         \ iskeyword+=-
 aug END
