@@ -1,4 +1,9 @@
 function! personal#nerdtree#mirror_toggle()
+  if !exists('b:NERDTree')
+    silent NERDTree
+    return
+  end
+
   if nerdtree#isTreeOpen()
     NERDTreeToggle
   else
