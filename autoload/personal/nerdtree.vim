@@ -1,9 +1,15 @@
 function! personal#nerdtree#mirror_toggle()
-  if nerdtree#isTreeOpen()
-    NERDTreeToggle
-  else
-    call s:mirror_or_create()
-  endif
+  try
+    if nerdtree#isTreeOpen()
+      NERDTreeToggle
+    else
+      call s:mirror_or_create()
+    endif
+  catch
+    redraw!
+    NERDTree
+    call NERDTreeRender()
+  endtry
 endfunction
 
 function! personal#nerdtree#mirror_find()
