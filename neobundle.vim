@@ -18,7 +18,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'kassio/vim-tmux-runner'
 NeoBundle 'mhinz/vim-signify'
-NeoBundle 'mileszs/ack.vim'
+NeoBundle 'rking/ag.vim'
 
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'kassio/ctrlp-bufline.vim'
