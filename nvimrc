@@ -1,12 +1,10 @@
-source ~/.vim/neobundle.vim
+source ~/.nvim/neobundle.vim
 
 scriptencoding utf8
 set encoding=utf8 fileencoding=utf8 termencoding=utf8 nobomb
 
 runtime macros/matchit.vim
 set showmatch
-
-set ttyfast
 
 set confirm
 

@@ -1,4 +1,4 @@
-set undofile undolevels=1000 undoreload=10000 undodir=~/.vim_data/undo
+set undofile undolevels=1000 undoreload=10000 undodir=~/.nvim_data/undo
 
 aug undo_dir
   au!

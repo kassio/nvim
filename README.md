@@ -1,11 +1,11 @@
-# vimfiles
+# nvimfiles
 
 <b>**NEVER** use this as your personal setup! It's not stable for distribution.</b>
 
-## Installing vim
+## Installing neovim
 
 ```console
-$HOME/.vim/bin/install
+$HOME/.nvim/bin/install
 ```
 
 ## Setting up this configs
@@ -13,27 +13,11 @@ $HOME/.vim/bin/install
 ### Download it
 
 ```console
-git clone git://github.com/kassio/vimfiles.git ~/.vim
+git clone git://github.com/kassio/nvimfiles.git ~/.nvim
 ```
 
-### Install vim plugins:
+### Install neovim plugins:
 
 ```console
-$HOME/.vim/bin/bundle
-```
-
-## Vim with zsh(on Mac, at least)
-
-In a sunny day I tried to run `ruby` from my vim with: `:!ruby %` and then I
-figured out that the vim was using the wrong `ruby`.
-
-[To fix it](https://coderwall.com/p/w7fnxa):
-
-edit `/etc/zshenv` and comment it:
-
-```console
-# system-wide environment settings for zsh(1)
-#if [ -x /usr/libexec/path_helper ]; then
-  #eval `/usr/libexec/path_helper -s`
-#fi
+$HOME/.nvim/bin/bundle
 ```
