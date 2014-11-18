@@ -20,12 +20,9 @@ let g:ctrlp_abbrev = {
 nnoremap <c-n> :CtrlPBufLine<CR>
 
 if executable('ag')
-endif
-
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_user_command = 'ag %s -U --nocolor -l -g ""'
 elseif executable('ack')
-  let g:ctrlp_user_command = 'ack %s -l --nocolor -g ""'
+  let g:ctrlp_user_command = 'ack %s -l --nocolor'
 endif
 
 aug ctrlp_cache_dir
