@@ -18,14 +18,3 @@ function! helpers#sum_all_lines()
   execute '%s/^.*$/\=helpers#sum(submatch(0))/n'
   echo 'Result: ' . g:sum
 endfunction
-
-function! helpers#retag()
-  let g:retagging = readfile(expand("~/.vim_data/retagging"))
-
-  if g:retagging == ["0"]
-    call writefile(["1"], expand("~/.vim_data/retagging"))
-    call system("ctags && echo '0' > ~/.vim_data/retagging")
-  else
-    echo "Already retagging."
-  end
-endfunction
