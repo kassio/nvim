@@ -1,7 +1,11 @@
-let g:sum = 0  "result in global variable S
 
 function! helpers#sum(value)
+  if !exists('g:sum')
+    let g:sum = 0  "result in global variable S
+  end
+
   let g:sum = g:sum + a:value
+
   return a:value
 endfunction
 
