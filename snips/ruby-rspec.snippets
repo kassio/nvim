@@ -1,11 +1,17 @@
+snippet before
+before do
+  ${0:${VISUAL}}
+end
+endsnippet
+
 snippet cont
-context '$1' do
+context $1 do
   ${0:${VISUAL}}
 end
 endsnippet
 
 snippet desc
-describe '$1' do
+describe $1 do
   ${0:${VISUAL}}
 end
 endsnippet
@@ -25,7 +31,7 @@ it { $1 }
 endsnippet
 
 snippet feat
-feature '${1:name}' do
+feature $1 do
   ${0:${VISUAL}}
 end
 endsnippet
