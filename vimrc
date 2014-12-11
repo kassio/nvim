@@ -47,8 +47,7 @@ set viminfo^=!
 
 set sessionoptions=buffers,tabpages,help
 
-set tags=tags,../tags,config/tags
-set tags+=gems.tags,../gems.tags,config/gems.tags
+set tags=tags,gems.tags
 set complete=.,w,b,u,U,i,d
 set completeopt=menu,menuone,longest,preview
 
