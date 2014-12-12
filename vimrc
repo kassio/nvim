@@ -36,6 +36,7 @@ set virtualedit=block
 
 set wildmenu wildignorecase
 set wildmode=list:longest,list:full
+set wildignore=tags,gems.tags
 set wildignore+=*.zip,*.gz,*.bz,*.tar
 set wildignore+=*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
 
