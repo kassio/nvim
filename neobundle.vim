@@ -20,7 +20,7 @@ NeoBundle 'kassio/vim-tmux-runner'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'rking/ag.vim'
 
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'kassio/ctrlp-bufline.vim'
 
 " textobjs
