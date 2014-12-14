@@ -12,7 +12,8 @@ let g:ctrlp_abbrev = {
       \     { 'pattern': '\v(^|\/)c/', 'expanded': 'controllers/' },
       \     { 'pattern': '\v(^|\/)m/', 'expanded': 'models/' },
       \     { 'pattern': '\v(^|\/)v/', 'expanded': 'views/' },
-      \     { 'pattern': '^s/', 'expanded': 'spec/' }
+      \     { 'pattern': '^s/', 'expanded': 'spec/' },
+      \     { 'pattern': '^t/', 'expanded': 'test/' }
       \   ]
       \ }
 
