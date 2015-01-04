@@ -20,6 +20,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'kassio/vim-tmux-runner'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'rking/ag.vim'
+NeoBundle 'terryma/vim-multiple-cursors'
 
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'kassio/ctrlp-bufline.vim'

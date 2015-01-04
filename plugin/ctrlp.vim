@@ -17,7 +17,7 @@ let g:ctrlp_abbrev = {
       \   ]
       \ }
 
-nnoremap <c-n> :CtrlPBufLine<CR>
+nnoremap <c-b> :CtrlPBufLine<CR>
 
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -U --nocolor -l -g ""'
