@@ -12,19 +12,19 @@ aug filetype_setup
         \ smarttab
         \ shiftround
 
+  au FileType html,javascript,css,eruby,sass,scss,yaml setlocal
+        \ iskeyword+=-
+
+  au FileType tex,txt,mail,text,gitcommit setlocal
+        \ spell
+        \ formatoptions+=a
+
   au FileType tex,txt,mail,text,markdown setlocal
         \ textwidth=80
 
   au FileType gitcommit setlocal
         \ textwidth=72
 
-  au FileType tex,txt,mail,text,gitcommit setlocal
-        \ spell
-        \ formatoptions+=a
-
   au BufNewFile,BufReadPost,BufWritePre,FileWritePre *.md setlocal
         \ ft=markdown
-
-  au FileType html,javascript,css,eruby,sass,scss,yaml setlocal
-        \ iskeyword+=-
 aug END
