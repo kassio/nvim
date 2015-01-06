@@ -66,8 +66,9 @@ set t_ti= t_te=
 
 set nobackup nowritebackup noswapfile
 
-let mapleader=','
-
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+endif
 
 set statusline=
 set statusline+=[%n]
@@ -76,18 +77,12 @@ set statusline+=%=
 set statusline+=%r%y
 set statusline+=[%{&ff}]
 set statusline+=[%{&fenc!=''?&fenc:&enc}]
-set statusline+=[%c,%l/%L\ %P]
+set statusline+=[%c,%l/%L]
 set laststatus=2
 
+"###############################################################################
 
-" Use <C-L> to clear the highlighting of :set hlsearch.
-if maparg('<C-L>', 'n') ==# ''
-nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-endif
-
-" Delete current buffer
 nnoremap <silent> <leader>bd :bw<CR>
-" Delete all buffers
 nnoremap <silent> <leader>da :silent bufdo bw<CR>
 
 nnoremap <silent> # g#
@@ -107,15 +102,13 @@ nnoremap <right> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 
-" Indent all file
 nnoremap <silent> <leader>ff :call Preserve('normal gg=G')<CR>
 
-" Make Y behave like C and D
 nnoremap Y y$
 
-" Make cw behave like dw and yw
 onoremap w :execute 'normal! '.v:count1.'w'<CR>
 
+"###############################################################################
 
 let g:loaded_vimballPlugin=1
 let g:loaded_zipPlugin=1
@@ -125,11 +118,14 @@ let g:loaded_netrwPlugin=1
 let g:loaded_getscriptPlugin=1
 let loaded_rrhelper=1
 
+"###############################################################################
 
 aug remove_trailing_spaces
   au!
   au BufWritePre * call Trim()
 aug END
+
+"###############################################################################
 
 function! Trim()
   let l:hls = &hls
