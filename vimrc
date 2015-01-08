@@ -3,8 +3,8 @@ source ~/.vim/neobundle.vim
 scriptencoding utf8
 set encoding=utf8 fileencoding=utf8 termencoding=utf8 nobomb
 
-set showmatch
 runtime macros/matchit.vim
+set showmatch
 
 set ttyfast
 
@@ -34,9 +34,13 @@ set list listchars=tab:▸\ ,trail:·
 
 set virtualedit=block
 
+set complete=.,b,u,t
+set completeopt=menu,menuone,preview,longest
+set tags=tags,tags.gems
+
 set wildmenu wildignorecase
 set wildmode=list:longest,list:full
-set wildignore=tags,gems.tags
+set wildignore=&completeopt
 set wildignore+=*.zip,*.gz,*.bz,*.tar
 set wildignore+=*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
 
@@ -47,10 +51,6 @@ set autoread autowrite
 set viminfo^=!
 
 set sessionoptions=buffers,tabpages,help
-
-set tags=tags,gems.tags
-set complete=.,w,b,u,U,i,d
-set completeopt=menu,menuone,longest,preview
 
 set timeoutlen=1000 ttimeout ttimeoutlen=50
 
