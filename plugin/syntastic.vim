@@ -1,9 +1,12 @@
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_balloons = 0
 let g:syntastic_auto_jump = 0
 let g:syntastic_error_symbol = 'e:'
 let g:syntastic_warning_symbol = 'w:'
-let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [
       \ 'css',
       \ 'elixir',
       \ 'eruby',
@@ -17,10 +20,10 @@ let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [
 
 let g:syntastic_stl_format = ""
       \ . "%W{"
-      \ . "[".g:syntastic_warning_symbol." %fw(%w)]"
+      \ . "[" . g:syntastic_warning_symbol . " %fw(%w)]"
       \ . "}"
       \ . "%E{"
-      \ . "[".g:syntastic_error_symbol." %fe(%e)]"
+      \ . "[" . g:syntastic_error_symbol . " %fe(%e)]"
       \ . "}"
 
 if file_readable('.jshintrc')
