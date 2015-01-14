@@ -33,3 +33,19 @@ else
 endif
 
 let g:syntastic_scss_checkers = ['scss_lint']
+
+function! s:syntasticPassive()
+  let b:syntastic_mode = 'passive'
+  if index(g:syntastic_mode_map.active_filetypes, &filetype) >= 0
+    SyntasticToggleMode
+  endif
+endfunction
+command! SyntasticPassive silent call <SID>syntasticPassive()
+
+function! s:syntasticActive()
+  let b:syntastic_mode = 'active'
+  if index(g:syntastic_mode_map.active_filetypes, &filetype) >= 0
+    SyntasticCheck
+  endif
+endfunction
+command! SyntasticActive silent call <SID>syntasticActive()
