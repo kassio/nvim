@@ -1,43 +1,26 @@
 # vimfiles
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/kassio/vimfiles/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+<b>**NEVER** use this as your personal setup! It's not stable for distribution.</b>
 
-* Author: Kassio Borges <<kassioborgesm@gmail.com>>
-* Since: 2011/02
-
-<b>All this configurations was created and tested on mac & linux.</b>
-
-## Download
-
-        git clone git://github.com/kassio/vimfiles.git ~/.vim
-
-## Setup
-
-* If your vim version < 7.4 so you'll need the `.vimrc` in you $HOME
-
-        ln -s $HOME/.vim/vimrc $HOME/.vimrc
-
-* Install NeoBundle and all bundles:
+## Installing vim
 
 ```console
-$HOME/.vim/bin/setup
+$HOME/.vim/bin/install
 ```
 
-### Dependencies
+## Setting up this configs
 
-This setup depends of vim compiled with python options. If you want to compile
-vim by yourself we have a script to do this for you in `bin/install`.
+### Download it
 
-PS.: in some linux you'll need to install `python-dev` package
+```console
+git clone git://github.com/kassio/vimfiles.git ~/.vim
+```
 
-## Files you should to read
+### Install vim plugins:
 
-* vimrc         # Vim customizations
-* neobundle.vim # Plugins list
-
-## Plugins customizations
-
-All the plugins customizations are located on `plugin` folder.
+```console
+$HOME/.vim/bin/bundle
+```
 
 ## Vim with zsh(on Mac, at least)
 
@@ -54,11 +37,3 @@ edit `/etc/zshenv` and comment it:
   #eval `/usr/libexec/path_helper -s`
 #fi
 ```
-
-## Linters(Syntastic)
-
-I use [syntastic](https://github.com/scrooloose/syntastic) to lint some files,
-but some linters need to be installed manually:
-
-- javascript: npm install -g jshint
-- scss: gem install scss-lint
