@@ -21,6 +21,8 @@ aug filetype_setup
 
   au FileType tex,txt,mail,text,markdown setlocal
         \ textwidth=80
+        \ noautoindent
+        \ nocindent
 
   au FileType gitcommit setlocal
         \ textwidth=72
