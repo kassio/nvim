@@ -6,7 +6,7 @@ red() { echo -e "\033[31m $1\033[0m"; }
 green() { echo -e "\033[0;32m$1\033[0m"; }
 white() { echo -e "\033[0;37m$1\033[0m"; }
 
-command_exists() { command -v "$1" &>/dev/null; }
+command_exists() { return $(eval "$1 &>/dev/null"; echo $?); }
 
 test_dependency() {
   if command_exists "$1"; then
@@ -14,20 +14,15 @@ test_dependency() {
   else
     exec >&2
     red "   ✖  You need to install $2.\c"
-    if [[ -n "$3" ]]; then
-      white "\n     $3\n"
-    else
-      echo " If you use Homebrew, you can run:"
-      white "     brew install $2\n"
-    fi
+    white "\n     $3\n"
   fi
 }
 
 (
   set -e
-  test_dependency "lua" "lua"
-  test_dependency "jshint" "jshint" "npm install -g jshint"
-  test_dependency "scss-lint" "scss-lint" "gem install scss-lint"
+  test_dependency "command -v 'lua'" "lua"
+  test_dependency "command -v 'jshint'" "jshint" "npm install -g jshint"
+  test_dependency "command -v 'scss-lint'" "scss-lint" "gem install scss-lint"
 )
 
 if (( $? != 0 )); then
