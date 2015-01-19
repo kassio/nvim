@@ -24,6 +24,7 @@ NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'kassio/better_tags_completion.vim'
 
 NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'FelikZ/ctrlp-py-matcher'
 NeoBundle 'kassio/ctrlp-bufline.vim'
 
 " textobjs

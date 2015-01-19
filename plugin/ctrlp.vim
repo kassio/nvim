@@ -19,12 +19,6 @@ let g:ctrlp_abbrev = {
 
 nnoremap <c-b> :CtrlPBufLine<CR>
 
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -U --nocolor -l -g ""'
-elseif executable('ack')
-  let g:ctrlp_user_command = 'ack %s -l --nocolor'
-endif
-
 aug ctrlp_cache_dir
   au!
   au VimEnter *
