@@ -2,21 +2,11 @@
 
 echo "Checking the environment."
 
-red() {
-  echo -e "\033[31m $1\033[0m"
-}
+red() { echo -e "\033[31m $1\033[0m"; }
+green() { echo -e "\033[0;32m$1\033[0m"; }
+white() { echo -e "\033[0;37m$1\033[0m"; }
 
-green() {
-  echo -e "\033[0;32m$1\033[0m"
-}
-
-white() {
-  echo -e "\033[0;37m$1\033[0m"
-}
-
-command_exists() {
-  command -v "$1" &>/dev/null
-}
+command_exists() { command -v "$1" &>/dev/null; }
 
 test_dependency() {
   if command_exists "$1"; then
@@ -44,77 +34,7 @@ if (( $? != 0 )); then
   exit $?
 fi
 
-##
-tty -s
-if [[ -z "$DEBUG" ]]
-then
-  exec 3>&1 &>/dev/null
-else
-  exec 3>&1
-fi
+brew update
+brew reinstall vim --override-system-vi --with-lua --HEAD
 
-if [ "$1" = "-h" ]
-then
-  echo -e "usage: bin/install [source_path] [prefix_path]
-\t source_path:
-\t\t default: /opt/vim
-\t prefix_path:
-\t\t default: /usr/local" >&3
-
-  exit 0
-fi
-
-old_path=$PWD
-current_user=$(whoami)
-src_path=${1:-/opt/vim}
-vim_prefix=${2:-/usr/local}
-lua_path=$(which lua)
-lua_prefix=${lua_path%/bin/lua}
-
-echo "Downloading" >&3
-if [[ -d $src_path ]]
-then
-  cd $src_path
-  hg pull
-  hg update
-else
-  sudo mkdir -p  $src_path
-  sudo chmod -R 755 $src_path
-  sudo chown -R "$current_user:" $src_path
-  cd $src_path
-  hg clone https://vim.googlecode.com/hg/ .
-fi
-
-cd src
-
-echo "Compiling" >&3
-make clean
-make distclean
-./configure \
-  --with-features=huge \
-  --with-tlib=ncurses \
-  --disable-gui \
-  --without-x \
-  --disable-nls \
-  --disable-gpm \
-  --disable-netbeans \
-  --disable-arabic \
-  --disable-farsi \
-  --disable-cscope \
-  --disable-emacs_tags \
-  --disable-keymap \
-  --disable-langmap \
-  --enable-feature=browse \
-  --enable-multibyte \
-  --enable-pythoninterp \
-  --enable-rubyinterp \
-  --enable-luainterp \
-  --enable-perlinterp \
-  --with-ruby-command=/usr/bin/ruby \
-  --with-lua-prefix=$lua_prefix \
-  --prefix=$vim_prefix
-make
-sudo make install prefix=$vim_prefix
-
-cd $old_path
-vim --version >&3
+vim --version
