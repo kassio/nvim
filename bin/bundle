@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+clear
+
 if [[ -d "$HOME/.vim/bundle" ]]
 then
   vim -n -e \
