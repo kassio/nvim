@@ -64,7 +64,7 @@ set mousehide mouse=a ttymouse=xterm2
 
 set scrolloff=3
 
-set foldmethod=manual nofoldenable
+set foldmethod=syntax nofoldenable foldlevel=99 foldlevelstart=99
 
 set spellfile=~/.vim/spell/custom.utf-8.add
 
