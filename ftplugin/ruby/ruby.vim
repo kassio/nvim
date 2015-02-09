@@ -1,3 +1,5 @@
+set spell
+
 let g:ruby_path=system('echo "$RBENV_ROOT/versions/$(rbenv version-name)/bin/ruby"')
 
 " Ruby Completion
@@ -8,6 +10,7 @@ let g:rubycomplete_include_object = 1
 let g:rubycomplete_include_objectspace = 1
 let ruby_operators = 1
 let ruby_space_errors = 1
+let ruby_spellcheck_strings = 1
 
 " Surround stuff
 let g:surround_{char2nr("#")} = "#{\r}"
