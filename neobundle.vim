@@ -13,18 +13,14 @@ NeoBundle 'kassio/vim-session_manager'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'kurkale6ka/vim-pairs'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'kassio/vim-tmux-runner'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'rking/ag.vim'
-NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'kassio/better_tags_completion.vim'
-
 NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'FelikZ/ctrlp-py-matcher'
 NeoBundle 'kassio/ctrlp-bufline.vim'
 
 " textobjs
@@ -38,21 +34,15 @@ NeoBundle 'wellbredgrapefruit/tomdoc.vim'
 
 " HTML, javascript
 NeoBundle 'othree/html5.vim'
-NeoBundleLazy 'jelera/vim-javascript-syntax', {
-      \ 'autoload': { 'filetypes': ['javascript'] }
-      \ }
-NeoBundleLazy 'guileen/simple-javascript-indenter', {
-      \ 'autoload': { 'filetypes': ['javascript'] }
-      \ }
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'guileen/simple-javascript-indenter'
 
 " Ruby
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'Keithbsmiley/rspec.vim'
 
 " Elixir
-NeoBundleLazy 'elixir-lang/vim-elixir', {
-      \ 'autoload': { 'filetypes': ['elixir'] }
-      \ }
+NeoBundle 'elixir-lang/vim-elixir'
 
 " Puppet
 NeoBundle 'rodjek/vim-puppet', {
