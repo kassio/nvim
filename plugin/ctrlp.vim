@@ -23,6 +23,7 @@ if executable("ag")
     let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden -g ""'
 endif
 
+nnoremap <c-k> :CtrlPBuffer<CR>
 nnoremap <c-n> :CtrlPBufLine<CR>
 
 aug ctrlp_cache_dir
