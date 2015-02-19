@@ -12,12 +12,14 @@ NeoBundle 'kassio/vim-session_manager'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'kassio/vim-tmux-runner'
 NeoBundle 'mileszs/ack.vim'
 NeoBundle 'ctrlpvim/ctrlp.vim'
+
+" Neovim
+NeoBundle 'benekastah/neomake'
 
 " textobjs
 NeoBundle 'kana/vim-textobj-user'
