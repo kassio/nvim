@@ -18,11 +18,6 @@ let g:ctrlp_abbrev = {
       \   ]
       \ }
 
-if executable("ag")
-    set grepprg=ag\ --nogroup\ --nocolor
-    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden -g ""'
-endif
-
 nnoremap <c-k> :CtrlPBuffer<CR>
 nnoremap <c-n> :CtrlPBufLine<CR>
 
