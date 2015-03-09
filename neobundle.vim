@@ -37,6 +37,9 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'guileen/simple-javascript-indenter'
 
+" react.js
+NeoBundle 'mxw/vim-jsx'
+
 " Ruby
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'Keithbsmiley/rspec.vim'
