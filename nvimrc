@@ -61,7 +61,7 @@ set backspace=indent,eol,start
 set mousehide mouse=a ttymouse=xterm2
 
 set scrolloff=3
-set lazyredraw ttyscroll=3
+set lazyredraw
 
 set foldmethod=manual nofoldenable
 
