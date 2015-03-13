@@ -19,7 +19,6 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'kassio/vim-tmux-runner'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'mileszs/ack.vim'
-NeoBundle 'kassio/better_tags_completion.vim'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'kassio/ctrlp-bufline.vim'
 
