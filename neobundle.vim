@@ -20,7 +20,6 @@ NeoBundle 'kassio/vim-tmux-runner'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'mileszs/ack.vim'
 NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'kassio/ctrlp-bufline.vim'
 
 " textobjs
 NeoBundle 'kana/vim-textobj-user'

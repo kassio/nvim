@@ -18,8 +18,8 @@ let g:ctrlp_abbrev = {
       \   ]
       \ }
 
+nnoremap <c-n> :CtrlPBufTag<CR>
 nnoremap <c-k> :CtrlPBuffer<CR>
-nnoremap <c-n> :CtrlPBufLine<CR>
 
 aug ctrlp_cache_dir
   au!
