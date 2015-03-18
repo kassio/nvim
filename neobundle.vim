@@ -30,22 +30,32 @@ NeoBundle 'sirver/ultisnips'
 NeoBundle 'wellbredgrapefruit/tomdoc.vim'
 
 " HTML, javascript
-NeoBundle 'othree/html5.vim'
-NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'guileen/simple-javascript-indenter'
+NeoBundleLazy 'othree/html5.vim', {
+      \ 'autoload': { 'filetypes': ['html'] }
+      \ }
+NeoBundleLazy 'jelera/vim-javascript-syntax', {
+      \ 'autoload': { 'filetypes': ['javascript', 'html'] }
+      \ }
+NeoBundleLazy 'guileen/simple-javascript-indenter', {
+      \ 'autoload': { 'filetypes': ['javascript', 'html'] }
+      \ }
 
 " react.js
 NeoBundle 'mxw/vim-jsx'
 
 " Ruby
 NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'Keithbsmiley/rspec.vim'
+NeoBundleLazy 'Keithbsmiley/rspec.vim', {
+      \ 'autoload': { 'filetypes': ['ruby'] }
+      \ }
 
 " Elixir
-NeoBundle 'elixir-lang/vim-elixir'
+NeoBundleLazy 'elixir-lang/vim-elixir', {
+      \ 'autoload': { 'filetypes': ['elixir'] }
+      \ }
 
 " Puppet
-NeoBundle 'rodjek/vim-puppet', {
+NeoBundleLazy 'rodjek/vim-puppet', {
       \ 'autoload': { 'filetypes': ['puppet'] }
       \ }
 
