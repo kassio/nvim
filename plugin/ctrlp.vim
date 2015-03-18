@@ -25,6 +25,6 @@ aug ctrlp_cache_dir
   au!
   au VimEnter *
         \ if !isdirectory(g:ctrlp_cache_dir) |
-        \   call mkdir(expand(g:ctrlp_cache_dir), "p", 0700) |
+        \   call mkdir(g:ctrlp_cache_dir, "p", 0700) |
         \ endif
 aug END

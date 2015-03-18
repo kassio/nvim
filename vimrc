@@ -67,8 +67,6 @@ set lazyredraw ttyscroll=3
 
 set foldmethod=manual nofoldenable
 
-set spellfile=~/.vim/spell/custom.utf-8.add
-
 set fileformats+=mac
 
 set t_ti= t_te= t_ut=
