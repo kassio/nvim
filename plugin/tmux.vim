@@ -1,5 +1,5 @@
-noremap <silent> <leader>tr :call TmuxRunner.setTmuxPane()<CR>
-noremap <silent> <leader>ct :call TmuxRunner.setRunner()<CR>
+command! TmuxSetPane call TmuxRunner.setTmuxPane()
+command! TmuxSetRunner call TmuxRunner.setRunner()
 
 noremap <silent> <leader>tc :call TRKill()<CR>
 noremap <silent> <leader>tl :call TmuxRunner.send('C-l')<CR>
