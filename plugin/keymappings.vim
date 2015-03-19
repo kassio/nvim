@@ -38,9 +38,6 @@ nnoremap Q <nop>
 " Indent all file
 nnoremap <silent> <leader>ff :call preserve#preserve('silent normal gg=G')<CR>
 
-nnoremap 9gt :tablast<CR>
-nnoremap 0gt :tabfirst<CR>
-
 " Map to show the highlight name under the cursor
 " map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 " \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
