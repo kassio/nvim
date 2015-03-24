@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-echo "Checking the environment."
-
 red() { echo -e "\033[31m $1\033[0m"; }
 green() { echo -e "\033[0;32m$1\033[0m"; }
+yellow() { echo -e "\033[0;33m$1\033[0m"; }
 white() { echo -e "\033[0;37m$1\033[0m"; }
 
 command_exists() { return $(eval "$1 &>/dev/null"; echo $?); }
@@ -11,12 +10,15 @@ command_exists() { return $(eval "$1 &>/dev/null"; echo $?); }
 test_dependency() {
   if command_exists "$1"; then
     green "  ✔  $2 is already installed."
+    return 0
   else
-    exec >&2
     red "   ✖  You need to install $2.\c"
     white "\n     $3\n"
+    return 1
   fi
 }
+
+yellow '>> Checking the environment.'
 
 (
   set -e
@@ -28,6 +30,8 @@ test_dependency() {
 if (( $? != 0 )); then
   exit $?
 fi
+
+yellow '\n>> Updating vim.'
 
 brew update
 brew reinstall vim --override-system-vi --with-lua --HEAD
