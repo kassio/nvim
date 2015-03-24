@@ -18,7 +18,7 @@ test_dependency() {
   fi
 }
 
-yellow '>> Checking the environment.'
+yellow '\n>> Checking the environment.'
 
 (
   set -e
