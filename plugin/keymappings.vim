@@ -1,3 +1,6 @@
+" faster esc
+inoremap <esc> <c-c>
+
 " Folding
 nnoremap <silent> <F3> zM
 nnoremap <silent> <F4> zR
