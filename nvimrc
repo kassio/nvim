@@ -50,7 +50,7 @@ set viminfo^=!
 
 set sessionoptions=buffers,tabpages,help
 
-set noesckeys ttimeout ttimeoutlen=1 timeoutlen=250
+set noesckeys ttimeout ttimeoutlen=1 timeoutlen=500
 
 set autoindent copyindent cindent smartindent
 set tabstop=2 shiftwidth=2 softtabstop=2
