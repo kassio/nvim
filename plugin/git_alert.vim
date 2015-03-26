@@ -1,4 +1,4 @@
 aug git_user_alert
   au!
-  au! VimEnter * call git#check_user()
+  au! BufEnter,BufWritePost * call git#check_user()
 aug END
