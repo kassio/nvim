@@ -25,11 +25,7 @@ yellow '>> Checking the environment.'
   test_dependency "command -v 'lua'" "lua"
   test_dependency "command -v 'jshint'" "jshint" "npm install -g jshint"
   test_dependency "command -v 'scss-lint'" "scss-lint" "gem install scss-lint"
-)
-
-if (( $? != 0 )); then
-  exit $?
-fi
+); [ $? != 0 ] && exit $?
 
 yellow '\n>> Updating vim.'
 
