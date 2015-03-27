@@ -34,7 +34,7 @@ yellow '\n>> Checking the environment.'
   test_dependency "pip list | grep neovim" "neovim python client" "pip install neovim"
 ); [ $? != 0 ] && exit $?
 
-yellow '\n>> Updating vim.'
+yellow '\n>> Updating neovim.'
 brew tap neovim/homebrew-neovim 2>/dev/null
 brew update
 brew reinstall --HEAD neovim
