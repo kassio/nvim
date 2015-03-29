@@ -22,14 +22,16 @@ aug terminal_setup
 aug END
 
 function! s:term_do(command)
+  let command = substitute(a:command, '%', expand('%:p'), 'g')
+
   if exists('g:term_current') && g:term_current
     try
-      call jobsend(g:term_current, add([a:command], ''))
+      call jobsend(g:term_current, add([command], ''))
     cat /E900/
-      botright new | call termopen(a:command)
+      botright new | call termopen(command)
     endtry
   else
-    botright new | call termopen(a:command)
+    botright new | call termopen(command)
   end
 endfunction
 
