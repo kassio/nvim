@@ -37,45 +37,13 @@ endfunction
 
 nnoremap ,rr :call <sid>term_do(g:term_last_command)<cr>
 
-" ==================================
-" rspec
-function! s:term_rspec(scope)
-  let g:term_last_command = 'rspec'
-
-  if a:scope == 'file'
-    let g:term_last_command .= ' ' . expand('%:p')
-  elseif a:scope == 'current'
-    let g:term_last_command .= ' ' . expand('%:p') . ':' . line('.')
-  endif
-
-  call <sid>term_do(g:term_last_command)
-endfunction
-
-" ==================================
-" minitest
-function! s:term_minitest(scope)
-  if a:scope == 'all'
-    let g:term_last_command = 'rake test'
-  elseif a:scope == 'file'
-    let g:term_last_command = 'ruby -Itest ' . expand('%:p')
-  elseif a:scope == 'current'
-    let g:term_last_command = 'ruby -Itest ' . expand('%:p')
-  endif
-
-  call <sid>term_do(g:term_last_command)
-endfunction
-
 function! s:term_test_runner(scope)
-  if g:term_test_lib == 'rspec'
-    call <sid>term_rspec(a:scope)
-  elseif g:term_test_lib == 'minitest'
-    call <sid>term_minitest(a:scope)
-  else
-    echo 'g:term_test_lib not set'
-  endif
+  let Fn = function('terminal#' . g:term_test_lib)
+  let command = Fn(a:scope)
+  call <sid>term_do(command)
 endfunction
 command! -nargs=? TermTestLib let g:term_test_lib=<q-args>
 
 nnoremap <silent> ,rt :call <sid>term_test_runner('all')<cr>
 nnoremap <silent> ,rf :call <sid>term_test_runner('file')<cr>
-nnoremap <silent> ,rc :call <sid>term_test_runner('current')<cr>
+nnoremap <silent> ,rn :call <sid>term_test_runner('current')<cr>
