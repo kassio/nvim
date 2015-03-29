@@ -22,8 +22,6 @@ aug terminal_setup
 aug END
 
 function! s:term_do(command)
-  echo a:command
-
   if exists('g:term_current') && g:term_current
     try
       call jobsend(g:term_current, add([a:command], ''))
@@ -35,6 +33,8 @@ function! s:term_do(command)
   end
 endfunction
 
+command! -nargs=+ Term call <sid>term_do(<q-args>)
+" Terminal redo
 nnoremap ,rr :call <sid>term_do(g:term_last_command)<cr>
 
 function! s:term_test_runner(scope)
