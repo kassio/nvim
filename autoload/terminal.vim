@@ -8,7 +8,6 @@ function! terminal#do(command)
   call jobsend(g:term_current_id, [command, ''])
 endfunction
 
-
 function! terminal#test_runner(scope)
   let Fn = function('terminal#' . g:term_test_lib)
   let command = Fn(a:scope)
