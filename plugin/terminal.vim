@@ -31,7 +31,6 @@ function! s:term_do(command)
 
   if !exists('g:term_current_id')
     exec "botright new | term" | wincmd w | set noim
-    call jobsend(g:term_current_id, [a:command, ''])
   end
 
   call jobsend(g:term_current_id, [command, ''])
