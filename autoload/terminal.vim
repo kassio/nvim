@@ -10,9 +10,9 @@ endfunction
 
 function! terminal#test_runner(scope)
   let Fn = function('terminal#' . g:term_test_lib)
-  let g:term_last_command = Fn(a:scope)
+  let g:term_last_test_command = Fn(a:scope)
 
-  call terminal#do(g:term_last_command)
+  call terminal#do(g:term_last_test_command)
 endfunction
 
 function! terminal#rspec(scope)

@@ -1,5 +1,5 @@
 let g:term_test_lib = ''
-let g:term_last_command = ''
+let g:term_last_test_command = ''
 
 aug terminal_setup
   au TermOpen * let g:term_current_id = b:terminal_job_id
@@ -34,7 +34,7 @@ command! -nargs=+ Tmap exec "nnoremap <silent> ,tt :T " . <q-args> . "<CR>"
 nnoremap <silent> ,rc :bd! term://*<cr>
 
 " redo last command
-nnoremap <silent>,rr :call terminal#do(g:term_last_command)<cr>
+nnoremap <silent>,rr :call terminal#do(g:term_last_test_command)<cr>
 
 " run set test lib
 nnoremap <silent> ,rt :call terminal#test_runner('all')<cr>
