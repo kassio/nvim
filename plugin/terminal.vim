@@ -26,34 +26,16 @@ aug END
 
 tnoremap <C-m> <C-\><C-n>
 
-function! s:term_do(command)
-  let command = substitute(a:command, '%', expand('%:p'), 'g')
-
-  if !exists('g:term_current_id')
-    exec "botright new | term" | wincmd w | set noim
-  end
-
-  call jobsend(g:term_current_id, [command, ''])
-endfunction
-
-
-function! s:term_test_runner(scope)
-  let Fn = function('terminal#' . g:term_test_lib)
-  let command = Fn(a:scope)
-
-  call <sid>term_do(command)
-endfunction
-
 command! -nargs=? TermTestLib let g:term_test_lib=<q-args>
-command! -nargs=+ T call <sid>term_do(<q-args>)
+command! -nargs=+ T call terminal#do(<q-args>)
 
 " closes the current terminal
 nnoremap <silent> ,rc :bd! term://*<cr>
 
 " redo last command
-nnoremap ,rr :call <sid>term_do(g:term_last_command)<cr>
+nnoremap ,rr :call terminal#do(g:term_last_command)<cr>
 
 " run set test lib
-nnoremap <silent> ,rt :call <sid>term_test_runner('all')<cr>
-nnoremap <silent> ,rf :call <sid>term_test_runner('file')<cr>
-nnoremap <silent> ,rn :call <sid>term_test_runner('current')<cr>
+nnoremap <silent> ,rt :call terminal#test_runner('all')<cr>
+nnoremap <silent> ,rf :call terminal#test_runner('file')<cr>
+nnoremap <silent> ,rn :call terminal#test_runner('current')<cr>
