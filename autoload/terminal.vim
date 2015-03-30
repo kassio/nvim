@@ -24,7 +24,7 @@ function! terminal#rspec(scope)
     let command .= ' ' . expand('%:p') . ':' . line('.')
   endif
 
-  return command
+  return "clear; " . command
 endfunction
 
 function! terminal#minitest(scope)
