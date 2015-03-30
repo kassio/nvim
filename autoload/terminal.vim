@@ -1,8 +1,9 @@
 function! terminal#do(command)
   let command = substitute(a:command, '%', expand('%:p'), 'g')
+  let current_window = winnr()
 
   if !exists('g:term_current_id')
-    exec "botright new | term" | wincmd w | set noim
+    exec "botright new | term" | exec current_window . "wincmd w | set noim"
   end
 
   call jobsend(g:term_current_id, [command, ''])
