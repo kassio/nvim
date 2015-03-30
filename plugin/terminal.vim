@@ -34,9 +34,12 @@ command! -nargs=+ Tmap exec "nnoremap <silent> ,tt :T " . <q-args> . "<CR>"
 nnoremap <silent> ,rc :bd! term://*<cr>
 
 " redo last command
-nnoremap ,rr :call terminal#do(g:term_last_command)<cr>
+nnoremap <silent>,rr :call terminal#do(g:term_last_command)<cr>
 
 " run set test lib
 nnoremap <silent> ,rt :call terminal#test_runner('all')<cr>
 nnoremap <silent> ,rf :call terminal#test_runner('file')<cr>
 nnoremap <silent> ,rn :call terminal#test_runner('current')<cr>
+
+" Useful maps
+nnoremap <silent> ,tl :T clear<cr>
