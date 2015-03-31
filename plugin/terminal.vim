@@ -30,16 +30,15 @@ command! -nargs=? TermTestLib let g:term_test_lib=<q-args>
 command! -nargs=+ T call terminal#do(<q-args>)
 command! -nargs=+ Tmap exec "nnoremap <silent> ,tt :T " . <q-args> . "<cr>"
 
-" closes the current terminal
-nnoremap <silent> ,rc :bd! term://*<cr>
-
-" redo last command
-nnoremap <silent>,rr :call terminal#do(g:term_last_test_command)<cr>
-
 " run set test lib
 nnoremap <silent> ,rt :call terminal#test_runner('all')<cr>
 nnoremap <silent> ,rf :call terminal#test_runner('file')<cr>
 nnoremap <silent> ,rn :call terminal#test_runner('current')<cr>
+" redo last test command
+nnoremap <silent>,rr :call terminal#do(g:term_last_test_command)<cr>
 
 " Useful maps
+" closes the current terminal
+nnoremap <silent> ,tc :bd! term://*<cr>
+" clear terminal
 nnoremap <silent> ,tl :T clear<cr>
