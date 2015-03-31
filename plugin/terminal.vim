@@ -24,8 +24,6 @@ aug terminal_setup
         \ endif
 aug END
 
-tnoremap <C-m> <C-\><C-n>
-
 command! -nargs=? TermTestLib let g:term_test_lib=<q-args>
 command! -nargs=+ T call terminal#do(<q-args>)
 command! -nargs=+ Tmap exec "nnoremap <silent> ,tt :T " . <q-args> . "<cr>"
