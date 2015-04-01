@@ -27,7 +27,7 @@ aug terminal_setup
   au VimEnter,BufRead,BufNewFile *
         \ if filereadable('config/application.rb') |
         \   let g:term_repl_command = 'bundle exec rails console' |
-        \ else |
+        \ elseif &ft == 'ruby' |
         \   let g:term_repl_command = 'irb' |
         \ endif
 aug END
