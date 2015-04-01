@@ -57,4 +57,4 @@ nnoremap <silent>,rr :call terminal#do(g:term_last_test_command)<cr>
 " closes the current terminal
 nnoremap <silent> ,tc :bd! term://*<cr>
 " clear terminal
-nnoremap <silent> ,tl :T clear<cr>
+nnoremap <silent> ,tl :T hr<cr>
