@@ -22,11 +22,25 @@ aug terminal_setup
         \ if filereadable('test/test_helper.rb') |
         \   let g:term_test_lib = 'minitest' |
         \ endif
+
+  " Ruby REPL
+  au VimEnter,BufRead,BufNewFile *
+        \ if filereadable('config/application.rb') |
+        \   let g:term_repl_command = 'bundle exec rails console' |
+        \ else |
+        \   let g:term_repl_command = 'irb' |
+        \ endif
 aug END
 
 command! -nargs=? TermTestLib let g:term_test_lib=<q-args>
 command! -nargs=+ T call terminal#do(<q-args>)
 command! -nargs=+ Tmap exec "nnoremap <silent> ,tt :T " . <q-args> . "<cr>"
+
+command! -range=% REPLSendSelection call terminal#repl(text#get_visual_lines())
+command! REPLSendLine call terminal#repl([getline('.')])
+
+nnoremap <silent> <f9> :REPLSendLine<cr>
+vnoremap <silent> <f9> :REPLSendSelection<cr>
 
 " run set test lib
 nnoremap <silent> ,rt :call terminal#test_runner('all')<cr>

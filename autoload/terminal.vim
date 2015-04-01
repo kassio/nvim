@@ -1,12 +1,32 @@
+" Public: Executes a command on terminal. Evaluates any "%" inside the command
+" to the full path of the current file.
 function! terminal#do(command)
   let command = substitute(a:command, '%', expand('%:p'), 'g')
-  let current_window = winnr()
 
+  call <sid>term_exec([command, ''])
+endfunction
+
+" Internal: Loads a terminal, if it is not loaded, and execute a list of
+" commands.
+function! s:term_exec(list)
   if !exists('g:term_current_id')
+    let current_window = winnr()
     exec "botright new | term" | exec current_window . "wincmd w | set noim"
   end
 
-  call jobsend(g:term_current_id, [command, ''])
+  call jobsend(g:term_current_id, a:list)
+endfunction
+
+" Internal: Loads a REPL, if it is not loaded, and execute the given list of
+" commands. The REPL public API are the commands REPLSendLine and
+" REPLSendSelection.
+function! terminal#repl(command)
+  if exists('g:term_repl_command') && !exists('g:term_repl_loaded')
+    call terminal#do(g:term_repl_command)
+    let g:term_repl_loaded = 1
+  end
+
+  call <sid>term_exec(add(a:command, ''))
 endfunction
 
 function! terminal#test_runner(scope)
