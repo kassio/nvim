@@ -8,6 +8,10 @@ aug terminal_setup
         \ if exists('g:term_current_id') |
         \   unlet g:term_current_id |
         \ endif
+  au BufUnload term://*
+        \ if exists('g:term_repl_loaded') |
+        \   unlet g:term_repl_loaded |
+        \ endif
 
   " rspec
   au VimEnter,BufRead,BufNewFile *_spec.rb,*_feature.rb let g:term_test_lib = 'rspec'
