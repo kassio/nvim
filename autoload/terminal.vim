@@ -34,10 +34,11 @@ function! terminal#repl(command)
 endfunction
 
 function! terminal#test_runner(scope)
+  let clear_command = "clear; printf '=%.0s' {1..80}; echo; "
   let Fn = function('terminal#' . g:term_test_lib)
   let g:term_last_test_command = Fn(a:scope)
 
-  call terminal#do(g:term_last_test_command)
+  call terminal#do(clear_command . g:term_last_test_command)
 endfunction
 
 function! terminal#rspec(scope)
@@ -49,7 +50,7 @@ function! terminal#rspec(scope)
     let command .= ' ' . expand('%:p') . ':' . line('.')
   endif
 
-  return "clear; " . command
+  return command
 endfunction
 
 function! terminal#minitest(scope)
