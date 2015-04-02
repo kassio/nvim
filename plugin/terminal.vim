@@ -1,3 +1,4 @@
+let g:term_clear_cmd = "clear; printf '=%.0s' {1..80}; echo; "
 let g:term_position = 'vertical'
 let g:term_position = 1
 let g:term_last_test_command = ''
@@ -55,9 +56,14 @@ endfunction
 
 command! -nargs=? TTestLib let g:term_test_lib=<q-args>
 command! -nargs=1 Tpos let g:term_position=<q-args>
-command! -nargs=+ T call HorizontalTerm(<q-args>)
+
+command! -nargs=+ T call terminal#do(<q-args>)
 command! -nargs=+ Tmap exec "nnoremap <silent> ,tt :T " . <q-args> . "<cr>"
-command! -nargs=+ VT call VTerm(<q-args>)
+
+command! -nargs=+ HT call HorizontalTerm(<q-args>)
+command! -nargs=+ HTmap exec "nnoremap <silent> ,tt :HT " . <q-args> . "<cr>"
+
+command! -nargs=+ VT call VerticalTerm(<q-args>)
 command! -nargs=+ VTmap exec "nnoremap <silent> ,tt :VT " . <q-args> . "<cr>"
 
 command! -range=% REPLSendSelection call terminal#repl(text#get_visual_lines())
@@ -77,4 +83,4 @@ nnoremap <silent>,rr :call terminal#do(g:term_last_test_command)<cr>
 " closes the current terminal
 nnoremap <silent> ,tc :bd! term://*<cr>
 " clear terminal
-nnoremap <silent> ,tl :T hr<cr>
+nnoremap <silent> ,tl :exec "T " . g:term_clear_cmd<cr>
