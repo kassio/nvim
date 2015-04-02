@@ -35,9 +35,9 @@ endfunction
 
 function! terminal#test_runner(scope)
   let Fn = function('terminal#' . g:term_test_lib)
-  let g:term_last_test_command = Fn(a:scope)
+  let g:term_last_test_command = g:term_clear_cmd . Fn(a:scope)
 
-  call terminal#do(g:term_clear_cmd . g:term_last_test_command)
+  call <sid>term_exec([g:term_last_test_command, ''])
 endfunction
 
 function! terminal#rspec(scope)
