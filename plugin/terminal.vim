@@ -1,4 +1,5 @@
-let g:term_test_lib = ''
+let g:term_position = 'vertical'
+let g:term_position = 1
 let g:term_last_test_command = ''
 
 aug terminal_setup
@@ -36,9 +37,28 @@ aug terminal_setup
         \ endif
 aug END
 
-command! -nargs=? TermTestLib let g:term_test_lib=<q-args>
-command! -nargs=+ T call terminal#do(<q-args>)
+function! HorizontalTerm(args)
+  let l:term_default_pos = g:term_position
+  let g:term_position = 'horizontal'
+
+  call terminal#do(a:args)
+  let g:term_position = l:term_default_pos
+endfunction
+
+function! VerticalTerm(args)
+  let l:term_default_pos = g:term_position
+  let g:term_position = 'vertical'
+
+  call terminal#do(a:args)
+  let g:term_position = l:term_default_pos
+endfunction
+
+command! -nargs=? TTestLib let g:term_test_lib=<q-args>
+command! -nargs=1 Tpos let g:term_position=<q-args>
+command! -nargs=+ T call HorizontalTerm(<q-args>)
 command! -nargs=+ Tmap exec "nnoremap <silent> ,tt :T " . <q-args> . "<cr>"
+command! -nargs=+ VT call VTerm(<q-args>)
+command! -nargs=+ VTmap exec "nnoremap <silent> ,tt :VT " . <q-args> . "<cr>"
 
 command! -range=% REPLSendSelection call terminal#repl(text#get_visual_lines())
 command! REPLSendLine call terminal#repl([getline('.')])

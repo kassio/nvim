@@ -11,7 +11,11 @@ endfunction
 function! s:term_exec(list)
   if !exists('g:term_current_id')
     let current_window = winnr()
-    exec "botright new | term" | exec current_window . "wincmd w | set noim"
+    if g:term_position == 'horizontal'
+      exec "botright new | term" | exec current_window . "wincmd w | set noim"
+    else
+      exec "botright vert new | term" | exec current_window . "wincmd w | set noim"
+    end
   end
 
   call jobsend(g:term_current_id, a:list)
