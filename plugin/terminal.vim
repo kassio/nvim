@@ -1,4 +1,4 @@
-let g:term_clear_cmd = "clear; printf '=%.0s' {1..80}; echo; "
+let g:term_clear_cmd = "clear; printf '=%.0s' {1..80}; clear; "
 let g:term_position = 'vertical'
 let g:term_position = 1
 let g:term_last_test_command = ''
