@@ -2,21 +2,9 @@
 
 clear
 
-if [[ -d "$HOME/.nvim/bundle" ]]
+if [[ -d "$HOME/.nvim/plugged" ]]
 then
-  nvim -n -e \
-    +unsilent\ NeoBundleClean! \
-    +silent\ NeoBundleUpdate! \
-    +unsilent\ NeoBundleUpdatesLog \
-    +qall 2>&1
+  nvim +PlugUpdate +PlugUpgrade
 else
-  mkdir -p $HOME/.nvim/bundle
-
-  git clone \
-    https://github.com/Shougo/neobundle.vim \
-    $HOME/.nvim/bundle/neobundle.vim
-
-  nvim -u $HOME/.nvim/neobundle.vim \
-    +NeoBundleInstall! \
-    +qall
+  nvim +PlugInstall +PlugUpgrade
 fi
