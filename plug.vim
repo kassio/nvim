@@ -3,6 +3,7 @@ call plug#begin(expand('~/.nvim/plugged'))
 " Tools
 Plug 'kassio/vim-session_manager'
 Plug 'kassio/ctrlp-bufline'
+Plug 'kassio/neoterm'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
