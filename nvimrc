@@ -25,7 +25,7 @@ set nrformats-=octal
 
 set showcmd
 
-set switchbuf=useopen,usetab,newtab
+set switchbuf=useopen,usetab,split
 set tabpagemax=50
 
 set list listchars=tab:▸\ ,trail:·
