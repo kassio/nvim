@@ -1,4 +1,3 @@
-
 function! helpers#sum(value)
   if !exists('g:sum')
     let g:sum = 0  "result in global variable S
