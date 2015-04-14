@@ -1,7 +1,8 @@
 let g:neoterm_clear_cmd = "clear; printf '=%.0s' {1..80}; clear"
-let g:neoterm_position = 'vertical'
+let g:neoterm_position = 'horizontal'
 
 nnoremap <silent> <f9> :call neoterm#repl#line()<cr>
+nnoremap <silent> <f10> :call neoterm#repl#all()<cr>
 vnoremap <silent> <f9> :call neoterm#repl#selection()<cr>
 
 " run set test lib
