@@ -1,4 +1,4 @@
-let g:neoterm_clear_cmd = "clear; printf '=%.0s' {1..80}; clear"
+let g:neoterm_clear_cmd = "reset;echo -e \"\\033c\\e[3J\""
 let g:neoterm_position = 'horizontal'
 
 nnoremap <silent> <f9> :call neoterm#repl#line()<cr>
