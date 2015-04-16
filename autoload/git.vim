@@ -10,3 +10,11 @@ function! git#check_user()
     endif
   endif
 endfunction
+
+function! git#checkout(path)
+  if a:path == '%'
+    exec 'Git checkout ' . expand('%:p')
+  else
+    exec 'Git checkout ' . a:path
+  end
+endfunction

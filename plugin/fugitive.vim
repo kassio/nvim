@@ -4,4 +4,4 @@ aug delete_fugitive_buffers
 aug END
 
 command! -nargs=+ G execute 'Git ' . <q-args>
-command! -nargs=+ Gco exec 'Git checkout ' . <q-args>
+command! -nargs=+ Gco call git#checkout(<q-args>)
