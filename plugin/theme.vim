@@ -21,3 +21,6 @@ if has("syntax")
   " Markdown styles
   hi! link markdownItalic markdownBold
 endif
+
+command! Dark set background=dark
+command! Light set background=light
