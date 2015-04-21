@@ -7,3 +7,12 @@ function! gem_tags#exec(command)
     echo 'No tags.gems found.'
   end
 endfunction
+
+function! gem_tags#complete(scope)
+  if a:scope != 'default'
+    return "\<c-x>\<c-]>"
+  else
+    let &l:tags='tags.gems'
+    return "\<c-x>\<c-]>"
+  end
+endfunction
