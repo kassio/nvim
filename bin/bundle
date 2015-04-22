@@ -4,7 +4,7 @@ clear
 
 if [[ -d "$HOME/.nvim/plugged" ]]
 then
-  nvim +PlugUpdate +PlugUpgrade
+  nvim +PlugClean +PlugUpdate +PlugUpgrade
 else
   nvim +PlugInstall +PlugUpgrade
 fi
