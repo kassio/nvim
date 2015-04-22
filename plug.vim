@@ -4,6 +4,7 @@ call plug#begin(expand('~/.nvim/plugged'))
 Plug 'kassio/vim-session_manager'
 Plug 'kassio/ctrlp-bufline'
 Plug 'kassio/neoterm'
+Plug 'benekastah/neomake'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -12,8 +13,8 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'mileszs/ack.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 
-" Neovim
-Plug 'benekastah/neomake'
+" Markdown
+Plug 'tpope/vim-markdown'
 
 " textobjs
 Plug 'kana/vim-textobj-user'

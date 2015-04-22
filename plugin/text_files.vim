@@ -11,7 +11,4 @@ aug text_files_setup
 
   au FileType gitcommit setlocal
         \ textwidth=72
-
-  au BufNewFile,BufReadPost,BufWritePre,FileWritePre *.md setlocal
-        \ ft=markdown
 aug END
