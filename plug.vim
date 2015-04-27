@@ -27,7 +27,7 @@ Plug 'wellbredgrapefruit/tomdoc.vim'
 
 " HTML, javascript
 Plug 'othree/html5.vim'
-Plug 'jelera/vim-javascript-syntax'
+Plug 'othree/yajs.vim'
 Plug 'guileen/simple-javascript-indenter'
 
 " react.js
