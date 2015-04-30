@@ -1,5 +1,6 @@
 if has("syntax")
   syntax enable
+  set background=dark
   set t_Co=256
   set synmaxcol=500
   set colorcolumn=80
