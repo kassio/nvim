@@ -2,6 +2,7 @@ set statusline=
 set statusline+=[%n]
 set statusline+=%t%m
 set statusline+=%=
+set statusline+=%#ErrorMsg#%{statusline#neomake()}%*
 set statusline+=%r%y
 set statusline+=[%{&ff}]
 set statusline+=[%{&fenc!=''?&fenc:&enc}]
