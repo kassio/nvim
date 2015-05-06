@@ -1,7 +1,8 @@
-function! statusline#neomake()
+function! statusline#neomake(scope)
   let signs = neomake#statusline#LoclistCounts()
-  if signs != {}
-    return printf("[E:%s|W:%s]", signs['E'], signs['W'])
+
+  if has_key(signs, a:scope)
+    return printf("[%s:%s]", a:scope, signs[a:scope])
   else
     return ""
   end
