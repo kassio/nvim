@@ -13,8 +13,9 @@ endfunction
 
 function! git#checkout(path)
   if a:path == '%'
-    exec 'Git checkout ' . expand('%:p')
+    exec '!git checkout ' . expand('%:p')
   else
-    exec 'Git checkout ' . a:path
+    exec '!git checkout ' . a:path
   end
+  edit
 endfunction
