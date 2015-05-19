@@ -57,7 +57,7 @@ set expandtab smarttab shiftround
 
 set backspace=indent,eol,start
 
-set mousehide mouse=a ttymouse=xterm2
+set mousehide mouse=a
 
 set scrolloff=3
 set lazyredraw
@@ -65,8 +65,6 @@ set lazyredraw
 set foldmethod=manual nofoldenable
 
 set fileformats+=mac
-
-set t_ti= t_te= t_ut=
 
 set nobackup nowritebackup noswapfile
 
