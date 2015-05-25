@@ -10,7 +10,7 @@ let g:neomake_warning_sign = {
       \ 'texthl': 'Warning',
       \ }
 
-let g:neomake_ruby_enabled_makers = ['mri']
+let g:neomake_ruby_enabled_makers = ['rubocop']
 
 " javascript
 let g:neomake_javascript_jshint_maker = {}
