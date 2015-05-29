@@ -35,10 +35,12 @@ function! s:mirror_or_create()
 endfunction
 
 function! s:nerdtree_current_buffer()
-  let all_buffers = range(1, bufnr('$'))
-  let nerdtree_buffers = filter(all_buffers, 'bufname(v:val) =~ "NERD_tree_\\d\\+"')
-  if !empty(nerdtree_buffers) && !exists('g:nerdtree_current_buffer')
-    let g:nerdtree_current_buffer = nerdtree_buffers[0]
+  if !exists('g:nerdtree_current_buffer')
+    let all_buffers = range(1, bufnr('$'))
+    let nerdtree_buffers = filter(all_buffers, 'bufname(v:val) =~ "NERD_tree_\\d\\+"')
+    if !empty(nerdtree_buffers)
+      let g:nerdtree_current_buffer = nerdtree_buffers[0]
+    end
   end
 
   return get(g:, 'nerdtree_current_buffer', -1)
