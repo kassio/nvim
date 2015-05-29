@@ -1,7 +1,7 @@
 source ~/.nvim/plug.vim
 
 scriptencoding utf8
-set encoding=utf8 fileencoding=utf8 termencoding=utf8 nobomb
+set fileencoding=utf8 nobomb
 
 runtime macros/matchit.vim
 set showmatch
@@ -54,8 +54,6 @@ set noesckeys ttimeout ttimeoutlen=1 timeoutlen=280
 set autoindent copyindent cindent smartindent
 set tabstop=2 shiftwidth=2 softtabstop=2
 set expandtab smarttab shiftround
-
-set backspace=indent,eol,start
 
 set mousehide mouse=a
 
