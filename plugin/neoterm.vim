@@ -16,3 +16,7 @@ nnoremap <silent> ,rr :call neoterm#test#rerun()<cr>
 nnoremap <silent> ,tc :call neoterm#close_all()<cr>
 " clear terminal
 nnoremap <silent> ,tl :call neoterm#clear()<cr>
+
+command! TRoutes :T rake routes
+command! -nargs=+ TRoute :T rake routes | grep <args>
+command! TMigrate :T rake db:migrate
