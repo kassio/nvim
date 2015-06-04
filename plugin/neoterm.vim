@@ -17,6 +17,10 @@ nnoremap <silent> ,tc :call neoterm#close_all()<cr>
 " clear terminal
 nnoremap <silent> ,tl :call neoterm#clear()<cr>
 
-command! TRoutes :T rake routes
-command! -nargs=+ TRoute :T rake routes | grep <args>
-command! TMigrate :T rake db:migrate
+" Rails commands
+command! Troutes :T rake routes
+command! -nargs=+ Troute :T rake routes | grep <args>
+command! Tmigrate :T rake db:migrate
+
+" Git commands
+command! -nargs=+ Tg :T git <args>
