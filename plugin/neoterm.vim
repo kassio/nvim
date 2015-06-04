@@ -1,4 +1,3 @@
-let g:neoterm_clear_cmd = "reset;echo -e \"\\033c\\e[3J\""
 let g:neoterm_position = 'horizontal'
 
 nnoremap <silent> <f10> :TREPLSendFile<cr>
@@ -12,10 +11,12 @@ nnoremap <silent> ,rn :call neoterm#test#run('current')<cr>
 nnoremap <silent> ,rr :call neoterm#test#rerun()<cr>
 
 " Useful maps
-" closes the all terminal buffers
-nnoremap <silent> ,tc :call neoterm#close_all()<cr>
+" hide all terminals
+nnoremap <silent> ,th :call neoterm#close_all()<cr>
 " clear terminal
 nnoremap <silent> ,tl :call neoterm#clear()<cr>
+" kills the current job (send a <c-c>)
+nnoremap <silent> ,tc :call neoterm#kill()<cr>
 
 " Rails commands
 command! Troutes :T rake routes
