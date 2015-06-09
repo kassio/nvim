@@ -26,4 +26,4 @@ command! -nargs=+ Troute :T rake routes | grep <args>
 command! Tmigrate :T rake db:migrate
 
 " Git commands
-command! -nargs=+ Tg :T git <args>
+command! -nargs=* Tg :T git <args>
