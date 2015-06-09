@@ -3,7 +3,7 @@ let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeHighlightCursorline = 1
 let NERDTreeStatusline="\ %-28{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
-let NERDTreeIgnore=['tags', 'tags.gems']
+let NERDTreeIgnore=['\.tags', '\.tags\.gems']
 
 nmap <silent> <leader>p :call personal#nerdtree#mirror_toggle()<CR>
 nnoremap <silent> <leader>fl :call personal#nerdtree#mirror_find()<CR>
