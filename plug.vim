@@ -29,10 +29,11 @@ Plug 'sirver/ultisnips'
 " Tomdoc
 Plug 'wellbredgrapefruit/tomdoc.vim'
 
-" HTML, javascript
+" HTML, javascript, css, scss, less
 Plug 'othree/html5.vim'
 Plug 'othree/yajs.vim'
 Plug 'guileen/simple-javascript-indenter'
+Plug 'groenewege/vim-less'
 
 " react.js
 Plug 'mxw/vim-jsx'
