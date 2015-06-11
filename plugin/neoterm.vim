@@ -21,9 +21,8 @@ nnoremap <silent> ,tl :call neoterm#clear()<cr>
 nnoremap <silent> ,tc :call neoterm#kill()<cr>
 
 " Rails commands
-command! Troutes :T rake routes
-command! -nargs=+ Troute :T rake routes | grep <args>
-command! Tmigrate :T rake db:migrate
+command! -nargs=+ Tr :T rails <args>
+command! -nargs=+ Trake :T rake <args>
 
 " Git commands
 command! -nargs=* Tg :T git <args>
