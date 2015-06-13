@@ -18,10 +18,7 @@ set number numberwidth=3
 
 set incsearch hls ignorecase smartcase
 
-set formatoptions=tcwqnj2
 set cursorline
-
-set nrformats-=octal
 
 set showcmd
 
@@ -35,8 +32,7 @@ set virtualedit=block
 set complete=.,w,b,u,i
 set completeopt=menu,menuone,preview,longest
 
-set wildmenu wildignorecase
-set wildmode=list:longest,list:full
+set wildignorecase
 set wildignore=&completeopt
 set wildignore+=*.zip,*.gz,*.bz,*.tar
 set wildignore+=*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
