@@ -19,5 +19,5 @@ git clone git://github.com/kassio/nvimfiles.git ~/.nvim
 ### Install neovim plugins:
 
 ```console
-$HOME/.nvim/bin/bundle
+nvim +PlugInstall
 ```
