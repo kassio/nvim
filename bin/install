@@ -22,7 +22,7 @@ yellow '>> Updating python client.'
 (
   pip uninstall neovim -y -q &>/dev/null
   pip install neovim -q
-); [ $? != 0 ] && exit $?
+); result=$?; [ $result != 0 ] && exit $result
 
 yellow '\n>> Checking the environment.'
 
@@ -32,7 +32,7 @@ yellow '\n>> Checking the environment.'
   test_dependency "command -v 'jshint'" "jshint" "npm install -g jshint"
   test_dependency "command -v 'scss-lint'" "scss-lint" "gem install scss-lint"
   test_dependency "pip list | grep neovim" "neovim python client" "pip install neovim"
-); [ $? != 0 ] && exit $?
+); result=$?; [ $result != 0 ] && exit $result
 
 yellow '\n>> Updating neovim.'
 brew tap neovim/homebrew-neovim 2>/dev/null
