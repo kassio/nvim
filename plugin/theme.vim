@@ -11,6 +11,7 @@ if has("syntax")
 
   hi! link NonText SpecialKey
   hi! VertSplit ctermbg=NONE
+  hi! EndOfBuffer ctermfg=8
 
   hi! StatusLine ctermfg=4 ctermbg=0
   hi! StatusLineNC ctermfg=10 ctermbg=0
