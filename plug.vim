@@ -26,7 +26,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'sirver/ultisnips'
 
 " Tomdoc
-Plug 'wellbredgrapefruit/tomdoc.vim'
+Plug 'kassio/tomdoc.vim'
 
 " HTML, javascript, css, scss, less
 Plug 'othree/html5.vim'
