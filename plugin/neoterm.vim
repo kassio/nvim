@@ -1,4 +1,16 @@
 let g:neoterm_position = 'horizontal'
+let g:neoterm_size = 15
+
+aug neoterm_fix_win
+  au!
+  au BufEnter term://*:NEOTERM
+        \ setlocal nonumber norelativenumber winfixheight winfixwidth
+
+  au BufUnload,BufDelete,BufWipeout term://*:NEOTERM
+        \ resize
+  au BufUnload,BufDelete,BufWipeout term://*:NEOTERM
+        \ setlocal nonumber< norelativenumber< winfixheight< winfixwidth<
+aug END
 
 nnoremap <silent> <f10> :TREPLSendFile<cr>
 nnoremap <silent> <f9> :TREPLSend<cr>
