@@ -16,20 +16,19 @@ set diffopt+=vertical
 
 set relativenumber number numberwidth=3
 
-set incsearch hls ignorecase smartcase
+set ignorecase smartcase
 
 set cursorline
 
 set showcmd
 
 set switchbuf=useopen,usetab,split
-set tabpagemax=50
 
 set list listchars=tab:▸\ ,trail:·
 
 set virtualedit=block
 
-set complete=.,w,b,u,i
+set complete=.,w,b,u
 set completeopt=menu,menuone,preview,longest
 set tags=tags,tags.gems
 
@@ -38,19 +37,13 @@ set wildignore=&completeopt
 set wildignore+=*.zip,*.gz,*.bz,*.tar
 set wildignore+=*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
 
-set nowrap wrapscan showbreak=..
-
-set autoread autowrite
-
-set viminfo^=!
+set nowrap
 
 set sessionoptions=buffers,tabpages,help
 
-set autoindent copyindent cindent smartindent
+set copyindent cindent smartindent
 set tabstop=2 shiftwidth=2 softtabstop=2
-set expandtab smarttab shiftround
-
-set mousehide mouse=a
+set expandtab shiftround
 
 set scrolloff=3
 set lazyredraw
