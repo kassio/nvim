@@ -2,6 +2,9 @@ set statusline=
 set statusline+=[%n]
 set statusline+=%t%m
 set statusline+=%=
+set statusline+=%#NeotermTestRunning#%{neoterm#test#status('running')}%*
+set statusline+=%#NeotermTestSuccess#%{neoterm#test#status('success')}%*
+set statusline+=%#NeotermTestFailed#%{neoterm#test#status('failed')}%*
 set statusline+=%#ErrorMsg#%{statusline#neomake('E')}%*
 set statusline+=%#WarningMsg#%{statusline#neomake('W')}%*
 set statusline+=%r%y
