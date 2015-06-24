@@ -2,9 +2,7 @@ let g:neoterm_position = 'horizontal'
 let g:neoterm_size = 10
 let g:neoterm_run_tests_bg = 1
 let g:neoterm_raise_when_tests_fail = 1
-
 let g:neoterm_test_status_format = '·%s ·'
-
 let g:neoterm_test_status = {
       \ 'running': '🏃 🏃 🏃',
       \ 'success': '💚 💚 💚',
