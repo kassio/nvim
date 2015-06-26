@@ -9,6 +9,7 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'altercation/vim-colors-solarized'
 Plug 'mileszs/ack.vim'
+Plug 'kassio/neogrep'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kassio/ctrlp-bufline'
 
