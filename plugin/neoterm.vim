@@ -25,10 +25,10 @@ nnoremap <silent> <f9> :TREPLSend<cr>
 vnoremap <silent> <f9> :TREPLSend<cr>
 
 " run set test lib
-nnoremap <silent> ,rt :call neoterm#test#run('all')<cr>
-nnoremap <silent> ,rf :call neoterm#test#run('file')<cr>
-nnoremap <silent> ,rn :call neoterm#test#run('current')<cr>
-nnoremap <silent> ,rr :call neoterm#test#rerun()<cr>
+nnoremap <silent> <leader>rt :call neoterm#test#run('all')<cr>
+nnoremap <silent> <leader>rf :call neoterm#test#run('file')<cr>
+nnoremap <silent> <leader>rn :call neoterm#test#run('current')<cr>
+nnoremap <silent> <leader>rr :call neoterm#test#rerun()<cr>
 
 " Useful maps
 " hide all terminals
