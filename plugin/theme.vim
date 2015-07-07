@@ -16,8 +16,8 @@ if has("syntax")
   hi! StatusLine ctermfg=4 ctermbg=0
   hi! StatusLineNC ctermfg=10 ctermbg=0
 
-  " Statusline section colors
-  hi User1 term=reverse cterm=reverse ctermfg=1 ctermbg=14 gui=bold,reverse
+  hi! StatusWarning cterm=reverse ctermfg=156
+  hi! StatusError cterm=reverse ctermfg=124
 
   " Markdown styles
   hi! link markdownItalic markdownBold
