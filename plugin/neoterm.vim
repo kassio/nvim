@@ -46,3 +46,6 @@ command! -nargs=+ Trake :T rake <args>
 
 " Git commands
 command! -nargs=* Tg :T git <args>
+
+" easiest way to escape terminal mode
+tnoremap <esc><esc> <c-\><c-n>
