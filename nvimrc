@@ -54,4 +54,6 @@ set fileformats+=mac
 
 set nobackup nowritebackup noswapfile
 
+set ttimeout
+
 let mapleader=','
