@@ -35,9 +35,3 @@ let g:neomake_scss_scsslint_maker = {
       \ 'errorformat': '%f:%l [%t] %m',
       \ }
 let g:neomake_scss_enabled_makers = ['scsslint']
-
-" less
-let g:neomake_less_lessclinter_maker = extend(neomake#makers#ft#less#lessc(), {
-      \ 'exe': '/opt/boxen/homebrew/bin/lessc'
-      \ })
-let g:neomake_less_enabled_makers = ['lessclinter']
