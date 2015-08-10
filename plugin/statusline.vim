@@ -1,6 +1,6 @@
 set statusline=
 set statusline+=[%n]
-set statusline+=%t%m
+set statusline+=%m%f
 set statusline+=%=
 set statusline+=%#StatusWarning#%{statusline#neomake('W')}%*
 set statusline+=%#StatusError#%{statusline#neomake('E')}%*
