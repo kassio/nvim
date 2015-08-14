@@ -20,15 +20,15 @@ aug neoterm_fix_win
         \ setlocal nonumber< norelativenumber< winfixheight< winfixwidth<
 aug END
 
-nnoremap <silent> <f10> :TREPLSendFile<cr>
-nnoremap <silent> <f9> :TREPLSend<cr>
-vnoremap <silent> <f9> :TREPLSend<cr>
+nnoremap <silent> <leader>rf :TREPLSendFile<cr>
+nnoremap <silent> <leader>rs :TREPLSend<cr>
+vnoremap <silent> <leader>rs :TREPLSend<cr>
 
 " run set test lib
-nnoremap <silent> <leader>rt :call neoterm#test#run('all')<cr>
-nnoremap <silent> <leader>rf :call neoterm#test#run('file')<cr>
-nnoremap <silent> <leader>rn :call neoterm#test#run('current')<cr>
-nnoremap <silent> <leader>rr :call neoterm#test#rerun()<cr>
+nnoremap <silent>  <f8> :call neoterm#test#run('all')<cr>
+nnoremap <silent>  <f9> :call neoterm#test#run('file')<cr>
+nnoremap <silent> <f10> :call neoterm#test#run('current')<cr>
+nnoremap <silent> <f11> :call neoterm#test#rerun()<cr>
 
 " Useful maps
 " hide all terminals

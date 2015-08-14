@@ -17,11 +17,6 @@ nnoremap <silent> <leader>da :silent bufdo call buffer#kill()<cr>
 " Move current window to currend file path
 nnoremap <silent> <leader>cd :lcd %:p:h<cr>:pwd<cr>
 
-" Spell
-nnoremap <silent> <f7> <esc>:set invspell<cr>
-nnoremap <silent> <f6> zg
-nnoremap <silent> <f8> z=
-
 nnoremap <silent> g# #
 nnoremap <silent> g* *
 
