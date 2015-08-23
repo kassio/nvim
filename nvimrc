@@ -24,7 +24,7 @@ set showcmd
 
 set switchbuf=useopen,usetab,split
 
-set list listchars=tab:▸\ ,trail:·
+set list
 
 set virtualedit=block
 
