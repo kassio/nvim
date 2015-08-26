@@ -22,7 +22,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'sirver/ultisnips'
 
 " Tomdoc
-Plug 'kassio/tomdoc.vim'
+Plug 'wellbredgrapefruit/tomdoc.vim'
 
 " Markdown
 Plug 'tpope/vim-markdown'
