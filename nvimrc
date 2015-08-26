@@ -45,7 +45,6 @@ set copyindent cindent smartindent
 set tabstop=2 shiftwidth=2 softtabstop=2
 set expandtab shiftround
 
-set scrolloff=3
 set lazyredraw
 
 set foldmethod=manual nofoldenable
