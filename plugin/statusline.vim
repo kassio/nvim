@@ -11,4 +11,3 @@ set statusline+=%r%y
 set statusline+=[%{&ff}]
 set statusline+=[%{&fenc!=''?&fenc:&enc}]
 set statusline+=[%c,%l/%L]
-set laststatus=2
