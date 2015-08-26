@@ -6,7 +6,7 @@ Plug 'kassio/neoterm'
 Plug 'benekastah/neomake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeMirror'] }
+Plug 'scrooloose/nerdtree'
 Plug 'altercation/vim-colors-solarized'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kassio/ctrlp-bufline'
@@ -25,26 +25,26 @@ Plug 'sirver/ultisnips'
 Plug 'kassio/tomdoc.vim'
 
 " Markdown
-Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'tpope/vim-markdown'
 
 " HTML, javascript, css, scss, less
-Plug 'othree/html5.vim', { 'for': 'html' }
-Plug 'othree/yajs.vim', { 'for': 'javascript' }
-Plug 'guileen/simple-javascript-indenter', { 'for': 'javascript' }
-Plug 'groenewege/vim-less', { 'for': 'less' }
+Plug 'othree/html5.vim'
+Plug 'othree/yajs.vim'
+Plug 'guileen/simple-javascript-indenter'
+Plug 'groenewege/vim-less'
 
 " react.js
 Plug 'mxw/vim-jsx'
 
 " Ruby
-Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-Plug 'Keithbsmiley/rspec.vim', { 'for': 'ruby' }
+Plug 'vim-ruby/vim-ruby'
+Plug 'Keithbsmiley/rspec.vim'
 
 " Elixir
-Plug 'elixir-lang/vim-elixir', { 'for': 'elixir,elixirc' }
+Plug 'elixir-lang/vim-elixir'
 
 " Puppet
-Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
+Plug 'rodjek/vim-puppet'
 
 call plug#end()
 
