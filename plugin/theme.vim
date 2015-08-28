@@ -1,11 +1,11 @@
 if has("syntax")
   syntax enable
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  colorscheme OceanicNext
   set background=dark
-  set t_Co=256
+
   set synmaxcol=500
   set colorcolumn=80
-
-  colorscheme solarized
 
   hi! SpecialKey ctermfg=239 ctermbg=NONE guifg=Gray30 guibg=NONE
 

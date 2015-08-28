@@ -8,6 +8,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'altercation/vim-colors-solarized'
+Plug 'mhartington/oceanic-next'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kassio/ctrlp-bufline'
 
