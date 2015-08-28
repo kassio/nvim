@@ -30,8 +30,7 @@ Plug 'tpope/vim-markdown'
 
 " HTML, javascript, css, scss, less
 Plug 'othree/html5.vim'
-Plug 'othree/yajs.vim'
-Plug 'guileen/simple-javascript-indenter'
+Plug 'pangloss/vim-javascript'
 Plug 'groenewege/vim-less'
 
 " react.js
