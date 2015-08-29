@@ -6,7 +6,8 @@ Plug 'kassio/neoterm'
 Plug 'benekastah/neomake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeMirror'] }
+Plug 'ryanoasis/vim-devicons', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeMirror'] }
 Plug 'altercation/vim-colors-solarized'
 Plug 'mhartington/oceanic-next'
 Plug 'ctrlpvim/ctrlp.vim'
