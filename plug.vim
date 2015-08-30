@@ -11,6 +11,7 @@ Plug 'ryanoasis/vim-devicons', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeM
 Plug 'mhartington/oceanic-next'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kassio/ctrlp-bufline'
+Plug 'pbrisbin/vim-mkdir'
 
 " Git
 Plug 'tpope/vim-fugitive'
