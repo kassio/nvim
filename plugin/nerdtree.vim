@@ -5,8 +5,8 @@ let NERDTreeHighlightCursorline = 1
 let NERDTreeStatusline="\ %-28{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
 let NERDTreeIgnore=['tags', 'tags\.gems', 'coverage']
 
-nmap <silent> <leader>p :call personal#nerdtree#mirror_toggle()<CR>
-nnoremap <silent> <leader>fl :call personal#nerdtree#mirror_find()<CR>
+nmap <silent> <c-q> :call personal#nerdtree#mirror_toggle()<CR>
+nnoremap <silent> <m-q> :call personal#nerdtree#mirror_find()<CR>
 
 aug nerdtree_view
   au!
