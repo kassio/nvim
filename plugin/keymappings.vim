@@ -29,6 +29,8 @@ vnoremap <silent> * :<c-u>call text#highlight_visual()<cr>//<cr>
 vnoremap <silent> # :<c-u>call text#highlight_visual()<cr>??<cr>
 vnoremap <silent> ! :<c-u>call text#highlight_visual()<cr>
 nnoremap <silent> ! :call text#highlight(expand('<cword>'))<cr>
+vnoremap <silent> <leader>! :<c-u>call text#highlight_sensitive_visual()<cr>
+nnoremap <silent> <leader>! :call text#highlight_sensitive(expand('<cword>'))<cr>
 
 nnoremap K <nop>
 nnoremap Q <nop>

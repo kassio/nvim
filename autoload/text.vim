@@ -9,13 +9,22 @@ function! text#get_visual()
   return join(lines, "\\n")
 endfunction
 
+function! text#highlight_visual()
+  call text#highlight(text#get_visual())
+endfunction
+
 function! text#highlight(text)
   let @/ = escape(a:text, ' *^$./\[]')
   call feedkeys(":let v:hlsearch=1\<cr>", "n")
 endfunction
 
-function! text#highlight_visual()
-  call text#highlight(text#get_visual())
+function! text#highlight_sensitive_visual()
+  call text#highlight_sensitive(text#get_visual())
+endfunction
+
+function! text#highlight_sensitive(text)
+  let @/ = '\C' . escape(a:text, ' *^$./\[]')
+  call feedkeys(":let v:hlsearch=1\<cr>", "n")
 endfunction
 
 function! text#escape_all(text)
