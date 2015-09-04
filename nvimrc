@@ -56,7 +56,3 @@ set nobackup nowritebackup noswapfile
 set ttimeout
 
 let mapleader=','
-
-if exists("g:loaded_webdevicons")
-  call webdevicons#refresh()
-endif
