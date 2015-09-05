@@ -1,4 +1,4 @@
-let g:neoterm_test_status_format = '%s'
+let g:neoterm_test_status_format = ' %s '
 let g:neoterm_size = 20
 
 aug neoterm_fix_win

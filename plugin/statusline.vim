@@ -1,13 +1,24 @@
-set statusline=
-set statusline+=[%n]
-set statusline+=%m%f
-set statusline+=%=
-set statusline+=%#StatusWarning#%{statusline#neomake('W')}%*
-set statusline+=%#StatusError#%{statusline#neomake('E')}%*
-set statusline+=%#NeotermTestRunning#%{neoterm#test#status('running')}%*
-set statusline+=%#NeotermTestSuccess#%{neoterm#test#status('success')}%*
-set statusline+=%#NeotermTestFailed#%{neoterm#test#status('failed')}%*
-set statusline+=%r%y
-set statusline+=[%{&ff}]
-set statusline+=[%{&fenc!=''?&fenc:&enc}]
-set statusline+=[%c,%l/%L]
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'bufnum' ], [ 'modified', 'filename' ] ],
+      \   'right': [
+      \       [ 'neomake', 'neoterm_r', 'neoterm_s', 'neoterm_f' ],
+      \       [ 'fileformat', 'fileencoding', 'filetype', 'line_count' ]
+      \   ]
+      \ },
+      \ 'component': {
+      \   'bufnum': '%n',
+      \   'line_count': '%c,%l/%L',
+      \   'neomake': '%#StatusWarning#%{statusline#neomake()}%*',
+      \   'neoterm_r': '%{neoterm#test#status("running")}%*',
+      \   'neoterm_s': '%#StatusSuccess#%{neoterm#test#status("success")}%*',
+      \   'neoterm_f': '%#StatusError#%{neoterm#test#status("failed")}%*'
+      \ },
+      \ 'component_visible_condition': {
+      \   'readonly': '(&filetype!="help"&& &readonly)',
+      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+      \   'neomake': '(len(statusline#neomake())>0)'
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }

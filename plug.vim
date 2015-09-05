@@ -11,6 +11,7 @@ Plug 'mhartington/oceanic-next'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kassio/ctrlp-bufline'
 Plug 'pbrisbin/vim-mkdir'
+Plug 'itchyny/lightline.vim'
 
 " Git
 Plug 'tpope/vim-fugitive'

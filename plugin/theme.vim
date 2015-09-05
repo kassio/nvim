@@ -13,11 +13,9 @@ if has("syntax")
   hi! VertSplit ctermbg=NONE
   hi! EndOfBuffer ctermfg=8
 
-  hi! StatusLine guifg=#343d46 guibg=#f99157
-  hi! StatusLineNC guifg=#65737e guibg=#343d46
-
-  hi! StatusWarning guifg=#fac863 guibg=#343d46
-  hi! StatusError guifg=#ec5f67 guibg=#343d46
+  hi! StatusWarning guifg=#fac863
+  hi! StatusError guifg=#ec5f67
+  hi! StatusSuccess guifg=#99c794
 
   " Markdown styles
   hi! link markdownItalic markdownBold
