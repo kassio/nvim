@@ -1,5 +1,5 @@
 let g:neoterm_test_status_format = ' %s '
-let g:neoterm_size = 20
+let g:neoterm_size = 15
 
 aug neoterm_fix_win
   au!
