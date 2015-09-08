@@ -1,6 +1,7 @@
 let g:lightline = {
+      \ 'colorscheme': 'PaperColor_dark',
       \ 'active': {
-      \   'left': [ [ 'bufnum' ], [ 'modified', 'filename' ] ],
+      \   'left': [ [ 'mode', 'bufnum' ], [ 'modified', 'filename' ] ],
       \   'right': [
       \       [ 'neomake', 'neoterm_r', 'neoterm_s', 'neoterm_f' ],
       \       [ 'fileformat', 'fileencoding', 'filetype', 'line_count' ]
