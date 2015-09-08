@@ -10,6 +10,8 @@ set confirm
 
 set shortmess=aI
 
+set noshowmode
+
 set splitright splitbelow
 
 set diffopt+=vertical
