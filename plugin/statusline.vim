@@ -11,19 +11,23 @@ let g:lightline = {
       \       [ 'fileformat', 'fileencoding', 'filetype', 'line_count', 'nerdtree' ]
       \   ]
       \ },
+      \ 'inactive': {
+      \   'left': [ [ 'filename' ] ],
+      \   'right': [ [ 'nerdtree' ] ]
+      \ },
       \ 'component': {
-      \   'bufnum': '%n |',
-      \   'line_count': '%c,%l/%L',
       \   'neomake': '%#StatusWarning#%{statusline#neomake()}%*',
       \   'neoterm_r': '%{neoterm#test#status("running")}%*',
       \   'neoterm_s': '%#StatusSuccess#%{neoterm#test#status("success")}%*',
       \   'neoterm_f': '%#StatusError#%{neoterm#test#status("failed")}%*'
       \ },
       \ 'component_function': {
+      \   'bufnum': 'LightLineBufNum',
       \   'filename': 'LightLineFilename',
       \   'fileformat': 'LightLineFileformat',
       \   'filetype': 'LightLineFiletype',
       \   'fileencoding': 'LightLineFileencoding',
+      \   'line_count': 'LightLineStats',
       \   'mode': 'LightLineMode',
       \   'ctrlpmark': 'CtrlPMark',
       \   'nerdtree': 'NERDTreeStatusline'
@@ -36,6 +40,10 @@ let g:lightline = {
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' }
       \ }
+
+function! LightLineBufNum()
+  return expand('%:t') =~ 'NERD_tree' ? '' : bufnr('%') . ' |'
+endfunction
 
 function! LightLineModified()
   return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
@@ -65,15 +73,25 @@ function! LightLineFileencoding()
   return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
 endfunction
 
+function! LightLineStats()
+  if expand('%:t') =~ 'NERD_tree'
+    return ''
+  else
+   let curpos = getcurpos()
+   return printf('%d,%d/%d', curpos[2], curpos[1], line('$'))
+  end
+endfunction
+
 function! LightLineMode()
   let fname = expand('%:t')
   return fname == 'ControlP' ? 'CtrlP' :
+        \ fname =~ 'NERD_tree' ? '' :
         \ winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
 function! NERDTreeStatusline()
   if expand('%:t') =~ 'NERD_tree'
-    return strpart(matchstr(getline('.'), '\s\zs\w\(.*\)'), 0, 28)
+    return lightline#concatenate([strpart(matchstr(getline('.'), '\s\zs\w\(.*\)'), 0, 28)], 0)
   else
     return ''
   end
