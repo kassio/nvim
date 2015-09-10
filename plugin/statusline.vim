@@ -4,7 +4,7 @@ let g:lightline = {
       \   'left': [
       \       [ 'bufnum', 'mode' ],
       \       [ 'modified', 'filename' ],
-      \       [ 'ctrlpmark' ]
+      \       [ 'ctrlp' ]
       \   ],
       \   'right': [
       \       [ 'neomake', 'neoterm_r', 'neoterm_s', 'neoterm_f' ],
@@ -22,15 +22,15 @@ let g:lightline = {
       \   'neoterm_f': '%#StatusError#%{neoterm#test#status("failed")}%*'
       \ },
       \ 'component_function': {
-      \   'bufnum': 'LightLineBufNum',
-      \   'filename': 'LightLineFilename',
-      \   'fileformat': 'LightLineFileformat',
-      \   'filetype': 'LightLineFiletype',
-      \   'fileencoding': 'LightLineFileencoding',
-      \   'line_count': 'LightLineStats',
-      \   'mode': 'LightLineMode',
-      \   'ctrlpmark': 'CtrlPMark',
-      \   'nerdtree': 'NERDTreeStatusline'
+      \   'bufnum': 'statusline#bufnum',
+      \   'filename': 'statusline#filename',
+      \   'fileformat': 'statusline#fileformat',
+      \   'filetype': 'statusline#filetype',
+      \   'fileencoding': 'statusline#fileencoding',
+      \   'line_count': 'statusline#stats',
+      \   'mode': 'statusline#mode',
+      \   'ctrlp': 'statusline#ctrlp',
+      \   'nerdtree': 'statusline#nerdtree'
       \ },
       \ 'component_visible_condition': {
       \   'readonly': '(&filetype!="help"&& &readonly)',
@@ -41,87 +41,7 @@ let g:lightline = {
       \ 'subseparator': { 'left': '', 'right': '' }
       \ }
 
-function! LightLineBufNum()
-  return expand('%:t') =~ 'NERD_tree' ? '' : bufnr('%') . ' |'
-endfunction
-
-function! LightLineModified()
-  return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! LightLineReadonly()
-  return &ft !~? 'help' && &readonly ? 'RO' : ''
-endfunction
-
-function! LightLineFilename()
-  let fname = expand('%:t')
-  return fname == 'ControlP' ? g:lightline.ctrlp_item :
-        \ ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-        \ ('' != fname ? fname : '[No Name]') .
-        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
-endfunction
-
-function! LightLineFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
-endfunction
-
-function! LightLineFiletype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-endfunction
-
-function! LightLineFileencoding()
-  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
-
-function! LightLineStats()
-  if expand('%:t') =~ 'NERD_tree'
-    return ''
-  else
-   let curpos = getcurpos()
-   return printf('%d,%d/%d', curpos[2], curpos[1], line('$'))
-  end
-endfunction
-
-function! LightLineMode()
-  let fname = expand('%:t')
-  return fname == 'ControlP' ? 'CtrlP' :
-        \ fname =~ 'NERD_tree' ? '' :
-        \ winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
-
-function! NERDTreeStatusline()
-  if expand('%:t') =~ 'NERD_tree'
-    return lightline#concatenate([strpart(matchstr(getline('.'), '\s\zs\w\(.*\)'), 0, 28)], 0)
-  else
-    return ''
-  end
-endfunction
-
-function! CtrlPMark()
-  if expand('%:t') =~ 'ControlP'
-    call lightline#link('iR'[g:lightline.ctrlp_regex])
-    return lightline#concatenate([
-          \ g:lightline.ctrlp_prev,
-          \ g:lightline.ctrlp_item,
-          \ g:lightline.ctrlp_next], 0)
-  else
-    return ''
-  endif
-endfunction
-
 let g:ctrlp_status_func = {
-  \ 'main': 'CtrlPStatusFuncMain',
-  \ 'prog': 'CtrlPStatusFuncProg',
+  \ 'main': 'statusline#ctrlp_main',
+  \ 'prog': 'statusline#ctrlp_prog',
   \ }
-
-function! CtrlPStatusFuncMain(focus, byfname, regex, prev, item, next, marked)
-  let g:lightline.ctrlp_regex = a:regex
-  let g:lightline.ctrlp_prev = a:prev
-  let g:lightline.ctrlp_item = a:item
-  let g:lightline.ctrlp_next = a:next
-  return lightline#statusline(0)
-endfunction
-
-function! CtrlPStatusFuncProg(str)
-  return lightline#statusline(0)
-endfunction
