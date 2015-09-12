@@ -34,6 +34,10 @@ nnoremap <silent> <leader>! :call text#highlight_sensitive(expand('<cword>'))<cr
 
 nnoremap K <nop>
 nnoremap Q <nop>
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
 
 " Indent all file
 nnoremap <silent> <leader>ff :call preserve#preserve('silent normal gg=G')<cr>
