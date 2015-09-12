@@ -27,8 +27,9 @@ endfunction
 function! statusline#filename()
   let fname = expand('%:t')
   return fname == 'ControlP' ? g:lightline.ctrlp_item :
+        \ fname =~ 'NERD_tree' ? '' :
         \ ('' != statusline#readonly() ? statusline#readonly() . ' ' : '') .
-        \ ('' != fname ? fname : '[No Name]') .
+        \ ('' != fname ? expand('%') : '[No Name]') .
         \ ('' != statusline#modified() ? ' ' . statusline#modified() : '')
 endfunction
 
