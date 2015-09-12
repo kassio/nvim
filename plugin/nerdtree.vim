@@ -4,8 +4,8 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeHighlightCursorline = 1
 let NERDTreeIgnore=['tags', 'tags\.gems', 'coverage']
 
-nmap <silent> <c-q> :call personal#nerdtree#mirror_toggle()<CR>
-nnoremap <silent> <m-q> :call personal#nerdtree#mirror_find()<CR>
+nmap <silent> <leader>p :call personal#nerdtree#mirror_toggle()<CR>
+nnoremap <silent> <leader>fl :call personal#nerdtree#mirror_find()<CR>
 
 aug nerdtree_view
   au!
