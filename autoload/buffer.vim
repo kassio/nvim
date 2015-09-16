@@ -1,6 +1,6 @@
 function! buffer#kill()
-  if &ft =~? 'nerdtree'
-    normal q
+  if &ft =~? 'nerdtree' || &bt =~? 'terminal'
+    close
   else
     bwipeout!
   endif

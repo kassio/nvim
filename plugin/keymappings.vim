@@ -13,7 +13,7 @@ endif
 " Delete current buffer
 nnoremap <silent> <leader>bd :call buffer#kill()<cr>
 " Delete all buffers
-nnoremap <silent> <leader>da :silent bufdo call buffer#kill()<cr>
+nnoremap <silent> <leader>da :silent bufdo! call buffer#kill()<cr>
 " Move current window to currend file path
 nnoremap <silent> <leader>cd :lcd %:p:h<cr>:pwd<cr>
 
