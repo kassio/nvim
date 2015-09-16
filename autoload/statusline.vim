@@ -56,7 +56,9 @@ endfunction
 
 function! statusline#mode()
   let fname = expand('%:t')
-  return fname == 'ControlP' ? 'CtrlP' :
+  return &bt =~ 'terminal' ?
+        \ (mode(bufnr('%')) == 'n' ? 'Terminal' : 'Terminal INSERT' ) :
+        \ fname == 'ControlP' ? 'CtrlP' :
         \ fname =~ 'NERD_tree' ? '' :
         \ winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
