@@ -6,6 +6,8 @@ set fileencoding=utf8 nobomb
 runtime macros/matchit.vim
 set showmatch
 
+set autoread
+
 set confirm
 
 set shortmess=aI
@@ -34,9 +36,10 @@ set complete=.,w,b,u
 set completeopt=menu,menuone,preview,longest
 set tags=tags,tags.gems
 
+set wildcharm=<tab>
+
 set wildignorecase
-set wildignore=&completeopt
-set wildignore+=*.zip,*.gz,*.bz,*.tar
+set wildignore=*.zip,*.gz,*.bz,*.tar
 set wildignore+=*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
 
 set nowrap
