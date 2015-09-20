@@ -18,23 +18,23 @@ test_dependency() {
   fi
 }
 
-yellow '>> Updating python client.'
+yellow ">> Updating python client."
 (
   pip uninstall neovim -y -q &>/dev/null
   pip install neovim -q
 ); result=$?; [ $result != 0 ] && exit $result
 
-yellow '\n>> Checking the environment.'
+yellow "\n>> Checking the environment."
 
 (
   set -e
-  test_dependency "command -v 'lua'" "lua"
-  test_dependency "command -v 'jshint'" "jshint" "npm install -g jshint"
-  test_dependency "command -v 'scss-lint'" "scss-lint" "gem install scss-lint"
+  test_dependency "command -v "lua"" "lua"
+  test_dependency "command -v "jshint"" "jshint" "npm install -g jshint"
+  test_dependency "command -v "scss-lint"" "scss-lint" "gem install scss-lint"
   test_dependency "pip list | grep neovim" "neovim python client" "pip install neovim"
 ); result=$?; [ $result != 0 ] && exit $result
 
-yellow '\n>> Updating neovim.'
+yellow "\n>> Updating neovim."
 brew tap neovim/homebrew-neovim 2>/dev/null
 brew update
 brew reinstall --HEAD neovim
