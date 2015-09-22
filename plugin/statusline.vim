@@ -2,8 +2,8 @@ let g:lightline = {
       \ 'colorscheme': 'PaperColor_dark',
       \ 'active': {
       \   'left': [
-      \       [ 'bufnum', 'mode' ],
-      \       [ 'modified', 'filename' ],
+      \       [ 'mode' ],
+      \       [ 'modified', 'bufnum', 'filename' ],
       \       [ 'ctrlp' ]
       \   ],
       \   'right': [
@@ -12,7 +12,7 @@ let g:lightline = {
       \   ]
       \ },
       \ 'inactive': {
-      \   'left': [ [ 'filename' ] ],
+      \   'left': [ [ 'bufnum', 'filename' ] ],
       \   'right': [ [ 'nerdtree' ] ]
       \ },
       \ 'component': {
