@@ -16,9 +16,6 @@ function! NERDTreeGitStatus(event)
   let subject = a:event.subject
 
   call s:NERDTreeGitStatus.worker.new(subject.pathSegments, subject.isDirectory).run()
-  " call a:event.nerdtree.root.refresh()
-  call a:event.nerdtree.render()
-  redraw!
 endfunction
 
 let s:NERDTreeGitStatus = {
