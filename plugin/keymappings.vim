@@ -1,14 +1,16 @@
 " faster esc
 inoremap <esc> <c-c>
+inoremap <C-U> <C-G>u<C-U>
+
+" easiest way to escape terminal mode
+tnoremap <esc><esc> <c-\><c-n>
 
 " Folding
 nnoremap <silent> <f3> zM
 nnoremap <silent> <f4> zR
 
 " Use <c-l> to clear the highlighting of :set hlsearch.
-if maparg('<c-l>', 'n') ==# ''
-  nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
-endif
+nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 
 " Delete current buffer
 nnoremap <silent> <leader>bd :call buffer#kill()<cr>
