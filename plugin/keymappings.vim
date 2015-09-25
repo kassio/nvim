@@ -5,6 +5,8 @@ inoremap <C-U> <C-G>u<C-U>
 " easiest way to escape terminal mode
 tnoremap <esc><esc> <c-\><c-n>
 
+nnoremap <leader>J mzJ`z
+
 " Folding
 nnoremap <silent> <f3> zM
 nnoremap <silent> <f4> zR
