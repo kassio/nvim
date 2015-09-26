@@ -18,7 +18,7 @@ set splitright splitbelow
 
 set diffopt+=vertical
 
-set relativenumber number numberwidth=3
+set number numberwidth=3
 
 set ignorecase smartcase
 
