@@ -8,6 +8,7 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|(tags.*|tmp|log|coverage|vendor/assets/components))$'
 let g:ctrlp_cache_dir = expand('~/.nvim_data/ctrlp')
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_abbrev = {
       \   'abbrevs': [
       \     { 'pattern': '\v(^|\/)a/', 'expanded': 'app/' },
@@ -24,6 +25,7 @@ let g:ctrlp_abbrev = {
       \     { 'pattern': '^t/', 'expanded': 'test/' }
       \   ]
       \ }
+
 
 nnoremap <c-n> :CtrlPBufLine<CR>
 nnoremap <c-k> :CtrlPBuffer<CR>

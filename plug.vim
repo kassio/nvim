@@ -9,6 +9,7 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeMirror'] }
 Plug 'mhartington/oceanic-next'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'kassio/ctrlp-bufline'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'itchyny/lightline.vim'
