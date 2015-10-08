@@ -39,6 +39,7 @@ set tags=tags,tags.gems
 set wildcharm=<tab>
 
 set wildignorecase
+set wildmode=list:longest,list:full
 set wildignore=*.zip,*.gz,*.bz,*.tar
 set wildignore+=*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
 
