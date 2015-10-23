@@ -35,7 +35,7 @@ yellow "\n>> Checking the environment."
 ); result=$?; [ $result != 0 ] && exit $result
 
 yellow "\n>> Updating neovim."
-brew tap neovim/homebrew-neovim 2>/dev/null
+brew tap neovim/neovim 2>/dev/null
 brew update
 brew reinstall --HEAD neovim
 
