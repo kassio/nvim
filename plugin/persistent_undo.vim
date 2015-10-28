@@ -1,4 +1,5 @@
-set undofile undoreload=10000 undodir=~/.nvim_data/undo
+set undofile undoreload=10000
+let &undodir=g:data_dir."/undo"
 
 aug undo_dir
   au!
