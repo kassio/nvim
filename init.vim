@@ -6,8 +6,6 @@ set fileencoding=utf8 nobomb
 runtime macros/matchit.vim
 set showmatch
 
-set autoread
-
 set confirm
 
 set shortmess=aI
