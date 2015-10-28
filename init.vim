@@ -1,4 +1,4 @@
-source ~/.nvim/plug.vim
+source ~/.config/nvim/plug.vim
 
 scriptencoding utf8
 set fileencoding=utf8 nobomb

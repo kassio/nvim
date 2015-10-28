@@ -5,7 +5,7 @@
 ## Installing neovim
 
 ```console
-$HOME/.nvim/bin/install
+$HOME/.config/nvim/bin/install
 ```
 
 ## Setting up this configs
@@ -13,7 +13,7 @@ $HOME/.nvim/bin/install
 ### Download it
 
 ```console
-git clone git://github.com/kassio/nvimfiles.git ~/.nvim
+git clone git://github.com/kassio/nvimfiles.git ~/.config/nvim
 ```
 
 ### Install neovim plugins:
