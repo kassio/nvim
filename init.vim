@@ -1,5 +1,5 @@
 source ~/.config/nvim/plug.vim
-let g:data_dir="$HOME/.config/nvim/tmp"
+let g:data_dir=expand("$HOME/.config/nvim/tmp")
 
 scriptencoding utf8
 set fileencoding=utf8 nobomb
