@@ -1,4 +1,4 @@
-call plug#begin(expand('~/.config/nvim/plugged'))
+call plug#begin(expand('~/.config/nvim/bundles'))
 
 " Tools
 Plug 'kassio/vim-session_manager'
