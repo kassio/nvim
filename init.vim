@@ -1,4 +1,4 @@
-source ~/.config/nvim/bundles.vim
+source $HOME/.config/nvim/bundles.vim
 let g:data_dir=expand("$HOME/.config/nvim/tmp")
 
 scriptencoding utf8
