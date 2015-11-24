@@ -24,13 +24,13 @@ nnoremap <silent> <f11> :call neoterm#test#rerun()<cr>
 
 " Useful maps
 " hide all terminals
-nnoremap <silent> ,th :Tclose<cr>
+nnoremap <silent> <leader>th :Tclose<cr>
 " open current terminal
-nnoremap <silent> ,to :Topen<cr>
+nnoremap <silent> <leader>to :Topen<cr>
 " clear terminal
-nnoremap <silent> ,tl :call neoterm#clear()<cr>
+nnoremap <silent> <leader>tl :call neoterm#clear()<cr>
 " kills the current job (send a <c-c>)
-nnoremap <silent> ,tc :call neoterm#kill()<cr>
+nnoremap <silent> <leader>tc :call neoterm#kill()<cr>
 
 " Rails commands
 command! -nargs=+ Tr :T rails <args>
