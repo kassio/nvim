@@ -1,7 +1,3 @@
-snippet defl
-def ${1:name}, do: $2
-endsnippet
-
 snippet def
 def ${1:name} do
   ${0:${VISUAL}}
@@ -36,8 +32,8 @@ snippet defpr
 defprotocol ${1:name}, [${2:function}]
 endsnippet
 
-snippet defr
-defrecord ${1:record_name}, ${2:fields}
+snippet defs
+defstruct ${1:record_name}: ${2:fields}
 endsnippet
 
 snippet do
