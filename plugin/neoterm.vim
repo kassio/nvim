@@ -1,5 +1,6 @@
 let g:neoterm_test_status_format = ' %s '
 let g:neoterm_size = 15
+let g:neoterm_automap_keys = "\<leader>tt"
 
 aug neoterm_fix_win
   au!
@@ -24,13 +25,13 @@ nnoremap <silent> <f11> :call neoterm#test#rerun()<cr>
 
 " Useful maps
 " hide all terminals
-nnoremap <silent> <leader>th :Tclose<cr>
+nnoremap <silent> <leader>tc :Tclose<cr>
 " open current terminal
 nnoremap <silent> <leader>to :Topen<cr>
 " clear terminal
 nnoremap <silent> <leader>tl :call neoterm#clear()<cr>
 " kills the current job (send a <c-c>)
-nnoremap <silent> <leader>tc :call neoterm#kill()<cr>
+nnoremap <silent> <leader>tk :call neoterm#kill()<cr>
 
 " Rails commands
 command! -nargs=+ Tr :T rails <args>
