@@ -28,10 +28,3 @@ else
   let g:neomake_javascript_jshint_maker.args = ['--verbose', '--config ~/.jshintrc']
 endif
 let g:neomake_javascript_enabled_makers = ['jshint']
-
-" scss
-let g:neomake_scss_scsslint_maker = {
-      \ 'exe': 'scss-lint',
-      \ 'errorformat': '%f:%l [%t] %m',
-      \ }
-let g:neomake_scss_enabled_makers = ['scsslint']
