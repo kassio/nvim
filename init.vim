@@ -1,5 +1,5 @@
 source $HOME/.config/nvim/bundles.vim
-let g:data_dir=expand("$HOME/.config/nvim/tmp")
+let g:data_home=expand("$HOME/.local/share/nvim")
 
 scriptencoding utf8
 set fileencoding=utf8 nobomb

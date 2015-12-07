@@ -1,5 +1,5 @@
 set undofile undoreload=10000
-let &undodir=g:data_dir."/undo"
+let &undodir=g:data_home."/undo"
 
 aug undo_dir
   au!
