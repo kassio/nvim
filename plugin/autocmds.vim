@@ -16,4 +16,7 @@ aug user_autocmds
   au FileType gitcommit let b:open_at_first_line = 1
   au FileType gitcommit setlocal textwidth=72
   au FileType tex,txt,mail,text,markdown setlocal textwidth=80 noautoindent nocindent
+
+  au FocusGained * SignifyRefresh
+  au FocusGained * checktime
 aug END
