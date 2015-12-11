@@ -1,47 +1,14 @@
-let g:lightline = {
-      \ 'colorscheme': 'PaperColor_dark',
-      \ 'active': {
-      \   'left': [
-      \       [ 'mode' ],
-      \       [ 'modified', 'bufnum', 'filename' ],
-      \       [ 'ctrlp' ]
-      \   ],
-      \   'right': [
-      \       [ 'neomake', 'neoterm_r', 'neoterm_s', 'neoterm_f' ],
-      \       [ 'fileformat', 'fileencoding', 'filetype', 'line_count', 'nerdtree' ]
-      \   ]
-      \ },
-      \ 'inactive': {
-      \   'left': [ [ 'bufnum', 'filename' ] ],
-      \   'right': [ [ 'nerdtree' ] ]
-      \ },
-      \ 'component': {
-      \   'neomake': '%#StatusWarning#%{statusline#neomake()}%*',
-      \   'neoterm_r': '%{neoterm#test#status("running")}%*',
-      \   'neoterm_s': '%#StatusSuccess#%{neoterm#test#status("success")}%*',
-      \   'neoterm_f': '%#StatusError#%{neoterm#test#status("failed")}%*'
-      \ },
-      \ 'component_function': {
-      \   'bufnum': 'statusline#bufnum',
-      \   'filename': 'statusline#filename',
-      \   'fileformat': 'statusline#fileformat',
-      \   'filetype': 'statusline#filetype',
-      \   'fileencoding': 'statusline#fileencoding',
-      \   'line_count': 'statusline#stats',
-      \   'mode': 'statusline#mode',
-      \   'ctrlp': 'statusline#ctrlp',
-      \   'nerdtree': 'statusline#nerdtree'
-      \ },
-      \ 'component_visible_condition': {
-      \   'readonly': '(&filetype!="help"&& &readonly)',
-      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-      \   'neomake': '(len(statusline#neomake())>0)'
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
-      \ }
-
-let g:ctrlp_status_func = {
-  \ 'main': 'statusline#ctrlp_main',
-  \ 'prog': 'statusline#ctrlp_prog',
-  \ }
+set statusline=
+set statusline+=[%{statusline#mode()}]
+set statusline+=[%n]
+set statusline+=\ %m%f
+set statusline+=%=
+set statusline+=%#StatusWarning#%{statusline#neomake('W')}%*
+set statusline+=%#StatusError#%{statusline#neomake('E')}%*
+set statusline+=%#NeotermTestRunning#%{neoterm#test#status('running')}%*
+set statusline+=%#NeotermTestSuccess#%{neoterm#test#status('success')}%*
+set statusline+=%#NeotermTestFailed#%{neoterm#test#status('failed')}%*
+set statusline+=%r%y
+set statusline+=[%{&ff}]
+set statusline+=[%{&fenc!=''?&fenc:&enc}]
+set statusline+=[%c,%l/%L]
