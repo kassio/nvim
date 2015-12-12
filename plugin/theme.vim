@@ -12,7 +12,7 @@ hi! StatusWarning guifg=#fac863
 hi! StatusError guifg=#ec5f67
 hi! StatusSuccess guifg=#99c794
 
-hi! StatusLine guifg=#76d3ee guibg=#3f5f85
+hi! StatusLine guifg=#cccccc guibg=#3f5f85
 hi! StatusLineNC guifg=#65737e guibg=#112928
 
 hi! User1 guifg=#496022 guibg=#badb51
