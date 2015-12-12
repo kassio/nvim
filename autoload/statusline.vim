@@ -1,33 +1,38 @@
 function! statusline#update()
-  for nr in filter(range(1, winnr('$')), 'v:val != winnr()')
-    call setwinvar(nr, '&statusline', statusline#line(0))
+  for nr in range(1, winnr('$'))
+    if bufname(winbufnr(nr)) =~ 'NERD_tree'
+      call setwinvar(nr, '&statusline', g:NERDTreeStatusline)
+    else
+      if winnr() == nr
+        call setwinvar(nr, '&statusline', statusline#line(1))
+      else
+        call setwinvar(nr, '&statusline', statusline#line(0))
+      end
+    end
   endfo
-
-  call setwinvar(winnr(), '&statusline', statusline#line(1))
 endfunction
 
 function! statusline#line(active)
   if a:active
     return
-        \   '%1* %{statusline#mode()} %*'
-        \ . '%2* %n %*'
-        \ . '%1* %m%f %*'
-        \ . '%='
-        \ . '%#StatusWarning#%{statusline#neomake("W")}%*'
-        \ . '%#StatusError#%{statusline#neomake("E")}%*'
-        \ . '%#NeotermTestRunning#%{neoterm#test#status("running")}%*'
-        \ . '%#NeotermTestSuccess#%{neoterm#test#status("success")}%*'
-        \ . '%#NeotermTestFailed#%{neoterm#test#status("failed")}%*'
-        \ . '%1* %r%y %{&ff} %{&fenc!=""?&fenc:&enc} '
-        \ . '%2* %c,%l/%L '
+          \   '%1* %{statusline#mode()} %*'
+          \ . '%2* %n %*'
+          \ . '%1* %m%f %*'
+          \ . '%='
+          \ . '%#StatusWarning#%{statusline#neomake("W")}%*'
+          \ . '%#StatusError#%{statusline#neomake("E")}%*'
+          \ . '%#NeotermTestRunning#%{neoterm#test#status("running")}%*'
+          \ . '%#NeotermTestSuccess#%{neoterm#test#status("success")}%*'
+          \ . '%#NeotermTestFailed#%{neoterm#test#status("failed")}%*'
+          \ . '%1* %r%y %{&ff} %{&fenc!=""?&fenc:&enc} '
+          \ . '%2* %c,%l/%L '
   else
     return
-        \   '%3* %{statusline#mode()} %*'
-        \ . '%3* %n %*'
-        \ . '%3* %m%f %*'
-        \ . '%='
-        \ . '%3* %r%y %{&ff} %{&fenc!=""?&fenc:&enc} '
-        \ . '%3* %c,%l/%L '
+          \   '%3* %n %*'
+          \ . '%3* %m%f %*'
+          \ . '%='
+          \ . '%3* %r%y %{&ff} %{&fenc!=""?&fenc:&enc} '
+          \ . '%3* %c,%l/%L '
   end
 endfunction
 
