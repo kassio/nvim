@@ -12,17 +12,18 @@ function! statusline#neomake(scope)
 endfunction
 
 function! statusline#mode()
-  let mode = mode()
-
-  if mode == 'n'
-    return 'NORMAL'
-  elseif mode == 'i'
-    return 'INSERT'
-  elseif index(['v', 'V'], mode)
-    return 'VISUAL'
-  elseif mode == 'R'
-    return 'RETURN'
-  else
-    return '-'
-  end
+  return {
+        \ '__' : '------',
+        \ 'n'  : 'NORMAL',
+        \ 'i'  : 'INSERT',
+        \ 'R'  : 'REPLACE',
+        \ 'v'  : 'VISUAL',
+        \ 'V'  : 'V-LINE',
+        \ 'c'  : 'COMMAND',
+        \ '' : 'V-BLOCK',
+        \ 's'  : 'SELECT',
+        \ 'S'  : 'S-LINE',
+        \ '' : 'S-BLOCK',
+        \ 't'  : 'TERMINAL',
+        \ }[mode()]
 endfunction
