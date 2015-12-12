@@ -21,6 +21,3 @@ hi! User3 guifg=#65737e guibg=#112928
 
 " Markdown styles
 hi! link markdownItalic markdownBold
-
-command! Dark set background=dark
-command! Light set background=light
