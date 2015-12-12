@@ -17,22 +17,22 @@ function! statusline#line(active)
     return
           \   '%1* %{statusline#mode()} %*'
           \ . '%2* %n %*'
-          \ . '%1* %m%f %*'
+          \ . '%3* %m%f %*'
           \ . '%='
           \ . '%#StatusWarning#%{statusline#neomake("W")}%*'
           \ . '%#StatusError#%{statusline#neomake("E")}%*'
           \ . '%#NeotermTestRunning#%{neoterm#test#status("running")}%*'
           \ . '%#NeotermTestSuccess#%{neoterm#test#status("success")}%*'
           \ . '%#NeotermTestFailed#%{neoterm#test#status("failed")}%*'
-          \ . '%1* %r%y %{&ff} %{&fenc!=""?&fenc:&enc} '
+          \ . '%3* %r%y %{&ff} %{&fenc!=""?&fenc:&enc} '
           \ . '%2* %c,%l/%L '
   else
     return
-          \   '%3* %n %*'
-          \ . '%3* %m%f %*'
+          \   '%4* %n %*'
+          \ . '%4* %m%f %*'
           \ . '%='
-          \ . '%3* %r%y %{&ff} %{&fenc!=""?&fenc:&enc} '
-          \ . '%3* %c,%l/%L '
+          \ . '%4* %r%y %{&ff} %{&fenc!=""?&fenc:&enc} '
+          \ . '%4* %c,%l/%L '
   end
 endfunction
 
