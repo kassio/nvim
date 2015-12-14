@@ -13,12 +13,11 @@ hi! StatusError guifg=#ec5f67
 hi! StatusSuccess guifg=#99c794
 
 hi! StatusLine guifg=#cccccc guibg=#3f5f85
-hi! StatusLineNC guifg=#65737e guibg=#112928
+hi! StatusLineNC guifg=#8ba6ab guibg=#3f5f85
 
 hi! User1 guifg=#496022 guibg=#badb51
 hi! User2 guifg=#cccccc guibg=#595959
 hi! User3 guifg=#cccccc guibg=#5a87ad
-hi! User4 guifg=#65737e guibg=#112928
 
 " Markdown styles
 hi! link markdownItalic markdownBold

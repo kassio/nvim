@@ -28,11 +28,11 @@ function! statusline#line(active)
           \ . '%2* %c,%l/%L '
   else
     return
-          \   '%4* %n %*'
-          \ . '%4* %m%f %*'
+          \   ' %n '
+          \ . ' %m%f '
           \ . '%='
-          \ . '%4* %r%y %{&ff} %{&fenc!=""?&fenc:&enc} '
-          \ . '%4* %c,%l/%L '
+          \ . ' %r%y %{&ff} %{&fenc!=""?&fenc:&enc} '
+          \ . ' %c,%l/%L '
   end
 endfunction
 
