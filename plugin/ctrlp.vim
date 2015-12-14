@@ -14,18 +14,12 @@ let g:ctrlp_match_window = "bottom,order:btt,min:1,max:20,results:20"
 let g:ctrlp_match_func = { "match": "pymatcher#PyMatch" }
 let g:ctrlp_abbrev = {
       \   "abbrevs": [
-      \     { "pattern": "\v(^|\/)a/", "expanded": "app/" },
-      \     { "pattern": "\v(^|\/)c/", "expanded": "controllers/" },
-      \     { "pattern": "\v(^|\/)m/", "expanded": "models/" },
-      \     { "pattern": "\v(^|\/)v/", "expanded": "views/" },
-      \     { "pattern": "\v^ac/", "expanded": "app/controllers/" },
-      \     { "pattern": "\v^am/", "expanded": "app/models/" },
-      \     { "pattern": "\v^av/", "expanded": "app/views/" },
-      \     { "pattern": "\v^sc/", "expanded": "spec/controllers/" },
-      \     { "pattern": "\v^sm/", "expanded": "spec/models/" },
-      \     { "pattern": "\v^sv/", "expanded": "spec/views/" },
+      \     { "pattern": "^a/", "expanded": "app/" },
       \     { "pattern": "^s/", "expanded": "spec/" },
-      \     { "pattern": "^t/", "expanded": "test/" }
+      \     { "pattern": "^t/", "expanded": "test/" },
+      \     { "pattern": "^c/", "expanded": "controllers/" },
+      \     { "pattern": "^m/", "expanded": "models/" },
+      \     { "pattern": "^v/", "expanded": "views/" }
       \   ]
       \ }
 
