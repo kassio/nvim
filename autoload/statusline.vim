@@ -37,20 +37,23 @@ function! statusline#line(active)
 endfunction
 
 function! statusline#mode()
-  return {
-        \ '__' : '------',
-        \ 'n'  : 'NORMAL',
-        \ 'i'  : 'INSERT',
-        \ 'R'  : 'REPLACE',
-        \ 'v'  : 'VISUAL',
-        \ 'V'  : 'V-LINE',
-        \ 'c'  : 'COMMAND',
-        \ '' : 'V-BLOCK',
-        \ 's'  : 'SELECT',
-        \ 'S'  : 'S-LINE',
-        \ '' : 'S-BLOCK',
-        \ 't'  : 'TERMINAL',
-        \ }[mode()]
+  return get({
+        \ 'n': 'Normal',
+        \ 'no': 'Pending',
+        \ 'v': 'Visual',
+        \ 'V': 'V-line',
+        \ '': 'V-block',
+        \ 's': 'Select',
+        \ 'S': 'S-line',
+        \ '': 'S-block',
+        \ 'i': 'Insert',
+        \ 'R': 'Replace',
+        \ 'Rv': 'V-Replace',
+        \ 't': 'Terminal',
+        \ 'c': 'Command',
+        \ 'rm': '-- more --',
+        \ '!': 'Shell',
+        \ }, mode(), '---')
 endfunction
 
 function! statusline#neomake(scope)
