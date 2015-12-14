@@ -3,11 +3,7 @@ function! statusline#update()
     if bufname(winbufnr(nr)) =~ 'NERD_tree'
       call setwinvar(nr, '&statusline', g:NERDTreeStatusline)
     else
-      if winnr() == nr
-        call setwinvar(nr, '&statusline', statusline#line(1))
-      else
-        call setwinvar(nr, '&statusline', statusline#line(0))
-      end
+      call setwinvar(nr, '&statusline', statusline#line(winnr() == nr))
     end
   endfo
 endfunction
