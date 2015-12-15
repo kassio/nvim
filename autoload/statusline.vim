@@ -17,9 +17,9 @@ function! statusline#line(active)
           \ . '%='
           \ . '%#StatusWarning#%{statusline#neomake("W")}%*'
           \ . '%#StatusError#%{statusline#neomake("E")}%*'
-          \ . '%#NeotermTestRunning#%{neoterm#test#status("running")}%*'
-          \ . '%#NeotermTestSuccess#%{neoterm#test#status("success")}%*'
-          \ . '%#NeotermTestFailed#%{neoterm#test#status("failed")}%*'
+          \ . '%#StatusWarning#%{neoterm#test#status("running")}%*'
+          \ . '%#StatusSuccess#%{neoterm#test#status("success")}%*'
+          \ . '%#StatusError#%{neoterm#test#status("failed")}%*'
           \ . '%3* %r%y %{&ff} %{&fenc!=""?&fenc:&enc} '
           \ . '%2* %c,%l/%L '
   else
