@@ -35,7 +35,8 @@ endfunction
 
 function! statusline#filename(modified)
   if a:modified
-    return ' ' . expand('%') . ' '
+    let fname = expand('%')
+    return printf(' %s ', len(fname) ? fname : '[No Name]')
   else
     return ''
   end
