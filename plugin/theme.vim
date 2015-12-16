@@ -18,6 +18,7 @@ hi! StatusLineNC guifg=#8ba6ab guibg=#3f5f85
 hi! User1 guifg=#496022 guibg=#badb51
 hi! User2 guifg=#cccccc guibg=#595959
 hi! User3 guifg=#cccccc guibg=#5a87ad
+hi! User4 guifg=#cccccc guibg=#cc4a21
 
 " Markdown styles
 hi! link markdownItalic markdownBold

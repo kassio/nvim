@@ -13,14 +13,15 @@ function! statusline#line(active)
     return
           \   '%1* %{statusline#mode()} %*'
           \ . '%2* %n %*'
-          \ . '%3* %m%f %*'
+          \ . '%(%3*%{statusline#filename(!&modified)}%*%)'
+          \ . '%(%4*%{statusline#filename(&modified)}%*%)'
           \ . '%='
           \ . '%#StatusWarning#%{statusline#neomake("W")}%*'
           \ . '%#StatusError#%{statusline#neomake("E")}%*'
           \ . '%#StatusWarning#%{neoterm#test#status("running")}%*'
           \ . '%#StatusSuccess#%{neoterm#test#status("success")}%*'
           \ . '%#StatusError#%{neoterm#test#status("failed")}%*'
-          \ . '%3* %r%y %{&ff} %{&fenc!=""?&fenc:&enc} '
+          \ . '%3* %y %{&ff} %{&fenc!=""?&fenc:&enc} '
           \ . '%2* %c,%l/%L '
   else
     return
@@ -29,6 +30,14 @@ function! statusline#line(active)
           \ . '%='
           \ . ' %r%y %{&ff} %{&fenc!=""?&fenc:&enc} '
           \ . ' %c,%l/%L '
+  end
+endfunction
+
+function! statusline#filename(modified)
+  if a:modified
+    return ' ' . expand('%') . ' '
+  else
+    return ''
   end
 endfunction
 
