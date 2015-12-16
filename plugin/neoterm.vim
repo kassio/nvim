@@ -1,17 +1,6 @@
-let g:neoterm_test_status_format = ' %s '
+let g:neoterm_test_status_format = '  %s '
 let g:neoterm_size = 15
 let g:neoterm_automap_keys = "\<leader>tt"
-
-aug neoterm_fix_win
-  au!
-  au BufEnter term://*:NEOTERM
-        \ setlocal nonumber norelativenumber winfixheight winfixwidth
-
-  au BufUnload,BufDelete,BufWipeout term://*:NEOTERM
-        \ resize
-  au BufUnload,BufDelete,BufWipeout term://*:NEOTERM
-        \ setlocal nonumber< norelativenumber< winfixheight< winfixwidth<
-aug END
 
 nnoremap <silent> <leader>rf :TREPLSendFile<cr>
 nnoremap <silent> <leader>rs :TREPLSend<cr>
