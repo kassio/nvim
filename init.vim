@@ -37,7 +37,7 @@ set tags=tags,tags.gems
 
 set wildcharm=<tab>
 
-set fillchars=vert:▌
+set fillchars=vert:▐
 
 set wildignorecase
 set wildmode=list:longest,list:full
