@@ -6,7 +6,7 @@ set background=dark
 set synmaxcol=500
 set colorcolumn=80
 
-hi! VertSplit guifg=#81543a guibg=NONE
+hi! VertSplit guibg=NONE
 
 hi! StatusWarning guifg=#65737e guibg=#fac863
 hi! StatusSuccess guifg=#cccccc guibg=#5b903f
