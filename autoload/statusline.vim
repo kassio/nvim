@@ -17,7 +17,7 @@ function! statusline#line(active)
           \ . '%#SLModeInsert#%{statusline#mode("R")}%*'
           \ . '%#SLModeTerminal#%{statusline#mode("T")}%*'
           \ . '%#SLSection1# %n %*'
-          \ . '%(%#SLSection2#%{statusline#filename(!&modified)}%*%)'
+          \ . '%(%#SLSection2#%<%{statusline#filename(!&modified)}%*%)'
           \ . '%(%#SLUnsavedFile#%{statusline#filename(&modified)}%*%)'
           \ . '%='
           \ . '%#StatusWarning#%{statusline#neomake("W")}%*'
@@ -30,7 +30,7 @@ function! statusline#line(active)
   else
     return
           \   ' %n '
-          \ . ' %m%f '
+          \ . ' %m%<%f '
           \ . '%='
           \ . '%{statusline#neomake("W")}'
           \ . '%{statusline#neomake("E")}'
