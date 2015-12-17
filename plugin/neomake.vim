@@ -7,6 +7,8 @@ aug run_neomake
   au BufWritePost,BufReadPost * Neomake
 aug END
 
+let g:neomake_verbose = 0
+
 let g:neomake_error_sign = {
       \ 'text': 'E>',
       \ 'texthl': 'StatusError',
