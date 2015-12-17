@@ -15,10 +15,13 @@ hi! StatusError   guifg=#ec5f67 guibg=#b70006
 hi! StatusLine   guifg=#cccccc guibg=#3f5f85
 hi! StatusLineNC guifg=#8ba6ab guibg=#3f5f85
 
-hi! User1 guifg=#496022 guibg=#badb51
-hi! User2 guifg=#cccccc guibg=#595959
-hi! User3 guifg=#cccccc guibg=#5a87ad
-hi! User4 guifg=#cccccc guibg=#cc4a21
+hi! SLModeNormal   guifg=#3f5f85 guibg=#cccccc
+hi! SLModeInsert   guifg=#496022 guibg=#badb51
+hi! SLModeVisual   guifg=#496022 guibg=#cd9cce
+hi! SLModeTerminal guifg=#496022 guibg=#a1d0a0
+hi! SLSection1     guifg=#cccccc guibg=#595959
+hi! SLSection2     guifg=#cccccc guibg=#5a87ad
+hi! SLUnsavedFile  guifg=#cccccc guibg=#cc4a21
 
 " Markdown styles
 hi! link markdownItalic markdownBold

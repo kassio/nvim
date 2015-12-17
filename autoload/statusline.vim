@@ -11,18 +11,22 @@ endfunction
 function! statusline#line(active)
   if a:active
     return
-          \   '%1* %{statusline#mode()} %*'
-          \ . '%2* %n %*'
-          \ . '%(%3*%{statusline#filename(!&modified)}%*%)'
-          \ . '%(%4*%{statusline#filename(&modified)}%*%)'
+          \   '%#SLModeNormal#%{statusline#mode("N")}%*'
+          \ . '%#SLModeVisual#%{statusline#mode("V")}%*'
+          \ . '%#SLModeInsert#%{statusline#mode("I")}%*'
+          \ . '%#SLModeInsert#%{statusline#mode("R")}%*'
+          \ . '%#SLModeTerminal#%{statusline#mode("T")}%*'
+          \ . '%#SLSection1# %n %*'
+          \ . '%(%#SLSection2#%{statusline#filename(!&modified)}%*%)'
+          \ . '%(%#SLUnsavedFile#%{statusline#filename(&modified)}%*%)'
           \ . '%='
           \ . '%#StatusWarning#%{statusline#neomake("W")}%*'
           \ . '%#StatusError#%{statusline#neomake("E")}%*'
           \ . '%#StatusWarning#%{neoterm#test#status("running")}%*'
           \ . '%#StatusSuccess#%{neoterm#test#status("success")}%*'
           \ . '%#StatusError#%{neoterm#test#status("failed")}%*'
-          \ . '%3* %y %{&ff} %{&fenc!=""?&fenc:&enc} '
-          \ . '%2* %c,%l/%L '
+          \ . '%#SLSection2# %y %{&ff} %{&fenc!=""?&fenc:&enc} '
+          \ . '%#SLSection1# %c,%l/%L '
   else
     return
           \   ' %n '
@@ -47,24 +51,25 @@ function! statusline#filename(modified)
   end
 endfunction
 
-function! statusline#mode()
+function! statusline#mode(base)
+  if a:base == s:currentModeKey()
+    return printf('  %s ', a:base)
+  else
+    return ''
+  end
+endfunction
+
+function! s:currentModeKey()
   return get({
-        \ 'n': 'Normal',
-        \ 'no': 'Pending',
-        \ 'v': 'Visual',
-        \ 'V': 'V-line',
-        \ '': 'V-block',
-        \ 's': 'Select',
-        \ 'S': 'S-line',
-        \ '': 'S-block',
-        \ 'i': 'Insert',
-        \ 'R': 'Replace',
-        \ 'Rv': 'V-Replace',
-        \ 't': 'Terminal',
-        \ 'c': 'Command',
-        \ 'rm': '-- more --',
-        \ '!': 'Shell',
-        \ }, mode(), '---')
+        \ 'n': 'N',
+        \ 'v': 'V',
+        \ 'V': 'V',
+        \ '': 'V',
+        \ 'i': 'I',
+        \ 'R': 'R',
+        \ 'Rv': 'R',
+        \ 't': 'T',
+        \ }, mode(), '-')
 endfunction
 
 function! statusline#neomake(scope)
