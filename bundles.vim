@@ -50,3 +50,5 @@ Plug 'rodjek/vim-puppet'
 call plug#end()
 
 filetype plugin indent on
+
+command Pupgrade PlugUpgrade | PlugUpdate
