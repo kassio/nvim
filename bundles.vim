@@ -51,4 +51,4 @@ call plug#end()
 
 filetype plugin indent on
 
-command Pupgrade PlugUpgrade | PlugUpdate
+command! Pupgrade PlugUpgrade | PlugUpdate
