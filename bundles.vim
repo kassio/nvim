@@ -40,6 +40,7 @@ Plug 'mxw/vim-jsx'
 " Ruby
 Plug 'vim-ruby/vim-ruby'
 Plug 'Keithbsmiley/rspec.vim'
+Plug 'mattn/vim-rubyfmt'
 
 " Elixir
 Plug 'elixir-lang/vim-elixir'
