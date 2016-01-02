@@ -1,5 +1,3 @@
-set spell
-
 let g:ruby_path=system('echo "$RBENV_ROOT/versions/$(rbenv version-name)/bin/ruby"')
 
 " Ruby Completion
@@ -15,13 +13,6 @@ let ruby_spellcheck_strings = 1
 let g:surround_{char2nr("#")} = "#{\r}"
 let g:surround_{char2nr("-")} = "<% \r %>"
 let g:surround_{char2nr("=")} = "<%= \r %>"
-let g:surround_{char2nr("b")} = "begin\n\t\r\nend"
-let g:surround_{char2nr("c")} = "class\n\t\r\nend"
-let g:surround_{char2nr("d")} = "do\n\t\r\nend"
-let g:surround_{char2nr("m")} = "module\n\t\r\nend"
-let g:surround_{char2nr("w")} = "%w[\r]"
-
-command! MinitestAutoComplete set completefunc=syntaxcomplete#Complete
 
 command! -range LetToVariable call personal#ruby#let_to_variable(<line1>, <line2>)
 command! -range VariableToLet call personal#ruby#variable_to_let(<line1>, <line2>)
