@@ -5,12 +5,6 @@ inoremap <C-U> <C-G>u<C-U>
 " easiest way to escape terminal mode
 tnoremap <esc><esc> <c-\><c-n>
 
-nnoremap <leader>J mzJ`z
-
-" Folding
-nnoremap <silent> <f3> zM
-nnoremap <silent> <f4> zR
-
 " Use <c-l> to clear the highlighting of :set hlsearch.
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 
@@ -18,8 +12,6 @@ nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 nnoremap <silent> <leader>bd :call buffer#kill()<cr>
 " Delete all buffers
 nnoremap <silent> <leader>da :silent bufdo! call buffer#kill()<cr>
-" Move current window to currend file path
-nnoremap <silent> <leader>cd :lcd %:p:h<cr>:pwd<cr>
 
 nnoremap <silent> g# #
 nnoremap <silent> g* *
