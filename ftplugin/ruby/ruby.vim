@@ -14,6 +14,9 @@ let g:surround_{char2nr("#")} = "#{\r}"
 let g:surround_{char2nr("-")} = "<% \r %>"
 let g:surround_{char2nr("=")} = "<%= \r %>"
 
+" Rubyfmt
+let g:rubyfmt_autoopen = 0
+
 command! -range LetToVariable call personal#ruby#let_to_variable(<line1>, <line2>)
 command! -range VariableToLet call personal#ruby#variable_to_let(<line1>, <line2>)
 
