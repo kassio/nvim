@@ -47,6 +47,6 @@ nnoremap <right> <nop>
 nnoremap <silent> <leader>ff :call preserve#preserve('silent normal gg=G')<cr>
 
 " Map to show the highlight name under the cursor
-map <f2> :echo "hi<" . synidattr(synid(line("."),col("."),1),"name") . '> trans<'
+map <f2> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
