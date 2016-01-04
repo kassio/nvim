@@ -21,10 +21,3 @@ nnoremap <silent> <leader>to :Topen<cr>
 nnoremap <silent> <leader>tl :call neoterm#clear()<cr>
 " kills the current job (send a <c-c>)
 nnoremap <silent> <leader>tk :call neoterm#kill()<cr>
-
-" Rails commands
-command! -nargs=+ Tr :T rails <args>
-command! -nargs=+ Trake :T rake <args>
-
-" Git commands
-command! -nargs=* Tg :T git <args>
