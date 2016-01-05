@@ -6,7 +6,7 @@ let g:ctrlp_open_new_file = "t"
 let g:ctrlp_switch_buffer = "ET"
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/](\.(git|hg|svn))|(tmp|log)$',
+      \ 'dir':  '\v[\/](\.(git|hg|svn))|(tmp|log|_build)$',
       \ 'file': '\vtags.*$'
       \ }
 let g:ctrlp_cache_dir = expand(g:data_home."/ctrlp")
@@ -19,7 +19,8 @@ let g:ctrlp_abbrev = {
       \     { "pattern": "^t/", "expanded": "test/" },
       \     { "pattern": "^c/", "expanded": "controllers/" },
       \     { "pattern": "^m/", "expanded": "models/" },
-      \     { "pattern": "^v/", "expanded": "views/" }
+      \     { "pattern": "^v/", "expanded": "views/" },
+      \     { "pattern": "^l/", "expanded": "lib/" }
       \   ]
       \ }
 
