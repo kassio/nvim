@@ -1,6 +1,7 @@
 let g:neoterm_test_status_format = '  %s '
 let g:neoterm_size = 15
 let g:neoterm_automap_keys = "\<leader>tt"
+let g:neoterm_run_tests_bg = 1
 
 nnoremap <silent> <leader>rf :TREPLSendFile<cr>
 nnoremap <silent> <leader>rs :TREPLSend<cr>
