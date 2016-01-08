@@ -11,14 +11,12 @@ Plug 'mhartington/oceanic-next'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'kassio/ctrlp-bufline'
-Plug 'pbrisbin/vim-mkdir'
+Plug 'kana/vim-textobj-user'
+Plug 'wellle/targets.vim'
 
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
-
-" textobjs
-Plug 'kana/vim-textobj-user'
 
 " Snippets
 Plug 'sirver/ultisnips'
