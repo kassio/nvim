@@ -3,5 +3,5 @@
 *~
 .netrwhist
 doc/tag*
-bundles/*
+_deps/*
 tmp

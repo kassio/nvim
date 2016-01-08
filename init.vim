@@ -1,4 +1,4 @@
-source $HOME/.config/nvim/bundles.vim
+source $HOME/.config/nvim/deps.vim
 let g:data_home=expand("$HOME/.local/share/nvim")
 
 set fileencoding=utf8 nobomb
