@@ -8,15 +8,13 @@ function! tabline#update()
             \   '%#StatusLine#'
             \ . '%'.tabnr.'T'
             \ . '%#SLSection2#'
-            \ . ' '.tabnr
-            \ . tabline#fname(tabnr)
+            \ . tabline#label(tabnr)
             \ . '%#StatusLine#'
     else
       let tabline .=
             \   '%#StatusLineNC#'
             \ . '%'.tabnr.'T'
-            \ . ' '.tabnr
-            \ . tabline#fname(tabnr)
+            \ . tabline#label(tabnr)
             \ . '%#StatusLineNC#'
     end
   endfor
@@ -24,14 +22,18 @@ function! tabline#update()
   return tabline
 endfunction
 
-function! tabline#fname(tabnr)
-  let buflist = tabpagebuflist(a:tabnr)
-  let winnr = tabpagewinnr(a:tabnr)
-  let fname = bufname(buflist[winnr - 1])
-
-  return printf(' %s ', len(fname) ? s:format_fname(fname) : '[No Name]')
+function! tabline#label(tabnr)
+  return printf(' %d %s ', a:tabnr, s:fname(a:tabnr))
 endfunction
 
-function! s:format_fname(fname)
-  return get(split(a:fname, '/'), -1)
+function! s:fname(tabnr)
+  let buflist = tabpagebuflist(a:tabnr)
+  let winnr = tabpagewinnr(a:tabnr)
+  let bufname = bufname(buflist[winnr - 1])
+
+  if len(bufname)
+    return get(split(bufname, '/'), -1)
+  else
+    return '[No Name]'
+  end
 endfunction
