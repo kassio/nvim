@@ -1,0 +1,1 @@
+set tabline=%!tabline#update()
