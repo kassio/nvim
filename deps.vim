@@ -14,6 +14,8 @@ Plug 'kassio/ctrlp-bufline'
 Plug 'kana/vim-textobj-user'
 Plug 'wellle/targets.vim'
 
+Plug 'junegunn/vader.vim'
+
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
