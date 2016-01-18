@@ -1,8 +1,8 @@
 call plug#begin(expand('~/.config/nvim/_deps'))
 
 " Tools
-Plug 'kassio/vim-session_manager'
-Plug 'kassio/neoterm'
+Plug 'git@github.com:kassio/vim-session_manager.git'
+Plug 'git@github.com:kassio/neoterm.git'
 Plug 'benekastah/neomake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -10,7 +10,7 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeMirr
 Plug 'mhartington/oceanic-next'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
-Plug 'kassio/ctrlp-bufline'
+Plug 'git@github.com:kassio/ctrlp-bufline.vim.git'
 Plug 'kana/vim-textobj-user'
 Plug 'wellle/targets.vim'
 
@@ -42,10 +42,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'Keithbsmiley/rspec.vim'
 
 " Elixir
-Plug 'elixir-lang/vim-elixir'
-
-" Puppet
-Plug 'rodjek/vim-puppet'
+Plug 'git@github.com:elixir-lang/vim-elixir.git'
 
 call plug#end()
 
