@@ -40,6 +40,7 @@ Plug 'mxw/vim-jsx'
 " Ruby
 Plug 'vim-ruby/vim-ruby'
 Plug 'Keithbsmiley/rspec.vim'
+Plug 'sunaku/vim-ruby-minitest'
 
 " Elixir
 Plug 'git@github.com:elixir-lang/vim-elixir.git'

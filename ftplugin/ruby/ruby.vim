@@ -24,3 +24,6 @@ command! -range NewRubyHashSyntax call personal#ruby#new_ruby_hash_syntax(<line1
 command! -range OldRubyHashSyntax call personal#ruby#old_ruby_hash_syntax(<line1>, <line2>)
 
 setlocal iskeyword+=\?,\!,@-@
+
+" Minitest completion with C-xC-u
+set completefunc=syntaxcomplete#Complete
