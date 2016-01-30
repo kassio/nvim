@@ -14,8 +14,9 @@ function! text#highlight_visual()
 endfunction
 
 function! text#highlight(text)
-  let @/ = escape(a:text, ' *^$./\[]')
+  let @/ = escape(a:text, " *^$./\[]")
   call feedkeys(":let v:hlsearch=1\<cr>", "n")
+  call feedkeys(":%s///gn\<cr>", "n")
 endfunction
 
 function! text#highlight_sensitive_visual()
