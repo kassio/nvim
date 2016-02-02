@@ -18,7 +18,7 @@ function! statusline#line(active)
           \ . '%#SLModeTerminal#%{statusline#mode("T")}%*'
           \ . '%#SLSection1# %n %*'
           \ . '%(%#SLSection2#%<%{statusline#filename(!&modified)}%*%)'
-          \ . '%(%#SLUnsavedFile#%{statusline#filename(&modified)}%*%)'
+          \ . '%(%#SLUnsavedFile#%<%{statusline#filename(&modified)}%*%)'
           \ . '%='
           \ . '%#StatusWarning#%{statusline#neomake("W")}%*'
           \ . '%#StatusError#%{statusline#neomake("E")}%*'
@@ -34,9 +34,6 @@ function! statusline#line(active)
           \ . '%='
           \ . '%{statusline#neomake("W")}'
           \ . '%{statusline#neomake("E")}'
-          \ . '%{neoterm#test#status("running")}'
-          \ . '%{neoterm#test#status("success")}'
-          \ . '%{neoterm#test#status("failed")}'
           \ . ' %r%y %{&ff} %{&fenc!=""?&fenc:&enc} '
           \ . ' %c,%l/%L '
   end
