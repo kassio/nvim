@@ -46,6 +46,4 @@ Plug 'git@github.com:elixir-lang/vim-elixir.git', { 'for': ['elixir', 'eelixir']
 
 call plug#end()
 
-filetype plugin indent on
-
 command! Pupgrade PlugUpgrade | PlugUpdate
