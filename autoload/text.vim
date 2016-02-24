@@ -16,7 +16,7 @@ endfunction
 function! text#highlight(text)
   let @/ = escape(a:text, " *^$./\[]")
   call feedkeys(":let v:hlsearch=1\<cr>", "n")
-  call feedkeys(":call preserve#preserve('%s///gn')\<cr>", "n")
+  call feedkeys(":call preserve#preserve('%s///gne')\<cr>", "n")
 endfunction
 
 function! text#highlight_sensitive_visual()
