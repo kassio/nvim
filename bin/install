@@ -24,6 +24,7 @@ yellow ">> Updating python client."
 (
 pip uninstall neovim -y -q &>/dev/null
 pip install neovim -q
+pip3 install neovim-remote -q
 ); result=$?; [ $result != 0 ] && exit $result
 
 yellow "\n>> Checking the environment."

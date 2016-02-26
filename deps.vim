@@ -13,6 +13,7 @@ Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'git@github.com:kassio/ctrlp-bufline.vim.git'
 Plug 'kana/vim-textobj-user'
 Plug 'wellle/targets.vim'
+Plug 'vim-scripts/vis'
 
 Plug 'junegunn/vader.vim'
 
