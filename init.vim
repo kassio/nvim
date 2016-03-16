@@ -6,11 +6,11 @@ set fileencoding=utf8 nobomb
 runtime macros/matchit.vim
 set showmatch
 
+set showcmd noshowmode
+
 set confirm
 
 set shortmess=aI
-
-set noshowmode
 
 set splitright splitbelow
 
@@ -22,8 +22,6 @@ set ignorecase smartcase
 
 set cursorline
 
-set showcmd
-
 set switchbuf=useopen,usetab,split
 
 set list
@@ -31,12 +29,7 @@ set list
 set virtualedit=block
 
 set complete=.,w,b,u
-set completeopt=menu,menuone,preview,longest
 set tags=tags,tags.gems
-
-set wildcharm=<tab>
-
-set fillchars=vert:▐
 
 set wildignorecase
 set wildmode=list:longest,list:full
