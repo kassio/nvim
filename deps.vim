@@ -6,6 +6,7 @@ Plug 'git@github.com:kassio/neoterm.git'
 Plug 'benekastah/neomake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-abolish'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeMirror'] }
 Plug 'mhartington/oceanic-next'
 Plug 'ctrlpvim/ctrlp.vim'
