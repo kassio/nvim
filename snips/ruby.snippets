@@ -46,7 +46,10 @@ end
 endsnippet
 
 snippet hr
-puts "${1:*}"*80$2
+puts "${1:*}"*80
+p ${0:${VISUAL}}
+puts "$1"*80
+$3
 endsnippet
 
 snippet if
