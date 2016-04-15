@@ -40,6 +40,6 @@ echo
 yellow ">> Updating neovim."
 brew tap neovim/homebrew-neovim 2>/dev/null
 brew update >/dev/null
-brew reinstall --HEAD neovim
+brew reinstall --HEAD --with-release neovim
 
 nvim --version
