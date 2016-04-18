@@ -25,17 +25,15 @@ function! statusline#line(active)
           \ . '%#StatusWarning#%{neoterm#test#status("running")}%*'
           \ . '%#StatusSuccess#%{neoterm#test#status("success")}%*'
           \ . '%#StatusError#%{neoterm#test#status("failed")}%*'
-          \ . '%#SLSection2# %y %{&ff} %{&fenc!=""?&fenc:&enc} '
-          \ . '%#SLSection1# %c,%l/%L '
+          \ . '%#SLSection2# %c,%l/%L'
+          \ . '%#SLSection2# %{&ft} %{&ff} %{&fenc!=""?&fenc:&enc} '
   else
     return
           \   ' %n '
           \ . ' %m%<%f '
           \ . '%='
-          \ . '%{statusline#neomake("W")}'
-          \ . '%{statusline#neomake("E")}'
-          \ . ' %r%y %{&ff} %{&fenc!=""?&fenc:&enc} '
           \ . ' %c,%l/%L '
+          \ . ' %{&ft} %{&ff} %{&fenc!=""?&fenc:&enc} '
   end
 endfunction
 
