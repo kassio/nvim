@@ -12,8 +12,8 @@ hi! StatusWarning guifg=#65737e guibg=#fac863
 hi! StatusSuccess guifg=#cccccc guibg=#5b903f
 hi! StatusError   guifg=#ec5f67 guibg=#b70006
 
-hi! StatusLine   guifg=#cccccc guibg=#3f5f85 ctermfg=15 ctermbg=4
-hi! StatusLineNC guifg=#8ba6ab guibg=#3E5570 ctermfg=8 ctermbg=4
+hi! StatusLine   guifg=#cccccc guibg=#3E5570 ctermfg=15 ctermbg=4
+hi! StatusLineNC guifg=#888888 guibg=#515966 ctermfg=8 ctermbg=4
 
 hi! SLModeNormal   guifg=#3f5f85 guibg=#cccccc ctermfg=8 ctermbg=15
 hi! SLModeInsert   guifg=#8ba6ab guibg=#badb51 ctermfg=8 ctermbg=114
