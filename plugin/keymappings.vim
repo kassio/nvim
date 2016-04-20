@@ -2,8 +2,10 @@
 inoremap <esc> <c-c>
 inoremap <C-U> <C-G>u<C-U>
 
-" easiest way to escape terminal mode
-tnoremap <esc><esc> <c-\><c-n>
+if has('nvim')
+  " easiest way to escape terminal mode
+  tnoremap <esc><esc> <c-\><c-n>
+end
 
 " Use <c-l> to clear the highlighting of :set hlsearch.
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>

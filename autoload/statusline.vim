@@ -22,9 +22,9 @@ function! statusline#line(active)
           \ . '%='
           \ . '%#StatusWarning#%{statusline#neomake("W")}%*'
           \ . '%#StatusError#%{statusline#neomake("E")}%*'
-          \ . '%#StatusWarning#%{neoterm#test#status("running")}%*'
-          \ . '%#StatusSuccess#%{neoterm#test#status("success")}%*'
-          \ . '%#StatusError#%{neoterm#test#status("failed")}%*'
+          \ . '%#StatusWarning#%{statusline#neoterm("running")}%*'
+          \ . '%#StatusSuccess#%{statusline#neoterm("success")}%*'
+          \ . '%#StatusError#%{statusline#neoterm("failed")}%*'
           \ . '%#SLSection2# %c,%l/%L'
           \ . '%#SLSection2# %{&ft} %{&ff} %{&fenc!=""?&fenc:&enc} '
   else
@@ -67,15 +67,27 @@ function! s:currentModeKey()
         \ }, mode(), '-')
 endfunction
 
-function! statusline#neomake(scope)
-  let loclist = filter(getloclist(0), "v:val.type == '".a:scope."'")
-
-  if empty(loclist)
-    return ""
+function! statusline#neoterm(scope)
+  if has('nvim')
+    return neoterm#test#status(a:scope)
   else
-    let first_sign_line = loclist[0].lnum
-    let sign_count = len(loclist)
+    return ''
+  end
+endfunction
 
-    return printf("  %s: %s(%s) ", a:scope, first_sign_line, sign_count)
+function! statusline#neomake(scope)
+  if has('nvim')
+    let loclist = filter(getloclist(0), "v:val.type == '".a:scope."'")
+
+    if empty(loclist)
+      return ""
+    else
+      let first_sign_line = loclist[0].lnum
+      let sign_count = len(loclist)
+
+      return printf("  %s: %s(%s) ", a:scope, first_sign_line, sign_count)
+    end
+  else
+    return ''
   end
 endfunction
