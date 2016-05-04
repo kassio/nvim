@@ -1,7 +1,8 @@
 syntax enable
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colorscheme OceanicNext
+colorscheme solarized
 set background=dark
+set t_Co=256
 
 set synmaxcol=500
 set colorcolumn=80

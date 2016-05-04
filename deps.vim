@@ -9,6 +9,11 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeMirror'] }
 Plug 'mhartington/oceanic-next'
+if has('nvim')
+  Plug 'frankier/neovim-colors-solarized-truecolor-only'
+else
+  Plug 'altercation/vim-colors-solarized'
+end
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'git@github.com:kassio/ctrlp-bufline.vim.git'
 Plug 'kana/vim-textobj-user'
