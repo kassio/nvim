@@ -3,7 +3,6 @@ let g:data_home=expand("$HOME/.local/share/nvim")
 
 set fileencoding=utf8 nobomb
 
-runtime macros/matchit.vim
 set showmatch
 
 set showcmd noshowmode
@@ -59,7 +58,10 @@ let mapleader=" "
 if !has('nvim')
   let g:data_home=expand("$HOME/.local/share/vim")
 
+  packadd matchit
+
   scriptencoding utf8
+
   set encoding=utf8 termencoding=utf8 nobomb
   set autoread autowriteall
   set autoindent
