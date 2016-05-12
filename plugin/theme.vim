@@ -1,9 +1,8 @@
 syntax enable
 let base16colorspace=256
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set termguicolors
 
 set background=dark
-set t_Co=256
 colorscheme base16-ocean
 
 set synmaxcol=500
