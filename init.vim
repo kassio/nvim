@@ -61,7 +61,7 @@ if !has('nvim')
 
   scriptencoding utf8
   set encoding=utf8 termencoding=utf8 nobomb
-  set autoread autowrite
+  set autoread autowriteall
   set autoindent
   set autoread
   set backspace=indent,eol,start
