@@ -1,4 +1,5 @@
 source $HOME/.config/nvim/deps.vim
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let g:data_home=expand("$HOME/.local/share/nvim")
 
 set fileencoding=utf8 nobomb
