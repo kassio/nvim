@@ -11,7 +11,7 @@ hi! VertSplit guibg=NONE
 
 hi! StatusWarning  guifg=#65737e guibg=#fac863
 hi! StatusSuccess  guifg=#cccccc guibg=#5b903f
-hi! StatusError    guifg=#ec5f67 guibg=#b70006
+hi! StatusError    guifg=#ee6060 guibg=#b01010
 
 hi! StatusLine     guifg=#cccccc guibg=#3E5570
 hi! StatusLineNC   guifg=#888888 guibg=#515966
