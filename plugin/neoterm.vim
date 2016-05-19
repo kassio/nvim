@@ -18,11 +18,13 @@ if has('nvim')
 
   " Useful maps
   " hide all terminals
-  nnoremap <silent> <leader>tc :Tclose<cr>
+  nnoremap <silent> <leader>tc :Tclose \| TTestClearStatus<cr>
   " open current terminal
   nnoremap <silent> <leader>to :Topen<cr>
   " clear terminal
   nnoremap <silent> <leader>tl :call neoterm#clear()<cr>
   " kills the current job (send a <c-c>)
   nnoremap <silent> <leader>tk :call neoterm#kill()<cr>
+  " exits the last terminal
+  nnoremap <silent> <leader>te :T exit \| TTestClearStatus<cr>
 end
