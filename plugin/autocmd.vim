@@ -19,4 +19,19 @@ aug user_autocmds
 
   au FocusGained,BufEnter * SignifyRefresh
   au FocusGained,BufEnter * checktime
+
+  " persistent undo
+  au FileType gitcommit setlocal noundofile
+  au VimEnter *
+        \ if !isdirectory(&undodir) |
+        \   call mkdir(expand(&undodir), "p", 0700) |
+        \ endif
+
+  " statusline
+  au VimEnter,WinEnter,BufWinEnter,FileType,BufUnload,VimResized *
+        \ call statusline#update()
+
+  au BufWritePre * call buffer#trim()
+
+  au BufReadPost fugitive://* set bufhidden=delete
 aug END

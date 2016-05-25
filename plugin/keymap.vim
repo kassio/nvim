@@ -41,4 +41,8 @@ nnoremap <right> <nop>
 nnoremap <silent> <leader>ff :call preserve#preserve('silent normal gg=G')<cr>
 
 " Map to show the highlight name under the cursor
-map <f2> :echo color#current()<cr>
+nnoremap <f2> :echo color#current()<cr>
+
+" Grep mappings
+vnoremap <silent> <leader>as :<c-u>call grep#search(text#get_visual(), 1)<cr>
+nnoremap <silent> <leader>as :call grep#search(expand("<cword>"), 1)<cr>
