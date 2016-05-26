@@ -3,17 +3,17 @@ call plug#begin(expand('~/.config/nvim/_deps'))
 " Tools
 Plug 'git@github.com:kassio/vim-session_manager.git'
 Plug 'git@github.com:kassio/neoterm.git'
+Plug 'git@github.com:kassio/ctrlp-bufline.vim.git'
 Plug 'benekastah/neomake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeMirror'] }
-Plug 'chriskempson/base16-vim'
+Plug 'chriskempson/base16-vim' " colors
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'git@github.com:kassio/ctrlp-bufline.vim.git'
 Plug 'kana/vim-textobj-user'
-Plug 'wellle/targets.vim'
-Plug 'vim-scripts/vis'
+Plug 'wellle/targets.vim' " extended surrounding
+Plug 'vim-scripts/vis' " Visual commands that respect with Visual Blocks
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeMirror'] }
 
 " Git
 Plug 'tpope/vim-fugitive'
