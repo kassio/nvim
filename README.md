@@ -4,19 +4,48 @@
 
 ## Installing neovim
 
+### Dependencies
 ```console
-$HOME/.config/nvim/bin/install
+# python clients
+pip install neovim -q
+pip3 install neovim-remote -q
+
+# lua
+brew install lua
 ```
 
-## Setting up this configs
+### neovim
+```
+brew install neovim
+```
 
-### Download it
+## Update neovim HEAD
+
+```console
+brew reinstall neovim --HEAD
+```
+
+## Setting up
+
+### neovim
 
 ```console
 git clone git://github.com/kassio/nvimfiles.git ~/.config/nvim
 ```
 
-### Install neovim plugins:
+#### linking vim configs with neovim
+
+```console
+ln -sf ~/.config/nvim ~/.vim
+```
+
+### installing vim without nvim
+
+```console
+git clone git://github.com/kassio/nvimfiles.git ~/.vim
+```
+
+## Plugins
 
 ```console
 nvim +PlugInstall
