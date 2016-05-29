@@ -2,7 +2,7 @@ function! statusline#update()
   for nr in range(1, winnr('$'))
     if bufname(winbufnr(nr)) =~ 'NERD_tree'
       call setwinvar(nr, '&statusline', g:NERDTreeStatusline)
-    elseif bufname(winbufnr(nr)) =~ 'neoterm'
+    elseif bufname(winbufnr(nr)) =~ ';#neoterm'
       call setwinvar(nr, '&statusline', statusline#neoterm())
     else
       call setwinvar(nr, '&statusline', statusline#line(winnr() == nr))
