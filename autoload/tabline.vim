@@ -7,15 +7,15 @@ function! tabline#update()
       let tabline .=
             \   '%#StatusLine#'
             \ . '%'.tabnr.'T'
-            \ . '%#SLSection2#'
+            \ . '%#SLModeNormal#'
             \ . tabline#label(tabnr)
             \ . '%#StatusLine#'
     else
       let tabline .=
-            \   '%#StatusLineNC#'
+            \   '%#StatusLine#'
             \ . '%'.tabnr.'T'
             \ . tabline#label(tabnr)
-            \ . '%#StatusLineNC#'
+            \ . '%#StatusLine#'
     end
   endfor
 

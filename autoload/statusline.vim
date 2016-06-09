@@ -3,16 +3,21 @@ function! statusline#update()
     if bufname(winbufnr(nr)) =~ 'NERD_tree'
       call setwinvar(nr, '&statusline', g:NERDTreeStatusline)
     elseif bufname(winbufnr(nr)) =~ ';#neoterm'
-      call setwinvar(nr, '&statusline', statusline#neoterm())
+      call setwinvar(nr, '&statusline', statusline#neoterm(winnr() == nr))
     else
       call setwinvar(nr, '&statusline', statusline#line(winnr() == nr))
     end
   endfo
 endfunction
 
-function! statusline#neoterm()
-  return
-        \   '%{statusline#mode("N")}%*'
+function! statusline#neoterm(active)
+  if a:active
+    let mode = '%#SLModeNormal#%{statusline#mode("N")}%*'
+  else
+    let mode = '%{statusline#mode("N")}'
+  end
+
+  return  mode
         \ . '%#SLModeTerminal#%{statusline#mode("T")}%*'
         \ . ' %n '
         \ . '%<%{statusline#termname()}%*'
@@ -32,11 +37,10 @@ endfunction
 function! statusline#line(active)
   if a:active
     return
-          \   '%{statusline#mode("N")}%*'
+          \   '%#SLModeNormal#%{statusline#mode("N")}%*'
           \ . '%#SLModeVisual#%{statusline#mode("V")}%*'
           \ . '%#SLModeInsert#%{statusline#mode("I")}%*'
           \ . '%#SLModeInsert#%{statusline#mode("R")}%*'
-          \ . ' %n '
           \ . '%<%{statusline#filename(!&modified)}%*'
           \ . '%(%#SLUnsavedFile#%<%{statusline#filename(&modified)}%*%)'
           \ . '%='
@@ -45,7 +49,7 @@ function! statusline#line(active)
           \ . '%#StatusWarning#%{statusline#neoterm_test("running")}%*'
           \ . '%#StatusSuccess#%{statusline#neoterm_test("success")}%*'
           \ . '%#StatusError#%{statusline#neoterm_test("failed")}%*'
-          \ . ' %{&ft} %{&ff} %{&fenc!=""?&fenc:&enc} '
+          \ . '%#SLModeNormal# %{&ft} %{&ff} %{&fenc!=""?&fenc:&enc} '
   else
     return
           \   ' %n '
@@ -58,7 +62,11 @@ endfunction
 function! statusline#filename(modified)
   if a:modified
     let fname = expand('%')
-    return printf(' %s ', len(fname) ? fname : '[No Name]')
+    if len(fname)
+      return printf("  %s %s ", bufnr('%'), fname)
+    else
+      return "  [No Name] "
+    end
   else
     return ''
   end
