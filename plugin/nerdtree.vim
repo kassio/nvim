@@ -17,5 +17,9 @@ aug nerdtree_view
         \ if exists('s:NERDTreeCurrentLine') && s:NERDTreeCurrentLine > 0 |
         \   call setpos('.', [0, s:NERDTreeCurrentLine, 1, 0]) |
         \ endif
+  au BufDelete,BufWipeout *NERD_tree*
+        \ if exists('g:nerdtree_current_buffer') |
+        \   unlet g:nerdtree_current_buffer |
+        \ endif
   au Filetype nerdtree setlocal nolist
 aug END

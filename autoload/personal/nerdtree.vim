@@ -31,16 +31,13 @@ function! s:mirror_or_create()
     endif
   else
     silent NERDTree
+    call s:globalize_nerdtree_buffer()
   endif
 endfunction
 
 function! s:nerdtree_current_buffer()
   if !exists('g:nerdtree_current_buffer')
-    let all_buffers = range(1, bufnr('$'))
-    let nerdtree_buffers = filter(all_buffers, 'bufname(v:val) =~ "NERD_tree_\\d\\+"')
-    if !empty(nerdtree_buffers)
-      let g:nerdtree_current_buffer = nerdtree_buffers[0]
-    end
+    call s:globalize_nerdtree_buffer()
   end
 
   return get(g:, 'nerdtree_current_buffer', -1)
@@ -52,5 +49,13 @@ function! s:tab_has_nerdtree()
     return !empty(tab_buffers)
   else
     return -1
+  end
+endfunction
+
+function! s:globalize_nerdtree_buffer()
+  let all_buffers = range(1, bufnr('$'))
+  let nerdtree_buffers = filter(all_buffers, 'bufname(v:val) =~ "NERD_tree_\\d\\+"')
+  if !empty(nerdtree_buffers)
+    let g:nerdtree_current_buffer = nerdtree_buffers[0]
   end
 endfunction
