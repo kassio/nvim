@@ -49,6 +49,7 @@ function! statusline#line(active)
           \ . '%#StatusWarning#%{statusline#neoterm_test("running")}%*'
           \ . '%#StatusSuccess#%{statusline#neoterm_test("success")}%*'
           \ . '%#StatusError#%{statusline#neoterm_test("failed")}%*'
+          \ . ' %c,%l/%L '
           \ . '%#SLModeNormal# %{&ft} %{&ff} %{&fenc!=""?&fenc:&enc} '
   else
     return
