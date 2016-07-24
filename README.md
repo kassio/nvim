@@ -1,6 +1,6 @@
 # nvimfiles
 
-<b>**NEVER** use this as your personal setup! It's not stable for distribution.</b>
+_**NEVER** use this as your personal setup! It's not stable for distribution._
 
 ## Installing neovim
 
@@ -9,6 +9,9 @@
 # python clients
 pip install neovim -q
 pip3 install neovim-remote -q
+
+# ruby clients
+gem install neovim
 
 # lua
 brew install lua
