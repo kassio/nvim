@@ -2,6 +2,8 @@ nnoremap <silent> <c-p> :FZF<cr>
 nnoremap <silent> <c-n> :BLines<cr>
 nnoremap <silent> <c-k> :Buffers<cr>
 
+let g:fzf_buffers_jump = 1
+
 let g:fzf_action = {
       \ 'ctrl-t': 'tab split',
       \ 'ctrl-s': 'split',
