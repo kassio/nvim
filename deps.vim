@@ -14,6 +14,7 @@ Plug 'vim-scripts/vis' " Visual commands that respect with Visual Blocks
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeMirror'] }
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Git
 Plug 'tpope/vim-fugitive'
