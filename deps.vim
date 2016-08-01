@@ -1,8 +1,8 @@
 call plug#begin(expand('~/.config/nvim/_deps'))
 
 " Tools
-Plug 'git@github.com:kassio/vim-session_manager.git'
-Plug 'git@github.com:kassio/neoterm.git'
+Plug 'https://github.com/kassio/vim-session_manager.git'
+Plug 'https://github.com/kassio/neoterm.git'
 Plug 'benekastah/neomake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -43,7 +43,7 @@ Plug 'Keithbsmiley/rspec.vim', { 'for': ['ruby'] }
 Plug 'sunaku/vim-ruby-minitest', { 'for': ['ruby'] }
 
 " Elixir
-Plug 'git@github.com:elixir-lang/vim-elixir.git', { 'for': ['elixir', 'eelixir'] }
+Plug 'https://github.com/elixir-lang/vim-elixir.git', { 'for': ['elixir', 'eelixir'] }
 
 call plug#end()
 
