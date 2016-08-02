@@ -11,7 +11,9 @@ let g:fzf_action = {
 
 let g:fzf_history_dir = '~/.fzf-history'
 
-aug fzf_setup
-  au!
-  au TermOpen term://*FZF tnoremap <silent> <buffer> <esc><esc> <c-c>
-aug END
+if has('nvim')
+  aug fzf_setup
+    au!
+    au TermOpen term://*FZF tnoremap <silent> <buffer> <esc><esc> <c-c>
+  aug END
+end
