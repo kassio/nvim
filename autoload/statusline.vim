@@ -14,7 +14,7 @@ function! statusline#neoterm(active)
   if a:active
     let mode = '%#SLModeNormal#%{statusline#mode("N")}%*'
   else
-    let mode = '%{statusline#mode("N")}'
+    let mode = ''
   end
 
   return  mode
