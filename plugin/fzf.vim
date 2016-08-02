@@ -10,6 +10,7 @@ let g:fzf_action = {
       \ 'ctrl-v': 'vsplit' }
 
 let g:fzf_history_dir = '~/.fzf-history'
+let g:airline#extensions#branch#enabled = 0
 
 if has('nvim')
   aug fzf_setup
