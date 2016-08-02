@@ -36,10 +36,10 @@ function! color#light()
   set background=light
   colorscheme base16-solarized-light
 
-  call s:hi('StatusLine',     '666666', 'bbbbbb', '', '')
-  call s:hi('StatusLineNC',   '999999', 'dddddd', '', '')
+  call s:hi('StatusLine',     '666666', 'cdc6b4', '', '')
+  call s:hi('StatusLineNC',   '999999', 'ddd6c4', '', '')
 
-  call s:hi('SLModeNormal',   'cccccc', '839191', '', '')
+  call s:hi('SLModeNormal',   '666666', 'bbbbbb', '', '')
   call s:hi('SLModeInsert',   '595959', 'badb51', '', '')
   call s:hi('SLModeVisual',   'eeeeee', 'cd9cce', '', '')
   call s:hi('SLUnsavedFile',  'eeeeee', 'cc4a21', '', '')
