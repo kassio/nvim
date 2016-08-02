@@ -5,17 +5,17 @@ function! tabline#update()
     let tabnr = i + 1
     if tabpagenr() == tabnr
       let tabline .=
-            \   '%#StatusLine#'
+            \   '%#TabLine#'
             \ . '%'.tabnr.'T'
-            \ . '%#SLModeNormal#'
+            \ . '%#TabLineSel#'
             \ . tabline#label(tabnr)
-            \ . '%#StatusLine#'
+            \ . '%#TabLine#'
     else
       let tabline .=
-            \   '%#StatusLine#'
+            \   '%#TabLine#'
             \ . '%'.tabnr.'T'
             \ . tabline#label(tabnr)
-            \ . '%#StatusLine#'
+            \ . '%#TabLine#'
     end
   endfor
 
