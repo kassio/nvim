@@ -15,6 +15,6 @@ let g:airline#extensions#branch#enabled = 0
 if has('nvim')
   aug fzf_setup
     au!
-    au TermOpen term://*FZF tnoremap <silent> <buffer> <esc><esc> <c-c>
+    au TermOpen term://*FZF tnoremap <silent> <buffer> <nowait> <esc> <c-c>
   aug END
 end
