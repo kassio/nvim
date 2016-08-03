@@ -1,6 +1,9 @@
 source $HOME/.config/nvim/deps.vim
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let g:data_home=expand("$HOME/.local/share/nvim")
+if filereadable(expand("$HOME/.custom.vim"))
+  source $HOME/.custom.vim
+end
 
 if !has('nvim')
   let g:data_home=expand("$HOME/.local/share/vim")
