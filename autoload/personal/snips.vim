@@ -1,9 +1,16 @@
 function! personal#snips#filename_camelized()
   let name = expand("%:t:r")
   if len(name) == 0
-    if a:0 == 0
-      let name = 'MyClass'
-    endif
+    let name = 'MyClass'
+  endif
+
+  return s:camelcase(name)
+endfunction
+
+function! personal#snips#dirname_camelized()
+  let name = split(getcwd(), '/')[-1]
+  if len(name) == 0
+    let name = 'MyNamespace'
   endif
 
   return s:camelcase(name)
