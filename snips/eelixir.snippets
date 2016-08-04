@@ -1,1 +1,19 @@
 extends html, elixir
+
+snippet e "" w
+<%= ${0:${VISUAL}} %>
+endsnippet
+
+snippet end
+<% end %>
+endsnippet
+
+snippet er "" w
+<% ${0:${VISUAL}} %>
+endsnippet
+
+snippet b
+<% ${1:if $2} %>
+  ${0:${VISUAL}}
+<% end %>
+endsnippet
