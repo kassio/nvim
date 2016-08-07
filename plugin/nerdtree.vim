@@ -9,7 +9,7 @@ let NERDTreeStatusline="\ %-28{matchstr(getline('.'), '\\(\\s\\)\\?\\zs\\(\\/\\)
 nmap <silent> <leader>p :call personal#nerdtree#mirror_toggle()<CR>
 nnoremap <silent> <leader>fl :call personal#nerdtree#mirror_find()<CR>
 
-if filereadable('web/web.ex')
+if filereadable('mix.exs')
   call add(NERDTreeIgnore, '_build')
 end
 
