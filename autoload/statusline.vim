@@ -28,10 +28,7 @@ function! statusline#neoterm(active)
 endfunction
 
 function! statusline#termname()
-  let tname = expand('%')
-  let tname_parts = split(tname, ':')
-
-  return join(split(tname_parts[2], ';'), '')
+  return b:term_title
 endfunction
 
 function! statusline#line(active)

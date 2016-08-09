@@ -29,7 +29,8 @@ endfunction
 function! s:fname(tabnr)
   let buflist = tabpagebuflist(a:tabnr)
   let winnr = tabpagewinnr(a:tabnr)
-  let bufname = bufname(buflist[winnr - 1])
+  let bufnr = buflist[winnr - 1]
+  let bufname = getbufvar(bufnr, 'term_title', bufname(buflist[winnr - 1]))
 
   if len(bufname)
     return get(split(bufname, '/'), -1)
