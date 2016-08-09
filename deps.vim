@@ -13,6 +13,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'wellle/targets.vim' " extended surrounding
 Plug 'vim-scripts/vis' " Visual commands that respect with Visual Blocks
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeMirror'] }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
