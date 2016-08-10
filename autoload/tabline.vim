@@ -1,21 +1,28 @@
 function! tabline#update()
-  let tabline = ''
+  let tabline = '%#TabLine#'
 
-  for i in range(tabpagenr('$'))
-    let tabnr = i + 1
-    if tabpagenr() == tabnr
+  let g:tabs = map(range(tabpagenr('$')), 'v:val + 1')
+  let g:current_tab = tabpagenr()
+
+  if g:current_tab > 1
+    let g:ordered_tabs = g:tabs[g:current_tab-1:-1] + g:tabs[0:g:current_tab-2]
+  else
+    let g:ordered_tabs = g:tabs
+  end
+
+  for tabnr in g:ordered_tabs
+    let tabline .= '%'.tabnr.'T'
+
+    if g:current_tab == tabnr
       let tabline .=
-            \   '%#TabLine#'
-            \ . '%'.tabnr.'T'
-            \ . '%#TabLineSel#'
+            \   '%0.50(%#TabLineSel#'
             \ . tabline#label(tabnr)
+            \ . '%)'
             \ . '%#TabLine#'
+    elseif index(g:ordered_tabs, tabnr) == 3
+      let tabline .= '%<'
     else
-      let tabline .=
-            \   '%#TabLine#'
-            \ . '%'.tabnr.'T'
-            \ . tabline#label(tabnr)
-            \ . '%#TabLine#'
+      let tabline .= tabline#label(tabnr)
     end
   endfor
 
