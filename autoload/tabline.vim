@@ -1,36 +1,53 @@
 function! tabline#update()
-  let tabline = '%#TabLine#'
+  let tabs = map(range(tabpagenr('$')), 'v:val + 1')
+  let tab = tabpagenr()
+  let tab_index = index(tabs, tab)
+  let tabs_before = tab_index > 0 ? tabs[0:tab_index-1] : []
+  let tabs_after = tab_index < tabpagenr('$') ? tabs[tab_index+1:-1] : []
 
-  let g:tabs = map(range(tabpagenr('$')), 'v:val + 1')
-  let g:current_tab = tabpagenr()
+  let current = tabline#label(tab)
 
-  if g:current_tab > 1
-    let g:ordered_tabs = g:tabs[g:current_tab-1:-1] + g:tabs[0:g:current_tab-2]
-  else
-    let g:ordered_tabs = g:tabs
+  let labels_before = map(copy(tabs_before), 'tabline#label(v:val)')
+  let text_before = join(labels_before, '')
+  let labels_after = map(copy(tabs_after), 'tabline#label(v:val)')
+  let text_after = ''
+
+  if !empty(text_before) && len(text_before) - (3*len(labels_before)) > &columns
+    let text_before = '%<(' . text_before . '%)'
+    let text_after = join(labels_after, '')
+  elseif !empty(labels_after)
+    let current_len = len(text_before) + len(current) - (3*(len(labels_before) + 1))
+    let next_after = []
+    let breaked = 0
+
+    for label in labels_after
+      let label_len = len(label) - 3
+
+      if current_len + label_len >= &columns
+        let breaked = 1
+        break
+      else
+        call add(next_after, label)
+        let current_len += label_len
+      end
+    endfor
+
+    let text_after = join(next_after, '')
+    if breaked
+      let text_after .= '%<(' . join(labels_after[index(labels_after, label):-1], '') . '%)'
+    end
   end
 
-  for tabnr in g:ordered_tabs
-    let tabline .= '%'.tabnr.'T'
-
-    if g:current_tab == tabnr
-      let tabline .=
-            \   '%0.50(%#TabLineSel#'
-            \ . tabline#label(tabnr)
-            \ . '%)'
-            \ . '%#TabLine#'
-    elseif index(g:ordered_tabs, tabnr) == 3
-      let tabline .= '%<'
-    else
-      let tabline .= tabline#label(tabnr)
-    end
-  endfor
-
-  return tabline
+  return
+        \   '%#TabLine#'
+        \ . text_before
+        \ . '%0.50(%#TabLineSel#' . current . '%*%)'
+        \ . text_after
+        \ . '%#TabLineFill#'
 endfunction
 
 function! tabline#label(tabnr)
-  return printf(' %d %s ', a:tabnr, s:fname(a:tabnr))
+  return printf('%%%dT %d %s ', a:tabnr, a:tabnr, s:fname(a:tabnr))
 endfunction
 
 function! s:fname(tabnr)
@@ -42,6 +59,6 @@ function! s:fname(tabnr)
   if len(bufname)
     return get(split(bufname, '/'), -1)
   else
-    return '[No Name]'
+    return '[No name]'
   end
 endfunction
