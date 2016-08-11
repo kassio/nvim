@@ -55,8 +55,9 @@ function! s:default_colors()
   hi! StatusSuccess  guifg=#cccccc guibg=#5b903f
   hi! StatusError    guifg=#ee6060 guibg=#b01010
 
-  hi! link TabLine    StatusLine
-  hi! link TabLineSel SLModeNormal
+  hi! link TabLine     StatusLine
+  hi! link TabLineFill StatusLine
+  hi! link TabLineSel  SLModeNormal
 endfunction
 
 " Highlighting function
