@@ -1,32 +1,20 @@
-snippet before
-before do
+snippet desc "describe 'block' do" b
+${1:describe} $2 do
   ${0:${VISUAL}}
 end
 endsnippet
 
-snippet cont
-context $1 do
-  ${0:${VISUAL}}
-end
-endsnippet
-
-snippet desc
-describe $1 do
-  ${0:${VISUAL}}
-end
-endsnippet
-
-snippet exp
+snippet exp "expect(true).to be" b
 expect($1).${2:to} $3
 endsnippet
 
-snippet it
+snippet it "it 'block' do" b
 it '$1' do
   ${0:${VISUAL}}
 end
 endsnippet
 
-snippet itb
+snippet itb "it { }" b
 it { $1 }
 endsnippet
 

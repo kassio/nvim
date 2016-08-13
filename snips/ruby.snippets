@@ -11,12 +11,13 @@ class ${1:`!v personal#snips#filename_camelized()`}$2
 end
 endsnippet
 
-snippet defi
-def initialize${2:($3)}${3/(\w+),? ?/\n  @$1 = $1/g}$4
+snippet defi "def initialize()" b
+def initialize${2:($3)}
+  ${0:${VISUAL}}
 end
 endsnippet
 
-snippet def
+snippet def "def method()" b
 def ${1:name${2:($3)}}
   ${0:${VISUAL}}
 end
