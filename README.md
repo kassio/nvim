@@ -6,11 +6,9 @@ _**NEVER** use this as your personal setup! It's not stable for distribution._
 
 ### Dependencies
 ```console
-# python clients
+# clients
 pip install neovim -q
 pip3 install neovim-remote -q
-
-# ruby clients
 gem install neovim
 
 # lua
@@ -26,6 +24,12 @@ brew install neovim
 
 ```console
 brew reinstall neovim --HEAD
+```
+
+## Accessing nvim remotly (nvr)
+
+```console
+brew install nvr
 ```
 
 ## Setting up
