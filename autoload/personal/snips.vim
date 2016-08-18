@@ -1,7 +1,7 @@
-function! personal#snips#filename_camelized()
+function! personal#snips#filename_camelized(...)
   let name = expand("%:t:r")
   if len(name) == 0
-    let name = 'MyClass'
+    let name = a:0 ? a:1 : 'MyClass'
   endif
 
   return s:camelcase(name)

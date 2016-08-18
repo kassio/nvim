@@ -1,5 +1,5 @@
 function! personal#elixir#module_name()
-  let module_name = personal#snips#filename_camelized()
+  let module_name = personal#snips#filename_camelized('MyModule')
 
   echom expand('%:p')
   if expand('%:p') =~ "/web/"
