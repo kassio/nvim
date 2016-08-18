@@ -15,3 +15,5 @@ command! Gwork call system('git work')
 
 " Grep commands
 command! -complete=dir -nargs=+ Grep call grep#search(<q-args>, 0)
+
+command! Pupgrade PlugClean! | PlugUpgrade | PlugUpdate

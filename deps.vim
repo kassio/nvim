@@ -20,7 +20,6 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeMirr
 
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'Shougo/neco-vim', { 'for': ['vim'] }
-Plug 'fishbullet/deoplete-ruby', { 'for': ['ruby', 'eruby'] }
 Plug 'osyo-manga/vim-monster'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -55,5 +54,3 @@ Plug 'sunaku/vim-ruby-minitest', { 'for': ['ruby'] }
 Plug 'https://github.com/elixir-lang/vim-elixir.git', { 'for': ['elixir', 'eelixir'] }
 
 call plug#end()
-
-command! Pupgrade PlugUpgrade | PlugUpdate
