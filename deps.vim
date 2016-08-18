@@ -1,5 +1,9 @@
 call plug#begin(expand('~/.config/nvim/_deps'))
 
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+
 " Tools
 Plug 'https://github.com/kassio/vim-session_manager.git'
 Plug 'https://github.com/kassio/neoterm.git'
@@ -13,6 +17,11 @@ Plug 'kana/vim-textobj-user'
 Plug 'wellle/targets.vim' " extended surrounding
 Plug 'vim-scripts/vis' " Visual commands that respect with Visual Blocks
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeMirror'] }
+
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'Shougo/neco-vim', { 'for': ['vim'] }
+Plug 'fishbullet/deoplete-ruby', { 'for': ['ruby', 'eruby'] }
+Plug 'osyo-manga/vim-monster'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'

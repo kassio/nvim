@@ -10,6 +10,7 @@ _**NEVER** use this as your personal setup! It's not stable for distribution._
 pip install neovim -q
 pip3 install neovim-remote -q
 gem install neovim
+gem install rcodetools
 
 # lua
 brew install lua
