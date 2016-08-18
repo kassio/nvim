@@ -1,40 +1,40 @@
 extends elixir-phoenix
 
-snippet def
+snippet def "" b
 def ${1:name} do
   ${0:${VISUAL}}
 end
 endsnippet
 
-snippet defi
+snippet defi "" b
 defimpl ${1:protocol_name}, for: ${2:data_type} do
   ${0:${VISUAL}}
 end
 endsnippet
 
-snippet defma
+snippet defma "" b
 defmacro ${1:name} do
   ${0:${VISUAL}}
 end
 endsnippet
 
-snippet defmo
+snippet defmo "" b
 defmodule ${1:`!v personal#elixir#module_name()`} do
   ${0:${VISUAL}}
 end
 endsnippet
 
-snippet defp
+snippet defp "" b
 defp ${1:name} do
   ${0:${VISUAL}}
 end
 endsnippet
 
-snippet defpr
+snippet defpr "" b
 defprotocol ${1:name}, [${2:function}]
 endsnippet
 
-snippet defs
+snippet defs "" b
 defstruct ${1:field}: ${2:default_value}
 endsnippet
 
@@ -44,8 +44,8 @@ do
 end
 endsnippet
 
-snippet doc
-@doc """
+snippet doc "" b
+@$1doc """
 ${0:${VISUAL}}
 """
 endsnippet
@@ -60,20 +60,14 @@ fn
 end
 endsnippet
 
-snippet mdoc
-@moduledoc """
-$1
-"""
-endsnippet
-
-snippet rec
+snippet rec "" b
 receive do
   $1 ->
   $2
 end
 endsnippet
 
-snippet test
+snippet test "" b
 test "${1:test_name}" do
   ${0:${VISUAL}}
 end
