@@ -33,7 +33,7 @@ Plug 'mhinz/vim-signify'
 Plug 'sirver/ultisnips'
 
 " Tomdoc
-Plug 'wellbredgrapefruit/tomdoc.vim'
+Plug 'kassio/tomdoc.vim'
 
 " Markdown
 Plug 'tpope/vim-markdown', { 'for': ['markdown'] }
