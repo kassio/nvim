@@ -26,6 +26,9 @@ command! -range OldRubyHashSyntax call personal#ruby#old_ruby_hash_syntax(<line1
 command! -range SymbolKeyToString call personal#ruby#symbol_key_to_string(<line1>, <line2>)
 command! -range StringKeyToSymbol call personal#ruby#string_key_to_symbol(<line1>, <line2>)
 
+command! -range SymbolHashToString call personal#ruby#symbol_hash_to_string(<line1>, <line2>)
+command! -range StringHashToSymbol call personal#ruby#string_hash_to_symbol(<line1>, <line2>)
+
 setlocal iskeyword+=\?,\!,@-@
 
 " Minitest completion with C-xC-u
