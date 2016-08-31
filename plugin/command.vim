@@ -9,7 +9,7 @@ command! Trim call buffer#trim()
 
 " Fugitive/Git custom commands
 command! -nargs=+ G execute 'Git ' . <q-args>
-command! -nargs=+ Gco call git#checkout(<q-args>)
+command! -nargs=* Gco call git#checkout(<q-args>)
 command! Ghome call system('git home')
 command! Gwork call system('git work')
 

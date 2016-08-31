@@ -12,10 +12,10 @@ function! git#check_user()
 endfunction
 
 function! git#checkout(path)
-  if a:path == '%'
+  if a:1 == '%' || a:1 == ''
     exec '!git checkout ' . expand('%:p')
   else
-    exec '!git checkout ' . a:path
+    exec '!git checkout ' . a:1
   end
   edit
 endfunction
