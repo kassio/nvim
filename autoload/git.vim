@@ -11,8 +11,8 @@ function! git#check_user()
   endif
 endfunction
 
-function! git#checkout(path)
-  if a:1 == '%' || a:1 == ''
+function! git#checkout(...)
+  if a:0 && (a:1 == '%' || a:1 == '')
     exec '!git checkout ' . expand('%:p')
   else
     exec '!git checkout ' . a:1
