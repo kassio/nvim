@@ -2,6 +2,8 @@ source $HOME/.config/nvim/deps.vim
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let g:data_home=expand("$HOME/.local/share/nvim")
 
+runtime defaults.vim
+
 if !has('nvim')
   let g:data_home=expand("$HOME/.local/share/vim")
 
@@ -13,7 +15,6 @@ if !has('nvim')
   set autoread autowriteall
   set autoindent
   set autoread
-  set backspace=indent,eol,start
   set display=lastline
   set formatoptions=tcqj
   set history=10000
@@ -22,8 +23,6 @@ if !has('nvim')
   set langnoremap
   set laststatus=2
   set listchars="tab:> ,trail:-,nbsp:+"
-  set mouse=a
-  set nocompatible
   set nrformats=bin,hex
   set sessionoptions=buffers,tabpages,help
   set smarttab
@@ -31,15 +30,13 @@ if !has('nvim')
   set ttyfast
   set viminfo^=!
   set wildmenu
-
-  syntax enable
 end
 
 set fileencoding=utf8 nobomb
 
 set showmatch
 
-set showcmd noshowmode
+set noshowmode
 
 set confirm
 
