@@ -1,8 +1,13 @@
 call plug#begin(expand('~/.config/nvim/_deps'))
 
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'https://github.com/kassio/neoterm.git'
+  Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh', 'for': ['elixir', 'eelixir']   }
+end
+
 " Tools
 Plug 'https://github.com/kassio/vim-session_manager.git'
-Plug 'https://github.com/kassio/neoterm.git'
 Plug 'benekastah/neomake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -13,8 +18,6 @@ Plug 'kana/vim-textobj-user'
 Plug 'wellle/targets.vim' " extended surrounding
 Plug 'vim-scripts/vis' " Visual commands that respect with Visual Blocks
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeMirror'] }
-
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neco-vim', { 'for': ['vim'] }
 Plug 'osyo-manga/vim-monster'
 
@@ -49,6 +52,5 @@ Plug 'sunaku/vim-ruby-minitest', { 'for': ['ruby'] }
 " Elixir
 Plug 'https://github.com/elixir-lang/vim-elixir.git', { 'for': ['elixir', 'eelixir'] }
 Plug 'thinca/vim-ref'
-Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
 
 call plug#end()
