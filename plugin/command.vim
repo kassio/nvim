@@ -21,5 +21,5 @@ command! -complete=dir -nargs=+ Grep call grep#search(<q-args>, 0)
 if has('nvim')
   command! Pupgrade PlugClean! | PlugUpgrade | PlugUpdate | UpdateRemotePlugins
 else
-  command! PlugUpgrade | PlugUpdate
+  command! Pupgrade PlugUpgrade | PlugUpdate
 end
