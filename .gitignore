@@ -1,8 +1,4 @@
-*swp
-*swo
-*~
 .netrwhist
 doc/tag*
-_deps/*
-tmp
+_packs/*
 spell/*add*

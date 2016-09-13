@@ -1,10 +1,13 @@
-source $HOME/.config/nvim/deps.vim
+source $HOME/.config/nvim/packs.vim
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let g:data_home=expand("$HOME/.local/share/nvim")
 
 runtime defaults.vim
 
 if !has('nvim')
+  unlet! skip_defaults_vim
+  source $VIMRUNTIME/defaults.vim
+
   let g:data_home=expand("$HOME/.local/share/vim")
 
   packadd matchit
@@ -19,22 +22,19 @@ if !has('nvim')
   set formatoptions=tcqj
   set history=10000
   set hlsearch
-  set incsearch
-  set langnoremap
   set laststatus=2
   set listchars="tab:> ,trail:-,nbsp:+"
-  set nrformats=bin,hex
-  set sessionoptions=buffers,tabpages,help
   set smarttab
   set tabpagemax=50
   set ttyfast
   set viminfo^=!
-  set wildmenu
 end
 
 set fileencoding=utf8 nobomb
 
 set showmatch showcmd noshowmode
+
+set sessionoptions=buffers,tabpages,help
 
 set confirm
 

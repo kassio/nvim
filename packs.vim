@@ -1,4 +1,5 @@
-call plug#begin(expand('~/.config/nvim/_deps'))
+set packpath+=_packs
+call plug#begin(expand('~/.config/nvim/_packs/plugins/opt'))
 
 if has('nvim')
   Plug 'https://github.com/kassio/neoterm.git'
