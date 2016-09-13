@@ -34,9 +34,7 @@ end
 
 set fileencoding=utf8 nobomb
 
-set showmatch
-
-set noshowmode
+set showmatch showcmd noshowmode
 
 set confirm
 
@@ -46,7 +44,7 @@ set splitright splitbelow
 
 set diffopt+=vertical
 
-set number numberwidth=3
+set relativenumber number numberwidth=3
 
 set ignorecase smartcase
 
