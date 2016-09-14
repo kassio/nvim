@@ -9,14 +9,6 @@ let ruby_operators = 1
 let ruby_space_errors = 1
 let ruby_spellcheck_strings = 1
 
-" Surround stuff
-let g:surround_{char2nr("#")} = "#{\r}"
-let g:surround_{char2nr("-")} = "<% \r %>"
-let g:surround_{char2nr("=")} = "<%= \r %>"
-
-" Rubyfmt
-let g:rubyfmt_autoopen = 0
-
 command! -range LetToVariable call personal#ruby#let_to_variable(<line1>, <line2>)
 command! -range VariableToLet call personal#ruby#variable_to_let(<line1>, <line2>)
 
@@ -30,6 +22,3 @@ command! -range SymbolHashToString call personal#ruby#symbol_hash_to_string(<lin
 command! -range StringHashToSymbol call personal#ruby#string_hash_to_symbol(<line1>, <line2>)
 
 setlocal iskeyword+=\?,\!,@-@
-
-" Minitest completion with C-xC-u
-set completefunc=syntaxcomplete#Complete

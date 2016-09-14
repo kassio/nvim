@@ -10,7 +10,7 @@ aug user_autocmds
   au BufEnter,BufWritePost * call git#check_user()
 
   au BufNewFile,BufRead *.json setf javascript
-  au FileType html,javascript,css,eruby,sass,scss,yaml setlocal iskeyword+=-
+  au FileType html,javascript,css,eruby,eelixir,sass,scss,yaml setlocal iskeyword+=-
   au BufReadPost,BufNewFile *_feature.rb set syntax=rspec
 
   au FileType gitcommit let b:open_at_first_line = 1
@@ -19,6 +19,17 @@ aug user_autocmds
 
   au FocusGained,BufEnter * SignifyRefresh
   au FocusGained,BufEnter * checktime
+
+  au FileType ruby,eruby,elixir,eelixir let [
+        \ g:surround_{char2nr("#")},
+        \ g:surround_{char2nr("-")},
+        \ g:surround_{char2nr("=")}
+        \ ] = [
+        \ "#{\r}",
+        \ "<% \r %>",
+        \ "<%= \r %>"
+        \ ]
+  au FileType ruby,eruby,elixir,eelixir setlocal iskeyword+=\?,\!,@-@
 
   " persistent undo
   au FileType gitcommit setlocal noundofile
