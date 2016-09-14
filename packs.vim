@@ -10,11 +10,9 @@ Plug 'benekastah/neomake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-commentary'
 Plug 'chriskempson/base16-vim' " colors
 Plug 'kana/vim-textobj-user'
 Plug 'wellle/targets.vim' " extended surrounding
-Plug 'vim-scripts/vis' " Visual commands that respect with Visual Blocks
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeMirror'] }
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -37,9 +35,6 @@ Plug 'tpope/vim-markdown', { 'for': ['markdown'] }
 Plug 'othree/html5.vim', { 'for': ['html', 'eruby'] }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'html', 'eruby'] }
 
-" react.js
-Plug 'mxw/vim-jsx'
-
 " Ruby
 Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby'] }
 Plug 'Keithbsmiley/rspec.vim', { 'for': ['ruby'] }
@@ -47,6 +42,5 @@ Plug 'sunaku/vim-ruby-minitest', { 'for': ['ruby'] }
 
 " Elixir
 Plug 'https://github.com/elixir-lang/vim-elixir.git', { 'for': ['elixir', 'eelixir'] }
-Plug 'thinca/vim-ref'
 
 call plug#end()
