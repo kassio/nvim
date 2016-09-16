@@ -3,11 +3,9 @@ nnoremap <silent> <c-m> :FZFMru<cr>
 nnoremap <silent> <c-n> :BLines<cr>
 nnoremap <silent> <c-k> :Buffers<cr>
 
-command! FZFMru call fzf#run({
-\  'source':  v:oldfiles,
-\  'sink':    'e',
-\  'options': '-m -x +s',
-\  'down':    '40%'})
+command! FZFMru call fzf#run(fzf#wrap({
+      \ 'source': v:oldfiles
+      \ }))
 
 let g:fzf_buffers_jump = 1
 
