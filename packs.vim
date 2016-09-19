@@ -11,7 +11,7 @@ Plug 'benekastah/neomake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
-Plug 'chriskempson/base16-vim' " colors
+Plug 'mhartington/oceanic-next'
 Plug 'kana/vim-textobj-user'
 Plug 'wellle/targets.vim' " extended surrounding
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeMirror'] }
