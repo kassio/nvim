@@ -29,3 +29,11 @@ call textobj#user#plugin('rubyblock', {
       \     'select-i': 'ib'
       \   }
       \ })
+
+call textobj#user#plugin('erb', {
+      \   '-': {
+      \     'pattern': ['<%=\?\s\?', '\s\?%>'],
+      \     'select-a': 'ae',
+      \     'select-i': 'ie'
+      \   }
+      \ })

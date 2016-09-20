@@ -13,11 +13,3 @@ call textobj#user#plugin('line', {
       \     'select-i': 'il'
       \   },
       \ })
-
-call textobj#user#plugin('erb', {
-      \   '-': {
-      \     'pattern': ['<%=\?\s\?', '\s\?%>'],
-      \     'select-a': 'a=',
-      \     'select-i': 'i='
-      \   }
-      \ })
