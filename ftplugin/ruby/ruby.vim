@@ -23,8 +23,9 @@ command! -range StringHashToSymbol call personal#ruby#string_hash_to_symbol(<lin
 
 call textobj#user#plugin('rubyblock', {
       \   '-': {
-      \     'pattern': ['\<do\>', '\<end\>'],
+      \     'select-a-function': 'textobj#ruby#block_a',
       \     'select-a': 'ab',
-      \     'select-i': 'ib',
-      \   },
+      \     'select-i-function': 'textobj#ruby#block_i',
+      \     'select-i': 'ib'
+      \   }
       \ })
