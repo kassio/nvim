@@ -1,3 +1,9 @@
+if has('nvim')
+  command! Pupgrade PlugClean! | PlugUpgrade | PlugUpdate | UpdateRemotePlugins
+else
+  command! Pupgrade PlugUpgrade | PlugUpdate
+end
+
 call plug#begin(expand('~/.config/nvim/_packs'))
 
 if has('nvim')

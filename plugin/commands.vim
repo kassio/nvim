@@ -14,12 +14,3 @@ cabbrev Gd Gdiff
 command! -nargs=* Gco call git#checkout(<q-args>)
 command! Ghome call system('git home')
 command! Gwork call system('git work')
-
-" Grep commands
-command! -complete=dir -nargs=+ Grep call grep#search(<q-args>, 0)
-
-if has('nvim')
-  command! Pupgrade PlugClean! | PlugUpgrade | PlugUpdate | UpdateRemotePlugins
-else
-  command! Pupgrade PlugUpgrade | PlugUpdate
-end

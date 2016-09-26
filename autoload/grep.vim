@@ -1,13 +1,23 @@
-function! grep#search(word, quote)
+function! grep#search(word)
   let escaped_word = text#escape_all(a:word)
-  let pattern = a:quote ? '"' . escaped_word . '"' : escaped_word
   let highlight = matchstr(escaped_word, '\v^(["''''])?\zs.+\ze\1.*$')
 
-  silent exec 'grep! ' . pattern
+  call s:grep(escaped_word, highlight)
+endfunction
+
+function! grep#autosearch(word)
+  let escaped_word = text#escape_all(a:word)
+  let highlight = matchstr(escaped_word, '\v^(["''''])?\zs.+\ze\1.*$')
+
+  call s:grep('"' . escaped_word . '"', highlight)
+endfunction
+
+function! s:grep(text, highlight)
+  silent exec 'grep! "' . a:text . '"'
 
   if !empty(getqflist())
     botright copen
-    silent call text#highlight(highlight)
+    silent call text#highlight(a:highlight)
   else
     echo a:word . " not found."
   end
