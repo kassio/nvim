@@ -27,5 +27,5 @@ if has('nvim')
   " exits the last terminal
   nnoremap <silent> <leader>te :T exit \| TTestClearStatus<cr>
   " redo the last bash command
-  nnoremap <silent> <leader>tr :call neoterm#clear() \| T !! \| call neoterm#do('')<cr>
+  nnoremap <silent> <leader>tr :call neoterm#clear() \| T !! \| :call neoterm#clear() \| call neoterm#do('')<cr>
 end
