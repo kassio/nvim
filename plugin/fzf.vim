@@ -1,7 +1,7 @@
-nnoremap <silent> <nowait> <c-p> :FZF<cr>
-nnoremap <silent> <c-m> :FZFMru<cr>
-nnoremap <silent> <c-n> :BLines<cr>
-nnoremap <silent> <c-k> :Buffers<cr>
+nnoremap <silent> <nowait> <c-p>   :FZF<cr>
+nnoremap <silent> <nowait> <m-p> :FZFMru<cr>
+nnoremap <silent> <nowait> <c-o>   :Buffers<cr>
+nnoremap <silent> <nowait> <m-o> :BLines<cr>
 
 command! FZFMru call fzf#run(fzf#wrap({
       \ 'source': v:oldfiles
