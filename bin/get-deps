@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+function install_or_update_gem() {
+  if [ "$(gem search -i $1)" == "false" ]
+  then
+    gem install $1
+  else
+    gem update $1
+  fi
+}
+
+brew install lua >/dev/null
+
+pip install neovim --upgrade
+pip3 install neovim-remote --upgrade
+
+install_or_update_gem neovim
+install_or_update_gem rcodetools
