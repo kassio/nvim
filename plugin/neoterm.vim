@@ -10,9 +10,9 @@ if has('nvim')
   vnoremap <silent> <leader>rs :TREPLSend<cr>
 
   " run set test lib
-  nnoremap <silent>  <f8> :call neoterm#test#run('all')<cr>
-  nnoremap <silent>  <f9> :call neoterm#test#run('file')<cr>
-  nnoremap <silent> <f10> :call neoterm#test#run('current')<cr>
+  nnoremap <silent>  <f8> :call neoterm#test#run("all")<cr>
+  nnoremap <silent>  <f9> :call neoterm#test#run("file")<cr>
+  nnoremap <silent> <f10> :call neoterm#test#run("current")<cr>
   nnoremap <silent> <f11> :call neoterm#test#rerun()<cr>
 
   " Useful maps
@@ -24,8 +24,10 @@ if has('nvim')
   nnoremap <silent> <leader>tl :call neoterm#clear()<cr>
   " kills the current job (send a <c-c>)
   nnoremap <silent> <leader>tk :call neoterm#kill()<cr>
+  " kills and clears
+  nnoremap <silent> <leader>tK :call neoterm#kill() \| :call neoterm#clear()<cr>
   " exits the last terminal
   nnoremap <silent> <leader>te :T exit \| TTestClearStatus<cr>
   " redo the last bash command
-  nnoremap <silent> <leader>tr :call neoterm#clear() \| T !! \| :call neoterm#clear() \| call neoterm#do('')<cr>
+  nnoremap <silent> <leader>tr :call neoterm#clear() \| call neoterm#exec(["!!", "", ""])<cr>
 end
