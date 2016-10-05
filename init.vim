@@ -34,7 +34,7 @@ set fileencoding=utf8 nobomb
 
 set showmatch showcmd noshowmode
 
-set sessionoptions=buffers,tabpages,help
+set sessionoptions=tabpages
 
 set confirm
 
