@@ -1,5 +1,5 @@
 nnoremap <silent> <c-p> :FZF<cr>
-nnoremap <silent> <c-o> :FZFMru<cr>
+nnoremap <silent> <m-p> :FZFMru<cr>
 nnoremap <silent> <c-n> :BLines<cr>
 nnoremap <silent> <c-k> :Buffers<cr>
 
