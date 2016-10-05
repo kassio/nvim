@@ -10,7 +10,22 @@ function! buffer#killall()
   let all_buffers = copy(range(1, bufnr('$')))
   let buffers = filter(all_buffers, 's:shouldKill(v:val)')
 
-  exec 'bw! '. join(buffers, ' ')
+  if !empty(buffers)
+    exec 'bw! '. join(buffers, ' ')
+  end
+endfunction
+
+function! buffer#wipeall()
+  let all_buffers = copy(range(1, bufnr('$')))
+  let buffers = filter(all_buffers, 's:shouldWipe(v:val)')
+
+  if !empty(buffers)
+    exec 'bw! '. join(buffers, ' ')
+  end
+endfunction
+
+function! s:shouldWipe(bufid)
+  return bufexists(a:bufid) && (bufwinnr(a:bufid) <= 0 || getbufvar(a:bufid, '&buftype') != '')
 endfunction
 
 function! s:shouldKill(bufid)

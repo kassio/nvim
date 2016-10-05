@@ -14,6 +14,8 @@ nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 nnoremap <silent> <leader>bd :call buffer#kill()<cr>
 " Delete all buffers
 nnoremap <silent> <leader>da :silent call buffer#killall()<cr>
+" Wipe all buffers
+nnoremap <silent> <leader>wa :silent call buffer#wipeall()<cr>
 
 nnoremap <silent> g# #
 nnoremap <silent> g* *
