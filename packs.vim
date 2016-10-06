@@ -19,7 +19,6 @@ Plug 'tpope/vim-abolish'
 Plug 'mhartington/oceanic-next'
 Plug 'kana/vim-textobj-user'
 Plug 'wellle/targets.vim' " extended surrounding
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeMirror'] }
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
