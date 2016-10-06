@@ -56,7 +56,7 @@ set list
 
 set virtualedit=block
 
-set complete=.,w,b,u
+set complete=.,w,b,u,i,t
 set completeopt=menu,preview
 set tags=tags,tags.gems
 

@@ -20,11 +20,6 @@ nnoremap <silent> <leader>wa :silent call buffer#wipeall()<cr>
 nnoremap <silent> g# #
 nnoremap <silent> g* *
 
-nnoremap <silent>g] :execute 'tselect ' . expand('<cword>')<cr>
-nnoremap <silent><c-]> :execute 'tjump ' . expand('<cword>')<cr>
-nnoremap <silent><c-w>g] :execute 'stselect ' . expand('<cword>')<cr>
-nnoremap <silent><c-w><c-]> :execute 'stjump ' . expand('<cword>')<cr>
-
 vnoremap <silent> * :<c-u>call text#highlight_visual()<cr>//<cr>
 vnoremap <silent> # :<c-u>call text#highlight_visual()<cr>??<cr>
 vnoremap <silent> ! :<c-u>call text#highlight_visual()<cr>
