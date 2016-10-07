@@ -1,5 +1,11 @@
+snippet bef "before 'block' do" b
+before $do
+  ${0:${VISUAL}}
+end
+endsnippet
+
 snippet desc "describe 'block' do" b
-${1:describe} $2 do
+describe $1 do
   ${0:${VISUAL}}
 end
 endsnippet
