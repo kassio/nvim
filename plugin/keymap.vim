@@ -29,6 +29,11 @@ nnoremap <silent> g! :call text#highlight('\<'.expand('<cword>').'\>')<cr>
 vnoremap <silent> <leader>! :<c-u>call text#highlight_sensitive_visual()<cr>
 nnoremap <silent> <leader>! :call text#highlight_sensitive(expand('<cword>'))<cr>
 
+nnoremap <silent>g] :execute 'tselect ' . expand('<cword>')<cr>
+nnoremap <silent><c-]> :execute 'tjump ' . expand('<cword>')<cr>
+nnoremap <silent><c-w>g] :execute 'stselect ' . expand('<cword>')<cr>
+nnoremap <silent><c-w><c-]> :execute 'stjump ' . expand('<cword>')<cr>
+
 nnoremap K <nop>
 nnoremap Q <nop>
 nnoremap <up> <nop>
