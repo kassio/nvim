@@ -12,8 +12,13 @@ end
 endsnippet
 
 snippet defi "def initialize()" b
-def initialize${2:($3)}
-  ${0:${VISUAL}}
+def initialize${1:($2)}
+  `!p
+snip.rv = "\n".join(
+  map(lambda x:
+    re.sub('([a-z][a-z0-9]*)[ =:,]*.*', '@\g<1> = \g<1>', x.strip()), t[2].split(',')
+  )
+)`
 end
 endsnippet
 
