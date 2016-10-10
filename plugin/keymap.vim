@@ -20,6 +20,9 @@ nnoremap <silent> <leader>wa :silent call buffer#wipeall()<cr>
 nnoremap <silent> g# #
 nnoremap <silent> g* *
 
+nnoremap <silent> ' `
+nnoremap <silent> ` '
+
 vnoremap <silent> * :<c-u>call text#highlight_visual()<cr>//<cr>
 vnoremap <silent> # :<c-u>call text#highlight_visual()<cr>??<cr>
 vnoremap <silent> ! :<c-u>call text#highlight_visual()<cr>
