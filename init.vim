@@ -57,7 +57,7 @@ set list
 set virtualedit=block
 
 set complete=.,w,b,u,i,t
-set completeopt=menu,preview
+set completeopt=menu,preview,noselect
 set tags=tags,tags.gems
 
 set wildignorecase
