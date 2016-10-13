@@ -23,9 +23,9 @@ if has('nvim')
   " clear terminal
   nnoremap <silent> <leader>tl :call neoterm#clear()<cr>
   " kills the current job (send a <c-c>)
-  nnoremap <silent> <leader>tk :call neoterm#kill()<cr>
+  nnoremap <silent> <leader>tk :call neoterm#kill() \| sleep 100m \| call neoterm#kill()<cr>
   " kills and clears
-  nnoremap <silent> <leader>tK :call neoterm#kill() \| :call neoterm#clear()<cr>
+  nnoremap <silent> <leader>tK :call neoterm#kill() \| sleep 10m \| call neoterm#clear()<cr>
   " exits the last terminal
   nnoremap <silent> <leader>te :T exit \| TTestClearStatus<cr>
   " redo the last bash command
