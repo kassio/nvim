@@ -16,6 +16,7 @@ Plug 'benekastah/neomake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
 Plug 'mhartington/oceanic-next'
 Plug 'kana/vim-textobj-user'
 Plug 'wellle/targets.vim' " extended surrounding
