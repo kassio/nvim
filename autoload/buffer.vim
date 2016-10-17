@@ -25,15 +25,25 @@ function! buffer#wipeall()
 endfunction
 
 function! s:shouldWipe(bufid)
-  return bufexists(a:bufid) && (bufwinnr(a:bufid) <= 0 || getbufvar(a:bufid, '&buftype') != '')
+  return bufexists(a:bufid) &&
+        \ (
+        \   !buflisted(a:bufid) ||
+        \   !bufloaded(a:bufid) ||
+        \   getbufvar(a:bufid, '&bt') != ''
+        \ )
+endfunction
+
+function! X(b)
+  return s:shouldWipe(a:b)
 endfunction
 
 function! s:shouldKill(bufid)
   let bufname = bufname(a:bufid)
   return
+        \ bufexists(a:bufid) &&
         \ bufname !~ 'NERD_tree' &&
         \ bufname !~ 'terminal' &&
-        \ bufname !~ 'ControlP'
+        \ bufname !~ 'FZF'
 endfunction
 
 function! buffer#trim()
