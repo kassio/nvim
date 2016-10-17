@@ -22,16 +22,16 @@ command! -range SymbolHashToString call personal#ruby#symbol_hash_to_string(<lin
 command! -range StringHashToSymbol call personal#ruby#string_hash_to_symbol(<line1>, <line2>)
 
 call textobj#user#plugin('rubyblock', {
-      \   '-': {
-      \     'select-a-function': 'textobj#ruby#block_a',
+      \   'block-i': {
+      \     'pattern': ['\<do\>.*$\n', '^\s*\<end\>'],
+      \     'select-i': 'ib',
+      \   },
+      \   'block-a': {
+      \     'pattern': ['\<do\>.*', '^\s*\<end\>'],
       \     'select-a': 'ab',
-      \     'select-i-function': 'textobj#ruby#block_i',
-      \     'select-i': 'ib'
-      \   }
-      \ })
-
-call textobj#user#plugin('erb', {
-      \   '-': {
+      \     'region-type': 'V'
+      \   },
+      \   'erb': {
       \     'pattern': ['<%=\?\s\?', '\s\?%>'],
       \     'select-a': 'ae',
       \     'select-i': 'ie'

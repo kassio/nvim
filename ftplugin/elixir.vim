@@ -1,26 +1,23 @@
-call textobj#user#plugin('elixirblock', {
-      \   '-': {
-      \     'select-a-function': 'textobj#elixir#block_a',
-      \     'select-a': 'ab',
-      \     'select-i-function': 'textobj#elixir#block_i',
-      \     'select-i': 'ib'
-      \   }
-      \ })
-
-call textobj#user#plugin('elixirfunction', {
-      \   '-': {
-      \     'select-a-function': 'textobj#elixir#function_a',
-      \     'select-a': 'af',
-      \     'select-i-function': 'textobj#elixir#function_i',
+call textobj#user#plugin('elixir', {
+      \   'block': {
+      \     'pattern': ['\<fn\>', '\<end\>'],
       \     'select-i': 'if',
+      \     'select-a': 'af'
       \   },
-      \ })
-
-call textobj#user#plugin('elixirmodule', {
-      \   '-': {
-      \     'select-a-function': 'textobj#elixir#function_a',
-      \     'select-a': 'am',
-      \     'select-i-function': 'textobj#elixir#function_i',
+      \   'function-i': {
+      \     'pattern': ['^\s*\<defp\?\>.*$\n', '^\s*\<end\>\s*$'],
       \     'select-i': 'im',
       \   },
-      \ })
+      \   'function-a': {
+      \     'pattern': ['^\s*\<defp\?\>.*$', '^\s*\<end\>\s*$'],
+      \     'select-a': 'am',
+      \   },
+      \   'module-i': {
+      \     'pattern': ['^\s*\<defmodule\>.*$\n', '^\s*\<end\>\s*$'],
+      \     'select-i': 'iM',
+      \   },
+      \   'module-a': {
+      \     'pattern': ['^\s*\<defmodule\>.*$', '^\s*\<end\>\s*$'],
+      \     'select-a': 'aM',
+      \   },
+      \ }
