@@ -20,4 +20,4 @@ call textobj#user#plugin('elixir', {
       \     'pattern': ['^\s*\<defmodule\>.*$', '^\s*\<end\>\s*$'],
       \     'select-a': 'aM',
       \   },
-      \ }
+      \ })
