@@ -36,6 +36,8 @@ nnoremap <silent>g] :execute 'tselect ' . expand('<cword>')<cr>
 nnoremap <silent><c-]> :execute 'tjump ' . expand('<cword>')<cr>
 nnoremap <silent><c-w>g] :execute 'stselect ' . expand('<cword>')<cr>
 nnoremap <silent><c-w><c-]> :execute 'stjump ' . expand('<cword>')<cr>
+nnoremap <silent>tg] :execute 'tab stselect ' . expand('<cword>')<cr>
+nnoremap <silent>t<c-]> :execute 'tab stjump ' . expand('<cword>')<cr>
 
 nnoremap K <nop>
 nnoremap Q <nop>
