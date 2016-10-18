@@ -1,6 +1,6 @@
-s:end = '^\s*\<end\>\s*$'
-s:function_start = '^\s*\<defp\?\>.*$'
-s:module_start = '^\s*\<defmodule\>.*$'
+let s:end = '^\s*\<end\>\s*$'
+let s:function_start = '^\s*\<defp\?\>.*$'
+let s:module_start = '^\s*\<defmodule\>.*$'
 call textobj#user#plugin('elixir', {
       \   'block': {
       \     'pattern': ['\<fn\>', '\<end\>'],

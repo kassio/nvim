@@ -1,5 +1,5 @@
-s:function_start = '^\s*\<function\>.*$'
-s:function_end = '^\s*\<endf\(unction\)\?\>'
+let s:function_start = '^\s*\<function\>.*$'
+let s:function_end = '^\s*\<endf\(unction\)\?\>'
 call textobj#user#plugin('vim', {
       \   'function-i': {
       \     'pattern': [s:function_start.'\n', s:function_end],
