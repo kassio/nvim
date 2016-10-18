@@ -1,3 +1,6 @@
+s:end = '^\s*\<end\>\s*$'
+s:function_start = '^\s*\<defp\?\>.*$'
+s:module_start = '^\s*\<defmodule\>.*$'
 call textobj#user#plugin('elixir', {
       \   'block': {
       \     'pattern': ['\<fn\>', '\<end\>'],
@@ -5,19 +8,19 @@ call textobj#user#plugin('elixir', {
       \     'select-a': 'af'
       \   },
       \   'function-i': {
-      \     'pattern': ['^\s*\<defp\?\>.*$\n', '^\s*\<end\>\s*$'],
+      \     'pattern': [s:function_start.'\n', s:end],
       \     'select-i': 'im',
       \   },
       \   'function-a': {
-      \     'pattern': ['^\s*\<defp\?\>.*$', '^\s*\<end\>\s*$'],
+      \     'pattern': [s:function_start, s:end],
       \     'select-a': 'am',
       \   },
       \   'module-i': {
-      \     'pattern': ['^\s*\<defmodule\>.*$\n', '^\s*\<end\>\s*$'],
+      \     'pattern': [s:module_start.'\n', s:end],
       \     'select-i': 'iM',
       \   },
       \   'module-a': {
-      \     'pattern': ['^\s*\<defmodule\>.*$', '^\s*\<end\>\s*$'],
+      \     'pattern': [s:module_start, s:end],
       \     'select-a': 'aM',
       \   },
       \ })
