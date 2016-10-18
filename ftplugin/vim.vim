@@ -10,3 +10,5 @@ call textobj#user#plugin('vim', {
       \     'select-a': ['am', 'af'],
       \   },
       \ })
+
+setlocal iskeyword+=:
