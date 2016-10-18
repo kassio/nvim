@@ -1,10 +1,12 @@
-source $HOME/.config/nvim/packs.vim
+let $MYVIM = "$HOME/.config/nvim"
+source $MYVIM/packs.vim
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-let g:data_home=expand("$HOME/.local/share/nvim")
+let g:data_home = expand("$HOME/.local/share/nvim")
 
 runtime defaults.vim
 
 if !has('nvim')
+  let $MYVIM = $HOME/.vim
   unlet! skip_defaults_vim
   source $VIMRUNTIME/defaults.vim
 
