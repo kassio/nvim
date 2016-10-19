@@ -6,7 +6,7 @@ let g:data_home = expand("$HOME/.local/share/nvim")
 runtime defaults.vim
 
 if !has('nvim')
-  let $MYVIM = $HOME/.vim
+  let $MYVIM = "$HOME/.vim"
   unlet! skip_defaults_vim
   source $VIMRUNTIME/defaults.vim
 
@@ -25,7 +25,7 @@ if !has('nvim')
   set history=10000
   set hlsearch
   set laststatus=2
-  set listchars="tab:> ,trail:-,nbsp:+"
+  set listchars=tab:>\ ,trail:-,nbsp:+
   set smarttab
   set tabpagemax=50
   set ttyfast
