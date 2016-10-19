@@ -33,10 +33,6 @@ function! s:shouldWipe(bufid)
         \ )
 endfunction
 
-function! X(b)
-  return s:shouldWipe(a:b)
-endfunction
-
 function! s:shouldKill(bufid)
   let bufname = bufname(a:bufid)
   return
