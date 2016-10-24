@@ -61,6 +61,7 @@ set virtualedit=block
 set complete=.,w,b,u,i,t
 set completeopt=menu,preview,noselect
 set tags=tags,tags.gems
+set tagcase=match
 
 set wildignorecase
 set wildmode=list:longest,list:full
