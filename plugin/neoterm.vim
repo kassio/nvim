@@ -5,15 +5,15 @@ if has('nvim')
   let g:neoterm_run_tests_bg = 1
   let g:neoterm_use_relative_path = 1
 
-  nnoremap <silent> <leader>rf :TREPLSendFile<cr>
-  nnoremap <silent> <leader>rs :TREPLSend<cr>
-  vnoremap <silent> <leader>rs :TREPLSend<cr>
+  nnoremap <silent> <leader>trf :TREPLSendFile<cr>
+  nnoremap <silent> <leader>trl :TREPLSendLine<cr>
+  vnoremap <silent> <leader>trs :TREPLSendSelection<cr>
 
   " run set test lib
-  nnoremap <silent>  <f8> :call neoterm#test#run("all")<cr>
-  nnoremap <silent>  <f9> :call neoterm#test#run("file")<cr>
-  nnoremap <silent> <f10> :call neoterm#test#run("current")<cr>
-  nnoremap <silent> <f11> :call neoterm#test#rerun()<cr>
+  nnoremap <silent> <leader>tta :call neoterm#test#run("all")<cr>
+  nnoremap <silent> <leader>ttf :call neoterm#test#run("file")<cr>
+  nnoremap <silent> <leader>ttc :call neoterm#test#run("current")<cr>
+  nnoremap <silent> <leader>ttr :call neoterm#test#rerun()<cr>
 
   " Useful maps
   " hide all terminals
@@ -29,5 +29,5 @@ if has('nvim')
   " exits the last terminal
   nnoremap <silent> <leader>te :T exit \| TTestClearStatus<cr>
   " redo the last bash command
-  nnoremap <silent> <leader>tr :call neoterm#clear() \| call neoterm#exec(["!!", "", ""])<cr>
+  nnoremap <silent> <leader>tR :call neoterm#clear() \| call neoterm#exec(["!!", "\r"])<cr>
 end
