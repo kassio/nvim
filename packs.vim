@@ -40,7 +40,7 @@ Plug 'tpope/vim-markdown', { 'for': ['markdown'] }
 
 " HTML, javascript, css, scss, less
 Plug 'othree/html5.vim', { 'for': ['html', 'eruby'] }
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'html', 'eruby'] }
+Plug 'othree/yajs.vim', { 'for': ['javascript', 'html', 'eruby'] }
 
 " Ruby
 Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby'] }
@@ -49,5 +49,7 @@ Plug 'sunaku/vim-ruby-minitest', { 'for': ['ruby'] }
 
 " Elixir
 Plug 'https://github.com/elixir-lang/vim-elixir.git', { 'for': ['elixir', 'eelixir'] }
+
+Plug 'derekwyatt/vim-scala', { 'for': ['scala'] }
 
 call plug#end()
