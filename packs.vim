@@ -1,5 +1,5 @@
 if has('nvim')
-  command! Pupgrade PlugClean! | PlugUpgrade | PlugUpdate | UpdateRemotePlugins
+  command! Pupgrade PlugClean! | PlugUpgrade | PlugUpdate
 else
   command! Pupgrade PlugUpgrade | PlugUpdate
 end
@@ -13,6 +13,7 @@ end
 " Tools
 Plug 'https://github.com/kassio/vim-session_manager.git'
 Plug 'benekastah/neomake'
+Plug 'vim-scripts/vis'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
