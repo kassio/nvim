@@ -52,5 +52,6 @@ Plug 'sunaku/vim-ruby-minitest', { 'for': ['ruby'] }
 Plug 'https://github.com/elixir-lang/vim-elixir.git', { 'for': ['elixir', 'eelixir'] }
 
 Plug 'derekwyatt/vim-scala', { 'for': ['scala'] }
+Plug 'keith/swift.vim', { 'for': ['swift'] }
 
 call plug#end()
