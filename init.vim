@@ -59,7 +59,7 @@ set list
 set virtualedit=block
 
 set complete=.,w,b,u,i,t
-set completeopt=menu,preview,noselect
+set completeopt=menu,menuone,preview,noinsert,noselect
 set tags=tags,tags.gems
 set tagcase=match
 
