@@ -33,13 +33,13 @@ vnoremap <silent> <leader>! :<c-u>call text#highlight_sensitive_visual()<cr>
 nnoremap <silent> <leader>! :call text#highlight_sensitive(expand('<cword>'))<cr>
 
 " Tags
-nnoremap <silent>g] :execute 'tselect ' . expand('<cword>')<cr>
+nnoremap <silent>g<c-]> :execute 'tselect ' . expand('<cword>')<cr>
 nnoremap <silent><c-]> :execute 'tag ' . expand('<cword>')<cr>
-nnoremap <silent><c-w>g] :execute 'stselect ' . expand('<cword>')<cr>
-nnoremap <silent><c-w><c-]> :execute 'stag ' . expand('<cword>')<cr>
-nnoremap <silent>tg] :execute 'tab stselect ' . expand('<cword>')<cr>
+nnoremap <silent>tg<c-]> :execute 'tab tselect ' . expand('<cword>')<cr>
 nnoremap <silent>t<c-]> :execute 'tab tag ' . expand('<cword>')<cr>
-nnoremap <silent>vg] :execute 'vert stselect ' . expand('<cword>')<cr>
+nnoremap <silent><c-w>g<c-]> :execute 'stselect ' . expand('<cword>')<cr>
+nnoremap <silent><c-w><c-]> :execute 'stag ' . expand('<cword>')<cr>
+nnoremap <silent>vg<c-]> :execute 'vert stselect ' . expand('<cword>')<cr>
 nnoremap <silent>v<c-]> :execute 'vert stag ' . expand('<cword>')<cr>
 
 nnoremap K <nop>
