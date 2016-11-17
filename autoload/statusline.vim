@@ -7,24 +7,24 @@ function! statusline#update()
     else
       call setwinvar(nr, '&statusline', statusline#line(winnr() == nr))
     end
-  endfo
+  endfor
 endfunction
 
 function! statusline#neoterm(active)
-  if a:active
-    let mode = '%#SLModeNormal#%{statusline#mode("N")}%*'
-  else
-    let mode = ''
-  end
-
-  return  mode
-        \ . '%#SLModeTerminal#%{statusline#mode("T")}%*'
+  let default =
+        \   '%#SLModeTerminal#%{statusline#mode("T")}%*'
         \ . ' %n '
         \ . '%<%{statusline#termname()}%*'
-        \ . '%='
-        \ . '%#StatusWarning#%{statusline#neoterm_test("running")}%*'
-        \ . '%#StatusSuccess#%{statusline#neoterm_test("success")}%*'
-        \ . '%#StatusError#%{statusline#neoterm_test("failed")}%*'
+        \ . '%= '
+
+  if a:active
+    return
+          \  '%#SLModeNormal#%{statusline#mode("N")}%*'
+          \ . default
+          \ . '%#StatusWarning#%{statusline#neoterm_count()}%*'
+  else
+    return default
+  end
 endfunction
 
 function! statusline#termname()
@@ -43,17 +43,26 @@ function! statusline#line(active)
           \ . '%='
           \ . '%#StatusWarning#%{statusline#neomake("W")}%*'
           \ . '%#StatusError#%{statusline#neomake("E")}%*'
-          \ . '%#StatusWarning#%{statusline#neoterm_test("running")}%*'
-          \ . '%#StatusSuccess#%{statusline#neoterm_test("success")}%*'
-          \ . '%#StatusError#%{statusline#neoterm_test("failed")}%*'
           \ . ' %c,%l/%L '
-          \ . '%#SLModeNormal# %{&ft} %{&ff} %{&fenc!=""?&fenc:&enc} '
+          \ . '%#StatusWarning#%{statusline#neoterm_count()}%*'
+          \ . '%#SLModeNormal#'
+          \ . ' %{&ft} %{&ff} %{&fenc!=""?&fenc:&enc} '
   else
     return
           \   ' %n '
           \ . ' %m%<%f '
           \ . '%='
+          \ . '%{statusline#neoterm_count()}'
           \ . ' %{&ft} %{&ff} %{&fenc!=""?&fenc:&enc} '
+  end
+endfunction
+
+function! statusline#neoterm_count()
+  let neoterm_count = len(g:neoterm.instances)
+  if neoterm_count > 0
+    return printf(" NT(%d) ", neoterm_count)
+  else
+    return ""
   end
 endfunction
 
@@ -66,7 +75,7 @@ function! statusline#filename(modified)
       return "  [No Name] "
     end
   else
-    return ''
+    return ""
   end
 endfunction
 
@@ -74,7 +83,7 @@ function! statusline#mode(base)
   if a:base == s:currentModeKey()
     return printf('  %s ', a:base)
   else
-    return ''
+    return ""
   end
 endfunction
 
@@ -95,7 +104,7 @@ function! statusline#neoterm_test(scope)
   if has('nvim')
     return neoterm#test#status(a:scope)
   else
-    return ''
+    return ""
   end
 endfunction
 
@@ -112,6 +121,6 @@ function! statusline#neomake(scope)
       return printf("  %s: %s(%s) ", a:scope, first_sign_line, sign_count)
     end
   else
-    return ''
+    return ""
   end
 endfunction
