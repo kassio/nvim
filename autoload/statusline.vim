@@ -58,12 +58,14 @@ function! statusline#line(active)
 endfunction
 
 function! statusline#neoterm_count()
-  let neoterm_count = len(g:neoterm.instances)
-  if neoterm_count > 0
-    return printf(" NT(%d) ", neoterm_count)
-  else
-    return ""
+  if has('nvim')
+    let neoterm_count = len(g:neoterm.instances)
+    if neoterm_count > 0
+      return printf(" NT(%d) ", neoterm_count)
+    end
   end
+
+  return ""
 endfunction
 
 function! statusline#filename(modified)
@@ -98,14 +100,6 @@ function! s:currentModeKey()
         \ 'Rv': 'R',
         \ 't': 'T',
         \ }, mode(), '-')
-endfunction
-
-function! statusline#neoterm_test(scope)
-  if has('nvim')
-    return neoterm#test#status(a:scope)
-  else
-    return ""
-  end
 endfunction
 
 function! statusline#neomake(scope)
