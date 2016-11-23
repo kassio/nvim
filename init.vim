@@ -32,6 +32,10 @@ if !has('nvim')
   set viminfo^=!
 end
 
+if has('nvim')
+  set inccommand="nosplit"
+end
+
 set fileencoding=utf8 nobomb
 
 set showmatch showcmd noshowmode
