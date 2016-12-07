@@ -25,7 +25,9 @@ function! buffer#wipeall()
 endfunction
 
 function! s:shouldWipe(bufid)
+  let bufname = bufname(a:bufid)
   return bufexists(a:bufid) &&
+        \ bufname !~ 'NERD_tree' &&
         \ (
         \   !buflisted(a:bufid) ||
         \   !bufloaded(a:bufid) ||
