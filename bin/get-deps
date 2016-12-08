@@ -24,8 +24,8 @@ function install_or_update_gem() {
 
 brew install lua >/dev/null
 
-pip install neovim --upgrade
-pip3 install neovim-remote --upgrade
+pip install --force-reinstall neovim
+pip3 install --force-reinstall neovim-remote
 
 install_or_update_gem neovim
 install_or_update_gem rcodetools
