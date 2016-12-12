@@ -51,13 +51,13 @@ end
 endsnippet
 
 snippet hri
-puts '${1:-}'*80
+puts '${1:-}' * 80
 endsnippet
 
 snippet hr
-puts '${2:*}'*80
-p ${1:${VISUAL}}
-puts '$2'*80
+puts '${1:*}' * 80
+p ${0:${VISUAL}}
+puts '$1' * 80
 endsnippet
 
 snippet if
