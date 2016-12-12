@@ -17,17 +17,13 @@ if has('nvim')
 
   " Useful maps
   " hide all terminals
-  nnoremap <silent> gtc :Tclose \| TTestClearStatus<cr>
+  nnoremap <silent> <leader>tC :Tclose \| TTestClearStatus<cr>
   " open current terminal
-  nnoremap <silent> gto :Topen<cr>
+  nnoremap <silent> <leader>to :Topen<cr>
   " clear terminal
-  nnoremap <silent> gtl :call neoterm#clear()<cr>
+  nnoremap <silent> <leader>tl :call neoterm#clear()<cr>
   " kills the current job (send a <c-c>)
-  nnoremap <silent> gtk :call neoterm#kill() \| sleep 100m \| call neoterm#kill()<cr>
+  nnoremap <silent> <leader>tk :call neoterm#kill() \| sleep 100m \| call neoterm#kill()<cr>
   " kills and clears
-  nnoremap <silent> gtK :call neoterm#kill() \| sleep 10m \| call neoterm#clear()<cr>
-  " exits the last terminal
-  nnoremap <silent> gte :T exit \| TTestClearStatus<cr>
-  " redo the last bash command
-  nnoremap <silent> gtR :call neoterm#clear() \| call neoterm#exec(["!!", "\r"])<cr>
+  nnoremap <silent> <leader>tK :call neoterm#kill() \| sleep 10m \| call neoterm#clear()<cr>
 end
