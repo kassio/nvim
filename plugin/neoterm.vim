@@ -20,6 +20,8 @@ if has('nvim')
   nnoremap <silent> <leader>tC :Tclose \| TTestClearStatus<cr>
   " open current terminal
   nnoremap <silent> <leader>to :Topen<cr>
+  " send the exist command to the current terminal
+  nnoremap <silent> <leader>te :T exit<cr>
   " clear terminal
   nnoremap <silent> <leader>tl :call neoterm#clear()<cr>
   " kills the current job (send a <c-c>)
