@@ -22,6 +22,10 @@ snip.rv = "\n".join(
 end
 endsnippet
 
+snippet debug
+require 'byebug'; byebug
+endsnippet
+
 snippet def "def method()" b
 def ${1:name${2:($3)}}
   ${0:${VISUAL}}
