@@ -9,12 +9,6 @@ if has('nvim')
   nnoremap <silent> <leader>rl :TREPLSendLine<cr>
   vnoremap <silent> <leader>rs :TREPLSendSelection<cr>
 
-  " run set test lib
-  nnoremap <silent> <leader>ta :call neoterm#test#run("all")<cr>
-  nnoremap <silent> <leader>tf :call neoterm#test#run("file")<cr>
-  nnoremap <silent> <leader>tc :call neoterm#test#run("current")<cr>
-  nnoremap <silent> <leader>tr :call neoterm#test#rerun()<cr>
-
   " Useful maps
   " hide all terminals
   nnoremap <silent> <leader>tC :Tclose \| TTestClearStatus<cr>
