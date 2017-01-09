@@ -33,10 +33,6 @@ aug user_autocmds
 
   " persistent undo
   au FileType gitcommit setlocal noundofile
-  au VimEnter *
-        \ if !isdirectory(&undodir) |
-        \   call mkdir(expand(&undodir), "p", 0700) |
-        \ endif
 
   " statusline
   au VimEnter,WinEnter,BufWinEnter,FileType,BufUnload,VimResized *

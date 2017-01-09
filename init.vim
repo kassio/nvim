@@ -33,7 +33,7 @@ if !has('nvim')
 end
 
 if has('nvim')
-  set inccommand="nosplit"
+  set inccommand=nosplit
 end
 
 set fileencoding=utf8 nobomb
