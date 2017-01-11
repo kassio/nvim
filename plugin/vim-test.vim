@@ -8,3 +8,5 @@ nnoremap <silent> <leader>ta :TestSuite<cr>
 nnoremap <silent> <leader>tf :TestFile<cr>
 nnoremap <silent> <leader>tc :TestNearest<cr>
 nnoremap <silent> <leader>tr :TestLast<cr>
+
+let test#runners = { 'Ruby': ['Testrbl'] }
