@@ -1,5 +1,4 @@
 if has('nvim')
-  let g:neoterm_test_status_format = "  %s "
   let g:neoterm_position = "horizontal"
   let g:neoterm_automap_keys = "\<leader>tt"
   let g:neoterm_run_tests_bg = 1
