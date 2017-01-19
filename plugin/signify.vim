@@ -1,2 +1,7 @@
-let g:signify_mapping_next_hunk = '<leader>sn'
-let g:signify_mapping_prev_hunk = '<leader>sp'
+nmap <leader>sn <plug>(signify-next-hunk)
+nmap <leader>sN <plug>(signify-prev-hunk)
+
+omap is <plug>(signify-motion-inner-pending)
+xmap is <plug>(signify-motion-inner-visual)
+omap as <plug>(signify-motion-outer-pending)
+xmap as <plug>(signify-motion-outer-visual)
