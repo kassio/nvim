@@ -1,3 +1,6 @@
+let g:signify_disable_by_default = 0
+let g:signify_update_on_focusgained = 1
+
 nmap <leader>sn <plug>(signify-next-hunk)
 nmap <leader>sN <plug>(signify-prev-hunk)
 
