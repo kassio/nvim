@@ -8,6 +8,7 @@ call plug#begin(expand('~/.config/nvim/_packs'))
 
 if has('nvim')
   Plug 'https://github.com/kassio/neoterm.git'
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 end
 
 " Tools
