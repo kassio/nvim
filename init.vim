@@ -100,6 +100,8 @@ let &undodir=g:data_home."/undo"
 set statusline=
 set tabline=%!tabline#update()
 
+set mouse=a
+
 let &grepformat='%f:%l:%c:%m,%f:%l:%m'
 let &grepprg="ag -U --silent --follow --column --smart-case"
 
