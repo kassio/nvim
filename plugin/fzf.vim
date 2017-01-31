@@ -4,12 +4,13 @@ nnoremap <silent> <c-n> :BLines<cr>
 nnoremap <silent> <m-n> :BTags<cr>
 nnoremap <silent> <c-k> :Buffers<cr>
 
-command! FZFMru call fzf#run(fzf#wrap({
-      \ 'source': v:oldfiles
-      \ }))
+command! FZFMru call fzf#run(fzf#wrap(
+      \   'MRU',
+      \   { 'source': v:oldfiles }
+      \   )
+      \ )
 
 let g:fzf_buffers_jump = 1
-
 let g:fzf_action = {
       \ 'ctrl-t': 'tab split',
       \ 'ctrl-s': 'split',
@@ -22,5 +23,11 @@ if has('nvim')
   aug fzf_setup
     au!
     au TermOpen term://*FZF tnoremap <silent> <buffer> <nowait> <esc> <c-c>
+    au User FzfStatusLine call <SID>fzf_statusline()
   aug END
 end
+
+function! s:fzf_statusline()
+  let fzf_cmd_name = get(b:fzf, 'name', 'FZF')
+  let &l:statusline = '> '.fzf_cmd_name
+endfunction
