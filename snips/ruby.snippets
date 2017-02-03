@@ -5,7 +5,7 @@ snippet #f "" b
 
 endsnippet
 
-snippet class "" b
+snippet "cla(ss)?" "" br
 class ${1:`!v personal#snips#filename_camelized()`}$2
   ${0:${VISUAL}}
 end
@@ -22,7 +22,7 @@ snip.rv = "\n".join(
 end
 endsnippet
 
-snippet debug
+snippet "deb(ug)?" "" r
 require 'byebug'; byebug
 endsnippet
 
@@ -48,7 +48,7 @@ snippet enc "" b
 # encoding: UTF-8
 endsnippet
 
-snippet module
+snippet "mod(ule)*" "" br
 module ${1:`!v personal#snips#filename_camelized()`}
   ${0:${VISUAL}}
 end

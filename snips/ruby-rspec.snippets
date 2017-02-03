@@ -1,16 +1,16 @@
-snippet bef "before 'block' do" b
+snippet "bef(ore)?" "before 'block' do" br
 before do
   ${0:${VISUAL}}
 end
 endsnippet
 
-snippet desc "describe 'block' do" b
+snippet "desc(ribe)?" "describe 'block' do" br
 describe $1 do
   ${0:${VISUAL}}
 end
 endsnippet
 
-snippet exp "expect(true).to be" b
+snippet "exp(ect)?" "expect(true).to be" br
 expect($1).${2:to} $3
 endsnippet
 
@@ -24,7 +24,7 @@ snippet itb "it { }" b
 it { $1 }
 endsnippet
 
-snippet feat
+snippet "feat(ure)?" "" br
 feature $1 do
   ${0:${VISUAL}}
 end
@@ -34,7 +34,7 @@ snippet let
 let($1) $2
 endsnippet
 
-snippet scen
+snippet "scen(ario)?" "" br
 scenario '$1' do
   ${0:${VISUAL}}
 end
