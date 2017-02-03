@@ -40,4 +40,7 @@ aug user_autocmds
   au BufWritePre * call buffer#trim()
 
   au BufReadPost fugitive://* set bufhidden=delete
+
+  au WinLeave * setlocal nocursorline
+  au WinEnter * setlocal cursorline
 aug END
