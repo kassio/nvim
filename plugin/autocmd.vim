@@ -41,6 +41,6 @@ aug user_autocmds
 
   au BufReadPost fugitive://* set bufhidden=delete
 
-  au WinLeave * if empty(&buftype) | setlocal nocursorline norelativenumber | endif
-  au WinEnter * if empty(&buftype) | setlocal cursorline relativenumber | endif
+  au WinLeave * if empty(&buftype) || &buftype == "terminal" | setlocal nocursorline | endif
+  au WinEnter * if empty(&buftype) || &buftype == "terminal" | setlocal cursorline | endif
 aug END
