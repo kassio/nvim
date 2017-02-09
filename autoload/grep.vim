@@ -1,24 +1,15 @@
-function! grep#search(word)
-  let escaped_word = text#escape_all(a:word)
-  let highlight = matchstr(escaped_word, '\v^(["''''])?\zs.+\ze\1.*$')
+function! grep#grep(...)
+  let args = copy(a:000)
+  let folder = match(args[-1], '/\*$') >= 0 ? remove(args, -1) : ""
+  let text = join(args, " ")
+  let highlight = match(text, '["''].\{-}["'']') >= 0 ? text : string(text)
+  let highlight = substitute(highlight, '\b', '')
 
-  call s:grep(escaped_word, highlight)
-endfunction
-
-function! grep#autosearch(word)
-  let escaped_word = text#escape_all(a:word)
-  let highlight = matchstr(escaped_word, '\v^(["''''])?\zs.+\ze\1.*$')
-
-  call s:grep('"' . escaped_word . '"', highlight)
-endfunction
-
-function! s:grep(text, highlight)
-  silent exec 'grep! "' . a:text . '"'
+  exec "silent! grep! ".text." ".folder." | let @/=".highlight
 
   if !empty(getqflist())
     botright copen
-    silent call text#highlight(a:highlight)
   else
-    echo a:word . " not found."
+    echo text . " not found."
   end
 endfunction

@@ -103,7 +103,7 @@ set tabline=%!tabline#update()
 set mouse=a
 
 let &grepformat='%f:%l:%c:%m,%f:%l:%m'
-let &grepprg="ag -U --silent --follow --column --smart-case"
+let &grepprg="rg --follow --smart-case --vimgrep"
 
 let mapleader=" "
 

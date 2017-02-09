@@ -1,9 +1,9 @@
 " Grep commands
-command! -complete=dir -nargs=+ Grep call grep#search(<q-args>)
+command! -complete=dir -nargs=+ Grep call grep#grep(<f-args>)
 
 " Grep mappings
-vnoremap <silent> <leader>as :<c-u>call grep#autosearch(text#get_visual())<cr>
-nnoremap <silent> <leader>as :call grep#autosearch(expand("<cword>"))<cr>
+vnoremap <silent> <leader>as :<c-u>call grep#grep(text#get_visual())<cr>
+nnoremap <silent> <leader>as :call grep#grep(expand("<cword>"))<cr>
 
 command! -bang -nargs=* Find call
       \ fzf#vim#grep(
