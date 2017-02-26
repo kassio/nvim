@@ -10,6 +10,13 @@ command! FZFMru call fzf#run(fzf#wrap(
       \   )
       \ )
 
+command! -bang -nargs=* Find call
+      \ fzf#vim#grep(
+      \ 'rg '.$RG_OPTIONS.' --column --line-number --no-heading --fixed-strings --ignore-case '.shellescape(<q-args>),
+      \ 1,
+      \ <bang>0
+      \ )
+
 let g:fzf_buffers_jump = 1
 let g:fzf_action = {
       \ 'ctrl-t': 'tab split',
