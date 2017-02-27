@@ -66,7 +66,7 @@ set complete=.,w,b,u,i,t
 set completeopt=menu,menuone,preview,noinsert,noselect
 set infercase
 set tags=tags,tags.gems
-set tagcase=match
+set tagcase=followscs
 
 set wildignorecase
 set wildmode=list:longest,list:full

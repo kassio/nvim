@@ -1,7 +1,7 @@
 nnoremap <silent> <c-p> :FZF<cr>
 nnoremap <silent> <m-p> :FZFMru<cr>
 nnoremap <silent> <c-n> :BLines<cr>
-nnoremap <silent> <m-n> :BTags<cr>
+nnoremap <silent> <c-j> :BTags<cr>
 nnoremap <silent> <c-k> :Buffers<cr>
 
 command! FZFMru call fzf#run(fzf#wrap(
