@@ -10,9 +10,7 @@ if has('nvim')
 
   " Useful maps
   " hide all terminals
-  nnoremap <silent> <leader>tC :Tclose<cr>
-  " open current terminal
-  nnoremap <silent> <leader>to :Topen<cr>
+  nnoremap <silent> <leader>tt :Ttoggle<cr>
   " send the exist command to the current terminal
   nnoremap <silent> <leader>te :T exit<cr>
   " clear terminal
