@@ -1,3 +1,4 @@
+let $FZF_DEFAULT_OPTS='--no-reverse'
 nnoremap <silent> <c-p> :FZF<cr>
 nnoremap <silent> <m-p> :FZFMru<cr>
 nnoremap <silent> <c-n> :BLines<cr>
@@ -12,7 +13,7 @@ command! FZFMru call fzf#run(fzf#wrap(
 
 command! -bang -nargs=* Find call
       \ fzf#vim#grep(
-      \ 'rg '.$RG_OPTIONS.' --column --line-number --no-heading --fixed-strings --ignore-case '.shellescape(<q-args>),
+      \ 'rg '.$RG_OPTIONS.' --column --line-number --no-heading --fixed-strings '.shellescape(<q-args>),
       \ 1,
       \ <bang>0
       \ )
