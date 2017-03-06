@@ -1,26 +1,13 @@
-let s:end = '^\s*\<end\>\s*$'
-let s:function_start = '^\s*\<defp\?\>.*$'
-let s:module_start = '^\s*\<defmodule\>.*$'
+let s:end = '\<end\>'
+let s:block_start = '\<\(do\>\|\<fn\>\)'
 call textobj#user#plugin('elixir', {
-      \   'block': {
-      \     'pattern': ['\<fn\>', '\<end\>'],
-      \     'select-i': 'if',
-      \     'select-a': 'af'
-      \   },
       \   'function-i': {
-      \     'pattern': [s:function_start.'\n', s:end],
-      \     'select-i': 'im',
+      \     'pattern': [s:block_start.'.*$\n', s:end],
+      \     'select-i': 'iK'
       \   },
       \   'function-a': {
-      \     'pattern': [s:function_start, s:end],
-      \     'select-a': 'am',
-      \   },
-      \   'module-i': {
-      \     'pattern': [s:module_start.'\n', s:end],
-      \     'select-i': 'iM',
-      \   },
-      \   'module-a': {
-      \     'pattern': [s:module_start, s:end],
-      \     'select-a': 'aM',
-      \   },
+      \     'pattern': [s:block_start, s:end],
+      \     'select-a': 'aK',
+      \     'region-type': 'V'
+      \   }
       \ })
