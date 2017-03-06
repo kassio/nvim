@@ -40,8 +40,7 @@ function! s:shouldKill(bufid)
   return
         \ bufexists(a:bufid) &&
         \ bufname !~ 'NERD_tree' &&
-        \ bufname !~ 'terminal' &&
-        \ bufname !~ 'FZF'
+        \ bufname !~ 'term:.*'
 endfunction
 
 function! buffer#trim()
