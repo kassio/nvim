@@ -2,7 +2,7 @@ function! personal#snips#filename_camelized(...)
   let name = expand("%:t:r")
   if len(name) == 0
     let name = a:0 ? a:1 : 'MyClass'
-  endif
+  end
 
   return s:camelcase(name)
 endfunction
@@ -11,7 +11,7 @@ function! personal#snips#dirname_camelized()
   let name = split(getcwd(), '/')[-1]
   if len(name) == 0
     let name = 'MyNamespace'
-  endif
+  end
 
   return s:camelcase(name)
 endfunction
@@ -33,7 +33,7 @@ function! s:comment_dict()
     let comments = split(&commentstring, '%s')
     let b:comment_dict = { 'begin': get(comments, 0, ''), 'end': get(comments, 1, '') }
     echo b:comment_dict
-  endif
+  end
 
   return b:comment_dict
 endfunction

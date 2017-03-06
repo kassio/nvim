@@ -6,9 +6,9 @@ function! git#check_user()
 
       if len(g:git_user_set) == 0
         echoh ErrorMsg | echo "CONFIGURE GIT LOCAL EMAIL"
-      endif
-    endif
-  endif
+      end
+    end
+  end
 endfunction
 
 function! git#checkout(...)

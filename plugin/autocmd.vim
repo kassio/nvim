@@ -5,7 +5,7 @@ aug user_autocmds
         \    line("'\"") > 0 &&
         \    line("'\"") <= line("$") |
         \   execute 'normal! g`"' |
-        \ endif
+        \ end
 
   au BufEnter,BufWritePost * call git#check_user()
 
@@ -41,7 +41,7 @@ aug user_autocmds
 
   au BufReadPost fugitive://* set bufhidden=delete
 
-  au WinLeave * if empty(&buftype) || &buftype == "terminal" | setlocal norelativenumber nocursorline | endif
-  au WinEnter * if empty(&buftype) && &buftype == "terminal" | setlocal cursorline | endif
-  au WinEnter * if empty(&buftype) && &buftype != "terminal" | setlocal relativenumber cursorline | endif
+  au WinLeave * if empty(&buftype) || &buftype == "terminal" | setlocal norelativenumber nocursorline | end
+  au WinEnter * if empty(&buftype) && &buftype == "terminal" | setlocal cursorline | end
+  au WinEnter * if empty(&buftype) && &buftype != "terminal" | setlocal relativenumber cursorline | end
 aug END

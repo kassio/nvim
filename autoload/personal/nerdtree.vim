@@ -4,7 +4,7 @@ function! personal#nerdtree#mirror_toggle()
       NERDTreeToggle
     else
       call s:mirror_or_create()
-    endif
+    end
   catch
     redraw!
     NERDTree
@@ -28,11 +28,11 @@ function! s:mirror_or_create()
       silent NERDTreeFocus
     else
       silent NERDTreeToggle
-    endif
+    end
   else
     silent NERDTree
     call s:globalize_nerdtree_buffer()
-  endif
+  end
 endfunction
 
 function! s:nerdtree_current_buffer()

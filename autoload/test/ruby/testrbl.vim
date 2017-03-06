@@ -13,7 +13,7 @@ function! test#ruby#testrbl#build_position(type, position)
     return [a:position['file']]
   else
     return []
-  endif
+  end
 endfunction
 
 " Returns processed args (if you need to do any processing)

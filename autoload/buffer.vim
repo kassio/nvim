@@ -3,7 +3,7 @@ function! buffer#kill()
     close
   else
     bwipeout!
-  endif
+  end
 endfunction
 
 function! buffer#killall()
