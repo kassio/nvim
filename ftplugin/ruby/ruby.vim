@@ -27,7 +27,7 @@ command! -range StringKeyToSymbol call personal#ruby#string_key_to_symbol(<line1
 command! -range SymbolHashToString call personal#ruby#symbol_hash_to_string(<line1>, <line2>)
 command! -range StringHashToSymbol call personal#ruby#string_hash_to_symbol(<line1>, <line2>)
 
-let s:block_start = '\(\<do\>\|^\s*\<if\>\).*$'
+let s:block_start = '\(.*\<do\>\|^\s*\<if\>\).*$'
 let s:block_end = '^\s*\<end\>'
 call textobj#user#plugin('rubyblock', {
       \   'block-i': {
@@ -35,7 +35,7 @@ call textobj#user#plugin('rubyblock', {
       \     'select-i': 'iK',
       \   },
       \   'block-a': {
-      \     'pattern': [s:block_start, s:block_end],
+      \     'pattern': [s:block_start, s:block_end.'\n'],
       \     'select-a': 'aK',
       \     'region-type': 'V'
       \   },

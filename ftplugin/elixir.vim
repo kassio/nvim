@@ -6,7 +6,7 @@ call textobj#user#plugin('elixir', {
       \     'select-i': 'iK'
       \   },
       \   'function-a': {
-      \     'pattern': [s:block_start, s:end],
+      \     'pattern': [s:block_start, s:end.'.*$\n'],
       \     'select-a': 'aK',
       \     'region-type': 'V'
       \   }

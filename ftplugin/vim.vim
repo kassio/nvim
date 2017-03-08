@@ -6,7 +6,7 @@ call textobj#user#plugin('vim', {
       \     'select-i': 'iK'
       \   },
       \   'function-a': {
-      \     'pattern': [s:function_start, s:function_end],
+      \     'pattern': [s:function_start, s:function_end.'.*$\n'],
       \     'select-a': 'aK',
       \     'region-type': 'V'
       \   }
