@@ -13,6 +13,8 @@ if has('nvim')
   nnoremap <silent> <leader>tt :Ttoggle<cr>
   " send the exist command to the current terminal
   nnoremap <silent> <leader>te :T exit<cr>
+  " send the exist command to the current terminal
+  nnoremap <silent> <leader>tE :call neoterm#normal('G')<cr>
   " clear terminal
   nnoremap <silent> <leader>tl :call neoterm#clear()<cr>
   " kills the current job (send a <c-c>)
