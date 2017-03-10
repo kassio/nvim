@@ -41,7 +41,7 @@ call textobj#user#plugin('rubyblock', {
       \   },
       \   'erb': {
       \     'pattern': ['<%=\?\s\?', '\s\?%>'],
-      \     'select-a': 'ae',
-      \     'select-i': 'ie'
+      \     'select-a': 'a=',
+      \     'select-i': 'i='
       \   }
       \ })
