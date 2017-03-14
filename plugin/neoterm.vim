@@ -2,6 +2,7 @@ if has('nvim')
   let g:neoterm_position = "horizontal"
   let g:neoterm_automap_keys = "\<leader>tt"
   let g:neoterm_use_relative_path = 1
+  let g:neoterm_autoscroll = 1
 
   nnoremap <silent> <leader>rf :TREPLSendFile<cr>
   nnoremap <silent> <leader>rl :TREPLSendLine<cr>
