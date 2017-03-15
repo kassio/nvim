@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+function all-rubies-do() {
+  for rb in `rbenv versions --bare`
+  do
+    export RBENV_VERSION=${rb}
+    echo "with ruby: $(rbenv version-name)"
+    eval "$@"
+  done
+
+  unset RBENV_VERSION
+}
+
+function install-or-update-gem() {
+  if [ "$(gem search -i $1)" == "false" ]
+  then
+    echo "Installing $1"
+    all-rubies-do gem install $1 --quiet
+  else
+    echo "Updating $1"
+    all-rubies-do gem update $1 --quiet
+  fi
+}
+
+brew install lua >/dev/null
+
+echo 'python dependencies'
+pip install --force-reinstall neovim &>/dev/null
+pip3 install --force-reinstall neovim-remote &>/dev/null
+
+echo 'ruby dependencies'
+install-or-update-gem neovim &>/dev/null
+install-or-update-gem rcodetools &>/dev/null
