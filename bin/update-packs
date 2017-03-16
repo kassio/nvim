@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-nvim --noplugins +PlugInstall +normal\ D
+nvim --noplugins +PlugClean! +PlugUpgrade +PlugUpdate +normal\ D
