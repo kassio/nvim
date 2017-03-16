@@ -22,12 +22,13 @@ function install-or-update-gem() {
   fi
 }
 
-brew install lua >/dev/null
+echo 'updating lua dependency...'
+brew install lua &>/dev/null
 
-echo 'python dependencies'
+echo 'updating python dependencies...'
 pip install --force-reinstall neovim &>/dev/null
 pip3 install --force-reinstall neovim-remote &>/dev/null
 
-echo 'ruby dependencies'
+echo 'updating ruby dependencies...'
 install-or-update-gem neovim &>/dev/null
 install-or-update-gem rcodetools &>/dev/null
