@@ -1,7 +1,6 @@
 let $MYVIM = "$HOME/.config/nvim"
 source $MYVIM/packs.vim
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-let g:data_home = expand("$HOME/.local/share/nvim")
 
 runtime defaults.vim
 
@@ -9,8 +8,6 @@ if !has('nvim')
   let $MYVIM = "$HOME/.vim"
   unlet! skip_defaults_vim
   source $VIMRUNTIME/defaults.vim
-
-  let g:data_home=expand("$HOME/.local/share/vim")
 
   packadd matchit
 
@@ -95,7 +92,7 @@ set spelllang=en,pt
 set spell
 
 set undofile undoreload=10000
-let &undodir=g:data_home."/undo"
+let &undodir=expand('%:p:h')."/._v-undo"
 
 set statusline=
 set tabline=%!tabline#update()
