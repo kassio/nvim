@@ -13,7 +13,6 @@ if has('nvim')
 end
 
 " Tools
-Plug 'https://github.com/kassio/vim-session_manager.git'
 Plug 'benekastah/neomake'
 Plug 'vim-scripts/vis'
 Plug 'tpope/vim-repeat'
