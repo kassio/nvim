@@ -1,6 +1,6 @@
 aug run_neomake
   au!
-  au BufWritePost,BufEnter * Neomake
+  au BufWritePost,BufReadPost * Neomake
 aug END
 
 let g:neomake_verbose = 0
