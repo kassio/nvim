@@ -118,3 +118,8 @@ function! statusline#neomake(scope)
     return ""
   end
 endfunction
+
+function! statusline#fzf()
+  let fzf_cmd_name = toupper(get(b:fzf, 'name', 'FZF'))
+  let &l:statusline = '> '.fzf_cmd_name
+endfunction
