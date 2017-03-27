@@ -1,6 +1,6 @@
 let $FZF_DEFAULT_OPTS='--no-reverse'
 nnoremap <silent> <c-p> :FZF<cr>
-nnoremap <silent> <m-p> :FZFMru<cr>
+nnoremap <silent> <c-\> :FZFMru<cr>
 nnoremap <silent> <c-n> :BLines<cr>
 nnoremap <silent> <c-j> :BTags<cr>
 nnoremap <silent> <c-k> :Buffers<cr>
