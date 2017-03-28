@@ -12,19 +12,26 @@ if has('nvim')
   Plug 'Shougo/neco-vim', { 'for': ['vim'] }
 end
 
-" Tools
+" Theme
+Plug 'mhartington/oceanic-next'
+
+" Linting
 Plug 'benekastah/neomake'
+
+" Search/replace/text manipulation
 Plug 'vim-scripts/vis'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-commentary'
-Plug 'mhartington/oceanic-next'
-Plug 'kana/vim-textobj-user'
-Plug 'wellle/targets.vim' " extended surrounding
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeMirror'] }
-Plug 'janko-m/vim-test'
 
+" Surrounding
+Plug 'tpope/vim-surround'
+Plug 'wellle/targets.vim'
+Plug 'kana/vim-textobj-user'
+
+" File tree
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeMirror'] }
+
+" Fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --no-update-rc' }
 Plug 'junegunn/fzf.vim'
 
@@ -32,11 +39,14 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
 
+" Comments
+Plug 'tpope/vim-commentary'
+
 " Snippets
 Plug 'sirver/ultisnips'
 
-" Tomdoc
-Plug 'kassio/tomdoc.vim'
+" Test runner
+Plug 'janko-m/vim-test'
 
 " Markdown
 Plug 'tpope/vim-markdown', { 'for': ['markdown'] }
@@ -50,10 +60,13 @@ Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby'] }
 Plug 'Keithbsmiley/rspec.vim', { 'for': ['ruby'] }
 Plug 'sunaku/vim-ruby-minitest', { 'for': ['ruby'] }
 
-" Elixir
-Plug 'https://github.com/elixir-lang/vim-elixir.git', { 'for': ['elixir', 'eelixir'] }
+" Tomdoc
+Plug 'kassio/tomdoc.vim', { 'for': ['ruby', 'javascript'] }
 
+" Elixir
+Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
+
+" Scala
 Plug 'derekwyatt/vim-scala', { 'for': ['scala'] }
-Plug 'keith/swift.vim', { 'for': ['swift'] }
 
 call plug#end()
