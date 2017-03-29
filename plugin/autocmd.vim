@@ -13,8 +13,6 @@ aug user_autocmds
   au FileType html,javascript,css,eruby,eelixir,sass,scss,yaml setlocal iskeyword+=-
   au BufReadPost,BufNewFile *_feature.rb set syntax=rspec
 
-  au FileType gitcommit let b:open_at_first_line = 1
-  au FileType gitcommit setlocal textwidth=72
   au FileType tex,txt,mail,text,markdown setlocal textwidth=80 noautoindent nocindent
 
   au FocusGained,BufEnter * checktime
@@ -29,9 +27,6 @@ aug user_autocmds
         \ "<%= \r %>"
         \ ]
   au FileType ruby,eruby,elixir,eelixir setlocal iskeyword+=\?,\!,@-@
-
-  " persistent undo
-  au FileType gitcommit setlocal noundofile
 
   " statusline
   au VimEnter,WinEnter,BufWinEnter,FileType,BufUnload,VimResized *
