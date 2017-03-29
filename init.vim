@@ -95,6 +95,7 @@ set undofile undoreload=10000
 let &undodir=expand('%:p:h')."/._v-undo"
 
 set statusline=
+set showtabline=2
 set tabline=%!tabline#update()
 
 set mouse=a
