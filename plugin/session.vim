@@ -1,3 +1,3 @@
-nnoremap <leader>ss :silent! mksession! ._v-session<cr>:echo 'Session saved!'<cr>
-nnoremap <leader>sl :silent! source ._v-session<cr>:echo 'Session loaded!'<cr>
-nnoremap <leader>sd :silent! exec '!rm ._v-session &>/dev/null'<cr>:echo 'Session deleted'<cr>
+nnoremap <leader>ss :silent! !mkdir -p ._vim<cr>:mksession! ._vim/session<cr>
+nnoremap <leader>sl :source ._vim/session<cr>
+nnoremap <leader>sd :exec '!rm ._vim/session<cr>

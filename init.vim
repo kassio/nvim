@@ -92,7 +92,7 @@ set spelllang=en,pt
 set spell
 
 set undofile undoreload=10000
-let &undodir=expand('%:p:h')."/._v-undo"
+let &undodir=expand('%:p:h')."/._vim/undo"
 
 set statusline=
 set showtabline=2
