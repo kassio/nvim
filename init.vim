@@ -1,6 +1,5 @@
 let $MYVIM = "$HOME/.config/nvim"
 source $MYVIM/packs.vim
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 runtime defaults.vim
 
@@ -99,6 +98,8 @@ set showtabline=2
 set tabline=%!tabline#update()
 
 set mouse=a
+set guicursor=n-c-v:block-nCursor-blinkon0
+set guicursor+=i-ci:ver1-iCursor-blinkwait300-blinkon200-blinkoff150
 
 let &grepformat='%f:%l:%c:%m,%f:%l:%m'
 let &grepprg="rg --follow --smart-case --vimgrep"
