@@ -23,3 +23,7 @@ hi! StatusError    guifg=#ee6060 guibg=#b01010
 hi! link TabLine     StatusLine
 hi! link TabLineFill StatusLine
 hi! link TabLineSel  SLModeNormal
+
+hi! Colorcolumn guibg=#1e2d35
+hi! link CursorColumn Colorcolumn
+hi! link CursorLine Colorcolumn
