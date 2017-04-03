@@ -27,3 +27,5 @@ hi! link TabLineSel  SLModeNormal
 hi! Colorcolumn guibg=#1e2d35
 hi! link CursorColumn Colorcolumn
 hi! link CursorLine Colorcolumn
+
+hi! Search gui=standout guifg=#fac863 guibg=#65737e
