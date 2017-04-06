@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 function all-rubies-do() {
-  for rb in `rbenv versions --bare`
+  local versions="system\n$(rbenv versions --bare)"
+  for rb in $versions
   do
     export RBENV_VERSION=${rb}
     echo "with ruby: $(rbenv version-name)"
