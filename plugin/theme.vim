@@ -29,3 +29,8 @@ hi! link CursorColumn Colorcolumn
 hi! link CursorLine Colorcolumn
 
 hi! Search gui=standout guifg=#fac863 guibg=#65737e
+
+hi! SignifyLineChange guifg=#fac863 guibg=#343d46
+hi! link SignifySignLineChangeDelete SignifyLineChange
+hi! link SignifySignChange SignifyLineChange
+hi! link SignifySignChangeDelete SignifyLineChange
