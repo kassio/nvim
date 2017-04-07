@@ -26,3 +26,7 @@ pip3 install --force-reinstall neovim-remote &>/dev/null
 echo 'updating ruby dependencies...'
 for-each-ruby gem install neovim &>/dev/null
 for-each-ruby gem install rcodetools &>/dev/null
+for-each-ruby gem install rubocop &>/dev/null
+
+echo 'updating js dependencies...'
+npm install -g eslint
