@@ -30,15 +30,15 @@ hi! link CursorLine Colorcolumn
 
 hi! Search gui=standout guifg=#fac863 guibg=#65737e
 
-hi! link SignifySignAdd             NeomakeMessageSign
-hi! link SignifyLineAdd             SignifySignAdd
+hi! link SignifySignAdd NeomakeMessageSign
+hi! link SignifyLineAdd SignifySignAdd
 
-hi! link SignifySignDelete          NeomakeErrorSign
+hi! link SignifySignDelete NeomakeErrorSign
 hi! link SignifySignDeleteFirstLine SignifySignDelete
-hi! link SignifyLineDelete          SignifySignDelete
+hi! link SignifyLineDelete SignifySignDelete
 hi! link SignifyLineDeleteFirstLine SignifySignDelete
 
-hi! link SignifySignChange          NeomakeWarningSign
-hi! link SignifySignChangeDelete    SignifySignChange
-hi! link SignifyLineChange          SignifySignChange
-hi! link SignifyLineChangeDelete    SignifySignChange
+hi! link SignifySignChange NeomakeWarningSign
+hi! link SignifySignChangeDelete SignifySignChange
+hi! link SignifyLineChange SignifySignChange
+hi! link SignifyLineChangeDelete SignifySignChange
