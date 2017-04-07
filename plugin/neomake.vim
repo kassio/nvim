@@ -6,25 +6,10 @@ aug END
 let g:neomake_verbose = 0
 let g:neomake_place_signs = 1
 
-let g:neomake_error_sign = {
-      \ 'text': '✖',
-      \ 'texthl': 'StatusError',
-      \ }
-
-let g:neomake_warning_sign = {
-      \   'text': '⚠',
-      \ 'texthl': 'StatusWarning',
-      \ }
-
-let g:neomake_message_sign = {
-      \   'text': '➤',
-      \   'texthl': 'NeomakeMessageSign',
-      \ }
-let g:neomake_info_sign = {
-      \ 'text': 'ℹ',
-      \ 'texthl': 'NeomakeInfoSign'
-      \ }
-
+let g:neomake_error_sign = { 'text': 'x' }
+let g:neomake_warning_sign = { 'text': '!' }
+let g:neomake_message_sign = { 'text': '>' }
+let g:neomake_info_sign = { 'text': 'i' }
 
 let g:neomake_elixir_mix_maker = {
       \ 'exe' : 'mix',
