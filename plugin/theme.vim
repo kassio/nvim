@@ -30,6 +30,10 @@ hi! link CursorLine Colorcolumn
 
 hi! Search gui=standout guifg=#fac863 guibg=#65737e
 
+hi! NeomakeMessageSignDefault gui=bold guifg=#99c794 guibg=#343d46
+hi! NeomakeErrorSign gui=bold guifg=#ec5f67 guibg=#343d46
+hi! NeomakeWarningSign gui=bold guifg=#fac863 guibg=#343d46
+
 hi! link SignifySignAdd NeomakeMessageSign
 hi! link SignifyLineAdd SignifySignAdd
 
