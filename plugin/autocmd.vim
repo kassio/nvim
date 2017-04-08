@@ -7,8 +7,6 @@ aug user_autocmds
         \   execute 'normal! g`"' |
         \ end
 
-  au BufEnter,BufWritePost * call git#check_user()
-
   au BufNewFile,BufRead *.json setf javascript
   au FileType html,javascript,css,eruby,eelixir,sass,scss,yaml setlocal iskeyword+=-
   au BufReadPost,BufNewFile *_feature.rb set syntax=rspec
