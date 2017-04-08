@@ -36,6 +36,8 @@ aug user_autocmds
 
   au BufReadPost fugitive://* set bufhidden=delete
 
+  au BufWritePost,BufReadPost * Neomake
+
   au WinLeave * if empty(&buftype) || &buftype == "terminal" | setlocal norelativenumber nocursorline | end
   au WinEnter * if empty(&buftype) && &buftype == "terminal" | setlocal cursorline | end
   au WinEnter * if empty(&buftype) && &buftype != "terminal" | setlocal relativenumber cursorline | end
