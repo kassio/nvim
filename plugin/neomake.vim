@@ -13,7 +13,7 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 "
 " This watcher enforces that the `g:neomake_place_signs` will always be `1`,
 " even when someone tries to update it.
-function! NeomakePlaceSignCallback(dictionary, key, values)
+function! EnsureNeomakePlaceSigns(dictionary, key, values)
   let g:neomake_place_signs = 1
 endfunction
-call dictwatcheradd(g:, 'neomake_place_signs', 'NeomakePlaceSignCallback')
+call dictwatcheradd(g:, 'neomake_place_signs', 'EnsureNeomakePlaceSigns')

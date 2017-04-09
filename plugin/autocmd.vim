@@ -27,9 +27,7 @@ aug user_autocmds
   au FileType ruby,eruby,elixir,eelixir setlocal iskeyword+=\?,\!,@-@
 
   " statusline
-  au VimEnter,WinEnter,BufWinEnter,FileType,BufUnload,VimResized *
-        \ call statusline#update()
-  " FZF statusline
+  au VimEnter,WinEnter,BufWinEnter,FileType,BufUnload,VimResized * call statusline#update()
   au User FzfStatusLine call statusline#fzf()
 
   au BufWritePre * call buffer#trim()
@@ -38,7 +36,6 @@ aug user_autocmds
 
   au BufWritePost,BufReadPost * Neomake
 
-  au WinLeave * if empty(&buftype) || &buftype == "terminal" | setlocal norelativenumber nocursorline | end
-  au WinEnter * if empty(&buftype) && &buftype == "terminal" | setlocal cursorline | end
-  au WinEnter * if empty(&buftype) && &buftype != "terminal" | setlocal relativenumber cursorline | end
+  au WinLeave * call window#unfocus()
+  au WinEnter * call window#focus()
 aug END
