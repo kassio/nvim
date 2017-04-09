@@ -102,7 +102,7 @@ set guicursor=n-c-v:block-nCursor-blinkon0
 set guicursor+=i-ci:ver1-iCursor-blinkwait300-blinkon200-blinkoff150
 
 let &grepformat='%f:%l:%c:%m,%f:%l:%m'
-let &grepprg="rg --follow --smart-case --vimgrep"
+let &grepprg="rg --follow --smart-case --vimgrep --no-ignore-vcs --color never"
 
 let mapleader=" "
 
