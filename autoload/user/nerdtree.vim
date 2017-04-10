@@ -1,4 +1,4 @@
-function! personal#nerdtree#mirror_toggle()
+function! user#nerdtree#mirror_toggle()
   try
     if s:tab_has_nerdtree() > 0
       NERDTreeToggle
@@ -12,7 +12,7 @@ function! personal#nerdtree#mirror_toggle()
   endtry
 endfunction
 
-function! personal#nerdtree#mirror_find()
+function! user#nerdtree#mirror_find()
   let current_window = winnr()
   call s:mirror_or_create()
   exec current_window . "wincmd w"

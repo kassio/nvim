@@ -1,4 +1,4 @@
-aug user_autocmds
+aug user:autocmd
   au!
   au BufReadPost *
         \ if !exists('b:open_at_first_line') &&

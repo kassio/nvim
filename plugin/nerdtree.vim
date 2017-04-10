@@ -9,8 +9,8 @@ let NERDTreeStatusline="\ %-28{matchstr(getline('.'), '\\(\\s\\)\\?\\zs\\(\\/\\)
 let NERDTreeDirArrowCollapsible = '-'
 let NERDTreeDirArrowExpandable = '+'
 
-nmap <silent> <leader>p :call personal#nerdtree#mirror_toggle()<CR>
-nnoremap <silent> <leader>fl :call personal#nerdtree#mirror_find()<CR>
+nmap <silent> <leader>p :call user#nerdtree#mirror_toggle()<CR>
+nnoremap <silent> <leader>fl :call user#nerdtree#mirror_find()<CR>
 
 if filereadable('mix.exs')
   call add(NERDTreeIgnore, '_build')

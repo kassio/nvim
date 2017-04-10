@@ -1,4 +1,4 @@
-function! personal#snips#filename_camelized(...)
+function! user#snips#filename_camelized(...)
   let name = expand("%:t:r")
   if len(name) == 0
     let name = a:0 ? a:1 : 'MyClass'
@@ -7,7 +7,7 @@ function! personal#snips#filename_camelized(...)
   return s:camelcase(name)
 endfunction
 
-function! personal#snips#dirname_camelized()
+function! user#snips#dirname_camelized()
   let name = split(getcwd(), '/')[-1]
   if len(name) == 0
     let name = 'MyNamespace'
@@ -20,11 +20,11 @@ function! s:camelcase(s)
   return substitute(a:s, '\v(^|_)(.)', '\U\2', 'g')
 endfunction
 
-function! personal#snips#start_comment()
+function! user#snips#start_comment()
   return substitute(<SID>comment_dict().begin, '\s*$', '', 'g')
 endfunction
 
-function! personal#snips#end_comment()
+function! user#snips#end_comment()
   return substitute(<SID>comment_dict().end, '\s*$', '', 'g')
 endfunction
 

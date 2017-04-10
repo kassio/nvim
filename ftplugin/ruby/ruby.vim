@@ -15,17 +15,17 @@ let ruby_operators = 1
 let ruby_space_errors = 1
 let ruby_spellcheck_strings = 1
 
-command! -range LetToVariable call personal#ruby#let_to_variable(<line1>, <line2>)
-command! -range VariableToLet call personal#ruby#variable_to_let(<line1>, <line2>)
+command! -range LetToVariable call user#ruby#let_to_variable(<line1>, <line2>)
+command! -range VariableToLet call user#ruby#variable_to_let(<line1>, <line2>)
 
-command! -range NewRubyHashSyntax call personal#ruby#new_ruby_hash_syntax(<line1>, <line2>)
-command! -range OldRubyHashSyntax call personal#ruby#old_ruby_hash_syntax(<line1>, <line2>)
+command! -range NewRubyHashSyntax call user#ruby#new_ruby_hash_syntax(<line1>, <line2>)
+command! -range OldRubyHashSyntax call user#ruby#old_ruby_hash_syntax(<line1>, <line2>)
 
-command! -range SymbolKeyToString call personal#ruby#symbol_key_to_string(<line1>, <line2>)
-command! -range StringKeyToSymbol call personal#ruby#string_key_to_symbol(<line1>, <line2>)
+command! -range SymbolKeyToString call user#ruby#symbol_key_to_string(<line1>, <line2>)
+command! -range StringKeyToSymbol call user#ruby#string_key_to_symbol(<line1>, <line2>)
 
-command! -range SymbolHashToString call personal#ruby#symbol_hash_to_string(<line1>, <line2>)
-command! -range StringHashToSymbol call personal#ruby#string_hash_to_symbol(<line1>, <line2>)
+command! -range SymbolHashToString call user#ruby#symbol_hash_to_string(<line1>, <line2>)
+command! -range StringHashToSymbol call user#ruby#string_hash_to_symbol(<line1>, <line2>)
 
 let s:block_start = '\(.*\<do\>\|^\s*\<if\>\).*$'
 let s:block_end = '^\s*\<end\>'
