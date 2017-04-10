@@ -13,8 +13,6 @@ aug user:autocmd
 
   au FileType tex,txt,mail,text,markdown setlocal textwidth=80 noautoindent nocindent
 
-  au FocusGained,BufEnter * checktime
-
   au FileType ruby,eruby,elixir,eelixir let [
         \ g:surround_{char2nr("#")},
         \ g:surround_{char2nr("-")},
@@ -35,6 +33,8 @@ aug user:autocmd
   au BufReadPost fugitive://* set bufhidden=delete
 
   au BufWritePost,BufReadPost * Neomake
+
+  au FocusGained,BufEnter * silent! checktime
 
   au WinLeave * call window#unfocus()
   au WinEnter * call window#focus()
