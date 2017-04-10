@@ -1,20 +1,6 @@
 #!/usr/bin/env bash
 
-function all-rubies-do() {
-  OIFS=$IFS
-  IFS='\n'
-  local versions=($(rbenv versions --bare | sort -r))
-  IFS=$OIFS
-  versions+=("system")
-
-  for rb in ${versions[@]}
-  do
-    export RBENV_VERSION=${rb}
-    eval "$@"
-  done
-
-  unset RBENV_VERSION
-}
+which for-each-ruby &>/dev/null || { echo >&2 'for-each-ruby not found!' && exit -1; }
 
 echo 'updating lua dependency...'
 brew install lua &>/dev/null
@@ -26,7 +12,9 @@ pip3 install --force-reinstall neovim-remote &>/dev/null
 echo 'updating ruby dependencies...'
 for-each-ruby gem install neovim &>/dev/null
 for-each-ruby gem install rcodetools &>/dev/null
-for-each-ruby gem install rubocop &>/dev/null
 
-echo 'updating js dependencies...'
-npm install -g eslint
+echo 'installing linters...'
+echo '🔹 rubocop' & for-each-ruby gem install rubocop &>/dev/null
+echo '🔹 scss_lint' & for-each-ruby gem install scss_lint &>/dev/null
+echo '🔹 pre-commit' & for-each-ruby gem install pre-commit &>/dev/null
+echo '🔹 eslint' &npm install -g eslint
