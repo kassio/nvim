@@ -16,7 +16,7 @@ if filereadable('mix.exs')
   call add(NERDTreeIgnore, '_build')
 end
 
-aug nerdtree_view
+aug user:autocmd:nerdtree
   au!
   au CursorMoved *NERD_tree*
         \ let s:NERDTreeCurrentLine=line('.')
