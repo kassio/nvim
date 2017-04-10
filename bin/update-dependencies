@@ -1,20 +1,22 @@
 #!/usr/bin/env bash
 
-which for-each-ruby &>/dev/null || { echo >&2 'for-each-ruby not found!' && exit -1; }
+which for-each-ruby &>/dev/null || { echo >&2 "for-each-ruby not found!" && exit -1; }
+bullet="🔹 "
+sun="☀️ "
 
-echo 'updating lua dependency...'
+echo "${bullet} updating lua dependency"
 brew install lua &>/dev/null
 
-echo 'updating python dependencies...'
+echo "${bullet} updating python dependencies"
 pip install --force-reinstall neovim &>/dev/null
 pip3 install --force-reinstall neovim-remote &>/dev/null
 
-echo 'updating ruby dependencies...'
+echo "${bullet} updating ruby dependencies"
 for-each-ruby gem install neovim &>/dev/null
 for-each-ruby gem install rcodetools &>/dev/null
 
-echo 'installing linters...'
-echo '🔹 rubocop' & for-each-ruby gem install rubocop &>/dev/null
-echo '🔹 scss_lint' & for-each-ruby gem install scss_lint &>/dev/null
-echo '🔹 pre-commit' & for-each-ruby gem install pre-commit &>/dev/null
-echo '🔹 eslint' &npm install -g eslint
+echo "${bullet} installing linters"
+echo "  ${sun} rubocop" & for-each-ruby gem install rubocop &>/dev/null
+echo "  ${sun} scss_lint" & for-each-ruby gem install scss_lint &>/dev/null
+echo "  ${sun} pre-commit" & for-each-ruby gem install pre-commit &>/dev/null
+echo "  ${sun} eslint" &npm install -g eslint
