@@ -13,14 +13,14 @@ hi! link CursorLine Colorcolumn
 
 hi! Search gui=standout guifg=#fac863 guibg=#65737e
 
-hi! StatusLine guifg=#eeeeee guibg=#3e5570
-hi! StatusLineNC guifg=#888888 guibg=#515966
+hi! StatusLine gui=bold guifg=#cccccc guibg=#3e5570
+hi! StatusLineNC gui=NONE guifg=#888888 guibg=#515966
 
-hi! SLModeNormal guifg=#cccccc guibg=#5a87ad
-hi! SLModeInsert guifg=#595959 guibg=#badb51
-hi! SLModeVisual guifg=#eeeeee guibg=#cd9cce
-hi! SLUnsavedFile guifg=#eeeeee guibg=#cc4a21
-hi! SLModeTerminal guifg=#595959 guibg=#eeeeee
+hi! SLModeNormal gui=bold guifg=#cccccc guibg=#5a87ad
+hi! SLModeInsert gui=bold guifg=#595959 guibg=#badb51
+hi! SLModeVisual gui=bold guifg=#cccccc guibg=#cd9cce
+hi! SLUnsavedFile gui=bold guifg=#cccccc guibg=#cc4a21
+hi! SLModeTerminal gui=bold guifg=#595959 guibg=#cccccc
 
 hi! NeomakeMessageSignDefault gui=bold
 hi! NeomakeErrorSign gui=bold
