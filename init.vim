@@ -91,7 +91,9 @@ set spelllang=en,pt
 set spell
 
 set undofile undoreload=10000
-let &undodir=expand('%:p:h')."/._vim/undo"
+
+set title
+let &titlestring="%{has('nvim') ? 'nvim' : 'vim'}(%F)"
 
 set statusline=
 set showtabline=2
