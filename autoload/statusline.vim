@@ -21,7 +21,6 @@ function! statusline#neoterm(active)
           \   '%#SLModeNormal#%{statusline#mode("N")}%*'
           \ . '%#SLModeTerminal#%{statusline#mode("T")}%*'
           \ . default
-          \ . '%#StatusWarning#%{statusline#neoterm_count()}%*'
   else
     return default
   end
@@ -44,7 +43,6 @@ function! statusline#line(active)
           \ . '%#StatusWarning#%{statusline#neomake("W")}%*'
           \ . '%#StatusError#%{statusline#neomake("E")}%*'
           \ . ' %c,%l/%L '
-          \ . '%#StatusWarning#%{statusline#neoterm_count()}%*'
           \ . '%#SLModeNormal#'
           \ . ' %{&ft} %{&ff} %{&fenc!=""?&fenc:&enc} '
   else
@@ -52,20 +50,8 @@ function! statusline#line(active)
           \   ' %n '
           \ . ' %m%<%f '
           \ . '%='
-          \ . '%{statusline#neoterm_count()}'
           \ . ' %{&ft} %{&ff} %{&fenc!=""?&fenc:&enc} '
   end
-endfunction
-
-function! statusline#neoterm_count()
-  if has('nvim')
-    let neoterm_count = len(g:neoterm.instances)
-    if neoterm_count > 0
-      return printf(" NT(%d) ", neoterm_count)
-    end
-  end
-
-  return ""
 endfunction
 
 function! statusline#filename(modified)
