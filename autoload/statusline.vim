@@ -12,14 +12,14 @@ endfunction
 
 function! statusline#neoterm(active)
   let default =
-        \   '%#SLModeTerminal#%{statusline#mode("T")}%*'
-        \ . ' %n '
+        \   ' %n '
         \ . '%<%{statusline#termname()}%*'
         \ . '%= '
 
   if a:active
     return
-          \  '%#SLModeNormal#%{statusline#mode("N")}%*'
+          \   '%#SLModeNormal#%{statusline#mode("N")}%*'
+          \ . '%#SLModeTerminal#%{statusline#mode("T")}%*'
           \ . default
           \ . '%#StatusWarning#%{statusline#neoterm_count()}%*'
   else
