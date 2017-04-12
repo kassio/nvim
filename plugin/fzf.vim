@@ -18,7 +18,7 @@ nnoremap <silent> <c-j> :BTags<cr>
 nnoremap <silent> <c-k> :Buffers<cr>
 
 if has('nvim')
-  aug fzf_setup
+  aug user:autocmd:fzf
     au!
     au TermOpen term://*FZF tnoremap <silent> <buffer> <nowait> <esc> <c-c>
   aug END
