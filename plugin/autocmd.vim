@@ -38,4 +38,5 @@ aug user:autocmd
 
   au WinLeave * call window#unfocus()
   au WinEnter * call window#focus()
+  au TermOpen * setlocal nonumber norelativenumber
 aug END

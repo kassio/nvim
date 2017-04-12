@@ -1,15 +1,11 @@
 function! window#focus()
-  if empty(&buftype)
-    if &buftype == "terminal"
-      setlocal cursorline
-    else
-      setlocal relativenumber cursorline
-    end
+  if &buftype == "terminal" || &filetype == "help"
+    setlocal cursorline norelativenumber nonumber
+  else
+    setlocal cursorline< relativenumber< cursorline<
   end
 endfunction
 
 function! window#unfocus()
-  if empty(&buftype) || &buftype == "terminal"
-    setlocal norelativenumber nocursorline
-  end
+  setlocal norelativenumber nocursorline
 endfunction

@@ -36,8 +36,6 @@ set fileencoding=utf8 nobomb
 
 set showmatch showcmd noshowmode
 
-set sessionoptions=tabpages
-
 set confirm
 
 set shortmess=aI
@@ -71,7 +69,7 @@ set wildignore+=*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
 
 set nowrap
 
-set sessionoptions=buffers,tabpages,help
+set sessionoptions=winpos,tabpages,help
 
 set copyindent cindent smartindent
 set tabstop=2 shiftwidth=2 softtabstop=2
