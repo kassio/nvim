@@ -7,7 +7,7 @@ endsnippet
 snippet test-dumb "test dumb"
 require "minitest/autorun"
 
-class ${1:`!v personal#snips#filename_camelized()`} < Minitest::Test
+class ${1:`!v user#snips#filename_camelized()`} < Minitest::Test
   def test_the_truth
     variable = 1
     assert_equal 1, variable
