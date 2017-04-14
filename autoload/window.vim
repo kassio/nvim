@@ -1,5 +1,5 @@
 function! window#focus()
-  if &buftype == "terminal" || &filetype == "help"
+  if &buftype == "terminal" || index(["help", "nerdtree"], &filetype) >= 0
     setlocal cursorline norelativenumber nonumber
   else
     setlocal cursorline< relativenumber< cursorline<
