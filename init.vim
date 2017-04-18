@@ -91,7 +91,7 @@ set spell
 set undofile undoreload=10000
 
 set title
-let &titlestring="%{has('nvim') ? 'nvim' : 'vim'}(%F)"
+let &titlestring="%{has('nvim') ? 'nvim' : 'vim'}(%{substitute(expand('%:p'), $HOME, '$HOME', '')})"
 
 set statusline=
 set showtabline=2
