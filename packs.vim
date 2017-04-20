@@ -60,13 +60,10 @@ Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby'] }
 Plug 'Keithbsmiley/rspec.vim', { 'for': ['ruby'] }
 Plug 'sunaku/vim-ruby-minitest', { 'for': ['ruby'] }
 
-" Tomdoc
-Plug 'kassio/tomdoc.vim', { 'for': ['ruby', 'javascript'] }
-
 " Elixir
 Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
 
-" Scala
-Plug 'derekwyatt/vim-scala', { 'for': ['scala'] }
+" Tomdoc
+Plug 'kassio/tomdoc.vim', { 'for': ['ruby', 'javascript'] }
 
 call plug#end()
