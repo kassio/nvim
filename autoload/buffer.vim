@@ -28,6 +28,7 @@ function! s:shouldWipe(bufid)
   let bufname = bufname(a:bufid)
   return bufexists(a:bufid) &&
         \ bufname !~ 'NERD_tree' &&
+        \ bufname !~ 'term:.*' &&
         \ (
         \   !buflisted(a:bufid) ||
         \   !bufloaded(a:bufid) ||
