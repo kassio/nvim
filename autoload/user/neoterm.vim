@@ -4,7 +4,7 @@ function! user#neoterm#clear()
 endfunction
 
 function! user#neoterm#hardclear()
-  call TClear()
+  call user#neoterm#clear()
   call neoterm#vim_exec('setl scrollback=0')
   sleep 100m
   call neoterm#vim_exec('setl scrollback&')
