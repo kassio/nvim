@@ -1,11 +1,15 @@
-function! window#focus()
+function! window#focus(...)
+  let properties = get(a:, "1", ["cursorline", "norelativenumber", "nonumber"])
+
   if &buftype == "terminal" || index(["help", "nerdtree"], &filetype) >= 0
-    setlocal cursorline norelativenumber nonumber
+    exec "setlocal ".join(properties, " ")
   else
-    setlocal cursorline< relativenumber< cursorline<
+    exec "setlocal ".join(map(properties, {_, val -> val."<"}), " ")
   end
 endfunction
 
-function! window#unfocus()
-  setlocal norelativenumber nocursorline
+function! window#unfocus(...)
+  let properties = get(a:, "1", ["nocursorline", "norelativenumber"])
+
+  exec "setlocal ".join(properties, " ")
 endfunction

@@ -36,6 +36,9 @@ aug user:autocmd
 
   au FocusGained,BufEnter * silent! checktime
 
+  au FocusLost * call window#unfocus(["norelativenumber"])
+  au FocusGained * call window#focus(["norelativenumber"])
+
   au WinLeave * call window#unfocus()
   au WinEnter * call window#focus()
 aug END
