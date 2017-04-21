@@ -22,10 +22,15 @@ hi! SLModeVisual gui=bold guifg=#cccccc guibg=#cd9cce
 hi! SLUnsavedFile gui=bold guifg=#cccccc guibg=#cc4a21
 hi! SLModeTerminal gui=bold guifg=#595959 guibg=#cccccc
 
+hi! WarningMsg guifg=#fac863 ctermfg=221
+
 hi! NeomakeMessageSignDefault gui=bold
 hi! NeomakeErrorSign gui=bold
 hi! NeomakeWarningSign gui=bold
 
+hi! link StatusWarning NeomakeWarningSign
+hi! link StatusSuccess NeomakeMessageSign
+hi! link StatusError NeomakeErrorSign
 hi! link StatusWarning NeomakeWarningSign
 hi! link StatusSuccess NeomakeMessageSign
 hi! link StatusError NeomakeErrorSign
