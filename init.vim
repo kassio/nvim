@@ -98,8 +98,9 @@ set showtabline=2
 set tabline=%!tabline#update()
 
 set mouse=a
-set guicursor=n-c-v:block-nCursor-blinkon0
-set guicursor+=i-ci:ver1-iCursor-blinkwait300-blinkon200-blinkoff150
+set guicursor=n-c-v:block-Cursor/Cursor-blinkon0
+set guicursor+=i-ci:ver1-Cursor/Cursor-blinkwait200-blinkon200-blinkoff150
+set guicursor+=r-cr-o:hor1-Cursor/Cursor-blinkwait200-blinkon200-blinkoff150
 
 let &grepformat='%f:%l:%c:%m,%f:%l:%m'
 let &grepprg="rg --follow --smart-case --vimgrep --no-ignore-vcs --color never"

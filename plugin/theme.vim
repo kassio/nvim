@@ -11,6 +11,8 @@ hi! Colorcolumn guibg=#1e2d35
 hi! link CursorColumn Colorcolumn
 hi! link CursorLine Colorcolumn
 
+hi! Cursor ctermbg=7 guibg=#e5e5e5
+
 hi! Search gui=standout guifg=#fac863 guibg=#65737e
 
 hi! StatusLine gui=bold guifg=#cccccc guibg=#3e5570
