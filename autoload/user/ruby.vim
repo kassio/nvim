@@ -38,6 +38,11 @@ function! user#ruby#string_hash_to_symbol(line1, line2)
   call s:replace(a:line1, a:line2, regexp)
 endfunction
 
+function! user#ruby#symbol_array(line1, line2)
+  let regexp = 's/\[\(.*\)]/\="%i[".substitute(submatch(1), "[,:]", "", "g")."]"/'
+  call s:replace(a:line1, a:line2, regexp)
+endfunction
+
 function! s:replace(line1, line2, regexp)
   let cmd = printf("silent %d,%d%s", a:line1, a:line2, a:regexp)
   call preserve#preserve(cmd)

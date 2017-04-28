@@ -27,6 +27,8 @@ command! -range StringKeyToSymbol call user#ruby#string_key_to_symbol(<line1>, <
 command! -range SymbolHashToString call user#ruby#symbol_hash_to_string(<line1>, <line2>)
 command! -range StringHashToSymbol call user#ruby#string_hash_to_symbol(<line1>, <line2>)
 
+command! -range SymbolArray call user#ruby#symbol_array(<line1>, <line2>)
+
 let s:block_start = '\(.*\<do\>\|^\s*\<if\>\).*$'
 let s:block_end = '^\s*\<end\>'
 call textobj#user#plugin('rubyblock', {
