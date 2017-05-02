@@ -1,10 +1,10 @@
 let $MYVIM = "$HOME/.config/nvim"
 source $MYVIM/packs.vim
 
-unlet! skip_defaults_vim
-source $VIMRUNTIME/defaults.vim
-
 if !has('nvim')
+  unlet! skip_defaults_vim
+  source $VIMRUNTIME/defaults.vim
+
   let $MYVIM = "$HOME/.vim"
   unlet! skip_defaults_vim
   source $VIMRUNTIME/defaults.vim
