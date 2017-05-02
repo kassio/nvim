@@ -1,7 +1,8 @@
 let $MYVIM = "$HOME/.config/nvim"
 source $MYVIM/packs.vim
 
-runtime defaults.vim
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
 
 if !has('nvim')
   let $MYVIM = "$HOME/.vim"
@@ -26,6 +27,7 @@ if !has('nvim')
   set tabpagemax=50
   set ttyfast
   set viminfo^=!
+  set belloff=all
 end
 
 if has('nvim')
@@ -34,7 +36,7 @@ end
 
 set fileencoding=utf8 nobomb
 
-set showmatch showcmd noshowmode
+set showmatch noshowmode
 
 set confirm
 
