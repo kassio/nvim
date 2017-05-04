@@ -1,1 +1,1 @@
-command! FoldComments call fold#comments()
+command! FoldComments silent! call fold#comments()
