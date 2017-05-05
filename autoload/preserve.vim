@@ -10,5 +10,3 @@ function! preserve#preserve(command)
   redraw
   setlocal nolazyredraw
 endfunction
-
-command! -nargs=+ P call preserve#preserve(<q-args>)

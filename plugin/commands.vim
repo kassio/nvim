@@ -6,3 +6,9 @@ command! -range SQLBreak call user#sql#break(<line1>, <line2>)
 
 " Trim the file
 command! Trim call buffer#trim()
+
+" Highlight the given text without moving the cursor
+command! -nargs=+ H call text#highlight(<q-args>)
+
+" Preserve position while executing the command
+command! -nargs=+ P call preserve#preserve(<q-args>)
