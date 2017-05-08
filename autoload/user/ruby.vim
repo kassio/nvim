@@ -47,3 +47,11 @@ function! s:replace(line1, line2, regexp)
   let cmd = printf("silent %d,%d%s", a:line1, a:line2, a:regexp)
   call preserve#preserve(cmd)
 endfunction
+
+function! user#ruby#remove_comments(line1, line2)
+  let comment_regex = "^\\s*".&commentstring[0].".*"
+  exec printf("%d,%ds/%s//ge", a:line1, a:line2, comment_regex)
+
+  let empty_lines_regex = "^\\_s$"
+  exec printf("%d,%dg/%s/d", a:line1, a:line2, empty_lines_regex)
+endfunction

@@ -29,6 +29,8 @@ command! -range StringHashToSymbol call user#ruby#string_hash_to_symbol(<line1>,
 
 command! -range SymbolArray call user#ruby#symbol_array(<line1>, <line2>)
 
+command! -range=% RemoveComments call user#ruby#remove_comments(<line1>, <line2>)
+
 let s:block_start = '\(.*\<do\>\|^\s*\<if\>\).*$'
 let s:block_end = '^\s*\<end\>'
 call textobj#user#plugin('rubyblock', {
