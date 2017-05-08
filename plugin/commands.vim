@@ -12,3 +12,6 @@ command! -nargs=+ H call text#highlight(<q-args>)
 
 " Preserve position while executing the command
 command! -nargs=+ P call preserve#preserve(<q-args>)
+
+" Fold all buffer comments
+command! FoldComments silent! call fold#comments()
