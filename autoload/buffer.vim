@@ -1,3 +1,11 @@
+function! buffer#restore_cursor_position()
+  if !exists('b:open_at_first_line') &&
+        \ line("'\"") > 0 &&
+        \ line("'\"") <= line("$") |
+    execute 'normal! g`"'
+  end
+endfunction
+
 function! buffer#kill()
   if &ft =~? 'nerdtree' || &bt =~? 'terminal'
     close
