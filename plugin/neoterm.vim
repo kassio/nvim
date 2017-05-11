@@ -15,7 +15,7 @@ if has('nvim')
   " send the exist command to the current terminal
   nnoremap <silent> <leader>te :T exit<cr>
   " send the exist command to the current terminal
-  nnoremap <silent> <leader>tE :call neoterm#normal('G')<cr>
+  nnoremap <silent> <leader>tG :call neoterm#normal('G')<cr>
   " clear terminal
   nnoremap <silent> <leader>tl :call user#neoterm#clear()<cr>
   nnoremap <silent> <leader>tL :call user#neoterm#hardclear()<cr>
