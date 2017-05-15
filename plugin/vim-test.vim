@@ -9,7 +9,7 @@ nnoremap <silent> <leader>tf :P call neoterm#normal('G') \| call neoterm#clear()
 nnoremap <silent> <leader>tc :P call neoterm#normal('G') \| call neoterm#clear() \| TestNearest<cr>
 nnoremap <silent> <leader>tr :P call neoterm#normal('G') \| call neoterm#clear() \| TestLast<cr>
 
-let test#runners = { 'Ruby': ['Testrbl', 'Minitest', 'Rspec'] }
+let test#runners = { 'Ruby': ['Rails', 'Testrbl', 'Minitest', 'Rspec'] }
 
 for runner in test#runners['Ruby']
   exec printf("command! Use%sFile let b:neoterm_test_lib='%s'", runner, tolower(runner))
