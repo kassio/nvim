@@ -3,7 +3,7 @@ let s:file_name = '._vim/session'
 function! session#save()
   silent! !mkdir -p ._vim
   if has('nvim') && exists(':TcloseAll')
-    TcloseAll
+    TcloseAll!
   end
 
   silent! exec "silent! mksession! ".s:file_name | exec 'redraw!'
