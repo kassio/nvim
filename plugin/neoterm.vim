@@ -11,7 +11,7 @@ if has('nvim')
 
   " Useful maps
   " hide all terminals
-  nnoremap <silent> <leader>tt :Ttoggle<cr>
+  nnoremap <silent> <leader>tt :Ttoggle<cr>:call neoterm#normal('G')<cr>
   " send the exist command to the current terminal
   nnoremap <silent> <leader>te :T exit<cr>
   " send the exist command to the current terminal
