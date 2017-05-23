@@ -4,14 +4,18 @@ else
   let test#strategy = 'basic'
 end
 
-nnoremap <silent> <leader>ta :P call neoterm#normal('G') \| call neoterm#clear() \| TestSuite<cr>
-nnoremap <silent> <leader>tf :P call neoterm#normal('G') \| call neoterm#clear() \| TestFile<cr>
-nnoremap <silent> <leader>tc :P call neoterm#normal('G') \| call neoterm#clear() \| TestNearest<cr>
-nnoremap <silent> <leader>tr :P call neoterm#normal('G') \| call neoterm#clear() \| TestLast<cr>
+nnoremap <silent> <leader>ta :call <sid>test("Suite")<cr>
+nnoremap <silent> <leader>tf :call <sid>test("File")<cr>
+nnoremap <silent> <leader>tc :call <sid>test("Nearest")<cr>
+nnoremap <silent> <leader>tr :call <sid>test("Last")<cr>
 
-let test#runners = { 'Ruby': ['Rails', 'Testrbl', 'Minitest', 'Rspec'] }
-
-for runner in test#runners['Ruby']
-  exec printf("command! Use%sFile let b:neoterm_test_lib='%s'", runner, tolower(runner))
-  exec printf("command! Use%s let g:neoterm_test_lib='%s'", runner, tolower(runner))
-endfor
+function! s:test(scope)
+  try
+    P call neoterm#normal('G')
+    P call neoterm#clear()
+  catch /^Vim\%((\a\+)\)\=:E488/ " Trailing characters
+    " noop
+  finally
+    exec "Test".a:scope
+  endtry
+endfunction
