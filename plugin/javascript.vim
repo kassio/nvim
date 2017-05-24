@@ -1,3 +1,4 @@
-let g:SimpleJsIndenter_BriefMode=1
-
-match Comment /\%1l^#!\/usr\/bin\/env.*Java[sS]cript/
+au BufRead,BufNewFile *
+      \ if getline(1) =~ '\c^#!.*javascript' |
+      \   let &filetype = 'javascript' |
+      \ endif
