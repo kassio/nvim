@@ -8,6 +8,8 @@ aug user:autocmd
 
   au BufReadPost,BufNewFile *_feature.rb set syntax=rspec
 
+  autocmd BufNewFile,BufReadPost Procfile* set filetype=ruby
+
   au FileType sh,html,javascript,css,eruby,eelixir,sass,scss,yaml setlocal iskeyword+=-
   au FileType ruby,eruby,elixir,eelixir setlocal iskeyword+=\?,\!,@-@
 
