@@ -4,7 +4,7 @@ aug user:autocmd
 
   au FileType tex,txt,mail,text,markdown setlocal textwidth=80 noautoindent nocindent
 
-  au BufNewFile,BufRead *.json setf javascript
+  au BufNewFile,BufRead .eslintrc setf json
 
   au BufReadPost,BufNewFile *_feature.rb set syntax=rspec
 
