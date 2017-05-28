@@ -4,11 +4,7 @@ aug user:autocmd
 
   au FileType tex,txt,mail,text,markdown setlocal textwidth=80 noautoindent nocindent
 
-  au BufNewFile,BufRead .eslintrc setf json
-
   au BufReadPost,BufNewFile *_feature.rb set syntax=rspec
-
-  autocmd BufNewFile,BufReadPost Procfile* set filetype=ruby
 
   au FileType sh,html,javascript,css,eruby,eelixir,sass,scss,yaml setlocal iskeyword+=-
   au FileType ruby,eruby,elixir,eelixir setlocal iskeyword+=\?,\!,@-@
@@ -18,7 +14,6 @@ aug user:autocmd
 
   au FileType javascript,json call user#surround#javascript_string_interpolation()
 
-  " statusline
   au VimEnter,WinEnter,BufWinEnter,FileType,BufUnload,VimResized * call statusline#update()
   au User FzfStatusLine call statusline#fzf()
 
@@ -30,8 +25,11 @@ aug user:autocmd
 
   au FocusGained,BufEnter * silent! checktime
 
+  au WinEnter * call window#focus()
+  au WinLeave * call window#unfocus()
   au FocusLost * call window#unfocus(["norelativenumber"])
   au FocusGained * call window#focus(["norelativenumber"])
-  au WinLeave * call window#unfocus()
-  au WinEnter * call window#focus()
+
+  au BufNewFile,BufRead *eslintrc set filetype=json
+  au BufNewFile,BufReadPost Procfile* set filetype=ruby
 aug END
