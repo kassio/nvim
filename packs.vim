@@ -10,6 +10,7 @@ if has('nvim')
   Plug 'https://github.com/kassio/neoterm.git'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'Shougo/neco-vim', { 'for': ['vim'] }
+  Plug 'fishbullet/deoplete-ruby', { 'for': ['ruby', 'eruby'] }
 end
 
 " Theme

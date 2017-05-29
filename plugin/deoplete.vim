@@ -5,5 +5,5 @@ let g:deoplete#max_menu_width = 0
 let g:deoplete#omni#functions = get(g:, 'deoplete#omni#functions', {})
 let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
 
-let g:deoplete#omni#input_patterns = {}
+let g:deoplete#omni#input_patterns = get(g:, 'deoplete#omni#input_patterns', {})
 let g:deoplete#omni#input_patterns.ruby = ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::']
