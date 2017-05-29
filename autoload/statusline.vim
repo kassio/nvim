@@ -89,19 +89,19 @@ function! s:currentModeKey()
 endfunction
 
 function! statusline#neomake(scope)
-  if has('nvim')
-    let loclist = filter(getloclist(0), "v:val.type == '".a:scope."'")
+  let loclist = filter(getloclist(0), { _, item ->
+        \    type(item) == v:t_dict &&
+        \     item.type == a:scope &&
+        \     item.bufnr == winbufnr(winnr())
+        \  })
 
-    if empty(loclist)
-      return ""
-    else
-      let first_sign_line = loclist[0].lnum
-      let sign_count = len(loclist)
-
-      return printf("  %s: %s(%s) ", a:scope, first_sign_line, sign_count)
-    end
-  else
+  if empty(loclist)
     return ""
+  else
+    let first_sign_line = loclist[0].lnum
+    let sign_count = len(loclist)
+
+    return printf("  %s: %s(%s) ", a:scope, first_sign_line, sign_count)
   end
 endfunction
 
