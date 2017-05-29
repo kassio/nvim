@@ -1,5 +1,5 @@
 function! tabline#update()
-  let tabs = map(range(tabpagenr('$')), 'v:val + 1')
+  let tabs = map(range(tabpagenr('$')), { tab -> tab + 1 })
   let tab = tabpagenr()
   let tab_index = index(tabs, tab)
   let tabs_before = tab_index > 0 ? tabs[0:tab_index-1] : []

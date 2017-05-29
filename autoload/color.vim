@@ -1,13 +1,11 @@
 function! color#current()
-  let current_names = map(s:currentStack(), 's:colorNamesFor(v:val)')
+  let current_names = map(ScurrentStack(), { _, val ->
+        \ uniq([synIDattr(val, "name"), synIDattr(synIDtrans(val), "name")])
+        \ })
 
   return join(current_names, ', ')
 endfunction
 
-function! s:colorNamesFor(val)
-  return uniq([synIDattr(a:val, "name"), synIDattr(synIDtrans(a:val), "name")])
-endfunction
-
-function! s:currentStack()
+function! ScurrentStack()
   return synstack(line("."), col("."))
 endfunction
