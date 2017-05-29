@@ -15,8 +15,7 @@ function! buffer#kill()
 endfunction
 
 function! buffer#killall()
-  let all_buffers = copy(range(1, bufnr('$')))
-  let buffers = filter(all_buffers, 's:shouldKill(v:val)')
+  let buffers = buffer#user_buffers()
 
   if !empty(buffers)
     exec 'bw! '. join(buffers, ' ')
@@ -24,32 +23,27 @@ function! buffer#killall()
 endfunction
 
 function! buffer#wipeall()
-  let all_buffers = copy(range(1, bufnr('$')))
-  let buffers = filter(all_buffers, 's:shouldWipe(v:val)')
+  let buffers = buffer#user_buffers({ bufid ->
+        \   !buflisted(bufid) ||
+        \   !bufloaded(bufid) ||
+        \   getbufvar(bufid, '&bt') != ''
+        \ })
 
   if !empty(buffers)
     exec 'bw! '. join(buffers, ' ')
   end
 endfunction
 
-function! s:shouldWipe(bufid)
-  let bufname = bufname(a:bufid)
-  return bufexists(a:bufid) &&
-        \ bufname !~ 'NERD_tree' &&
-        \ bufname !~ 'term:.*' &&
-        \ (
-        \   !buflisted(a:bufid) ||
-        \   !bufloaded(a:bufid) ||
-        \   getbufvar(a:bufid, '&bt') != ''
-        \ )
-endfunction
+function! buffer#user_buffers(...)
+  let ExtraFilters = a:0 ? a:1 : { bufid -> v:true }
+  let buffers = range(1, bufnr('$'))
 
-function! s:shouldKill(bufid)
-  let bufname = bufname(a:bufid)
-  return
-        \ bufexists(a:bufid) &&
-        \ bufname !~ 'NERD_tree' &&
-        \ bufname !~ 'term:.*'
+  return filter(copy(buffers), { _, bufid ->
+        \   bufexists(bufid) &&
+        \   bufname(bufid) !~ 'NERD_tree' &&
+        \   bufname(bufid) !~ 'term:.*' &&
+        \   ExtraFilters(bufid)
+        \ })
 endfunction
 
 function! buffer#trim()

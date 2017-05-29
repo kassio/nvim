@@ -45,7 +45,7 @@ endfunction
 
 function! s:tab_has_nerdtree()
   if s:nerdtree_current_buffer() > 0
-    let tab_buffers = filter(tabpagebuflist(), 'v:val == ' . s:nerdtree_current_buffer())
+    let tab_buffers = filter(tabpagebuflist(), { _, bufid -> bufid == s:nerdtree_current_buffer() })
     return !empty(tab_buffers)
   else
     return -1
