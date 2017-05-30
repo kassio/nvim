@@ -55,6 +55,7 @@ Plug 'tpope/vim-markdown', { 'for': ['markdown'] }
 " HTML, javascript, css, scss, less
 Plug 'othree/html5.vim', { 'for': ['html', 'eruby'] }
 Plug 'othree/yajs.vim', { 'for': ['javascript', 'html', 'eruby'] }
+Plug 'mxw/vim-jsx'
 
 " Ruby
 Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby'] }
