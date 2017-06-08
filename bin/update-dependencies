@@ -8,8 +8,8 @@ echo "${bullet} lua dependency"
 brew install lua &>/dev/null
 
 echo "${bullet} python dependencies"
-pip install --force-reinstall neovim &>/dev/null
-pip3 install --force-reinstall neovim-remote &>/dev/null
+pip install --upgrade --force-reinstall neovim &>/dev/null
+pip3 install --upgrade --force-reinstall neovim-remote &>/dev/null
 
 echo "${bullet} ruby dependencies"
 for-each-ruby gem install neovim &>/dev/null
