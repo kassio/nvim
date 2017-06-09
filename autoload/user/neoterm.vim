@@ -9,3 +9,9 @@ function! user#neoterm#hardclear()
   sleep 100m
   call neoterm#vim_exec('setl scrollback&')
 endfunction
+
+function! user#neoterm#vertical(lambda)
+  let g:neoterm_position = "vertical"
+  call a:lambda()
+  let g:neoterm_position = "horizontal"
+endfunction
