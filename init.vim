@@ -1,11 +1,6 @@
-let $MYVIM = "$HOME/.config/nvim"
-source $MYVIM/packs.vim
+source $HOME/.config/nvim/minpac.vim
 
 if !has('nvim')
-  unlet! skip_defaults_vim
-  source $VIMRUNTIME/defaults.vim
-
-  let $MYVIM = "$HOME/.vim"
   unlet! skip_defaults_vim
   source $VIMRUNTIME/defaults.vim
 
@@ -28,9 +23,7 @@ if !has('nvim')
   set ttyfast
   set viminfo^=!
   set belloff=all
-end
-
-if has('nvim')
+else
   set inccommand=nosplit
 end
 

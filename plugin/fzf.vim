@@ -1,3 +1,7 @@
+" Load FZF from homebrew installation
+set runtimepath^=/usr/local/opt/fzf
+runtime plugin/fzf.vim
+
 let $FZF_DEFAULT_OPTS='--no-reverse'
 
 let g:fzf_buffers_jump = 1
