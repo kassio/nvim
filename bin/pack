@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+base="$(dirname $0)/.."
+minpac_path="${base}/pack/minpac"
+if [ ! -d ${minpac_path} ]
+then
+  git clone https://github.com/k-takata/minpac.git \
+    "${minpac_path}/opt/minpac"
+fi
+
+nvim --noplugins +PackUpdate +qall!
