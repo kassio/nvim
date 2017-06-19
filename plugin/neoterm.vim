@@ -1,16 +1,16 @@
 if has('nvim')
-  let g:neoterm_position = "horizontal"
-  let g:neoterm_automap_keys = "\<leader>tt"
+  let g:neoterm_position = 'horizontal'
+  let g:neoterm_automap_keys = '\<leader>tt'
   let g:neoterm_use_relative_path = 1
   let g:neoterm_autoscroll = 1
   let g:neoterm_always_open_to_exec = 0
 
   command! -complete=shellcmd VTnew
-        \ silent call user#neoterm#vertical({-> execute("Tnew") })
+        \ silent call user#neoterm#vertical({-> execute('Tnew') })
   command! -complete=shellcmd VTtoggle
-        \ silent call user#neoterm#vertical({-> execute("Ttoggle ") })
+        \ silent call user#neoterm#vertical({-> execute('Ttoggle ') })
   command! -complete=shellcmd -nargs=+ VT
-        \ silent call user#neoterm#vertical({-> execute("T ".<q-args>) })
+        \ silent call user#neoterm#vertical({-> execute('T '.<q-args>) })
 
   nnoremap <silent> <leader>rf :TREPLSendFile<cr>
   nnoremap <silent> <leader>rl :TREPLSendLine<cr>
