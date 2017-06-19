@@ -1,14 +1,14 @@
 source $HOME/.config/nvim/minpac.vim
 
 if !has('nvim')
-  unlet! skip_defaults_vim
+  unlet! g:skip_defaults_vim
   source $VIMRUNTIME/defaults.vim
 
   packadd matchit
 
+  set encoding=utf8 termencoding=utf8 nobomb
   scriptencoding utf8
 
-  set encoding=utf8 termencoding=utf8 nobomb
   set autoread autowriteall
   set autoindent
   set autoread
@@ -98,9 +98,9 @@ set guicursor+=i-ci:ver1-Cursor/Cursor-blinkwait200-blinkon200-blinkoff150
 set guicursor+=r-cr-o:hor1-Cursor/Cursor-blinkwait200-blinkon200-blinkoff150
 
 let &grepformat='%f:%l:%c:%m,%f:%l:%m'
-let &grepprg="rg --follow --smart-case --vimgrep --no-ignore-vcs --color never"
+let &grepprg='rg --follow --smart-case --vimgrep --no-ignore-vcs --color never'
 
-let mapleader=" "
+let g:mapleader=' '
 
 " Disable standard plugins
 let g:loaded_getscriptPlugin = 1
@@ -109,5 +109,5 @@ let g:loaded_tarPlugin = 1
 let g:loaded_tutor_mode_plugin = 1
 let g:loaded_vimballPlugin = 1
 let g:loaded_zipPlugin = 1
-let loaded_gzip = 1
-let loaded_rrhelper = 1
+let g:loaded_gzip = 1
+let g:loaded_rrhelper = 1
