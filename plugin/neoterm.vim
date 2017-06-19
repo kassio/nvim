@@ -1,6 +1,6 @@
 if has('nvim')
   let g:neoterm_position = 'horizontal'
-  let g:neoterm_automap_keys = '\<leader>tt'
+  let g:neoterm_automap_keys = '<leader>tm'
   let g:neoterm_use_relative_path = 1
   let g:neoterm_autoscroll = 1
   let g:neoterm_always_open_to_exec = 0
