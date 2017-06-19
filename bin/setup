@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+which for-each-ruby &>/dev/null || { echo >&2 "for-each-ruby not found!" && exit -1; }
+bullet="🔹 "
+sun="☀️ "
+
+echo "${bullet} lua dependency"
+brew install lua &>/dev/null
+
+echo "${bullet} python dependencies"
+pip install --upgrade --force-reinstall vim-vint &>/dev/null
+pip install --upgrade --force-reinstall neovim &>/dev/null
+pip3 install --upgrade --force-reinstall neovim-remote &>/dev/null
+
+echo "${bullet} ruby dependencies"
+for-each-ruby gem install neovim &>/dev/null
+for-each-ruby gem install rcodetools &>/dev/null
+
+echo "${bullet} linters"
+echo "  ${sun} rubocop" & for-each-ruby gem install rubocop &>/dev/null
+echo "  ${sun} scss_lint" & for-each-ruby gem install scss_lint &>/dev/null
+echo "  ${sun} pre-commit" & for-each-ruby gem install pre-commit &>/dev/null
+echo "  ${sun} eslint" & npm install -g eslint &>/dev/null
+echo "  ${sun} eslint-react" & npm install -g eslint-plugin-react &>/dev/null
