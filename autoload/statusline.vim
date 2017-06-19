@@ -40,8 +40,8 @@ function! statusline#line(active)
           \ . '%<%{statusline#filename(!&modified)}%*'
           \ . '%(%#SLUnsavedFile#%<%{statusline#filename(&modified)}%*%)'
           \ . '%='
-          \ . '%#StatusWarning#%{statusline#neomake("W")}%*'
-          \ . '%#StatusError#%{statusline#neomake("E")}%*'
+          \ . '%#StatusWarning#%{statusline#linter("W")}%*'
+          \ . '%#StatusError#%{statusline#linter("E")}%*'
           \ . ' %c,%l/%L '
           \ . '%#SLModeNormal#'
           \ . ' %{&ft} %{&ff} %{&fenc!=""?&fenc:&enc} '
@@ -88,7 +88,7 @@ function! s:currentModeKey()
         \ }, mode(), '-')
 endfunction
 
-function! statusline#neomake(scope)
+function! statusline#linter(scope)
   let loclist = filter(getloclist(0), { _, item ->
         \    type(item) == v:t_dict &&
         \     item.type == a:scope &&

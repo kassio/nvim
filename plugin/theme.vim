@@ -26,30 +26,31 @@ hi! SLModeTerminal gui=bold guifg=#595959 guibg=#cccccc
 
 hi! WarningMsg guifg=#fac863 ctermfg=221
 
-hi! NeomakeMessageSignDefault gui=bold
-hi! NeomakeErrorSign gui=bold
-hi! NeomakeWarningSign gui=bold
+hi! SignError gui=bold guifg=#ec5f67 guibg=#343d46
+hi! SignWarning gui=bold guifg=#fac863 guibg=#343d46
+hi! SignInfo gui=bold guifg=#6699cc guibg=#343d46
+hi! SignSuccess gui=bold guifg=#99c794 guibg=#343d46
 
-hi! link StatusWarning NeomakeWarningSign
-hi! link StatusSuccess NeomakeMessageSign
-hi! link StatusError NeomakeErrorSign
-hi! link StatusWarning NeomakeWarningSign
-hi! link StatusSuccess NeomakeMessageSign
-hi! link StatusError NeomakeErrorSign
+hi! link StatusWarning SignWarning
+hi! link StatusSuccess SignSuccess
+hi! link StatusError SignError
+hi! link StatusWarning SignWarning
+hi! link StatusSuccess SignSuccess
+hi! link StatusError SignError
 
 hi! link TabLine StatusLine
 hi! link TabLineFill StatusLine
 hi! link TabLineSel SLModeNormal
 
-hi! link SignifySignAdd NeomakeMessageSign
+hi! link SignifySignAdd SignSuccess
 hi! link SignifyLineAdd SignifySignAdd
 
-hi! link SignifySignDelete NeomakeErrorSign
+hi! link SignifySignDelete SignError
 hi! link SignifySignDeleteFirstLine SignifySignDelete
 hi! link SignifyLineDelete SignifySignDelete
 hi! link SignifyLineDeleteFirstLine SignifySignDelete
 
-hi! link SignifySignChange NeomakeWarningSign
+hi! link SignifySignChange SignWarning
 hi! link SignifySignChangeDelete SignifySignChange
 hi! link SignifyLineChange SignifySignChange
 hi! link SignifyLineChangeDelete SignifySignChange

@@ -13,7 +13,7 @@ if exists('*minpac#init')
   call minpac#add('mhartington/oceanic-next')
 
   " Linting
-  call minpac#add('benekastah/neomake')
+  call minpac#add('w0rp/ale')
 
   " Search/replace/text manipulation
   call minpac#add('vim-scripts/vis')

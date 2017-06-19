@@ -21,8 +21,6 @@ aug user:autocmd
 
   au BufReadPost fugitive://* set bufhidden=delete
 
-  au BufWritePost,BufReadPost * Neomake
-
   au FocusGained,BufEnter * silent! checktime
 
   au WinEnter * call window#focus()
