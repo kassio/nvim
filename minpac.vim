@@ -4,7 +4,7 @@ if exists('*minpac#init')
 
   if has('nvim')
     call minpac#add('https://github.com/kassio/neoterm.git')
-    call minpac#add('Shougo/deoplete.nvim', { 'do': {-> UpdateRemotePlugins} })
+    call minpac#add('Shougo/deoplete.nvim')
     call minpac#add('Shougo/neco-vim', { 'type': 'opt' })
     call minpac#add('fishbullet/deoplete-ruby', { 'type': 'opt' })
   end
@@ -78,5 +78,9 @@ au Filetype ruby,javascript packadd tomdoc.vim
 
 packloadall
 
-command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
-command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
+command! PackUpdate
+      \ packadd minpac |
+      \ source $MYVIMRC |
+      \ silent! call minpac#clean() |
+      \ call minpac#update() |
+      \ UpdateRemotePlugins
