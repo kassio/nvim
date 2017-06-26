@@ -8,4 +8,6 @@ then
     "${minpac_path}/opt/minpac"
 fi
 
-nvim +PackUpdate +qall!
+nvim \
+  +"source ${base}/minpac.vim" \
+  +"call minpac#update('', {'do': 'quit'})"

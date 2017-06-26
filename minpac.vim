@@ -1,68 +1,68 @@
-if exists('*minpac#init')
-  call minpac#init()
-  call minpac#add('k-takata/minpac', {'type': 'opt'})
+packadd minpac
 
-  if has('nvim')
-    call minpac#add('https://github.com/kassio/neoterm.git')
-    call minpac#add('Shougo/deoplete.nvim')
-    call minpac#add('Shougo/neco-vim', { 'type': 'opt' })
-    call minpac#add('fishbullet/deoplete-ruby', { 'type': 'opt' })
-  end
+call minpac#init()
+call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-  " Theme
-  call minpac#add('mhartington/oceanic-next')
+if has('nvim')
+  call minpac#add('https://github.com/kassio/neoterm.git')
+  call minpac#add('Shougo/deoplete.nvim')
+  call minpac#add('Shougo/neco-vim', { 'type': 'opt' })
+  call minpac#add('fishbullet/deoplete-ruby', { 'type': 'opt' })
+end
 
-  " Linting
-  call minpac#add('w0rp/ale')
+" Theme
+call minpac#add('mhartington/oceanic-next')
 
-  " Search/replace/text manipulation
-  call minpac#add('vim-scripts/vis')
-  call minpac#add('tpope/vim-repeat')
-  call minpac#add('tpope/vim-abolish')
+" Linting
+call minpac#add('w0rp/ale')
 
-  " Surrounding
-  call minpac#add('tpope/vim-surround')
-  call minpac#add('wellle/targets.vim')
-  call minpac#add('kana/vim-textobj-user')
+" Search/replace/text manipulation
+call minpac#add('vim-scripts/vis')
+call minpac#add('tpope/vim-repeat')
+call minpac#add('tpope/vim-abolish')
 
-  " File tree
-  call minpac#add('scrooloose/nerdtree')
+" Surrounding
+call minpac#add('tpope/vim-surround')
+call minpac#add('wellle/targets.vim')
+call minpac#add('kana/vim-textobj-user')
 
-  " FZF improvements
-  call minpac#add('junegunn/fzf.vim')
+" File tree
+call minpac#add('scrooloose/nerdtree')
 
-  " Git
-  call minpac#add('tpope/vim-fugitive')
-  call minpac#add('mhinz/vim-signify')
+" FZF improvements
+call minpac#add('junegunn/fzf.vim')
 
-  " Comments
-  call minpac#add('tpope/vim-commentary')
+" Git
+call minpac#add('tpope/vim-fugitive')
+call minpac#add('mhinz/vim-signify')
 
-  " Snippets
-  call minpac#add('sirver/ultisnips')
+" Comments
+call minpac#add('tpope/vim-commentary')
 
-  " Test runner
-  call minpac#add('janko-m/vim-test')
+" Snippets
+call minpac#add('sirver/ultisnips')
 
-  " Markdown
-  call minpac#add('tpope/vim-markdown', { 'type': 'opt' })
+" Test runner
+call minpac#add('janko-m/vim-test')
 
-  " HTML, javascript, css, scss, less
-  call minpac#add('othree/html5.vim', { 'type': 'opt' })
-  call minpac#add('othree/yajs.vim', { 'type': 'opt' })
-  call minpac#add('mxw/vim-jsx')
+" Markdown
+call minpac#add('tpope/vim-markdown', { 'type': 'opt' })
 
-  " Ruby
-  call minpac#add('vim-ruby/vim-ruby', { 'type': 'opt' })
-  call minpac#add('Keithbsmiley/rspec.vim', { 'type': 'opt' })
-  call minpac#add('sunaku/vim-ruby-minitest', { 'type': 'opt' })
+" HTML, javascript, css, scss, less
+call minpac#add('othree/html5.vim', { 'type': 'opt' })
+call minpac#add('othree/yajs.vim', { 'type': 'opt' })
+call minpac#add('mxw/vim-jsx')
 
-  " Elixir
-  call minpac#add('elixir-lang/vim-elixir', { 'type': 'opt' })
+" Ruby
+call minpac#add('vim-ruby/vim-ruby', { 'type': 'opt' })
+call minpac#add('Keithbsmiley/rspec.vim', { 'type': 'opt' })
+call minpac#add('sunaku/vim-ruby-minitest', { 'type': 'opt' })
 
-  " Tomdoc
-  call minpac#add('kassio/tomdoc.vim', { 'type': 'opt' })
-endif
+" Elixir
+call minpac#add('elixir-lang/vim-elixir', { 'type': 'opt' })
+
+" Tomdoc
+call minpac#add('kassio/tomdoc.vim', { 'type': 'opt' })
 
 au Filetype vim packadd neco-vim
 au Filetype ruby,eruby packadd deoplete-ruby
@@ -75,12 +75,3 @@ au Filetype ruby packadd rspec.vim
 au Filetype ruby packadd vim-ruby-minitest
 au Filetype elixir,eelixir packadd vim-elixir
 au Filetype ruby,javascript packadd tomdoc.vim
-
-packloadall
-
-command! PackUpdate
-      \ packadd minpac |
-      \ source $MYVIMRC |
-      \ silent! call minpac#clean() |
-      \ call minpac#update() |
-      \ UpdateRemotePlugins

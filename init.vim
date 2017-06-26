@@ -1,4 +1,4 @@
-source $HOME/.config/nvim/minpac.vim
+packloadall
 
 if !has('nvim')
   unlet! g:skip_defaults_vim

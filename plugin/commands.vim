@@ -15,3 +15,10 @@ command! -nargs=+ P call preserve#preserve(<q-args>)
 
 " Fold all buffer comments
 command! FoldComments silent! call fold#comments()
+
+" PackUpdate
+command! PackUpdate
+      \ source $HOME/.config/nvim/minpac.vim |
+      \ silent! call minpac#clean() |
+      \ call minpac#update() |
+      \ UpdateRemotePlugins
