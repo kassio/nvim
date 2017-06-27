@@ -1,15 +1,30 @@
-function! window#focus(...)
-  let properties = get(a:, "1", ["cursorline", "norelativenumber", "nonumber"])
+let s:ignored_filetypes = [
+      \ "help",
+      \ "nerdtree",
+      \ "fugitiveblame",
+      \ "man"
+      \ ]
+let s:ignored_buftypes = [
+      \ "terminal"
+      \ ]
 
-  if &buftype == "terminal" || index(["help", "nerdtree", "fugitiveblame"], &filetype) >= 0
-    exec "setlocal ".join(properties, " ")
+function! window#focus(...)
+  let properties = a:0 ? copy(a:000) : ["cursorline", "norelativenumber", "nonumber"]
+
+  if s:is_ignored()
+    exec printf("setlocal %s", join(properties, " "))
   else
-    exec "setlocal ".join(map(properties, {_, val -> val."<"}), " ")
+    exec printf("setlocal %s", join(map(properties, {_, val -> val."<"}), " "))
   end
 endfunction
 
+function! s:is_ignored()
+  return index(s:ignored_buftypes, &buftype) >= 0 ||
+        \ index(s:ignored_filetypes, &filetype) >= 0
+endfunction
+
 function! window#unfocus(...)
-  let properties = get(a:, "1", ["nocursorline", "norelativenumber"])
+  let properties = a:0 ? copy(a:000) : ["nocursorline", "norelativenumber"]
 
   exec "setlocal ".join(properties, " ")
 endfunction

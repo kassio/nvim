@@ -25,8 +25,8 @@ aug user:autocmd
 
   au WinEnter * call window#focus()
   au WinLeave * call window#unfocus()
-  au FocusLost * call window#unfocus(["norelativenumber"])
-  au FocusGained * call window#focus(["norelativenumber"])
+  au FocusLost * call window#unfocus("norelativenumber")
+  au FocusGained * call window#focus("norelativenumber")
 
   au BufNewFile,BufRead *eslintrc set filetype=json
   au BufNewFile,BufReadPost Procfile* set filetype=ruby
