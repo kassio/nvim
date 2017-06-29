@@ -61,5 +61,8 @@ call minpac#add('sunaku/vim-ruby-minitest', { 'type': 'opt' })
 " Elixir
 call minpac#add('elixir-lang/vim-elixir', { 'type': 'opt' })
 
+" Swift
+call minpac#add('kballard/vim-swift')
+
 " Tomdoc
 call minpac#add('kassio/tomdoc.vim', { 'type': 'opt' })
