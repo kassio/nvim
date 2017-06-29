@@ -1,5 +1,3 @@
-packloadall
-
 if !has('nvim')
   unlet! g:skip_defaults_vim
   source $VIMRUNTIME/defaults.vim
