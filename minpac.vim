@@ -4,14 +4,14 @@ call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 if has('nvim')
-  call minpac#add('https://github.com/kassio/neoterm.git')
+  call minpac#add('kassio/neoterm.git')
   call minpac#add('Shougo/deoplete.nvim')
   call minpac#add('Shougo/neco-vim', { 'type': 'opt' })
   call minpac#add('fishbullet/deoplete-ruby', { 'type': 'opt' })
 end
 
 " Theme
-call minpac#add('mhartington/oceanic-next')
+call minpac#add('mhartington/oceanic-next', { 'type': 'opt' })
 
 " Linting
 call minpac#add('w0rp/ale')
@@ -46,20 +46,20 @@ call minpac#add('sirver/ultisnips')
 call minpac#add('janko-m/vim-test')
 
 " Markdown
-call minpac#add('tpope/vim-markdown', { 'type': 'opt' })
+call minpac#add('tpope/vim-markdown')
 
 " HTML, javascript, css, scss, less
-call minpac#add('othree/html5.vim', { 'type': 'opt' })
-call minpac#add('othree/yajs.vim', { 'type': 'opt' })
+call minpac#add('othree/html5.vim')
+call minpac#add('othree/yajs.vim')
 call minpac#add('mxw/vim-jsx')
 
 " Ruby
-call minpac#add('vim-ruby/vim-ruby', { 'type': 'opt' })
+call minpac#add('vim-ruby/vim-ruby')
 call minpac#add('Keithbsmiley/rspec.vim', { 'type': 'opt' })
 call minpac#add('sunaku/vim-ruby-minitest', { 'type': 'opt' })
 
 " Elixir
-call minpac#add('elixir-lang/vim-elixir', { 'type': 'opt' })
+call minpac#add('elixir-lang/vim-elixir')
 
 " Swift
 call minpac#add('kballard/vim-swift')
