@@ -4,7 +4,7 @@ call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 if has('nvim')
-  call minpac#add('kassio/neoterm.git')
+  call minpac#add('kassio/neoterm')
   call minpac#add('Shougo/deoplete.nvim')
   call minpac#add('Shougo/neco-vim', { 'type': 'opt' })
   call minpac#add('fishbullet/deoplete-ruby', { 'type': 'opt' })
