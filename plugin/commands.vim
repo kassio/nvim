@@ -14,7 +14,7 @@ command! -nargs=+ H call text#highlight(<q-args>)
 command! -nargs=+ P call preserve#preserve(<q-args>)
 
 " Fold all buffer comments
-command! FoldComments silent! call fold#comments()
+command! FoldComments call fold#comments()
 
 " PackUpdate
 command! PackUpdate
@@ -22,3 +22,6 @@ command! PackUpdate
       \ silent! call minpac#clean() |
       \ call minpac#update() |
       \ UpdateRemotePlugins
+
+" Remove comments and multiple empty lines
+command! RemoveComments call text#remove_comments()
