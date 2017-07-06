@@ -28,6 +28,6 @@ aug user:autocmd
   au FocusLost * call window#unfocus("norelativenumber")
   au FocusGained * call window#focus("norelativenumber")
 
-  au BufNewFile,BufRead *eslintrc set filetype=json
-  au BufNewFile,BufReadPost Procfile* set filetype=ruby
+  au BufNewFile,BufRead *eslintrc setfiletype json
+  au BufNewFile,BufReadPost Procfile*,Gemfile* setfiletype ruby
 aug END
