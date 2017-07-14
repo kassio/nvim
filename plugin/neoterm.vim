@@ -16,6 +16,8 @@ if has('nvim')
   nnoremap <silent> <leader>rl :TREPLSendLine<cr>
   vnoremap <silent> <leader>rs :TREPLSendSelection<cr>
 
+  nnoremap <silent> <leader>tR :T !!<cr>
+
   " Useful maps
   nnoremap <silent> <leader>tt :Ttoggle<cr>:call neoterm#normal('G')<cr>
   nnoremap <silent> <leader>vt :VTtoggle<cr>:call neoterm#normal('G')<cr>
