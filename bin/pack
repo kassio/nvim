@@ -10,4 +10,4 @@ fi
 
 nvim \
   +"source ${base}/minpac.vim" \
-  +"call minpac#update('', {'do': 'quit'})"
+  +"call minpac#update('', {'do': 'messages'})"
