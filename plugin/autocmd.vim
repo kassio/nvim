@@ -16,6 +16,7 @@ aug user:autocmd
 
   au VimEnter,WinEnter,BufWinEnter,FileType,BufUnload,VimResized * call statusline#update()
   au User FzfStatusLine call statusline#fzf()
+  au User ALELint call statusline#update()
 
   au BufWritePre * call buffer#trim()
 
