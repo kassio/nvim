@@ -8,6 +8,4 @@ then
     "${minpac_path}/opt/minpac"
 fi
 
-nvim \
-  +"source ${base}/minpac.vim" \
-  +"call minpac#update('', {'do': 'messages'})"
+nvim --noplugin -u ${base}/minpac.vim +"PackUpdate"

@@ -1,3 +1,4 @@
+runtime! plugin/rplugin.vim
 packadd minpac
 
 call minpac#init()
@@ -5,7 +6,7 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 if has('nvim')
   call minpac#add('kassio/neoterm')
-  call minpac#add('Shougo/deoplete.nvim')
+  call minpac#add('Shougo/deoplete.nvim', {'do': 'packloadall | UpdateRemotePlugins'})
   call minpac#add('Shougo/neco-vim', { 'type': 'opt' })
   call minpac#add('fishbullet/deoplete-ruby', { 'type': 'opt' })
 end
@@ -66,3 +67,8 @@ call minpac#add('kballard/vim-swift')
 
 " Tomdoc
 call minpac#add('kassio/tomdoc.vim', { 'type': 'opt' })
+
+" PackUpdate
+command! PackUpdate
+      \ silent! call minpac#clean() |
+      \ call minpac#update()
