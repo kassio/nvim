@@ -3,40 +3,13 @@ function! statusline#update()
     if bufname(winbufnr(nr)) =~ 'NERD_tree'
       call setwinvar(nr, '&statusline', g:NERDTreeStatusline)
     elseif getwinvar(nr, '&filetype') =~# 'help'
-      call setwinvar(nr, '&statusline', statusline#help(winnr() == nr))
+      call setwinvar(nr, '&statusline', statusline#help#(winnr() == nr))
     elseif bufname(winbufnr(nr)) =~ ';#neoterm'
-      call setwinvar(nr, '&statusline', statusline#neoterm(winnr() == nr))
+      call setwinvar(nr, '&statusline', statusline#neoterm#(winnr() == nr))
     else
       call setwinvar(nr, '&statusline', statusline#line(winnr() == nr))
     end
   endfor
-endfunction
-
-function! statusline#help(active)
-  return   ' %n '
-        \ . ' %{expand("%:t:r")} '
-        \ . '%='
-        \ . ' %{&ft} %{&fenc!=""?&fenc:&enc} '
-endfunction
-
-function! statusline#neoterm(active)
-  let default =
-        \   ' %n '
-        \ . '%<%{statusline#termname()}%*'
-        \ . '%= '
-
-  if a:active
-    return
-          \   '%#SLModeNormal#%{statusline#mode("N")}%*'
-          \ . '%#SLModeTerminal#%{statusline#mode("T")}%*'
-          \ . default
-  else
-    return default
-  end
-endfunction
-
-function! statusline#termname()
-  return b:term_title
 endfunction
 
 function! statusline#line(active)
