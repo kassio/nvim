@@ -39,6 +39,7 @@ endfunction
 function! statusline#filename(modified)
   if a:modified
     let fname = expand('%')
+    let fname = fname =~# '^/' ? fnamemodify(fname, ':~') : fnamemodify(fname, ':.')
     if len(fname)
       return printf("  %s %s ", bufnr('%'), fname)
     else
