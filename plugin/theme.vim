@@ -54,3 +54,6 @@ hi! link SignifySignChange SignWarning
 hi! link SignifySignChangeDelete SignifySignChange
 hi! link SignifyLineChange SignifySignChange
 hi! link SignifyLineChangeDelete SignifySignChange
+
+hi! ALEError guibg=NONE guifg=NONE
+hi! ALEWarning guibg=NONE guifg=NONE
