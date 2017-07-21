@@ -15,8 +15,8 @@ aug user:autocmd
   au FileType javascript,json call user#surround#javascript_string_interpolation()
 
   au VimEnter,WinEnter,BufWinEnter,FileType,BufUnload,VimResized * call statusline#update()
-  au User FzfStatusLine call statusline#fzf()
   au User ALELint call statusline#update()
+  au User FzfStatusLine call statusline#fzf#()
 
   au BufWritePre * call buffer#trim()
 

@@ -87,8 +87,3 @@ function! statusline#linter(scope)
     return printf("  %s: %s(%s) ", a:scope, first_sign_line, sign_count)
   end
 endfunction
-
-function! statusline#fzf()
-  let fzf_cmd_name = toupper(get(b:fzf, 'name', 'FZF'))
-  let &l:statusline = '> '.fzf_cmd_name
-endfunction
