@@ -2,10 +2,11 @@
 
 base="$(dirname $0)/.."
 minpac_path="${base}/pack/minpac"
+
 if [ ! -d ${minpac_path} ]
 then
   git clone https://github.com/k-takata/minpac.git \
     "${minpac_path}/opt/minpac"
 fi
 
-nvim --noplugin -u ${base}/minpac.vim +"PackUpdate"
+nvim --noplugin --headless -u ${base}/minpac.vim +"PackUpdate" +"qall"
