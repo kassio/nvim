@@ -4,18 +4,6 @@ _**NEVER** use this as your personal setup! It's not stable for distribution._
 
 ## Installing neovim
 
-### Dependencies
-```console
-# clients
-pip install neovim -q
-pip3 install neovim-remote -q
-gem install neovim
-gem install rcodetools
-
-# lua
-brew install lua
-```
-
 ### neovim
 ```
 brew install neovim
@@ -53,8 +41,13 @@ ln -sf ~/.config/nvim ~/.vim
 git clone git://github.com/kassio/nvimfiles.git ~/.vim
 ```
 
-## Plugins
+### Install all dependencies and packages/plugins
+```console
+bin/setup
+```
+
+## Update/install packages/plugins
 
 ```console
-nvim +PlugInstall
+bin/pack
 ```
