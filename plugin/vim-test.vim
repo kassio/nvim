@@ -1,5 +1,3 @@
-let test#runners = { 'Ruby': ['Testrbl'] }
-
 if has('nvim')
   let test#strategy = 'neoterm'
 else
