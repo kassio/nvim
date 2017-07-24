@@ -72,18 +72,19 @@ function! s:currentModeKey()
 endfunction
 
 function! statusline#linter(scope)
-  let loclist = filter(getloclist(0), { _, item ->
+  let l:loclist = filter(getloclist(0), { _, item ->
         \    type(item) == v:t_dict &&
         \     item.type == a:scope &&
         \     item.bufnr == winbufnr(winnr())
         \  })
 
-  if empty(loclist)
+  if empty(l:loclist)
     return ""
   else
-    let first_sign_line = loclist[0].lnum
-    let sign_count = len(loclist)
+    let l:sign = a:scope ==# 'W' ? g:sign_warning : g:sign_error
+    let l:sign_count = len(l:loclist)
+    let l:count = l:sign_count > 99 ? "++" : l:sign_count
 
-    return printf("  %s: %s(%s) ", a:scope, first_sign_line, sign_count)
+    return printf('  %s %s ', l:count, l:sign)
   end
 endfunction

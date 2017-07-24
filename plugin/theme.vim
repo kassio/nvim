@@ -35,9 +35,6 @@ hi! SignSuccess gui=bold guifg=#99c794 guibg=NONE
 hi! link StatusWarning SignWarning
 hi! link StatusSuccess SignSuccess
 hi! link StatusError SignError
-hi! link StatusWarning SignWarning
-hi! link StatusSuccess SignSuccess
-hi! link StatusError SignError
 
 hi! link TabLine StatusLine
 hi! link TabLineFill StatusLine
