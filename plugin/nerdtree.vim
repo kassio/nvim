@@ -1,19 +1,19 @@
-let NERDTreeWinPos = "right"
-let NERDTreeMinimalUI = 1
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeHighlightCursorline = 1
-let NERDTreeCascadeOpenSingleChildDir = 0
-let NERDTreeCascadeSingleChildDir = 0
-let NERDTreeIgnore = ['\<tags\>', '\<tags\.gems\>']
-let NERDTreeStatusline="\ %-28{matchstr(getline('.'), '\\(\\s\\)\\?\\zs\\(\\/\\)\\?\\w\\(.*\\)')}"
-let NERDTreeDirArrowCollapsible = '-'
-let NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeWinPos = 'right'
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeHighlightCursorline = 1
+let g:NERDTreeCascadeOpenSingleChildDir = 0
+let g:NERDTreeCascadeSingleChildDir = 0
+let g:NERDTreeIgnore = ['\<tags\>', '\<tags\.gems\>']
+let g:NERDTreeStatusline="\ %-28{matchstr(getline('.'), '\\(\\s\\)\\?\\zs\\(\\/\\)\\?\\w\\(.*\\)')}"
+let g:NERDTreeDirArrowCollapsible = '-'
+let g:NERDTreeDirArrowExpandable = '+'
 
 nmap <silent> <leader>p :call user#nerdtree#mirror_toggle()<CR>
 nnoremap <silent> <leader>fl :call user#nerdtree#mirror_find()<CR>
 
 if filereadable('mix.exs')
-  call add(NERDTreeIgnore, '_build')
+  call add(g:NERDTreeIgnore, '_build')
 end
 
 aug user:autocmd:nerdtree

@@ -1,10 +1,10 @@
 function! grep#quoted(term)
-  exec "silent! grep! ".a:term
+  exec printf('silent! grep! %s', a:term)
 
   if !empty(getqflist())
     call text#highlight(a:term)
     botright copen
   else
-    echo string(a:term) . " not found."
+    echo printf('%s not found.', string(a:term))
   end
 endfunction

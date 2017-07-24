@@ -79,11 +79,11 @@ function! statusline#linter(scope)
         \  })
 
   if empty(l:loclist)
-    return ""
+    return ''
   else
     let l:sign = a:scope ==# 'W' ? g:sign_warning : g:sign_error
     let l:sign_count = len(l:loclist)
-    let l:count = l:sign_count > 99 ? "++" : l:sign_count
+    let l:count = l:sign_count > 99 ? '++' : l:sign_count
 
     return printf('  %s %s ', l:count, l:sign)
   end

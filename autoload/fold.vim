@@ -1,4 +1,4 @@
-function! fold#comments()
+function! fold#comments() abort
   try
     let old_fdm=&foldmethod
     setlocal foldmethod=expr

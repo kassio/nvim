@@ -1,11 +1,11 @@
 function! preserve#preserve(command)
   setlocal lazyredraw
 
-  let bufnr = bufnr("%")
-  let last_view = winsaveview()
+  let l:bufnr = bufnr('%')
+  let l:last_view = winsaveview()
   keeppatterns execute a:command
-  exec "buffer ".bufnr
-  call winrestview(last_view)
+  exec printf('buffer %s', l:bufnr)
+  call winrestview(l:last_view)
 
   redraw
   setlocal nolazyredraw
