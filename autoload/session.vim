@@ -1,6 +1,6 @@
 let s:file_name = '._vim/session'
 
-function! session#save()
+function! session#save() abort
   silent! !mkdir -p ._vim
   if has('nvim') && exists(':TcloseAll')
     TcloseAll!
@@ -10,7 +10,7 @@ function! session#save()
   call s:echohl('MoreMsg', 'Session Created')
 endfunction
 
-function! session#load()
+function! session#load() abort
   if filereadable(s:file_name)
     exec printf('silent! source %s', s:file_name) | exec 'redraw!'
     call s:echohl('MoreMsg', 'Session loaded')
@@ -19,7 +19,7 @@ function! session#load()
   end
 endfunction
 
-function! session#destroy()
+function! session#destroy() abort
   if filereadable(s:file_name)
     call s:echohl('WarningMsg', 'Session destroyed')
     silent! exec printf('!rm %s', s:file_name)
@@ -28,6 +28,6 @@ function! session#destroy()
   end
 endfunction
 
-function! s:echohl(hi, msg)
+function! s:echohl(hi, msg) abort
   exec printf("echohl %s | echo '%s' | echohl None", a:hi, a:msg)
 endfunction

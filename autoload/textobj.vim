@@ -1,4 +1,4 @@
-function! textobj#entire_file()
+function! textobj#entire_file() abort
   normal! gg
   let l:head_pos = getpos('.')
   normal! G$
@@ -6,7 +6,7 @@ function! textobj#entire_file()
   return ['V', l:head_pos, l:tail_pos]
 endfunction
 
-function! textobj#current_line_a()
+function! textobj#current_line_a() abort
   normal! 0
   let l:head_pos = getpos('.')
   normal! $
@@ -14,7 +14,7 @@ function! textobj#current_line_a()
   return ['v', l:head_pos, l:tail_pos]
 endfunction
 
-function! textobj#current_line_i()
+function! textobj#current_line_i() abort
   normal! ^
   let l:head_pos = getpos('.')
   normal! g_

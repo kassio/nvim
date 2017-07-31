@@ -1,18 +1,18 @@
 " ATENTION: Will only match with testrbl if:
 "   * g:test_ruby_runner == 'testrbl'
 "   * g:test#runners['Ruby'] == ['Testrbl']
-function! test#ruby#testrbl#use()
+function! test#ruby#testrbl#use() abort
   let g:test_ruby_runner = 'testrbl'
   let g:test#runners['Ruby'] = ['Testrbl']
 endfunction
 
-function! test#ruby#testrbl#test_file(file)
+function! test#ruby#testrbl#test_file(file) abort
   if get(g:, 'test_ruby_runner', '') ==# 'testrbl'
     return a:file =~# '_test\.rb$'
   end
 endfunction
 
-function! test#ruby#testrbl#build_position(type, position)
+function! test#ruby#testrbl#build_position(type, position) abort
   if a:type ==# 'nearest'
     return [a:position['file'].':'.a:position['line']]
   elseif a:type ==# 'file'
@@ -22,10 +22,10 @@ function! test#ruby#testrbl#build_position(type, position)
   end
 endfunction
 
-function! test#ruby#testrbl#build_args(args)
+function! test#ruby#testrbl#build_args(args) abort
   return a:args
 endfunction
 
-function! test#ruby#testrbl#executable()
+function! test#ruby#testrbl#executable() abort
   return 'testrbl'
 endfunction

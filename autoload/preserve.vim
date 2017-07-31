@@ -1,4 +1,4 @@
-function! preserve#preserve(command)
+function! preserve#preserve(command) abort
   setlocal lazyredraw
 
   let l:bufnr = bufnr('%')

@@ -1,4 +1,4 @@
-function! grep#quoted(term)
+function! grep#quoted(term) abort
   exec printf('silent! grep! %s', a:term)
 
   if !empty(getqflist())

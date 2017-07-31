@@ -1,4 +1,4 @@
-function! test#neoterm#scope(scope)
+function! test#neoterm#scope(scope) abort
   try
     P call neoterm#normal('G')
     P call neoterm#clear()
@@ -10,7 +10,7 @@ function! test#neoterm#scope(scope)
   endtry
 endfunction
 
-function! s:neoterm_test_hook()
+function! s:neoterm_test_hook() abort
   if exists('g:TestHook')
     echo 'Running the hook test'
     call g:TestHook()

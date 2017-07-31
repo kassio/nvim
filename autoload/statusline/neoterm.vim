@@ -1,4 +1,4 @@
-function! statusline#neoterm#(active)
+function! statusline#neoterm#(active) abort
   let l:default =
         \   ' %n '
         \ . '%<%{b:term_title}%*'

@@ -1,4 +1,4 @@
-function! user#nerdtree#mirror_toggle()
+function! user#nerdtree#mirror_toggle() abort
   try
     if s:tab_has_nerdtree() > 0
       NERDTreeToggle
@@ -12,15 +12,15 @@ function! user#nerdtree#mirror_toggle()
   endtry
 endfunction
 
-function! user#nerdtree#mirror_find()
-  let current_window = winnr()
+function! user#nerdtree#mirror_find() abort
+  let l:current_window = winnr()
   call s:mirror_or_create()
-  exec current_window . "wincmd w"
+  exec l:current_window . 'wincmd w'
 
   NERDTreeFind
 endfunction
 
-function! s:mirror_or_create()
+function! s:mirror_or_create() abort
   silent NERDTreeMirror
 
   if s:nerdtree_current_buffer() > 0
@@ -35,7 +35,7 @@ function! s:mirror_or_create()
   end
 endfunction
 
-function! s:nerdtree_current_buffer()
+function! s:nerdtree_current_buffer() abort
   if !exists('g:nerdtree_current_buffer')
     call s:globalize_nerdtree_buffer()
   end
@@ -43,19 +43,19 @@ function! s:nerdtree_current_buffer()
   return get(g:, 'nerdtree_current_buffer', -1)
 endfunction
 
-function! s:tab_has_nerdtree()
+function! s:tab_has_nerdtree() abort
   if s:nerdtree_current_buffer() > 0
-    let tab_buffers = filter(tabpagebuflist(), { _, bufid -> bufid == s:nerdtree_current_buffer() })
-    return !empty(tab_buffers)
+    let l:tab_buffers = filter(tabpagebuflist(), { _, bufid -> bufid == s:nerdtree_current_buffer() })
+    return !empty(l:tab_buffers)
   else
     return -1
   end
 endfunction
 
-function! s:globalize_nerdtree_buffer()
-  let all_buffers = range(1, bufnr('$'))
-  let nerdtree_buffers = filter(all_buffers, 'bufname(v:val) =~ "NERD_tree_\\d\\+"')
-  if !empty(nerdtree_buffers)
-    let g:nerdtree_current_buffer = nerdtree_buffers[0]
+function! s:globalize_nerdtree_buffer() abort
+  let l:all_buffers = range(1, bufnr('$'))
+  let l:nerdtree_buffers = filter(l:all_buffers, 'bufname(v:val) =~ "NERD_tree_\\d\\+"')
+  if !empty(l:nerdtree_buffers)
+    let g:nerdtree_current_buffer = l:nerdtree_buffers[0]
   end
 endfunction

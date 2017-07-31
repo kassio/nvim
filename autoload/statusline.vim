@@ -1,4 +1,4 @@
-function! statusline#update()
+function! statusline#update() abort
   for nr in range(1, winnr('$'))
     if bufname(winbufnr(nr)) =~ 'NERD_tree'
       call setwinvar(nr, '&statusline', g:NERDTreeStatusline)
@@ -12,7 +12,7 @@ function! statusline#update()
   endfor
 endfunction
 
-function! statusline#default(active)
+function! statusline#default(active) abort
   if a:active
     return
           \   '%#SLModeNormal#%{statusline#mode("N")}%*'
@@ -36,29 +36,29 @@ function! statusline#default(active)
   end
 endfunction
 
-function! statusline#filename(modified)
+function! statusline#filename(modified) abort
   if a:modified
-    let fname = expand('%')
-    let fname = fname =~# '^/' ? fnamemodify(fname, ':~') : fnamemodify(fname, ':.')
-    if len(fname)
-      return printf("  %s %s ", bufnr('%'), fname)
+    let l:fname = expand('%')
+    let l:fname = l:fname =~# '^/' ? fnamemodify(l:fname, ':~') : fnamemodify(l:fname, ':.')
+    if len(l:fname)
+      return printf('  %s %s ', bufnr('%'), l:fname)
     else
-      return "  [No Name] "
+      return '  [No Name] '
     end
   else
-    return ""
+    return ''
   end
 endfunction
 
-function! statusline#mode(base)
+function! statusline#mode(base) abort
   if a:base == s:currentModeKey()
     return printf('  %s ', a:base)
   else
-    return ""
+    return ''
   end
 endfunction
 
-function! s:currentModeKey()
+function! s:currentModeKey() abort
   return get({
         \ 'n': 'N',
         \ 'v': 'V',
@@ -71,7 +71,7 @@ function! s:currentModeKey()
         \ }, mode(), '-')
 endfunction
 
-function! statusline#linter(scope)
+function! statusline#linter(scope) abort
   let l:loclist = filter(getloclist(0), { _, item ->
         \    type(item) == v:t_dict &&
         \     item.type == a:scope &&

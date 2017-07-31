@@ -1,4 +1,4 @@
-function! git#checkout(...)
+function! git#checkout(...) abort
   if a:0 && (a:1 ==# '%' || a:1 ==# '')
     exec '!git checkout ' . expand('%:p')
   else

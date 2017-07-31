@@ -1,4 +1,4 @@
-function! buffer#restore_cursor_position()
+function! buffer#restore_cursor_position() abort
   if !exists('b:open_at_first_line') &&
         \ line("'\"") > 0 &&
         \ line("'\"") <= line("$") |
@@ -6,7 +6,7 @@ function! buffer#restore_cursor_position()
   end
 endfunction
 
-function! buffer#kill()
+function! buffer#kill() abort
   if &ft =~? 'nerdtree' || &bt =~? 'terminal'
     close
   else
@@ -14,39 +14,39 @@ function! buffer#kill()
   end
 endfunction
 
-function! buffer#killall()
-  let buffers = buffer#user_buffers()
+function! buffer#killall() abort
+  let l:buffers = buffer#user_buffers()
 
-  if !empty(buffers)
-    exec 'bw! '. join(buffers, ' ')
+  if !empty(l:buffers)
+    exec 'bw! '. join(l:buffers, ' ')
   end
 endfunction
 
-function! buffer#wipeall()
-  let buffers = buffer#user_buffers({ bufid ->
+function! buffer#wipeall() abort
+  let l:buffers = buffer#user_buffers({ bufid ->
         \   !buflisted(bufid) ||
         \   !bufloaded(bufid) ||
         \   getbufvar(bufid, '&bt') != ''
         \ })
 
-  if !empty(buffers)
-    exec 'bw! '. join(buffers, ' ')
+  if !empty(l:buffers)
+    exec 'bw! '. join(l:buffers, ' ')
   end
 endfunction
 
-function! buffer#user_buffers(...)
-  let ExtraFilters = a:0 ? a:1 : { bufid -> v:true }
-  let buffers = range(1, bufnr('$'))
+function! buffer#user_buffers(...) abort
+  let l:ExtraFilters = a:0 ? a:1 : { bufid -> v:true }
+  let l:buffers = range(1, bufnr('$'))
 
-  return filter(copy(buffers), { _, bufid ->
+  return filter(copy(l:buffers), { _, bufid ->
         \   bufexists(bufid) &&
-        \   bufname(bufid) !~ 'NERD_tree' &&
-        \   bufname(bufid) !~ 'term:.*' &&
-        \   ExtraFilters(bufid)
+        \   bufname(bufid) !~# 'NERD_tree' &&
+        \   bufname(bufid) !~# 'term:.*' &&
+        \   l:ExtraFilters(bufid)
         \ })
 endfunction
 
-function! buffer#trim()
+function! buffer#trim() abort
   let l:hls = &hls
   setlocal nohls
   call preserve#preserve('silent %s/\v\s+$//e')
