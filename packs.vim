@@ -60,7 +60,7 @@ call minpac#add('Keithbsmiley/rspec.vim', { 'type': 'opt' })
 call minpac#add('sunaku/vim-ruby-minitest', { 'type': 'opt' })
 
 " Elixir
-call minpac#add('elixir-lang/vim-elixir')
+call minpac#add('elixir-editors/vim-elixir')
 
 " Swift
 call minpac#add('kballard/vim-swift')

@@ -9,4 +9,4 @@ then
     "${minpac_path}/opt/minpac"
 fi
 
-nvim --noplugin --headless -u ${base}/minpac.vim +"PackUpdate" +"qall"
+nvim --noplugin --headless -u ${base}/packs.vim +"PackUpdate" +"qall"
