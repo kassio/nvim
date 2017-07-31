@@ -16,6 +16,11 @@ hi! Cursor ctermbg=7 guibg=#e5e5e5
 
 hi! Search gui=standout guifg=#fac863 guibg=#65737e
 
+hi! SignError gui=bold guifg=#ec5f67 guibg=NONE
+hi! SignWarning gui=bold guifg=#fac863 guibg=NONE
+hi! SignInfo gui=bold guifg=#6699cc guibg=NONE
+hi! SignSuccess gui=bold guifg=#99c794 guibg=NONE
+
 hi! StatusLine gui=bold guifg=#cccccc guibg=#3e5570
 hi! StatusLineNC gui=NONE guifg=#888888 guibg=#515966
 
@@ -25,16 +30,11 @@ hi! SLModeVisual gui=bold guifg=#cccccc guibg=#cd9cce
 hi! SLUnsavedFile gui=bold guifg=#cccccc guibg=#cc4a21
 hi! SLModeTerminal gui=bold guifg=#595959 guibg=#cccccc
 
+hi! StatusWarning gui=bold guifg=#fac863 guibg=#3e5570
+hi! StatusSuccess gui=bold guifg=#99c794 guibg=#3e5570
+hi! StatusError gui=bold guifg=#ec5f67 guibg=#3e5570
+
 hi! WarningMsg guifg=#fac863 ctermfg=221
-
-hi! SignError gui=bold guifg=#ec5f67 guibg=NONE
-hi! SignWarning gui=bold guifg=#fac863 guibg=NONE
-hi! SignInfo gui=bold guifg=#6699cc guibg=NONE
-hi! SignSuccess gui=bold guifg=#99c794 guibg=NONE
-
-hi! link StatusWarning SignWarning
-hi! link StatusSuccess SignSuccess
-hi! link StatusError SignError
 
 hi! link TabLine StatusLine
 hi! link TabLineFill StatusLine

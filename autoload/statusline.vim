@@ -7,12 +7,12 @@ function! statusline#update()
     elseif bufname(winbufnr(nr)) =~ ';#neoterm'
       call setwinvar(nr, '&statusline', statusline#neoterm#(winnr() == nr))
     else
-      call setwinvar(nr, '&statusline', statusline#line(winnr() == nr))
+      call setwinvar(nr, '&statusline', statusline#default(winnr() == nr))
     end
   endfor
 endfunction
 
-function! statusline#line(active)
+function! statusline#default(active)
   if a:active
     return
           \   '%#SLModeNormal#%{statusline#mode("N")}%*'
@@ -21,9 +21,9 @@ function! statusline#line(active)
           \ . '%#SLModeInsert#%{statusline#mode("R")}%*'
           \ . '%<%{statusline#filename(!&modified)}%*'
           \ . '%(%#SLUnsavedFile#%<%{statusline#filename(&modified)}%*%)'
-          \ . '%='
           \ . '%#StatusWarning#%{statusline#linter("W")}%*'
           \ . '%#StatusError#%{statusline#linter("E")}%*'
+          \ . '%='
           \ . ' %c,%l/%L '
           \ . '%#SLModeNormal#'
           \ . ' %{&ft} %{&ff} %{&fenc!=""?&fenc:&enc} '
@@ -85,6 +85,6 @@ function! statusline#linter(scope)
     let l:sign_count = len(l:loclist)
     let l:count = l:sign_count > 99 ? '++' : l:sign_count
 
-    return printf('  %s %s ', l:count, l:sign)
+    return printf('  %s %s', l:sign, l:count)
   end
 endfunction
