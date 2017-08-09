@@ -57,3 +57,6 @@ nnoremap <f2> :echo color#current()<cr>
 
 map <S-ScrollWheelUp> <C-U>
 map <S-ScrollWheelDown> <C-D>
+
+nmap <silent> <leader>sn :call sign#next()<cr>
+nmap <silent> <leader>sN :call sign#previous()<cr>
