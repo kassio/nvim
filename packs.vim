@@ -67,9 +67,12 @@ call minpac#add('kballard/vim-swift')
 " Tomdoc
 call minpac#add('kassio/tomdoc.vim', { 'type': 'opt' })
 
-command! PackUpdate
-      \ call minpac#clean() |
-      \ call minpac#update('', { 'do': function('PackUpdateFinished') })
+command! PackUpdate call PackUpdate()
+
+function! PackUpdate()
+  call minpac#clean()
+  call minpac#update('', { 'do': function('PackUpdateFinished') })
+endfunction
 
 function! PackUpdateFinished(...)
   packloadall
