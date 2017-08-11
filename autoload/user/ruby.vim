@@ -39,7 +39,7 @@ function! user#ruby#string_hash_to_symbol(line1, line2) abort
 endfunction
 
 function! user#ruby#symbol_array(line1, line2) abort
-  let l:regexp = 's/\[\(.*\)]/\="%i[".substitute(submatch(1), "[,:]", "", "g")."]"/'
+  let l:regexp = 's/\[\(\(:\w\+\),\(.\{-}\)\)]/\="%i[".substitute(submatch(1), "[,:]", "", "g")."]"/g'
   call s:replace(a:line1, a:line2, l:regexp)
 endfunction
 
