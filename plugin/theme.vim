@@ -5,7 +5,7 @@ set colorcolumn=80
 set background=dark
 colorscheme OceanicNext
 
-hi! VertSplit guibg=NONE
+hi! VertSplit guibg=NONE guifg=#515966 gui=NONE
 
 hi! Colorcolumn guibg=#1e2d35
 hi! link CursorColumn Colorcolumn
