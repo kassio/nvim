@@ -12,5 +12,5 @@ function! fold#comments() abort
 endfunction
 
 function! CommentFoldLevel(lnum)
-  return index(color#names(a:lnum, 1), 'Comment') >= 0
+  return join(color#names(a:lnum, 1), '#') =~? 'comment'
 endfunction
