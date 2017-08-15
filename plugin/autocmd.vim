@@ -22,7 +22,7 @@ aug user:autocmd
 
   au BufReadPost fugitive://* set bufhidden=delete
 
-  au FocusGained,BufEnter * silent! checktime
+  au FocusGained,BufEnter * silent! checktime | SignifyRefresh
 
   au WinEnter * call window#focus()
   au WinLeave * call window#unfocus()
