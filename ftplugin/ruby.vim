@@ -11,9 +11,9 @@ let g:ruby_indent_access_modifier_style = 'normal'
 let g:ruby_indent_block_style = 'do'
 let g:ruby_indent_assignment_style = 'variable'
 
-let ruby_operators = 1
-let ruby_space_errors = 1
-let ruby_spellcheck_strings = 1
+let g:ruby_operators = 1
+let g:ruby_space_errors = 1
+let g:ruby_spellcheck_strings = 1
 
 command! -range LetToVariable call user#ruby#let_to_variable(<line1>, <line2>)
 command! -range VariableToLet call user#ruby#variable_to_let(<line1>, <line2>)
@@ -28,6 +28,8 @@ command! -range SymbolHashToString call user#ruby#symbol_hash_to_string(<line1>,
 command! -range StringHashToSymbol call user#ruby#string_hash_to_symbol(<line1>, <line2>)
 
 command! -range SymbolArray call user#ruby#symbol_array(<line1>, <line2>)
+
+command! Alternate call user#ruby#alternate_file(<q-mods>)
 
 let s:block_start = '\(.*\<do\>\|^\s*\<if\>\).*$'
 let s:block_end = '^\s*\<end\>'

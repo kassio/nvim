@@ -25,11 +25,10 @@ function! sign#get(asc) abort
     echo ""
     return l:next
   else
-    exec printf(
-          \ "echohl %s | echo '%s' | echohl None",
-          \ 'WarningMsg',
-          \ 'search hit BOTTOM, continuing at TOP'
-          \ )
+    let l:msg = a:asc ?
+          \ 'Search hit BOTTOM, continuing at TOP' :
+          \ 'Search hit TOP, continuing at BOTTOM'
+    call util#echohl('WarningMsg', l:msg)
     return l:fallback
   end
 endfunction

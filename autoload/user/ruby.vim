@@ -47,3 +47,30 @@ function! s:replace(line1, line2, regexp) abort
   let l:cmd = printf('silent %d,%d%s', a:line1, a:line2, a:regexp)
   call preserve#preserve(l:cmd)
 endfunction
+
+function! user#ruby#alternate_file(mod) abort
+  if isdirectory('spec')
+    let l:test = 'spec'
+  elseif isdirectory('test')
+    let l:test = 'test'
+  else
+    call util#echohl('ErrorMsg', 'No test directory found.')
+  end
+
+  exec printf('%s split %s', a:mod, s:alternative_file(l:test))
+endfunction
+
+function! s:alternative_file(test)
+  let l:cfile = expand('%')
+  let l:cfile_name = expand('%:t')
+
+  if l:cfile =~# printf('^%s', a:test)
+    let l:file = substitute(l:cfile, printf('^%s', a:test), 'app', '')
+    let l:file_name = substitute(l:cfile_name, printf('_%s', a:test), '', '')
+  else
+    let l:file = substitute(l:cfile, '^app', a:test, '')
+    let l:file_name = substitute(l:cfile_name, '.rb', printf('_%s.rb', a:test), '')
+  end
+
+  return substitute(l:file, l:cfile_name, l:file_name, '')
+endfunction
