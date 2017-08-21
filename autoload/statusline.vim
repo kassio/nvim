@@ -1,10 +1,12 @@
 function! statusline#update() abort
   for nr in range(1, winnr('$'))
-    if bufname(winbufnr(nr)) =~ 'NERD_tree'
+    let l:filetype = getwinvar(nr, '&filetype')
+
+    if l:filetype =~# 'nerdtree'
       call setwinvar(nr, '&statusline', g:NERDTreeStatusline)
-    elseif getwinvar(nr, '&filetype') =~# 'help'
+    elseif l:filetype =~# 'help'
       call setwinvar(nr, '&statusline', statusline#help#(winnr() == nr))
-    elseif bufname(winbufnr(nr)) =~ ';#neoterm'
+    elseif l:filetype =~# 'neoterm'
       call setwinvar(nr, '&statusline', statusline#neoterm#(winnr() == nr))
     else
       call setwinvar(nr, '&statusline', statusline#default(winnr() == nr))
