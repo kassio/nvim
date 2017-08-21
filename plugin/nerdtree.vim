@@ -6,8 +6,6 @@ let g:NERDTreeCascadeOpenSingleChildDir = 0
 let g:NERDTreeCascadeSingleChildDir = 0
 let g:NERDTreeIgnore = ['\<tags\>', '\<tags\.gems\>']
 let g:NERDTreeStatusline="\ %-28{matchstr(getline('.'), '\\(\\s\\)\\?\\zs\\(\\/\\)\\?\\w\\(.*\\)')}"
-let g:NERDTreeDirArrowCollapsible = '-'
-let g:NERDTreeDirArrowExpandable = '+'
 
 nmap <silent> <leader>p :call user#nerdtree#mirror_toggle()<CR>
 nnoremap <silent> <leader>fl :call user#nerdtree#mirror_find()<CR>
