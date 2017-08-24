@@ -57,6 +57,8 @@ call minpac#add('mxw/vim-jsx')
 call minpac#add('vim-ruby/vim-ruby')
 call minpac#add('Keithbsmiley/rspec.vim', { 'type': 'opt' })
 call minpac#add('sunaku/vim-ruby-minitest', { 'type': 'opt' })
+call minpac#add('slim-template/vim-slim')
+call minpac#add('tpope/vim-haml')
 
 " Elixir
 call minpac#add('elixir-editors/vim-elixir')
