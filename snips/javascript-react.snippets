@@ -1,0 +1,17 @@
+snippet "import"
+import ${1} from '${2}'
+endsnippet
+
+snippet "comp(onent)?" "" r
+class ${1} extends React.Component {
+  ${0:${VISUAL}}
+}
+endsnippet
+
+snippet "rend(er)?" "" r
+render() {
+  return (
+    ${0:${VISUAL}}
+  )
+}
+endsnippet
