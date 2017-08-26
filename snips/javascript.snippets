@@ -18,12 +18,31 @@ snippet log
 console.log($1);
 endsnippet
 
-snippet fn "" i
-function($1) { ${0:${VISUAL}} }
+snippet "co(nst)?" "" r
+const ${1} = (${2}) => {
+  ${3}
+};
 endsnippet
 
-snippet "fun(c|ction)?" "" r
-function $1($2) {
+snippet "if" "" r
+if (${1}) {
   ${0:${VISUAL}}
+}
+endsnippet
+
+snippet "ife" "" r
+if (${1}) {
+  ${0:${VISUAL}}
+} else {
+  ${2}
+}
+endsnippet
+
+snippet "sw(itch)?" "" r
+switch(${1}) {
+  case ${2}:
+    ${3}
+  default:
+    return;
 }
 endsnippet
