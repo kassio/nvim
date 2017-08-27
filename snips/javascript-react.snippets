@@ -15,3 +15,13 @@ render() {
   )
 }
 endsnippet
+
+snippet <
+<${0} />
+endsnippet
+
+snippet t
+<${1:div${2: class='$3'}}>
+  ${0:${VISUAL}}
+</${1/(\w+).*/$1/}>
+endsnippet
