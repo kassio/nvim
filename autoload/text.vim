@@ -33,19 +33,7 @@ function! text#escape_all(text) abort
 endfunction
 
 function! text#remove_comments() abort
-  let l:comments = printf('^\s*%s', s:comment_dict().begin)
+  let l:comments = printf('^\s*%s', util#comment_dict().begin)
   execute printf('global/%s/d', l:comments)
   execute 'global/^\_s$/d'
-endfunction
-
-function! s:comment_dict() abort
-  if !exists('b:comment_dict')
-    let l:comments = split(&commentstring, '%s')
-    let b:comment_dict = {
-          \ 'begin': get(l:comments, 0, ''),
-          \ 'end': get(l:comments, 1, '')
-          \ }
-  end
-
-  return b:comment_dict
 endfunction

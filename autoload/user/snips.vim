@@ -21,19 +21,9 @@ function! s:camelcase(s) abort
 endfunction
 
 function! user#snips#start_comment() abort
-  return substitute(<SID>comment_dict().begin, '\s*$', '', 'g')
+  return substitute(util#comment_dict().begin, '\s*$', '', 'g')
 endfunction
 
 function! user#snips#end_comment() abort
-  return substitute(<SID>comment_dict().end, '\s*$', '', 'g')
-endfunction
-
-function! s:comment_dict() abort
-  if !exists('b:comment_dict')
-    let l:comments = split(&commentstring, '%s')
-    let b:comment_dict = { 'begin': get(l:comments, 0, ''), 'end': get(l:comments, 1, '') }
-    echo b:comment_dict
-  end
-
-  return b:comment_dict
+  return substitute(util#comment_dict().end, '\s*$', '', 'g')
 endfunction
