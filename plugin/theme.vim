@@ -7,10 +7,10 @@ colorscheme OceanicNext
 
 hi! VertSplit guibg=NONE guifg=#515966 gui=NONE
 
-hi! Colorcolumn guibg=#1e2d35
-hi! link CursorColumn Colorcolumn
-hi! link CursorLine Colorcolumn
-hi! link CursorLineNr Colorcolumn
+hi! ColorColumn guibg=#1e2d35
+hi! CursorLine guibg=#1f313a
+hi! CursorLineNr guifg=#65737e guibg=#1f313a
+hi! link CursorColumn ColorLine
 
 hi! Cursor ctermbg=7 guibg=#e5e5e5
 
