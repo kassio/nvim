@@ -5,10 +5,10 @@ set colorcolumn=80
 set background=dark
 colorscheme OceanicNext
 
-hi! VertSplit guibg=NONE guifg=#515966 gui=NONE
+hi! VertSplit guibg=NONE guifg=#515966 gui=NONE term=NONE cterm=NONE
 
 hi! ColorColumn guibg=#1e2d35
-hi! CursorLine guibg=#1f313a
+hi! CursorLine guibg=#1f313a term=NONE cterm=NONE
 hi! CursorLineNr guifg=#65737e guibg=#1f313a
 hi! link CursorColumn ColorLine
 
@@ -21,8 +21,8 @@ hi! SignWarning gui=bold guifg=#fac863 guibg=NONE
 hi! SignInfo gui=bold guifg=#6699cc guibg=NONE
 hi! SignSuccess gui=bold guifg=#99c794 guibg=NONE
 
-hi! StatusLine gui=bold guifg=#cccccc guibg=#3e5570
-hi! StatusLineNC gui=NONE guifg=#888888 guibg=#515966
+hi! StatusLine gui=bold guifg=#cccccc guibg=#3e5570 term=bold cterm=bold
+hi! StatusLineNC gui=NONE guifg=#888888 guibg=#515966 term=NONE cterm=NONE
 
 hi! SLModeNormal gui=bold guifg=#cccccc guibg=#5a87ad
 hi! SLModeInsert gui=bold guifg=#595959 guibg=#badb51
