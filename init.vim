@@ -9,7 +9,6 @@ if !has('nvim')
 
   set autoread autowriteall
   set autoindent
-  set autoread
   set display=lastline
   set formatoptions=tcqj
   set history=10000
@@ -24,6 +23,8 @@ if !has('nvim')
 else
   set inccommand=nosplit
 end
+
+set autowriteall
 
 set fileencoding=utf8 nobomb
 
