@@ -18,16 +18,18 @@ aug user:autocmd
   au User ALELint call statusline#update()
   au User FzfStatusLine call statusline#fzf#()
 
-  au BufWritePre * call buffer#trim()
+  au FileWritePre,BufWritePre * call buffer#trim()
 
   au BufReadPost fugitive://* set bufhidden=delete
 
-  au FocusGained,BufEnter * silent! checktime | SignifyRefresh
+  au FocusGained,BufEnter,FileChangedShellPost * silent! checktime | SignifyRefresh
 
   au WinEnter * call window#focus()
   au WinLeave * call window#unfocus()
   au FocusLost * call window#unfocus("norelativenumber")
   au FocusGained * call window#focus("norelativenumber")
+
+  au WinLeave,FocusLost * silent! call buffer#autosave()
 
   au CmdWinEnter * setlocal norelativenumber
 

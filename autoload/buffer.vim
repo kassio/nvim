@@ -53,3 +53,10 @@ function! buffer#trim() abort
   call preserve#preserve('silent %s/\v($\n\s*)+%$//e')
   let &hls = l:hls
 endfunction
+
+function! buffer#autosave() abort
+  if &modifiable
+    call buffer#trim()
+    write!
+  end
+endfunction
