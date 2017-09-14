@@ -11,4 +11,4 @@ let g:ale_sign_warning = g:sign_warning
 let g:ale_sign_style_warning = 's'
 let g:ale_sign_info = g:sign_info
 
-cnorea <silent> n ALENext
+cnorea <silent> n ALENextWrap
