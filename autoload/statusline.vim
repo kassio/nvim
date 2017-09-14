@@ -23,7 +23,8 @@ function! statusline#default(active) abort
           \ . '%#SLModeInsert#%{statusline#mode("R")}%*'
           \ . '%#StatusWarning#%{statusline#linter("W")}%*'
           \ . '%#StatusError#%{statusline#linter("E")}%*'
-          \ . '%#SLModeNormal#%<%{statusline#filename(!&modified)}%*'
+          \ . ' %n '
+          \ . '%(%#SLModeNormal#%<%{statusline#filename(!&modified)}%*%)'
           \ . '%(%#SLUnsavedFile#%<%{statusline#filename(&modified)}%*%)'
           \ . '%='
           \ . ' %c,%l/%L '
@@ -43,7 +44,7 @@ function! statusline#filename(modified) abort
     let l:fname = expand('%')
     let l:fname = l:fname =~# '^/' ? fnamemodify(l:fname, ':~') : fnamemodify(l:fname, ':.')
     if len(l:fname)
-      return printf('  %s %s ', bufnr('%'), l:fname)
+      return printf(' %s ', l:fname)
     else
       return '  [No Name] '
     end
