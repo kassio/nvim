@@ -12,6 +12,7 @@ command! -nargs=+ H call text#highlight(<q-args>)
 
 " Preserve position while executing the command
 command! -nargs=+ P call preserve#preserve(<q-args>)
+cnoremap <c-b> P bufdo %s///ge<left><left><left><left>
 
 " Fold all buffer comments
 command! FoldComments call fold#comments()
