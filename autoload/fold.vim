@@ -12,5 +12,6 @@ function! fold#comments() abort
 endfunction
 
 function! CommentFoldLevel(lnum)
-  return join(color#names(a:lnum, 1), '#') =~? 'comment'
+  let l:col = match(getline(a:lnum), '[^\t ]') + 1
+  return join(color#names(a:lnum, l:col), '#') =~? 'comment'
 endfunction
