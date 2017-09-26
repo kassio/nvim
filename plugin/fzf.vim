@@ -11,7 +11,7 @@ let g:fzf_action = {
       \ 'ctrl-v': 'vsplit' }
 
 
-command! FZFMru call fzf#run(fzf#wrap('MRU', { 'source':  reverse(MRUfiles()) }))
+command! FZFMru call fzf#run(fzf#wrap('MRU', { 'source':  MRUfiles() }))
 command! -bang -nargs=* Grep
       \ call fzf#vim#ag(<q-args>,
       \                 <bang>0 ? fzf#vim#with_preview('up:60%')
