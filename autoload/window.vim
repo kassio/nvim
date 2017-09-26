@@ -12,9 +12,9 @@ function! window#focus(...) abort
   let l:properties = a:0 ? copy(a:000) : ['cursorline', 'norelativenumber', 'nonumber']
 
   if s:is_ignored()
-    exec printf('setlocal %s', join(l:properties, ' '))
+    call s:setl(join(l:properties, ' '))
   else
-    exec printf('setlocal %s', join(map(l:properties, {_, val -> val.'<'}), ' '))
+    call s:setl(join(map(l:properties, {_, val -> val.'<'}), ' '))
   end
 endfunction
 
@@ -26,5 +26,9 @@ endfunction
 function! window#unfocus(...) abort
   let l:properties = a:0 ? copy(a:000) : ['nocursorline', 'norelativenumber']
 
-  exec printf('setlocal %s', join(l:properties, ' '))
+  call s:setl(join(l:properties, ' '))
+endfunction
+
+function! s:setl(property)
+  exec printf('silent! setlocal %s', a:property)
 endfunction
