@@ -9,6 +9,7 @@ let g:fzf_action = {
       \ 'ctrl-t': 'tab split',
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit' }
+let g:fzf_tags_command = 'retag'
 
 
 command! FZFMru call fzf#run(fzf#wrap('MRU', { 'source':  MRUfiles() }))
