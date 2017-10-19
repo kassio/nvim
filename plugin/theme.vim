@@ -55,5 +55,3 @@ hi! link SignifyLineChangeDelete SignifySignChange
 
 hi! ALEError guibg=NONE guifg=NONE
 hi! ALEWarning guibg=NONE guifg=NONE
-
-hi! SelectHl guibg=#3e2d35
