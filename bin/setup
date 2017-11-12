@@ -22,5 +22,6 @@ echo "  ${sun} scss_lint" & for-each-ruby gem install scss_lint &>/dev/null
 echo "  ${sun} pre-commit" & for-each-ruby gem install pre-commit &>/dev/null
 echo "  ${sun} eslint" & npm install -g eslint &>/dev/null
 echo "  ${sun} eslint-react" & npm install -g eslint-plugin-react &>/dev/null
+echo "  ${sun} babel-eslint" & npm install -g babel-eslint &>/dev/null
 
 bash $(dirname ${0})/pack
