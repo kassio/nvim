@@ -58,3 +58,6 @@ map <S-ScrollWheelDown> <C-D>
 
 nmap <silent> <leader>sn :call sign#goto('next')<cr>
 nmap <silent> <leader>sN :call sign#goto('previous')<cr>
+
+" Command shortcuts/aliases
+cnoremap <c-b> P bufdo %s///ge<left><left><left><left>
