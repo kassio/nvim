@@ -1,16 +1,22 @@
 extends html
 
 snippet "import"
-import ${1} from '${2}'
+import ${1} from '${2}';
 endsnippet
 
-snippet "comp(onent)?" "" r
+snippet "compo(nent)?" "" r
 class ${1} extends React.Component {
   ${0:${VISUAL}}
 }
 endsnippet
 
-snippet "rend(er)?" "" r
+snippet "rc"
+constructor(props) {
+  super(props);
+}
+endsnippet
+
+snippet "rr"
 render() {
   return (
     ${0:${VISUAL}}

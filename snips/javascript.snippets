@@ -1,27 +1,15 @@
-extends javascript-jquery, javascript-jasmine
+extends javascript-jquery, javascript-jasmine, javascript-react
 
 snippet "deb(ug|ugger)?" "" r
 debugger;
 endsnippet
 
-snippet hri
-console.log('---------------------------------------------------');
-endsnippet
-
-snippet hr
-console.log('-------------------------------------------------->');
-console.log(${0:${VISUAL}});
-console.log('<--------------------------------------------------');
-endsnippet
-
 snippet log
-console.log($1);
+console.log($1)
 endsnippet
 
-snippet "co(nst)?" "" r
-const ${1} = (${2}) => {
-  ${3}
-};
+snippet af
+(${1}) => ${2}
 endsnippet
 
 snippet "if" "" r
@@ -39,10 +27,10 @@ if (${1}) {
 endsnippet
 
 snippet "sw(itch)?" "" r
-switch(${1}) {
+switch(${1:action.type}) {
   case ${2}:
     ${3}
   default:
-    return;
+    return ${4:state};
 }
 endsnippet
