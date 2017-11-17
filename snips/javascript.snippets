@@ -5,11 +5,11 @@ debugger;
 endsnippet
 
 snippet log "" i
-console.log($1)
+console.log(${0:${VISUAL}})
 endsnippet
 
 snippet af "" i
-(${1}) => ${2}
+(${1}) => ${0:${VISUAL}}
 endsnippet
 
 snippet if

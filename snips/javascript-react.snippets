@@ -1,7 +1,7 @@
 extends html
 
 snippet import "" b
-import ${1} from '${2}';
+import ${0} from '${1}';
 endsnippet
 
 snippet "compo(nent)?" "" r
@@ -13,6 +13,7 @@ endsnippet
 snippet rc
 constructor(props) {
   super(props);
+  ${0:${VISUAL}}
 }
 endsnippet
 
@@ -22,6 +23,10 @@ render() {
     ${0:${VISUAL}}
   )
 }
+endsnippet
+
+snippet slog
+store.subscribe(() => console.log(store.getState()));
 endsnippet
 
 snippet < "" i
