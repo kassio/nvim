@@ -4,7 +4,7 @@ let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeCascadeOpenSingleChildDir = 0
 let g:NERDTreeCascadeSingleChildDir = 0
-let g:NERDTreeIgnore = ['\<tags\>', '\<tags\.gems\>']
+let g:NERDTreeIgnore = ['node_modules', '\<tags\>', '\<tags\.gems\>']
 let g:NERDTreeStatusline="\ %-28{matchstr(getline('.'), '\\(\\s\\)\\?\\zs\\(\\/\\)\\?\\w\\(.*\\)')}"
 
 nmap <silent> <leader>p :call user#nerdtree#mirror_toggle()<CR>
