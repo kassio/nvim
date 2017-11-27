@@ -1,3 +1,3 @@
 if isdirectory('node_modules')
-  set noexpandtab
+  setlocal noexpandtab
 end
