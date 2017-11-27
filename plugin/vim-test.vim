@@ -1,7 +1,7 @@
 if has('nvim')
-  let test#strategy = 'neoterm'
+  let g:test#strategy = 'neoterm'
 else
-  let test#strategy = 'basic'
+  let g:test#strategy = 'basic'
 end
 
 nnoremap <silent> <leader>ta :call test#neoterm#scope("Suite")<cr>
