@@ -53,7 +53,6 @@ call minpac#add('othree/html5.vim')
 call minpac#add('othree/yajs.vim')
 call minpac#add('mxw/vim-jsx')
 call minpac#add('othree/javascript-libraries-syntax.vim')
-call minpac#add('leshill/vim-json')
 
 " Ruby
 call minpac#add('vim-ruby/vim-ruby')
