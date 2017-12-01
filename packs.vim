@@ -50,9 +50,9 @@ call minpac#add('tpope/vim-markdown')
 
 " HTML, javascript, css, scss, less
 call minpac#add('othree/html5.vim')
-call minpac#add('othree/yajs.vim')
 call minpac#add('mxw/vim-jsx')
-call minpac#add('othree/javascript-libraries-syntax.vim')
+call minpac#add('othree/yajs.vim')
+call minpac#add('othree/es.next.syntax.vim')
 
 " Ruby
 call minpac#add('vim-ruby/vim-ruby')
