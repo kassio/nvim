@@ -10,7 +10,7 @@ aug user:autocmd
 
   au BufReadPost fugitive://* setlocal bufhidden=delete
 
-  au BufNewFile,BufRead *eslintrc setfiletype json
+  au BufNewFile,BufRead .babelrc,.jshintrc,.eslintrc setfiletype json
   au BufNewFile,BufReadPost Procfile*,Gemfile* setfiletype ruby
   au BufReadPost,BufNewFile *_feature.rb set syntax=rspec
 
@@ -26,4 +26,9 @@ aug user:autocmd
   au FileWritePre,BufWritePre * call buffer#trim()
 
   au FocusGained,BufEnter,FileChangedShellPost * silent! SignifyRefresh
+
+  au BufRead,BufNewFile *
+        \ if getline(1) =~? '\c^#!.*javascript' |
+        \   let &filetype = 'javascript' |
+        \ endif
 aug END
