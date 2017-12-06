@@ -42,7 +42,7 @@ set relativenumber number numberwidth=3
 
 set ignorecase smartcase
 
-set cursorline
+set nocursorline
 
 set switchbuf=useopen,usetab,split
 

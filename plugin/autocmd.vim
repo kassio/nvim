@@ -6,7 +6,6 @@ aug user:autocmd
   au FileType sh,html,javascript,css,eruby,eelixir,sass,scss,yaml setlocal iskeyword+=-
   au FileType ruby,eruby,elixir,eelixir setlocal iskeyword+=\?,\!,@-@
   au CmdWinEnter * setlocal norelativenumber
-  au TermOpen * setlocal nonumber norelativenumber nocursorline
 
   au BufReadPost fugitive://* setlocal bufhidden=delete
 
@@ -31,4 +30,10 @@ aug user:autocmd
         \ if getline(1) =~? '\c^#!.*javascript' |
         \   let &filetype = 'javascript' |
         \ endif
+
+  if has('nvim')
+    au TermOpen * setlocal nonumber norelativenumber nocursorline bufhidden=hide
+  else
+    au BufWinEnter * if &buftype == 'terminal' | setlocal nonumber norelativenumber nocursorline bufhidden=hide | endif
+  end
 aug END
