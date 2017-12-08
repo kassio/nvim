@@ -9,6 +9,7 @@ aug user:autocmd
 
   au BufReadPost fugitive://* setlocal bufhidden=delete
 
+  au BufReadPost,BufNewFile *gitconfig setfiletype gitconfig
   au BufNewFile,BufRead .babelrc,.jshintrc,.eslintrc setfiletype json
   au BufNewFile,BufReadPost Procfile*,Gemfile* setfiletype ruby
   au BufReadPost,BufNewFile *_feature.rb set syntax=rspec
