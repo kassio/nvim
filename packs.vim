@@ -54,10 +54,6 @@ call minpac#add('mxw/vim-jsx')
 call minpac#add('othree/yajs.vim')
 call minpac#add('othree/es.next.syntax.vim')
 
-" Typescript
-call minpac#add('mhartington/nvim-typescript')
-call minpac#add('HerringtonDarkholme/yats.vim')
-
 " Ruby
 call minpac#add('vim-ruby/vim-ruby')
 call minpac#add('Keithbsmiley/rspec.vim', { 'type': 'opt' })
