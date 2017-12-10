@@ -42,9 +42,6 @@ call minpac#add('tpope/vim-commentary')
 " Snippets
 call minpac#add('sirver/ultisnips')
 
-" Test runner
-call minpac#add('janko-m/vim-test')
-
 " Markdown
 call minpac#add('tpope/vim-markdown')
 

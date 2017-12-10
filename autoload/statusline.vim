@@ -28,9 +28,8 @@ function! statusline#default(active) abort
           \ . '%(%#SLUnsavedFile#%<%{statusline#filename(&modified)}%*%)'
           \ . '%='
           \ . '%{statusline#git()}'
-          \ . ' %c,%l/%L  '
-          \ . '%#SLModeNormal#'
-          \ . '%{&ft} %{&ff} %{&fenc!=""?&fenc:&enc} '
+          \ . ' %c,%l/%L '
+          \ . '%#SLModeNormal# %{&ft} %{&ff} %{&fenc!=""?&fenc:&enc} '
   else
     return
           \   ' %n '
@@ -96,5 +95,6 @@ endfunction
 function! statusline#git() abort
   let l:fname = expand('%')
   let l:command = 'git status -u --porcelain %s 2>/dev/null | cut -b 1-2'
-  return substitute(system(printf(l:command, l:fname)), '\_s*', '', 'g')
+  let l:status = system(printf(l:command, l:fname))[0:1]
+  return l:status
 endfunction
