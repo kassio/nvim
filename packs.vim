@@ -61,5 +61,8 @@ call minpac#add('othree/es.next.syntax.vim')
 " Tomdoc
 call minpac#add('kassio/tomdoc.vim', { 'type': 'opt' })
 
+" Run tests from vim
+call minpac#add('janko-m/vim-test')
+
 " Update packages
 command! PackUpdate call pack#update()
