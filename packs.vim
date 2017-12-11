@@ -52,6 +52,12 @@ call minpac#add('sunaku/vim-ruby-minitest', { 'type': 'opt' })
 call minpac#add('slim-template/vim-slim')
 call minpac#add('tpope/vim-haml')
 
+" HTML, javascript, css, scss, less
+call minpac#add('othree/html5.vim')
+call minpac#add('mxw/vim-jsx')
+call minpac#add('othree/yajs.vim')
+call minpac#add('othree/es.next.syntax.vim')
+
 " Tomdoc
 call minpac#add('kassio/tomdoc.vim', { 'type': 'opt' })
 
