@@ -14,8 +14,6 @@ hi! link CursorColumn ColorLine
 
 hi! Cursor ctermbg=7 guibg=#e5e5e5
 
-hi! Search gui=standout guifg=#fac863 guibg=#65737e
-
 hi! SignError gui=bold guifg=#ec5f67 guibg=NONE
 hi! SignWarning gui=bold guifg=#fac863 guibg=NONE
 hi! SignInfo gui=bold guifg=#6699cc guibg=NONE
