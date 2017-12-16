@@ -27,7 +27,6 @@ function! statusline#default(active) abort
           \ . '%(%#SLModeNormal#%<%{statusline#filename(!&modified)}%*%)'
           \ . '%(%#SLUnsavedFile#%<%{statusline#filename(&modified)}%*%)'
           \ . '%='
-          \ . '%{statusline#git()}'
           \ . ' %c,%l/%L '
           \ . '%#SLModeNormal# %{&ft} %{&ff} %{&fenc!=""?&fenc:&enc} '
   else
@@ -90,11 +89,4 @@ function! statusline#linter(scope) abort
 
     return printf('  %s %s ', l:sign, l:count)
   end
-endfunction
-
-function! statusline#git() abort
-  let l:fname = expand('%')
-  let l:command = 'git status -u --porcelain %s 2>/dev/null | cut -b 1-2'
-  let l:status = system(printf(l:command, l:fname))[0:1]
-  return l:status
 endfunction
