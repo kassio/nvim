@@ -25,8 +25,6 @@ aug user:autocmd
 
   au FileWritePre,BufWritePre * call buffer#trim()
 
-  au FocusGained,BufEnter,FileChangedShellPost * silent! SignifyRefresh
-
   au BufRead,BufNewFile *
         \ if getline(1) =~? '\c^#!.*javascript' |
         \   let &filetype = 'javascript' |
@@ -37,4 +35,12 @@ aug user:autocmd
   else
     au BufWinEnter * if &buftype == 'terminal' | setlocal nonumber norelativenumber nocursorline bufhidden=hide | endif
   end
+
+  au WinEnter * call window#focus()
+  au WinLeave * call window#unfocus()
+  au FocusLost * call window#unfocus("norelativenumber")
+  au FocusGained * call window#focus("norelativenumber")
+
+  au FocusGained,WinEnter,BufEnter,FileChangedShellPost * checktime | SignifyRefresh
+  au WinLeave,FocusLost * silent! call buffer#autosave()
 aug END
