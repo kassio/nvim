@@ -1,27 +1,32 @@
 #!/usr/bin/env bash
 
 which for-each-ruby &>/dev/null || { echo >&2 "for-each-ruby not found!" && exit -1; }
-bullet="🔹 "
-sun="☀️ "
 
-echo "${bullet} lua dependency"
+header() { echo -e "🔹  $@"; }
+item() { echo -e "\t☀️  $@"; }
+
+header "lua dependency"
 brew install lua &>/dev/null
 
-echo "${bullet} python dependencies"
+header "python dependencies"
 pip install --upgrade --force-reinstall vim-vint &>/dev/null
 pip install --upgrade --force-reinstall neovim &>/dev/null
 pip3 install --upgrade --force-reinstall neovim-remote &>/dev/null
 
-echo "${bullet} ruby dependencies"
+header "ruby dependencies"
 for-each-ruby gem install neovim &>/dev/null
 for-each-ruby gem install rcodetools &>/dev/null
 
-echo "${bullet} linters"
-echo "  ${sun} rubocop" & for-each-ruby gem install rubocop &>/dev/null
-echo "  ${sun} scss_lint" & for-each-ruby gem install scss_lint &>/dev/null
-echo "  ${sun} pre-commit" & for-each-ruby gem install pre-commit &>/dev/null
-echo "  ${sun} eslint" & npm install -g eslint &>/dev/null
-echo "  ${sun} eslint-react" & npm install -g eslint-plugin-react &>/dev/null
-echo "  ${sun} babel-eslint" & npm install -g babel-eslint &>/dev/null
+header "linters"
+item "rubocop" & for-each-ruby gem install rubocop &>/dev/null
+item "scss_lint" & for-each-ruby gem install scss_lint &>/dev/null
+item "pre-commit" & for-each-ruby gem install pre-commit &>/dev/null
+item "eslint" & npm install -g eslint &>/dev/null
+item "eslint-react" & npm install -g eslint-plugin-react &>/dev/null
+item "babel-eslint" & npm install -g babel-eslint &>/dev/null
 
-bash $(dirname ${0})/pack
+header "formatters"
+item "prettier" & npm install -g prettier &>/dev/null
+
+header "updating vim packs"
+bash $(dirname ${0})/pack &>/dev/null
