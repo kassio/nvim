@@ -11,5 +11,8 @@ let g:ale_sign_warning = g:sign_warning
 let g:ale_sign_style_warning = 's'
 let g:ale_sign_info = g:sign_info
 
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['prettier-eslint']
+
 cnorea <silent> ln ALENextWrap
 cnorea <silent> lp ALEPreviousWrap

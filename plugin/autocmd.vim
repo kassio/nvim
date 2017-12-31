@@ -43,4 +43,7 @@ aug user:autocmd
 
   au FocusGained,WinEnter,BufEnter,FileChangedShellPost * checktime | SignifyRefresh
   au WinLeave,FocusLost * silent! call buffer#autosave()
+
+  " Formatters
+  au FileType javascript set formatprg=prettier-eslint\ --stdin
 aug END

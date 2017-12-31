@@ -27,6 +27,7 @@ item "babel-eslint" & npm install -g babel-eslint &>/dev/null
 
 header "formatters"
 item "prettier" & npm install -g prettier &>/dev/null
+item "prettier-eslint" & npm install -g prettier-eslint prettier-eslint-cli &>/dev/null
 
 header "updating vim packs"
 bash $(dirname ${0})/pack &>/dev/null
