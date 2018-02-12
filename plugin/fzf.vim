@@ -29,9 +29,11 @@ nnoremap <leader>as :exec "Grep ".expand("<cword>")<cr>
 
 function! MRUfiles()
   let l:ignore = 'fugitive:\|NERD_tree\|^/tmp/\|.git/\|term:'
-  return extend(
+  let l:files = extend(
         \ filter(copy(v:oldfiles), { _, f -> f !~ l:ignore }),
         \ map(filter(range(1, bufnr('$')), { _, f -> buflisted(f) }), { _, f -> bufname(f) }))
+  let l:pwd = getcwd()
+  return filter(copy(l:files), { _, f -> f =~ l:pwd })
 endfunction
 
 if has('nvim')
