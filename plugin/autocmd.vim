@@ -20,7 +20,7 @@ aug user:autocmd
 
   au VimEnter,WinEnter,BufWinEnter,FileType,BufUnload,VimResized * call statusline#update()
 
-  au User ALELint SignifyRefresh | call statusline#update()
+  au User ALELint call user#after_lint()
   au User FzfStatusLine call statusline#fzf#()
 
   au FileWritePre,BufWritePre * call buffer#trim()
