@@ -1,8 +1,12 @@
 function! statusline#neoterm#(active) abort
-  let l:default =
-        \   ' %n '
-        \ . '%<%{b:term_title}%*'
-        \ . '%= '
+  if has_key(b:, 'term_title')
+    let l:default =
+          \   ' %n '
+          \ . '%<%{b:term_title}%*'
+          \ . '%= '
+  else
+    let l:default = ''
+  end
 
   if a:active
     return
