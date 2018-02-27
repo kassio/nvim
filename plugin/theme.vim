@@ -6,6 +6,7 @@ set background=dark
 colorscheme OceanicNext
 
 hi! VertSplit guibg=NONE guifg=#515966 gui=NONE term=NONE cterm=NONE
+hi! EndOfBuffer guibg=NONE guifg=#1b2b34 gui=NONE term=NONE cterm=NONE
 
 hi! ColorColumn guibg=#1e2d35
 hi! CursorLine guibg=#1f313a term=NONE cterm=NONE
