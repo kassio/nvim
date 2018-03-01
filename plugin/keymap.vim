@@ -8,7 +8,7 @@ tnoremap <esc><esc> <c-\><c-n>
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 
 " Delete current buffer
-nnoremap <silent> <leader>bd :call buffer#kill()<cr>
+nnoremap <silent> <leader>bd call buffer#kill()<cr>
 " Delete all buffers
 nnoremap <silent> <leader>da :silent call buffer#killall()<cr>
 " Wipe all buffers
@@ -55,6 +55,14 @@ map <S-ScrollWheelDown> <C-D>
 
 nmap <silent> <leader>sn :call sign#goto('next')<cr>
 nmap <silent> <leader>sN :call sign#goto('previous')<cr>
+
+" Signs navigation
+" Lint signs
+nmap <leader>ln :ALENextWrap<cr>
+nmap <leader>lp :ALEPreviousWrap<cr>
+" Signify
+nmap <leader>gn <plug>(signify-next-hunk)
+nmap <leader>gp <plug>(signify-prev-hunk)
 
 " Command shortcuts/aliases
 cnoremap <c-b> P bufdo %s///ge<left><left><left><left>
