@@ -7,7 +7,7 @@ function! buffer#restore_cursor_position() abort
 endfunction
 
 function! buffer#kill() abort
-  if &ft =~? 'nerdtree' || &bt =~? 'terminal'
+  if &filetype =~? 'nerdtree' || &filetype =~? 'neoterm'
     close
   else
     bwipeout!

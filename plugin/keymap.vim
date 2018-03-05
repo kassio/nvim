@@ -8,7 +8,7 @@ tnoremap <esc><esc> <c-\><c-n>
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 
 " Delete current buffer
-nnoremap <silent> <leader>bd call buffer#kill()<cr>
+nnoremap <silent> <leader>bd :call buffer#kill()<cr>
 " Delete all buffers
 nnoremap <silent> <leader>da :silent call buffer#killall()<cr>
 " Wipe all buffers
