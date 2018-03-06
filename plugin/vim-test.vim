@@ -1,8 +1,4 @@
-if has('nvim')
-  let g:test#strategy = 'neoterm'
-else
-  let g:test#strategy = 'basic'
-end
+let g:test#strategy = 'neoterm'
 
 nnoremap <silent> <leader>ta :call test#neoterm#scope("Suite")<cr>
 nnoremap <silent> <leader>tf :call test#neoterm#scope("File")<cr>

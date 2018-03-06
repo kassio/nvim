@@ -1,7 +1,7 @@
 function! test#neoterm#scope(scope) abort
   try
     P call neoterm#normal('G')
-    P call neoterm#clear()
+    P call neoterm#clear({})
     call s:neoterm_test_hook()
   catch /^Vim\%((\a\+)\)\=:E488/ " Trailing characters
     " noop
