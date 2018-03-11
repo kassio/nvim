@@ -1,6 +1,6 @@
 let g:test#strategy = 'neoterm'
 
-nnoremap <silent> <leader>ta :call test#neoterm#scope("Suite")<cr>
-nnoremap <silent> <leader>tf :call test#neoterm#scope("File")<cr>
-nnoremap <silent> <leader>tc :call test#neoterm#scope("Nearest")<cr>
-nnoremap <silent> <leader>tr :call test#neoterm#scope("Last")<cr>
+nnoremap <leader>ta :<c-u>call test#neoterm#scope("Suite")<cr>
+nnoremap <leader>tf :<c-u>call test#neoterm#scope("File")<cr>
+nnoremap <leader>tc :<c-u>call test#neoterm#scope("Nearest")<cr>
+nnoremap <leader>tr :<c-u>call test#neoterm#scope("Last")<cr>
