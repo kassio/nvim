@@ -8,7 +8,7 @@ nnoremap <leader>rf :TREPLSendFile<cr>
 nnoremap <leader>rl :TREPLSendLine<cr>
 vnoremap <leader>rs :TREPLSendSelection<cr>
 
-nnoremap <leader>tR :call neoterm#exec(['!!', '', ''])<cr>
+nnoremap <leader>tR :call neoterm#exec({ 'cmd': ['!!', '', ''] })<cr>
 
 " Useful maps
 nnoremap <leader>tt :<c-u>exec v:count.'Ttoggle'<cr>
