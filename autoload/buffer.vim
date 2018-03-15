@@ -1,7 +1,7 @@
 function! buffer#restore_cursor_position() abort
   if !exists('b:open_at_first_line') &&
         \ line("'\"") > 0 &&
-        \ line("'\"") <= line("$") |
+        \ line("'\"") <= line('$') |
     execute 'normal! g`"'
   end
 endfunction
@@ -47,11 +47,11 @@ function! buffer#user_buffers(...) abort
 endfunction
 
 function! buffer#trim() abort
-  let l:hls = &hls
-  setlocal nohls
+  let l:hlsearch = &hlsearch
+  setlocal nohlsearch
   call preserve#preserve('silent %s/\v\s+$//e')
   call preserve#preserve('silent %s/\v($\n\s*)+%$//e')
-  let &hls = l:hls
+  let &hlsearch = l:hlsearch
 endfunction
 
 function! buffer#autosave() abort
