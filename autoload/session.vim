@@ -4,7 +4,7 @@ let s:file = printf('%s/%s', s:session_dir, s:file_name)
 
 function! session#save() abort
   silent! exec printf('!mkdir -p %s', s:session_dir)
-  if has('nvim') && exists(':TcloseAll')
+  if exists(':TcloseAll')
     TcloseAll!
   end
 
