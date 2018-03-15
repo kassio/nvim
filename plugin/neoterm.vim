@@ -10,13 +10,8 @@ vnoremap <leader>rs :TREPLSendSelection<cr>
 
 nnoremap <leader>tR :call neoterm#exec({ 'cmd': ['!!', '', ''] })<cr>
 
-" Useful maps
-nnoremap <leader>tt :<c-u>exec v:count.'Ttoggle'<cr>
-" Useful maps
-nnoremap <leader>vt :<c-u>exec v:count.'vert Ttoggle'<cr>
-" send the exist command to the current terminal
-nnoremap <leader>te :<c-u>exec v:count.'T exit'<cr>
-" clear terminal
-nnoremap <leader>tl :<c-u>exec v:count.'Tclear'<cr>
-" kills the current job (send a <c-c>)
-nnoremap <leader>tk :<c-u>exec v:count.'Tkill'<cr>
+nnoremap <silent> <leader>tt :<c-u>exec v:count.'Ttoggle'<cr>
+nnoremap <silent> <leader>vt :<c-u>exec v:count.'vert Ttoggle'<cr>
+nnoremap <silent> <leader>te :<c-u>exec v:count.'T exit'<cr>
+nnoremap <silent> <leader>tl :<c-u>exec v:count.'Tclear'<cr>
+nnoremap <silent> <leader>tk :<c-u>exec v:count.'Tkill'<cr>
