@@ -8,10 +8,9 @@ nnoremap <leader>rf :TREPLSendFile<cr>
 nnoremap <leader>rl :TREPLSendLine<cr>
 vnoremap <leader>rs :TREPLSendSelection<cr>
 
-nnoremap <leader>tR :call neoterm#exec({ 'cmd': ['!!', '', ''] })<cr>
-
-nnoremap <silent> <leader>tt :<c-u>exec v:count.'Ttoggle'<cr>
-nnoremap <silent> <leader>vt :<c-u>exec v:count.'vert Ttoggle'<cr>
-nnoremap <silent> <leader>te :<c-u>exec v:count.'T exit'<cr>
-nnoremap <silent> <leader>tl :<c-u>exec v:count.'Tclear'<cr>
-nnoremap <silent> <leader>tk :<c-u>exec v:count.'Tkill'<cr>
+nnoremap <silent> <leader>tR :<c-u>exec printf("%sTexec !! \<lt>cr>", v:count)<cr>
+nnoremap <silent> <leader>tt :<c-u>exec printf('%sTtoggle', v:count)<cr>
+nnoremap <silent> <leader>vt :<c-u>exec printf('%svert Ttoggle', v:count)<cr>
+nnoremap <silent> <leader>te :<c-u>exec printf('%sT exit', v:count)<cr>
+nnoremap <silent> <leader>tl :<c-u>exec printf('%sTclear', v:count)<cr>
+nnoremap <silent> <leader>tk :<c-u>exec printf('%sTkill', v:count)<cr>
