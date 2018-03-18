@@ -15,7 +15,6 @@ nnoremap <silent> <leader>te :<c-u>exec printf('%sT exit', v:count)<cr>
 nnoremap <silent> <leader>tl :<c-u>exec printf('%sTclear', v:count)<cr>
 nnoremap <silent> <leader>tk :<c-u>exec printf('%sTkill', v:count)<cr>
 
-cabbrev t T
 cabbrev tt Ttoggle
 cabbrev htt botright Ttoggle
 cabbrev vtt botright vertical Ttoggle
