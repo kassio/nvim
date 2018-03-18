@@ -1,4 +1,4 @@
-let g:neoterm_position = 'horizontal'
+let g:neoterm_default_mod = 'botright'
 let g:neoterm_automap_keys = '<leader>tm'
 let g:neoterm_use_relative_path = 1
 let g:neoterm_autoscroll = 1
