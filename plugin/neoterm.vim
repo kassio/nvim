@@ -4,9 +4,9 @@ let g:neoterm_use_relative_path = 1
 let g:neoterm_autoscroll = 1
 let g:neoterm_always_open_to_exec = 0
 
-xmap gt <plug>(neoterm-repl-send)
-nmap gt <plug>(neoterm-repl-send)
-nmap gtl <plug>(neoterm-repl-send-line)
+xmap <leader>tr <plug>(neoterm-repl-send)
+nmap <leader>tr <plug>(neoterm-repl-send)
+nmap <leader>trl <plug>(neoterm-repl-send-line)
 
 nnoremap <silent> <leader>tR :<c-u>exec printf("%sTexec !! \<lt>cr>", v:count)<cr>
 nnoremap <silent> <leader>tt :<c-u>exec printf('%sTtoggle', v:count)<cr>
