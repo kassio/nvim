@@ -1,15 +1,15 @@
 function! statusline#update() abort
-  for nr in range(1, winnr('$'))
-    let l:filetype = getwinvar(nr, '&filetype')
+  for l:nr in range(1, winnr('$'))
+    let l:filetype = getwinvar(l:nr, '&filetype')
 
     if l:filetype =~# 'nerdtree'
-      call setwinvar(nr, '&statusline', g:NERDTreeStatusline)
+      call setwinvar(l:nr, '&statusline', g:NERDTreeStatusline)
     elseif l:filetype =~# 'help'
-      call setwinvar(nr, '&statusline', statusline#help#(winnr() == nr))
+      call setwinvar(l:nr, '&statusline', statusline#help#(winnr() == l:nr))
     elseif l:filetype =~# 'neoterm'
-      call setwinvar(nr, '&statusline', statusline#neoterm#(winnr() == nr))
+      call setwinvar(l:nr, '&statusline', statusline#neoterm#(winnr() == l:nr))
     else
-      call setwinvar(nr, '&statusline', statusline#default(winnr() == nr))
+      call setwinvar(l:nr, '&statusline', statusline#default(winnr() == l:nr))
     end
   endfor
 endfunction
