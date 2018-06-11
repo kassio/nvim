@@ -3,7 +3,9 @@
 "   * g:test#runners['Ruby'] == ['Testrbl']
 function! test#ruby#testrbl#use() abort
   let g:test_ruby_runner = 'testrbl'
-  let g:test#runners['Ruby'] = ['Testrbl']
+  let l:runners = get(g:, 'test#runners', {})
+  let l:runners['Ruby'] = get(l:runners, 'Ruby', []) + ['Testrbl']
+  let g:test#runners = l:runners
 endfunction
 
 function! test#ruby#testrbl#test_file(file) abort
