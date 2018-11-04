@@ -27,4 +27,6 @@ aug user:autocmd:nerdtree
         \   unlet g:nerdtree_current_buffer |
         \ end
   au Filetype nerdtree setlocal nolist
+
+  au FocusGained * NERDTreeRefreshRoot
 aug END
