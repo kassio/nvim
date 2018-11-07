@@ -64,5 +64,8 @@ call minpac#add('kassio/tomdoc.vim', { 'type': 'opt' })
 " Run tests from vim
 call minpac#add('janko-m/vim-test')
 
+" Elixir
+call minpac#add('elixir-editors/vim-elixir')
+
 " Update packages
 command! PackUpdate call pack#update()
