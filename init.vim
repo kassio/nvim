@@ -96,7 +96,7 @@ set guicursor=n-c-v:block-Cursor/Cursor-blinkon0
 set guicursor+=i-ci:ver1-Cursor/Cursor-blinkwait200-blinkon200-blinkoff150
 set guicursor+=r-cr-o:hor1-Cursor/Cursor-blinkwait200-blinkon200-blinkoff150
 
-set fillchars=eob:\ ,vert:│
+set fillchars=vert:│
 
 let &grepformat='%f:%l:%c:%m,%f:%l:%m'
 let &grepprg='ag --follow --smart-case --vimgrep --skip-vcs-ignores --hidden --nocolor'
