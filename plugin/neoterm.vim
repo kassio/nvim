@@ -13,6 +13,7 @@ nnoremap <silent> <leader>tt :<c-u>exec printf('%sTtoggle', v:count)<cr>
 nnoremap <silent> <leader>vt :<c-u>exec printf('botright vertical %s Ttoggle', v:count)<cr>
 nnoremap <silent> <leader>te :<c-u>exec printf('%sT exit', v:count)<cr>
 nnoremap <silent> <leader>tl :<c-u>exec printf('%sTclear', v:count)<cr>
+nnoremap <silent> <leader>tL :<c-u>exec printf('%sTclear!', v:count)<cr>
 nnoremap <silent> <leader>tk :<c-u>exec printf('%sTkill', v:count)<cr>
 
 cabbrev tt Ttoggle
