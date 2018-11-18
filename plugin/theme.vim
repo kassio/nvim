@@ -2,8 +2,8 @@ set termguicolors
 set lazyredraw
 set regexpengine=2
 set colorcolumn=80
-set synmaxcol=128
-syntax sync minlines=256
+set synmaxcol=200
+syntax sync minlines=512
 
 set background=dark
 colorscheme OceanicNext
