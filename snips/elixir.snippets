@@ -1,4 +1,4 @@
-snippet do ""
+snippet do "" w
 do
 ${0:${VISUAL}}
 end
@@ -22,28 +22,28 @@ defmodule ${1:`!v user#snips#filename_camelized()`} do
 end
 endsnippet
 
-snippet case ""
+snippet case "" w
 case ${1} do
   ${2} -> ${3}
   ${4}
 end
 endsnippet
 
-snippet puts ""
+snippet puts "" w
 IO.puts${1}
 endsnippet
 
-snippet ins ""
+snippet ins "" w
 IO.inspect${1}
 endsnippet
 
-snippet test ""
+snippet test "" b
 test ${1} do
   ${0:${VISUAL}}
 end
 endsnippet
 
-snippet describe ""
+snippet describe "" b
 describe ${1} do
   ${0:${VISUAL}}
 end
