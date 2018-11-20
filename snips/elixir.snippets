@@ -1,3 +1,9 @@
+snippet do ""
+do
+${0:${VISUAL}}
+end
+endsnippet
+
 snippet def "" b
 def ${1:name} do
   ${3}
@@ -20,5 +26,25 @@ snippet case ""
 case ${1} do
   ${2} -> ${3}
   ${4}
+end
+endsnippet
+
+snippet puts ""
+IO.puts${1}
+endsnippet
+
+snippet ins ""
+IO.inspect${1}
+endsnippet
+
+snippet test ""
+test ${1} do
+  ${0:${VISUAL}}
+end
+endsnippet
+
+snippet describe ""
+describe ${1} do
+  ${0:${VISUAL}}
 end
 endsnippet
