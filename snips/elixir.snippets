@@ -22,18 +22,23 @@ defmodule ${1:`!v user#snips#filename_camelized()`} do
 end
 endsnippet
 
-snippet case "" w
-case ${1} do
-  ${2} -> ${3}
-  ${4}
+snippet defpro "" b
+defprotocol ${1:Name} do
+  ${2}
 end
 endsnippet
 
-snippet puts "" w
+snippet case "" w
+case ${1} do
+  ${2}
+end
+endsnippet
+
+snippet "put(s)?" "" wr
 IO.puts${1}
 endsnippet
 
-snippet ins "" w
+snippet "(IO.)?ins" "" wr
 IO.inspect${1}
 endsnippet
 
@@ -43,7 +48,7 @@ test ${1} do
 end
 endsnippet
 
-snippet describe "" b
+snippet "des(c(ribe)?)?" "" br
 describe ${1} do
   ${0:${VISUAL}}
 end
