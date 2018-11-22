@@ -11,5 +11,9 @@ let g:ale_sign_warning = g:sign_warning
 let g:ale_sign_style_warning = 's'
 let g:ale_sign_info = g:sign_info
 
-let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['prettier-eslint']
+let g:ale_fixers = {
+      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \ 'javascript': ['prettier-eslint'],
+      \ 'elixir': ['mix_format']
+      \}
+let g:ale_fix_on_save = 1
