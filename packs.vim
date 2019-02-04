@@ -12,6 +12,7 @@ end
 
 " Theme
 call minpac#add('mhartington/oceanic-next', { 'type': 'opt' })
+call minpac#add('lifepillar/vim-solarized8', { 'type': 'opt'})
 
 " Linting
 call minpac#add('w0rp/ale')
