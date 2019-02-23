@@ -7,5 +7,4 @@ function! s:finished(...) abort
   packloadall
   runtime! plugin/rplugin.vim
   UpdateRemotePlugins
-  qall!
 endfunction
