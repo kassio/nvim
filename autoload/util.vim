@@ -19,8 +19,8 @@ function! util#comment_dict() abort
   if !exists('b:comment_dict')
     let l:comments = split(&commentstring, '%s')
     let b:comment_dict = {
-          \ 'begin': get(l:comments, 0, ''),
-          \ 'end': get(l:comments, 1, '')
+          \ 'begin': trim(get(l:comments, 0, '')),
+          \ 'end': trim(get(l:comments, 1, ''))
           \ }
   end
 
