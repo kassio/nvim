@@ -17,4 +17,4 @@ command! -nargs=+ P call preserve#preserve(<q-args>)
 command! FoldComments call fold#comments()
 
 " Remove comments and multiple empty lines
-command! RemoveComments call text#remove_comments()
+command! RemoveComments silent call text#remove_comments()
