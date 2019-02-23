@@ -17,6 +17,7 @@ function! user#nerdtree#mirror_find() abort
   call s:mirror_or_create()
   exec l:current_window . 'wincmd w'
 
+  NERDTreeRefreshRoot
   NERDTreeFind
 endfunction
 
