@@ -12,6 +12,6 @@ endfunction
 function! s:neoterm_test_hook() abort
   if exists('g:TestHook')
     echo 'Running the hook test'
-    call g:TestHook()
+    call g:TestBeforeHook()
   end
 endfunction
