@@ -67,3 +67,6 @@ call minpac#add('janko-m/vim-test')
 
 " Elixir
 call minpac#add('elixir-editors/vim-elixir')
+
+" Update packages
+command! -bang PackUpdate call pack#update(<bang>0)

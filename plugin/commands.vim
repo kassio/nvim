@@ -19,5 +19,5 @@ command! FoldComments call fold#comments()
 " Remove comments and multiple empty lines
 command! RemoveComments silent call text#remove_comments()
 
-" Update packages
-command! -bang PackUpdate call pack#update(<bang>0)
+" Update packs
+command! PackUpdate call pack#load_and_update()

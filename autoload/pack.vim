@@ -1,14 +1,19 @@
-function! pack#update(quit) abort
-  call minpac#clean()
-  call minpac#update('', { 'do': function('s:finished', [a:quit]) })
+function! pack#load_and_update() abort
+  execute printf("source %s", globpath(&runtimepath, "packs.vim"))
+  call pack#update(0)
 endfunction
 
-function! s:finished(...) abort
+function! pack#update(quit) abort
+  call minpac#clean()
+  call minpac#update('', { 'do': {-> s:finished(a:quit) } })
+endfunction
+
+function! s:finished(quit) abort
   packloadall
   runtime! plugin/rplugin.vim
   UpdateRemotePlugins
 
-  if get(a:, 1, 0)
+  if a:quit
     qall!
   end
 endfunction
