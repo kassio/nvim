@@ -11,8 +11,7 @@ if has('nvim')
 end
 
 " Theme
-call minpac#add('mhartington/oceanic-next', { 'type': 'opt' })
-call minpac#add('lifepillar/vim-solarized8', { 'type': 'opt'})
+call minpac#add('chriskempson/base16-vim', { 'type': 'opt' })
 
 " Linting
 call minpac#add('w0rp/ale')
