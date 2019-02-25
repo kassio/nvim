@@ -10,7 +10,7 @@ function! s:custom_highlights()
   hi! SignError gui=bold guifg=#ec5f67 guibg=NONE
   hi! SignWarning gui=bold guifg=#fac863 guibg=NONE
   hi! SignInfo gui=bold guifg=#6699cc guibg=NONE
-  hi! SignSuccess gui=bold guifg=#99c794 guibg=NONE
+  hi! SignSuccess gui=bold guifg=#3e9e34 guibg=NONE
 
   hi! StatusLine gui=bold guifg=#cccccc guibg=#3e5570 term=bold cterm=bold
   hi! StatusLineNC gui=NONE guifg=#888888 guibg=#515966 term=NONE cterm=NONE
