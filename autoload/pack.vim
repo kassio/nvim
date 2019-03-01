@@ -4,8 +4,13 @@ function! pack#load_and_update() abort
 endfunction
 
 function! pack#update(quit) abort
-  call minpac#clean()
-  call minpac#update('', { 'do': {-> s:finished(a:quit) } })
+  try
+    call minpac#clean()
+  catch /.*/
+    " noop
+  finally
+    call minpac#update('', { 'do': {-> s:finished(a:quit) } })
+  endtry
 endfunction
 
 function! s:finished(quit) abort
