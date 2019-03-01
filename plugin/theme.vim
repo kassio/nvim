@@ -11,6 +11,10 @@ syntax sync minlines=512
 function! s:custom_highlights()
   hi! LineNr guibg=NONE
   hi! SignColumn guibg=NONE
+
+  hi! VertSplit guibg=NONE guifg=#515966 gui=NONE term=NONE cterm=NONE
+  hi! EndOfBuffer guibg=NONE guifg=#1B2B34 gui=NONE term=NONE cterm=NONE
+
   hi! SignError gui=bold guifg=#EC5F67 guibg=NONE
   hi! SignWarning gui=bold guifg=#FAC863 guibg=NONE
   hi! SignInfo gui=bold guifg=#6699CC guibg=NONE
@@ -56,15 +60,12 @@ function! Dark()
   set background=dark
   colorscheme base16-oceanicnext
 
-  hi! VertSplit guibg=NONE guifg=#515966 gui=NONE term=NONE cterm=NONE
-  hi! EndOfBuffer guibg=NONE guifg=#1B2B34 gui=NONE term=NONE cterm=NONE
-
   hi! ColorColumn guibg=#1E2D35
   hi! CursorLine guibg=#1F313A term=NONE cterm=NONE
-  hi! CursorLineNr guifg=#65737E guibg=#1F313A
-  hi! link CursorColumn ColorLine
+  hi! CursorColumn guibg=#1F313A term=NONE cterm=NONE
 
-  hi! Cursor guibg=#E5E5E5
+  hi! CursorLineNr guifg=#CCCCCC guibg=#1F313A
+  hi! Cursor guibg=#1F313A
 
   call s:custom_highlights()
 endfunction
