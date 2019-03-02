@@ -90,9 +90,6 @@ set showtabline=2
 set tabline=%!tabline#update()
 
 set mouse=a
-set guicursor=n-c-v:block-nCursor/Cursor-blinkon0
-set guicursor+=i-ci:ver1-iCursor/Cursor-blinkwait200-blinkon200-blinkoff150
-set guicursor+=r-cr-o:hor1-nCursor/Cursor-blinkwait200-blinkon200-blinkoff150
 
 set fillchars=vert:┃
 

@@ -65,8 +65,7 @@ function! Dark()
   hi! CursorColumn guibg=#1F313A term=NONE cterm=NONE
 
   hi! CursorLineNr guifg=#CCCCCC guibg=#1F313A
-  hi! nCursor guibg=#1F313A
-  hi! iCursor guifg=#CCCCCC
+  hi! Cursor guibg=#CCCCCC
 
   call s:custom_highlights()
 endfunction
