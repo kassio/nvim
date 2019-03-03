@@ -51,8 +51,9 @@ set list
 set virtualedit=block
 
 set hidden
-set cmdheight=2
+
 set updatetime=300
+
 set signcolumn=yes
 
 set complete=.,w,b,u,i,t
