@@ -29,9 +29,13 @@ function! s:custom_highlights()
   hi! SLUnsavedFile gui=bold guifg=#CCCCCC guibg=#CC4A21
   hi! SLModeTerminal gui=bold guifg=#595959 guibg=#CCCCCC
 
-  hi! StatusWarning gui=bold guifg=#FAC863 guibg=#3E5570
-  hi! StatusSuccess gui=bold guifg=#99C794 guibg=#3E5570
-  hi! StatusError gui=bold guifg=#EC5F67 guibg=#3E5570
+  hi! StatusWarning gui=bold guifg=#FAC863 guibg=NONE
+  hi! StatusSuccess gui=bold guifg=#99C794 guibg=NONE
+  hi! StatusError gui=bold guifg=#EC5F67 guibg=NONE
+
+  hi! SLStatusWarning gui=bold guifg=#FAC863 guibg=#343D46
+  hi! SLStatusSuccess gui=bold guifg=#99C794 guibg=#343D46
+  hi! SLStatusError gui=bold guifg=#EC5F67 guibg=#343D46
 
   hi! WarningMsg guifg=#FAC863
 
@@ -51,6 +55,14 @@ function! s:custom_highlights()
   hi! link SignifySignChangeDelete SignifySignChange
   hi! link SignifyLineChange SignifySignChange
   hi! link SignifyLineChangeDelete SignifySignChange
+
+  hi! link ALEWarningSign SignWarning
+  hi! link ALESignColumnWithWarnings SignWarning
+  hi! link ALEStyleWarningSign SignWarning
+
+  hi! link ALEErrorSign SignError
+  hi! link ALESignColumnWithErrors SignError
+  hi! link ALEStyleErrorSign SignError
 
   hi! ALEError guibg=NONE guifg=NONE
   hi! ALEWarning guibg=NONE guifg=NONE

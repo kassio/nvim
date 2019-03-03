@@ -47,18 +47,29 @@ function! tabline#update() abort
 endfunction
 
 function! tabline#label(tabnr) abort
-  return printf('%%%dT %d %s ', a:tabnr, a:tabnr, s:fname(a:tabnr))
-endfunction
-
-function! s:fname(tabnr) abort
   let l:buflist = tabpagebuflist(a:tabnr)
   let l:winnr = tabpagewinnr(a:tabnr)
   let l:bufnr = l:buflist[l:winnr - 1]
-  let l:bufname = getbufvar(l:bufnr, 'term_title', bufname(l:buflist[l:winnr - 1]))
+  let l:tabname = s:tabname(l:bufnr, l:buflist, l:winnr)
+  let l:modified = s:modified(l:bufnr)
+
+  return printf('%%%dT %d %s %s ', a:tabnr, a:tabnr, l:tabname, l:modified)
+endfunction
+
+function! s:tabname(bufnr, buflist, winnr) abort
+  let l:bufname= getbufvar(a:bufnr, 'term_title', bufname(a:buflist[a:winnr - 1]))
 
   if len(l:bufname)
     return get(split(l:bufname, '/'), -1)
   else
     return '[No name]'
+  end
+endfunction
+
+function! s:modified(bufnr)
+  if getbufvar(a:bufnr, '&l:modified', 0)
+    return '◎'
+  else
+    return ' '
   end
 endfunction
