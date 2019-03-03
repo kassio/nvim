@@ -18,16 +18,26 @@ for-each-ruby gem install neovim > /dev/null
 for-each-ruby gem install rcodetools > /dev/null
 
 header "linters"
-item "rubocop" & for-each-ruby gem install rubocop > /dev/null
-item "scss_lint" & for-each-ruby gem install scss_lint > /dev/null
-item "pre-commit" & for-each-ruby gem install pre-commit > /dev/null
-item "eslint" & npm install -g eslint > /dev/null
-item "eslint-react" & npm install -g eslint-plugin-react > /dev/null
-item "babel-eslint" & npm install -g babel-eslint > /dev/null
+item "rubocop" && \
+  for-each-ruby gem install rubocop > /dev/null
+item "scss_lint" && \
+  for-each-ruby gem install scss_lint > /dev/null
+item "eslint" && \
+  npm install --global eslint > /dev/null
+item "eslint-react" && \
+  npm install --global eslint-plugin-react > /dev/null
+item "babel-eslint" && \
+  npm install --global babel-eslint > /dev/null
+
+header "language servers"
+item "solargraph (ruby)" && \
+  gem install solargraph
 
 header "formatters"
-item "prettier" & npm install -g prettier > /dev/null
-item "prettier-eslint" & npm install -g prettier-eslint prettier-eslint-cli > /dev/null
+item "prettier" && \
+  npm install --global prettier > /dev/null
+item "prettier-eslint" && \
+  npm install --global prettier-eslint prettier-eslint-cli > /dev/null
 
 header "updating vim packs"
 bash $(dirname ${0})/pack > /dev/null

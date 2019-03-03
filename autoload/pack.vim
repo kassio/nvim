@@ -5,7 +5,7 @@ endfunction
 
 function! pack#update(quit) abort
   call s:clean()
-  call minpac#update('', { 'do': {-> s:finished(a:quit) } })
+  call minpac#update('', { 'do': {-> PackPostInstall(a:quit) } })
 endfunction
 
 " minpac#clean always require an User input to confirm the deletion of the
@@ -35,14 +35,4 @@ function! s:packages()
   unlet g:packs_folders
 
   return l:packs
-endfunction
-
-function! s:finished(quit) abort
-  packloadall
-  runtime! plugin/rplugin.vim
-  silent UpdateRemotePlugins
-
-  if a:quit
-    qall!
-  end
 endfunction

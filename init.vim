@@ -32,7 +32,7 @@ set showmatch noshowmode
 
 set confirm
 
-set shortmess=filnxtToOFI
+set shortmess=filnxctToOFI
 
 set splitright splitbelow
 
@@ -49,6 +49,11 @@ set switchbuf=useopen,usetab,split
 set list
 
 set virtualedit=block
+
+set hidden
+set cmdheight=2
+set updatetime=300
+set signcolumn=yes
 
 set complete=.,w,b,u,i,t
 set completeopt=menu,menuone,preview,noinsert,noselect
