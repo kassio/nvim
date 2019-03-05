@@ -80,6 +80,7 @@ command! -bang PackUpdate call pack#update(<bang>0)
 function! PackPostInstall(quit) abort
   packloadall
   runtime! plugin/rplugin.vim
+  silent UpdateRemotePlugins
 
   CocInstall coc-tag
   CocInstall coc-snippets
@@ -93,8 +94,6 @@ function! PackPostInstall(quit) abort
   " Ruby
   CocInstall coc-solargraph
   CocInstall coc-yaml
-
-  silent UpdateRemotePlugins
 
   if a:quit
     qall!
