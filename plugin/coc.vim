@@ -45,10 +45,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
-" Remap for format selected region
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
@@ -67,38 +63,45 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Use `:Format` for format current buffer
-command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 Format :call s:format()
 
-" Use `:Fold` for fold current buffer
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+" Remap for format selected region
+vmap <leader>ff <Plug>(coc-format-selected)
+nmap <leader>ff Format
 
-" Add diagnostic info for https://github.com/itchyny/lightline.vim
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status'
-      \ },
-      \ }
-
+function! s:format()
+  call preserve#preserve('silent normal gg=G')<cr>
+  try
+    call CocAction('format')
+  catch /.*/
+    " noop
+  endtry
+endfunction
 
 " Using CocList
 " Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>a :<C-u>CocList diagnostics<cr>
 " Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
 " Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent> <space>c :<C-u>CocList commands<cr>
 " Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent> <space>o :<C-u>CocList outline<cr>
 " Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent> <space>j :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent> <space>k :<C-u>CocPrev<CR>
 " Resume latest coc list
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent> <space>p :<C-u>CocListResume<CR>
+
+"==============================================================================
+
+call coc#config('languageserver', {
+      \ 'elixir': {
+      \   'command': '/Users/kborges/src/elixir-ls/release/language_server.sh',
+      \   'trace.server': 'verbose',
+      \   'filetypes': ['elixir', 'eelixir']
+      \ }
+      \})
