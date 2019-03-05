@@ -3,9 +3,9 @@ function! pack#load_and_update() abort
   call pack#update(0)
 endfunction
 
-function! pack#update(quit) abort
+function! pack#update(headless) abort
   call s:clean()
-  call minpac#update('', { 'do': {-> PackPostInstall(a:quit) } })
+  call minpac#update('', { 'do': {-> s:post_install(a:headless) } })
 endfunction
 
 " minpac#clean always require an User input to confirm the deletion of the
@@ -35,4 +35,17 @@ function! s:packages()
   unlet g:packs_folders
 
   return l:packs
+endfunction
+
+function! s:post_install(headless) abort
+  packloadall
+  runtime! plugin/rplugin.vim
+  silent UpdateRemotePlugins
+
+  if a:headless
+    CocUpdateSync
+    qall!
+  else
+    CocUpdate
+  end
 endfunction

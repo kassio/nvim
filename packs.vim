@@ -1,13 +1,13 @@
 packadd minpac
 
 call minpac#init()
-call minpac#add('k-takata/minpac', {'type': 'opt'})
+call minpac#add('k-takata/minpac', { 'type': 'opt' })
 
 call minpac#add('kassio/neoterm')
 
 call minpac#add('Shougo/neco-vim')
 
-call minpac#add('neoclide/coc.nvim', { 'do': { -> coc#util#install()} })
+call minpac#add('neoclide/coc.nvim', { 'rev': '*', 'do': { -> coc#util#install()} })
 call minpac#add('neoclide/coc-sources')
 call minpac#add('neoclide/coc-snippets')
 call minpac#add('neoclide/coc-neco')
@@ -76,26 +76,3 @@ call minpac#add('elixir-editors/vim-elixir')
 
 " Update packages
 command! -bang PackUpdate call pack#update(<bang>0)
-
-function! PackPostInstall(quit) abort
-  packloadall
-  runtime! plugin/rplugin.vim
-  silent UpdateRemotePlugins
-
-  CocInstall coc-tag
-  CocInstall coc-snippets
-
-  CocInstall coc-highlight
-
-  CocInstall coc-html
-  CocInstall coc-tsserver
-  CocInstall coc-css
-
-  " Ruby
-  CocInstall coc-solargraph
-  CocInstall coc-yaml
-
-  if a:quit
-    qall!
-  end
-endfunction
