@@ -44,6 +44,9 @@ nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 
+" Indent all file
+nnoremap <leader>ff :call preserve#preserve('silent normal gg=G')<cr>
+
 " Map to show the highlight name under the cursor
 nnoremap <f2> :echo color#current()<cr>
 

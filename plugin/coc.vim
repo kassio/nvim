@@ -62,21 +62,10 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
 
-" Use `:Format` for format current buffer
-command! -nargs=0 Format :call s:format()
-
 " Remap for format selected region
 vmap <leader>ff <Plug>(coc-format-selected)
-nmap <leader>ff Format
-
-function! s:format()
-  call preserve#preserve('silent normal gg=G')<cr>
-  try
-    call CocAction('format')
-  catch /.*/
-    " noop
-  endtry
-endfunction
+" Use `:Format` for format current buffer
+command! -nargs=0 Format :call CocAction('format')<cr>
 
 " Using CocList
 " Show all diagnostics
