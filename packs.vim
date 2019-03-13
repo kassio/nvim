@@ -17,6 +17,10 @@ call minpac#add('neoclide/coc-css')
 call minpac#add('neoclide/coc-solargraph')
 call minpac#add('neoclide/coc-yaml')
 
+if executable('mix')
+  call minpac#add('elixir-lsp/elixir-ls', { 'type': 'opt', 'do': function('s:compile_elixirls') })
+end
+
 " Theme
 call minpac#add('chriskempson/base16-vim', { 'type': 'opt' })
 

@@ -89,7 +89,7 @@ nnoremap <silent> <space>p :<C-u>CocListResume<CR>
 
 call coc#config('languageserver', {
       \ 'elixir': {
-      \   'command': '/Users/kborges/src/elixir-ls/release/language_server.sh',
+      \   'command': printf('%s/%s', stdpath('config'), 'pack/minpac/opt/elixir-ls/release/language_server.sh'),
       \   'trace.server': 'verbose',
       \   'filetypes': ['elixir', 'eelixir']
       \ }
