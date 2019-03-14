@@ -49,11 +49,3 @@ function! s:post_install(headless) abort
     CocUpdate
   end
 endfunction
-
-function! pack#compile_elixirls(_hooktype, _name)
-  call system('mix local.hex --force')
-  call system('mix local.rebar --force')
-  call system('mix deps.get')
-  call system('mix compile')
-  call system('mix elixir_ls.release')
-endfunction
