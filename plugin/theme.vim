@@ -24,10 +24,11 @@ function! s:custom_highlights()
   hi! StatusLineNC gui=NONE guifg=#888888 guibg=#4F5B66 term=NONE cterm=NONE
 
   hi! SLModeNormal gui=bold guifg=#CCCCCC guibg=#343D46
+  hi! SLModeCommand gui=bold guifg=#CCCCCC guibg=#6699CC
   hi! SLModeInsert gui=bold guifg=#595959 guibg=#BADB51
   hi! SLModeVisual gui=bold guifg=#CCCCCC guibg=#CD9CCE
-  hi! SLUnsavedFile gui=bold guifg=#CCCCCC guibg=#CC4A21
   hi! SLModeTerminal gui=bold guifg=#595959 guibg=#CCCCCC
+  hi! SLUnsavedFile gui=bold guifg=#CCCCCC guibg=#CC4A21
 
   hi! StatusWarning gui=bold guifg=#FAC863 guibg=NONE
   hi! StatusSuccess gui=bold guifg=#99C794 guibg=NONE

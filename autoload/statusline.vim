@@ -18,6 +18,7 @@ function! statusline#default(active) abort
   if a:active
     return
           \   '%#SLModeNormal#%{statusline#mode("N")}%*'
+          \ . '%#SLModeCommand#%{statusline#mode("C")}%*'
           \ . '%#SLModeVisual#%{statusline#mode("V")}%*'
           \ . '%#SLModeInsert#%{statusline#mode("I")}%*'
           \ . '%#SLModeInsert#%{statusline#mode("R")}%*'
@@ -70,6 +71,10 @@ function! s:currentModeKey() abort
         \ 'R': 'R',
         \ 'Rv': 'R',
         \ 't': 'T',
+        \ 'c': 'C',
+        \ 'cv': 'C',
+        \ 'ce': 'C',
+        \ '!': 'C'
         \ }, mode(), '-')
 endfunction
 
