@@ -85,11 +85,11 @@ nnoremap <silent> <space>k :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p :<C-u>CocListResume<CR>
 
-"==============================================================================
+" =======================================================
 
 call coc#config('languageserver', {
       \ 'elixir': {
-      \   'command': printf('%s/%s', stdpath('config'), 'pack/minpac/opt/elixir-ls/release/language_server.sh'),
+      \   'command': elixirls#lsp(),
       \   'trace.server': 'verbose',
       \   'filetypes': ['elixir', 'eelixir']
       \ }

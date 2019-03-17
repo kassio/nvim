@@ -18,7 +18,7 @@ call minpac#add('neoclide/coc-solargraph')
 call minpac#add('neoclide/coc-yaml')
 
 if executable('mix')
-  call minpac#add('elixir-lsp/elixir-ls', { 'type': 'opt', 'do': function('pack#compile_elixirls') })
+  call minpac#add('elixir-lsp/elixir-ls', { 'type': 'opt', 'do': { -> elixirls#compile() } })
 end
 
 " Theme
