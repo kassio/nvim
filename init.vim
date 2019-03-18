@@ -56,14 +56,13 @@ set updatetime=300
 
 set signcolumn=yes
 
-set complete=.,w,b,u,i,t
-set completeopt=menu,menuone,preview,noinsert,noselect
 set infercase
 set tags=tags,tags.gems
 set tagcase=followscs
 
 set wildignorecase
 set wildoptions=pum
+
 set pumblend=20
 set wildignore=*.zip,*.gz,*.bz,*.tar
 set wildignore+=*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
