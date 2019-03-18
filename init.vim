@@ -63,7 +63,8 @@ set tags=tags,tags.gems
 set tagcase=followscs
 
 set wildignorecase
-set wildmode=list:longest,list:full
+set wildoptions=pum
+set pumblend=20
 set wildignore=*.zip,*.gz,*.bz,*.tar
 set wildignore+=*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
 
