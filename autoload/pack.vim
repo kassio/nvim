@@ -43,9 +43,9 @@ function! s:post_install(headless) abort
   silent UpdateRemotePlugins
 
   if a:headless
-    CocUpdateSync
+    silent CocUpdateSync
     qall!
   else
-    CocUpdate
+    silent CocUpdate
   end
 endfunction
