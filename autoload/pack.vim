@@ -4,6 +4,7 @@ function! pack#load_and_update() abort
 endfunction
 
 function! pack#update(headless) abort
+  packloadall
   call s:clean()
   call minpac#update('', { 'do': {-> s:post_install(a:headless) } })
 endfunction
@@ -38,14 +39,11 @@ function! s:packages()
 endfunction
 
 function! s:post_install(headless) abort
-  packloadall
   runtime! plugin/rplugin.vim
   silent UpdateRemotePlugins
+  silent CocUpdateSync
 
   if a:headless
-    silent CocUpdateSync
     qall!
-  else
-    silent CocUpdate
   end
 endfunction

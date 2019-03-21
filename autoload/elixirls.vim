@@ -27,15 +27,19 @@ function! elixirls#exists()
 endfunction
 
 function! elixirls#compile(...)
-  let l:commands = join([
-        \ 'mix local.hex --force',
-        \ 'mix local.rebar --force',
-        \ 'mix deps.get',
-        \ 'mix compile',
-        \ 'mix elixir_ls.release'
-        \ ], '&&')
+  if executable('mix')
+    let l:commands = join([
+          \ 'mix local.hex --force',
+          \ 'mix local.rebar --force',
+          \ 'mix deps.get',
+          \ 'mix compile',
+          \ 'mix elixir_ls.release'
+          \ ], '&&')
 
-  echom '>>> Compiling elixirls'
-  call system(l:commands)
-  echom '>>> elixirls compiled'
+    echom '>>> Compiling elixirls'
+    call system(l:commands)
+    echom '>>> elixirls compiled'
+  else
+    return
+  end
 endfunction

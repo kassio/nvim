@@ -7,7 +7,6 @@ call minpac#add('kassio/neoterm')
 
 call minpac#add('Shougo/neco-vim')
 
-call minpac#add('neoclide/coc.nvim', { 'rev': '*', 'do': { -> coc#util#install()} })
 call minpac#add('neoclide/coc-sources')
 call minpac#add('neoclide/coc-snippets')
 call minpac#add('neoclide/coc-neco')
@@ -16,10 +15,8 @@ call minpac#add('neoclide/coc-tsserver')
 call minpac#add('neoclide/coc-css')
 call minpac#add('neoclide/coc-solargraph')
 call minpac#add('neoclide/coc-yaml')
-
-if executable('mix')
-  call minpac#add('elixir-lsp/elixir-ls', { 'type': 'opt', 'do': { -> elixirls#compile() } })
-end
+call minpac#add('elixir-lsp/elixir-ls', { 'type': 'opt', 'do': { -> elixirls#compile() } })
+call minpac#add('neoclide/coc.nvim', { 'rev': '*', 'do': { -> coc#util#install()} })
 
 " Theme
 call minpac#add('chriskempson/base16-vim', { 'type': 'opt' })

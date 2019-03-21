@@ -20,7 +20,7 @@ command! FoldComments call fold#comments()
 command! RemoveComments silent call text#remove_comments()
 
 " Update packs
-command! PackUpdate call pack#load_and_update()
+command! -bang PackUpdate call pack#load_and_update()
 
 " Make current file executable
 command! Executable !chmod +x %
