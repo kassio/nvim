@@ -65,6 +65,7 @@ call minpac#add('othree/html5.vim')
 call minpac#add('mxw/vim-jsx')
 call minpac#add('othree/yajs.vim')
 call minpac#add('othree/es.next.syntax.vim')
+call minpac#add('tpope/vim-liquid')
 
 " Tomdoc
 call minpac#add('kassio/tomdoc.vim', { 'type': 'opt' })
