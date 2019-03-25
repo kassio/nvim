@@ -43,6 +43,7 @@ call minpac#add('junegunn/fzf.vim')
 " Git
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('mhinz/vim-signify')
+call minpac#add('rhysd/git-messenger.vim')
 
 " Comments
 call minpac#add('tpope/vim-commentary')
