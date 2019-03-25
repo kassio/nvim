@@ -10,7 +10,7 @@ let g:fzf_action = {
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit' }
 let g:fzf_tags_command = 'retag'
-
+let g:fzf_layout = { 'down': '100%', 'window': 'call FloatingFZF()' }
 
 command! FZFMru call fzf#run(fzf#wrap('MRU', { 'source':  MRUfiles() }))
 command! -bang -nargs=* Grep
@@ -24,8 +24,8 @@ nnoremap <silent> <c-\> :FZFMru<cr>
 nnoremap <silent> <c-n> :BLines<cr>
 nnoremap <silent> <c-j> :BTags<cr>
 nnoremap <silent> <c-k> :Buffers<cr>
-vnoremap <leader>as :<c-u>exec "Grep ".text#get_visual()<cr>
-nnoremap <leader>as :exec "Grep ".expand("<cword>")<cr>
+vnoremap <leader>as :<c-u>exec 'Grep '.text#get_visual()<cr>
+nnoremap <leader>as :exec 'Grep '.expand('<cword>')<cr>
 
 function! MRUfiles()
   let l:ignore = 'fugitive:\|NERD_tree\|^/tmp/\|.git/\|term:'
@@ -42,3 +42,23 @@ if has('nvim')
     au TermOpen term://*FZF tnoremap <silent> <buffer> <nowait> <esc> <c-c>
   aug END
 end
+
+function! FloatingFZF()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+
+  let winheight = winheight(0)
+  let winwidth = winwidth(0)
+
+  let width = float2nr(winwidth-(winwidth*2/10))
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': 1,
+        \ 'col': float2nr((winwidth-width)/2),
+        \ 'width': width,
+        \ 'height': winheight
+        \ }
+
+  call nvim_open_win(buf, v:true, opts)
+endfunction
