@@ -10,7 +10,7 @@ let g:fzf_action = {
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit' }
 let g:fzf_tags_command = 'retag'
-let g:fzf_layout = { 'down': '100%', 'window': 'call FloatingFZF()' }
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
 command! FZFMru call fzf#run(fzf#wrap('MRU', { 'source':  MRUfiles() }))
 command! -bang -nargs=* Grep
