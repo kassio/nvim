@@ -54,10 +54,10 @@ function! FloatingFZF()
 
   let opts = {
         \ 'relative': 'editor',
-        \ 'row': 1,
+        \ 'row': &lines - 3,
         \ 'col': float2nr((winwidth-width)/2),
         \ 'width': width,
-        \ 'height': winheight
+        \ 'height': &lines - 3
         \ }
 
   call nvim_open_win(buf, v:true, opts)
