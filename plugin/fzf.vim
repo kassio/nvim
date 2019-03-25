@@ -47,17 +47,17 @@ function! FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
   call setbufvar(buf, '&signcolumn', 'no')
 
-  let winheight = winheight(0)
-  let winwidth = winwidth(0)
-
-  let width = float2nr(winwidth-(winwidth*2/10))
+  let width = float2nr(&columns - (&columns * 2 / 10))
+  let height = &lines - 3
+  let y = height
+  let x = float2nr((&columns - width) / 2)
 
   let opts = {
         \ 'relative': 'editor',
-        \ 'row': &lines - 3,
-        \ 'col': float2nr((winwidth-width)/2),
+        \ 'row': y,
+        \ 'col': x,
         \ 'width': width,
-        \ 'height': &lines - 3
+        \ 'height': height
         \ }
 
   call nvim_open_win(buf, v:true, opts)
