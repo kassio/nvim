@@ -37,7 +37,6 @@ nnoremap t<c-]> :execute 'tab tag ' . expand('<cword>')<cr>
 nnoremap <c-w><c-]> :execute 'stag ' . expand('<cword>')<cr>
 nnoremap v<c-]> :execute 'vert stag ' . expand('<cword>')<cr>
 
-nnoremap K <nop>
 nnoremap Q <nop>
 nnoremap <up> <nop>
 nnoremap <down> <nop>
