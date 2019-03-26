@@ -2,7 +2,6 @@
 set runtimepath^=/usr/local/opt/fzf
 runtime plugin/fzf.vim
 
-let $FZF_DEFAULT_OPTS='--no-reverse'
 let g:fzf_history_dir = '~/.fzf-history'
 let g:fzf_buffers_jump = 1
 let g:fzf_action = {
@@ -10,6 +9,7 @@ let g:fzf_action = {
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit' }
 let g:fzf_tags_command = 'retag'
+let $FZF_DEFAULT_OPTS='--layout=reverse'
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
 command! FZFMru call fzf#run(fzf#wrap('MRU', { 'source':  MRUfiles() }))
@@ -43,19 +43,20 @@ if has('nvim')
   aug END
 end
 
+let $FZF_DEFAULT_OPTS='--layout=reverse'
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 function! FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
   call setbufvar(buf, '&signcolumn', 'no')
 
-  let width = float2nr(&columns - (&columns * 2 / 10))
   let height = &lines - 3
-  let y = height
-  let x = float2nr((&columns - width) / 2)
+  let width = float2nr(&columns - (&columns * 2 / 10))
+  let col = float2nr((&columns - width) / 2)
 
   let opts = {
         \ 'relative': 'editor',
-        \ 'row': y,
-        \ 'col': x,
+        \ 'row': 1,
+        \ 'col': col,
         \ 'width': width,
         \ 'height': height
         \ }
