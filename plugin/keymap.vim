@@ -1,6 +1,6 @@
 " faster esc
 inoremap <esc> <c-c>
-inoremap <C-U> <C-G>u<C-U>
+inoremap <c-u> <c-g>u<c-u>
 
 tnoremap <esc><esc> <c-\><c-n>
 

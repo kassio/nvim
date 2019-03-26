@@ -2,6 +2,8 @@
 set runtimepath^=/usr/local/opt/fzf
 runtime plugin/fzf.vim
 
+let $FZF_DEFAULT_OPTS='--layout=reverse'
+
 let g:fzf_history_dir = '~/.fzf-history'
 let g:fzf_buffers_jump = 1
 let g:fzf_action = {
@@ -9,15 +11,17 @@ let g:fzf_action = {
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit' }
 let g:fzf_tags_command = 'retag'
-let $FZF_DEFAULT_OPTS='--layout=reverse'
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
 command! FZFMru call fzf#run(fzf#wrap('MRU', { 'source':  MRUfiles() }))
 command! -bang -nargs=* Grep
-      \ call fzf#vim#ag(<q-args>,
-      \                 <bang>0 ? fzf#vim#with_preview('up:60%')
-      \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
-      \                 <bang>0)
+      \ call fzf#vim#ag(
+      \   <q-args>,
+      \   <bang>0 ?
+      \     fzf#vim#with_preview('up:60%') :
+      \     fzf#vim#with_preview('right:50%:hidden', '?'),
+      \   <bang>0
+      \ )
 
 nnoremap <silent> <c-p> :FZF --tiebreak=begin,length,index<cr>
 nnoremap <silent> <c-\> :FZFMru<cr>
@@ -36,21 +40,17 @@ function! MRUfiles()
   return filter(copy(l:files), { _, f -> f =~ l:pwd })
 endfunction
 
-if has('nvim')
-  aug user:autocmd:fzf
-    au!
-    au TermOpen term://*FZF tnoremap <silent> <buffer> <nowait> <esc> <c-c>
-  aug END
-end
+aug user:autocmd:fzf
+  au!
+  au TermOpen term://*FZF tnoremap <silent> <buffer> <nowait> <esc> <c-c>
+aug END
 
-let $FZF_DEFAULT_OPTS='--layout=reverse'
-let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 function! FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
   call setbufvar(buf, '&signcolumn', 'no')
 
-  let height = &lines - 3
-  let width = float2nr(&columns - (&columns * 2 / 10))
+  let height = &lines - ((&lines * 3) / 10)
+  let width = float2nr(&columns - ((&columns * 2) / 10))
   let col = float2nr((&columns - width) / 2)
 
   let opts = {

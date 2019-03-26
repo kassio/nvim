@@ -61,6 +61,9 @@ call minpac#add('sunaku/vim-ruby-minitest', { 'type': 'opt' })
 call minpac#add('slim-template/vim-slim')
 call minpac#add('tpope/vim-haml')
 
+" Elixir
+call minpac#add('elixir-editors/vim-elixir')
+
 " HTML, javascript, css, scss, less
 call minpac#add('othree/html5.vim')
 call minpac#add('mxw/vim-jsx')
@@ -73,9 +76,6 @@ call minpac#add('kassio/tomdoc.vim', { 'type': 'opt' })
 
 " Run tests from vim
 call minpac#add('janko-m/vim-test')
-
-" Elixir
-call minpac#add('elixir-editors/vim-elixir')
 
 " Update packages
 command! -bang PackUpdate call pack#update(<bang>0)
