@@ -47,7 +47,6 @@ aug END
 
 function! FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
-  call setbufvar(buf, '&signcolumn', 'no')
 
   let height = &lines - ((&lines * 3) / 10)
   let width = float2nr(&columns - ((&columns * 2) / 10))

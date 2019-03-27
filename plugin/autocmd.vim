@@ -22,6 +22,7 @@ aug user:autocmd
 
   au User FzfStatusLine call statusline#fzf#()
   au BufLeave *FZF q!
+  au FileType fzf set signcolumn=no
 
   au FileWritePre,BufWritePre * call buffer#trim()
 
