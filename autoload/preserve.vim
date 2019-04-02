@@ -1,5 +1,5 @@
 function! preserve#preserve(command) abort
-  setlocal lazyredraw
+  let l:winid = win_getid()
   let l:bufnr = bufnr('%')
   let l:last_view = winsaveview()
 
@@ -9,8 +9,8 @@ function! preserve#preserve(command) abort
     " noop
   finally
     exec printf('buffer %s', l:bufnr)
+    call win_gotoid(l:winid)
     call winrestview(l:last_view)
     redraw
-    setlocal nolazyredraw
   endtry
 endfunction
