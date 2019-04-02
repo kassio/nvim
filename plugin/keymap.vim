@@ -55,13 +55,5 @@ map <S-ScrollWheelDown> <C-D>
 nmap <leader>sn :call sign#goto('next')<cr>
 nmap <leader>sN :call sign#goto('previous')<cr>
 
-" Signs navigation
-" Lint signs
-nmap <leader>ln :ALENextWrap<cr>
-nmap <leader>lp :ALEPreviousWrap<cr>
-" Signify
-nmap <leader>gn <plug>(signify-next-hunk)
-nmap <leader>gp <plug>(signify-prev-hunk)
-
 " Command shortcuts/aliases
 cnoremap <c-b> P bufdo %s///ge<left><left><left><left>

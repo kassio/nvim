@@ -18,3 +18,7 @@ let g:ale_fixers = {
       \ 'elixir': ['mix_format']
       \}
 let g:ale_fix_on_save = 1
+
+" Lint signs
+nnoremap <leader>ln :ALENextWrap<cr>
+nnoremap <leader>lp :ALEPreviousWrap<cr>

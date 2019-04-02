@@ -43,6 +43,10 @@ endfunction
 aug user:autocmd:fzf
   au!
   au TermOpen term://*FZF tnoremap <silent> <buffer> <nowait> <esc> <c-c>
+
+  au User FzfStatusLine call statusline#fzf#()
+  au BufLeave *FZF q!
+  au FileType fzf set signcolumn=no
 aug END
 
 function! FloatingFZF()

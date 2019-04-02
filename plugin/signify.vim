@@ -16,3 +16,7 @@ omap is <plug>(signify-motion-inner-pending)
 xmap is <plug>(signify-motion-inner-visual)
 omap as <plug>(signify-motion-outer-pending)
 xmap as <plug>(signify-motion-outer-visual)
+
+" Signify
+nnoremap <leader>gn <plug>(signify-next-hunk)
+nnoremap <leader>gp <plug>(signify-prev-hunk)

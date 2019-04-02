@@ -20,10 +20,6 @@ aug user:autocmd
 
   au VimEnter,WinEnter,BufWinEnter,FileType,BufUnload,VimResized * call statusline#update()
 
-  au User FzfStatusLine call statusline#fzf#()
-  au BufLeave *FZF q!
-  au FileType fzf set signcolumn=no
-
   au FileWritePre,BufWritePre * call buffer#trim()
 
   au BufRead,BufNewFile *
@@ -31,11 +27,7 @@ aug user:autocmd
         \   let &filetype = 'javascript' |
         \ endif
 
-  if has('nvim')
-    au TermOpen * setlocal nonumber norelativenumber nocursorline bufhidden=hide
-  else
-    au BufWinEnter * if &buftype == 'terminal' | setlocal nonumber norelativenumber nocursorline bufhidden=hide | endif
-  end
+  au TermOpen * setlocal nonumber norelativenumber nocursorline bufhidden=hide
 
   au WinEnter * call window#focus()
   au WinLeave * call window#unfocus()
