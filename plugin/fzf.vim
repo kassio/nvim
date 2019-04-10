@@ -52,14 +52,15 @@ aug END
 function! FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
 
-  let height = &lines - ((&lines * 3) / 10)
-  let width = float2nr(&columns - ((&columns * 2) / 10))
-  let col = float2nr((&columns - width) / 2)
+  let height = float2nr(&lines * 0.9)
+  let width = float2nr(&columns * 0.8)
+  let horizontal = float2nr((&columns - width) / 2)
+  let vertical = 1
 
   let opts = {
         \ 'relative': 'editor',
-        \ 'row': 1,
-        \ 'col': col,
+        \ 'row': vertical,
+        \ 'col': horizontal,
         \ 'width': width,
         \ 'height': height
         \ }
