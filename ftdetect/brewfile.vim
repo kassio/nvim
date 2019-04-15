@@ -1,4 +1,6 @@
-au BufNewFile,BufRead Brewfile,.Brewfile call s:brewfile()
+aug brewfile
+  au BufNewFile,BufRead Brewfile,.Brewfile call s:brewfile()
+aug END
 
 function! s:brewfile()
   set filetype=brewfile syntax=brewfile
