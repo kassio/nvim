@@ -99,6 +99,8 @@ set mouse=a
 
 set fillchars=vert:┃
 
+set shadafile=NONE
+
 let &grepformat='%f:%l:%c:%m,%f:%l:%m'
 let &grepprg='ag --follow --smart-case --vimgrep --skip-vcs-ignores --hidden --nocolor'
 
