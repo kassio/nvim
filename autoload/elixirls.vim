@@ -29,6 +29,7 @@ endfunction
 function! elixirls#compile(...)
   if executable('mix')
     let l:commands = join([
+          \ 'asdf install',
           \ 'mix local.hex --force',
           \ 'mix local.rebar --force',
           \ 'mix deps.get',
