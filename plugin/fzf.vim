@@ -65,5 +65,5 @@ function! FloatingFZF()
         \ 'height': height
         \ }
 
-  call nvim_open_win(buf, v:true, opts)
+  call nvim_set_current_win(nvim_open_win(buf, v:true, opts))
 endfunction
