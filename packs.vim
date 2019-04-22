@@ -75,6 +75,9 @@ call minpac#add('tpope/vim-liquid')
 " Tomdoc
 call minpac#add('kassio/tomdoc.vim', { 'type': 'opt' })
 
+" Jenkins
+call minpac#add('martinda/Jenkinsfile-vim-syntax')
+
 " Run tests from vim
 call minpac#add('janko-m/vim-test')
 
