@@ -1,4 +1,8 @@
 function! test#elixir#run(scope)
+  if len(g:neoterm.instances) == 0
+    Tnew
+  end
+
   try
     let l:path = expand('%')
     let l:elixir_path_changed = 0
