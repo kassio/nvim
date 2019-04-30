@@ -1,17 +1,17 @@
-function! pack#load_and_update() abort
+function! pack#load_and_update(quit) abort
   execute printf('source %s', globpath(&runtimepath, 'packs.vim'))
-  call pack#update(0)
+  call pack#update(a:quit)
 endfunction
 
-function! pack#update(headless) abort
+function! pack#update(quit) abort
   packloadall
   call s:clean()
-  call minpac#update('', { 'do': {-> s:post_install(a:headless) } })
+  call minpac#update('', { 'do': {-> s:post_install(a:quit) } })
 endfunction
 
 " minpac#clean always require an User input to confirm the deletion of the
 " package, this is my hacky way to avoiding the input.
-" This is required because the input doesn't work in neovim headless mode,
+" This is required because the input doesn't work in neovim quit mode,
 " which is used in `bin/pack`
 function! s:clean()
   let l:packs = s:packages()
@@ -38,12 +38,19 @@ function! s:packages()
   return l:packs
 endfunction
 
-function! s:post_install(headless) abort
-  runtime! plugin/rplugin.vim
+function! s:post_install(quit) abort
+  silent runtime! plugin/rplugin.vim
   silent UpdateRemotePlugins
   silent CocUpdateSync
 
-  if a:headless
+  if a:quit
     qall!
   end
+endfunction
+
+function! pack#coc_install()
+  let l:cmdheight=&cmdheight
+  let &cmdheight=99
+  silent call coc#util#install()
+  let &cmdheight=l:cmdheight
 endfunction

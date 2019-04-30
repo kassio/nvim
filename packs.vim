@@ -17,7 +17,7 @@ call minpac#add('neoclide/coc-json')
 call minpac#add('neoclide/coc-solargraph')
 call minpac#add('neoclide/coc-yaml')
 call minpac#add('elixir-lsp/elixir-ls', { 'type': 'opt', 'do': { -> elixirls#compile() } })
-call minpac#add('neoclide/coc.nvim', { 'rev': '*', 'do': { -> coc#util#install()} })
+call minpac#add('neoclide/coc.nvim', { 'rev': '*', 'do': { -> pack#coc_install() } })
 
 " Theme
 call minpac#add('chriskempson/base16-vim', { 'type': 'opt' })

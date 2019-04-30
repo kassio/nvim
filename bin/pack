@@ -10,4 +10,5 @@ then
     "${minpac_path}/opt/minpac" 2> /dev/null
 fi
 
+echo 'Updating packs'
 nvim --noplugin --headless -u "${base}/packs.vim" +"PackUpdate!"

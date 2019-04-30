@@ -32,7 +32,7 @@ set showmatch noshowmode
 
 set confirm
 
-set shortmess=filnxctToOFI
+set shortmess=actToOFI
 
 set splitright splitbelow
 
