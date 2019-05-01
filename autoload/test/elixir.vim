@@ -8,8 +8,10 @@ function! test#elixir#run(scope)
     let l:elixir_path_changed = 0
 
     if l:path =~# '^apps/'
+      execute printf('lcd %s', join(split(l:path, '/')[0:1], '/'))
       let l:elixir_path_changed = 1
-      execute 'lcd '.join(split(l:path, '/')[0:1], '/')
+      call test#neoterm#scope(a:scope)
+    else
       call test#neoterm#scope(a:scope)
     end
 
