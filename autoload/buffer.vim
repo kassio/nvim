@@ -62,5 +62,6 @@ function! buffer#autosave() abort
 endfunction
 
 function! buffer#reset_synmaxcol() abort
-  let &synmaxcol = max(map(range(1, line('$')), "col([v:val, '$'])"))
+  let l:maxcol = max(map(range(1, line('$')), "col([v:val, '$'])"))
+  let &synmaxcol = l:maxcol < 200 ? 200 : l:maxcol
 endfunction
