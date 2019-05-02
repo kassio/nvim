@@ -10,4 +10,4 @@ hi def link ReposRemote Type
 hi def link ReposDivisor Number
 hi def link ReposPath Special
 
-let b:current_syntax = 'repos'
+let b:current_syntax = 'Reposfile'

@@ -1,7 +1,7 @@
 aug repos
-  au BufNewFile,BufRead repos,*-repos call s:reposfile()
+  au BufNewFile,BufRead Reposfile,Reposfile.* call s:reposfile()
 aug END
 
 function! s:reposfile()
-  set filetype=repos syntax=repos
+  set filetype=reposfile syntax=reposfile
 endfunction
