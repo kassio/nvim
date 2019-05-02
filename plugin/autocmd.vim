@@ -40,5 +40,5 @@ aug user:autocmd
   " Formatters
   au FileType javascript set formatprg=prettier-eslint\ --stdin
 
-  au BufReadPost,BufNewFile * call buffer#reset_synmaxcol()
+  au BufReadPost,BufNewFile,FileWritePost * call buffer#reset_synmaxcol()
 aug END
