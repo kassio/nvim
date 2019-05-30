@@ -64,6 +64,7 @@ call minpac#add('tpope/vim-haml')
 
 " Elixir
 call minpac#add('elixir-editors/vim-elixir')
+call minpac#add('andyl/vim-textobj-elixir')
 
 " HTML, javascript, css, scss, less
 call minpac#add('othree/html5.vim')
