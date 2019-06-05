@@ -1,0 +1,23 @@
+extends html, elixir
+
+snippet "[e=]" "" ir
+<%= ${0:${VISUAL}} %>
+endsnippet
+
+snippet "(er|-)" "" ir
+<% ${0:${VISUAL}} %>
+endsnippet
+
+snippet end
+<% end %>
+endsnippet
+
+snippet lt "" w
+<%= link_to ${0:${VISUAL}} %>
+endsnippet
+
+snippet b
+<% ${1:if $2} %>
+  ${0:${VISUAL}}
+<% end %>
+endsnippet
