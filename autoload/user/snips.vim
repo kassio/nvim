@@ -27,3 +27,11 @@ endfunction
 function! user#snips#end_comment() abort
   return substitute(util#comment_dict().end, '\s*$', '', 'g')
 endfunction
+
+function! user#snips#elixir_module()
+  let l:dirs = split(getcwd(), '/')
+  let l:dirs = l:dirs[index(l:dirs, 'lib'):-1]
+  let l:dirs = map(l:dirs, {i, dir -> s:camelcase(dir)})
+
+  return printf('%s.%s', join(l:dirs, '.'), user#snips#filename_camelized())
+endfunction

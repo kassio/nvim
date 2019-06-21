@@ -6,13 +6,13 @@ snippet #f "" b
 endsnippet
 
 snippet "cla(ss)?" "" br
-class ${1:`!v user#snips#filename_camelized()`}$2
+class ${1:`!v user#snips#filename_camelized()`}${2}
   ${0:${VISUAL}}
 end
 endsnippet
 
 snippet defi "def initialize()" b
-def initialize${1:($2)}
+def initialize${1:(${2})}
   `!p
 snip.rv = "\n".join(
   map(lambda x:
@@ -27,7 +27,7 @@ require 'byebug'; byebug
 endsnippet
 
 snippet def "def method()" b
-def ${1:name${2:($3)}}
+def ${1:name${2:(${3})}}
   ${0:${VISUAL}}
 end
 endsnippet
@@ -57,11 +57,11 @@ endsnippet
 snippet hr
 puts '${1:*}' * 80
 p ${0:${VISUAL}}
-puts '$1' * 80
+puts '${1}' * 80
 endsnippet
 
 snippet if
-if $1
+if ${1}
   ${0:${VISUAL}}
 end
 endsnippet

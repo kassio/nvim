@@ -13,11 +13,15 @@ snippet end
 endsnippet
 
 snippet lt "" w
-<%= link_to ${0:${VISUAL}} %>
+<%= link ${0:${VISUAL}} %>
 endsnippet
 
 snippet b
 <% ${1:if $2} %>
   ${0:${VISUAL}}
 <% end %>
+endsnippet
+
+snippet ins
+<%= ${0:${VISUAL}} |> inspect %>
 endsnippet
