@@ -50,8 +50,8 @@ snippet "put(s)?" "" wr
 IO.puts${1}
 endsnippet
 
-snippet "(IO.)?ins" "" wr
-IO.inspect${1}
+snippet "ins" "" wr
+${2:|> }IO.inspect(${0:${VISUAL}})${1}
 endsnippet
 
 snippet test "" b
