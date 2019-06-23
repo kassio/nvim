@@ -15,34 +15,33 @@ let g:ruby_operators = 1
 let g:ruby_space_errors = 1
 let g:ruby_spellcheck_strings = 1
 
-command! -range LetToVariable call user#ruby#let_to_variable(<line1>, <line2>)
-command! -range VariableToLet call user#ruby#variable_to_let(<line1>, <line2>)
+command! -range LetToVariable
+      \ call user#ruby#let_to_variable(<line1>, <line2>)
+command! -range VariableToLet
+      \ call user#ruby#variable_to_let(<line1>, <line2>)
 
-command! -range NewRubyHashSyntax call user#ruby#new_ruby_hash_syntax(<line1>, <line2>)
-command! -range OldRubyHashSyntax call user#ruby#old_ruby_hash_syntax(<line1>, <line2>)
+command! -range NewRubyHashSyntax
+      \ call user#ruby#new_ruby_hash_syntax(<line1>, <line2>)
+command! -range OldRubyHashSyntax
+      \ call user#ruby#old_ruby_hash_syntax(<line1>, <line2>)
 
-command! -range SymbolKeyToString call user#ruby#symbol_key_to_string(<line1>, <line2>)
-command! -range StringKeyToSymbol call user#ruby#string_key_to_symbol(<line1>, <line2>)
+command! -range SymbolKeyToString
+      \ call user#ruby#symbol_key_to_string(<line1>, <line2>)
+command! -range StringKeyToSymbol
+      \ call user#ruby#string_key_to_symbol(<line1>, <line2>)
 
-command! -range SymbolHashToString call user#ruby#symbol_hash_to_string(<line1>, <line2>)
-command! -range StringHashToSymbol call user#ruby#string_hash_to_symbol(<line1>, <line2>)
+command! -range SymbolHashToString
+      \ call user#ruby#symbol_hash_to_string(<line1>, <line2>)
+command! -range StringHashToSymbol
+      \ call user#ruby#string_hash_to_symbol(<line1>, <line2>)
 
-command! -range SymbolArray call user#ruby#symbol_array(<line1>, <line2>)
+command! -range SymbolArray
+      \ call user#ruby#symbol_array(<line1>, <line2>)
 
-command! Alternate call user#ruby#alternate_file(<q-mods>)
+command! Alternate
+      \ call user#ruby#alternate_file(<q-mods>)
 
-let s:block_start = '\(.*\<do\>\|^\s*\<if\>\).*$'
-let s:block_end = '^\s*\<end\>'
 call textobj#user#plugin('rubyblock', {
-      \   'block-i': {
-      \     'pattern': [s:block_start.'\n', s:block_end],
-      \     'select-i': 'iK',
-      \   },
-      \   'block-a': {
-      \     'pattern': [s:block_start, s:block_end.'\n'],
-      \     'select-a': 'aK',
-      \     'region-type': 'V'
-      \   },
       \   'erb': {
       \     'pattern': ['<%=\?\s\?', '\s\?%>'],
       \     'select-a': 'a=',
