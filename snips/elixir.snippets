@@ -1,13 +1,17 @@
 snippet "@mo(d(ule)?)?" "" r
-@moduledoc """
+@moduledoc ${1:"""
 ${0:${VISUAL}}
-"""
+"""}
 endsnippet
 
 snippet "@doc" ""
-@doc """
+@doc ${1:"""
 ${0:${VISUAL}}
-"""
+"""}
+endsnippet
+
+snippet fn "" w
+fn ${1} -> ${2} end
 endsnippet
 
 snippet do "" w
@@ -46,12 +50,18 @@ case ${1} do
 end
 endsnippet
 
+snippet cond "" w
+cond ${1} do
+  ${0:${VISUAL}}
+end
+endsnippet
+
 snippet "put(s)?" "" wr
 IO.puts${1}
 endsnippet
 
 snippet "ins" "" wr
-${2:|> }IO.inspect(${0:${VISUAL}})${1}
+${1:|> }IO.inspect(${0:${VISUAL}})${2}
 endsnippet
 
 snippet test "" b
@@ -67,5 +77,6 @@ end
 endsnippet
 
 snippet pry
-require IEx; IEx.pry
+require IEx
+IEx.pry
 endsnippet
