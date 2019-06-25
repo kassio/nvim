@@ -61,7 +61,7 @@ IO.puts${1}
 endsnippet
 
 snippet "ins" "" wr
-${1:|> }IO.inspect(${0:${VISUAL}})${2}
+IO.inspect(${0:${VISUAL}}${1:label: :HERE})${2}
 endsnippet
 
 snippet test "" b
