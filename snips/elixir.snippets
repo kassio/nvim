@@ -80,3 +80,7 @@ snippet pry
 require IEx
 IEx.pry
 endsnippet
+
+snippet st
+Process.info(self(), :current_stacktrace) |> IO.inspect(label: :stacktrace)
+endsnippet
