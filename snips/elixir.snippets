@@ -61,7 +61,7 @@ IO.puts${1}
 endsnippet
 
 snippet "ins" "" wr
-IO.inspect(${0:${VISUAL}}${1:label: :HERE})${2}
+IO.inspect(${0:${VISUAL}}${1:label: ${2::HERE}})${3}
 endsnippet
 
 snippet test "" b
@@ -82,5 +82,5 @@ IEx.pry
 endsnippet
 
 snippet st
-Process.info(self(), :current_stacktrace) |> IO.inspect(label: :stacktrace)
+Process.info(self(), :current_stacktrace) |> IO.inspect(${1:label: ${2::stacktrace}})
 endsnippet
