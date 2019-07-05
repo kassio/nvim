@@ -41,4 +41,6 @@ aug user:autocmd
   au FileType javascript set formatprg=prettier-eslint\ --stdin
 
   au BufReadPost,BufNewFile,FileWritePost * call buffer#reset_synmaxcol()
+
+  au BufRead,BufNewFile */playbooks/**/*.yml set filetype=yaml.ansible
 aug END

@@ -73,6 +73,8 @@ call minpac#add('othree/yajs.vim')
 call minpac#add('othree/es.next.syntax.vim')
 call minpac#add('tpope/vim-liquid')
 
+call minpac#add('pearofducks/ansible-vim')
+
 " Tomdoc
 call minpac#add('kassio/tomdoc.vim', { 'type': 'opt' })
 
