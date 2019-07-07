@@ -28,6 +28,7 @@ nnoremap <silent> <c-\> :FZFMru<cr>
 nnoremap <silent> <c-n> :BLines<cr>
 nnoremap <silent> <c-j> :BTags<cr>
 nnoremap <silent> <c-k> :Buffers<cr>
+nnoremap <silent> <c-y> :Ag<cr>
 vnoremap <leader>as :<c-u>exec 'Grep '.text#get_visual()<cr>
 nnoremap <leader>as :exec 'Grep '.expand('<cword>')<cr>
 
