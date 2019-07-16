@@ -17,7 +17,7 @@ function! user#snips#dirname_camelized() abort
 endfunction
 
 function! s:camelcase(s) abort
-  return substitute(a:s, '\v(^|_)(.)', '\U\2', 'g')
+  return substitute(a:s, '\v(^|_|-)(.)', '\U\2', 'g')
 endfunction
 
 function! user#snips#start_comment() abort
