@@ -29,9 +29,17 @@ function! user#snips#end_comment() abort
 endfunction
 
 function! user#snips#elixir_module()
-  let l:dirs = split(getcwd(), '/')
-  let l:dirs = l:dirs[index(l:dirs, 'lib'):-1]
-  let l:dirs = map(l:dirs, {i, dir -> s:camelcase(dir)})
+  let l:dirs = split(expand('%'), '/')
 
-  return printf('%s.%s', join(l:dirs, '.'), user#snips#filename_camelized())
+  if l:dirs[0] ==# 'lib'
+    let l:dirs = map(l:dirs[1:-2], {i, dir -> s:camelcase(dir)})
+    let l:namespace = join(l:dirs, '.')
+
+    return printf('%s.%s', l:namespace, user#snips#filename_camelized())
+  else
+    return user#snips#filename_camelized()
+  end
+endfunction
+
+function! s:elixir_module_dirs()
 endfunction
