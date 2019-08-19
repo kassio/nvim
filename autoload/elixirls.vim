@@ -2,10 +2,7 @@ let g:elixirls = {}
 
 function! elixirls#path()
   if !has_key(g:elixirls, 'path')
-    let g:elixirls.path = printf(
-          \ '%s/%s',
-          \ stdpath('config'),
-          \ 'pack/minpac/opt/elixir-ls')
+    let g:elixirls.path = '$HOME/.config/nvim/pack/minpac/opt/elixir-ls'
   end
 
   return g:elixirls.path

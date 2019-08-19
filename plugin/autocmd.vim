@@ -27,7 +27,11 @@ aug user:autocmd
         \   let &filetype = 'javascript' |
         \ endif
 
-  au TermOpen * setlocal nonumber norelativenumber nocursorline bufhidden=hide
+  if exists('#TermOpen')
+    au TermOpen * setlocal nonumber norelativenumber nocursorline bufhidden=hide
+  elseif exists('#TerminalOpen')
+    au TerminalOpen * setlocal nonumber norelativenumber nocursorline bufhidden=hide
+  end
 
   au WinEnter * call window#focus()
   au WinLeave * call window#unfocus()

@@ -11,7 +11,10 @@ let g:fzf_action = {
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit' }
 let g:fzf_tags_command = 'retag'
-let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
+if has('nvim')
+  let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+end
 
 command! FZFMru call fzf#run(fzf#wrap('MRU', { 'source':  MRUfiles() }))
 command! -bang -nargs=* Grep
@@ -43,7 +46,11 @@ endfunction
 
 aug user:autocmd:fzf
   au!
-  au TermOpen term://*FZF tnoremap <silent> <buffer> <nowait> <esc> <c-c>
+  if exists('#TermOpen')
+    au TermOpen term://*FZF tnoremap <silent> <buffer> <nowait> <esc> <c-c>
+  elseif exists('#TerminalOpen')
+    au TerminalOpen term://*FZF tnoremap <silent> <buffer> <nowait> <esc> <c-c>
+  end
 
   au User FzfStatusLine call statusline#fzf#()
   au BufLeave *FZF q!

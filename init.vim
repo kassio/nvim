@@ -20,8 +20,12 @@ if !has('nvim')
   set ttyfast
   set viminfo^=!
   set belloff=all
+  set wildmenu
+  set wildmode=list:longest
 else
   set inccommand=nosplit
+  set wildoptions=pum
+  set pumblend=20
 end
 
 set autowriteall
@@ -61,9 +65,7 @@ set tags=tags,tags.gems
 set tagcase=followscs
 
 set wildignorecase
-set wildoptions=pum
 
-set pumblend=20
 set wildignore=*.zip,*.gz,*.bz,*.tar
 set wildignore+=*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
 
