@@ -31,6 +31,8 @@ aug user:autocmd
     au TermOpen * setlocal nonumber norelativenumber nocursorline bufhidden=hide
   elseif exists('#TerminalOpen')
     au TerminalOpen * setlocal nonumber norelativenumber nocursorline bufhidden=hide
+  else
+    echoe 'Deu ruim'
   end
 
   au WinEnter * call window#focus()

@@ -47,9 +47,9 @@ endfunction
 aug user:autocmd:fzf
   au!
   if exists('#TermOpen')
-    au TermOpen term://*FZF tnoremap <silent> <buffer> <nowait> <esc> <c-c>
+    au TermOpen term://*FZF tnoremap <silent> <buffer> <nowait> <esc> <c-c><c-c>
   elseif exists('#TerminalOpen')
-    au TerminalOpen term://*FZF tnoremap <silent> <buffer> <nowait> <esc> <c-c>
+    au TerminalOpen term://*FZF tnoremap <silent> <buffer> <nowait> <esc> <c-c><c-c>
   end
 
   au User FzfStatusLine call statusline#fzf#()
@@ -73,6 +73,7 @@ function! FloatingFZF()
         \ 'height': height
         \ }
 
-  call nvim_buf_set_keymap(buf, 'n', '<esc>', ':close<cr>', {'nowait': v:true})
+  call nvim_buf_set_keymap(buf, 'i', '<esc>', ':close!<cr>', {'nowait': v:true})
+  call nvim_buf_set_keymap(buf, 'n', '<esc>', ':close!<cr>', {'nowait': v:true})
   call nvim_set_current_win(nvim_open_win(buf, v:true, opts))
 endfunction
