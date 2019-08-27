@@ -11,4 +11,4 @@ then
 fi
 
 echo 'Updating packs'
-nvim --noplugin --headless -u "${base}/packs.vim" +"PackUpdate!"
+nvim --noplugin -u "${base}/packs.vim" +"PackUpdate!"
