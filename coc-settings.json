@@ -1,4 +1,12 @@
 {
   "suggest.enablePreview": true,
-  "suggest.snippetIndicator": "☀︎ "
+  "suggest.snippetIndicator": "☀︎ ",
+  "codeLens.enable": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "eelixir",
+    "elixir",
+    "js",
+    "json",
+    "ruby"
+  ]
 }
