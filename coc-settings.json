@@ -1,7 +1,6 @@
 {
   "suggest.enablePreview": true,
   "suggest.snippetIndicator": "☀︎ ",
-  "codeLens.enable": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "eelixir",
     "elixir",
