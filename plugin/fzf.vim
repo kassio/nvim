@@ -47,9 +47,9 @@ endfunction
 aug user:autocmd:fzf
   au!
   if exists('#TermOpen')
-    au TermOpen term://*FZF tnoremap <silent> <buffer> <nowait> <esc> <c-c><c-c>
+    au TermOpen term://*FZF tnoremap <silent> <buffer> <nowait> <esc> <c-c><c-c><c-c><c-c>
   elseif exists('#TerminalOpen')
-    au TerminalOpen term://*FZF tnoremap <silent> <buffer> <nowait> <esc> <c-c><c-c>
+    au TerminalOpen term://*FZF tnoremap <silent> <buffer> <nowait> <esc> <c-c><c-c><c-c><c-c>
   end
 
   au User FzfStatusLine call statusline#fzf#()
