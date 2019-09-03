@@ -1,7 +1,7 @@
 set termguicolors
 set lazyredraw
 set regexpengine=2
-set colorcolumn=80
+set colorcolumn=80,120
 set synmaxcol=200
 syntax sync minlines=512
 
