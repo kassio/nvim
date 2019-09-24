@@ -1,6 +1,6 @@
-command! -nargs=* Gco call git#checkout(<q-args>)
-command! Gopen call git#open_url()
+command! -nargs=* Grt call git#restore(<q-args>)
+command! Gremote call git#remote()
 
 cabbrev Gw Gwrite
 cabbrev Gd Gdiff
-cabbrev Go Gopen
+cabbrev Gh Gremote

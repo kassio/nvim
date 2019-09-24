@@ -1,4 +1,4 @@
-function! git#checkout(...) abort
+function! git#restore(...) abort
   if a:0 && (a:1 ==# '%' || a:1 ==# '')
     exec '!git restore ' . expand('%:p')
   else
@@ -7,7 +7,7 @@ function! git#checkout(...) abort
   edit
 endfunction
 
-function! git#open_url()
+function! git#remote()
   let l:file = expand('%')
   let l:branch = trim(system('git symbolic-ref --short HEAD'))
   let l:remote = trim(system('git remote get-url origin'))
