@@ -10,3 +10,6 @@ set synmaxcol=200
 let g:onedark_hide_endofbuffer=1
 let g:onedark_termcolors=256
 colorscheme onedark
+
+hi! NormalFloat guibg=#323740
+hi! VertSplit guibg=NONE guifg=#323740 gui=NONE term=NONE cterm=NONE
