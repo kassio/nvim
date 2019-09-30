@@ -20,7 +20,7 @@ call minpac#add('elixir-lsp/elixir-ls', { 'type': 'opt', 'do': { -> elixirls#com
 call minpac#add('neoclide/coc.nvim', { 'rev': '*', 'do': { -> pack#coc_install() } })
 
 " Theme
-call minpac#add('chriskempson/base16-vim', { 'type': 'opt' })
+call minpac#add('joshdick/onedark.vim')
 
 " Linting
 call minpac#add('w0rp/ale')
