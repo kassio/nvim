@@ -55,34 +55,15 @@ call minpac#add('sirver/ultisnips')
 " Markdown
 call minpac#add('tpope/vim-markdown')
 
-" Ruby
-call minpac#add('vim-ruby/vim-ruby')
-call minpac#add('Keithbsmiley/rspec.vim', { 'type': 'opt' })
-call minpac#add('sunaku/vim-ruby-minitest', { 'type': 'opt' })
-call minpac#add('slim-template/vim-slim')
-call minpac#add('tpope/vim-haml')
-
-" Elixir
-call minpac#add('elixir-editors/vim-elixir')
 call minpac#add('andyl/vim-textobj-elixir')
-
-" HTML, javascript, css, scss, less
-call minpac#add('othree/html5.vim')
-call minpac#add('mxw/vim-jsx')
-call minpac#add('othree/yajs.vim')
-call minpac#add('othree/es.next.syntax.vim')
-call minpac#add('tpope/vim-liquid')
-
-call minpac#add('pearofducks/ansible-vim')
 
 " Tomdoc
 call minpac#add('kassio/tomdoc.vim', { 'type': 'opt' })
 
-" Jenkins
-call minpac#add('martinda/Jenkinsfile-vim-syntax')
-
 " Run tests from vim
 call minpac#add('janko-m/vim-test')
+
+call minpac#add('sheerun/vim-polyglot')
 
 " Update packages
 command! -bang PackUpdate call pack#update(<bang>0)
