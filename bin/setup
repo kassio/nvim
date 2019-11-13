@@ -18,8 +18,6 @@ for-each-ruby gem install neovim > /dev/null
 for-each-ruby gem install rcodetools > /dev/null
 
 header "linters"
-item "rubocop" && \
-  for-each-ruby gem install rubocop > /dev/null
 item "scss_lint" && \
   for-each-ruby gem install scss_lint > /dev/null
 item "eslint" && \

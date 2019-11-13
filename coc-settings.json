@@ -4,8 +4,9 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "eelixir",
     "elixir",
-    "js",
+    "eruby",
+    "javascript",
     "json",
-    "ruby"
+    "ruby",
   ]
 }
