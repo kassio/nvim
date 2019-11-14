@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-which for-each-ruby > /dev/null || { echo >&2 "for-each-ruby not found!" && exit -1; }
+command -v for-each-ruby > /dev/null \
+  || { echo "for-each-ruby not found!" >&2 && exit 1; }
 
-header() { echo -e "🔹  $@"; }
-item() { echo -e "\t☀️  $@"; }
+header() { echo -e "🔹  $*"; }
+item() { echo -e "\t☀️  $*"; }
 
 header "lua dependency"
 brew install lua > /dev/null
@@ -38,4 +39,4 @@ item "prettier-eslint" && \
   npm install --global prettier-eslint prettier-eslint-cli > /dev/null
 
 header "updating vim packs"
-bash $(dirname ${0})/pack > /dev/null
+bash "$(dirname "${0}")/pack" > /dev/null
