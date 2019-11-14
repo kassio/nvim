@@ -1,7 +1,4 @@
-let g:ruby_path=system('echo "${RBENV_ROOT}/versions/$(rbenv version-name)/bin/ruby"')
-
-" Ruby Completion
-setlocal omnifunc=syntaxcomplete#Complete
+let g:ruby_path=system('echo "${ASDF_USER_SHIMS}/ruby"')
 
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1

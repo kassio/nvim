@@ -11,6 +11,8 @@ let g:ale_sign_warning = g:sign_warning
 let g:ale_sign_style_warning = 's'
 let g:ale_sign_info = g:sign_info
 
+let g:ale_linters = {'ruby': ['standardrb']}
+
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
       \ 'elixir': ['mix_format'],
