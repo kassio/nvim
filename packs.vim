@@ -62,6 +62,9 @@ call minpac#add('kassio/tomdoc.vim', { 'type': 'opt' })
 " Run tests from vim
 call minpac#add('janko-m/vim-test')
 
+" Match pairs
+call minpac#add('andymass/vim-matchup')
+
 call minpac#add('sheerun/vim-polyglot')
 
 " Update packages
