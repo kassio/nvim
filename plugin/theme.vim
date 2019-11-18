@@ -19,8 +19,6 @@ hi! StatusLine ctermbg=237 guibg=#3E4452
 hi! LineNr guibg=NONE
 hi! SignColumn guibg=NONE
 
-hi! EndOfBuffer guibg=NONE guifg=#1B2B34 gui=NONE term=NONE cterm=NONE
-
 hi! SignError gui=bold guifg=#EC5F67 guibg=NONE
 hi! SignWarning gui=bold guifg=#FAC863 guibg=NONE
 hi! SignInfo gui=bold guifg=#6699CC guibg=NONE
@@ -70,3 +68,5 @@ hi! link ALEStyleErrorSign SignError
 
 hi! ALEError guibg=NONE guifg=NONE
 hi! ALEWarning guibg=NONE guifg=NONE
+
+hi! MatchParen gui=bold guifg=NONE guibg=NONE
