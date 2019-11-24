@@ -32,8 +32,8 @@ function! text#escape_all(text) abort
   return substitute(escape(a:text, '#*^$.?/\|{[()]}'), '\n', '\\n', 'g')
 endfunction
 
-function! text#remove_comments() abort
-  let l:comments = printf('^\s*%s', util#comment_dict().begin)
-  execute printf('global/%s/d', l:comments)
-  execute 'global/^\_s$/d'
+function! text#remove_comments(line1, line2) abort
+  let l:comments = printf('^\s*%s.*', util#comment_dict().begin)
+  execute printf('%s,%ss;%s;;', a:line1, a:line2, l:comments)
+  execute printf('%s,%sglobal;^\_s$;d', a:line1, a:line2)
 endfunction
