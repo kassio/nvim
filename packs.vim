@@ -7,6 +7,9 @@ call minpac#add('kassio/neoterm')
 
 call minpac#add('Shougo/neco-vim')
 
+call minpac#add('sheerun/vim-polyglot')
+call minpac#add('prettier/vim-prettier', { 'do': 'yarn install' })
+
 call minpac#add('neoclide/coc-sources')
 call minpac#add('neoclide/coc-snippets')
 call minpac#add('neoclide/coc-neco')
@@ -64,8 +67,6 @@ call minpac#add('janko-m/vim-test')
 
 " Match pairs
 call minpac#add('andymass/vim-matchup')
-
-call minpac#add('sheerun/vim-polyglot')
 
 " Update packages
 command! -bang PackUpdate call pack#update(<bang>0)

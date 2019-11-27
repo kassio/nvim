@@ -35,6 +35,7 @@ item "solargraph (ruby)" && \
 header "formatters"
 item "prettier" && \
   npm install --global prettier > /dev/null
+  npm install --global standard > /dev/null
 item "prettier-eslint" && \
   npm install --global prettier-eslint prettier-eslint-cli > /dev/null
 
