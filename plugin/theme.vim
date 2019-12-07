@@ -4,7 +4,7 @@ set background=dark
 set termguicolors
 set lazyredraw
 set regexpengine=2
-set colorcolumn=80,120
+set colorcolumn=80,100,120
 set synmaxcol=200
 
 let g:onedark_hide_endofbuffer=1
