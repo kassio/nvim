@@ -73,7 +73,14 @@ function! FloatingFZF()
         \ 'height': height
         \ }
 
-  call nvim_buf_set_keymap(buf, 'i', '<esc>', ':close!<cr>', {'nowait': v:true})
-  call nvim_buf_set_keymap(buf, 'n', '<esc>', ':close!<cr>', {'nowait': v:true})
+  call nvim_buf_set_keymap(buf, '', '<esc>', ':close!<cr>', {'nowait': v:true})
   call nvim_set_current_win(nvim_open_win(buf, v:true, opts))
+
+  setlocal
+        \ buftype=nofile
+        \ nobuflisted
+        \ bufhidden=hide
+        \ nonumber
+        \ norelativenumber
+        \ signcolumn=no
 endfunction
