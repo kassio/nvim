@@ -25,7 +25,6 @@ if !has('nvim')
 else
   set inccommand=nosplit
   set wildoptions=pum
-  set pumblend=20
 end
 
 set autowriteall
