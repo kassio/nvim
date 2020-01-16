@@ -32,6 +32,9 @@ header "language servers"
 item "solargraph (ruby)" && \
   gem install solargraph
 
+item "standard (ruby)" && \
+  gem install standard
+
 header "formatters"
 item "prettier" && \
   npm install --global prettier > /dev/null
