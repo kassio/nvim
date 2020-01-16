@@ -34,6 +34,6 @@ endfunction
 
 function! text#remove_comments(line1, line2) abort
   let l:comments = printf('^\s*%s.*', util#comment_dict().begin)
-  execute printf('%s,%sglobal;%s;d', a:line1, a:line2, l:comments)
+  execute printf('%s,%sv/^#!/s;%s;;', a:line1, a:line2, l:comments)
   execute printf('global;^\_s$;d')
 endfunction
