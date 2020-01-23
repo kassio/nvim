@@ -70,3 +70,7 @@ hi! ALEError guibg=NONE guifg=NONE
 hi! ALEWarning guibg=NONE guifg=NONE
 
 hi! MatchParen gui=bold guifg=NONE guibg=NONE
+
+hi! SpellCap ctermfg=NONE guifg=NONE
+hi! SpellRare ctermfg=NONE guifg=NONE
+hi! SpellLocal ctermfg=NONE guifg=NONE

@@ -18,7 +18,6 @@ call minpac#add('neoclide/coc-tsserver')
 call minpac#add('neoclide/coc-css')
 call minpac#add('neoclide/coc-json')
 call minpac#add('neoclide/coc-yaml')
-call minpac#add('elixir-lsp/elixir-ls', { 'type': 'opt', 'do': { -> elixirls#compile() } })
 call minpac#add('neoclide/coc.nvim', { 'rev': '*', 'do': { -> pack#coc_install() } })
 
 " Theme
@@ -56,8 +55,6 @@ call minpac#add('sirver/ultisnips')
 
 " Markdown
 call minpac#add('tpope/vim-markdown')
-
-call minpac#add('andyl/vim-textobj-elixir')
 
 " Tomdoc
 call minpac#add('kassio/tomdoc.vim', { 'type': 'opt' })

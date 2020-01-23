@@ -84,8 +84,8 @@ set nobackup nowritebackup noswapfile
 
 set ttimeout
 
-set spelllang=en,pt
 set spell
+set spelllang=en
 
 set undofile undoreload=10000
 
