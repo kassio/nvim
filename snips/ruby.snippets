@@ -22,8 +22,12 @@ snip.rv = "\n".join(
 end
 endsnippet
 
-snippet "deb(ug)?" "" r
+snippet "deb(ug)?" "require 'byebug'; byebug" r
 require 'byebug'; byebug
+endsnippet
+
+snippet bpry "binding.pry" w
+binding.pry
 endsnippet
 
 snippet def "def method()" b
