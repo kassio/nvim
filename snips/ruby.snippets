@@ -64,6 +64,10 @@ p ${0:${VISUAL}}
 puts '$1' * 80
 endsnippet
 
+snippet pm "" b
+puts "#{self}.#{__method__}"
+endsnippet
+
 snippet if
 if $1
   ${0:${VISUAL}}
