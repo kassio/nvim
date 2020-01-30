@@ -9,10 +9,12 @@ nnoremap <c-l> :nohlsearch<cr><c-l>
 
 " Delete current buffer
 nnoremap <leader>bd :call buffer#kill()<cr>
+" Delete all other buffers
+nnoremap <leader>bo :call buffer#kill_others()<cr>
 " Delete all buffers
-nnoremap <leader>da :call buffer#killall()<cr>
-" Wipe all buffers
-nnoremap <leader>wa :call buffer#wipeall()<cr>
+nnoremap <leader>da :call buffer#kill_all()<cr>
+" Delete all unlisted/unloaded buffers
+nnoremap <leader>wa :call buffer#kill_unlisted()<cr>
 
 nnoremap g# #
 nnoremap g* *

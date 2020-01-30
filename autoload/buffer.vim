@@ -14,7 +14,7 @@ function! buffer#kill() abort
   end
 endfunction
 
-function! buffer#killall() abort
+function! buffer#kill_all() abort
   let l:buffers = buffer#user_buffers()
 
   if !empty(l:buffers)
@@ -22,7 +22,17 @@ function! buffer#killall() abort
   end
 endfunction
 
-function! buffer#wipeall() abort
+function! buffer#kill_others() abort
+  let l:buffers = buffer#user_buffers({ bufid ->
+        \ bufid != bufnr('%')
+        \ })
+
+  if !empty(l:buffers)
+    exec 'bw! '. join(l:buffers, ' ')
+  end
+endfunction
+
+function! buffer#kill_unlisted() abort
   let l:buffers = buffer#user_buffers({ bufid ->
         \   !buflisted(bufid) ||
         \   !bufloaded(bufid) ||
@@ -41,7 +51,6 @@ function! buffer#user_buffers(...) abort
   return filter(copy(l:buffers), { _, bufid ->
         \   bufexists(bufid) &&
         \   bufname(bufid) !~# 'NERD_tree' &&
-        \   bufname(bufid) !~# 'term:.*' &&
         \   l:ExtraFilters(bufid)
         \ })
 endfunction
