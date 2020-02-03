@@ -4,6 +4,7 @@ call minpac#init()
 call minpac#add('k-takata/minpac', { 'type': 'opt' })
 
 call minpac#add('kassio/neoterm')
+call minpac#add('janko-m/vim-test')
 
 call minpac#add('Shougo/neco-vim')
 
@@ -53,14 +54,8 @@ call minpac#add('tpope/vim-commentary')
 " Snippets
 call minpac#add('sirver/ultisnips')
 
-" Markdown
-call minpac#add('tpope/vim-markdown')
-
 " Tomdoc
 call minpac#add('kassio/tomdoc.vim', { 'type': 'opt' })
-
-" Run tests from vim
-call minpac#add('janko-m/vim-test')
 
 " Match pairs
 call minpac#add('andymass/vim-matchup')
