@@ -5,20 +5,12 @@ velit esse cillum dolore eu fugiat nulla pariatur.  Excepteur sint occaecat cupi
 culpa qui officia deserunt mollit anim id est laborum${1}
 endsnippet
 
-snippet note
-`!v user#snips#start_comment()` ${1:TODO}${3: `date +%Y/%m/%d`}: ${4}
-endsnippet
-
 snippet today
 `date +%Y/%m/%d`
 endsnippet
 
 snippet now
 `date +'%Y-%m-%d %H:%M:%S'`
-endsnippet
-
-snippet tdoc "" b
-`!v user#snips#start_comment()` ${1:Public}: ${2}
 endsnippet
 
 snippet todo "" b
@@ -28,3 +20,9 @@ endsnippet
 snippet #! "" b
 #!/usr/bin/env ${1:bash}
 endsnippet
+
+snippet vim "" b
+`!v user#snips#start_comment()` vim:${1:ft=zsh}:
+endsnippet
+
+# vim:ft=snippets
