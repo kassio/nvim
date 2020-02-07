@@ -1,3 +1,9 @@
 snippet p
 fmt.Printf("[KBM] ${1:%s}\n", $2)
 endsnippet
+
+snippet "f(unc)?" "" br
+func $1($2) {
+	${0:${VISUAL}}
+}
+endsnippet
