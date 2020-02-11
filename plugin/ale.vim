@@ -14,16 +14,18 @@ let g:ale_sign_style_warning = 's'
 let g:ale_sign_info = g:sign_info
 
 let g:ale_linters = {
-      \ 'ruby': ['standardrb'],
+      \ 'go': ['gofmt', 'golint'],
       \ 'javascript': ['standard'],
+      \ 'ruby': ['standardrb'],
       \}
 
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \ 'css': ['prettier'],
       \ 'elixir': ['mix_format'],
+      \ 'go': ['gofmt'],
       \ 'javascript': ['standard'],
       \ 'json': ['prettier'],
-      \ 'css': ['prettier'],
       \ 'ruby': ['standardrb'],
       \ }
 
