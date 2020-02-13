@@ -100,6 +100,8 @@ set mouse=a
 
 set fillchars=vert:┃
 
+set maxmempattern=10000
+
 let &grepformat='%f:%l:%c:%m,%f:%l:%m'
 let &grepprg='ag --follow --smart-case --vimgrep --skip-vcs-ignores --hidden --nocolor'
 
