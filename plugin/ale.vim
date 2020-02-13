@@ -17,6 +17,7 @@ let g:ale_linters = {
       \ 'go': ['gofmt', 'golint'],
       \ 'javascript': ['standard'],
       \ 'ruby': ['standardrb'],
+      \ 'sh': ['shellcheck'],
       \}
 
 let g:ale_fixers = {
@@ -27,7 +28,10 @@ let g:ale_fixers = {
       \ 'javascript': ['standard'],
       \ 'json': ['prettier'],
       \ 'ruby': ['standardrb'],
+      \ 'sh': ['shfmt']
       \ }
+
+let g:ale_sh_shfmt_options = '-i 2 -ci -sr'
 
 if getcwd() =~# expand('$HOME/src/rails')
   let g:ale_fixers['ruby'] = []
