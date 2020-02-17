@@ -38,7 +38,7 @@ call minpac#add('wellle/targets.vim')
 call minpac#add('kana/vim-textobj-user')
 
 " File tree
-call minpac#add('scrooloose/nerdtree')
+call minpac#add('justinmk/vim-dirvish')
 
 " FZF improvements
 call minpac#add('junegunn/fzf.vim')
