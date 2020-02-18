@@ -9,7 +9,6 @@ call minpac#add('janko-m/vim-test')
 call minpac#add('Shougo/neco-vim')
 
 call minpac#add('sheerun/vim-polyglot')
-call minpac#add('prettier/vim-prettier', { 'do': 'yarn install' })
 
 call minpac#add('neoclide/coc-sources')
 call minpac#add('neoclide/coc-snippets')
