@@ -36,7 +36,7 @@ vnoremap <leader>as :<c-u>exec 'Grep '.text#get_visual()<cr>
 nnoremap <leader>as :exec 'Grep '.expand('<cword>')<cr>
 
 function! MRUfiles()
-  let l:ignore = 'fugitive:\|NERD_tree\|^/tmp/\|.git/\|term:'
+  let l:ignore = 'fugitive:\|^/tmp/\|.git/\|term:'
   let l:files = extend(
         \ filter(copy(v:oldfiles), { _, f -> f !~ l:ignore }),
         \ map(filter(range(1, bufnr('$')), { _, f -> buflisted(f) }), { _, f -> bufname(f) }))

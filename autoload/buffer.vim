@@ -7,7 +7,7 @@ function! buffer#restore_cursor_position() abort
 endfunction
 
 function! buffer#kill() abort
-  if &filetype =~? 'nerdtree' || &filetype =~? 'neoterm'
+  if &filetype =~? 'neoterm'
     close
   else
     bwipeout!
@@ -50,7 +50,6 @@ function! buffer#user_buffers(...) abort
 
   return filter(copy(l:buffers), { _, bufid ->
         \   bufexists(bufid) &&
-        \   bufname(bufid) !~# 'NERD_tree' &&
         \   l:ExtraFilters(bufid)
         \ })
 endfunction
