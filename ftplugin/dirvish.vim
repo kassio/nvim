@@ -1,4 +1,5 @@
 setlocal nonumber norelativenumber
+setlocal nospell
 
 nnoremap <nowait><buffer><buffer> h :keeppatterns g@\v/\.[^\/]+/?$@d<cr>
 nmap     <nowait><buffer><buffer> <C-R> R
