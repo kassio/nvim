@@ -1,14 +1,24 @@
 #!/usr/bin/env bash
 
-base="$(dirname $0)/.."
-minpac_path="${base}/pack/minpac"
+__pack() {
+  local cmd
+  case "$1" in
+    -u | --update)
+      cmd="PlugUpdate!"
+      ;;
+    *)
+      cmd="PlugInstall!"
+      ;;
+  esac
 
-if [ ! -d ${minpac_path} ]
-then
-  echo 'Downloading minpac'
-  git clone https://github.com/k-takata/minpac.git \
-    "${minpac_path}/opt/minpac" 2> /dev/null
+  nvim --noplugin +"silent PlugUpgrade" +"silent ${cmd}" +"qall!"
+}
+
+plug="${HOME}/.local/share/nvim/site/autoload/plug.vim"
+
+if [ ! -f "${plug}" ]; then
+  curl -sfLo "${plug}" --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-echo 'Updating packs'
-nvim --noplugin -u "${base}/packs.vim" +"PackUpdate!"
+__pack "$@"

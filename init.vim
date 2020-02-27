@@ -1,31 +1,8 @@
-if !has('nvim')
-  unlet! g:skip_defaults_vim
-  source $VIMRUNTIME/defaults.vim
+scriptencoding utf8
+source $HOME/.config/nvim/plugin.vim
 
-  packadd matchit
-
-  set encoding=utf8 termencoding=utf8 nobomb
-  scriptencoding utf8
-
-  set autoread autowriteall
-  set autoindent
-  set display=lastline
-  set formatoptions=tcqj
-  set history=10000
-  set hlsearch
-  set laststatus=2
-  set listchars=tab:>\ ,trail:-,nbsp:+
-  set smarttab
-  set tabpagemax=50
-  set ttyfast
-  set viminfo^=!
-  set belloff=all
-  set wildmenu
-  set wildmode=list:longest
-else
-  set inccommand=nosplit
-  set wildoptions=pum
-end
+set inccommand=nosplit
+set wildoptions=pum
 
 set autowriteall
 

@@ -27,12 +27,10 @@ aug user:autocmd
         \   let &filetype = 'javascript' |
         \ endif
 
-  if exists('#TermOpen')
-    au TermOpen * setlocal nonumber norelativenumber nocursorline bufhidden=hide
-  elseif exists('#TerminalOpen')
+  if exists('#TerminalOpen')
     au TerminalOpen * setlocal nonumber norelativenumber nocursorline bufhidden=hide
   else
-    echoe 'Deu ruim'
+    au TermOpen * setlocal nonumber norelativenumber nocursorline bufhidden=hide
   end
 
   au WinEnter * call window#focus()
