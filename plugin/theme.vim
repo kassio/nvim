@@ -72,7 +72,11 @@ hi! ALEWarning guibg=NONE guifg=NONE
 
 hi! MatchParen gui=bold guifg=NONE guibg=NONE
 
-hi! SpellBad cterm=none gui=italic ctermfg=NONE guifg=none
+hi! SpellBad cterm=none gui=underline ctermfg=NONE guifg=none
 hi! SpellCap ctermfg=NONE guifg=NONE
 hi! SpellRare ctermfg=NONE guifg=NONE
 hi! SpellLocal ctermfg=NONE guifg=NONE
+
+hi! Function gui=italic
+hi! vimFunction gui=italic
+hi! RubyFunction gui=italic
