@@ -18,9 +18,3 @@ command! FoldComments call fold#comments()
 
 " Remove comments and multiple empty lines
 command! -range=% RemoveComments silent call text#remove_comments(<line1>, <line2>)
-
-" Update packs
-command! -bang PackUpdate call pack#load_and_update(<bang>0)
-
-" Make current file executable
-command! Executable !chmod +x %

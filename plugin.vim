@@ -17,7 +17,7 @@ Plug 'neoclide/coc-tsserver'
 Plug 'neoclide/coc-css'
 Plug 'neoclide/coc-json'
 Plug 'neoclide/coc-yaml'
-Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': { -> pack#coc_install() } }
+Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': { -> user#coc#install() } }
 
 " Theme
 Plug 'joshdick/onedark.vim'
