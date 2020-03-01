@@ -7,6 +7,7 @@ set regexpengine=2
 set colorcolumn=80,100,120
 set synmaxcol=200
 
+let g:onedark_terminal_italics=1
 let g:onedark_hide_endofbuffer=1
 let g:onedark_termcolors=256
 colorscheme onedark
@@ -71,6 +72,7 @@ hi! ALEWarning guibg=NONE guifg=NONE
 
 hi! MatchParen gui=bold guifg=NONE guibg=NONE
 
+hi! SpellBad cterm=none gui=italic ctermfg=NONE guifg=none
 hi! SpellCap ctermfg=NONE guifg=NONE
 hi! SpellRare ctermfg=NONE guifg=NONE
 hi! SpellLocal ctermfg=NONE guifg=NONE
