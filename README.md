@@ -12,7 +12,7 @@ brew install neovim
 ## Update neovim HEAD
 
 ```console
-brew reinstall neovim --HEAD
+brew reinstall neovim
 ```
 
 ## Accessing nvim remotly (nvr)
@@ -29,25 +29,12 @@ brew install nvr
 git clone git://github.com/kassio/nvimfiles.git ~/.config/nvim
 ```
 
-#### linking vim configs with neovim
-
-```console
-ln -sf ~/.config/nvim ~/.vim
-```
-
-### installing vim without nvim
-
-```console
-git clone git://github.com/kassio/nvimfiles.git ~/.vim
-```
-
 ### Install all dependencies and packages/plugins
 ```console
 bin/setup
 ```
 
 ## Update/install packages/plugins
-
 ```console
 bin/pack
 ```
