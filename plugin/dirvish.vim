@@ -4,9 +4,17 @@ nnoremap <leader>p :Dirvish<cr>
 nnoremap <leader>vp :vnew +Dirvish<cr>
 nnoremap <leader>fl :execute "Dirvish ".expand('%:p')<cr>
 
-let s:file_icons = {
+let s:files = {
       \ '.gitconfig': '',
       \ '.gitignore': '',
+      \ '.tool-versions': '',
+      \ '.ruby-version': '',
+      \ 'Gemfile': '',
+      \ 'Gemfile.lock': '',
+      \ 'Rakefile': '',
+      \ }
+
+let s:extensions = {
       \ 'sass': '',
       \ 'scss': '',
       \ 'htm': '',
@@ -25,6 +33,7 @@ let s:file_icons = {
       \ 'mjs': '',
       \ 'jsx': '',
       \ 'rb': '',
+      \ 'ru': '',
       \ 'conf': '',
       \ 'ini': '',
       \ 'yml': '',
@@ -69,14 +78,16 @@ let s:file_icons = {
       \ 'leex': '',
       \ 'vim': '',
       \ 'vue': '﵂',
-      \}
+      \ }
 
 function! s:get_icon(path)
   if a:path[-1:] ==# '/'
     return ''
   else
-    let l:extension = split(a:path, '\.')[-1]
-    return get(s:file_icons, l:extension, '')
+    let l:file = split(a:path, '\/')[-1]
+    let l:extension = split(a:path, '[\./]')[-1]
+    return get(s:files, l:file,
+          \ get(s:extensions, l:extension, ''))
   end
 endfunction
 
