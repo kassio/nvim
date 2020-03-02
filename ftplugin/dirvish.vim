@@ -10,6 +10,8 @@ nmap     <nowait><buffer> q     <Plug>(dirvish_quit)
 
 nnoremap <nowait><buffer> e :call dirvish#open('edit', 0)<CR>
 xnoremap <nowait><buffer> e :call dirvish#open('edit', 0)<CR>
+nnoremap <nowait><buffer> s :call dirvish#open('split', 0)<CR>
+xnoremap <nowait><buffer> s :call dirvish#open('split', 0)<CR>
 nnoremap <nowait><buffer> v :call dirvish#open('vsplit', 0)<CR>
 xnoremap <nowait><buffer> v :call dirvish#open('vsplit', 0)<CR>
 nnoremap <nowait><buffer> t :call dirvish#open('tabedit', 0)<CR>
