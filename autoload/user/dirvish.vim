@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 let s:cancel = { 'desc': 'Cancel' }
 
 let s:create = { 'desc': 'Create (touch)' }
@@ -45,4 +47,18 @@ function! user#dirvish#exec(path) abort
   end
 
   call feedkeys('<cr>')
+endfunction
+
+function! user#dirvish#icon(path)
+  if a:path[-1:] ==# '/'
+    return ''
+  else
+    let l:file_icons = user#dirvish#icon#files()
+    let l:extension_icons = user#dirvish#icon#extensions()
+    let l:file = split(a:path, '\/')[-1]
+    let l:extension = split(a:path, '[\./]')[-1]
+
+    return get(l:file_icons, l:file,
+          \ get(l:extension_icons, l:extension, ''))
+  end
 endfunction
