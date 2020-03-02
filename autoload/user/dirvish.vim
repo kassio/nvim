@@ -1,5 +1,11 @@
 let s:cancel = { 'desc': 'Cancel' }
 
+let s:create = { 'desc': 'Create (touch)' }
+function! s:create.cmd(_)
+  let l:destination = input('Name: ', '', 'file')
+  call system(printf('touch %s/%s', expand('%'), l:destination))
+endfunction
+
 let s:move = { 'desc': 'Move (rename)' }
 function! s:move.cmd(path)
   let l:destination = input('Destination: ', '', 'file')
@@ -13,6 +19,7 @@ endfunction
 
 let s:commands = {
       \  'q': s:cancel,
+      \  'a': s:create,
       \  'm': s:move,
       \  'd': s:delete
       \ }
@@ -26,10 +33,10 @@ function! user#dirvish#exec(path) abort
   for l:key in keys(s:commands)
     echo printf('[%s] %s', l:key, s:commands[key].desc)
   endfor
-  echo "\nAction: "
+  echon "\n\nAction: "
 
   let l:choice = nr2char(getchar())
-  echo l:choice
+  redraw
 
   if s:isActionable(l:choice)
     let l:Fn = s:commands[l:choice].cmd
@@ -37,5 +44,5 @@ function! user#dirvish#exec(path) abort
     Dirvish %
   end
 
-  " call feedkeys('<cr>')
+  call feedkeys('<cr>')
 endfunction
