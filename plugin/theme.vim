@@ -17,8 +17,8 @@ hi! VertSplit guibg=NONE guifg=#323740 gui=NONE term=NONE cterm=NONE
 hi! StatusLineNC ctermfg=145 ctermbg=236 guifg=#ABB2BF guibg=#2C323C
 hi! StatusLine ctermbg=237 guibg=#3E4452
 
-hi! LineNr guibg=NONE
-hi! SignColumn guibg=NONE
+hi! link LineNr EndOfBuffer
+hi! link SignColumn EndOfBuffer
 
 hi! SignError gui=bold guifg=#EC5F67 guibg=NONE
 hi! SignWarning gui=bold guifg=#FAC863 guibg=NONE
