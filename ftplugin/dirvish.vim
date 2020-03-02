@@ -2,11 +2,11 @@ setlocal nonumber norelativenumber
 setlocal nospell
 
 nnoremap <nowait><buffer> h :keeppatterns g@\v/\.[^\/]+/?$@d<cr>
-nmap     <nowait><buffer> <C-R> R
-nmap     <nowait><buffer> i /
+nmap <nowait><buffer> <C-R> R
+nmap <nowait><buffer> i /
 
-nmap     <nowait><buffer> gu    <Plug>(dirvish_up)
-nmap     <nowait><buffer> q     <Plug>(dirvish_quit)
+nmap <nowait><buffer> gu <Plug>(dirvish_up)
+nmap <nowait><buffer> q <Plug>(dirvish_quit)
 
 nnoremap <nowait><buffer> e :call dirvish#open('edit', 0)<CR>
 xnoremap <nowait><buffer> e :call dirvish#open('edit', 0)<CR>
