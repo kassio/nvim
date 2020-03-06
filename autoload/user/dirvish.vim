@@ -8,6 +8,12 @@ function! s:create.cmd(_)
   call system(printf('touch %s/%s', expand('%'), l:destination))
 endfunction
 
+let s:copy = { 'desc': 'Copy' }
+function! s:copy.cmd(path)
+  let l:destination = input('Destination: ', '', 'file')
+  call system(printf('cp -Rf %s %s/%s', a:path, expand('%'), l:destination))
+endfunction
+
 let s:move = { 'desc': 'Move (rename)' }
 function! s:move.cmd(path)
   let l:destination = input('Destination: ', '', 'file')
@@ -22,6 +28,7 @@ endfunction
 let s:commands = {
       \  'q': s:cancel,
       \  'a': s:create,
+      \  'c': s:copy,
       \  'm': s:move,
       \  'd': s:delete
       \ }
