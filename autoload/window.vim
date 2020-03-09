@@ -1,6 +1,6 @@
 let s:ignored_filetypes = [
       \ 'help',
-      \ 'dirvish',
+      \ 'nerdtree',
       \ 'fugitiveblame',
       \ 'man'
       \ ]
