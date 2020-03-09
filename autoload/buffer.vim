@@ -63,7 +63,7 @@ function! buffer#trim() abort
 endfunction
 
 function! buffer#autosave() abort
-  if &modifiable
+  if file_readable(expand('%')) && &modifiable
     call buffer#trim()
     write!
   end
