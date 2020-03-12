@@ -1,17 +1,17 @@
-let s:session_dir = expand('$HOME/.local/share/nvim/session')
-let s:file_name = substitute(getcwd(), '\/', '_', 'g')
-let s:file = printf('%s/%s', s:session_dir, s:file_name)
+function! s:escaped_file_path()
+  return substitute(getcwd(), '\/', '_', 'g')
+endfunction
 
 function! session#save() abort
-  silent! exec printf('!mkdir -p %s', s:session_dir)
+  silent! exec printf('!mkdir -p %s', g:session_dir)
 
-  silent! exec printf('silent! mksession! %s', s:file) | exec 'redraw!'
+  silent! exec printf('silent! mksession! %s', session#file()) | exec 'redraw!'
   call util#echohl('MoreMsg', 'Session Created')
 endfunction
 
 function! session#load() abort
-  if filereadable(s:file)
-    exec printf('silent! source %s', s:file) | exec 'redraw!'
+  if filereadable(session#file())
+    exec printf('silent! source %s', session#file()) | exec 'redraw!'
     call util#echohl('MoreMsg', 'Session loaded')
   else
     call util#echohl('ErrorMsg', 'Session does not exists')
@@ -19,10 +19,18 @@ function! session#load() abort
 endfunction
 
 function! session#destroy() abort
-  if filereadable(s:file)
+  if filereadable(session#file())
     call util#echohl('WarningMsg', 'Session destroyed')
-    silent! exec printf('!rm %s', s:file)
+    silent! exec printf('!rm %s', session#file())
   else
     call util#echohl('ErrorMsg', 'Session does not exists')
   end
+endfunction
+
+function! session#file()
+  return printf(
+        \ '%s/%s%s',
+        \ g:session_dir,
+        \ get(g:, 'session_file_prefix', ''),
+        \ s:escaped_file_path())
 endfunction
