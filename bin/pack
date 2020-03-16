@@ -13,7 +13,7 @@ __pack() {
 
   local coc_extensions="$(
     cd "$(dirname $0)/.."
-    cat coc-extensions | tr '\n' ' '
+    cat coc-extensions.txt | tr '\n' ' '
   )"
 
   nvim \
