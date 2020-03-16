@@ -9,15 +9,9 @@ Plug 'Shougo/neco-vim'
 
 Plug 'sheerun/vim-polyglot'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-sources'
-Plug 'neoclide/coc-snippets'
+Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco'
-Plug 'neoclide/coc-html'
-Plug 'neoclide/coc-tsserver'
-Plug 'neoclide/coc-css'
-Plug 'neoclide/coc-json'
-Plug 'neoclide/coc-yaml'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Theme
 Plug 'joshdick/onedark.vim'

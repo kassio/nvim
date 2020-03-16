@@ -11,7 +11,16 @@ __pack() {
       ;;
   esac
 
-  nvim --noplugin +"silent PlugUpgrade" +"silent ${cmd}" +"qall!"
+  local coc_extensions="$(
+    cd "$(dirname $0)/.."
+    cat coc-extensions | tr '\n' ' '
+  )"
+
+  nvim \
+    +"silent PlugUpgrade" \
+    +"silent ${cmd}" \
+    +"CocInstall -sync ${coc_extensions}" \
+    +"qall!"
 }
 
 plug="${HOME}/.local/share/nvim/site/autoload/plug.vim"
