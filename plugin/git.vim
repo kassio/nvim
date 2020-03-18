@@ -1,6 +1,6 @@
 command! -nargs=* Grt call git#restore(<q-args>)
-command! Gremote call git#remote()
+command! -nargs=? Gremote call git#remote(<q-args>)
 
 cabbrev Gw Gwrite
 cabbrev Gd Gdiff
-cabbrev Gh Gremote
+cabbrev Gr Gremote
