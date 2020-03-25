@@ -27,10 +27,20 @@ function! session#destroy() abort
   end
 endfunction
 
-function! session#file()
+function! session#destroy_all()
+  for session_file in glob(session#file({'prefix': '*'}), v:null, v:true)
+    call system(printf('rm %s', session_file))
+  endfor
+endfunction
+
+function! session#file(...)
+  let l:options = get(a:, 1, {})
+  let l:default_prefix = get(g:, 'session_file_prefix', '')
+  let l:prefix = get(l:options, 'prefix', l:default_prefix)
+
   return printf(
         \ '%s/%s%s',
         \ g:session_dir,
-        \ get(g:, 'session_file_prefix', ''),
+        \ l:prefix,
         \ s:escaped_file_path())
 endfunction
