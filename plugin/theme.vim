@@ -13,6 +13,10 @@ let g:onedark_termcolors=256
 colorscheme onedark
 
 hi! VertSplit guibg=NONE guifg=#323740 gui=NONE term=NONE cterm=NONE
+hi! NonText guifg=#353940
+hi! Whitespace guifg=#353940
+hi! SpecialKey guifg=#353940
+hi! SpecialChar guifg=#353940
 
 hi! StatusLineNC ctermfg=145 ctermbg=236 guifg=#ABB2BF guibg=#2C323C
 hi! StatusLine ctermbg=237 guibg=#3E4452
