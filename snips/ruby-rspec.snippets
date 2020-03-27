@@ -4,14 +4,22 @@ before do
 end
 endsnippet
 
+snippet "cont(ext)?" "context 'block' do" br
+describe '$1' do
+  ${0:${VISUAL}}
+end
+endsnippet
+
 snippet "desc(ribe)?" "describe 'block' do" br
 describe $1 do
   ${0:${VISUAL}}
 end
 endsnippet
 
-snippet "exp(ect)?" "expect(true).to be" br
-expect($1).${2:to} $3
+snippet "feat(ure)?" "" br
+feature $1 do
+  ${0:${VISUAL}}
+end
 endsnippet
 
 snippet it "it 'block' do" b
@@ -20,14 +28,8 @@ it '$1' do
 end
 endsnippet
 
-snippet itb "it { }" b
-it { $1 }
-endsnippet
-
-snippet "feat(ure)?" "" br
-feature $1 do
-  ${0:${VISUAL}}
-end
+snippet "exp(ect)?" "expect(true).to be" br
+expect($1).${2:to} $3
 endsnippet
 
 snippet let
