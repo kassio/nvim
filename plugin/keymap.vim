@@ -1,3 +1,6 @@
+nmap j gj
+nmap k gk
+
 " faster esc
 inoremap <esc> <c-c>
 inoremap <c-u> <c-g>u<c-u>
