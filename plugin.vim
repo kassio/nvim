@@ -52,4 +52,7 @@ Plug 'kassio/tomdoc.vim'
 " Match pairs
 Plug 'andymass/vim-matchup'
 
+" Wiki
+Plug 'vimwiki/vimwiki'
+
 call plug#end()
