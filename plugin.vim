@@ -46,9 +46,6 @@ Plug 'tpope/vim-commentary'
 " Snippets
 Plug 'sirver/ultisnips'
 
-" Tomdoc
-Plug 'kassio/tomdoc.vim'
-
 " Match pairs
 Plug 'andymass/vim-matchup'
 
