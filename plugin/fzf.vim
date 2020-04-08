@@ -13,7 +13,7 @@ let g:fzf_action = {
 let g:fzf_tags_command = 'retag'
 
 if has('nvim')
-  let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+  let g:fzf_layout = { 'window': 'call user#fzf#window()' }
 end
 
 command! FZFMru call fzf#run(fzf#wrap('MRU', { 'source':  MRUfiles() }))
@@ -56,31 +56,3 @@ aug user:autocmd:fzf
   au BufLeave *FZF q!
   au FileType fzf set signcolumn=no
 aug END
-
-function! FloatingFZF()
-  let buf = nvim_create_buf(v:false, v:true)
-
-  let height = float2nr(&lines * 0.9)
-  let width = float2nr(&columns * 0.8)
-  let horizontal = float2nr((&columns - width) / 2)
-  let vertical = 1
-
-  let opts = {
-        \ 'relative': 'editor',
-        \ 'row': vertical,
-        \ 'col': horizontal,
-        \ 'width': width,
-        \ 'height': height
-        \ }
-
-  call nvim_buf_set_keymap(buf, '', '<esc>', ':close!<cr>', {'nowait': v:true})
-  call nvim_set_current_win(nvim_open_win(buf, v:true, opts))
-
-  setlocal
-        \ buftype=nofile
-        \ nobuflisted
-        \ bufhidden=hide
-        \ nonumber
-        \ norelativenumber
-        \ signcolumn=no
-endfunction
