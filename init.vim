@@ -45,10 +45,10 @@ set wildignorecase
 set wildignore=*.zip,*.gz,*.bz,*.tar
 set wildignore+=*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
 
-set wrap
-set textwidth=120
+set nowrap
+set textwidth=100
 set sidescroll=5
-set listchars+=trail:─,tab:━━,precedes:<,extends:>,eol:┒
+set listchars+=precedes:<,extends:>
 
 set sessionoptions=winpos,tabpages,help
 
