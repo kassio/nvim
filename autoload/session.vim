@@ -30,6 +30,7 @@ endfunction
 function! session#destroy_all()
   for session_file in glob(session#file({'prefix': '*'}), v:null, v:true)
     call system(printf('rm %s', session_file))
+    call util#echohl('WarningMsg', printf('Session "%s" destroyed', session_file))
   endfor
 endfunction
 
