@@ -61,4 +61,7 @@ nmap <leader>sn :call sign#goto('next')<cr>
 nmap <leader>sN :call sign#goto('previous')<cr>
 
 " Command shortcuts/aliases
+" Replace in all buffers
 cnoremap <c-b> P bufdo %s///ge<left><left><left><left>
+" Highlight string without moving
+cnoremap <c-h> let @/ = ""<left>
