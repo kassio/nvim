@@ -47,4 +47,7 @@ Plug 'sirver/ultisnips'
 " Match pairs
 Plug 'andymass/vim-matchup'
 
+" test
+Plug 'kassio/vmtest'
+
 call plug#end()
