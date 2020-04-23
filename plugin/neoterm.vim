@@ -2,7 +2,6 @@ let g:neoterm_default_mod = 'botright'
 let g:neoterm_automap_keys = '<leader>tm'
 let g:neoterm_use_relative_path = 1
 let g:neoterm_autoscroll = 1
-let g:neoterm_always_open_to_exec = 0
 
 xmap <leader>ts <plug>(neoterm-repl-send)
 nmap <leader>ts <plug>(neoterm-repl-send)
