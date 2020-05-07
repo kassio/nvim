@@ -1,8 +1,4 @@
-" Load FZF from homebrew installation
-set runtimepath^=/usr/local/opt/fzf
-runtime plugin/fzf.vim
-
-let $FZF_DEFAULT_OPTS='--layout=reverse'
+let $FZF_DEFAULT_OPTS='--layout=default'
 
 let g:fzf_history_dir = '~/.fzf-history'
 let g:fzf_buffers_jump = 1
@@ -11,10 +7,6 @@ let g:fzf_action = {
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit' }
 let g:fzf_tags_command = 'retag'
-
-if has('nvim')
-  let g:fzf_layout = { 'window': 'call user#fzf#window()' }
-end
 
 command! FZFMru call fzf#run(fzf#wrap('MRU', { 'source':  MRUfiles() }))
 command! -bang -nargs=* Grep
@@ -26,7 +18,7 @@ command! -bang -nargs=* Grep
       \   <bang>0
       \ )
 
-nnoremap <silent> <c-p> :FZF --tiebreak=begin,length,index<cr>
+nnoremap <silent> <c-p> :FZF<cr>
 nnoremap <silent> <c-\> :FZFMru<cr>
 nnoremap <silent> <c-n> :BLines<cr>
 nnoremap <silent> <c-j> :BTags<cr>
@@ -45,14 +37,8 @@ function! MRUfiles()
 endfunction
 
 aug user:autocmd:fzf
-  au!
-  if exists('#TermOpen')
-    au TermOpen term://*FZF tnoremap <silent> <buffer> <nowait> <esc> <c-c><c-c><c-c><c-c>
-  elseif exists('#TerminalOpen')
-    au TerminalOpen term://*FZF tnoremap <silent> <buffer> <nowait> <esc> <c-c><c-c><c-c><c-c>
-  end
-
-  au User FzfStatusLine call statusline#fzf#()
-  au BufLeave *FZF q!
+  au FileType fzf noremap <silent><buffer><nowait> <esc> :<c-u>quit!<cr>
   au FileType fzf set signcolumn=no
+  au User FzfStatusLine call statusline#fzf#()
+  au BufLeave fzf q!
 aug END

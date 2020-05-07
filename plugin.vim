@@ -31,6 +31,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'preservim/nerdtree'
 
 " FZF improvements
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Git
