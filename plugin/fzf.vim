@@ -1,6 +1,6 @@
 let $FZF_DEFAULT_OPTS='--layout=reverse'
 
-let g:fzf_layout = { 'window': printf('leftabove %snew', float2nr(&lines * 0.2)) }
+let g:fzf_layout = { 'window': printf('topleft %snew', float2nr(&lines * 0.2)) }
 let g:fzf_history_dir = '~/.fzf-history'
 let g:fzf_buffers_jump = 1
 let g:fzf_action = {
