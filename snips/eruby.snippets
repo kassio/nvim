@@ -1,5 +1,3 @@
-extends html, ruby, ruby-rails
-
 snippet "[e=]" "" ir
 <%= ${0:${VISUAL}} %>
 endsnippet
@@ -16,8 +14,14 @@ snippet lt "" w
 <%= link_to ${0:${VISUAL}} %>
 endsnippet
 
-snippet b
+snippet "(b|if)" "" r
 <% ${1:if $2} %>
   ${0:${VISUAL}}
 <% end %>
 endsnippet
+
+snippet pa "" i
+params[:${1:id}]
+endsnippet
+
+extends html

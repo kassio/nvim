@@ -8,24 +8,6 @@ snippet log "" i
 console.log(${0:${VISUAL}})
 endsnippet
 
-snippet af "" i
-(${1}) => ${0:${VISUAL}}
-endsnippet
-
-snippet if
-if (${1}) {
-  ${0:${VISUAL}}
-}
-endsnippet
-
-snippet ife
-if (${1}) {
-  ${0:${VISUAL}}
-} else {
-  ${2}
-}
-endsnippet
-
 snippet "sw(itch)?" "" r
 switch(${1:action.type}) {
   case ${2}:
@@ -35,12 +17,6 @@ switch(${1:action.type}) {
 }
 endsnippet
 
-snippet "cl(ass)?" "" r
-class ${1}${2: extends $3} {
-  ${4}
-}
-endsnippet
-
-snippet str "" i
+snippet json "stringify" i
 JSON.stringify(${0:${VISUAL}})
 endsnippet
