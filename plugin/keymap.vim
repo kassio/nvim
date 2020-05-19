@@ -60,6 +60,9 @@ map <S-ScrollWheelDown> <C-D>
 nmap <leader>sn :call sign#goto('next')<cr>
 nmap <leader>sN :call sign#goto('previous')<cr>
 
+" move to the last tab
+nnoremap 9gt :tablast<cr>
+
 " Command shortcuts/aliases
 " Replace in all buffers
 cnoremap <c-b> P bufdo %s///ge<left><left><left><left>
