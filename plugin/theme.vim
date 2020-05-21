@@ -1,25 +1,19 @@
 syntax sync minlines=512
 
-set background=dark
 set termguicolors
 set lazyredraw
 set regexpengine=2
 set colorcolumn=80,100,120
 set synmaxcol=200
 
-let g:onedark_terminal_italics=1
-let g:onedark_hide_endofbuffer=1
-let g:onedark_termcolors=256
-colorscheme onedark
+let g:enable_bold_font = 1
+let g:enable_italic_font = 1
+let g:hybrid_transparent_background = 1
+set background=light
+colorscheme PaperColor
 
-hi! VertSplit guibg=NONE guifg=#323740 gui=NONE term=NONE cterm=NONE
-hi! NonText guifg=#353940
-hi! Whitespace guifg=#353940
-hi! SpecialKey guifg=#353940
-hi! SpecialChar guifg=#353940
-
-hi! StatusLineNC ctermfg=145 ctermbg=236 guifg=#ABB2BF guibg=#2C323C
-hi! StatusLine ctermbg=237 guibg=#3E4452
+hi! StatusLine ctermfg=NONE ctermbg=NONE guifg=#444444 guibg=#bcbcbc
+hi! StatusLineNC ctermbg=NONE guibg=#005f87
 
 hi! link LineNr EndOfBuffer
 hi! link SignColumn EndOfBuffer
@@ -28,13 +22,6 @@ hi! SignError gui=bold guifg=#EC5F67 guibg=NONE
 hi! SignWarning gui=bold guifg=#FAC863 guibg=NONE
 hi! SignInfo gui=bold guifg=#6699CC guibg=NONE
 hi! SignSuccess gui=bold guifg=#3E9E34 guibg=NONE
-
-hi! SLModeNormal gui=bold guifg=#CCCCCC guibg=#343D46
-hi! SLModeCommand gui=bold guifg=#CCCCCC guibg=#6699CC
-hi! SLModeInsert gui=bold guifg=#595959 guibg=#BADB51
-hi! SLModeVisual gui=bold guifg=#CCCCCC guibg=#CD9CCE
-hi! SLModeTerminal gui=bold guifg=#595959 guibg=#CCCCCC
-hi! SLUnsavedFile gui=bold guifg=#CCCCCC guibg=#CC4A21
 
 hi! StatusWarning gui=bold guifg=#FAC863 guibg=NONE
 hi! StatusSuccess gui=bold guifg=#99C794 guibg=NONE
@@ -76,11 +63,9 @@ hi! ALEWarning guibg=NONE guifg=NONE
 
 hi! MatchParen gui=bold guifg=NONE guibg=NONE
 
-hi! SpellBad cterm=none gui=underline ctermfg=NONE guifg=none
-hi! SpellCap ctermfg=NONE guifg=NONE
-hi! SpellRare ctermfg=NONE guifg=NONE
-hi! SpellLocal ctermfg=NONE guifg=NONE
+hi! SpellBad cterm=none gui=italic ctermbg=NONE ctermfg=NONE guifg=none guibg=NONE
+hi! SpellCap cterm=none gui=none ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi! SpellRare cterm=none gui=none ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi! SpellLocal cterm=none gui=none ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
 
-hi! Function gui=italic
-hi! vimFunction gui=italic
-hi! RubyFunction gui=italic
+hi! Comment gui=italic

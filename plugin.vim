@@ -9,10 +9,10 @@ Plug 'sheerun/vim-polyglot'
 
 Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " Theme
-Plug 'joshdick/onedark.vim'
+Plug 'NLKNguyen/papercolor-theme'
 
 " Linting
 Plug 'w0rp/ale'
