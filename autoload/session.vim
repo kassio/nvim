@@ -9,8 +9,10 @@ function! session#save() abort
   call util#echohl('MoreMsg', 'Session Created')
 endfunction
 
-function! session#load() abort
-  if filereadable(session#file())
+function! session#load(...) abort
+  let l:file = get(a:, 1, session#file())
+
+  if filereadable(l:file)
     exec printf('silent! source %s', session#file()) | exec 'redraw!'
     call util#echohl('MoreMsg', 'Session loaded')
   else
@@ -28,10 +30,14 @@ function! session#destroy() abort
 endfunction
 
 function! session#destroy_all()
-  for session_file in glob(session#file({'prefix': '*'}), v:null, v:true)
+  for session_file in session#list()
     call system(printf('rm %s', session_file))
     call util#echohl('WarningMsg', printf('Session "%s" destroyed', session_file))
   endfor
+endfunction
+
+function! session#list()
+  return glob(session#file({'prefix': '*'}, v:null, v:true))
 endfunction
 
 function! session#file(...)
