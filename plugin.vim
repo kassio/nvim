@@ -12,7 +12,7 @@ Plug 'neoclide/coc-neco'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Theme
-Plug 'joshdick/onedark.vim'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
 
 " Linting
 Plug 'w0rp/ale'

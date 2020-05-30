@@ -1,24 +1,18 @@
 syntax sync minlines=512
 
-set background=dark
 set termguicolors
 set lazyredraw
 set regexpengine=2
 set colorcolumn=80,100,120
 set synmaxcol=200
 
-if (has('autocmd') && !has('gui_running'))
-  augroup colorset
-    autocmd!
-    let s:white = { 'gui': '#ABB2BF', 'cterm': '145', 'cterm16' : '7' }
-    " `bg` will not be styled since there is no `bg` setting
-    autocmd ColorScheme * call onedark#set_highlight('Normal', { 'fg': s:white })
-  augroup END
-endif
-
-let g:onedark_terminal_italics=1
-let g:onedark_termcolors=256
-colorscheme onedark
+if get(g:, 'theme', 'dark') ==# 'dark'
+  colorscheme onehalfdark
+  set background=dark
+else
+  colorscheme onehalflight
+  set background=light
+end
 
 hi! VertSplit guibg=NONE guifg=#323740 gui=NONE term=NONE cterm=NONE
 hi! NonText guifg=#353940
@@ -30,6 +24,7 @@ hi! link EndOfBuffer NonText
 hi! StatusLineNC ctermfg=145 ctermbg=236 guifg=#ABB2BF guibg=#2C323C
 hi! StatusLine ctermbg=237 guibg=#3E4452
 
+hi! SignColumn guibg=NONE
 hi! SignError gui=bold guifg=#EC5F67 guibg=NONE
 hi! SignWarning gui=bold guifg=#FAC863 guibg=NONE
 hi! SignInfo gui=bold guifg=#6699CC guibg=NONE
