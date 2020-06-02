@@ -8,5 +8,10 @@
     "javascript",
     "json",
     "ruby"
-  ]
+  ],
+  "solargraph.references": true,
+  "solargraph.definitions": true,
+  "solargraph.hover": true,
+  "solargraph.completion": true,
+  "solargraph.diagnostics": true
 }

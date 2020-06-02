@@ -8,7 +8,6 @@ Plug 'Shougo/neco-vim'
 Plug 'sheerun/vim-polyglot'
 
 Plug 'Shougo/neco-vim'
-Plug 'neoclide/coc-neco'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Theme
