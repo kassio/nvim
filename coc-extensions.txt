@@ -1,3 +1,5 @@
+coc-explorer
+
 coc-html
 coc-tsserver
 coc-css
@@ -9,3 +11,7 @@ coc-word
 coc-tag
 
 coc-solargraph
+
+coc-go
+
+coc-vimlsp

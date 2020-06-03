@@ -9,9 +9,31 @@
     "json",
     "ruby"
   ],
-  "solargraph.references": true,
-  "solargraph.definitions": true,
-  "solargraph.hover": true,
   "solargraph.completion": true,
-  "solargraph.diagnostics": true
+  "solargraph.definitions": true,
+  "solargraph.references": true,
+  "solargraph.diagnostics": true,
+  "solargraph.hover": true,
+  "explorer.toggle": true,
+  "explorer.width": 35,
+  "explorer.position": "right",
+  "explorer.previewAction.onHover": false,
+  "explorer.file.root.template": "[fullpath]",
+  "explorer.keyMappings": {
+    "<cr>": ["expandable?", "expand", "open"]
+  },
+  "explorer.sources": [
+    {
+      "name": "file",
+      "expand": true
+    }
+  ],
+  "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    }
+  }
 }

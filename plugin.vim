@@ -26,9 +26,6 @@ Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
 Plug 'kana/vim-textobj-user'
 
-" File tree
-Plug 'preservim/nerdtree'
-
 " FZF improvements
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
