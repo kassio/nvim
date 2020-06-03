@@ -39,4 +39,4 @@ command! -nargs=0 Format :call CocAction('format')
 
 " Explorer
 nmap <leader>p :CocCommand explorer<cr>
-nmap <leader>fl :execute printf("CocCommand explorer --reveal %s", expand('%:p'))<cr>
+nmap <leader>fl :execute printf("CocCommand explorer --no-toggle --reveal %s", expand('%:p'))<cr>
