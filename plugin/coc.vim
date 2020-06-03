@@ -31,5 +31,12 @@ nmap <silent> gr <Plug>(coc-references)
 xmap <nowait> <leader>F <Plug>(coc-format-selected)
 nmap <nowait> <leader>F <Plug>(coc-format-selected)
 
+" Open command list
+nnoremap  <leader>c :<c-u>CocCommand<cr>
+
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
+
+" Explorer
+nmap <leader>p :CocCommand explorer<cr>
+nmap <leader>fl :execute printf("CocCommand explorer --reveal %s", expand('%:p'))<cr>

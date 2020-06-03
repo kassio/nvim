@@ -18,6 +18,7 @@
   "explorer.width": 35,
   "explorer.position": "right",
   "explorer.previewAction.onHover": false,
+  "explorer.file.autoReveal": false,
   "explorer.file.root.template": "[fullpath]",
   "explorer.keyMappings": {
     "<cr>": ["expandable?", "expand", "open"]
