@@ -21,8 +21,9 @@
   "explorer.previewAction.onHover": false,
   "explorer.file.autoReveal": false,
   "explorer.file.root.template": "[fullpath]",
+  "explorer.autoExpandOptions": ["uncompact"],
   "explorer.keyMappings": {
-    "<cr>": ["expandable?", "expand", "open"]
+    "<cr>": ["expandable?", ["expanded?", "collapse", "expand"], "open"]
   },
   "explorer.sources": [
     {
