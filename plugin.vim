@@ -3,9 +3,8 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'kassio/neoterm'
 Plug 'janko-m/vim-test'
 
-Plug 'Shougo/neco-vim'
-
 Plug 'sheerun/vim-polyglot'
+Plug 'norcalli/nvim-colorizer.lua'
 
 Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
