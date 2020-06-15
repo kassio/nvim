@@ -6,6 +6,7 @@ coc-css
 coc-json
 coc-yaml
 
+coc-snippets
 coc-ultisnips
 coc-word
 coc-tag
