@@ -1,29 +1,25 @@
 #!/usr/bin/env bash
 
+plug="$HOME/.local/share/nvim/site/autoload/plug.vim"
+plugin="$HOME/.config/nvim/plugin.vim"
+
+__nvim() {
+  nvim --noplugin -u $plugin "$@"
+}
+
 __pack() {
   local cmd
   case "$1" in
     -u | --update)
-      cmd="PlugClean! | PlugUpdate!"
-      ;;
+      __nvim +"PlugUpgrade | PlugClean! | PlugUpdate!" \
+        +"CocUpdateSync" \
+        +"qall!"
+        ;;
     *)
-      cmd="PlugInstall!"
-      ;;
+      __nvim +"PlugUpgrade | PlugInstall! | CocUpdateSync" +"qall!"
+        ;;
   esac
-
-  local coc_extensions="$(
-    cd "$(dirname $0)/.."
-    cat coc-extensions.txt | tr '\n' ' '
-  )"
-
-  nvim \
-    +"silent PlugUpgrade" \
-    +"silent ${cmd}" \
-    +"CocInstall -sync ${coc_extensions}" \
-    +"qall!"
 }
-
-plug="${HOME}/.local/share/nvim/site/autoload/plug.vim"
 
 if [ ! -f "${plug}" ]; then
   curl -sfLo "${plug}" --create-dirs \

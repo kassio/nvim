@@ -1,3 +1,18 @@
+let g:coc_global_extensions = [
+      \ 'coc-explorer',
+      \ 'coc-html',
+      \ 'coc-tsserver',
+      \ 'coc-css',
+      \ 'coc-json',
+      \ 'coc-yaml',
+      \ 'coc-snippets',
+      \ 'coc-ultisnips',
+      \ 'coc-word',
+      \ 'coc-tag',
+      \ 'coc-solargraph',
+      \ 'coc-go',
+      \ 'coc-vimlsp'
+      \ ]
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
