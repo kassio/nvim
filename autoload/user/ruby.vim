@@ -57,20 +57,37 @@ function! user#ruby#alternate_file(mod) abort
     call util#echohl('ErrorMsg', 'No test directory found.')
   end
 
-  exec printf('%s split %s', a:mod, s:alternative_file(l:test))
+  exec printf('%s new %s', a:mod, s:alternative_file(l:test))
 endfunction
 
-function! s:alternative_file(test)
-  let l:cfile = expand('%')
-  let l:cfile_name = expand('%:t')
+function! s:alternative_file(lib)
+  let file = expand('%:t')
 
-  if l:cfile =~# printf('^%s', a:test)
-    let l:file = substitute(l:cfile, printf('^%s', a:test), 'app', '')
-    let l:file_name = substitute(l:cfile_name, printf('_%s', a:test), '', '')
+  if file =~# printf('.*%s.*', a:lib)
+    return s:code_path(a:lib)
   else
-    let l:file = substitute(l:cfile, '^app', a:test, '')
-    let l:file_name = substitute(l:cfile_name, '.rb', printf('_%s.rb', a:test), '')
+    return s:test_path(a:lib)
   end
+endfunction
 
-  return substitute(l:file, l:cfile_name, l:file_name, '')
+function! s:code_path(lib)
+  let path = split(expand('%'), '/')
+  let file = substitute(expand('%:t'), printf('_%s.rb', a:lib), '.rb', '')
+
+  let result = path[index(path, a:lib) + 1: -2]
+  let result = insert(result, 'app')
+  let result = add(result, file)
+
+  return join(result, '/')
+endfunction
+
+function! s:test_path(lib)
+  let path = split(expand('%'), '/')
+  let file = substitute(expand('%:t'), '.rb', printf('_%s.rb', a:lib), '')
+
+  let result = path[index(path, 'app') + 1: -2]
+  let result = insert(result, a:lib)
+  let result = add(result, file)
+
+  return join(result, '/')
 endfunction
