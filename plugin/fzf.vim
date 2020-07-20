@@ -8,16 +8,9 @@ let g:fzf_action = {
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit' }
 let g:fzf_tags_command = 'retag'
+let g:fzf_preview_window = ''
 
 command! FZFMru call fzf#run(fzf#wrap('MRU', { 'source':  MRUfiles() }))
-command! -bang -nargs=* Grep
-      \ call fzf#vim#ag(
-      \   <q-args>,
-      \   <bang>0 ?
-      \     fzf#vim#with_preview('up:60%') :
-      \     fzf#vim#with_preview('right:50%:hidden', '?'),
-      \   <bang>0
-      \ )
 
 nnoremap <silent> <c-p> :FZF<cr>
 nnoremap <silent> <c-\> :FZFMru<cr>
