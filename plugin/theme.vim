@@ -46,6 +46,7 @@ hi! SLStatusSuccess gui=bold guifg=#99C794 guibg=#343D46
 hi! SLStatusError gui=bold guifg=#EC5F67 guibg=#343D46
 
 hi! WarningMsg guifg=#FAC863
+hi! ErrorMsg guifg=#EC5F67
 
 hi! link TabLine StatusLineNC
 hi! link TabLineFill StatusLineNC
