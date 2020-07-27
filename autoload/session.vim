@@ -10,9 +10,9 @@ function! session#save() abort
 endfunction
 
 function! session#load(...) abort
-  let l:file = get(a:, 1, session#file())
+  let file = get(a:, 1, session#file())
 
-  if filereadable(l:file)
+  if filereadable(file)
     exec printf('silent! source %s', session#file()) | exec 'redraw!'
     call util#echohl('MoreMsg', 'Session loaded')
   else
@@ -37,17 +37,19 @@ function! session#destroy_all()
 endfunction
 
 function! session#list()
-  return glob(session#file({'prefix': '*'}, v:null, v:true))
+  let list = glob(session#file({'prefix': '*'}, v:null, v:true))
+
+  return type(list) == v:t_list ? list : []
 endfunction
 
 function! session#file(...)
-  let l:options = get(a:, 1, {})
-  let l:default_prefix = get(g:, 'session_file_prefix', '')
-  let l:prefix = get(l:options, 'prefix', l:default_prefix)
+  let options = get(a:, 1, {})
+  let default_prefix = get(g:, 'session_file_prefix', '')
+  let prefix = get(options, 'prefix', default_prefix)
 
   return printf(
         \ '%s/%s%s',
         \ g:session_dir,
-        \ l:prefix,
+        \ prefix,
         \ s:escaped_file_path())
 endfunction
