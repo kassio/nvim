@@ -1,21 +1,32 @@
+let g:current_session = ''
+
 " named opts
 " - prefix: default empty string
 function! session#save(...) abort
   let opts = extend(get(a:, 1, {}), { 'prefix': '' }, 'keep')
 
   if empty(opts.prefix)
-    let opts.prefix = input('Choose the session name: ')
+    let default = s:prefix_from(g:current_session)
+    let opts.prefix = input('Choose the session name: ', default)
+  end
+
+  " All sessions require a prefix
+  if empty(opts.prefix)
+    return
   end
 
   silent! exec printf('!mkdir -p %s', g:session_dir)
 
-  silent! exec printf('silent! mksession! %s', s:session_file(opts)) | exec 'redraw!'
+  let g:current_session = s:session_file(opts)
+
+  silent! exec printf('silent! mksession! %s', g:current_session) | exec 'redraw!'
   call util#echohl('MoreMsg', 'Session Created')
 endfunction
 
 function! session#load() abort
   function! Loader(file)
     if filereadable(a:file)
+      let g:current_session = a:file
       exec printf('silent! source %s', a:file) | exec 'redraw!'
       call util#echohl('MoreMsg', 'Session loaded')
     else
@@ -69,12 +80,11 @@ function! s:session_do(Fn) abort
 endfunction
 
 function! s:session_selector(list) abort
-  echo 'Available Sessions'
-  for session in map(copy(a:list), function('s:choicify'))
-    echo session
-  endfor
+  let opts = copy(a:list)
+  let opts = map(opts, function('s:choicify'))
+  let opts = insert(opts, 'Available Sessions: ')
 
-  return str2nr(input('Choose a number: '))
+  return str2nr(inputlist(opts))
 endfunction
 
 function! s:choicify(index, item) abort
@@ -83,6 +93,13 @@ function! s:choicify(index, item) abort
   let result = printf('%s - %s', a:index + 1, result)
 
   return result
+endfunction
+
+function! s:prefix_from(file)
+  let result = split(a:file, '/')
+  let result = result[-1:][0]
+
+  return matchstr(result, printf('.*\ze%s', s:escaped_file_path()))
 endfunction
 
 " named opts
