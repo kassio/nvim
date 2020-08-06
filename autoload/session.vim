@@ -64,8 +64,6 @@ function! s:session_do(Fn) abort
     " and the chose choice indexed on 1
     if index > 0
       return a:Fn(list[index-1])
-    else
-      call util#echohl('ErrorMsg', "\nInvalid choice")
     end
   end
 endfunction
