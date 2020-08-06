@@ -2,9 +2,14 @@
 " - prefix: default empty string
 function! session#save(...) abort
   let opts = extend(get(a:, 1, {}), { 'prefix': '' }, 'keep')
+
+  if empty(opts.prefix)
+    let opts.prefix = input('Choose the session name: ')
+  end
+
   silent! exec printf('!mkdir -p %s', g:session_dir)
 
-  silent! exec printf('silent! mksession! %s', session#file(opts)) | exec 'redraw!'
+  silent! exec printf('silent! mksession! %s', s:session_file(opts)) | exec 'redraw!'
   call util#echohl('MoreMsg', 'Session Created')
 endfunction
 
@@ -42,30 +47,16 @@ function! session#destroy_all() abort
 endfunction
 
 function! session#list() abort
-  let result = glob(session#file({'prefix': '*'}), v:false, v:true)
+  let result = glob(s:session_file({'prefix': '*'}), v:false, v:true)
 
   return type(result) == v:t_list ? result : []
-endfunction
-
-" named opts
-" - prefix: default empty string
-function! session#file(...) abort
-  let opts = extend(get(a:, 1, {}), { 'prefix': '' }, 'keep')
-
-  return printf(
-        \ '%s/%s%s',
-        \ g:session_dir,
-        \ opts.prefix,
-        \ s:escaped_file_path())
 endfunction
 
 function! s:session_do(Fn) abort
   let list = session#list()
 
-  if len(list) == 0
+  if empty(list)
     return
-  elseif len(list) == 1
-    return a:Fn(list[0])
   else
     let index = s:session_selector(list)
 
@@ -94,6 +85,18 @@ function! s:choicify(index, item) abort
   let result = printf('%s - %s', a:index + 1, result)
 
   return result
+endfunction
+
+" named opts
+" - prefix: default empty string
+function! s:session_file(...) abort
+  let opts = extend(get(a:, 1, {}), { 'prefix': '' }, 'keep')
+
+  return printf(
+        \ '%s/%s%s',
+        \ g:session_dir,
+        \ opts.prefix,
+        \ s:escaped_file_path())
 endfunction
 
 function! s:escaped_file_path() abort
