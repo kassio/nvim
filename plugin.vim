@@ -1,5 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'editorconfig/editorconfig'
+
 Plug 'kassio/neoterm'
 Plug 'janko-m/vim-test'
 
