@@ -25,4 +25,4 @@ command! -nargs=1 SetTheme call theme#set(<q-args>)
 command! CopyFilePath let @"=expand('%')
 
 " Upgrade stuff
-command! Upgrade call plugin#upgrade()
+command! -bang Upgrade call plugin#upgrade(<bang>0)

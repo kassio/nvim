@@ -3,21 +3,16 @@
 plug="$HOME/.local/share/nvim/site/autoload/plug.vim"
 plugin="$HOME/.config/nvim/plugin.vim"
 
-__nvim() {
-  nvim --noplugin -u $plugin "$@"
-}
-
 __pack() {
-  local cmd
   case "$1" in
     -u | --update)
-      __nvim +"PlugUpgrade | PlugClean! | PlugUpdate!" \
-        +"CocUpdateSync" \
-        +"qall!"
-        ;;
+      nvim +"Upgrade!"
+      ;;
     *)
-      __nvim +"PlugUpgrade | PlugInstall! | CocUpdateSync" +"qall!"
-        ;;
+      nvim --noplugin -u "$plugin" \
+        +"PlugUpgrade | PlugInstall! | CocUpdateSync" \
+        +"qall!"
+      ;;
   esac
 }
 
