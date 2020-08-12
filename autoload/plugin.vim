@@ -1,7 +1,8 @@
 function! plugin#upgrade()
   PlugUpgrade
-  PlugUpdate!
   PlugClean!
+  PlugUpdate!
 
+  vnew
   CocUpdateSync
 endfunction
