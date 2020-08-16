@@ -97,9 +97,14 @@ endfunction
 
 function! s:prefix_from(file)
   let result = split(a:file, '/')
-  let result = result[-1:][0]
 
-  return matchstr(result, printf('.*\ze%s', s:escaped_file_path()))
+  if empty(result)
+    return ""
+  else
+    let result = result[-1:][0]
+
+    return matchstr(result, printf('.*\ze%s', s:escaped_file_path()))
+  end
 endfunction
 
 " named opts
