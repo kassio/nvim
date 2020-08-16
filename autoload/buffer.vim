@@ -73,3 +73,21 @@ function! buffer#reset_synmaxcol() abort
   let l:maxcol = max(map(range(1, line('$')), "col([v:val, '$'])"))
   let &synmaxcol = l:maxcol < 200 ? 200 : l:maxcol
 endfunction
+
+function! buffer#longest_line()
+  let lines = {}
+  let line_nr = 1
+  for line in getline(1,'$')
+    let lines[len(line)] = { 'content': line, 'nr': line_nr }
+    let line_nr += 1
+  endfor
+
+  let size = max(keys(lines))
+  let line = lines[size]
+
+  echo printf(
+        \ "line: %s | size: %s | content: '%s'",
+        \ line['nr'],
+        \ size,
+        \ line['content'])
+endfunction

@@ -26,3 +26,5 @@ command! CopyFilePath let @"=expand('%')
 
 " Upgrade stuff
 command! -bang Upgrade call plugin#upgrade(<bang>0)
+
+command! LongestLine call buffer#longest_line()
