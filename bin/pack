@@ -6,7 +6,7 @@ plugin="$HOME/.config/nvim/plugin.vim"
 __pack() {
   case "$1" in
     -u | --update)
-      nvim +"Upgrade!"
+      nvim +"Upgrade | qall!"
       ;;
     *)
       nvim --noplugin -u "$plugin" \

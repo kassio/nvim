@@ -1,4 +1,4 @@
-function! plugin#upgrade(quit)
+function! plugin#upgrade()
   PlugUpgrade
   PlugClean!
   PlugUpdate!
@@ -7,8 +7,4 @@ function! plugin#upgrade(quit)
   CocUpdateSync
   sleep 200m
   redraw!
-
-  if a:quit && confirm('Close?')
-    confirm qall
-  end
 endfunction

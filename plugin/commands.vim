@@ -25,6 +25,6 @@ command! -nargs=1 SetTheme call theme#set(<q-args>)
 command! CopyFilePath let @"=expand('%')
 
 " Upgrade stuff
-command! -bang Upgrade call plugin#upgrade(<bang>0)
+command! -bar Upgrade call plugin#upgrade()
 
 command! LongestLine call buffer#longest_line()
