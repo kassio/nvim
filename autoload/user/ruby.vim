@@ -55,6 +55,7 @@ function! user#ruby#alternate_file(mod) abort
     let l:test = 'test'
   else
     call util#echohl('ErrorMsg', 'No test directory found.')
+    return
   end
 
   exec printf('%s new %s', a:mod, s:alternative_file(l:test))
