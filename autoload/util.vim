@@ -26,3 +26,11 @@ function! util#comment_dict() abort
 
   return b:comment_dict
 endfunction
+
+function! util#copy_file_name(external_clipboard)
+  if a:external_clipboard != 0
+    let @*=expand('%')
+  else
+    let @"=expand('%')
+  end
+endfunction
