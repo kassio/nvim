@@ -27,10 +27,14 @@ function! util#comment_dict() abort
   return b:comment_dict
 endfunction
 
-function! util#copy_file_name(external_clipboard)
+function! util#copy_filename(external_clipboard, ...)
+  let flag = get(a:, 1, '')
+  let flag = index([':p', ':h', ':t', ':r', ':e'], flag) >= 0 ? flag : ''
+  let filename = expand('%'.flag)
+
   if a:external_clipboard != 0
-    let @*=expand('%')
+    let @*= filename
   else
-    let @"=expand('%')
+    let @"= filename
   end
 endfunction

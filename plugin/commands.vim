@@ -22,7 +22,7 @@ command! -range=% RemoveComments silent call text#remove_comments(<line1>, <line
 " Set theme
 command! -nargs=1 SetTheme call theme#set(<q-args>)
 
-command! -bang CopyFilePath call util#copy_file_name(<bang>0)
+command! -nargs=? -bang CopyFilePath call util#copy_filename(<bang>0, <q-args>)
 
 " Upgrade stuff
 command! -bar Upgrade call plugin#upgrade()
