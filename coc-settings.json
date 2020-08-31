@@ -1,6 +1,7 @@
 {
   "suggest.enablePreview": true,
   "suggest.snippetIndicator": "☀︎ ",
+  "suggest.timeout": 15000,
   "coc.preferences.jumpCommand": "vsplit",
   "coc.preferences.formatOnSaveFiletypes": [
     "eelixir",
