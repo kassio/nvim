@@ -33,7 +33,7 @@ Plug 'junegunn/fzf.vim'
 
 " Git
 Plug 'tpope/vim-fugitive'
-Plug 'kassio/vim-signify'
+Plug 'mhinz/vim-signify'
 Plug 'rhysd/git-messenger.vim'
 
 " Comments
