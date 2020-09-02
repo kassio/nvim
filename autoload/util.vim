@@ -31,10 +31,14 @@ function! util#copy_filename(external_clipboard, ...)
   let flag = get(a:, 1, '')
   let flag = index([':p', ':h', ':t', ':r', ':e'], flag) >= 0 ? flag : ''
   let filename = expand('%'.flag)
+  let F = { target ->  printf('"%s" copied to %s', filename, target) }
 
   if a:external_clipboard != 0
     let @*= filename
+    echo F('system clipboard')
   else
     let @"= filename
+    echo F(printf("'%s' reg", '"'))
   end
+
 endfunction
