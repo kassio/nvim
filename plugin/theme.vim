@@ -6,7 +6,7 @@ set regexpengine=2
 set colorcolumn=80,100,120
 set synmaxcol=200
 
-if get(g:, 'theme', 'dark') ==# 'dark'
+if theme#current() ==# 'dark'
   colorscheme onehalfdark
   set background=dark
 else
