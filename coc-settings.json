@@ -24,7 +24,8 @@
   "explorer.file.root.template": "[fullpath]",
   "explorer.autoExpandOptions": ["uncompact"],
   "explorer.keyMappings": {
-    "<cr>": ["expandable?", ["expanded?", "collapse", "expand"], "open"]
+    "<cr>": ["expandable?", ["expanded?", "collapse", "expand"], "open"],
+    "l": false
   },
   "explorer.sources": [
     {
