@@ -12,6 +12,8 @@ let g:ruby_operators = 1
 let g:ruby_space_errors = 1
 let g:ruby_spellcheck_strings = 1
 
+let b:ale_fix_on_save = 0
+
 command! -range LetToVariable
       \ call user#ruby#let_to_variable(<line1>, <line2>)
 command! -range VariableToLet
