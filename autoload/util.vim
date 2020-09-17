@@ -40,5 +40,4 @@ function! util#copy_filename(external_clipboard, ...)
     let @"= filename
     echo F(printf("'%s' reg", '"'))
   end
-
 endfunction
