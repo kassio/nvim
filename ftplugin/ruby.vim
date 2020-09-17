@@ -24,18 +24,13 @@ command! -range NewRubyHashSyntax
 command! -range OldRubyHashSyntax
       \ call user#ruby#old_ruby_hash_syntax(<line1>, <line2>)
 
-command! -range SymbolKeyToString
-      \ call user#ruby#symbol_key_to_string(<line1>, <line2>)
-command! -range StringKeyToSymbol
-      \ call user#ruby#string_key_to_symbol(<line1>, <line2>)
+command! -range StringfyHashKeys
+      \ call user#ruby#stringfy_hash_keys(<line1>, <line2>)
+command! -range SymbolifyHashKeys
+      \ call user#ruby#symbolify_hash_keys(<line1>, <line2>)
 
-command! -range SymbolHashToString
-      \ call user#ruby#symbol_hash_to_string(<line1>, <line2>)
-command! -range StringHashToSymbol
-      \ call user#ruby#string_hash_to_symbol(<line1>, <line2>)
-
-command! -range SymbolArray
-      \ call user#ruby#symbol_array(<line1>, <line2>)
+command! -range=% Decolunize
+      \ call user#ruby#decolunize(<line1>, <line2>)
 
 command! Alternate
       \ call user#ruby#alternate_file(<q-mods>)
