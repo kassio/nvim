@@ -30,3 +30,5 @@ command! -bar Upgrade call plugin#upgrade()
 command! LongestLine call buffer#longest_line()
 
 command! MkdirPath call mkdir(expand('%:h'), 'p')
+
+command! RSpec call user#ruby#rspec()

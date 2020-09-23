@@ -51,6 +51,15 @@ function! user#ruby#alternate_file(mod) abort
   exec printf('%s new %s', a:mod, s:alternative_file(l:test))
 endfunction
 
+function! user#ruby#rspec()
+  let g:test#last_position = {
+        \ 'file': 'spec/models/file_spec.rb',
+        \ 'col': 1,
+        \ 'line': 1
+        \ }
+  TestSuite
+endfunction
+
 function! s:alternative_file(lib)
   let file = expand('%:t')
 

@@ -1,4 +1,5 @@
 let g:test#strategy = 'neoterm'
+
 let g:test#go#gotest#executable = 'go test -v'
 
 nnoremap <leader>ta :<c-u>call test#neoterm#scope("Suite")<cr>
