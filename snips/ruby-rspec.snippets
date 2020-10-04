@@ -5,27 +5,37 @@ end
 endsnippet
 
 snippet "cont(ext)?" "context 'block' do" br
-context '$1' do
+context "$1" do
   ${0:${VISUAL}}
 end
 endsnippet
 
 snippet "desc(ribe)?" "describe 'block' do" br
-describe $1 do
+describe "$1" do
+  ${0:${VISUAL}}
+end
+endsnippet
+
+snippet "scen(ario)?" "" br
+scenario "$1" do
   ${0:${VISUAL}}
 end
 endsnippet
 
 snippet "feat(ure)?" "" br
-feature $1 do
+feature "$1" do
   ${0:${VISUAL}}
 end
 endsnippet
 
 snippet it "it 'block' do" b
-it '$1' do
+it "$1" do
   ${0:${VISUAL}}
 end
+endsnippet
+
+snippet itb "it { }" b
+it { ${0:${VISUAL}} }
 endsnippet
 
 snippet "exp(ect)?" "expect(true).to be" br
@@ -34,10 +44,4 @@ endsnippet
 
 snippet let
 let($1) $2
-endsnippet
-
-snippet "scen(ario)?" "" br
-scenario '$1' do
-  ${0:${VISUAL}}
-end
 endsnippet
