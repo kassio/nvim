@@ -2,6 +2,9 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'editorconfig/editorconfig'
 
+" Open file with file_path:line:path
+Plug 'wsdjeg/vim-fetch'
+
 Plug 'kassio/neoterm'
 Plug 'janko-m/vim-test'
 
