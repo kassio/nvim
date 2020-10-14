@@ -22,10 +22,21 @@
   "explorer.previewAction.onHover": false,
   "explorer.file.autoReveal": false,
   "explorer.file.root.template": "[fullpath]",
-  "explorer.autoExpandOptions": ["uncompact"],
+  "explorer.autoExpandOptions": [
+    "uncompact"
+  ],
   "explorer.keyMappings": {
-    "<cr>": ["expandable?", ["expanded?", "collapse", "expand"], "open"],
-    "l": false
+    "<cr>": [
+      "expandable?",
+      [
+        "expanded?",
+        "collapse",
+        "expand"
+      ],
+      "open"
+    ],
+    "l": false,
+    "O": "expand:recursive"
   },
   "explorer.sources": [
     {
@@ -36,9 +47,15 @@
   "languageserver": {
     "bash": {
       "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh"],
-      "ignoredRootPaths": ["~"]
+      "args": [
+        "start"
+      ],
+      "filetypes": [
+        "sh"
+      ],
+      "ignoredRootPaths": [
+        "~"
+      ]
     }
   }
 }
