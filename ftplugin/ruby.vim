@@ -36,9 +36,10 @@ command! Alternate
       \ call user#ruby#alternate_file(<q-mods>)
 
 call textobj#user#plugin('rubyblock', {
-      \   'erb': {
-      \     'pattern': ['<%=\?\s\?', '\s\?%>'],
-      \     'select-a': 'a=',
-      \     'select-i': 'i='
+      \   '-': {
+      \     'select-a-function': 'textobj#ruby#block_a',
+      \     'select-a': 'ar',
+      \     'select-i-function': 'textobj#ruby#block_i',
+      \     'select-i': 'ir'
       \   }
       \ })
