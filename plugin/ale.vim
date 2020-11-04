@@ -19,7 +19,7 @@ let g:ale_sign_info = g:sign_info
 let g:ale_linters = {
       \ 'go': ['gofmt', 'golint'],
       \ 'javascript': ['standard'],
-      \ 'ruby': ['standardrb'],
+      \ 'ruby': ['standardrb', 'rubocop'],
       \ 'sh': ['shellcheck'],
       \}
 
@@ -30,7 +30,8 @@ let g:ale_fixers = {
       \ 'go': ['gofmt'],
       \ 'javascript': ['standard'],
       \ 'json': ['prettier'],
-      \ 'sh': ['shfmt']
+      \ 'sh': ['shfmt'],
+      \ 'ruby': ['standardrb', 'rubocop'],
       \ }
 
 let g:ale_sh_shfmt_options = '-i 2 -ci -sr'
