@@ -15,7 +15,9 @@ function! buffer#kill() abort
 endfunction
 
 function! buffer#kill_all() abort
-  let l:buffers = buffer#user_buffers()
+  let l:buffers = buffer#user_buffers({ bufid ->
+        \ getbufvar(bufid, '&ft') != 'neoterm'
+        \ })
 
   if !empty(l:buffers)
     exec 'bw! '. join(l:buffers, ' ')
