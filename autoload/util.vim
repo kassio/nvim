@@ -29,7 +29,7 @@ endfunction
 
 function! util#copy_filename(external_clipboard, ...)
   let flag = get(a:, 1, '')
-  let flag = index([':p', ':h', ':t', ':r', ':e'], flag) >= 0 ? flag : ''
+  let flag = s:valid_flag(flag) ? flag : ''
   let filename = expand('%'.flag)
   let F = { target ->  printf('"%s" copied to %s', filename, target) }
 
@@ -40,4 +40,14 @@ function! util#copy_filename(external_clipboard, ...)
     let @"= filename
     echo F(printf("'%s' reg", '"'))
   end
+endfunction
+
+function! s:valid_flag(flag)
+  let result = v:true
+
+  for flag in split(a:flag, ':')
+    let result = index(['p', 'h', 't', 'r', 'e'], flag) >= 0
+  endfor
+
+  return result
 endfunction
