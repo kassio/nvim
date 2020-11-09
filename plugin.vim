@@ -9,6 +9,7 @@ Plug 'kassio/neoterm'
 Plug 'janko-m/vim-test'
 
 Plug 'sheerun/vim-polyglot'
+Plug 'kassio/vim-ruby_namespace'
 Plug 'norcalli/nvim-colorizer.lua'
 
 Plug 'Shougo/neco-vim'
