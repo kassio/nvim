@@ -43,3 +43,6 @@ call textobj#user#plugin('rubyblock', {
       \     'select-i': 'ir'
       \   }
       \ })
+
+command! -buffer Namespace echo user#ruby#namespace()
+command! -buffer CopyNamespace let @*=user#ruby#namespace()

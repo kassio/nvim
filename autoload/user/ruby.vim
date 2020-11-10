@@ -91,3 +91,12 @@ function! s:test_path(lib)
 
   return join(result, '/')
 endfunction
+
+function! user#ruby#namespace()
+  return system(printf(
+        \   'ruby %s %s:%s',
+        \   globpath(&runtimepath, 'ftplugin/ruby/namespace.rb'),
+        \   expand('%:p'),
+        \   line('.')
+        \ ))
+endfunction
