@@ -94,4 +94,4 @@ class Namespace
   end
 end
 
-print Namespace.new(ARGV[0]).fetch
+print Namespace.new(ARGV[0]).fetch.strip

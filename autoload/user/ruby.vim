@@ -93,19 +93,34 @@ function! s:test_path(lib)
 endfunction
 
 function! user#ruby#namespace()
-  return system(s:namespace_cmd())
+  return system(join(s:namespace_cmd(), ' '))
 endfunction
 
-function! user#ruby#async_namespace()
-  call jobstart(s:namespace_cmd(), {
-        \ 'on_stdout': { _, data -> setbufvar(bufnr('%'), 'ruby_namespace', data) }
-        \ })
+function! user#ruby#set_namespace()
+  if !get(b:, 'ruby_fetching_namespace_lock', v:false)
+    let b:ruby_fetching_namespace_lock = v:true
+    call jobstart(s:namespace_cmd(), {
+          \ 'on_stdout': { _, data -> s:set_buffer_namespace(trim(data[0])) }
+          \ })
+  end
+endfunction
+
+function! s:set_buffer_namespace(namespace)
+  if a:namespace !=# ''
+    let b:namespace = a:namespace
+  end
+
+  sleep 500m
+  let b:ruby_fetching_namespace_lock = v:false
 endfunction
 
 function! s:namespace_cmd()
-  return printf('ruby %s %s:%s',
-        \   globpath(&runtimepath, 'ftplugin/ruby/namespace.rb'),
-        \   expand('%:p'),
-        \   line('.')
-        \ )
+  return
+        \ [
+        \  '/Users/kassioborges/.asdf/shims/ruby',
+        \  globpath(&runtimepath, 'ftplugin/ruby/namespace.rb'),
+        \  printf('%s:%s', expand('%:p'), line('.'))
+        \ ]
 endfunction
+
+require('ruby')
