@@ -3,62 +3,59 @@
 require 'ripper'
 
 class Namespace
-  Token = Struct.new(:position, :type, :token, :state) do
-    CONTINUE_TOKENS = %i[on_const on_sp on_op].freeze
-
+  Token = Struct.new(:position, :type, :string, :state) do
     def line
       position[0].to_i
-    end
-
-    def begin?
-      type == :on_kw && token != 'end'
-    end
-
-    def end?
-      type == :on_kw && token == 'end'
-    end
-
-    def continue?
-      CONTINUE_TOKENS.include?(type)
     end
   end
 
   class NamespaceSet
+    NAMESPACE_TOKENS = %w[module class def loop do begin].freeze
+
+    attr_reader :set
+
     def initialize
-      @namespace_set = []
+      @set = []
+      @saving = false
     end
 
-    def new(value)
-      exec { namespace_set.push([value]) }
-    end
-
-    def continue(value)
-      exec { namespace_set.last.push(value) }
-    end
-
-    def remove
-      exec { namespace_set.pop }
+    def add(token)
+      case token
+      when method(:new_namespace?)
+        @saving = true
+        set << []
+      when method(:namespace_ended?)
+        @saving = false
+      when method(:save_namespace?)
+        set.last << token
+      when method(:drop_namespace?)
+        set.pop
+      end
     end
 
     def format
-      namespace_set
+      set
         .flatten
-        .reject(&method(:reject?))
-        .map(&:token)
+        .map(&:string)
         .join('::')
     end
 
     private
 
-    attr_reader :namespace_set
-
-    def exec
-      yield
-      self
+    def new_namespace?(token)
+      NAMESPACE_TOKENS.include?(token.string)
     end
 
-    def reject?(token)
-      %i[on_kw on_sp].include?(token.type) || token.token == '::'
+    def namespace_ended?(token)
+      token.type == :on_nl || (token.type == :on_op && token.string == '<')
+    end
+
+    def save_namespace?(token)
+      token.type == :on_const && @saving
+    end
+
+    def drop_namespace?(token)
+      token.type == :on_kw && token.string == 'end'
     end
   end
 
@@ -83,27 +80,17 @@ class Namespace
     @stop_line = stop_line.zero? ? 1 : stop_line
   end
 
-  def parse(tokens, namespace_set = NamespaceSet.new)
-    return namespace_set if tokens.empty?
+  def parse(tokens)
+    set = NamespaceSet.new
 
-    current, *tokens = tokens
-    token = Token.new(*current)
+    tokens.each do |token|
+      token = Token.new(*token)
+      break if token.line == stop_line
 
-    return namespace_set if token.line == stop_line
-
-    parse_token(token, tokens, namespace_set)
-  end
-
-  def parse_token(token, tokens, namespace_set)
-    if token.end?
-      parse(tokens, namespace_set.remove)
-    elsif token.begin?
-      parse(tokens, namespace_set.new(token))
-    elsif token.continue?
-      parse(tokens, namespace_set.continue(token))
-    else
-      parse(tokens, namespace_set)
+      set.add(token)
     end
+
+    set
   end
 end
 

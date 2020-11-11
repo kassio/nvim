@@ -93,10 +93,19 @@ function! s:test_path(lib)
 endfunction
 
 function! user#ruby#namespace()
-  return system(printf(
-        \   'ruby %s %s:%s',
+  return system(s:namespace_cmd())
+endfunction
+
+function! user#ruby#async_namespace()
+  call jobstart(s:namespace_cmd(), {
+        \ 'on_stdout': { _, data -> setbufvar(bufnr('%'), 'ruby_namespace', data) }
+        \ })
+endfunction
+
+function! s:namespace_cmd()
+  return printf('ruby %s %s:%s',
         \   globpath(&runtimepath, 'ftplugin/ruby/namespace.rb'),
         \   expand('%:p'),
         \   line('.')
-        \ ))
+        \ )
 endfunction
