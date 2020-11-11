@@ -122,5 +122,3 @@ function! s:namespace_cmd()
         \  printf('%s:%s', expand('%:p'), line('.'))
         \ ]
 endfunction
-
-require('ruby')
