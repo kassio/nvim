@@ -1,18 +1,20 @@
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'editorconfig/editorconfig'
-
-" Open file with file_path:line:path
-Plug 'wsdjeg/vim-fetch'
+Plug 'editorconfig/editorconfig' " Load configs from .editorconfig
+Plug 'wsdjeg/vim-fetch' " Open file with file_path:line:path
 
 Plug 'kassio/neoterm'
-Plug 'janko-m/vim-test'
 
-Plug 'sheerun/vim-polyglot'
+" test
+Plug 'janko-m/vim-test' " general
+Plug 'kassio/vmtest' " vim test framework
+
 Plug 'norcalli/nvim-colorizer.lua'
-
-Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'sheerun/vim-polyglot' " most langs
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } "markdown
+Plug 'Shougo/neco-vim' " vim
 
 " Theme
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
@@ -47,8 +49,5 @@ Plug 'sirver/ultisnips'
 
 " Match pairs
 Plug 'andymass/vim-matchup'
-
-" test
-Plug 'kassio/vmtest'
 
 call plug#end()
