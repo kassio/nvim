@@ -91,3 +91,5 @@ hi! CocExplorerGitPathChange guibg=#FAE0AC
 hi! CocExplorerGitContentChange guibg=#FAE0AC
 hi! CocExplorerGitDeleted guibg=#F7ABAF
 hi! CocExplorerGitIgnored guibg=#DDDDDD
+hi! CocExplorerGitUntracked guibg=#DDDDDD
+hi! CocExplorerGitAdded guibg=#CBFAC5
