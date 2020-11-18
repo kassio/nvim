@@ -43,16 +43,12 @@ nnoremap <c-w><c-]> :execute 'stag ' . expand('<cword>')<cr>
 nnoremap v<c-]> :execute 'vert stag ' . expand('<cword>')<cr>
 
 nnoremap Q <nop>
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
 
 " Indent all file
 nnoremap <leader>ff :call preserve#preserve('silent normal gg=G')<cr>
 
 " Map to show the highlight name under the cursor
-nnoremap <f2> :echo color#current()<cr>
+nnoremap c<c-l> :echo color#current()<cr>
 
 map <S-ScrollWheelUp> <C-U>
 map <S-ScrollWheelDown> <C-D>
