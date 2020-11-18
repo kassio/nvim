@@ -87,15 +87,7 @@ hi! Function gui=italic
 hi! vimFunction gui=italic
 hi! RubyFunction gui=italic
 
-hi! link CocExplorerGitUnmodified Normal
-hi! link CocExplorerGitUnmerged Normal
-hi! CocExplorerGitIgnored gui=NONE guifg=#CCCCCC guibg=NONE
-hi! link CocExplorerGitUntracked CocExplorerGitIgnored
-hi! link CocExplorerGitModified SignWarning
-hi! link CocExplorerGitMixed CocExplorerGitModified
-hi! link CocExplorerGitRenamed CocExplorerGitModified
-hi! link CocExplorerGitCopied CocExplorerGitModified
-hi! link CocExplorerGitContentChange CocExplorerGitModified
-hi! link CocExplorerGitPathChange CocExplorerGitModified
-hi! link CocExplorerGitAdded SignSuccess
-hi! link CocExplorerGitDeleted SignError
+hi! CocExplorerGitPathChange guibg=#FAE0AC
+hi! CocExplorerGitContentChange guibg=#FAE0AC
+hi! CocExplorerGitDeleted guibg=#F7ABAF
+hi! CocExplorerGitIgnored guibg=#DDDDDD
