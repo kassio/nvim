@@ -92,33 +92,29 @@ function! s:test_path(lib)
   return join(result, '/')
 endfunction
 
-function! user#ruby#namespace()
-  return system(join(s:namespace_cmd(), ' '))
+function! user#ruby#namespace(...)
+  let Fn = get(a:, 1, function('s:echo'))
+  let Callback = { _, data -> Fn(data[0]) }
+
+  let cmd = ['/Users/kassioborges/.asdf/shims/ruby',
+        \ globpath(&runtimepath, 'ftplugin/ruby/namespace.rb'),
+        \ printf('%s:%s', expand('%:p'), line('.'))]
+
+  call jobstart(cmd, {
+        \   'on_stdout': Callback,
+        \   'stdout_buffered': 1
+        \ })
 endfunction
 
-function! user#ruby#set_namespace()
-  if !get(b:, 'ruby_fetching_namespace_lock', v:false)
-    let b:ruby_fetching_namespace_lock = v:true
-    call jobstart(s:namespace_cmd(), {
-          \ 'on_stdout': { _, data -> s:set_buffer_namespace(trim(data[0])) }
-          \ })
-  end
+function! user#ruby#copy_namespace()
+  call user#ruby#namespace(function('s:copy'))
 endfunction
 
-function! s:set_buffer_namespace(namespace)
-  if a:namespace !=# ''
-    let b:namespace = a:namespace
-  end
-
-  sleep 500m
-  let b:ruby_fetching_namespace_lock = v:false
+function! s:copy(data)
+  echo printf('"%s" copied', a:data)
+  let @*=a:data
 endfunction
 
-function! s:namespace_cmd()
-  return
-        \ [
-        \  '/Users/kassioborges/.asdf/shims/ruby',
-        \  globpath(&runtimepath, 'ftplugin/ruby/namespace.rb'),
-        \  printf('%s:%s', expand('%:p'), line('.'))
-        \ ]
+function! s:echo(value)
+  echo a:value
 endfunction

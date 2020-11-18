@@ -44,5 +44,5 @@ call textobj#user#plugin('rubyblock', {
       \   }
       \ })
 
-command! -buffer Namespace echo user#ruby#namespace()
-command! -buffer CopyNamespace let @*=user#ruby#namespace()
+command! -buffer Namespace call user#ruby#namespace()
+command! -buffer CopyNamespace call user#ruby#copy_namespace()
