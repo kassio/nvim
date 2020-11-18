@@ -22,6 +22,9 @@
   "explorer.previewAction.onHover": false,
   "explorer.file.autoReveal": false,
   "explorer.file.root.template": "[fullpath]",
+  "explorer.filename.colored.enable": {
+    "git": true
+  },
   "explorer.autoExpandOptions": [
     "uncompact"
   ],
