@@ -7,7 +7,7 @@ xmap <leader>ts <plug>(neoterm-repl-send)
 nmap <leader>ts <plug>(neoterm-repl-send)
 nmap <leader>tsl <plug>(neoterm-repl-send-line)
 
-nnoremap <silent> <leader>tR :<c-u>exec printf("%sTexec !! \<lt>cr>", v:count)<cr>
+nnoremap <silent> <leader>tR :<c-u>exec printf("%sTexec !! \<lt>cr>\<lt>cr>", v:count)<cr>
 nnoremap <silent> <leader>tt :<c-u>exec printf('%sTtoggle', v:count)<cr>
 nnoremap <silent> <leader>vt :<c-u>exec printf('botright vertical %s Ttoggle', v:count)<cr>
 nnoremap <silent> <leader>ht :<c-u>exec printf('botright %s Ttoggle', v:count)<cr>
