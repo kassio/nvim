@@ -75,7 +75,7 @@ function! s:code_path(lib)
   let file = substitute(expand('%:t'), printf('_%s.rb', a:lib), '.rb', '')
 
   let result = path[index(path, a:lib) + 1: -2]
-  let result = insert(result, 'app')
+  let result = result[0] == 'lib' ? result : insert(result, 'app')
   let result = add(result, file)
 
   return join(result, '/')
