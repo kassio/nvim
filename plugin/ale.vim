@@ -16,20 +16,21 @@ let g:ale_sign_warning = g:sign_warning
 let g:ale_sign_style_warning = 's'
 let g:ale_sign_info = g:sign_info
 
+let g:ale_ruby_rubocop_executable = 'bundle exec rubocop'
+
 let g:ale_linters = {
       \ 'go': ['gofmt', 'golint'],
-      \ 'ruby': ['rubocop'],
-      \ 'sh': ['shellcheck'],
+      \ 'ruby': ['ruby', 'rubocop', 'solargraph'],
+      \ 'sh': ['shellcheck']
       \}
 
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
       \ 'css': ['prettier'],
-      \ 'elixir': ['mix_format'],
       \ 'go': ['gofmt'],
       \ 'json': ['prettier'],
-      \ 'sh': ['shfmt'],
-      \ 'ruby': ['rubocop'],
+      \ 'ruby': ['ruby', 'rubocop', 'solargraph'],
+      \ 'sh': ['shfmt']
       \ }
 
 let g:ale_sh_shfmt_options = '-i 2 -ci -sr'
