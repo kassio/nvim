@@ -1,12 +1,21 @@
-let g:neoterm_default_mod = 'botright'
 let g:neoterm_automap_keys = '<leader>tm'
 let g:neoterm_use_relative_path = 1
 let g:neoterm_autoscroll = 1
+
+let g:neoterm_callbacks = {}
+function! g:neoterm_callbacks.before_new()
+  if winwidth('.') > 100
+    let g:neoterm_default_mod = 'botright vertical'
+  else
+    let g:neoterm_default_mod = 'botright'
+  end
+endfunction
 
 xmap <leader>ts <plug>(neoterm-repl-send)
 nmap <leader>ts <plug>(neoterm-repl-send)
 nmap <leader>tsl <plug>(neoterm-repl-send-line)
 
+nnoremap <silent> <leader>tn :Tnew<cr>
 nnoremap <silent> <leader>tR :<c-u>exec printf("%sTexec !! \<lt>cr>\<lt>cr>", v:count)<cr>
 nnoremap <silent> <leader>tt :<c-u>exec printf('%sTtoggle', v:count)<cr>
 nnoremap <silent> <leader>vt :<c-u>exec printf('botright vertical %s Ttoggle', v:count)<cr>
