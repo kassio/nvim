@@ -96,3 +96,7 @@ let g:loaded_vimballPlugin = 1
 let g:loaded_zipPlugin = 1
 let g:loaded_gzip = 1
 let g:loaded_rrhelper = 1
+
+let g:sign_error = '×'
+let g:sign_warning = '⚠'
+let g:sign_info = 'ⅰ'

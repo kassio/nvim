@@ -19,9 +19,6 @@ Plug 'Shougo/neco-vim' " vim
 " Theme
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 
-" Linting
-Plug 'w0rp/ale'
-
 " Search/replace/text manipulation
 Plug 'vim-scripts/vis'
 Plug 'tpope/vim-repeat'

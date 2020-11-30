@@ -3,13 +3,10 @@
   "suggest.snippetIndicator": "☀︎ ",
   "suggest.timeout": 15000,
   "coc.preferences.jumpCommand": "vsplit",
+  "coc.preferences.useQuickfixForLocations": true,
   "coc.preferences.formatOnSaveFiletypes": [
-    "eelixir",
-    "elixir",
-    "eruby",
     "javascript",
-    "json",
-    "ruby"
+    "json"
   ],
   "solargraph.completion": true,
   "solargraph.definitions": true,
@@ -60,5 +57,45 @@
         "~"
       ]
     }
+  },
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.errorSign": "×",
+  "diagnostic.hintSign": "ⅰ",
+  "diagnostic.infoSign": "ⅰ",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic-languageserver.debug": true,
+  "diagnostic-languageserver.trace.server": "verbose",
+  "diagnostic-languageserver.linters": {
+    "rubocop": {
+      "command": "bundle",
+      "sourceName": "rubocop",
+      "debounce": 100,
+      "args": [
+        "exec",
+        "rubocop",
+        "--format",
+        "json",
+        "--force-exclusion",
+        "%filepath"
+      ],
+      "parseJson": {
+        "errorsRoot": "files[0].offenses",
+        "line": "location.line",
+        "column": "location.column",
+        "message": "[${cop_name}]\n${message}",
+        "security": "severity"
+      },
+      "securities": {
+        "fatal": "error",
+        "warning": "warning"
+      }
+    }
+  },
+  "diagnostic-languageserver.filetypes": {
+    "markdown": "markdownlint",
+    "ruby": "rubocop",
+    "sh": "shellcheck",
+    "vim": "vint",
+    "yaml": "yamllint"
   }
 }
