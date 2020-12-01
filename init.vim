@@ -26,8 +26,6 @@ set nocursorline
 
 set switchbuf=useopen,usetab,split
 
-set list
-
 set virtualedit=block
 
 set hidden
@@ -41,13 +39,14 @@ set tags=tags,tags.gems
 set tagcase=followscs
 
 set wildignorecase
-
 set wildignore=*.zip,*.gz,*.bz,*.tar
 set wildignore+=*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
 
 set nowrap
 set textwidth=100
 set sidescroll=5
+
+set list
 set listchars+=precedes:<,extends:>
 
 set sessionoptions=winpos,tabpages,help
