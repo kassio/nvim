@@ -62,8 +62,6 @@ set fileformats+=mac
 
 set nobackup nowritebackup noswapfile
 
-set ttimeout
-
 set spell
 set spelllang=en
 
@@ -97,6 +95,7 @@ let g:loaded_zipPlugin = 1
 let g:loaded_gzip = 1
 let g:loaded_rrhelper = 1
 
+" global signs icons
 let g:sign_error = '×'
 let g:sign_warning = '⚠'
 let g:sign_info = 'ⅰ'
