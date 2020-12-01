@@ -1,12 +1,10 @@
-let g:current_session = ''
-
 " named opts
 " - prefix: default empty string
 function! session#save(...) abort
   let opts = extend(get(a:, 1, {}), { 'prefix': '' }, 'keep')
 
   if empty(opts.prefix)
-    let default = s:prefix_from(g:current_session)
+    let default = s:prefix_from(v:this_session)
     let opts.prefix = input('Choose the session name: ', default)
   end
 
@@ -17,16 +15,15 @@ function! session#save(...) abort
 
   silent! exec printf('!mkdir -p %s', g:session_dir)
 
-  let g:current_session = s:session_file(opts)
+  let v:this_session = s:session_file(opts)
 
-  silent! exec printf('silent! mksession! %s', g:current_session) | exec 'redraw!'
+  silent! exec printf('silent! mksession! %s', v:this_session) | exec 'redraw!'
   call util#echohl('MoreMsg', 'Session Created')
 endfunction
 
 function! session#load() abort
   function! Loader(file)
     if filereadable(a:file)
-      let g:current_session = a:file
       exec printf('silent! source %s', a:file) | exec 'redraw!'
       call util#echohl('MoreMsg', 'Session loaded')
     else
