@@ -76,7 +76,8 @@
         "--format",
         "json",
         "--force-exclusion",
-        "%filepath"
+        "--stdin",
+        "%text"
       ],
       "parseJson": {
         "errorsRoot": "files[0].offenses",
