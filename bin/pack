@@ -10,7 +10,7 @@ __pack() {
       ;;
     *)
       nvim --noplugin -u "$plugin" \
-        +"PlugUpgrade | PlugInstall! | CocUpdateSync" \
+        +"PlugUpgrade | PlugInstall!" \
         +"qall!"
       ;;
   esac

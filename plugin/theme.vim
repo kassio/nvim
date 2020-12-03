@@ -48,6 +48,14 @@ hi! SLStatusError gui=bold guifg=#EC5F67 guibg=#343D46
 hi! WarningMsg guifg=#FAC863
 hi! ErrorMsg guifg=#EC5F67
 
+hi! link LspDiagnosticsVirtualTextError ErrorMsg
+hi! link LspDiagnosticsVirtualTextWarning WarningMsg
+hi! LspDiagnosticsVirtualTextInformation guifg=#6699CC
+hi! link LspDiagnosticsSignError SignError
+hi! link LspDiagnosticsSignWarning SignWarning
+hi! link LspDiagnosticsSignInformation SignInfo
+hi! link LspDiagnosticsSignHint SignSuccess
+
 hi! link TabLine StatusLineNC
 hi! link TabLineFill StatusLineNC
 hi! link TabLineSel SLModeNormal
@@ -65,17 +73,6 @@ hi! link SignifySignChangeDelete SignifySignChange
 hi! link SignifyLineChange SignifySignChange
 hi! link SignifyLineChangeDelete SignifySignChange
 
-hi! link ALEWarningSign SignWarning
-hi! link ALESignColumnWithWarnings SignWarning
-hi! link ALEStyleWarningSign SignWarning
-
-hi! link ALEErrorSign SignError
-hi! link ALESignColumnWithErrors SignError
-hi! link ALEStyleErrorSign SignError
-
-hi! ALEError guibg=NONE guifg=NONE
-hi! ALEWarning guibg=NONE guifg=NONE
-
 hi! MatchParen gui=bold guifg=NONE guibg=NONE
 
 hi! SpellBad cterm=none gui=underline ctermfg=NONE guifg=none
@@ -86,10 +83,3 @@ hi! SpellLocal ctermfg=NONE guifg=NONE
 hi! Function gui=italic
 hi! vimFunction gui=italic
 hi! RubyFunction gui=italic
-
-hi! CocExplorerGitPathChange guibg=#FAE0AC
-hi! CocExplorerGitContentChange guibg=#FAE0AC
-hi! CocExplorerGitDeleted guibg=#F7ABAF
-hi! CocExplorerGitIgnored guibg=#DDDDDD
-hi! CocExplorerGitUntracked guibg=#DDDDDD
-hi! CocExplorerGitAdded guibg=#CBFAC5

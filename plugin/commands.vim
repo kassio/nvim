@@ -32,3 +32,13 @@ command! LongestLine call buffer#longest_line()
 command! MkdirPath call mkdir(expand('%:h'), 'p')
 
 command! RSpec call user#ruby#rspec()
+
+function! s:mkdirWrite()
+  try
+    w!
+  catch /E212/
+    !mkdir %:h
+    w!
+  endtry
+endfunction
+command W call s:mkdirWrite()

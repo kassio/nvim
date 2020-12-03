@@ -3,6 +3,7 @@ source $HOME/.config/nvim/plugin.vim
 
 set inccommand=nosplit
 set wildoptions=pum
+set completeopt=menuone,noinsert,noselect
 
 set autowriteall
 
