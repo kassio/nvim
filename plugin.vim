@@ -10,13 +10,13 @@ Plug 'nvim-telescope/telescope.nvim' " Fuzzy finder
 Plug 'nvim-lua/popup.nvim' " Fuzzy finder dependency
 Plug 'nvim-lua/plenary.nvim' " Fuzzy finder dependency
 Plug 'kyazdani42/nvim-tree.lua' " file tree
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Better highlights
 
 Plug 'sonph/onehalf', {'rtp': 'vim/'} " Theme
 Plug 'norcalli/nvim-colorizer.lua' " colorify color strings
 
 Plug 'kassio/neoterm' " terminal handler
 
-Plug 'sheerun/vim-polyglot' " most langs
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } "markdown preview
 
 Plug 'janko-m/vim-test' " general tests
