@@ -4,9 +4,11 @@ Plug 'editorconfig/editorconfig' " Load configs from .editorconfig
 Plug 'wsdjeg/vim-fetch' " Open file with file_path:line:path
 
 Plug 'neovim/nvim-lspconfig' " LSP
-
 Plug 'nvim-lua/completion-nvim' " completion
 
+Plug 'nvim-telescope/telescope.nvim' " Fuzzy finder
+Plug 'nvim-lua/popup.nvim' " Fuzzy finder dependency
+Plug 'nvim-lua/plenary.nvim' " Fuzzy finder dependency
 Plug 'kyazdani42/nvim-tree.lua' " file tree
 
 Plug 'sonph/onehalf', {'rtp': 'vim/'} " Theme
@@ -29,10 +31,6 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
 Plug 'kana/vim-textobj-user'
-
-" Fuzzy finder
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 
 " Git
 Plug 'tpope/vim-fugitive'
