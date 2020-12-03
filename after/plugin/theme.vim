@@ -1,11 +1,3 @@
-syntax sync minlines=512
-
-set termguicolors
-set lazyredraw
-set regexpengine=2
-set colorcolumn=80,100,120
-set synmaxcol=200
-
 if theme#current() ==# 'dark'
   colorscheme onehalfdark
   set background=dark

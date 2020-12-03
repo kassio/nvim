@@ -1,5 +1,14 @@
 scriptencoding utf8
-source $HOME/.config/nvim/plugin.vim
+
+lua require'packer-setup'.setup()
+
+syntax sync minlines=512
+
+set termguicolors
+set lazyredraw
+set regexpengine=2
+set colorcolumn=80,100,120
+set synmaxcol=200
 
 set inccommand=nosplit
 set wildoptions=pum

@@ -38,7 +38,7 @@ aug user:autocmd
   au FocusLost * call window#unfocus("norelativenumber")
   au FocusGained * call window#focus("norelativenumber")
 
-  au FocusGained,WinEnter,BufEnter,FileChangedShellPost * checktime | SignifyRefresh
+  " au FocusGained,WinEnter,BufEnter,FileChangedShellPost * checktime | SignifyRefresh
   au WinLeave,FocusLost * silent! call buffer#autosave()
 
   " Formatters

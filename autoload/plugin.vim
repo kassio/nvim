@@ -1,8 +1,11 @@
 function! plugin#upgrade()
-  PlugUpgrade
-  PlugClean!
-  PlugUpdate!
+  lua require'plugins'
 
-  TSInstall all
-  TSUpdate
+  PackerCompile
+  PackerSync
+
+  if exists(':TSInstall')
+    TSInstall all
+    TSUpdate
+  end
 endfunction
