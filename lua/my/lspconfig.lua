@@ -1,7 +1,26 @@
 local lspconfig = require'lspconfig'
 
+local map = function(lhs, rhs)
+  vim.api.nvim_buf_set_keymap(0, 'n', lhs, rhs, { noremap = true, silent = true })
+end
+
 local function attacher(client)
   require'completion'.on_attach()
+
+  map('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
+  map('gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+  map('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+  map('gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+  map('gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+  map('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+  map('gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
+  map('<leader>gw', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
+  map('<leader>gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
+  map('<leader>af', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+  map('<leader>ee', '<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
+  map('<leader>ar', '<cmd>lua vim.lsp.buf.rename()<CR>')
+  map('<leader>ff',  '<cmd>lua vim.lsp.buf.formatting()<CR>')
+
   print('LSP: ' .. client.name)
 end
 

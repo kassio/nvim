@@ -64,7 +64,3 @@ nnoremap 9gt :tablast<cr>
 cnoremap <c-b> P bufdo %s///ge<left><left><left><left>
 " Highlight string without moving
 cnoremap <c-h> let @/ = ""<left>
-
-nnoremap <silent>gd    <cmd>lua vim.lsp.buf.declaration()<cr>
-nnoremap <silent><c-]> <cmd>lua vim.lsp.buf.definition()<cr>
-nnoremap <silent>K     <cmd>lua vim.lsp.buf.hover()<cr>
