@@ -23,7 +23,9 @@ return packer.startup(function()
 
   use 'kyazdani42/nvim-tree.lua' -- file tree
 
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- Better highlights
+  -- AST based plugins
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use { 'nvim-treesitter/playground' }
 
   use 'kassio/neoterm' -- terminal handler
 
