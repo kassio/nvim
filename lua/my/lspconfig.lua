@@ -54,6 +54,12 @@ lspconfig.sumneko_lua.setup{
         enable = true,
         globals = { "vim" },
       },
+      workspace = {
+        library = {
+          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+          [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+        }
+      }
     }
   },
 
