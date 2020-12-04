@@ -19,7 +19,6 @@ local function attacher(client)
   map('<leader>af', '<cmd>lua vim.lsp.buf.code_action()<CR>')
   map('<leader>ee', '<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
   map('<leader>ar', '<cmd>lua vim.lsp.buf.rename()<CR>')
-  map('<leader>ff',  '<cmd>lua vim.lsp.buf.formatting()<CR>')
 
   print('LSP: ' .. client.name)
 end
@@ -109,19 +108,6 @@ lspconfig.diagnosticls.setup{
       sh = "shellcheck",
       vim = "vint",
       yaml = "yamllint"
-    },
-
-    formatters = {
-      rubyfmt = {
-        command = "rubyfmt",
-        args = { "%filepath" },
-        isStdout = true,
-        doesWriteToFile = false
-      }
-    },
-
-    formatFiletypes = {
-      ruby = "rubyfmt"
     }
   },
 
