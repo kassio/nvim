@@ -2,11 +2,11 @@ vim.cmd 'packadd packer.nvim'
 
 local packer = require'packer'
 
-packer.init{ compile_path = vim.fn.stdpath('data')..'/site/plugin/packer_compiled.vim' }
+packer.init{ compile_path = vim.fn.stdpath('data')..'/site/plugin/packer.vim' }
 
 return packer.startup(function()
   -- Plugin manager
-  use {'wbthomason/packer.nvim', opt = true}
+  use { 'wbthomason/packer.nvim', opt = true }
 
   -- Generic configs
   use 'editorconfig/editorconfig' -- Load configs from .editorconfig
@@ -23,11 +23,11 @@ return packer.startup(function()
 
   use 'kyazdani42/nvim-tree.lua' -- file tree
 
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'} -- Better highlights
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- Better highlights
 
   use 'kassio/neoterm' -- terminal handler
 
-  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'  } -- markdown preview
+  use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' } -- markdown preview
 
   -- Test
   use 'janko-m/vim-test' -- general tests
@@ -57,6 +57,6 @@ return packer.startup(function()
   use 'andymass/vim-matchup'
 
   -- Colors
-  use {'sonph/onehalf', rtp = 'vim/'} -- Theme
+  use { 'sonph/onehalf', rtp = 'vim/' } -- Theme
   use 'norcalli/nvim-colorizer.lua' -- colorify color strings
 end)

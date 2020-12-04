@@ -1,11 +1,10 @@
 function! plugin#upgrade()
-  lua require'plugins'
+  lua require'my/plugins'
 
   PackerCompile
   PackerSync
 
-  if exists(':TSInstall')
-    TSInstall all
+  if exists(':TSUpdate')
     TSUpdate
   end
 endfunction

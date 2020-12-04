@@ -1,6 +1,6 @@
 scriptencoding utf8
 
-lua require'packer-setup'.setup()
+lua require'my/setup'.setup()
 
 syntax sync minlines=512
 
