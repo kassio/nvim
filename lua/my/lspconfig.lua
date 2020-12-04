@@ -96,12 +96,26 @@ lspconfig.diagnosticls.setup{
         }
       }
     },
+
     filetypes = {
       markdown = "markdownlint",
       ruby = "rubocop",
       sh = "shellcheck",
       vim = "vint",
       yaml = "yamllint"
+    },
+
+    formatters = {
+      rubyfmt = {
+        command = "rubyfmt",
+        args = { "%filepath" },
+        isStdout = true,
+        doesWriteToFile = false
+      }
+    },
+
+    formatFiletypes = {
+      ruby = "rubyfmt"
     }
   },
 
