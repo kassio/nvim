@@ -6,7 +6,7 @@ packer.init{ compile_path = vim.fn.stdpath('data')..'/site/plugin/packer_compile
 
 return packer.startup(function()
   -- Plugin manager
-  use {'wbthomason/packer.nvim', opt = true, cmd = {'PackerCompile', 'PackerInstall', 'PackerUpdate', 'PackerClean', 'PackerSync'}}
+  use {'wbthomason/packer.nvim', opt = true}
 
   -- Generic configs
   use 'editorconfig/editorconfig' -- Load configs from .editorconfig
@@ -16,9 +16,10 @@ return packer.startup(function()
   use 'neovim/nvim-lspconfig' -- LSP
   use 'nvim-lua/completion-nvim' -- completion
 
+  use 'nvim-lua/plenary.nvim' -- nvim lua stdlib-ish
+
   use 'nvim-telescope/telescope.nvim' -- Fuzzy finder
   use 'nvim-lua/popup.nvim' -- Fuzzy finder dependency
-  use 'nvim-lua/plenary.nvim' -- Fuzzy finder dependency
 
   use 'kyazdani42/nvim-tree.lua' -- file tree
 
