@@ -15,6 +15,7 @@ return packer.startup(function()
   -- IDE stuff
   use 'neovim/nvim-lspconfig' -- LSP
   use 'nvim-lua/completion-nvim' -- completion
+  use 'steelsojka/completion-buffers' -- buffers words completion
 
   use 'nvim-lua/plenary.nvim' -- nvim lua stdlib-ish
 

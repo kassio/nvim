@@ -5,8 +5,6 @@ local map = function(lhs, rhs)
 end
 
 local function attacher(client)
-  require'completion'.on_attach()
-
   map('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
   map('gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
   map('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
