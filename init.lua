@@ -1,4 +1,4 @@
-require'my/setup'.setup()
+require'my'.setupPluginManager()
 
 vim.o.termguicolors = true
 vim.o.lazyredraw = true
@@ -117,3 +117,5 @@ vim.g.loaded_rrhelper = 1
 vim.g.sign_error = '×'
 vim.g.sign_warning = '⚠'
 vim.g.sign_info = 'ⅰ'
+
+my.setupPlugins()

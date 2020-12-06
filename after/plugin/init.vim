@@ -1,1 +1,0 @@
-lua my = require'my'
