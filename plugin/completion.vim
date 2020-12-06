@@ -1,15 +1,14 @@
-let g:completion_enable_snippet = 'UltiSnips'
 let g:completion_matching_smart_case = 1
+let g:completion_auto_change_source = 1
 let g:completion_sorting = "alphabet"
 let g:completion_matching_strategy_list = [
       \ 'exact',
-      \ 'substring',
-      \ 'fuzzy',
-      \ 'all'
+      \ 'substring'
       \ ]
 let g:completion_chain_complete_list = {
       \ 'default': [
-      \    {'complete_items': ['lsp', 'buffers']},
+      \    {'complete_items': ['lsp', 'ts', 'UltiSnips']},
+      \    {'complete_items': ['buffers', 'path']}
       \  ]}
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
