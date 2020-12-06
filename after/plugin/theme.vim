@@ -37,12 +37,13 @@ hi! SLStatusWarning gui=bold guifg=#FAC863 guibg=#343D46
 hi! SLStatusSuccess gui=bold guifg=#99C794 guibg=#343D46
 hi! SLStatusError gui=bold guifg=#EC5F67 guibg=#343D46
 
-hi! WarningMsg guifg=#FAC863
-hi! ErrorMsg guifg=#EC5F67
+hi! link WarningMsg SignWarning
+hi! link ErrorMsg SignError
 
-hi! link LspDiagnosticsVirtualTextError ErrorMsg
-hi! link LspDiagnosticsVirtualTextWarning WarningMsg
-hi! LspDiagnosticsVirtualTextInformation guifg=#6699CC
+hi! link LspDiagnosticsVirtualTextError SignError
+hi! link LspDiagnosticsVirtualTextWarning SignWarning
+hi! link LspDiagnosticsVirtualTextInformation SignInfo
+
 hi! link LspDiagnosticsSignError SignError
 hi! link LspDiagnosticsSignWarning SignWarning
 hi! link LspDiagnosticsSignInformation SignInfo

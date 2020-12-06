@@ -1,7 +1,7 @@
 require'my/lspconfig'
 require'my/fuzzyfinder'
 
-require'colorizer'.setup{}
+require'colorizer'.setup()
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "all",
