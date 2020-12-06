@@ -49,12 +49,12 @@ lspconfig.sumneko_lua.setup{
     Lua = {
       diagnostics = {
         enable = true,
-        globals = { "vim" },
+        globals = { 'vim', 'my' },
       },
       workspace = {
         library = {
-          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-          [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
         }
       }
     }
@@ -65,47 +65,47 @@ lspconfig.sumneko_lua.setup{
 
 lspconfig.diagnosticls.setup{
   filetypes = {
-    "markdown",
-    "ruby",
-    "sh",
-    "vim",
-    "yaml"
+    'markdown',
+    'ruby',
+    'sh',
+    'vim',
+    'yaml'
   },
 
   init_options = {
     linters = {
       rubocop = {
-        command = "bundle",
-        sourceName = "rubocop",
+        command = 'bundle',
+        sourceName = 'rubocop',
         debounce = 100,
         args = {
-          "exec",
-          "rubocop",
-          "--format",
-          "json",
-          "--force-exclusion",
-          "%filepath"
+          'exec',
+          'rubocop',
+          '--format',
+          'json',
+          '--force-exclusion',
+          '%filepath'
         },
         parseJson = {
-          errorsRoot = "files[0].offenses",
-          line = "location.line",
-          column = "location.column",
-          message = "[${cop_name}]\n${message}",
-          security = "severity"
+          errorsRoot = 'files[0].offenses',
+          line = 'location.line',
+          column = 'location.column',
+          message = '[${cop_name}]\n${message}',
+          security = 'severity'
         },
         securities = {
-          fatal = "error",
-          warning = "warning"
+          fatal = 'error',
+          warning = 'warning'
         }
       }
     },
 
     filetypes = {
-      markdown = "markdownlint",
-      ruby = "rubocop",
-      sh = "shellcheck",
-      vim = "vint",
-      yaml = "yamllint"
+      markdown = 'markdownlint',
+      ruby = 'rubocop',
+      sh = 'shellcheck',
+      vim = 'vint',
+      yaml = 'yamllint'
     }
   },
 
