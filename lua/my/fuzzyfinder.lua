@@ -20,7 +20,7 @@ require('telescope').setup{
     generic_sorter =  require'telescope.sorters'.get_fzy_sorter,
     shorten_path = true,
     use_less = true,
-    winblend = 5,
+    winblend = 0,
     width = 0.8,
     show_line = false,
     mappings = {

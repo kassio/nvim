@@ -15,6 +15,8 @@ require'nvim-treesitter.configs'.setup {
 
 local M = {}
 
+M.telescope = require'telescope.builtin'
+
 M.activeLSPClients = function()
   for _, client in ipairs(vim.lsp.get_active_clients()) do
     print(client.name)
