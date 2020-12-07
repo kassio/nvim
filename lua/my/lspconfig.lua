@@ -15,7 +15,7 @@ local function attacher(client)
   map('<leader>gw', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
   map('<leader>gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
   map('<leader>af', '<cmd>lua vim.lsp.buf.code_action()<CR>')
-  map('<leader>ee', '<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
+  map('<leader>ee', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
   map('<leader>ar', '<cmd>lua vim.lsp.buf.rename()<CR>')
 
   print('LSP: ' .. client.name)
@@ -77,7 +77,6 @@ lspconfig.diagnosticls.setup{
       rubocop = {
         command = 'bundle',
         sourceName = 'rubocop',
-        debounce = 100,
         args = {
           'exec',
           'rubocop',
@@ -97,6 +96,74 @@ lspconfig.diagnosticls.setup{
           fatal = 'error',
           warning = 'warning'
         }
+      },
+      markdownlint = {
+        command = 'markdownlint',
+        sourceName = 'markdownlint',
+        isStderr = true,
+        args = {
+          '--config',
+          '.markdownlint.json',
+          '%filepath'
+        },
+        formatLines = 1,
+        formatPattern = {
+          '^([^:]+):(\\d+):(\\d+)?\\s*(.*)$',
+          {
+            sourceName = 1,
+            sourceNameFilter = true,
+            line = 2,
+            column = 3,
+            message = 4,
+          }
+        },
+        securities = {
+          undefined = 'warning'
+        }
+      },
+      shellcheck = {
+        command = 'shellcheck',
+        debounce = 100,
+        args = {
+          '--format',
+          'json',
+          '-'
+        },
+        sourceName = 'shellcheck',
+        parseJson = {
+          line = 'line',
+          column = 'column',
+          endLine = 'endLine',
+          endColumn = 'endColumn',
+          message = '${message} [${code}]',
+          security = 'level'
+        },
+        securities = {
+          error = 'error',
+          warning = 'warning',
+          info = 'info',
+          style = 'hint'
+        }
+      },
+      vint = {
+        command = 'vint',
+        debounce = 100,
+        args = {
+          '--enable-neovim',
+          '-'
+        },
+        offsetLine = 0,
+        offsetColumn = 0,
+        sourceName = 'vint',
+        formatLines = 1,
+        formatPattern = {
+          '[^:]+:(\\d+):(\\d+):\\s*(.*)(\\r|\\n)*$',
+          {
+            line = 1,
+            column = 2,
+            message = 3
+          }
+        }
       }
     },
 
@@ -105,7 +172,6 @@ lspconfig.diagnosticls.setup{
       ruby = 'rubocop',
       sh = 'shellcheck',
       vim = 'vint',
-      yaml = 'yamllint'
     }
   },
 
