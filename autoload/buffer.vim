@@ -38,7 +38,6 @@ function! buffer#kill_unlisted() abort
   let l:buffers = buffer#user_buffers({ bufid ->
         \   !buflisted(bufid) ||
         \   !bufloaded(bufid) ||
-        \   bufwinnr(bufid) == -1 ||
         \   getbufvar(bufid, '&bt') != ''
         \ })
 
