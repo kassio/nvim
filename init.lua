@@ -10,6 +10,7 @@ vim.o.expandtab = true
 vim.o.fileencodings = 'utf8,nobomb'
 vim.o.fileformats = 'unix,mac'
 vim.o.fillchars = 'vert:|'
+vim.o.ignorecase = true
 vim.o.inccommand = 'nosplit'
 vim.o.infercase = true
 vim.o.mouse = 'a'
