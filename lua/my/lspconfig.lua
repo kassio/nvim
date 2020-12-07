@@ -1,22 +1,22 @@
 local lspconfig = require'lspconfig'
 
-local map = function(lhs, rhs)
+local nmap = function(lhs, rhs)
   vim.api.nvim_buf_set_keymap(0, 'n', lhs, rhs, { noremap = true, silent = true })
 end
 
 local function attacher(client)
-  map('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
-  map('gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-  map('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-  map('gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-  map('gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
-  map('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-  map('gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
-  map('<leader>gw', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
-  map('<leader>gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
-  map('<leader>af', '<cmd>lua vim.lsp.buf.code_action()<CR>')
-  map('<leader>ee', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-  map('<leader>ar', '<cmd>lua vim.lsp.buf.rename()<CR>')
+  nmap('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
+  nmap('gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+  nmap('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+  nmap('gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+  nmap('gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+  nmap('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+  nmap('gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
+  nmap('<leader>gw', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
+  nmap('<leader>gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
+  nmap('<leader>af', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+  nmap('<leader>ee', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
+  nmap('<leader>ar', '<cmd>lua vim.lsp.buf.rename()<CR>')
 
   print('LSP: ' .. client.name)
 end
