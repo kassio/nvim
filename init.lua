@@ -1,105 +1,74 @@
 require'my'.setupPluginManager()
 
-vim.o.termguicolors = true
-vim.o.lazyredraw = true
-vim.o.regexpengine = 2
-vim.o.colorcolumn = '80,100,120'
-vim.o.synmaxcol = 200
-
-vim.o.inccommand = 'nosplit'
-vim.o.wildoptions = 'pum'
-vim.o.completeopt = 'menuone,noinsert,noselect'
+vim.bo.cindent = true
+vim.bo.copyindent = true
+vim.bo.expandtab = true
+vim.bo.infercase = true
+vim.bo.shiftwidth = 2
+vim.bo.smartindent = true
+vim.bo.softtabstop = 2
+vim.bo.spelllang = 'en'
+vim.bo.swapfile = false
+vim.bo.tabstop = 2
+vim.bo.textwidth = 100
+vim.bo.undofile = true
+vim.bo.undolevels = 10000
 
 vim.o.autowriteall = true
-
+vim.o.backup = false
+vim.o.colorcolumn = '80,100,120'
+vim.o.completeopt = 'menuone,noinsert,noselect'
+vim.o.confirm = true
+vim.o.diffopt = 'internal,filler,closeoff,vertical'
 vim.o.fileencodings = 'utf8,nobomb'
-
+vim.o.fileformats = 'unix,mac'
+vim.o.fillchars = 'vert:┃'
+vim.o.grepformat = '%f:%l:%c:%m,%f:%l:%m'
+vim.o.grepprg = 'rg --follow --smart-case --vimgrep --no-ignore-vcs --hidden --color never'
+vim.o.hidden = true
+vim.o.ignorecase = true
+vim.o.inccommand = 'nosplit'
+vim.o.lazyredraw = true
+vim.o.maxmempattern = 10000
+vim.o.mouse = 'a'
+vim.o.regexpengine = 2
+vim.o.sessionoptions = 'winpos,tabpages,help'
+vim.o.shiftround = true
+vim.o.shortmess = 'actToOFI'
 vim.o.showmatch = true
 vim.o.showmode = false
-
-vim.o.confirm = true
-
-vim.o.shortmess = 'actToOFI'
-
-vim.o.splitright = true
-vim.o.splitbelow = true
-
-vim.o.diffopt = 'internal,filler,closeoff,vertical'
-
-vim.o.relativenumber = true
-vim.o.number = true
-vim.o.numberwidth = 3
-
-vim.o.ignorecase = true
-vim.o.smartcase = true
-
-vim.o.cursorline = false
-
-vim.o.switchbuf = 'useopen,usetab,split'
-
-vim.o.virtualedit = 'block'
-
-vim.o.hidden = true
-
-vim.o.updatetime = 300
-
-vim.o.signcolumn = 'yes'
-
-vim.o.infercase = true
-vim.o.tags = 'tags,tags.gems'
-vim.o.tagcase = 'followscs'
-
-vim.o.wildignorecase = true
-vim.o.wildignore = '*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov'
-
-vim.o.wrap = false
-vim.o.textwidth = 100
+vim.o.showtabline = 2
 vim.o.sidescroll = 5
-
-vim.o.list = true
-vim.o.listchars = 'tab:> ,trail:-,nbsp:+,precedes:<,extends:>'
-
-vim.o.sessionoptions = 'winpos,tabpages,help'
-
-vim.o.copyindent = true
-vim.o.cindent = true
-vim.o.smartindent = true
-vim.o.tabstop = 2
-vim.o.shiftwidth = 2
-vim.o.softtabstop = 2
-vim.o.expandtab = true
-vim.o.shiftround = true
-
-vim.o.foldmethod = 'manual'
-vim.o.foldenable = false
-
-vim.o.fileformats = vim.o.fileformats .. ',mac'
-
-vim.o.backup = false
-vim.o.writebackup = false
-vim.o.swapfile = false
-
-vim.o.spell = true
-vim.o.spelllang = 'en'
-
-vim.o.undofile = true
-vim.o.undoreload = 10000
-
+vim.o.smartcase = true
+vim.o.splitbelow = true
+vim.o.splitright = true
+vim.o.statusline = ''
+vim.o.switchbuf = 'useopen,usetab,split'
+vim.o.synmaxcol = 200
+vim.o.tabline = '%!tabline#update()'
+vim.o.tagcase = 'followscs'
+vim.o.tags = 'tags,tags.gems'
+vim.o.termguicolors = true
 vim.o.title = true
 vim.o.titlestring = "%{substitute(expand('%:p'), $HOME, '$HOME', '')}"
+vim.o.undoreload = 10000
+vim.o.virtualedit = 'block'
+vim.o.wildignore = '*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov'
+vim.o.wildignorecase = true
+vim.o.wildoptions = 'pum'
+vim.o.writebackup = false
 
-vim.o.statusline = ''
-vim.o.showtabline = 2
-vim.o.tabline = '%!tabline#update()'
-
-vim.o.mouse = 'a'
-
-vim.o.fillchars = 'vert:┃'
-
-vim.o.maxmempattern = 10000
-
-vim.o.grepformat = '%f:%l:%c:%m,%f:%l:%m'
-vim.o.grepprg = 'ag --follow --smart-case --vimgrep --skip-vcs-ignores --hidden --nocolor'
+vim.wo.cursorline = false
+vim.wo.foldenable = false
+vim.wo.foldmethod = 'manual'
+vim.wo.list = true
+vim.wo.listchars = 'tab:> ,trail:-,nbsp:+,precedes:<,extends:>'
+vim.wo.number = true
+vim.wo.numberwidth = 3
+vim.wo.relativenumber = true
+vim.wo.signcolumn = 'yes'
+vim.wo.spell = true
+vim.wo.wrap = false
 
 vim.g.mapleader = ' '
 
