@@ -58,6 +58,8 @@ vim.wo.wrap = false
 
 vim.g.mapleader = ' '
 
+vim.g.vimsyn_embed = 'l'
+
 -- Disable standard plugins
 vim.g.loaded_getscriptPlugin = 1
 vim.g.loaded_netrwPlugin = 1
