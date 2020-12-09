@@ -38,10 +38,14 @@ return packer.startup{
     use 'janko-m/vim-test' -- general tests
     use 'kassio/vmtest' -- vim test framework
 
+    -- Text manipulation
     -- Search/replace/text manipulation
     use 'vim-scripts/vis'
     use 'tpope/vim-repeat'
     use 'tpope/vim-abolish'
+
+    -- Tabularize
+    use 'godlygeek/tabular'
 
     -- Surrounding
     use 'tpope/vim-surround'
