@@ -77,7 +77,7 @@ function! s:currentModeKey() abort
 endfunction
 
 function! statusline#linter(scope) abort
-  let l:total = statusline#linter#ale(a:scope) + statusline#linter#coc(a:scope)
+  let l:total = statusline#linter#total(a:scope)
 
   if empty(total)
     return ''

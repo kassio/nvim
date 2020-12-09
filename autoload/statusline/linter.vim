@@ -1,4 +1,4 @@
-function! s:ale(scope)
+function! s:ale_filter(scope)
   return filter(getloclist(0), { _, item ->
         \    type(item) == v:t_dict &&
         \     item.type == a:scope &&
@@ -6,20 +6,27 @@ function! s:ale(scope)
         \  })
 endfunction
 
-function! statusline#linter#ale(scope)
+function! s:ale(scope)
   if a:scope ==# 'W'
-    return len(s:ale('W')) + len(s:ale('I'))
+    return len(s:ale_filter('W')) + len(s:ale_filter('I'))
   else
-    return len(s:ale(a:scope))
+    return len(s:ale_filter(a:scope))
   end
 endfunction
 
-function! statusline#linter#coc(scope) abort
-  let info = get(b:, 'coc_diagnostic_info', {})
+function! s:lsp(scope)
+        " let sl.='%#MyStatuslineLSP#E:'
+        " let sl.='%#MyStatuslineLSPErrors#%{luaeval("vim.lsp.diagnostic.get_count(vim.fn.bufnr('%'), [[Error]])")}'
+        " let sl.='%#MyStatuslineLSP# W:'
+        " let sl.='%#MyStatuslineLSPWarnings#%{luaeval("vim.lsp.diagnostic.get_count(vim.fn.bufnr('%'), [[Warning]])")}'
 
   if a:scope ==# 'W'
-    return get(info, 'warning', 0) + get(info, 'information', 0)
+    return luaeval("vim.lsp.diagnostic.get_count(vim.fn.bufnr('%'), [[Error]])")
   else
-    return get(info, 'error', 0)
+    return luaeval("vim.lsp.diagnostic.get_count(vim.fn.bufnr('%'), [[Warning]])")
   end
+endfunction
+
+function! statusline#linter#total(scope)
+  return s:ale(a:scope) + s:lsp(a:scope)
 endfunction
