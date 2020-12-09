@@ -1,6 +1,16 @@
 colorscheme onehalflight
 set background=light
 
+hi! StatusError   guifg=#CA1243 gui=bold
+hi! StatusWarning guifg=#F7C154 gui=bold
+hi! StatusInfo    guifg=#6699CC gui=bold
+hi! StatusSuccess guifg=#50A14F gui=bold
+
+hi! StatusErrorInverse   guifg=#CA1243 gui=bold gui=reverse
+hi! StatusWarningInverse guifg=#F7C154 gui=bold gui=reverse
+hi! StatusInfoInverse    guifg=#6699CC gui=bold gui=reverse
+hi! StatusSuccessInverse guifg=#50A14F gui=bold gui=reverse
+
 hi! MatchParen guifg=NONE guibg=NONE gui=bold
 
 hi! SpellBad guifg=NONE gui=underline
@@ -29,11 +39,6 @@ hi! SLModeTerminal gui=bold guifg=#383a42 guibg=#CCCCCC
 hi! link TabLine StatusLineNC
 hi! link TabLineFill StatusLineNC
 hi! link TabLineSel SLModeNormal
-
-hi! StatusError   guifg=#CA1243 gui=bold
-hi! StatusWarning guifg=#F7C154 gui=bold
-hi! StatusInfo    guifg=#6699CC gui=bold
-hi! StatusSuccess guifg=#50A14F gui=bold
 
 hi! link SignError StatusError
 hi! link SignWarning StatusWarning
