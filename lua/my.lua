@@ -1,6 +1,6 @@
-my = {}
+local M = {}
 
-my.setupPluginManager = function()
+local setupPluginManager = function()
   local execute = vim.api.nvim_command
   local fn = vim.fn
 
@@ -12,7 +12,9 @@ my.setupPluginManager = function()
   end
 end
 
-my.setupPlugins = function()
+M.setup = function()
+  setupPluginManager()
+
   require'my/lspconfig'
   require'my/fuzzyfinder'
   require'my/treesitter'
@@ -20,12 +22,4 @@ my.setupPlugins = function()
   require'colorizer'.setup()
 end
 
-my.telescope = require'telescope.builtin'
-
-my.activeLSPClients = function()
-  for _, client in ipairs(vim.lsp.get_active_clients()) do
-    print(client.name)
-  end
-end
-
-return my
+return M

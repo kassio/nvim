@@ -1,5 +1,3 @@
-require'my'.setupPluginManager()
-
 vim.o.autowriteall = true
 vim.o.cindent = true
 vim.o.completeopt = 'menuone,noinsert,noselect'
@@ -57,8 +55,10 @@ vim.wo.signcolumn = 'yes'
 vim.wo.spell = true
 vim.wo.wrap = false
 
+-- Space as map leader
 vim.g.mapleader = ' '
 
+-- Highlight lua within vim
 vim.g.vimsyn_embed = 'l'
 
 -- Disable standard plugins
@@ -71,9 +71,11 @@ vim.g.loaded_zipPlugin = 1
 vim.g.loaded_gzip = 1
 vim.g.loaded_rrhelper = 1
 
--- global signs icons
+-- Global signs icons
 vim.g.sign_error = '×'
 vim.g.sign_warning = '⚠'
 vim.g.sign_info = 'ⅰ'
 
-my.setupPlugins()
+-- Setup plugins and other stuff
+my = require'my'
+my.setup()
