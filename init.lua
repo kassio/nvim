@@ -26,6 +26,7 @@ vim.o.softtabstop = 2
 vim.o.spelllang = 'en'
 vim.o.splitbelow = true
 vim.o.splitright = true
+vim.o.guicursor = 'n-v-c-sm:block,i-ci-ve:block,r-cr-o:hor20'
 vim.o.swapfile = false
 vim.o.switchbuf = 'useopen,usetab,split'
 vim.o.tabline = '%!tabline#update()'
