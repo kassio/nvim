@@ -1,7 +1,6 @@
 let s:ignored_filetypes = [
       \ 'help',
       \ 'fugitiveblame',
-      \ 'coc-explorer',
       \ 'man'
       \ ]
 let s:ignored_buftypes = [
