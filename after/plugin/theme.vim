@@ -16,7 +16,18 @@ hi! link SpecialKey NonText
 hi! link SpecialChar NonText
 hi! link EndOfBuffer NonText
 
-hi! SLModeNormal gui=bold guifg=#383a42
+hi! StatusLine guifg=#CCCCCC guibg=#383a42
+hi! StatusLineNC guifg=#CCCCCC guibg=#888888
+
+hi! SLUnsavedFile gui=bold guifg=#CCCCCC guibg=#CC4A21
+hi! SLModeNormal gui=bold guifg=#CCCCCC guibg=#343D46
+hi! SLModeCommand gui=bold guifg=#CCCCCC guibg=#6699CC
+hi! SLModeVisual gui=bold guifg=#CCCCCC guibg=#CD9CCE
+hi! SLModeInsert gui=bold guifg=#383a42 guibg=#BADB51
+hi! SLModeTerminal gui=bold guifg=#383a42 guibg=#CCCCCC
+
+hi! link TabLine StatusLineNC
+hi! link TabLineFill StatusLineNC
 hi! link TabLineSel SLModeNormal
 
 hi! StatusError   guifg=#CA1243 gui=bold
