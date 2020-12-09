@@ -47,9 +47,6 @@ nnoremap Q <nop>
 " Indent all file
 nnoremap <leader>ff :call preserve#preserve('silent normal gg=G')<cr>
 
-" Map to show the highlight name under the cursor
-nnoremap c<c-l> :echo color#current()<cr>
-
 map <S-ScrollWheelUp> <C-U>
 map <S-ScrollWheelDown> <C-D>
 
