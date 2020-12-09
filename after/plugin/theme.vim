@@ -32,10 +32,10 @@ hi! link SignSuccess StatusSuccess
 hi! link ErrorMsg StatusError
 hi! link WarningMsg StatusWarning
 
-hi! link LspDiagnosticsVirtualTextError StatusError
-hi! link LspDiagnosticsVirtualTextWarning StatusWarning
-hi! link LspDiagnosticsVirtualTextInformation StatusInfo
-hi! link LspDiagnosticsVirtualTextHint StatusSuccess
+hi! LspDiagnosticsVirtualTextError guifg=#F5A098
+hi! LspDiagnosticsVirtualTextWarning guifg=#FCEDB6
+hi! LspDiagnosticsVirtualTextInformation guifg=#B1EEFA
+hi! LspDiagnosticsVirtualTextHint guifg=#AEF7AD
 
 hi! link LspDiagnosticsSignError StatusError
 hi! link LspDiagnosticsSignWarning StatusWarning
