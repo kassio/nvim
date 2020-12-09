@@ -5,18 +5,9 @@ local nmap = function(lhs, rhs)
 end
 
 local function attacher(client)
-  nmap('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
   nmap('gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
   nmap('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-  nmap('gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-  nmap('gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
-  nmap('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-  nmap('gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
-  nmap('<leader>gw', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
-  nmap('<leader>gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
-  nmap('<leader>af', '<cmd>lua vim.lsp.buf.code_action()<CR>')
   nmap('<leader>ee', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-  nmap('<leader>ar', '<cmd>lua vim.lsp.buf.rename()<CR>')
 
   print('LSP: ' .. client.name)
 end

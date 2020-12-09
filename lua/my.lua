@@ -15,18 +15,9 @@ end
 my.setupPlugins = function()
   require'my/lspconfig'
   require'my/fuzzyfinder'
+  require'my/treesitter'
 
   require'colorizer'.setup()
-
-  require'nvim-treesitter.configs'.setup{
-    ensure_installed = "all",
-    highlight = { enable = true },
-    playground = {
-      enable = true,
-      updatetime = 25,
-      persist_queries = false
-    }
-  }
 end
 
 my.telescope = require'telescope.builtin'
