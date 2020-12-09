@@ -15,7 +15,7 @@ endfunction
 function! statusline#default(active) abort
   if a:active
     return
-          \   '%#SLModeNormal#%{statusline#mode("N")}%*'
+          \   '%#StatusLine#%{statusline#mode("N")}%*'
           \ . '%#SLModeCommand#%{statusline#mode("C")}%*'
           \ . '%#SLModeVisual#%{statusline#mode("V")}%*'
           \ . '%#SLModeInsert#%{statusline#mode("I")}%*'
@@ -23,11 +23,11 @@ function! statusline#default(active) abort
           \ . '%#LightStatusErrorReverse#%{statusline#linter("E")}%*'
           \ . '%#LightStatusWarningReverse#%{statusline#linter("W")}%*'
           \ . ' %n '
-          \ . '%(%#SLModeNormal#%<%{statusline#filename(!&modified)}%*%)'
+          \ . '%(%#StatusLine#%<%{statusline#filename(!&modified)}%*%)'
           \ . '%(%#SLUnsavedFile#%<%{statusline#filename(&modified)}%*%)'
           \ . '%='
           \ . ' %c,%l/%L '
-          \ . '%#SLModeNormal# %{&ft} %{&ff} %{&fenc!=""?&fenc:&enc} '
+          \ . '%#StatusLine# %{&ft} %{&ff} %{&fenc!=""?&fenc:&enc} '
   else
     return
           \   ' %n '

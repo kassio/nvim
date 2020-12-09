@@ -20,17 +20,17 @@ hi! StatusInfoReverse    guifg=#6699CC gui=bold,reverse
 hi! StatusSuccessReverse guifg=#50A14F gui=bold,reverse
 hi! StatusIgnoreReverse  guifg=#CCCCCC gui=bold,reverse
 
-hi! LightStatusError       guifg=#F5A098
-hi! LightStatusWarning     guifg=#FCEDB6
-hi! LightStatusInformation guifg=#B1EEFA
-hi! LightStatusHint        guifg=#AEF7AD
-hi! LightStatusIgnore      guifg=#EEEEEE
+hi! LightStatusError       guifg=#F5A098 guibg=#383a42
+hi! LightStatusWarning     guifg=#FCEDB6 guibg=#383a42
+hi! LightStatusInformation guifg=#B1EEFA guibg=#383a42
+hi! LightStatusHint        guifg=#AEF7AD guibg=#383a42
+hi! LightStatusIgnore      guifg=#EEEEEE guibg=#383a42
 
-hi! LightStatusErrorReverse       guifg=#F5A098 gui=bold,reverse
-hi! LightStatusWarningReverse     guifg=#FCEDB6 gui=bold,reverse
-hi! LightStatusInformationReverse guifg=#B1EEFA gui=bold,reverse
-hi! LightStatusHintReverse        guifg=#AEF7AD gui=bold,reverse
-hi! LightStatusIgnoreReverse      guifg=#EEEEEE gui=bold,reverse
+hi! LightStatusErrorReverse       guifg=#F5A098 guibg=#383a42 gui=bold,reverse
+hi! LightStatusWarningReverse     guifg=#FCEDB6 guibg=#383a42 gui=bold,reverse
+hi! LightStatusInformationReverse guifg=#B1EEFA guibg=#383a42 gui=bold,reverse
+hi! LightStatusHintReverse        guifg=#AEF7AD guibg=#383a42 gui=bold,reverse
+hi! LightStatusIgnoreReverse      guifg=#EEEEEE guibg=#383a42 gui=bold,reverse
 
 hi! NonText guifg=#383a42 guibg=NONE gui=NONE
 
@@ -40,15 +40,14 @@ hi! link SpecialKey  NonText
 hi! link SpecialChar NonText
 hi! link EndOfBuffer NonText
 
-hi! StatusLine   guifg=#CCCCCC guibg=#383a42
+hi! StatusLine   guifg=#EEEEEE guibg=#383a42
 hi! StatusLineNC guifg=#CCCCCC guibg=#555555
 
-hi! SLUnsavedFile  gui=bold guifg=#CCCCCC guibg=#CC4A21
-hi! SLModeNormal   gui=bold guifg=#CCCCCC guibg=#343D46
-hi! SLModeCommand  gui=bold guifg=#CCCCCC guibg=#6699CC
-hi! SLModeVisual   gui=bold guifg=#CCCCCC guibg=#CD9CCE
-hi! SLModeInsert   gui=bold guifg=#383a42 guibg=#BADB51
-hi! SLModeTerminal gui=bold guifg=#383a42 guibg=#CCCCCC
+hi! SLUnsavedFile  gui=bold guifg=#EEEEEE guibg=#CA1243
+hi! SLModeCommand  gui=bold guifg=#EEEEEE guibg=#6699CC
+hi! SLModeVisual   gui=bold guifg=#EEEEEE guibg=#A22FA0
+hi! SLModeInsert   gui=bold guifg=#EEEEEE guibg=#50A14F
+hi! SLModeTerminal gui=bold guifg=#383a42 guibg=#EEEEEE
 
 hi! link TabLine     StatusLineNC
 hi! link TabLineFill StatusLineNC
