@@ -9,18 +9,18 @@ let g:lua_tree_show_icons = {
       \ }
 
 let g:lua_tree_icons = {
-    \ 'default': ' ',
-    \ 'symlink': '»',
+    \ 'default': '∙',
+    \ 'symlink': '⇔',
     \ 'git': {
-    \   'unstaged': "*",
-    \   'staged': "+",
-    \   'unmerged': "?",
-    \   'renamed': "➜",
-    \   'untracked': "-"
+    \   'unstaged': '*',
+    \   'staged': '+',
+    \   'unmerged': '?',
+    \   'renamed': '»',
+    \   'untracked': '%'
     \   },
     \ 'folder': {
-    \   'default': "▸",
-    \   'open': "▾"
+    \   'default': '▸',
+    \   'open': '▾'
     \   }
     \ }
 
