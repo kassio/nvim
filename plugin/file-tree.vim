@@ -1,5 +1,7 @@
 let g:lua_tree_side = 'right'
+let g:lua_tree_hide_dotfiles = 1
 let g:lua_tree_width = 32
+let g:lua_tree_git_hl = 1
 let g:lua_tree_show_icons = {
       \ 'git': 1,
       \ 'folders': 1,
@@ -10,7 +12,7 @@ let g:lua_tree_icons = {
     \ 'default': ' ',
     \ 'symlink': '»',
     \ 'git': {
-    \   'unstaged': "%",
+    \   'unstaged': "*",
     \   'staged': "+",
     \   'unmerged': "?",
     \   'renamed': "➜",
@@ -23,7 +25,7 @@ let g:lua_tree_icons = {
     \ }
 
 let g:lua_tree_bindings = {
-    \ 'edit': ['<CR>', 'o'],
+    \ 'edit': ['<cr>', 'o'],
     \ 'edit_vsplit': 'S',
     \ 'edit_split': 's',
     \ 'edit_tab': 't',
