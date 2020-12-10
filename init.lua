@@ -8,6 +8,7 @@ vim.o.expandtab = true
 vim.o.fileencodings = 'utf8,nobomb'
 vim.o.fileformats = 'unix,mac'
 vim.o.fillchars = 'vert:|'
+vim.o.guicursor = 'n-v-c-sm:block,i-ci-ve:block,r-cr-o:hor20'
 vim.o.ignorecase = true
 vim.o.inccommand = 'nosplit'
 vim.o.infercase = true
@@ -17,6 +18,7 @@ vim.o.shiftround = true
 vim.o.shiftwidth = 2
 vim.o.shortmess = 'actToOFI'
 vim.o.showmatch = true
+vim.o.showmode = false
 vim.o.showtabline = 2
 vim.o.smartcase = true
 vim.o.smartindent = true
@@ -24,7 +26,6 @@ vim.o.softtabstop = 2
 vim.o.spelllang = 'en'
 vim.o.splitbelow = true
 vim.o.splitright = true
-vim.o.guicursor = 'n-v-c-sm:block,i-ci-ve:block,r-cr-o:hor20'
 vim.o.swapfile = false
 vim.o.switchbuf = 'useopen,usetab,split'
 vim.o.tabline = '%!tabline#update()'
@@ -63,20 +64,19 @@ vim.g.vimsyn_embed = 'l'
 
 -- Disable standard plugins
 vim.g.loaded_getscriptPlugin = 1
+vim.g.loaded_gzip = 1
 vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_rrhelper = 1
 vim.g.loaded_tarPlugin = 1
 vim.g.loaded_tutor_mode_plugin = 1
 vim.g.loaded_vimballPlugin = 1
 vim.g.loaded_zipPlugin = 1
-vim.g.loaded_gzip = 1
-vim.g.loaded_rrhelper = 1
 
 -- Global signs icons
 vim.g.sign_error = '×'
-vim.g.sign_warning = '⚠'
-vim.g.sign_info = 'ⅰ'
 vim.g.sign_hint = '☺'
+vim.g.sign_info = 'ⅰ'
+vim.g.sign_warning = '⚠'
 
 -- Setup plugins and other stuff
-my = require'my'
-my.setup()
+require'my'.setup()
