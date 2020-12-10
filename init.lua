@@ -75,6 +75,7 @@ vim.g.loaded_rrhelper = 1
 vim.g.sign_error = '×'
 vim.g.sign_warning = '⚠'
 vim.g.sign_info = 'ⅰ'
+vim.g.sign_hint = '☺'
 
 -- Setup plugins and other stuff
 my = require'my'

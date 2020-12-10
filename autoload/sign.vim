@@ -1,4 +1,27 @@
-let g:signs_to_ignore = ['ALEDummySign']
+let g:signs_to_ignore = []
+
+function! sign#define_error(name, texthl)
+  return sign#define(a:name, a:texthl, g:sign_error)
+endfunction
+
+function! sign#define_warning(name, texthl)
+  return sign#define(a:name, a:texthl, g:sign_warning)
+endfunction
+
+function! sign#define_info(name, texthl)
+  return sign#define(a:name, a:texthl, g:sign_info)
+endfunction
+
+function! sign#define_hint(name, texthl)
+  return sign#define(a:name, a:texthl, g:sign_hint)
+endfunction
+
+function! sign#define(name, texthl, icon)
+  exec printf(
+        \ 'sign define %s icon=%s texthl=%s linehl= numhl=',
+        \ a:name, a:icon, a:texthl
+        \ )
+endfunction
 
 function! sign#goto(dir) abort
   let l:next = a:dir == 'previous' ? sign#get(0) : sign#get(1)

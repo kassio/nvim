@@ -95,3 +95,8 @@ hi! link LuaTreeGitRename  StatusWarning
 hi! LuaTreeSymlink guifg=#A22FA0
 
 hi! link LuaTreeFolderIcon Directory
+
+call sign#define_error('LspDiagnosticsSignError', 'LspDiagnosticsSignError')
+call sign#define_warning('LspDiagnosticsSignWarning', 'LspDiagnosticsSignWarning')
+call sign#define_info('LspDiagnosticsSignInformation', 'LspDiagnosticsSignInformation')
+call sign#define_hint('LspDiagnosticsSignHint', 'LspDiagnosticsSignHint')
