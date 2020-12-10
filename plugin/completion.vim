@@ -17,7 +17,7 @@ let g:completion_chain_complete_list = {
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" aug user:completion
-"   autocmd!
-"   autocmd BufEnter * lua require'completion'.on_attach()
-" aug END
+aug user:completion
+  autocmd!
+  autocmd BufEnter * lua require'completion'.on_attach()
+aug END
