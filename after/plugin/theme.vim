@@ -8,6 +8,8 @@ hi! link SpellCap   SpellBad
 hi! link SpellRare  SpellBad
 hi! link SpellLocal SpellBad
 
+hi! IncSearch guibg=#A22FA0
+
 hi! StatusError   guifg=#CA1243 gui=bold
 hi! StatusWarning guifg=#F7C154 gui=bold
 hi! StatusInfo    guifg=#6699CC gui=bold
