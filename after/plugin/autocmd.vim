@@ -1,6 +1,6 @@
 aug user:autocmd
   au!
-  au BufReadPost * call buffer#restore_cursor_position()
+  au BufReadPost * call my#bufreadpost()
 
   au FileType tex,txt,mail,text,markdown setlocal textwidth=80 noautoindent nocindent
   au FileType sh,html,javascript,css,eruby,eelixir,sass,scss,yaml setlocal iskeyword+=-
