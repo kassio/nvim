@@ -5,4 +5,7 @@ nnoremap <c-k> :call v:lua.require('telescope.builtin').buffers()<cr>
 nnoremap <c-y> :call v:lua.require('telescope.builtin').live_grep()<cr>
 
 nnoremap <leader>as :call v:lua.require('telescope.builtin').grep_string()<cr>
-vnoremap <leader>as :<c-u>exec 'Telescope grep_string --search='.text#get_visual()<cr>
+vnoremap <leader>as :<c-u>call
+      \ v:lua.require('telescope.builtin').grep_string({
+      \   'search': text#escape_all(text#get_visual())}
+      \ )<cr>
