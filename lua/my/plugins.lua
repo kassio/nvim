@@ -19,10 +19,11 @@ return packer.startup{
     use 'steelsojka/completion-buffers' -- buffers words completion
     use 'nvim-treesitter/completion-treesitter' -- completions based on the treesitter
 
-    use 'nvim-lua/plenary.nvim' -- nvim lua stdlib-ish
-
-    use 'nvim-telescope/telescope.nvim' -- Fuzzy finder
-    use 'nvim-lua/popup.nvim' -- Fuzzy finder dependency
+    -- Fuzzy finder
+    use {
+      'nvim-telescope/telescope.nvim',
+      requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+    }
 
     use 'kyazdani42/nvim-tree.lua' -- file tree
 
