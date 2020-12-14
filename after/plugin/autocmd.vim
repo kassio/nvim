@@ -20,8 +20,6 @@ aug user:autocmd
 
   au VimEnter,WinEnter,BufWinEnter,FileType,BufUnload,VimResized * call statusline#update()
 
-  au FileWritePre,BufWritePre * call buffer#trim()
-
   au BufRead,BufNewFile *
         \ if getline(1) =~? '\c^#!.*javascript' |
         \   let &filetype = 'javascript' |
