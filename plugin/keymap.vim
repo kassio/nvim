@@ -34,14 +34,6 @@ nnoremap g! :call text#highlight('\<'.expand('<cword>').'\>')<cr>
 vnoremap <leader>! :<c-u>call text#highlight_sensitive_visual()<cr>
 nnoremap <leader>! :call text#highlight_sensitive(expand('<cword>'))<cr>
 
-" Tags
-nnoremap g<c-]> :execute 'Tag ' . expand('<cword>')<cr>
-vnoremap g<c-]> :<c-u>execute 'Tag ' . text#get_visual()<cr>
-nnoremap <c-]> :execute 'tag ' . expand('<cword>')<cr>
-nnoremap t<c-]> :execute 'tab tag ' . expand('<cword>')<cr>
-nnoremap <c-w><c-]> :execute 'stag ' . expand('<cword>')<cr>
-nnoremap v<c-]> :execute 'vert stag ' . expand('<cword>')<cr>
-
 nnoremap Q <nop>
 
 " Indent all file
