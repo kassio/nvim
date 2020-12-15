@@ -26,5 +26,5 @@ endfunction
 
 aug user:completion
   autocmd!
-  autocmd BufEnter * call s:attach_completion()
+  autocmd FileType * call s:attach_completion()
 aug END
