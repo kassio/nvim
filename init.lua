@@ -42,6 +42,7 @@ vim.o.virtualedit = 'block'
 vim.o.wildignorecase = true
 vim.o.wildoptions = 'pum'
 vim.o.writebackup = false
+vim.o.secure = true
 
 vim.wo.colorcolumn = '80,100,120'
 vim.wo.foldenable = false
