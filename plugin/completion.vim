@@ -8,8 +8,7 @@ let g:completion_matching_strategy_list = [
       \ ]
 let g:completion_chain_complete_list = {
       \ 'default': [
-      \    {'complete_items': ['lsp', 'ts', 'UltiSnips']},
-      \    {'complete_items': ['buffers', 'path']},
+      \    {'complete_items': ['lsp', 'UltiSnips', 'ts', 'buffers', 'path']},
       \    {'mode': '<c-p>'},
       \    {'mode': '<c-n>'}
       \  ]}
