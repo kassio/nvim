@@ -1,5 +1,6 @@
 vim.o.autowriteall = true
 vim.o.cindent = true
+vim.o.complete = '.,w,b,u'
 vim.o.completeopt = 'menuone,noinsert,noselect'
 vim.o.confirm = true
 vim.o.copyindent = true
