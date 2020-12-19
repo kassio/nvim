@@ -4,7 +4,5 @@ function! plugin#upgrade()
   PackerCompile
   PackerSync
 
-  if exists(':TSUpdate')
-    TSUpdate
-  end
+  TSUpdate
 endfunction
