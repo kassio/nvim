@@ -1,5 +1,6 @@
 local actions = require'telescope.actions'
 local sorters = require'telescope.sorters'
+local previewers = require'telescope.previewers'
 
 require('telescope').setup{
   defaults = {
@@ -10,6 +11,8 @@ require('telescope').setup{
     file_ignore_patterns = {},
     generic_sorter = sorters.get_fzy_sorter,
     shorten_path = true,
+    preview_cutoff = 120,
+    file_previewer = previewers.vim_buffer_cat.new,
     winblend = 0,
     width = 0.8,
     mappings = {
