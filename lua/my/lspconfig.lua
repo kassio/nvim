@@ -16,24 +16,25 @@ lspconfig.vimls.setup{ on_attach = attacher }
 lspconfig.jsonls.setup{ on_attach = attacher }
 lspconfig.cssls.setup{ on_attach = attacher }
 
-lspconfig.solargraph.setup{
-  settings = {
-    solargraph = {
-      completion = true,
-      definitions = true,
-      diagnostics = true,
-      filetypes = {'ruby'},
-      hover = true,
-      references = true,
-      rename = true,
-      root_dir = {'.'},
-      symbols = true,
-      useBundler = false
-    }
-  },
+-- TODO
+-- lspconfig.solargraph.setup{
+--   settings = {
+--     solargraph = {
+--       completion = true,
+--       definitions = true,
+--       diagnostics = true,
+--       filetypes = {'ruby'},
+--       hover = true,
+--       references = true,
+--       rename = true,
+--       root_dir = {'.'},
+--       symbols = true,
+--       useBundler = false
+--     }
+--   },
 
-  on_attach = attacher
-}
+--   on_attach = attacher
+-- }
 
 lspconfig.sumneko_lua.setup{
   settings = {
