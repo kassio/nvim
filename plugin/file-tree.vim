@@ -1,14 +1,14 @@
-let g:lua_tree_side = 'right'
-let g:lua_tree_hide_dotfiles = 1
-let g:lua_tree_width = 32
-let g:lua_tree_git_hl = 1
-let g:lua_tree_show_icons = {
+let g:nvim_tree_side = 'right'
+let g:nvim_tree_hide_dotfiles = 1
+let g:nvim_tree_width = 32
+let g:nvim_tree_git_hl = 1
+let g:nvim_tree_show_icons = {
       \ 'git': 1,
       \ 'folders': 1,
       \ 'files': 0,
       \ }
 
-let g:lua_tree_icons = {
+let g:nvim_tree_icons = {
     \ 'default': '∙',
     \ 'symlink': '⇔',
     \ 'git': {
@@ -24,7 +24,7 @@ let g:lua_tree_icons = {
     \   }
     \ }
 
-let g:lua_tree_bindings = {
+let g:nvim_tree_bindings = {
     \ 'edit': ['<cr>', 'o'],
     \ 'edit_vsplit': 'S',
     \ 'edit_split': 's',
@@ -42,8 +42,8 @@ let g:lua_tree_bindings = {
 
 aug user:file-tree
   au!
-  au Filetype LuaTree set nonu nornu
+  au Filetype NvimTree set nonu nornu
 aug END
 
-nnoremap <leader>p :LuaTreeToggle<CR>
-nnoremap <leader>fl :LuaTreeFindFile<CR>
+nnoremap <leader>p :NvimTreeToggle<CR>
+nnoremap <leader>fl :NvimTreeFindFile<CR>
