@@ -16,45 +16,6 @@ lspconfig.vimls.setup{ on_attach = attacher }
 lspconfig.jsonls.setup{ on_attach = attacher }
 lspconfig.cssls.setup{ on_attach = attacher }
 
--- TODO
--- lspconfig.solargraph.setup{
---   settings = {
---     solargraph = {
---       completion = true,
---       definitions = true,
---       diagnostics = true,
---       filetypes = {'ruby'},
---       hover = true,
---       references = true,
---       rename = true,
---       root_dir = {'.'},
---       symbols = true,
---       useBundler = false
---     }
---   },
-
---   on_attach = attacher
--- }
-
-lspconfig.sumneko_lua.setup{
-  settings = {
-    Lua = {
-      diagnostics = {
-        enable = true,
-        globals = { 'vim', 'my' },
-      },
-      workspace = {
-        library = {
-          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
-        }
-      }
-    }
-  },
-
-  on_attach = attacher
-}
-
 lspconfig.diagnosticls.setup{
   filetypes = {
     'markdown',
@@ -166,6 +127,5 @@ lspconfig.diagnosticls.setup{
       vim = 'vint',
     }
   },
-
   on_attach = attacher
 }

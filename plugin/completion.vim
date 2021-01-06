@@ -17,13 +17,9 @@ let g:completion_chain_complete_list = {
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-function! s:attach_completion()
-  if &filetype != 'TelescopePrompt'
-    lua require'completion'.on_attach()
-  end
-endfunction
-
 aug user:completion
   autocmd!
-  autocmd FileType * call s:attach_completion()
+  autocmd FileType
+        \ *rb, *vim
+        \ lua require'completion'.on_attach()
 aug END
