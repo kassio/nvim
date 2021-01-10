@@ -16,6 +16,7 @@ M.setup = function()
   setupPluginManager()
 
   require'my/lspconfig'
+  require'my/file-tree'
   require'my/fuzzyfinder'
   require'my/treesitter'
 
