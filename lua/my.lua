@@ -15,9 +15,10 @@ end
 M.setup = function()
   setupPluginManager()
 
-  require'my/lspconfig'
+  require'my/completion'
   require'my/file-tree'
   require'my/fuzzyfinder'
+  require'my/lspconfig'
   require'my/treesitter'
 
   require'colorizer'.setup()
