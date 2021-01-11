@@ -68,6 +68,11 @@ hi! LspDiagnosticsVirtualTextWarning     guifg=#FCEDB6
 hi! LspDiagnosticsVirtualTextInformation guifg=#B1EEFA
 hi! LspDiagnosticsVirtualTextHint        guifg=#AEF7AD
 
+hi! link LspDiagnosticsFloatingError       StatusError
+hi! link LspDiagnosticsFloatingWarning     StatusWarning
+hi! link LspDiagnosticsFloatingInformation StatusInfo
+hi! link LspDiagnosticsFloatingHint        StatusSuccess
+
 hi! link LspDiagnosticsSignError       StatusError
 hi! link LspDiagnosticsSignWarning     StatusWarning
 hi! link LspDiagnosticsSignInformation StatusInfo
