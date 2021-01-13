@@ -8,6 +8,7 @@ local function attacher(client)
   nmap('gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
   nmap('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
   nmap('<leader>ee', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
+  nmap('<leader>ea', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>')
 
   print('LSP: ' .. client.name)
 end
