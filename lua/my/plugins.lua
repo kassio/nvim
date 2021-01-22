@@ -18,6 +18,9 @@ return packer.startup{
     use 'nvim-lua/completion-nvim' -- completion
     use 'steelsojka/completion-buffers' -- buffers words completion
     use 'nvim-treesitter/completion-treesitter' -- completions based on the treesitter
+    use 'kassio/neoterm' -- terminal handler
+    use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' } -- markdown preview
+    use 'jparise/vim-graphql' -- graphql
 
     -- Fuzzy finder
     use {
@@ -30,10 +33,6 @@ return packer.startup{
     -- AST based plugins
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'nvim-treesitter/playground'
-
-    use 'kassio/neoterm' -- terminal handler
-
-    use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' } -- markdown preview
 
     -- Test
     use 'janko-m/vim-test' -- general tests
