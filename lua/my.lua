@@ -12,6 +12,14 @@ local setupPluginManager = function()
   end
 end
 
+M.upgrade = function()
+  require'my/plugins'
+  local packer = require'packer'
+
+  packer.compile()
+  packer.sync()
+end
+
 M.setup = function()
   setupPluginManager()
 
@@ -22,6 +30,8 @@ M.setup = function()
   require'my/treesitter'
 
   require'colorizer'.setup()
+
+  vim.cmd [[command! Upgrade lua require('my').upgrade()]]
 end
 
 return M

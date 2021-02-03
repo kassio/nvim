@@ -24,9 +24,6 @@ command! -nargs=1 SetTheme call theme#set(<q-args>)
 
 command! -nargs=? -bang CopyFilePath call util#copy_filename(<bang>0, <q-args>)
 
-" Upgrade stuff
-command! Upgrade call plugin#upgrade()
-
 command! LongestLine call buffer#longest_line()
 
 command! MkdirPath call mkdir(expand('%:h'), 'p')

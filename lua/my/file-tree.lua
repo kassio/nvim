@@ -1,7 +1,7 @@
 vim.g.nvim_tree_side = 'right'
-vim.g.nvim_tree_hide_dotfiles = 1
 vim.g.nvim_tree_width = 32
 vim.g.nvim_tree_git_hl = 1
+vim.g.nvim_tree_hide_dotfiles = 1
 vim.g.nvim_tree_show_icons = {
   git = 1,
   folders = 1,
@@ -19,8 +19,8 @@ vim.g.nvim_tree_icons = {
     untracked = '%'
   },
   folder = {
-    default = '▸',
-    open = '▾'
+    default = '┗',
+    open = '━'
   }
 }
 
