@@ -10,6 +10,8 @@ local function attacher(client)
   nmap('<leader>ee', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
   nmap('<leader>ea', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>')
 
+  require'completion'.on_attach()
+
   print('LSP: ' .. client.name)
 end
 
