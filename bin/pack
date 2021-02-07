@@ -2,5 +2,5 @@
 
 nvim \
   --headless \
-  +Upgrade \
+  +"lua require'my/plugins'.sync()" \
   +qall

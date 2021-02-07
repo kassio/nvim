@@ -4,8 +4,7 @@ local packer = require'packer'
 
 packer.init{ compile_path = vim.fn.stdpath('data')..'/site/plugin/packer.vim' }
 
-return packer.startup{
-  function(use)
+return packer.startup{function(use)
     -- Plugin manager
     use { 'wbthomason/packer.nvim', opt = true }
 
@@ -14,25 +13,30 @@ return packer.startup{
     use 'wsdjeg/vim-fetch' -- Open file with file_path:line:path
 
     -- IDE stuff
-    use 'neovim/nvim-lspconfig' -- LSP
-    use 'nvim-lua/completion-nvim' -- completion
-    use 'steelsojka/completion-buffers' -- buffers words completion
-    use 'nvim-treesitter/completion-treesitter' -- completions based on the treesitter
     use 'kassio/neoterm' -- terminal handler
-    use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' } -- markdown preview
     use 'jparise/vim-graphql' -- graphql
+    use 'neovim/nvim-lspconfig' -- LSP
+    use {
+      'nvim-lua/completion-nvim', -- completion
+      'steelsojka/completion-buffers' -- buffers words completion
+    }
 
     -- Fuzzy finder
     use {
-      'nvim-telescope/telescope.nvim',
-      requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+      'nvim-telescope/telescope.nvim', requires = {
+        'nvim-lua/popup.nvim',
+        'nvim-lua/plenary.nvim'
+      }
     }
 
     use 'kyazdani42/nvim-tree.lua' -- file tree
 
     -- AST based plugins
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-    use 'nvim-treesitter/playground'
+    use {
+      { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
+      'nvim-treesitter/playground',
+      'nvim-treesitter/completion-treesitter' -- completions based on the treesitter
+    }
 
     -- Test
     use 'janko-m/vim-test' -- general tests
@@ -60,7 +64,7 @@ return packer.startup{
     use 'tpope/vim-commentary'
 
     -- Snippets
-    use 'sirver/ultisnips'
+    use 'sirver/ultisnips' -- requires Python
 
     -- Match pairs
     use 'andymass/vim-matchup'

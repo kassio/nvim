@@ -12,14 +12,6 @@ local setupPluginManager = function()
   end
 end
 
-M.upgrade = function()
-  require'my/plugins'
-  local packer = require'packer'
-
-  packer.compile()
-  packer.sync()
-end
-
 M.setup = function()
   setupPluginManager()
 
