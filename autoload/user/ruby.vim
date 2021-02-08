@@ -79,6 +79,7 @@ function! s:code_path(lib)
   let result = result[0] == 'lib' ? result : insert(result, 'app')
   let result = add(result, file)
   let result = insert(result, prefix)
+  let result = filter(result, { _, v -> v != '' && v != v:null })
 
   return join(result, '/')
 endfunction
@@ -92,6 +93,7 @@ function! s:test_path(lib)
   let result = insert(result, a:lib)
   let result = add(result, file)
   let result = insert(result, prefix)
+  let result = filter(result, { _, v -> v != '' && v != v:null })
 
   return join(result, '/')
 endfunction
