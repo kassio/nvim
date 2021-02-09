@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-nvim \
-  --headless \
-  +"lua require'my/plugins'.sync()" \
-  +qall
