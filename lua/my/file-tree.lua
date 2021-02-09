@@ -19,8 +19,8 @@ vim.g.nvim_tree_icons = {
     untracked = '%'
   },
   folder = {
-    default = '┗',
-    open = '━'
+    default = '▶',
+    open = '▼'
   }
 }
 
