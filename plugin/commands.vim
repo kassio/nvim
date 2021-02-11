@@ -19,9 +19,6 @@ command! FoldComments call fold#comments()
 " Remove comments and multiple empty lines
 command! -range=% RemoveComments silent call text#remove_comments(<line1>, <line2>)
 
-" Set theme
-command! -nargs=1 SetTheme call theme#set(<q-args>)
-
 command! -nargs=? -bang CopyFilePath call util#copy_filename(<bang>0, <q-args>)
 
 command! LongestLine call buffer#longest_line()
