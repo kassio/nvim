@@ -23,7 +23,7 @@ M.setup = function()
 
   require'colorizer'.setup()
 
-  vim.cmd [[command! Upgrade lua require('my').upgrade()]]
+  vim.cmd [[command! Upgrade lua require('my/plugins').sync()]]
 end
 
 return M
