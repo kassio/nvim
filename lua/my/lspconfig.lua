@@ -28,15 +28,16 @@ lspconfig.cssls.setup{ on_attach = attacher }
 lspconfig.solargraph.setup{
   settings = {
     solargraph = {
+      filetypes = {'ruby'},
+      root_dir = {'.'},
       completion = true,
+      symbols = true,
+
       definitions = false,
       diagnostics = false,
-      filetypes = {'ruby'},
       hover = false,
       references = false,
       rename = false,
-      root_dir = {'.'},
-      symbols = false,
       useBundler = false
     }
   },

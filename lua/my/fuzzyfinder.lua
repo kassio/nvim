@@ -1,6 +1,7 @@
 local actions = require'telescope.actions'
 local sorters = require'telescope.sorters'
 local previewers = require'telescope.previewers'
+local builtin = require'telescope.builtin'
 
 require('telescope').setup{
   defaults = {
@@ -31,3 +32,5 @@ require('telescope').setup{
     }
   }
 }
+
+return builtin

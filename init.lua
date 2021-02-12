@@ -80,4 +80,5 @@ vim.g.sign_info = 'ⅰ'
 vim.g.sign_warning = '⚠'
 
 -- Setup plugins and other stuff
-require'my'.setup()
+my = require'my'
+my.setup()

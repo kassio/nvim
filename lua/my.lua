@@ -15,13 +15,17 @@ end
 M.setup = function()
   setupPluginManager()
 
+  -- libs
+  require'colorizer'.setup()
+
+  -- libs customizations
   require'my/completion'
   require'my/file-tree'
-  require'my/fuzzyfinder'
   require'my/lspconfig'
   require'my/treesitter'
 
-  require'colorizer'.setup()
+  -- personal interface for libs
+  M.fuzzy_finder = require'my/fuzzyfinder'
 
   vim.cmd [[command! Upgrade lua require('my/plugins').sync()]]
 end
