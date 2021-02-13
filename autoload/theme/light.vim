@@ -4,4 +4,6 @@ function theme#light#load()
 
   hi! StatusLine   guifg=#EEEEEE guibg=#383a42
   hi! StatusLineNC guifg=#CCCCCC guibg=#555555
+
+  call theme#defaults#load()
 endfunction
