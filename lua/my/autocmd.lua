@@ -1,14 +1,4 @@
-local cmd = vim.cmd
-local create_augroup = function(name, autocmds)
-  cmd('augroup ' .. name)
-  cmd('autocmd!')
-  for _, autocmd in ipairs(autocmds) do
-    cmd('autocmd ' .. table.concat(autocmd, ' '))
-  end
-  cmd('augroup END')
-end
-
-create_augroup('user:autocmd', {
+require'my/utils'.augroup('user:autocmd', {
   { 'BufReadPost', '*', 'call my#bufreadpost()' },
 
   { 'FileType', 'tex,txt,mail,text,markdown', 'setlocal textwidth=80 noautoindent nocindent' },

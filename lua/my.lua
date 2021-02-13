@@ -1,3 +1,16 @@
+local safeRequire = function(path, fn)
+  status, lib = pcall(require, path)
+
+  if status then
+    if fn then fn(lib) end
+
+    return lib
+  else
+    print("'"..path.."' failed to load")
+    print(lib)
+  end
+end
+
 local M = {}
 
 local setupPluginManager = function()
@@ -16,17 +29,23 @@ M.setup = function()
   setupPluginManager()
 
   -- settings
-  require'my/autocmd'
-  require'my/command'
-  require'my/keymap'
+  safeRequire'my/autocmd'
+  safeRequire'my/command'
+  safeRequire'my/keymap'
 
   -- libs
-  require'colorizer'.setup()
-  require'my/lib/completion'
-  require'my/lib/file-tree'
-  require'my/lib/lspconfig'
-  require'my/lib/treesitter'
-  M.fuzzy_finder = require'my/lib/fuzzyfinder'
+  safeRequire('colorizer', function(lib)
+    lib.setup()
+  end)
+  safeRequire'my/lib/completion'
+  safeRequire'my/lib/file-tree'
+  safeRequire'my/lib/lspconfig'
+  safeRequire'my/lib/treesitter'
+  safeRequire('my/lib/fuzzyfinder', function(lib)
+    M.fuzzy_finder = lib
+  end)
 end
+
+M.utils = safeRequire'my/utils'
 
 return M

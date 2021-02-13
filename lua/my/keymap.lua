@@ -1,9 +1,4 @@
-local keymap = function(mode, lhs, rhs)
-  vim.api.nvim_set_keymap(mode, lhs, rhs, {
-    noremap = true,
-    silent = true
-  })
-end
+local keymap = require'my/utils'.keymap
 
 keymap('n', [[j]], [[gj]])
 keymap('n', [[k]], [[gk]])

@@ -1,14 +1,17 @@
-vim.g.nvim_tree_side = 'right'
-vim.g.nvim_tree_width = 32
-vim.g.nvim_tree_git_hl = 1
-vim.g.nvim_tree_hide_dotfiles = 1
-vim.g.nvim_tree_show_icons = {
+local g = vim.g
+local utils = require'my/utils'
+
+g.nvim_tree_side = 'right'
+g.nvim_tree_width = 32
+g.nvim_tree_git_hl = 1
+g.nvim_tree_hide_dotfiles = 1
+g.nvim_tree_show_icons = {
   git = 1,
   folders = 1,
   files = 0,
 }
 
-vim.g.nvim_tree_icons = {
+g.nvim_tree_icons = {
   default = ' ',
   symlink = '⇔',
   git = {
@@ -24,7 +27,7 @@ vim.g.nvim_tree_icons = {
   }
 }
 
-vim.g.nvim_tree_bindings = {
+g.nvim_tree_bindings = {
   edit = { '<cr>', 'o' },
   edit_vsplit = 'S',
   edit_split = 's',
@@ -39,3 +42,10 @@ vim.g.nvim_tree_bindings = {
   copy = 'c',
   paste = 'p',
 }
+
+utils.augroup('user:file-tree', {
+  { 'Filetype', 'NvimTree', 'set nonu nornu' }
+})
+
+utils.keymap('n', '<leader>p', ':NvimTreeToggle<CR>')
+utils.keymap('n', '<leader>fl', ':NvimTreeFindFile<CR>')
