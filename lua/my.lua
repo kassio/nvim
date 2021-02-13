@@ -26,7 +26,7 @@ M.setup = function()
   require'my/lib/file-tree'
   require'my/lib/lspconfig'
   require'my/lib/treesitter'
-  M.fuzzy_finder = require'my/plugin/fuzzyfinder'
+  M.fuzzy_finder = require'my/lib/fuzzyfinder'
 end
 
 return M
