@@ -38,6 +38,8 @@ create_augroup('user:autocmd', {
 
   { 'BufReadPost,BufNewFile,FileWritePost', '*', 'call buffer#reset_synmaxcol()' },
 
+  { 'BufWritePre,FileWritePre', '*', 'call buffer#trim()' },
+
   { 'BufRead,BufNewFile', '*/playbooks/**/*.yml', 'set filetype=yaml.ansible' },
 
   { 'TermOpen', '*', 'setlocal nonumber norelativenumber nocursorline bufhidden=hide' }
