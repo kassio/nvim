@@ -1,4 +1,5 @@
-aug repos
+aug user:repos
+  au!
   au BufNewFile,BufRead *.ndjson call s:set_filetype()
 aug END
 

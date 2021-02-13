@@ -15,6 +15,9 @@ end
 M.setup = function()
   setupPluginManager()
 
+  -- settings
+  require'my/autocmd'
+
   -- libs
   require'colorizer'.setup()
 

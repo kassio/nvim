@@ -1,4 +1,5 @@
-aug configfile
+aug user:configfile
+  au!
   au BufNewFile,BufRead *.conf call s:conffile()
 aug END
 
