@@ -21,15 +21,11 @@ M.setup = function()
 
   -- libs
   require'colorizer'.setup()
-
-  -- libs customizations
-  require'my/completion'
-  require'my/file-tree'
-  require'my/lspconfig'
-  require'my/treesitter'
-
-  -- personal interface for libs
-  M.fuzzy_finder = require'my/fuzzyfinder'
+  require'my/lib/completion'
+  require'my/lib/file-tree'
+  require'my/lib/lspconfig'
+  require'my/lib/treesitter'
+  M.fuzzy_finder = require'my/plugin/fuzzyfinder'
 
   vim.cmd [[command! Upgrade lua require('my/plugins').sync()]]
 end
