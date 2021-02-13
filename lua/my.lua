@@ -17,6 +17,7 @@ M.setup = function()
 
   -- settings
   require'my/autocmd'
+  require'my/keymap'
 
   -- libs
   require'colorizer'.setup()
