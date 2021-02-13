@@ -17,6 +17,7 @@ M.setup = function()
 
   -- settings
   require'my/autocmd'
+  require'my/command'
   require'my/keymap'
 
   -- libs
@@ -26,8 +27,6 @@ M.setup = function()
   require'my/lib/lspconfig'
   require'my/lib/treesitter'
   M.fuzzy_finder = require'my/plugin/fuzzyfinder'
-
-  vim.cmd [[command! Upgrade lua require('my/plugins').sync()]]
 end
 
 return M

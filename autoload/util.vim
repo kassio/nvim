@@ -51,3 +51,12 @@ function! s:valid_flag(flag)
 
   return result
 endfunction
+
+function! util#write_with_path()
+  call util#mkdir_path()
+  write!
+endfunction
+
+function! util#mkdir_path()
+  mkdir(expand('%:h'), 'p')
+endfunction
