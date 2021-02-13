@@ -1,54 +1,58 @@
 local g = vim.g
+
 local o = vim.o
+local bo = vim.bo
 local wo = vim.wo
 
 -- Options
 o.autowriteall = true
-o.cindent = true
-o.complete = '.,w,b,u'
 o.completeopt = 'menuone,noinsert,noselect'
 o.confirm = true
-o.copyindent = true
 o.diffopt = 'internal,filler,closeoff,vertical'
-o.expandtab = true
 o.fileencodings = 'utf8,nobomb'
 o.fileformats = 'unix,mac'
 o.fillchars = 'vert:│'
 o.guicursor = 'n-v-c-sm:block,i-ci-ve:block,r-cr-o:hor20'
 o.ignorecase = true
 o.inccommand = 'nosplit'
-o.infercase = true
 o.mouse = 'a'
 o.secure = true
 o.sessionoptions = 'winpos,tabpages,help'
 o.shiftround = true
-o.shiftwidth = 2
 o.shortmess = 'actToOFI'
 o.showmatch = true
 o.showmode = false
 o.showtabline = 2
 o.smartcase = true
-o.smartindent = true
-o.softtabstop = 2
-o.spelllang = 'en'
 o.splitbelow = true
 o.splitright = true
-o.swapfile = false
 o.switchbuf = 'useopen,usetab,split'
 o.tabline = '%!tabline#update()'
-o.tabstop = 2
 o.tags = ''
 o.termguicolors = true
-o.textwidth = 100
 o.title = true
 o.titlestring = "%{substitute(expand('%:p'), $HOME, '$HOME', '')}"
-o.undofile = true
 o.undolevels = 10000
 o.undoreload = 10000
 o.virtualedit = 'block'
 o.wildignorecase = true
 o.wildoptions = 'pum'
 o.writebackup = false
+
+-- Buffer options
+bo.cindent = true
+bo.complete = '.,w,b,u'
+bo.copyindent = true
+bo.expandtab = true
+bo.infercase = true
+bo.shiftwidth = 2
+bo.smartindent = true
+bo.softtabstop = 2
+bo.spelllang = 'en'
+bo.swapfile = false
+bo.tabstop = 2
+bo.textwidth = 100
+bo.undofile = true
 
 -- Window options
 wo.colorcolumn = '80,100,120'
