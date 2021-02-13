@@ -1,24 +1,28 @@
 local lspconfig = require'lspconfig'
+local lsp = vim.lsp
 
-local nmap = function(lhs, rhs)
-  vim.api.nvim_buf_set_keymap(0, 'n', lhs, rhs, { noremap = true, silent = true })
+local keymap = function(lhs, rhs)
+  vim
+  .api
+  .nvim_buf_set_keymap(0, 'n', lhs, '<cmd>lua '..rhs..'<CR>', {
+    noremap = true,
+    silent = true
+  })
 end
 
 local function attacher(client)
-  nmap('gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-  nmap('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-  nmap('<leader>ee', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-  nmap('<leader>ea', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>')
+  keymap('gd', 'vim.lsp.buf.definition()')
+  keymap('K', 'vim.lsp.buf.hover()')
+  keymap('<leader>ee', 'vim.lsp.diagnostic.show_line_diagnostics()')
+  keymap('<leader>ea', 'vim.lsp.diagnostic.set_loclist()')
 
   require'completion'.on_attach()
 
   print('LSP: ' .. client.name)
 end
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = false
-  }
+lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
+  lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
 )
 
 lspconfig.vimls.setup{ on_attach = attacher }
