@@ -1,83 +1,90 @@
-vim.o.autowriteall = true
-vim.o.cindent = true
-vim.o.complete = '.,w,b,u'
-vim.o.completeopt = 'menuone,noinsert,noselect'
-vim.o.confirm = true
-vim.o.copyindent = true
-vim.o.diffopt = 'internal,filler,closeoff,vertical'
-vim.o.expandtab = true
-vim.o.fileencodings = 'utf8,nobomb'
-vim.o.fileformats = 'unix,mac'
-vim.o.fillchars = 'vert:│'
-vim.o.guicursor = 'n-v-c-sm:block,i-ci-ve:block,r-cr-o:hor20'
-vim.o.ignorecase = true
-vim.o.inccommand = 'nosplit'
-vim.o.infercase = true
-vim.o.mouse = 'a'
-vim.o.sessionoptions = 'winpos,tabpages,help'
-vim.o.shiftround = true
-vim.o.shiftwidth = 2
-vim.o.shortmess = 'actToOFI'
-vim.o.showmatch = true
-vim.o.showmode = false
-vim.o.showtabline = 2
-vim.o.smartcase = true
-vim.o.smartindent = true
-vim.o.softtabstop = 2
-vim.o.spelllang = 'en'
-vim.o.splitbelow = true
-vim.o.splitright = true
-vim.o.swapfile = false
-vim.o.switchbuf = 'useopen,usetab,split'
-vim.o.tabline = '%!tabline#update()'
-vim.o.tabstop = 2
-vim.o.tags = ''
-vim.o.termguicolors = true
-vim.o.textwidth = 100
-vim.o.title = true
-vim.o.titlestring = "%{substitute(expand('%:p'), $HOME, '$HOME', '')}"
-vim.o.undofile = true
-vim.o.undolevels = 10000
-vim.o.undoreload = 10000
-vim.o.virtualedit = 'block'
-vim.o.wildignorecase = true
-vim.o.wildoptions = 'pum'
-vim.o.writebackup = false
-vim.o.secure = true
+local g = vim.g
+local o = vim.o
+local wo = vim.wo
 
-vim.wo.colorcolumn = '80,100,120'
-vim.wo.foldenable = false
-vim.wo.foldmethod = 'manual'
-vim.wo.list = true
-vim.wo.listchars = 'tab:> ,trail:-,nbsp:+,precedes:<,extends:>'
-vim.wo.number = true
-vim.wo.numberwidth = 3
-vim.wo.relativenumber = true
-vim.wo.signcolumn = 'yes'
-vim.wo.spell = true
-vim.wo.wrap = false
+-- Options
+o.autowriteall = true
+o.cindent = true
+o.complete = '.,w,b,u'
+o.completeopt = 'menuone,noinsert,noselect'
+o.confirm = true
+o.copyindent = true
+o.diffopt = 'internal,filler,closeoff,vertical'
+o.expandtab = true
+o.fileencodings = 'utf8,nobomb'
+o.fileformats = 'unix,mac'
+o.fillchars = 'vert:│'
+o.guicursor = 'n-v-c-sm:block,i-ci-ve:block,r-cr-o:hor20'
+o.ignorecase = true
+o.inccommand = 'nosplit'
+o.infercase = true
+o.mouse = 'a'
+o.secure = true
+o.sessionoptions = 'winpos,tabpages,help'
+o.shiftround = true
+o.shiftwidth = 2
+o.shortmess = 'actToOFI'
+o.showmatch = true
+o.showmode = false
+o.showtabline = 2
+o.smartcase = true
+o.smartindent = true
+o.softtabstop = 2
+o.spelllang = 'en'
+o.splitbelow = true
+o.splitright = true
+o.swapfile = false
+o.switchbuf = 'useopen,usetab,split'
+o.tabline = '%!tabline#update()'
+o.tabstop = 2
+o.tags = ''
+o.termguicolors = true
+o.textwidth = 100
+o.title = true
+o.titlestring = "%{substitute(expand('%:p'), $HOME, '$HOME', '')}"
+o.undofile = true
+o.undolevels = 10000
+o.undoreload = 10000
+o.virtualedit = 'block'
+o.wildignorecase = true
+o.wildoptions = 'pum'
+o.writebackup = false
 
+-- Window options
+wo.colorcolumn = '80,100,120'
+wo.foldenable = false
+wo.foldmethod = 'manual'
+wo.list = true
+wo.listchars = 'tab:> ,trail:-,nbsp:+,precedes:<,extends:>'
+wo.number = true
+wo.numberwidth = 3
+wo.relativenumber = true
+wo.signcolumn = 'yes'
+wo.spell = true
+wo.wrap = false
+
+-- Globals
 -- Space as map leader
-vim.g.mapleader = ' '
+g.mapleader = ' '
 
 -- Highlight lua within vim
-vim.g.vimsyn_embed = 'l'
+g.vimsyn_embed = 'l'
 
 -- Disable standard plugins
-vim.g.loaded_getscriptPlugin = 1
-vim.g.loaded_gzip = 1
-vim.g.loaded_netrwPlugin = 1
-vim.g.loaded_rrhelper = 1
-vim.g.loaded_tarPlugin = 1
-vim.g.loaded_tutor_mode_plugin = 1
-vim.g.loaded_vimballPlugin = 1
-vim.g.loaded_zipPlugin = 1
+g.loaded_getscriptPlugin = 1
+g.loaded_gzip = 1
+g.loaded_netrwPlugin = 1
+g.loaded_rrhelper = 1
+g.loaded_tarPlugin = 1
+g.loaded_tutor_mode_plugin = 1
+g.loaded_vimballPlugin = 1
+g.loaded_zipPlugin = 1
 
 -- Global signs icons
-vim.g.sign_error = '×'
-vim.g.sign_hint = '☺'
-vim.g.sign_info = 'ⅰ'
-vim.g.sign_warning = '⚠'
+g.sign_error = '×'
+g.sign_hint = '☺'
+g.sign_info = 'ⅰ'
+g.sign_warning = '⚠'
 
 -- Setup plugins and other stuff
 my = require'my'
