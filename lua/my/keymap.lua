@@ -10,7 +10,7 @@ keymap('i', [[<c-u>]], [[<c-g>u<c-u>]])
 keymap('t', [[<esc><esc>]], [[<c-\><c-n>]])
 
 -- Use <c-l> to clear the highlighting of :set hlsearch.
-keymap('n', [[<c-l>]], [[:nohlsearch<cr><c-l>]])
+keymap('n', [[<c-l>]], [[:mode | nohlsearch<cr>]])
 
 -- Delete current buffer
 keymap('n', [[<leader>bd]], [[:call buffer#kill()<cr>]])
