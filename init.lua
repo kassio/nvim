@@ -56,6 +56,22 @@ bo.tabstop = 2
 bo.textwidth = 100
 bo.undofile = true
 
+-- For some reason Buffer options sometimes files if not defined in both
+-- buffer and global scopes. ¯\_(ツ)_/¯
+o.cindent = true
+o.complete = '.,w,b,u'
+o.copyindent = true
+o.expandtab = true
+o.infercase = true
+o.shiftwidth = 2
+o.smartindent = true
+o.softtabstop = 2
+o.spelllang = 'en'
+o.swapfile = false
+o.tabstop = 2
+o.textwidth = 100
+o.undofile = true
+
 -- Window options
 wo.colorcolumn = '80,100,120'
 wo.foldenable = false
