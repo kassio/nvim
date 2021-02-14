@@ -11,11 +11,7 @@ end
 local safeRequire = function(path, fn)
   status, lib = pcall(require, path)
 
-  if status then
-    if fn then fn(lib) end
-
-    return lib
-  else
+  if not status then
     print("'"..path.."' failed to load")
     print(lib)
   end
@@ -34,4 +30,4 @@ safeRequire'my/plugin/file-tree'
 safeRequire'my/plugin/lspconfig'
 safeRequire'my/plugin/treesitter'
 safeRequire'my/plugin/fuzzyfinder'
-safeRequire('colorizer', function(lib) lib.setup() end)
+safeRequire'my/plugin/colorizer'
