@@ -1,13 +1,9 @@
 local lspconfig = require'lspconfig'
 local lsp = vim.lsp
+local utils = require'my/utils'
 
 local keymap = function(lhs, rhs)
-  vim
-  .api
-  .nvim_buf_set_keymap(0, 'n', lhs, '<cmd>lua '..rhs..'<CR>', {
-    noremap = true,
-    silent = true
-  })
+  utils.lua_buf_keymap(0, 'n', lhs, rhs)
 end
 
 local function attacher(client)
