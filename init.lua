@@ -6,6 +6,7 @@ local wo = vim.wo
 
 -- Options
 o.autowriteall = true
+o.backup = false
 o.completeopt = 'menuone,noinsert,noselect'
 o.confirm = true
 o.diffopt = 'internal,filler,closeoff,vertical'
@@ -38,6 +39,7 @@ o.virtualedit = 'block'
 o.wildignorecase = true
 o.wildoptions = 'pum'
 o.writebackup = false
+o.scrolloff = 10
 
 -- Buffer options
 bo.cindent = true
