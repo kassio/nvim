@@ -10,6 +10,12 @@ nnoremap f<c-k> <cmd>lua my.fuzzy_finder.buffers()<cr>
 nnoremap f<c-y> <cmd>lua my.fuzzy_finder.live_grep()<cr>
 
 nnoremap <leader>as <cmd>lua my.fuzzy_finder.grep_string()<cr>
-vnoremap <leader>as :<c-u>call v:lua.my.fuzzy_finder.grep_string({
-      \   'search': text#escape_all(text#get_visual())}
-      \ )<cr>
+vnoremap <leader>as :<c-u>call FuzzyFinderSelectedText()<cr>
+
+function! FuzzyFinderSelectedText()
+  let search = text#escape_all(text#get_visual())
+  call v:lua.my.fuzzy_finder.grep_string({
+        \  'search': search,
+        \  'prompt_title': 'Selected Text: "'.search.'"'
+        \})
+endfunction

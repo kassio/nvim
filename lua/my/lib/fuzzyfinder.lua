@@ -34,38 +34,47 @@ require('telescope').setup{
   }
 }
 
-local themeCustomization = {
+local themeDefaults = {
   prompt_title = false,
   results_title = false,
   preview_title = false
 }
 
+local setTheme = function(opts)
+  opts = opts or {}
+  for k, v in pairs(themeDefaults) do
+    opts[k] = opts[k] or v
+  end
+
+  return opts
+end
+
 return {
-  find_files = function()
-    builtin.find_files(themeCustomization)
+  find_files = function(opts)
+    builtin.find_files(setTheme(opts))
   end,
-  grep_string = function()
-    builtin.grep_string(themeCustomization)
+  grep_string = function(opts)
+    builtin.grep_string(setTheme(opts))
   end,
-  buffers = function()
-    builtin.buffers(themeCustomization)
+  live_grep = function(opts)
+    builtin.live_grep(setTheme(opts))
   end,
-  current_buffer_fuzzy_find = function()
-    builtin.current_buffer_fuzzy_find(themeCustomization)
+  buffers = function(opts)
+    builtin.buffers(setTheme(opts))
   end,
-  highlights = function()
-    builtin.highlights(themeCustomization)
+  current_buffer_fuzzy_find = function(opts)
+    builtin.current_buffer_fuzzy_find(setTheme(opts))
   end,
-  live_grep = function()
-    builtin.live_grep(themeCustomization)
+  highlights = function(opts)
+    builtin.highlights(setTheme(opts))
   end,
-  lsp_document_symbols = function()
-    builtin.lsp_document_symbols(themeCustomization)
+  lsp_document_symbols = function(opts)
+    builtin.lsp_document_symbols(setTheme(opts))
   end,
-  lsp_workspace_symbols = function()
-    builtin.lsp_workspace_symbols(themeCustomization)
+  lsp_workspace_symbols = function(opts)
+    builtin.lsp_workspace_symbols(setTheme(opts))
   end,
-  oldfiles = function()
-    builtin.oldfiles(themeCustomization)
+  oldfiles = function(opts)
+    builtin.oldfiles(setTheme(opts))
   end
 }
