@@ -49,7 +49,7 @@ local setTheme = function(opts)
   return opts
 end
 
-return {
+vim.fuzzy_finder = {
   find_files = function(opts)
     builtin.find_files(setTheme(opts))
   end,
