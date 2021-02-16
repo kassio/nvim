@@ -12,10 +12,8 @@ require('telescope').setup{
     preview_cutoff = 120,
     prompt_position = 'top',
     prompt_prefix = '›',
-    results_width = 0.5,
     shorten_path = true,
     sorting_strategy = 'ascending',
-    width = 0.8,
     winblend = 0,
     borderchars = {
       prompt = { '─', '│', '─', '│', '┌', '┬', '┤', '├' },
