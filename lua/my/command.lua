@@ -1,6 +1,6 @@
 local command = require'my/utils'.command
 
-command [[Upgrade lua require('my/plugins').sync()]]
+command [[Upgrade lua require('my/plugin').sync()]]
 
 -- Command to reverse selected lines
 command [[-bar -range=% Reverse <line1>,<line2>g/^/m<line1>-1|nohl]]
