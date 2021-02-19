@@ -4,11 +4,7 @@ let g:neoterm_autoscroll = 1
 
 let g:neoterm_callbacks = {}
 function! g:neoterm_callbacks.before_new()
-  if winwidth('.')/2 > 120
-    let g:neoterm_default_mod = 'botright vertical'
-  else
-    let g:neoterm_default_mod = 'botright'
-  end
+  let g:neoterm_default_mod = window#conditional_mod()
 endfunction
 
 xmap <leader>ts <plug>(neoterm-repl-send)

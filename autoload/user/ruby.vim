@@ -48,7 +48,9 @@ function! user#ruby#alternate_file(mod) abort
     return
   end
 
-  exec printf('%s new %s', a:mod, s:alternative_file(l:test))
+  let l:mod = a:mod !=# '' ? a:mod : window#conditional_mod()
+
+  exec printf('%s new %s', l:mod, s:alternative_file(l:test))
 endfunction
 
 function! user#ruby#rspec()

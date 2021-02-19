@@ -27,3 +27,11 @@ function! window#unfocus(...) abort
 
   exec printf('setlocal %s', join(l:properties, ' '))
 endfunction
+
+function! window#conditional_mod()
+  if winwidth('.')/2 > 110
+    return 'botright vertical'
+  else
+    return 'botright'
+  end
+endfunction
