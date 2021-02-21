@@ -21,20 +21,13 @@ keymap('n', [[<leader>da]], [[:call buffer#kill_all()<cr>]])
 -- Delete all unlisted/unloaded buffers
 keymap('n', [[<leader>wa]], [[:call buffer#kill_unlisted()<cr>]])
 
-keymap('n', [[g#]], [[#]])
-keymap('n', [[g*]], [[*]])
-
-keymap('n', [[']], [[`]])
-keymap('n', [[`]], [[']])
-
-keymap('v', [[!]], [[:<c-u>call text#highlight_visual()<cr>]])
-keymap('v', [[#]], [[:<c-u>call text#highlight_visual()<cr>??<cr>]])
-keymap('v', [[*]], [[:<c-u>call text#highlight_visual()<cr>//<cr>]])
-
 keymap('n', [[!]], [[:call text#highlight(expand('<cword>'))<cr>]])
+keymap('v', [[!]], [[:<c-u>call text#highlight_visual()<cr>]])
+
 keymap('n', [[<leader>!]], [[:call text#highlight_sensitive(expand('<cword>'))<cr>]])
-keymap('n', [[g!]], [[:call text#highlight('\<'.expand('<cword>').'\>')<cr>]])
 keymap('v', [[<leader>!]], [[:<c-u>call text#highlight_sensitive_visual()<cr>]])
+
+keymap('n', [[g!]], [[:call text#highlight('\<'.expand('<cword>').'\>')<cr>]])
 keymap('v', [[g!]], [[:<c-u>call text#highlight('\<'.text#get_visual().'\>')<cr>]])
 
 keymap('n', [[Q]], [[<nop>]])
