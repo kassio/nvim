@@ -3,6 +3,8 @@ function! buffer#restore_cursor_position() abort
         \ line("'\"") > 0 &&
         \ line("'\"") <= line('$') |
     execute 'normal! g`"'
+  else
+    execute 'normal! gg0'
   end
 endfunction
 
