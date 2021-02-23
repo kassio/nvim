@@ -1,8 +1,8 @@
 local treesitter = require'nvim-treesitter.configs'
 
 treesitter.setup{
-  ensure_installed = "all",
-  highlight = { enable = false },
+  ensure_installed = 'all',
+  highlight = { enable = true },
   playground = {
     enable = true,
     updatetime = 25,
@@ -11,6 +11,6 @@ treesitter.setup{
   query_linter = {
     enable = true,
     use_virtual_text = true,
-    lint_events = {"BufWrite", "CursorHold"},
+    lint_events = {'BufWrite', 'CursorHold'},
   }
 }
