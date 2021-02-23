@@ -28,7 +28,7 @@ g.nvim_tree_icons = {
 }
 
 g.nvim_tree_bindings = {
-  edit = { '<cr>', 'o' },
+  edit = '<cr>',
   edit_vsplit = 'S',
   edit_split = 's',
   edit_tab = 't',
