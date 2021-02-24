@@ -27,22 +27,6 @@ g.nvim_tree_icons = {
   }
 }
 
-g.nvim_tree_bindings = {
-  edit = '<cr>',
-  edit_vsplit = 'S',
-  edit_split = 's',
-  edit_tab = 't',
-  toggle_ignored = 'I',
-  toggle_dotfiles = 'H',
-  refresh = 'R',
-  cd = 'C',
-  create = 'a',
-  remove = 'D',
-  rename = 'M',
-  copy = 'c',
-  paste = 'p',
-}
-
 utils.augroup('user:file-tree', {
   { 'Filetype', 'NvimTree', 'set nonu nornu' }
 })
