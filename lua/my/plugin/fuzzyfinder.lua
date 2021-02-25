@@ -7,7 +7,7 @@ require('telescope').setup{
   defaults = {
     file_ignore_patterns = {},
     file_previewer = previewers.vim_buffer_cat.new,
-    file_sorter = sorters.get_fuzzy_file,
+    file_sorter = sorters.get_fzy_file,
     generic_sorter = sorters.get_fzy_sorter,
     preview_cutoff = 120,
     prompt_position = 'top',
