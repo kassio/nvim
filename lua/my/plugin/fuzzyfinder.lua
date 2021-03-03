@@ -1,11 +1,20 @@
+local telescope = require'telescope'
 local actions = require'telescope.actions'
 local sorters = require'telescope.sorters'
 local previewers = require'telescope.previewers'
 local builtin = require'telescope.builtin'
 
-require('telescope').setup{
+telescope.setup{
+  extensions = {
+    fzy_native = {
+      override_generic_sorter = false,
+      override_file_sorter = true,
+    }
+  },
   defaults = {
-    file_ignore_patterns = {},
+    file_ignore_patterns = {
+      "node_modules/.*"
+    },
     file_previewer = previewers.vim_buffer_cat.new,
     file_sorter = sorters.get_fzy_file,
     generic_sorter = sorters.get_fzy_sorter,
@@ -31,6 +40,8 @@ require('telescope').setup{
   }
 }
 
+telescope.load_extension('fzy_native')
+
 local themeDefaults = {
   prompt_title = false,
   results_title = false,
@@ -38,12 +49,7 @@ local themeDefaults = {
 }
 
 local setTheme = function(opts)
-  opts = opts or {}
-  for k, v in pairs(themeDefaults) do
-    opts[k] = opts[k] or v
-  end
-
-  return opts
+  return vim.tbl_extend('keep', opts or {}, themeDefaults)
 end
 
 vim.fuzzy_finder = {
