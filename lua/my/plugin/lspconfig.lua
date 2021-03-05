@@ -18,7 +18,13 @@ local function attacher(client)
 end
 
 lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
-  lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
+  lsp.diagnostic.on_publish_diagnostics, {
+    signs = true,
+    update_in_insert = true,
+
+    virtual_text = false,
+    underline = false
+  }
 )
 
 lspconfig.vimls.setup{ on_attach = attacher }
@@ -32,9 +38,9 @@ lspconfig.solargraph.setup{
       root_dir = {'.'},
       completion = true,
       symbols = true,
+      diagnostics = true,
 
       definitions = false,
-      diagnostics = false,
       hover = false,
       references = false,
       rename = false,
