@@ -21,4 +21,5 @@ require'my/plugin/file-tree'
 require'my/plugin/lspconfig'
 require'my/plugin/treesitter'
 require'my/plugin/fuzzyfinder'
+require'my/plugin/statusline'
 require'colorizer'.setup()

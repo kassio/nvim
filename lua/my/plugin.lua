@@ -16,6 +16,9 @@ return packer.startup{
       -- Icons
       use 'kyazdani42/nvim-web-devicons'
 
+      -- Statusline
+      use 'hoob3rt/lualine.nvim'
+
       -- IDE stuff
       use 'kassio/neoterm' -- terminal handler
       use 'jparise/vim-graphql' -- graphql

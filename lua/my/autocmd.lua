@@ -18,8 +18,6 @@ require'my/utils'.augroup('user:autocmd', {
   { 'FileType', 'ruby,eruby,elixir,eelixir', 'call user#surround#ruby_string_interpolation()' },
   { 'FileType', 'javascript,json', 'call user#surround#javascript_string_interpolation()' },
 
-  { 'VimEnter,WinEnter,BufWinEnter,FileType,BufUnload,VimResized', '*', 'call statusline#update()' },
-
   { 'WinEnter', '*', 'call window#focus()' },
   { 'WinLeave', '*', 'call window#unfocus()' },
   { 'FocusLost', '*', 'call window#unfocus("norelativenumber")' },
