@@ -12,12 +12,12 @@ g.completion_confirm_key = '<cr>'
 g.completion_matching_strategy_list = { 'exact', 'substring' }
 g.completion_chain_complete_list = {
   default = {
-    { mode = { '<c-n>' } },
+    { complete_items = { 'ts' } },
+    { complete_items = { 'buffers' } },
     { complete_items = { 'snippet' } },
     { complete_items = { 'lsp' } },
-    { complete_items = { 'ts' } },
     { complete_items = { 'path' } },
-    { complete_items = { 'buffers' } }
+    { mode = { '<c-n>' } }
   }
 }
 
