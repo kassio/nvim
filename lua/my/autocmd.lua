@@ -9,6 +9,7 @@ require'my/utils'.augroup('user:autocmd', {
   { 'BufReadPost', 'fugitive://*', 'setlocal bufhidden=delete' },
 
   { 'BufReadPost,BufNewFile', '*gitconfig', 'setfiletype gitconfig' },
+  { 'BufReadPost,BufNewFile', '*scm', 'setfiletype query' },
   { 'BufNewFile,BufRead', '.babelrc,.jshintrc,.eslintrc', 'setfiletype json' },
   { 'BufNewFile,BufReadPost', 'Procfile*,Gemfile*', 'setfiletype ruby' },
   { 'BufReadPost,BufNewFile', '*_feature.rb', 'set syntax=rspec' },
