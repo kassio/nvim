@@ -13,7 +13,7 @@ g.nvim_tree_show_icons = {
 
 g.nvim_tree_icons = {
   default = '',
-  symlink = '',
+  symlink = '',
   git = {
     unstaged = "✗",
     staged = "✓",
@@ -22,11 +22,11 @@ g.nvim_tree_icons = {
     untracked = "★"
   },
   folder = {
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = ""
+    default = '▶',
+    open = '▼',
+    empty = '▷',
+    empty_open = '▽',
+    symlink = ""
   }
 }
 
