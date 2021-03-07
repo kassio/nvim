@@ -8,30 +8,31 @@ g.nvim_tree_hide_dotfiles = 1
 g.nvim_tree_show_icons = {
   git = 1,
   folders = 1,
-  files = 0,
+  files = 1,
 }
 
 g.nvim_tree_icons = {
-  default = ' ',
-  symlink = '⇔',
+  default = '',
+  symlink = '',
   git = {
-    unstaged = '✗',
-    staged = '✓',
-    unmerged = '?',
-    renamed = '➜',
-    untracked = '★'
+    unstaged = "✗",
+    staged = "✓",
+    unmerged = "",
+    renamed = "➜",
+    untracked = "★"
   },
   folder = {
-    default = '▶',
-    open = '▼',
-    empty = '▷',
-    empty_open = '▽'
+    default = "",
+    open = "",
+    empty = "",
+    empty_open = "",
+    symlink = ""
   }
 }
 
 utils.augroup('user:file-tree', {
-  { 'Filetype', 'NvimTree', 'set nonu nornu' }
-})
+    { 'Filetype', 'NvimTree', 'set nonu nornu' }
+  })
 
 utils.keymap('n', '<leader>p', ':NvimTreeToggle<CR>')
 utils.keymap('n', '<leader>fl', ':NvimTreeFindFile<CR>')

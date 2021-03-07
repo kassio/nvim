@@ -5,40 +5,42 @@ local previewers = require'telescope.previewers'
 local builtin = require'telescope.builtin'
 
 telescope.setup{
-  extensions = {
-    fzy_native = {
-      override_generic_sorter = false,
-      override_file_sorter = true,
-    }
-  },
-  defaults = {
-    file_ignore_patterns = {
-      "node_modules/.*"
-    },
-    file_previewer = previewers.vim_buffer_cat.new,
-    file_sorter = sorters.get_fzy_file,
-    generic_sorter = sorters.get_fzy_sorter,
-    preview_cutoff = 120,
-    prompt_position = 'top',
-    prompt_prefix = '›',
-    shorten_path = true,
-    sorting_strategy = 'ascending',
-    winblend = 0,
-    borderchars = {
-      prompt = { '─', '│', '─', '│', '┌', '┬', '┤', '├' },
-      results = { ' ', '│', '─', '│', '│', '│', '┴', '└' },
-      preview = { '─', '│', '─', ' ', '─', '┐', '┘', '─' }
-    },
-    mappings = {
-      i = {
-        ['<C-j>'] = actions.move_selection_next,
-        ['<C-k>'] = actions.move_selection_previous,
-        ['<CR>'] = actions.select_default,
-        ['<esc>'] = actions.close
+    extensions = {
+      fzy_native = {
+        override_generic_sorter = false,
+        override_file_sorter = true,
       }
+    },
+    defaults = {
+      borderchars = {
+        prompt = { '─', '│', '─', '│', '┌', '┬', '┤', '├' },
+        results = { ' ', '│', '─', '│', '│', '│', '┴', '└' },
+        preview = { '─', '│', '─', ' ', '─', '┐', '┘', '─' }
+      },
+      color_devicons = true,
+      file_ignore_patterns = {
+        "node_modules/.*"
+      },
+      file_previewer = previewers.vim_buffer_cat.new,
+      file_sorter = sorters.get_fzy_file,
+      generic_sorter = sorters.get_fzy_sorter,
+      mappings = {
+        i = {
+          ['<C-j>'] = actions.move_selection_next,
+          ['<C-k>'] = actions.move_selection_previous,
+          ['<CR>'] = actions.select_default,
+          ['<esc>'] = actions.close
+        }
+      },
+      preview_cutoff = 120,
+      prompt_position = 'top',
+      prompt_prefix = '›',
+      set_env = { ['COLORTERM'] = 'truecolor' },
+      shorten_path = true,
+      sorting_strategy = 'ascending',
+      winblend = 0
     }
   }
-}
 
 telescope.load_extension('fzy_native')
 

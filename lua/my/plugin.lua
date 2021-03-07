@@ -13,6 +13,14 @@ return packer.startup{
       use 'editorconfig/editorconfig' -- Load configs from .editorconfig
       use 'wsdjeg/vim-fetch' -- Open file with file_path:line:path
 
+      -- Icons
+      use {
+          'kyazdani42/nvim-web-devicons',
+          config = function()
+            require'colorizer'.setup()
+          end
+        }
+
       -- IDE stuff
       use 'kassio/neoterm' -- terminal handler
       use 'jparise/vim-graphql' -- graphql
