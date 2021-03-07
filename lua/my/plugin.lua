@@ -14,12 +14,7 @@ return packer.startup{
       use 'wsdjeg/vim-fetch' -- Open file with file_path:line:path
 
       -- Icons
-      use {
-          'kyazdani42/nvim-web-devicons',
-          config = function()
-            require'colorizer'.setup()
-          end
-        }
+      use 'kyazdani42/nvim-web-devicons'
 
       -- IDE stuff
       use 'kassio/neoterm' -- terminal handler
@@ -33,7 +28,8 @@ return packer.startup{
 
       -- Fuzzy finder
       use {
-          'nvim-telescope/telescope.nvim', requires = {
+          'nvim-telescope/telescope.nvim',
+          requires = {
             'nvim-lua/popup.nvim',
             'nvim-lua/plenary.nvim',
             'nvim-telescope/telescope-fzy-native.nvim'
@@ -44,8 +40,11 @@ return packer.startup{
 
       -- AST based plugins
       use {
-          { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
-          'nvim-treesitter/playground'
+          'nvim-treesitter/nvim-treesitter',
+          run = ':TSUpdate',
+          requires = {
+            'nvim-treesitter/playground'
+          }
         }
 
       -- Test
@@ -80,12 +79,9 @@ return packer.startup{
       use 'andymass/vim-matchup'
 
       -- Colors
-      use { 'sonph/onehalf', rtp = 'vim/' } -- Theme
-      use {  -- colorify color strings
-          'norcalli/nvim-colorizer.lua',
-          config = function()
-            require'colorizer'.setup()
-          end
-        }
+      -- Theme
+      use { 'sonph/onehalf', rtp = 'vim/' }
+      -- colorify color strings
+      use 'norcalli/nvim-colorizer.lua'
     end
   }

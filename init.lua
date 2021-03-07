@@ -8,25 +8,17 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute('packadd packer.nvim')
 end
 
-local safeRequire = function(path, fn)
-  status, lib = pcall(require, path)
-
-  if not status then
-    print("'"..path.."' failed to load")
-    print(lib)
-  end
-end
-
 -- settings
-safeRequire'my/option'
-safeRequire'my/global'
-safeRequire'my/keymap'
-safeRequire'my/autocmd'
-safeRequire'my/command'
+require'my/option'
+require'my/global'
+require'my/keymap'
+require'my/autocmd'
+require'my/command'
 
 -- libs
-safeRequire'my/plugin/completion'
-safeRequire'my/plugin/file-tree'
-safeRequire'my/plugin/lspconfig'
-safeRequire'my/plugin/treesitter'
-safeRequire'my/plugin/fuzzyfinder'
+require'my/plugin/completion'
+require'my/plugin/file-tree'
+require'my/plugin/lspconfig'
+require'my/plugin/treesitter'
+require'my/plugin/fuzzyfinder'
+require'colorizer'.setup()
