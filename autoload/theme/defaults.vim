@@ -9,8 +9,9 @@ function! theme#defaults#load()
   hi! link SpellRare  SpellBad
   hi! link SpellLocal SpellBad
 
-  hi! link TabLine     StatusLineNC
-  hi! link TabLineFill StatusLineNC
+  hi! TabLineSel guibg=#98c379 guifg=#fafafa
+  hi! TabLine guibg=#d0d0d0 guifg=#98c379
+  hi! link TabLineFill Tabline
 
   hi! NonText guifg=#383a42 guibg=NONE gui=NONE
 
@@ -21,12 +22,6 @@ function! theme#defaults#load()
   hi! link EndOfBuffer NonText
 
   hi! IncSearch guibg=#A22FA0
-
-  hi! SLUnsavedFile  gui=bold guifg=#EEEEEE guibg=#CA1243
-  hi! SLModeCommand  gui=bold guifg=#EEEEEE guibg=#6699CC
-  hi! SLModeVisual   gui=bold guifg=#EEEEEE guibg=#A22FA0
-  hi! SLModeInsert   gui=bold guifg=#EEEEEE guibg=#50A14F
-  hi! SLModeTerminal gui=bold guifg=#383a42 guibg=#EEEEEE
 
   hi! StatusError   guifg=#CA1243 gui=bold
   hi! StatusWarning guifg=#F7C154 gui=bold
