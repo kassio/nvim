@@ -23,10 +23,7 @@ lualine.status{
           sections = { 'error', 'warn', 'info' }
         }
       },
-      lualine_x = {
-        'diff',
-        'branch'
-      },
+      lualine_x = { 'diff' },
       lualine_y = {
         'encoding',
         'fileformat'
