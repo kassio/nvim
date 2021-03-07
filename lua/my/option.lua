@@ -50,6 +50,7 @@ o.swapfile = false
 o.tabstop = 2
 o.textwidth = 100
 o.undofile = true
+o.dictionary = '/usr/share/dict/words'
 
 -- Window
 wo.colorcolumn = '80,100,120'
@@ -60,6 +61,6 @@ wo.listchars = 'tab:> ,trail:-,nbsp:+,precedes:<,extends:>'
 wo.number = true
 wo.numberwidth = 5
 wo.relativenumber = true
-wo.signcolumn = 'yes'
+wo.signcolumn = 'yes:2'
 wo.spell = true
 wo.wrap = false
