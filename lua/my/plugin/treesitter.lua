@@ -6,7 +6,7 @@ treesitter.setup{
       enable = true,
     },
     indent = {
-      enable = true
+      enable = false -- it's not working well with rspec
     },
     playground = {
       enable = true,
