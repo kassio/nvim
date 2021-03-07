@@ -21,3 +21,10 @@ g.sign_error = '×'
 g.sign_hint = '☺'
 g.sign_info = 'ⅰ'
 g.sign_warning = '⚠'
+
+-- Global status colors
+g.status_error_color = '#F5A098'
+g.status_warning_color = '#FCEDB6'
+g.status_information_color = '#B1EEFA'
+g.status_hint_color = '#AEF7AD'
+g.status_ignore_color = '#EEEEEE'
