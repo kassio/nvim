@@ -19,7 +19,7 @@ telescope.setup{
       },
       color_devicons = true,
       file_ignore_patterns = {
-        "node_modules/.*"
+        'node_modules/.*'
       },
       file_previewer = previewers.vim_buffer_cat.new,
       file_sorter = sorters.get_fzy_file,
@@ -54,7 +54,7 @@ local setTheme = function(opts)
   return vim.tbl_extend('keep', opts or {}, themeDefaults)
 end
 
-vim.fuzzy_finder = {
+vim.fuzzyfinder = {
   find_files = function(opts)
     builtin.find_files(setTheme(opts))
   end,
