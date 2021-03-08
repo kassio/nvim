@@ -1,4 +1,4 @@
-local function mode()
+local mode = function()
   local mode_map = {
     ['n']    = 'N',
     ['no']   = 'O',

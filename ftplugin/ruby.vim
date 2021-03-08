@@ -45,5 +45,5 @@ call textobj#user#plugin('rubyblock', {
 command! -buffer Namespace call user#ruby#namespace()
 command! -buffer CopyNamespace call user#ruby#copy_namespace()
 
-hi! link Keyword Exception
+hi! link Keyword Conditional
 hi! link Function Normal
