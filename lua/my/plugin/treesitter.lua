@@ -3,7 +3,7 @@ local treesitter = require'nvim-treesitter.configs'
 treesitter.setup{
     ensure_installed = 'all',
     highlight = {
-      enable = true,
+      enable = false, -- not working well with long ruby files
     },
     indent = {
       enable = false -- it's not working well with rspec
