@@ -29,6 +29,9 @@ return packer.startup{
       'nvim-treesitter/completion-treesitter' -- treesitter based completion
     }
 
+    -- Better lua colors
+    use 'euclidianAce/BetterLua.vim'
+
     -- Fuzzy finder
     use {
       'nvim-telescope/telescope.nvim',
