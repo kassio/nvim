@@ -3,6 +3,7 @@ local lualine = require'lualine'
 
 local mode = require'my/plugin/statusline/mode'
 local filename = require'my/plugin/statusline/filename'
+local bufnr = require'my/plugin/statusline/bufnr'
 
 lualine.status{
   options = {
@@ -14,7 +15,8 @@ lualine.status{
   sections = {
     lualine_a = { mode },
     lualine_b = {
-      filename
+      { bufnr },
+      { filename }
     },
     lualine_c = {
       {

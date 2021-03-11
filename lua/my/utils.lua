@@ -1,3 +1,5 @@
+local devicons = require'nvim-web-devicons'
+local fn = vim.fn
 local M = {}
 
 local cmd = vim.cmd
@@ -41,6 +43,26 @@ end
 
 M.lua_buf_keymap = function(buf, mode, lhs, rhs, opts)
   M.buf_keymap(buf, mode, lhs, '<cmd>lua '..rhs..'<cr>')
+end
+
+M.fileicon = function()
+  local filetype_extensions = {
+    ruby = 'rb',
+    sh = 'sh',
+    bash = 'bash',
+    zsh = 'zsh'
+  }
+
+  local filetype = vim.bo.filetype
+
+  if #filetype > 0 then
+    local name = fn.expand('%')
+    local extension =  filetype_extensions[filetype] or fn.expand('%:e')
+
+    return devicons.get_icon(name, extension, { default = true })
+  else
+    return ''
+  end
 end
 
 return M
