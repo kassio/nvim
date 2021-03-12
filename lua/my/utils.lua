@@ -53,13 +53,9 @@ M.fileicon = function(filetype, filename)
     zsh = 'zsh'
   }
 
-  if #filetype > 0 then
-    local extension =  filetype_extensions[filetype] or fn.fnamemodify(filename, ':e')
+  local extension =  filetype_extensions[filetype] or fn.fnamemodify(filename, ':e')
 
-    return devicons.get_icon(filename, extension, { default = true })
-  else
-    return ''
-  end
+  return devicons.get_icon(filename, extension, { default = true })
 end
 
 return M
