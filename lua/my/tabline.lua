@@ -16,7 +16,9 @@ local get_name = function(tab)
     local name = vim.fn.fnamemodify(fullname, ':t')
     local icon = utils.fileicon(api.nvim_buf_get_option(bufnr, 'filetype'), name)
 
-    -- Enforces the total size to be 50chars max
+    -- To ensure a tab label limit of 50chars
+    -- Truncate the file name if it's too long
+    -- Take in consideration icon, tab number and spacing
     if #name > 42 then
       name = string.sub(name, 1, 39)..'...'
     end
@@ -25,34 +27,49 @@ local get_name = function(tab)
   end
 end
 
-_G.my_tabline = function()
-  local current = api.nvim_get_current_tabpage()
-  local current_nr = api.nvim_tabpage_get_number(current)
+local get_labels = function(current)
   local tabs = api.nvim_list_tabpages()
 
-  local labels = vim.tbl_map(function(tab)
+  return vim.tbl_map(function(tab)
     local tabnr = api.nvim_tabpage_get_number(tab)
     local name = get_name(tab)
 
     local label = string.format('%%%dT %d %s ', tabnr, tabnr, name)
 
     if tab == current then
-      label = '%0.50(%#TabLineSel#'..label..'%*%)'
+      -- Ensure current tab label has at least 13chars and at most 50chars
+      label = '%13.50(%#TabLineSel#'..label..'%*%)'
     end
 
     return label
   end, tabs)
+end
 
-  -- When the number of tabs if too long
-  -- the some tabs might get _hidden_.
-  -- To ensure the current tab, and its surrounds, is always visible,
-  -- hide only tabs before the current or farther ahead of the current tab
-  if current_nr <= math.floor(#tabs/2) then
+_G.my_tabline = function()
+  local current = api.nvim_get_current_tabpage()
+  local current_nr = api.nvim_tabpage_get_number(current)
+  local labels = get_labels(current)
+  local labels_text = table.concat(labels)
+
+  -- Tab labels is not using the whole UI
+  if #labels_text < vim.o.columns then
     return table.concat({
       '%#TabLine#',
-      table.concat(labels, '', 1, current_nr + 4),
+      table.concat(labels),
+      '%#TabLineFill'
+    })
+
+  -- When the number of tabs if longer than the UI, some tabs might get _hidden_.
+  -- To ensure the current tab, and its surrounds is always visible,
+  -- hide only tabs before the current or farther ahead of the current tab
+  elseif current_nr <= math.floor(#labels/2) then
+    local limit = current_nr + math.max(math.floor(#labels/2), 1)
+
+    return table.concat({
+      '%#TabLine#',
+      table.concat(labels, '', 1, limit),
       '%<(',
-      table.concat(labels, '', current_nr + 5, #tabs),
+      table.concat(labels, '', limit, #labels),
       '%)',
       '%#TabLineFill'
     })
@@ -62,7 +79,7 @@ _G.my_tabline = function()
       '%<(',
       table.concat(labels, '', 1, current_nr - 1),
       '%)',
-      table.concat(labels, '', current_nr, #tabs),
+      table.concat(labels, '', current_nr, #labels),
       '%#TabLineFill'
     })
   end
