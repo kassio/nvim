@@ -13,15 +13,15 @@ end
 
 local modified = function()
   if vim.bo.modified then
-    return '[+]'
+    return '+'
   elseif vim.bo.modifiable == false then
-    return '[-]'
+    return '-'
   end
 end
 
 return function()
   return table.concat({
-    utils.fileicon(),
+    utils.fileicon(vim.bo.filetype, vim.fn.expand('%:t')),
     filename(),
     modified()
   }, ' ')

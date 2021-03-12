@@ -45,7 +45,7 @@ M.lua_buf_keymap = function(buf, mode, lhs, rhs, opts)
   M.buf_keymap(buf, mode, lhs, '<cmd>lua '..rhs..'<cr>')
 end
 
-M.fileicon = function()
+M.fileicon = function(filetype, filename)
   local filetype_extensions = {
     ruby = 'rb',
     sh = 'sh',
@@ -53,13 +53,10 @@ M.fileicon = function()
     zsh = 'zsh'
   }
 
-  local filetype = vim.bo.filetype
-
   if #filetype > 0 then
-    local name = fn.expand('%')
-    local extension =  filetype_extensions[filetype] or fn.expand('%:e')
+    local extension =  filetype_extensions[filetype] or fn.fnamemodify(filename, ':e')
 
-    return devicons.get_icon(name, extension, { default = true })
+    return devicons.get_icon(filename, extension, { default = true })
   else
     return ''
   end

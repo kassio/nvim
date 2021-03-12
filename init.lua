@@ -8,12 +8,22 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute('packadd packer.nvim')
 end
 
+P = function(anything)
+  print(vim.inspect(anything))
+end
+
+R = function(name)
+  package.loaded[name] = nil
+  return require(name)
+end
+
 -- settings
 require'my/option'
 require'my/global'
 require'my/keymap'
 require'my/autocmd'
 require'my/command'
+require'my/tabline'
 
 -- libs
 require'my/plugin/completion'

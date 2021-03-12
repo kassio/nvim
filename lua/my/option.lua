@@ -25,7 +25,6 @@ o.smartcase = true
 o.splitbelow = true
 o.splitright = true
 o.switchbuf = 'useopen,usetab,split'
-o.tabline = '%!tabline#update()'
 o.tags = ''
 o.termguicolors = true
 o.title = true
