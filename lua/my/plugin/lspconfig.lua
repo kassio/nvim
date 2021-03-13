@@ -2,6 +2,9 @@ local lspconfig = require'lspconfig'
 local lsp = vim.lsp
 local utils = require'my/utils'
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 local keymap = function(lhs, rhs)
   utils.lua_buf_keymap(0, 'n', lhs, rhs)
 end
@@ -18,24 +21,35 @@ local function attacher(client)
 end
 
 lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
-  lsp.diagnostic.on_publish_diagnostics, {
-    signs = true,
-    update_in_insert = true,
+lsp.diagnostic.on_publish_diagnostics, {
+  signs = true,
+  update_in_insert = true,
 
-    virtual_text = false,
-    underline = false
-  }
+  virtual_text = false,
+  underline = false
+}
 )
 
-lspconfig.vimls.setup{ on_attach = attacher }
-lspconfig.jsonls.setup{ on_attach = attacher }
+lspconfig.html.setup{
+  capabilities = capabilities,
+  on_attach = attacher
+}
+
 lspconfig.cssls.setup{ on_attach = attacher }
+lspconfig.vuels.setup{ on_attach = attacher }
+lspconfig.jsonls.setup{ on_attach = attacher }
+
+lspconfig.vimls.setup{ on_attach = attacher }
+lspconfig.graphql.setup{ on_attach = attacher }
+lspconfig.yamlls.setup{ on_attach = attacher }
+
+lspconfig.sqlls.setup{
+  cmd = {"$HOME/.asdf/shims/sql-language-server", "up", "--method", "stdio"};
+}
 
 lspconfig.solargraph.setup{
   settings = {
     solargraph = {
-      filetypes = {'ruby'},
-      root_dir = {'.'},
       completion = true,
       symbols = true,
       diagnostics = true,

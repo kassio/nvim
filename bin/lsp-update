@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+npm install -g diagnostic-languageserver
+npm install -g vscode-css-languageserver-bin
+npm install -g graphql-language-service-cli
+npm install -g vscode-html-languageserver-bin
+npm install -g sql-language-server
+npm install -g vim-language-server
+npm install -g yaml-language-server
+npm install -g vls
+
+
+for-each-ruby gem install solargraph
