@@ -9,10 +9,6 @@ function! theme#defaults#load()
   hi! link SpellRare  SpellBad
   hi! link SpellLocal SpellBad
 
-  hi! TabLineSel guibg=#98c379 guifg=#fafafa
-  hi! TabLine guibg=#d0d0d0 guifg=#98c379
-  hi! link TabLineFill Tabline
-
   hi! NonText guifg=#383a42 guibg=NONE gui=NONE
 
   hi! link VertSplit   NonText
