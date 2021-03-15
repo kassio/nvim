@@ -6,6 +6,10 @@ local get_bufnr = function(tab)
   return api.nvim_win_get_buf(winnr)
 end
 
+local get_icon = function(bufnr, name)
+  return utils.fileicon(api.nvim_buf_get_option(bufnr, 'filetype'), name)
+end
+
 local get_name = function(tab)
   local bufnr = get_bufnr(tab)
   local fullname = api.nvim_buf_get_name(bufnr)
@@ -14,7 +18,7 @@ local get_name = function(tab)
     return '[No name]'
   else
     local name = vim.fn.fnamemodify(fullname, ':t')
-    local icon = utils.fileicon(api.nvim_buf_get_option(bufnr, 'filetype'), name)
+    local icon = get_icon(bufnr, name)
 
     -- To ensure a tab label limit of 50chars
     -- Truncate the file name if it's too long
@@ -45,7 +49,23 @@ local get_labels = function(current)
   end, tabs)
 end
 
-_G.my_tabline = function()
+local get_limit = function(labels, columns)
+  local current = 0
+  local limit = 0
+
+  for i, label in ipairs(labels) do
+    limit = i
+    current = current + #label
+
+    if current >= columns then
+      break
+    end
+  end
+
+  return limit
+end
+
+vim.tabline = function()
   local current = api.nvim_get_current_tabpage()
   local current_nr = api.nvim_tabpage_get_number(current)
   local labels = get_labels(current)
@@ -53,36 +73,33 @@ _G.my_tabline = function()
 
   -- Tab labels is not using the whole UI
   if #labels_text < vim.o.columns then
-    return table.concat({
-      '%#TabLine#',
-      table.concat(labels),
-      '%#TabLineFill'
-    })
-
-  -- When the number of tabs if longer than the UI, some tabs might get _hidden_.
-  -- To ensure the current tab, and its surrounds is always visible,
-  -- hide only tabs before the current or farther ahead of the current tab
+    return table.concat{ '%#TabLine#', table.concat(labels), '%#TabLineFill' }
   elseif current_nr <= math.floor(#labels/2) then
-    local limit = current_nr + math.max(math.floor(#labels/2), 1)
+    -- When the number of tabs if longer than the UI, some tabs might
+    -- get hidden. To ensure the current tab, and its surrounds is always
+    -- visible, hide only tabs before the current or farther ahead of the
+    -- current tab
+    -- local limit = current_nr + math.max(math.floor(#labels/2), 1)
+    local limit = math.min(current_nr + get_limit(labels, vim.o.columns), #labels)
 
-    return table.concat({
+    return table.concat{
       '%#TabLine#',
       table.concat(labels, '', 1, limit),
       '%<(',
       table.concat(labels, '', limit, #labels),
       '%)',
       '%#TabLineFill'
-    })
+    }
   else
-    return table.concat({
+    return table.concat{
       '%#TabLine#',
       '%<(',
       table.concat(labels, '', 1, current_nr - 1),
       '%)',
       table.concat(labels, '', current_nr, #labels),
       '%#TabLineFill'
-    })
+    }
   end
 end
 
-vim.o.tabline = '%!v:lua.my_tabline()'
+vim.o.tabline = '%!v:lua.vim.tabline()'
