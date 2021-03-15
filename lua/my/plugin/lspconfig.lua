@@ -21,13 +21,13 @@ local function attacher(client)
 end
 
 lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
-lsp.diagnostic.on_publish_diagnostics, {
-  signs = true,
-  update_in_insert = true,
+  lsp.diagnostic.on_publish_diagnostics, {
+    signs = true,
+    update_in_insert = true,
 
-  virtual_text = false,
-  underline = false
-}
+    virtual_text = false,
+    underline = false
+  }
 )
 
 lspconfig.html.setup{
