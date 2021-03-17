@@ -5,7 +5,7 @@ local mode = require'my/plugin/statusline/mode'
 local filename = require'my/plugin/statusline/filename'
 local bufnr = require'my/plugin/statusline/bufnr'
 
-lualine.status{
+lualine.setup{
   options = {
     theme = 'onelight',
     section_separators = {'', ''},
