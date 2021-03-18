@@ -46,11 +46,9 @@ return packer.startup{
 
     -- AST based plugins
     use {
-      'nvim-treesitter/nvim-treesitter',
-      run = ':TSUpdate',
-      requires = {
-        'nvim-treesitter/playground'
-      }
+      { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
+      'nvim-treesitter/playground',
+      'nvim-treesitter/nvim-treesitter-textobjects'
     }
 
     -- Test
