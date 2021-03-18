@@ -1,5 +1,5 @@
 require'my/utils'.augroup('user:autocmd', {
-  { 'BufReadPost', '*', 'call my#bufreadpost()' },
+  { 'BufReadPost,BufNewFile', '*', 'call my#bufreadpost()' },
 
   { 'FileType', 'tex,txt,mail,text,markdown', 'setlocal textwidth=80 noautoindent nocindent' },
   { 'FileType', 'sh,html,javascript,css,eruby,eelixir,sass,scss,yaml', [[setlocal iskeyword+=-]] },
