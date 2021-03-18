@@ -23,11 +23,10 @@ treesitter.setup{
   },
   highlight = {
     enable = true,
-    -- disable = { 'ruby' }
   },
   indent = {
     enable = true,
-    -- disable = { 'ruby' }
+    disable = { 'ruby' }
   },
   playground = {
     enable = true,
