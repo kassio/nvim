@@ -15,8 +15,6 @@ local function attacher(client)
   keymap('<leader>ee', 'vim.lsp.diagnostic.show_line_diagnostics()')
   keymap('<leader>ea', 'vim.lsp.diagnostic.set_loclist()')
 
-  require'completion'.on_attach()
-
   print('LSP: ' .. client.name)
 end
 

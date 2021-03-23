@@ -23,11 +23,7 @@ return packer.startup{
     use 'kassio/neoterm' -- terminal handler
     use 'jparise/vim-graphql' -- graphql
     use 'neovim/nvim-lspconfig' -- LSP
-    use {
-      'nvim-lua/completion-nvim', -- completion
-      'steelsojka/completion-buffers', -- buffers words completion
-      'nvim-treesitter/completion-treesitter' -- treesitter based completion
-    }
+    use 'hrsh7th/nvim-compe' -- completion
 
     -- Better lua colors
     use 'euclidianAce/BetterLua.vim'
