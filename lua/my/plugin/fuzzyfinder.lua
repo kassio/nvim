@@ -23,10 +23,12 @@ telescope.setup{
         ['<C-k>'] = actions.move_selection_previous,
       }
     },
+    prompt_position = 'top',
     prompt_prefix = '› ',
     selection_caret = '› ',
     set_env = { ['COLORTERM'] = 'truecolor' },
     shorten_path = true,
+    sorting_strategy = 'ascending',
     winblend = 0
   }
 }
