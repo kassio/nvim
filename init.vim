@@ -72,6 +72,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
   command('packadd packer.nvim')
 end
 
+vim.my = {}
+
 -- P = Print with inpect
 P = function(anything)
   print(vim.inspect(anything))

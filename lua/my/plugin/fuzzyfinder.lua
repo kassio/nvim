@@ -33,7 +33,7 @@ telescope.setup{
   }
 }
 
-vim.fuzzyfinder = {
+vim.my.fuzzyfinder = {
   find_files = builtin.find_files,
   grep_string = builtin.grep_string,
   live_grep = builtin.live_grep,

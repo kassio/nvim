@@ -36,7 +36,7 @@ end
 -- Use (s-)tab to:
 --- move to prev/next item in completion menuone
 --- jump to prev/next snippet's placeholder
-_G.tab_complete = function()
+vim.my.tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t '<C-n>'
   elseif vim.fn.call('vsnip#available', {1}) == 1 then
@@ -47,7 +47,8 @@ _G.tab_complete = function()
     return vim.fn['compe#complete']()
   end
 end
-_G.s_tab_complete = function()
+
+vim.my.s_tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t '<C-p>'
   elseif vim.fn.call('vsnip#jumpable', {-1}) == 1 then
@@ -57,7 +58,7 @@ _G.s_tab_complete = function()
   end
 end
 
-vim.api.nvim_set_keymap('i', '<Tab>', 'v:lua.tab_complete()', {expr = true})
-vim.api.nvim_set_keymap('s', '<Tab>', 'v:lua.tab_complete()', {expr = true})
-vim.api.nvim_set_keymap('i', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
-vim.api.nvim_set_keymap('s', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
+vim.api.nvim_set_keymap('i', '<Tab>', 'v:lua.vim.my.tab_complete()', {expr = true})
+vim.api.nvim_set_keymap('s', '<Tab>', 'v:lua.vim.my.tab_complete()', {expr = true})
+vim.api.nvim_set_keymap('i', '<S-Tab>', 'v:lua.vim.my.s_tab_complete()', {expr = true})
+vim.api.nvim_set_keymap('s', '<S-Tab>', 'v:lua.vim.my.s_tab_complete()', {expr = true})
