@@ -48,5 +48,6 @@ command! -buffer CopyNamespace call user#ruby#copy_namespace()
 hi! link Keyword Conditional
 hi! link Function Normal
 hi! link Label Identifier
+hi! link TSSymbol Constant
 hi! link TSStringEscape String
 hi! TSStringEscape gui=bold

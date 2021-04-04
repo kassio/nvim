@@ -1,3 +1,5 @@
+extends html
+
 snippet "[e=]" "" ir
 <%= ${0:${VISUAL}} %>
 endsnippet
@@ -14,7 +16,13 @@ snippet lt "" w
 <%= link_to ${0:${VISUAL}} %>
 endsnippet
 
-snippet "(b|if)" "" r
+snippet frame "" b
+<% turbo_frame_tag ${1} do %>
+  ${0:${VISUAL}}
+<% end %>
+endsnippet
+
+snippet "(b|if)" "" rb
 <% ${1:if $2} %>
   ${0:${VISUAL}}
 <% end %>
@@ -23,5 +31,3 @@ endsnippet
 snippet pa "" i
 params[:${1:id}]
 endsnippet
-
-extends html
