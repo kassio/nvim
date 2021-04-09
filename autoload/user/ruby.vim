@@ -24,7 +24,7 @@ function! user#ruby#stringfy_hash_keys(line1, line2) abort
 endfunction
 
 function! user#ruby#symbolify_hash_keys(line1, line2) abort
-  let l:regexp = 's/[''"]\(\w\+\)[''"]\ =>/\1:/g'
+  let l:regexp = 's/\([''"]\)\(\w\{-}\)\1\s*=>/\2: /g'
   call s:replace(a:line1, a:line2, l:regexp)
 endfunction
 
