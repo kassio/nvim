@@ -21,9 +21,12 @@ return packer.startup{
 
     -- IDE stuff
     use 'kassio/neoterm' -- terminal handler
-    use 'jparise/vim-graphql' -- graphql
     use 'neovim/nvim-lspconfig' -- LSP
     use 'hrsh7th/nvim-compe' -- completion
+
+    -- syntaxes
+    use 'jparise/vim-graphql' -- graphql
+    use 'stephenway/postcss.vim' -- postcss
 
     -- Better lua colors
     use 'euclidianAce/BetterLua.vim'
