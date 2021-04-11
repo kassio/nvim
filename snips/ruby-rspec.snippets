@@ -38,8 +38,18 @@ snippet itb "it { }" b
 it { ${0:${VISUAL}} }
 endsnippet
 
-snippet "exp(ect)?" "expect(true).to be" wr
+snippet "exp(ect)?" "expect(true).to eq(true)" wr
 expect($1).${2:to} $3
+endsnippet
+
+snippet "expb" "expect { something }.to eq(true)" wr
+expect { $1 }.${2:to} $3
+endsnippet
+
+snippet expn "" b
+expect_next_instance_of($1) do |$2|
+  $3
+end
 endsnippet
 
 snippet let "" w
@@ -50,8 +60,12 @@ snippet leti "" w
 let_it_be($1) $2
 endsnippet
 
-snippet expn "" b
-expect_next_instance_of($1) do |$2|
-  $3
+snippet rspec ""
+# frozen_string_literal: true
+
+require 'rails_helper'
+
+RSpec.describe $1${2:, type: :model} do
+  $0
 end
 endsnippet
