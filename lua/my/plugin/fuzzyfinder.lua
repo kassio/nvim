@@ -34,7 +34,12 @@ telescope.setup{
 }
 
 vim.my.fuzzyfinder = {
-  find_files = builtin.find_files,
+  find_files = function(opts)
+    local opts = opts or {}
+    builtin.find_files(vim.tbl_extend('keep', opts, {
+      find_command = { 'rg', '--hidden', '--ignore', '--follow', '--files' }
+    }))
+  end,
   grep_string = builtin.grep_string,
   live_grep = builtin.live_grep,
   buffers = builtin.buffers,
