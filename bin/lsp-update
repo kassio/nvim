@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# update npm
+npm install -g npm
+
 # npm based
 npm install -g diagnostic-languageserver
 npm install -g vscode-css-languageserver-bin
@@ -11,4 +14,4 @@ npm install -g yaml-language-server
 npm install -g vls
 
 # ruby gems
-for-each-ruby gem install solargraph
+for-each-ruby gem install solargraph rubocop
