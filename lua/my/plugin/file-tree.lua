@@ -31,6 +31,15 @@ g.nvim_tree_icons = {
   }
 }
 
+g.nvim_tree_ignore = {
+  '.git',
+  'node_modules',
+  'dump.rdb',
+  '.byebug_history',
+  '.vscode',
+  '.idea'
+}
+
 utils.augroup('user:file-tree', {
     { 'Filetype', 'NvimTree', 'set nonu nornu' }
   })
