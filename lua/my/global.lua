@@ -6,6 +6,9 @@ g.mapleader = ' '
 -- Highlight lua within vim
 g.vimsyn_embed = 'l'
 
+-- my theme
+g.my_theme = 'onedark'
+
 -- Disable standard plugins
 g.loaded_getscriptPlugin = 1
 g.loaded_gzip = 1

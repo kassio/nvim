@@ -7,7 +7,7 @@ local bufnr = require'my/plugin/statusline/bufnr'
 
 lualine.setup{
   options = {
-    theme = 'onelight',
+    theme = g.my_theme,
     section_separators = {'', ''},
     component_separators = {'', ''},
     icons_enabled = true,

@@ -102,11 +102,11 @@ R'my/command'
 R'my/tabline'
 
 -- libs
-R'my/plugin/completion'
-R'my/plugin/file-tree'
-R'my/plugin/lspconfig'
-R'my/plugin/treesitter'
-R'my/plugin/fuzzyfinder'
-R'my/plugin/statusline'
 R'colorizer'.setup()
+R'my/plugin/statusline'
+R'my/plugin/fuzzyfinder'
+R'my/plugin/file-tree'
+R'my/plugin/completion'
+R'my/plugin/treesitter'
+R'my/plugin/lspconfig'
 EOL

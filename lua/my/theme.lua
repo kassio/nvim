@@ -5,7 +5,7 @@ M.load = function(theme_name)
   local ok, lualine = pcall(require, 'lualine')
 
   if ok then
-    lualine.setup{ options = { theme = theme_name } }
+    R('my/plugin/statusline')
 
     -- Use statusline theme colors on tabline
     local theme_path = 'lualine/themes/'..theme_name
