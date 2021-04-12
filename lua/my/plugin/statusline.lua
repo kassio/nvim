@@ -6,6 +6,7 @@ local filename = require'my/plugin/statusline/filename'
 local bufnr = require'my/plugin/statusline/bufnr'
 
 lualine.setup{
+  extensions = { 'nvim-tree' },
   options = {
     theme = g.my_theme,
     section_separators = {'', ''},
