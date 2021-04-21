@@ -58,5 +58,5 @@ function! util#write_with_path()
 endfunction
 
 function! util#mkdir_path()
-  mkdir(expand('%:h'), 'p')
+  call mkdir(expand('%:h'), 'p')
 endfunction
