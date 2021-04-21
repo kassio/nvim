@@ -4,7 +4,7 @@ local utils = require'my/utils'
 local filename = function()
   local name = vim.fn.expand('%')
 
-  if #name > 60 then
+  if vim.api.nvim_win_get_width(0) <= 100 and #name > 60 then
     return vim.fn.pathshorten(name)
   else
     return name
