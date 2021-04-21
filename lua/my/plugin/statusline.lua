@@ -38,7 +38,7 @@ lualine.setup{
   inactive_sections = {
     lualine_a = { },
     lualine_b = { bufnr },
-    lualine_c = { 'filename' },
+    lualine_c = { filename },
     lualine_x = { },
     lualine_y = { },
     lualine_z = { }
