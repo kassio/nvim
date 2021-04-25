@@ -1,6 +1,6 @@
 function! git#restore(...) abort
   if a:0 && (a:1 ==# '%' || a:1 ==# '')
-    exec '!git restore ' . expand('%:p')
+    exec '!git restore ' . expand('%:p:.')
   else
     exec '!git restore ' . a:1
   end
@@ -10,15 +10,15 @@ endfunction
 function! git#remote()
   let l:ref = trim(system('git symbolic-ref --short HEAD'))
 
-  call s:open_remote(l:ref, expand('%'), line('.'))
+  call s:open_remote(l:ref, expand('%:.'), line('.'))
 endfunction
 
 function! git#remote_master()
-  call s:open_remote('master', expand('%'), line('.'))
+  call s:open_remote('master', expand('%:.'), line('.'))
 endfunction
 
 function! git#remote_commit()
-  let l:file = expand('%')
+  let l:file = expand('%:.')
   let l:line = line('.')
   let l:Fn = { _, data -> s:open_remote(trim(data[0]), l:file, l:line) }
 
