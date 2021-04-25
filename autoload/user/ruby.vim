@@ -48,7 +48,7 @@ function! user#ruby#alternate_file(mod) abort
     return
   end
 
-  let l:mod = a:mod !=# '' ? a:mod : window#conditional_mod()
+  let l:mod = window#responsive_mod(a:mod)
 
   exec printf('%s new %s', l:mod, s:alternative_file(l:test))
 endfunction
@@ -65,7 +65,7 @@ endfunction
 function! s:alternative_file(lib)
   let file = expand('%:t')
 
-  if file =~# printf('.*%s.*', a:lib)
+  if file =~# a:lib
     return s:code_path(a:lib)
   else
     return s:test_path(a:lib)
@@ -73,7 +73,7 @@ function! s:alternative_file(lib)
 endfunction
 
 function! s:code_path(lib)
-  let path = split(expand('%'), '/')
+  let path = split(expand('%:.'), '/')
   let prefix = path[0] == 'ee' ? remove(path, 0) : ''
   let file = substitute(expand('%:t'), printf('_%s.rb', a:lib), '.rb', '')
 
@@ -81,13 +81,13 @@ function! s:code_path(lib)
   let result = result[0] == 'lib' ? result : insert(result, 'app')
   let result = add(result, file)
   let result = insert(result, prefix)
-  let result = filter(result, { _, v -> v != '' && v != v:null })
+  let result = s:compact(result)
 
   return join(result, '/')
 endfunction
 
 function! s:test_path(lib)
-  let path = split(expand('%'), '/')
+  let path = split(expand('%:.'), '/')
   let prefix = path[0] == 'ee' ? remove(path, 0) : ''
   let file = substitute(expand('%:t'), '.rb', printf('_%s.rb', a:lib), '')
 
@@ -95,9 +95,13 @@ function! s:test_path(lib)
   let result = insert(result, a:lib)
   let result = add(result, file)
   let result = insert(result, prefix)
-  let result = filter(result, { _, v -> v != '' && v != v:null })
+  let result = s:compact(result)
 
   return join(result, '/')
+endfunction
+
+function! s:compact(list)
+  return filter(copy(a:list), { _, v -> v != '' && v != v:null })
 endfunction
 
 function! user#ruby#namespace(...)

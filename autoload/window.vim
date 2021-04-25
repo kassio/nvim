@@ -28,10 +28,21 @@ function! window#unfocus(...) abort
   exec printf('setlocal %s', join(l:properties, ' '))
 endfunction
 
-function! window#conditional_mod()
+function! window#responsive_mod(mod = '', default = '')
+  let l:mod = s:validate_mod(a:mod)
+  let l:default = s:validate_mod(a:default)
+  let l:chosen = l:mod !=# '' ? l:mod : l:default
+
   if winwidth('.')/2 > 110
-    return 'botright vertical'
+    return printf('%s vertical', l:chosen)
   else
-    return 'botright'
+    return l:chosen
   end
+endfunction
+
+function! s:validate_mod(mod)
+  return index(['aboveleft', 'belowright','botright', 'browse', 'confirm',
+        \ 'hide', 'keepalt','keepjumps', 'keepmarks', 'keeppatterns',
+        \ 'leftabove', 'lockmarks', 'noswapfile', 'rightbelow', 'silent',
+        \ 'tab', 'topleft', 'verbose', 'vertical'], a:mod) >= 0 ? a:mod : ''
 endfunction

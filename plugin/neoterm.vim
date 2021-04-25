@@ -4,7 +4,7 @@ let g:neoterm_autoscroll = 1
 
 let g:neoterm_callbacks = {}
 function! g:neoterm_callbacks.before_new()
-  let g:neoterm_default_mod = window#conditional_mod()
+  let g:neoterm_default_mod = window#responsive_mod('', 'botright')
 endfunction
 
 xmap <leader>ts <plug>(neoterm-repl-send)
