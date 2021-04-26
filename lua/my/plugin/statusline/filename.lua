@@ -2,7 +2,7 @@ local original = require'lualine/components/filename'
 local utils = require'my/utils'
 
 local filename = function()
-  local name = vim.fn.expand('%')
+  local name = vim.fn.expand('%:.')
 
   if vim.api.nvim_win_get_width(0) <= 100 and #name > 60 then
     return vim.fn.pathshorten(name)

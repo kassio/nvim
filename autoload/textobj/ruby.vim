@@ -13,11 +13,11 @@ endfunction
 function! textobj#ruby#block_i()
   let pos = textobj#ruby#block_a()
 
-return [
-      \ 'V',
-      \ s:update_line_in(pos[1], 'inc'),
-      \ s:update_line_in(pos[2], 'dec')
-      \ ]
+  return [
+        \ 'V',
+        \ s:update_line_in(pos[1], 'inc'),
+        \ s:update_line_in(pos[2], 'dec')
+        \ ]
 endfunction
 
 function! s:update_line_in(pos, op)
