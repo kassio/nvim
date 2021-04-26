@@ -37,7 +37,7 @@ vim.my.fuzzyfinder = {
   find_files = function(opts)
     local opts = opts or {}
     builtin.find_files(vim.tbl_extend('keep', opts, {
-      find_command = { 'rg', '--hidden', '--ignore', '--follow', '--files' }
+      find_command = { 'files' }
     }))
   end,
   grep_string = builtin.grep_string,
