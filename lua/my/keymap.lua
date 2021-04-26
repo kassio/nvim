@@ -12,6 +12,9 @@ keymap('t', [[<esc><esc>]], [[<c-\><c-n>]])
 -- Use <c-l> to clear the highlighting of :set hlsearch.
 keymap('n', [[<c-l>]], [[:mode | nohlsearch<cr>]])
 
+-- Replace selection without changing registers
+keymap('v', [[<leader>p]], [["_dP]])
+
 -- Delete current buffer
 keymap('n', [[<leader>bd]], [[:call buffer#kill()<cr>]])
 -- Delete all other buffers
