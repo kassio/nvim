@@ -70,7 +70,12 @@ return packer.startup{
 
     -- Git
     use 'tpope/vim-fugitive'
-    use 'mhinz/vim-signify'
+    use {
+      'lewis6991/gitsigns.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim'
+      }
+    }
 
     -- Comments
     use 'tpope/vim-commentary'

@@ -51,18 +51,15 @@ function! theme#defaults#load()
   hi! link SignInfo    StatusInfo
   hi! link SignSuccess StatusSuccess
 
-  hi! link SignifySignDelete          StatusError
-  hi! link SignifySignDeleteFirstLine StatusError
-  hi! link SignifyLineDelete          StatusError
-  hi! link SignifyLineDeleteFirstLine StatusError
+  hi! link GitSignAdd    StatusSuccess
+  hi! link GitSignChange StatusWarning
+  hi! link GitSignDelete StatusError
 
-  hi! link SignifySignChange       StatusWarning
-  hi! link SignifySignChangeDelete StatusWarning
-  hi! link SignifyLineChange       StatusWarning
-  hi! link SignifyLineChangeDelete StatusWarning
+  hi! link GitSignAddLineNr    StatusSuccess
+  hi! link GitSignChangeLineNr StatusWarning
+  hi! link GitSignDeleteLineNr StatusError
 
-  hi! link SignifySignAdd StatusSuccess
-  hi! link SignifyLineAdd StatusSuccess
+  hi! GitSignsCurrentLineBlame guifg=#383a42
 
   hi! LspDiagnosticsVirtualTextError       guifg=#F5A098
   hi! LspDiagnosticsVirtualTextWarning     guifg=#FCEDB6

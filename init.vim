@@ -57,7 +57,7 @@ set listchars=tab:>\ ,trail:-,nbsp:+,precedes:<,extends:>
 set number
 set numberwidth=5
 set relativenumber
-set signcolumn=yes:2
+set signcolumn=yes
 set spell
 set nowrap
 
@@ -109,4 +109,5 @@ R'my/plugin/file-tree'
 R'my/plugin/completion'
 R'my/plugin/treesitter'
 R'my/plugin/lspconfig'
+R'my/plugin/git-signs'
 EOL
