@@ -34,16 +34,16 @@ function! theme#defaults#load()
   hi! StatusSuccessReverse guifg=#50A14F gui=bold,reverse
   hi! StatusIgnoreReverse  guifg=#CCCCCC gui=bold,reverse
 
-  hi! LightStatusError       guifg=#F5A098 guibg=#383a42
-  hi! LightStatusWarning     guifg=#FCEDB6 guibg=#383a42
-  hi! LightStatusInformation guifg=#B1EEFA guibg=#383a42
-  hi! LightStatusHint        guifg=#AEF7AD guibg=#383a42
-  hi! LightStatusIgnore      guifg=#EEEEEE guibg=#383a42
+  hi! LightStatusError       guifg=#F5A098
+  hi! LightStatusWarning     guifg=#FCEDB6
+  hi! LightStatusInformation guifg=#B1EEFA
+  hi! LightStatusSuccess     guifg=#AEF7AD
+  hi! LightStatusIgnore      guifg=#EEEEEE
 
   hi! LightStatusErrorReverse       guifg=#F5A098 guibg=#383a42 gui=bold,reverse
   hi! LightStatusWarningReverse     guifg=#FCEDB6 guibg=#383a42 gui=bold,reverse
   hi! LightStatusInformationReverse guifg=#B1EEFA guibg=#383a42 gui=bold,reverse
-  hi! LightStatusHintReverse        guifg=#AEF7AD guibg=#383a42 gui=bold,reverse
+  hi! LightStatusSuccessReverse     guifg=#AEF7AD guibg=#383a42 gui=bold,reverse
   hi! LightStatusIgnoreReverse      guifg=#EEEEEE guibg=#383a42 gui=bold,reverse
 
   hi! link SignError   StatusError
@@ -55,9 +55,9 @@ function! theme#defaults#load()
   hi! link GitSignChange StatusWarning
   hi! link GitSignDelete StatusError
 
-  hi! link GitSignAddLineNr    StatusSuccess
-  hi! link GitSignChangeLineNr StatusWarning
-  hi! link GitSignDeleteLineNr StatusError
+  hi! link GitSignAddLineNr    LightStatusSuccess
+  hi! link GitSignChangeLineNr LightStatusWarning
+  hi! link GitSignDeleteLineNr LightStatusError
 
   hi! GitSignsCurrentLineBlame guifg=#383a42
 
