@@ -1,26 +1,7 @@
 local treesitter = require'nvim-treesitter.configs'
 
 treesitter.setup{
-  ensure_installed = {
-    'bash',
-    'comment',
-    'css',
-    'devicetree',
-    'go',
-    'graphql',
-    'html',
-    'javascript',
-    'jsdoc',
-    'json',
-    'jsonc',
-    'lua',
-    'query',
-    'regex',
-    'ruby',
-    'typescript',
-    'vue',
-    'yaml'
-  },
+  ensure_installed = 'maintained',
   highlight = {
     enable = true,
   },
