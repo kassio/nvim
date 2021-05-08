@@ -102,6 +102,7 @@ R'my/command'
 R'my/tabline'
 
 -- libs
+R'terminal'.setup()
 R'colorizer'.setup()
 R'my/plugin/statusline'
 R'my/plugin/fuzzyfinder'

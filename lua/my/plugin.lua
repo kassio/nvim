@@ -31,6 +31,9 @@ return packer.startup{
     -- Better lua colors
     use 'euclidianAce/BetterLua.vim'
 
+    -- Terminal colors within neovim
+    use 'norcalli/nvim-terminal.lua'
+
     -- Fuzzy finder
     use {
       'nvim-telescope/telescope.nvim',
