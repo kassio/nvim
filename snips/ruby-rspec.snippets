@@ -43,7 +43,7 @@ expect($1).${2:to} $3
 endsnippet
 
 snippet "expb" "expect { something }.to eq(true)" wr
-expect { $1 }.${2:to} $3
+expect { ${0:${VISUAL}} }.${2:to} $3
 endsnippet
 
 snippet expn "" b
