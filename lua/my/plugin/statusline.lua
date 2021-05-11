@@ -8,9 +8,7 @@ local bufnr = require'my/plugin/statusline/bufnr'
 lualine.setup{
   extensions = { 'nvim-tree' },
   options = {
-    theme = g.my_theme,
-    section_separators = {'', ''},
-    component_separators = {'', ''},
+    theme = g.my_theme.statuline,
     icons_enabled = true,
   },
   sections = {

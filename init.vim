@@ -99,12 +99,11 @@ R'my/global'
 R'my/keymap'
 R'my/autocmd'
 R'my/command'
-R'my/tabline'
+R'my/theme'
 
 -- libs
 R'terminal'.setup()
 R'colorizer'.setup()
-R'my/plugin/statusline'
 R'my/plugin/fuzzyfinder'
 R'my/plugin/file-tree'
 R'my/plugin/completion'

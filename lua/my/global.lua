@@ -1,5 +1,18 @@
 local g = vim.g
 
+g.my_themes = {
+  dark = {
+    background = 'dark',
+    colorscheme = 'onehalfdark',
+    statuline = 'onedark'
+  },
+  light = {
+    background = 'light',
+    colorscheme = 'onehalflight',
+    statuline = 'onelight'
+  }
+}
+
 -- Space as map leader
 g.mapleader = ' '
 
@@ -7,7 +20,9 @@ g.mapleader = ' '
 g.vimsyn_embed = 'l'
 
 -- my theme
-g.my_theme = 'onedark'
+g.default_theme_variant = 'dark'
+g.alternative_theme_variant = 'light'
+g.my_theme = g.my_themes[g.default_theme_variant]
 
 -- Disable standard plugins
 g.loaded_getscriptPlugin = 1
