@@ -13,7 +13,8 @@ keymap('t', [[<esc><esc>]], [[<c-\><c-n>]])
 keymap('n', [[<c-l>]], [[:mode | nohlsearch<cr>]])
 
 -- Replace selection without changing registers
-keymap('v', [[<leader>p]], [["_dP]])
+keymap('v', [[<leader>p]], [["_dp]])
+keymap('v', [[<leader>P]], [["_dP]])
 
 -- Delete current buffer
 keymap('n', [[<leader>bd]], [[:call buffer#kill()<cr>]])
