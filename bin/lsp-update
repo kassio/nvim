@@ -14,4 +14,4 @@ npm install -g yaml-language-server
 npm install -g vls
 
 # ruby gems
-for-each-ruby gem install solargraph rubocop
+for-each-ruby gem install solargraph rubocop mdl

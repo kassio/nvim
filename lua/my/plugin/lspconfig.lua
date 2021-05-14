@@ -96,7 +96,7 @@ lspconfig.diagnosticls.setup{
         }
       },
       markdownlint = {
-        command = 'markdownlint',
+        command = 'mdl',
         sourceName = 'markdownlint',
         isStderr = true,
         args = {
