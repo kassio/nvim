@@ -109,5 +109,6 @@ R'my/plugin/file-tree'
 R'my/plugin/completion'
 R'my/plugin/treesitter'
 R'my/plugin/lspconfig'
+R'my/plugin/lspinstall'
 R'my/plugin/git-signs'
 EOL

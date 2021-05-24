@@ -22,6 +22,7 @@ return packer.startup{
     -- IDE stuff
     use 'kassio/neoterm' -- terminal handler
     use 'neovim/nvim-lspconfig' -- LSP
+    use 'kabouzeid/nvim-lspinstall' -- LSP installers
     use 'hrsh7th/nvim-compe' -- completion
 
     -- syntaxes
