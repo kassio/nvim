@@ -26,4 +26,17 @@ treesitter.setup{
       node_decremental = 'gnm',
     },
   },
+  textobjects = {
+    select = {
+      enable = true,
+      keymaps = {
+        ["ab"] = "@block.outer",
+        ["ib"] = "@block.inner",
+        ["am"] = "@function.outer",
+        ["im"] = "@function.inner",
+        ["aM"] = "@class.outer",
+        ["iM"] = "@class.inner",
+      }
+    }
+  }
 }
