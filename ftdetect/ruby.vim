@@ -1,6 +1,6 @@
 aug user:ruby
   au!
-  au BufNewFile,BufRead .simplecov call s:rubyfile()
+  au BufNewFile,BufRead .simplecov,Dangerfile call s:rubyfile()
 aug END
 
 function! s:rubyfile()
