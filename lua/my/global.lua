@@ -3,7 +3,7 @@ local g = vim.g
 g.my_themes = {
   dark = {
     background = 'dark',
-    colorscheme = 'onehalfdark',
+    colorscheme = 'palenight',
     statuline = 'onedark'
   },
   light = {

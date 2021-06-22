@@ -99,7 +99,6 @@ R'my/global'
 R'my/keymap'
 R'my/autocmd'
 R'my/command'
-R'my/theme'
 
 -- libs
 R'terminal'.setup()

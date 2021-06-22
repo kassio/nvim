@@ -29,12 +29,6 @@ return packer.startup{
     use 'jparise/vim-graphql' -- graphql
     use 'stephenway/postcss.vim' -- postcss
 
-    -- Better lua colors
-    use 'euclidianAce/BetterLua.vim'
-
-    -- Terminal colors within neovim
-    use 'norcalli/nvim-terminal.lua'
-
     -- Fuzzy finder
     use {
       'nvim-telescope/telescope.nvim',
@@ -93,7 +87,12 @@ return packer.startup{
     -- Colors
     -- Theme
     use { 'sonph/onehalf', rtp = 'vim/' }
+    use { 'drewtempelmeyer/palenight.vim' }
     -- colorify color strings
     use 'norcalli/nvim-colorizer.lua'
+    -- Better lua colors
+    use 'euclidianAce/BetterLua.vim'
+    -- Terminal colors within neovim
+    use 'norcalli/nvim-terminal.lua'
   end
 }
