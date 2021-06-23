@@ -17,7 +17,7 @@ function! theme#defaults#load()
   hi! link SpecialChar NonText
   hi! link EndOfBuffer NonText
 
-  hi! IncSearch guibg=#A22FA0
+  hi! IncSearch guibg=#F882F6
 
   hi! StatusError   guifg=#CA1243 gui=bold
   hi! StatusWarning guifg=#F7C154 gui=bold
@@ -81,7 +81,7 @@ function! theme#defaults#load()
   hi! link NvimTreeGitMerge   StatusWarning
   hi! link NvimTreeGitRename  StatusWarning
   hi! NvimTreeGitNew  guifg=#555555 gui=italic
-  hi! NvimTreeSymlink guifg=#A22FA0
+  hi! NvimTreeSymlink guifg=#F882F6
   hi! NvimTreeSpecialFile guifg=#EEEEEE gui=bold
 
   hi! link NvimTreeFolderIcon Directory
