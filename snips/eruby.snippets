@@ -1,10 +1,10 @@
 extends html
 
-snippet "[e=]" "" ir
+snippet =
 <%= ${0:${VISUAL}} %>
 endsnippet
 
-snippet "(er|-)" "" ir
+snippet -
 <% ${0:${VISUAL}} %>
 endsnippet
 
@@ -16,14 +16,8 @@ snippet lt "" w
 <%= link_to ${0:${VISUAL}} %>
 endsnippet
 
-snippet frame "" b
-<% turbo_frame_tag ${1} do %>
-  ${0:${VISUAL}}
-<% end %>
-endsnippet
-
-snippet "(b|if)" "" rw
-<% ${1:if $2} %>
+snippet tf "" b
+<%= turbo_frame_tag ${1} do %>
   ${0:${VISUAL}}
 <% end %>
 endsnippet
