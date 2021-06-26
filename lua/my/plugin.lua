@@ -45,7 +45,8 @@ return packer.startup{
     use {
       { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
       'nvim-treesitter/playground',
-      'nvim-treesitter/nvim-treesitter-textobjects'
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      'lewis6991/spellsitter.nvim'
     }
 
     -- Test
