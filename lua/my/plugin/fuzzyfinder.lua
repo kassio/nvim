@@ -23,7 +23,9 @@ telescope.setup{
         ['<C-k>'] = actions.move_selection_previous,
       }
     },
-    prompt_position = 'top',
+    layout_config = {
+      prompt_position = 'top',
+    },
     prompt_prefix = '› ',
     selection_caret = '› ',
     set_env = { ['COLORTERM'] = 'truecolor' },
