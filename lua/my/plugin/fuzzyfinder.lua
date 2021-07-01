@@ -21,6 +21,7 @@ telescope.setup{
       i = {
         ['<C-j>'] = actions.move_selection_next,
         ['<C-k>'] = actions.move_selection_previous,
+        ['<C-u>'] = { "<c-u>", type = "command" }
       }
     },
     layout_config = {
