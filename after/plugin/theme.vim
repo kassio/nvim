@@ -13,13 +13,12 @@ vim.fn['theme#defaults#load']()
 
 R('my/plugin/statusline')
 
-if ok then
-  -- Use statusline theme colors on tabline
-  local statusline_theme_path = 'lualine/themes/'..g.my_theme.statuline
-  local colors = require(theme_path).normal
+-- Use statusline theme colors on tabline
+local statusline_theme_path = 'lualine/themes/'..g.my_theme.statuline
 
-  vim.cmd('hi! TabLineSel guibg='..colors.a.bg..' guifg='..colors.a.fg)
-  vim.cmd('hi! TabLine guibg='..colors.b.bg..' guifg='..colors.b.fg)
-  vim.cmd('hi! link TabLineFill TabLine')
-end
+local colors = require(statusline_theme_path).normal
+
+vim.cmd('hi! TabLineSel guibg='..colors.a.bg..' guifg='..colors.a.fg)
+vim.cmd('hi! TabLine guibg='..colors.b.bg..' guifg='..colors.b.fg)
+vim.cmd('hi! link TabLineFill TabLine')
 EOL
