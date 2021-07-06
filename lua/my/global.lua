@@ -1,5 +1,8 @@
 local g = vim.g
 
+local ok, env_theme = pcall(vim.fn.readfile, vim.env.ITERM_PROFILE_FILE)
+env_theme = ok and env_theme[1] or nil
+
 g.my_themes = {
   dark = {
     background = 'dark',
@@ -22,7 +25,7 @@ g.vimsyn_embed = 'l'
 -- my theme
 g.default_theme_variant = 'dark'
 g.alternative_theme_variant = 'light'
-g.my_theme = g.my_themes[g.default_theme_variant]
+g.my_theme = g.my_themes[env_theme or g.default_theme_variant]
 
 -- Disable standard plugins
 g.loaded_getscriptPlugin = 1
