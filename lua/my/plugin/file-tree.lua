@@ -41,8 +41,17 @@ g.nvim_tree_ignore = {
 }
 
 utils.augroup('user:file-tree', {
-    { 'Filetype', 'NvimTree', 'set nonu nornu' }
-  })
+  { 'Filetype', 'NvimTree', 'set nonu nornu' },
+  { 'WinEnter', 'NvimTree', 'set nonu nornu' }
+})
 
 utils.keymap('n', '<leader>p', ':NvimTreeToggle<CR>')
 utils.keymap('n', '<leader>fl', ':NvimTreeFindFile<CR>')
+
+_G.file_tree_resize = function(size)
+  local view = require('nvim-tree.view')
+  view.View.width = size
+  view.resize()
+end
+
+utils.command [[-nargs=1 NvimTreeResize lua file_tree_resize(<args>)]]
