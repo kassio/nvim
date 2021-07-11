@@ -1,0 +1,4 @@
+(
+  (string
+  (interpolation) @rubyStringInterpolation)
+) @user

@@ -44,9 +44,3 @@ call textobj#user#plugin('rubyblock', {
 
 command! -buffer Namespace call user#ruby#namespace()
 command! -buffer CopyNamespace call user#ruby#copy_namespace()
-
-" hi! Keyword guifg=#c678dd
-" hi! Function guifg=#dcdfe4 guibg=#282c34
-" hi! Label guifg=#e06c75
-" hi! TSSymbol guifg=#56b6c2
-" hi! TSStringEscape guifg=#56b6c2 gui=bold

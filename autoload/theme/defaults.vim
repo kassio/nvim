@@ -86,6 +86,19 @@ function! theme#defaults#load()
 
   hi! link NvimTreeFolderIcon Directory
 
+  hi! rubyConstant guifg=#56b6c2
+  hi! rubyKeyword guifg=#c678dd
+  hi! rubyStringEscape guifg=#56b6c2 gui=bold
+  hi! rubySymbol guifg=#56b6c2
+  hi! rubyTSFunction guifg=#dcdfe4 guibg=#282c34
+  hi! link rubyTSConstant rubyConstant
+  hi! link rubyTSKeyword rubyKeyword
+  hi! link rubyTSStringEscape rubyStringEscape
+  hi! link rubyTSSymbol rubySymbol
+  hi! link rubyStringInterpolation rubyStringEscape
+  hi! link rubyTSVariable rubyTSFunction
+  hi! link rubyTSLabel rubyTSParameter
+
   call sign#define_error('LspDiagnosticsSignError', 'LspDiagnosticsSignError')
   call sign#define_warning('LspDiagnosticsSignWarning', 'LspDiagnosticsSignWarning')
   call sign#define_info('LspDiagnosticsSignInformation', 'LspDiagnosticsSignInformation')
