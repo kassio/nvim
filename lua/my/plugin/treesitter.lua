@@ -9,16 +9,6 @@ treesitter.setup{
     enable = true,
     disable = { 'ruby' }
   },
-  playground = {
-    enable = true,
-    updatetime = 25,
-    persist_queries = false
-  },
-  query_linter = {
-    enable = true,
-    use_virtual_text = true,
-    lint_events = {'BufWrite', 'CursorHold'},
-  },
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -38,6 +28,22 @@ treesitter.setup{
         ["iM"] = "@class.inner",
       }
     }
+  },
+  refactor = {
+    highlight_definitions = { enable = true },
+    highlight_current_scope = { enable = true },
+    navigation = { enable = true },
+    smart_rename = { enable = true }
+  },
+  playground = {
+    enable = true,
+    updatetime = 25,
+    persist_queries = false
+  },
+  query_linter = {
+    enable = true,
+    use_virtual_text = true,
+    lint_events = {'BufWrite', 'CursorHold'},
   }
 }
 
