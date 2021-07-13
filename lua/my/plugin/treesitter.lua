@@ -35,6 +35,9 @@ treesitter.setup{
     navigation = { enable = true },
     smart_rename = { enable = true }
   },
+  matchup = {
+    enable = true
+  },
   playground = {
     enable = true,
     updatetime = 25,
