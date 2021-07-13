@@ -86,6 +86,10 @@ function! theme#defaults#load()
 
   hi! link NvimTreeFolderIcon Directory
 
+  " Treesitter refactor
+  hi! TSCurrentScope guibg=#34323F
+
+  " Ruby Treesitter
   hi! rubyConstant guifg=#56b6c2
   hi! rubyKeyword guifg=#c678dd
   hi! rubySymbol guifg=#56b6c2
