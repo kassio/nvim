@@ -85,6 +85,7 @@ return packer.startup{
 
     -- Match pairs
     use 'andymass/vim-matchup'
+    use 'AndrewRadev/splitjoin.vim'
 
     -- Colors
     -- Theme
