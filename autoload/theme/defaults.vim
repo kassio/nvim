@@ -88,9 +88,9 @@ function! theme#defaults#load()
 
   hi! rubyConstant guifg=#56b6c2
   hi! rubyKeyword guifg=#c678dd
-  hi! rubyStringEscape guifg=#56b6c2 gui=bold
   hi! rubySymbol guifg=#56b6c2
   hi! rubyTSFunction guifg=#dcdfe4 guibg=#282c34
+  hi! link rubyStringEscape String
   hi! link rubyTSConstant rubyConstant
   hi! link rubyTSKeyword rubyKeyword
   hi! link rubyTSStringEscape rubyStringEscape
