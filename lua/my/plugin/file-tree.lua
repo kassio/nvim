@@ -42,7 +42,8 @@ g.nvim_tree_ignore = {
 
 utils.augroup('user:file-tree', {
   { 'Filetype', 'NvimTree', 'set nonu nornu' },
-  { 'WinEnter', 'NvimTree', 'set nonu nornu' }
+  { 'BufReadPost', 'NvimTree', 'set nonu nornu' },
+  { 'WinEnter', 'NvimTree', 'zH' }
 })
 
 utils.keymap('n', '<leader>p', ':NvimTreeToggle<CR>')

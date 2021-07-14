@@ -1,12 +1,13 @@
 require'my/utils'.augroup('user:autocmd', {
   { 'BufReadPost,BufNewFile', '*', 'call my#bufreadpost()' },
-
   { 'FileType', 'tex,txt,mail,text,markdown', 'setlocal textwidth=80 noautoindent nocindent' },
   { 'FileType', 'sh,html,javascript,css,eruby,eelixir,sass,scss,yaml', [[setlocal iskeyword+=-]] },
   { 'FileType', 'ruby,eruby,elixir,eelixir', [[setlocal iskeyword+=\?,\!,@-@]] },
   { 'CmdWinEnter', '*', 'setlocal norelativenumber' },
 
   { 'BufReadPost', 'fugitive://*', 'setlocal bufhidden=delete' },
+  { 'BufReadPost', 'fugitive://*', 'normal gg' },
+  { 'BufReadPost', 'fugitive://*', 'normal zH' },
 
   { 'BufReadPost,BufNewFile', '*gitconfig', 'setfiletype gitconfig' },
   { 'BufReadPost,BufNewFile', '*scm', 'setfiletype query' },

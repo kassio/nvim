@@ -1,4 +1,4 @@
-let b:open_at_first_line = 1
+normal! gg0
 setlocal textwidth=72
 setlocal colorcolumn=+1
 setlocal noundofile

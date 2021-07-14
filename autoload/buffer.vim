@@ -1,10 +1,6 @@
 function! buffer#restore_cursor_position() abort
-  if !exists('b:open_at_first_line') &&
-        \ line("'\"") > 0 &&
-        \ line("'\"") <= line('$') |
+  if line("'\"") > 0 && line("'\"") <= line('$')
     execute 'normal! g`"'
-  else
-    execute 'normal! gg0'
   end
 endfunction
 
