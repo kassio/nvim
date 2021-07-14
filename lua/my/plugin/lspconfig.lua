@@ -66,39 +66,20 @@ lspconfig.diagnosticls.setup{
   filetypes = {
     'markdown',
     'ruby',
-    'sh',
-    'yaml'
+    'sh'
   },
 
   init_options = {
+    filetypes = {
+      markdown = 'markdownlint',
+      ruby = 'rubocop',
+      sh = 'shellcheck',
+    },
     linters = {
-      rubocop = {
-        command = 'bundle',
-        sourceName = 'rubocop',
-        args = {
-          'exec',
-          'rubocop',
-          '--format',
-          'json',
-          '--force-exclusion',
-          '%filepath'
-        },
-        parseJson = {
-          errorsRoot = 'files[0].offenses',
-          line = 'location.line',
-          column = 'location.column',
-          message = '[${cop_name}]\n${message}',
-          security = 'severity'
-        },
-        securities = {
-          fatal = 'error',
-          warning = 'warning'
-        }
-      },
       markdownlint = {
-        command = 'mdl',
         sourceName = 'markdownlint',
         isStderr = true,
+        command = 'mdl',
         args = {
           '--config',
           '.markdownlint.json',
@@ -119,21 +100,51 @@ lspconfig.diagnosticls.setup{
           undefined = 'warning'
         }
       },
+      rubocop = {
+        sourceName = 'rubocop',
+        command = 'bundle',
+        args = {
+          'exec',
+          'rubocop',
+          '--format',
+          'json',
+          '--force-exclusion',
+          '--stdin',
+          '%filepath',
+        },
+        parseJson = {
+          errorsRoot = 'files[0].offenses',
+          line = 'location.start_line',
+          endLine = 'location.last_line',
+          column = 'location.start_column',
+          endColumn = 'location.end_column',
+          message = '[${cop_name}]\n${message}',
+          security = 'severity',
+        },
+        securities = {
+          fatal = 'error',
+          error = 'error',
+          warning = 'warning',
+          convention = 'info',
+          refactor = 'info',
+          info = 'info'
+        }
+      },
       shellcheck = {
-        command = 'shellcheck',
+        sourceName = 'shellcheck',
         debounce = 100,
+        command = 'shellcheck',
         args = {
           '--format',
           'json',
           '-'
         },
-        sourceName = 'shellcheck',
         parseJson = {
           line = 'line',
           column = 'column',
           endLine = 'endLine',
           endColumn = 'endColumn',
-          message = '${message} [${code}]',
+          message = '[${code}]\n${message}',
           security = 'level'
         },
         securities = {
@@ -144,12 +155,6 @@ lspconfig.diagnosticls.setup{
         }
       },
     },
-
-    filetypes = {
-      markdown = 'markdownlint',
-      ruby = 'rubocop',
-      sh = 'shellcheck',
-    }
   },
   on_attach = attacher
 }
