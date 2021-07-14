@@ -6,7 +6,9 @@ local filename = require'my/plugin/statusline/filename'
 local bufnr = require'my/plugin/statusline/bufnr'
 
 lualine.setup{
-  extensions = { 'nvim-tree' },
+  extensions = {
+    require'my/plugin/statusline/extensions/file-tree'
+  },
   options = {
     theme = g.my_theme.statuline,
     icons_enabled = true,
