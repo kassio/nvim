@@ -59,8 +59,6 @@ function! theme#defaults#load()
   hi! link GitSignChangeLineNr LightStatusWarning
   hi! link GitSignDeleteLineNr LightStatusError
 
-  hi! GitSignsCurrentLineBlame guifg=#383a42
-
   hi! LspDiagnosticsVirtualTextError       guifg=#F5A098
   hi! LspDiagnosticsVirtualTextWarning     guifg=#FCEDB6
   hi! LspDiagnosticsVirtualTextInformation guifg=#B1EEFA
@@ -86,14 +84,10 @@ function! theme#defaults#load()
 
   hi! link NvimTreeFolderIcon Directory
 
-  " Treesitter refactor
-  hi! TSCurrentScope guibg=#34323F
-
   " Ruby Treesitter
   hi! rubyConstant guifg=#56b6c2
   hi! rubyKeyword guifg=#c678dd
   hi! rubySymbol guifg=#56b6c2
-  hi! rubyTSFunction guifg=#dcdfe4 guibg=#282c34
   hi! link rubyStringEscape String
   hi! link rubyTSConstant rubyConstant
   hi! link rubyTSKeyword rubyKeyword
@@ -107,4 +101,16 @@ function! theme#defaults#load()
   call sign#define_warning('LspDiagnosticsSignWarning', 'LspDiagnosticsSignWarning')
   call sign#define_info('LspDiagnosticsSignInformation', 'LspDiagnosticsSignInformation')
   call sign#define_hint('LspDiagnosticsSignHint', 'LspDiagnosticsSignHint')
+
+  if g:my_theme.background == 'dark'
+    " Treesitter refactor
+    hi! TSCurrentScope guibg=#34323F
+    hi! GitSignsCurrentLineBlame guifg=#383a42
+    hi! rubyTSFunction guifg=#dcdfe4 guibg=#282c34
+  else
+    " Treesitter refactor
+    hi! TSCurrentScope guibg=#F0F0F0
+    hi! GitSignsCurrentLineBlame guifg=#F0F0F0
+    hi! rubyTSFunction guifg=#282c34 guibg=#dcdfe4
+  end
 endfunction
