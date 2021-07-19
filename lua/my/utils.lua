@@ -58,4 +58,9 @@ M.fileicon = function(filetype, filename)
   return devicons.get_icon(filename, extension, { default = true })
 end
 
+M.upgrade = function()
+  require('my/plugin').sync()
+  require('my/plugin/lspinstall').installAll()
+end
+
 return M

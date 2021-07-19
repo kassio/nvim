@@ -1,6 +1,6 @@
 local command = require'my/utils'.command
 
-command [[Upgrade lua require('my/plugin').sync()]]
+command [[Upgrade lua require('my/utils').upgrade()]]
 
 -- Command to reverse selected lines
 command [[-bar -range=% Reverse <line1>,<line2>g/^/m<line1>-1|nohl]]
@@ -32,3 +32,5 @@ command [[MkdirPath call util#mkdir_path()]]
 command [[RSpec call user#ruby#rspec()]]
 
 command [[W call util#write_with_path()]]
+
+command [[LspInstallAll lua require('my/plugin/lspinstall').LspInstallAll()]]
