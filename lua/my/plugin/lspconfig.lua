@@ -18,6 +18,15 @@ local function attacher(client)
   print('LSP: ' .. client.name)
 end
 
+-- Ensure to load all the installed servers
+-- The ones with custom configurations are re-loaded later
+local servers = require'lspinstall'.installed_servers()
+for _, server in pairs(servers) do
+  lspconfig[server].setup{
+    on_attach = attacher
+  }
+end
+
 lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
   lsp.diagnostic.on_publish_diagnostics, {
     signs = true,
@@ -32,14 +41,6 @@ lspconfig.html.setup{
   capabilities = capabilities,
   on_attach = attacher
 }
-
-lspconfig.cssls.setup{ on_attach = attacher }
-lspconfig.vuels.setup{ on_attach = attacher }
-lspconfig.jsonls.setup{ on_attach = attacher }
-
-lspconfig.vimls.setup{ on_attach = attacher }
-lspconfig.graphql.setup{ on_attach = attacher }
-lspconfig.yamlls.setup{ on_attach = attacher }
 
 lspconfig.sqlls.setup{
   cmd = {"$HOME/.asdf/shims/sql-language-server", "up", "--method", "stdio"};
