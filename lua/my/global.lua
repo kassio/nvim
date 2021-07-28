@@ -25,7 +25,7 @@ g.vimsyn_embed = 'l'
 -- my theme
 g.default_theme_variant = 'dark'
 g.alternative_theme_variant = 'light'
-g.my_theme = g.my_themes[env_theme or g.default_theme_variant]
+g.my_theme = g.my_themes[env_theme] or g.my_themes[g.default_theme_variant]
 
 -- Disable standard plugins
 g.loaded_getscriptPlugin = 1
