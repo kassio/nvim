@@ -111,6 +111,6 @@ function! theme#defaults#load()
     " Treesitter refactor
     hi! TSCurrentScope guibg=#F0F0F0
     hi! GitSignsCurrentLineBlame guifg=#F0F0F0
-    hi! rubyTSFunction guifg=#282c34 guibg=#dcdfe4
+    hi! rubyTSFunction guifg=#282c34 guibg=#F1F1F0
   end
 endfunction
