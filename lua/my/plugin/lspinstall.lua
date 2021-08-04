@@ -1,7 +1,7 @@
-require'lspinstall'.post_install_hook = function()
-  if vim.api.nvim_win_get_number(0) ~= vim.api.nvim_win_get_number("$") then
-    vim.api.nvim_win_close(0, true)
-  end
+require'lspinstall'.post_install_hook = function(jid)
+  local channel_info = vim.api.nvim_get_chan_info(jid)
+  local winid = vim.fn.bufwinid(channel_info.buffer)
+  vim.api.nvim_win_close(winid, true)
 end
 
 require'lspinstall'.setup()
@@ -13,6 +13,7 @@ M.installAll = function()
   local languages = {
     'bash',
     'css',
+    'diagnosticls',
     'go',
     'html',
     'json',
