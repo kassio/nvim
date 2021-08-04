@@ -1,6 +1,6 @@
 aug user:repos
   au!
-  au BufNewFile,BufRead Reposfile,Reposfile.* call s:reposfile()
+  au BufNewFile,BufRead Reposfile call s:reposfile()
 aug END
 
 function! s:reposfile()
