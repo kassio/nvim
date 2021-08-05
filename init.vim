@@ -99,6 +99,7 @@ R'my/global'
 R'my/keymap'
 R'my/autocmd'
 R'my/command'
+R'my/tabline'
 
 -- libs
 R'terminal'.setup()
