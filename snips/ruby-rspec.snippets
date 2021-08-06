@@ -39,7 +39,7 @@ it { ${0:${VISUAL}} }
 endsnippet
 
 snippet "exp(ect)?" "expect(true).to eq(true)" wr
-expect($1).${2:to} $3
+expect($1).${2:to} ${3:${VISUAL}}
 endsnippet
 
 snippet "expb" "expect { something }.to eq(true)" wr
@@ -48,20 +48,20 @@ endsnippet
 
 snippet expn "" b
 expect_next_instance_of($1) do |$2|
-  $3
+  ${3:${VISUAL}}
 end
 endsnippet
 
 snippet let "" w
-let($1) $2
+let($1) ${2:${VISUAL}}
 endsnippet
 
 snippet leti "" w
-let_it_be($1) $2
+let_it_be($1) ${2:${VISUAL}}
 endsnippet
 
 snippet rspec ""
 RSpec.describe $1${2:, type: :model} do
-  $0
+  ${0:${VISUAL}}
 end
 endsnippet
