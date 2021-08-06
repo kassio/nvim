@@ -7,5 +7,5 @@ require('gitsigns').setup{
     changedelete = { hl = 'GitSignDelete', numhl = 'GitSignDeleteLineNr', text = '│' }
   },
   numhl = true,
-  current_line_blame = true
+  current_line_blame = false
 }
