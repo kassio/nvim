@@ -3,6 +3,7 @@ require'my/utils'.augroup('user:autocmd', {
   { 'FileType', 'tex,txt,mail,text,markdown', 'setlocal textwidth=80 noautoindent nocindent' },
   { 'FileType', 'sh,html,javascript,css,eruby,eelixir,sass,scss,yaml', [[setlocal iskeyword+=-]] },
   { 'FileType', 'ruby,eruby,elixir,eelixir', [[setlocal iskeyword+=\?,\!,@-@]] },
+  { 'FileType', 'neoterm', [[setlocal scrolloff=0]] },
   { 'CmdWinEnter', '*', 'setlocal norelativenumber' },
 
   { 'BufReadPost', 'fugitive://*', 'setlocal bufhidden=delete' },
