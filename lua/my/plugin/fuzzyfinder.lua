@@ -73,5 +73,6 @@ vim.my.fuzzyfinder = {
     builtin.lsp_document_symbols(require'telescope.themes'.get_dropdown())
   end,
   lsp_workspace_symbols = builtin.lsp_workspace_symbols,
-  oldfiles = builtin.oldfiles
+  oldfiles = builtin.oldfiles,
+  builtin = builtin.builtin
 }

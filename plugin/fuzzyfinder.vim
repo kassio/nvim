@@ -1,3 +1,4 @@
+nnoremap f<c-f> <cmd>lua vim.my.fuzzyfinder.builtin()<cr>
 nnoremap f<c-p> <cmd>lua vim.my.fuzzyfinder.find_files()<cr>
 nnoremap f<c-o> <cmd>lua vim.my.fuzzyfinder.oldfiles()<cr>
 nnoremap f<c-h> <cmd>lua vim.my.fuzzyfinder.highlights()<cr>
