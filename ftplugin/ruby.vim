@@ -30,9 +30,6 @@ command! -range SymbolifyHashKeys
 command! -range=% Decolunize
       \ call user#ruby#decolunize(<line1>, <line2>)
 
-command! Alternate
-      \ call user#ruby#alternate_file(<q-mods>)
-
 call textobj#user#plugin('rubyblock', {
       \   '-': {
       \     'select-a-function': 'textobj#ruby#block_a',

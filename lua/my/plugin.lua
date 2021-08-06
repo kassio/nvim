@@ -25,6 +25,9 @@ return packer.startup{
     use 'kabouzeid/nvim-lspinstall' -- LSP installers
     use 'hrsh7th/nvim-compe' -- completion
 
+    -- Project management
+    use 'tpope/vim-projectionist'
+
     -- syntaxes
     use 'jparise/vim-graphql' -- graphql
     use 'stephenway/postcss.vim' -- postcss
