@@ -6,26 +6,6 @@ local builtin = require'telescope.builtin'
 
 telescope.load_extension'fzy_native'
 
-local open_files = function(mode)
-  return function(bufnr)
-    local files = {}
-
-    utils.map_selections(bufnr, function(entry)
-      table.insert(files, entry.value)
-    end)
-
-    if vim.tbl_isempty(files) then
-      entry = action_state.get_selected_entry()
-      table.insert(files, entry.value)
-    end
-
-    for index, file in ipairs(files) do
-      vim.cmd(string.format("%s %s", mode, file))
-      vim.cmd('stopinsert')
-    end
-  end
-end
-
 telescope.setup{
   extensions = {
     fzy_native = {
@@ -38,10 +18,7 @@ telescope.setup{
       i = {
         ['<C-j>'] = actions.move_selection_next,
         ['<C-k>'] = actions.move_selection_previous,
-        ['<C-u>'] = { "<c-u>", type = "command" },
-        ["<C-v>"] = open_files('vnew'),
-        ["<C-x>"] = open_files('new'),
-        ["<C-t>"] = open_files('tabnew')
+        ['<C-u>'] = { "<c-u>", type = "command" }
       }
     },
     layout_config = {
