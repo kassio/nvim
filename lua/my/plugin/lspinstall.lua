@@ -15,6 +15,7 @@ M.installAll = function()
     'css',
     'diagnosticls',
     'go',
+    'graphql',
     'html',
     'json',
     'lua',
