@@ -29,7 +29,7 @@ M.keymap = function(mode, lhs, rhs, opts)
 end
 
 M.lua_keymap = function(mode, lhs, rhs, opts)
-  M.keymap('n', lhs, '<cmd>lua '..rhs..'<cr>')
+  M.keymap(mode, lhs, '<cmd>lua '..rhs..'<cr>', opts)
 end
 
 M.buf_keymap = function(buf, mode, lhs, rhs, opts)
@@ -43,7 +43,7 @@ M.buf_keymap = function(buf, mode, lhs, rhs, opts)
 end
 
 M.lua_buf_keymap = function(buf, mode, lhs, rhs, opts)
-  M.buf_keymap(buf, mode, lhs, '<cmd>lua '..rhs..'<cr>')
+  M.buf_keymap(buf, mode, lhs, '<cmd>lua '..rhs..'<cr>', opts)
 end
 
 M.fileicon = function(filetype, filename)

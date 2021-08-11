@@ -15,15 +15,11 @@ lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
   }
 )
 
-local keymap = function(lhs, rhs)
-  utils.lua_buf_keymap(0, 'n', lhs, rhs)
-end
-
 local function attacher(client)
-  keymap('gd', 'vim.lsp.buf.definition()')
-  keymap('K', 'vim.lsp.buf.hover()')
-  keymap('<leader>ee', 'vim.lsp.diagnostic.show_line_diagnostics()')
-  keymap('<leader>ea', 'vim.lsp.diagnostic.set_loclist()')
+  -- utils.lua_buf_keymap(0, 'gd', 'vim.lsp.buf.definition()')
+  -- utils.lua_buf_keymap(0, 'K', 'vim.lsp.buf.hover()')
+  -- utils.lua_buf_keymap(0, '<leader>ee', 'vim.lsp.diagnostic.show_line_diagnostics()')
+  -- utils.lua_buf_keymap(0, '<leader>ea', 'vim.lsp.diagnostic.set_loclist()')
 
   print('LSP: ' .. client.name)
 end
