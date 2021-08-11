@@ -20,6 +20,7 @@ return packer.startup{
     use 'hoob3rt/lualine.nvim'
 
     -- IDE stuff
+    --------------------------------------------------------------------------
     use 'kassio/neoterm' -- terminal handler
     use 'neovim/nvim-lspconfig' -- LSP
     use 'kabouzeid/nvim-lspinstall' -- LSP installers
@@ -52,6 +53,9 @@ return packer.startup{
       'nvim-treesitter/playground',
       'lewis6991/spellsitter.nvim'
     }
+
+    -- Langs without treesitter support
+    use 'google/vim-jsonnet'
 
     -- Test
     use 'janko-m/vim-test' -- general tests
