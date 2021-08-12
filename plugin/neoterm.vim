@@ -3,6 +3,11 @@ let g:neoterm_use_relative_path = 1
 let g:neoterm_autoscroll = 1
 
 let g:neoterm_callbacks = {}
+
+function! g:neoterm_callbacks.before_exec()
+  wall
+endfunction
+
 function! g:neoterm_callbacks.before_new()
   let g:neoterm_default_mod = window#responsive_mod('', 'botright')
 endfunction
