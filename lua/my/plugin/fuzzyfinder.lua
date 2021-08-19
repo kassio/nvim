@@ -1,8 +1,7 @@
 local telescope = require'telescope'
 local actions = require'telescope.actions'
-local utils = require'telescope.actions.utils'
-local action_state = require "telescope.actions.state"
 local builtin = require'telescope.builtin'
+local utils = require'my/utils'
 
 telescope.load_extension'fzy_native'
 
@@ -33,18 +32,26 @@ telescope.setup{
 }
 
 vim.my.fuzzyfinder = {
-  find_files = function(opts)
-    local opts = opts or {}
-    builtin.find_files(vim.tbl_extend('keep', opts, {
-      find_command = { 'files' }
-    }))
+  find_files = function()
+    builtin.find_files({ find_command = { 'files' } })
   end,
   grep_string = builtin.grep_string,
   live_grep = builtin.live_grep,
   buffers = builtin.buffers,
-  current_buffer_fuzzy_find = function(opts)
+  current_buffer_fuzzy_find = function()
     builtin.current_buffer_fuzzy_find(require'telescope.themes'.get_dropdown())
   end,
   oldfiles = builtin.oldfiles,
-  builtin = builtin.builtin
+  builtin = builtin.builtin,
 }
+
+utils.lua_keymap('n', 'f<c-f>', 'vim.my.fuzzyfinder.builtin()')
+utils.lua_keymap('n', 'f<c-p>', 'vim.my.fuzzyfinder.find_files()')
+utils.lua_keymap('n', 'f<c-o>', 'vim.my.fuzzyfinder.oldfiles()')
+utils.lua_keymap('n', 'f<c-h>', 'vim.my.fuzzyfinder.highlights()')
+
+utils.lua_keymap('n', 'f<c-n>', 'vim.my.fuzzyfinder.current_buffer_fuzzy_find()')
+utils.lua_keymap('n', 'f<c-k>', 'vim.my.fuzzyfinder.buffers()')
+utils.lua_keymap('n', 'f<c-y>', 'vim.my.fuzzyfinder.live_grep()')
+
+utils.lua_keymap('n', '<leader>as', 'vim.my.fuzzyfinder.grep_string()')

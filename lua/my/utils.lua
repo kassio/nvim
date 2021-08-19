@@ -1,4 +1,5 @@
 local devicons = require'nvim-web-devicons'
+local tbl = require'plenary.tbl'
 local api = vim.api
 local fn = vim.fn
 local M = {}
@@ -62,6 +63,10 @@ end
 M.upgrade = function()
   require('my/plugin').sync()
   require('my/plugin/lspinstall').installAll()
+end
+
+M.get_visual = function()
+  return vim.fn['text#get_visual']()
 end
 
 return M
