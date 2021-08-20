@@ -28,7 +28,7 @@ local function attacher(client)
   nnoremap('<leader>ee', 'vim.lsp.diagnostic.show_line_diagnostics()')
   nnoremap('<leader>ea', 'vim.lsp.diagnostic.set_loclist()')
 
-  nnoremap('<leader>ff', 'vim.lsp.buf.formatting()')
+  nnoremap('<leader>FF', 'vim.lsp.buf.formatting()')
 
   print('LSP: ' .. client.name)
 end
