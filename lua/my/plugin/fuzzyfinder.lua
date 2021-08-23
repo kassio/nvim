@@ -55,3 +55,13 @@ utils.lua_keymap('n', 'f<c-k>', 'vim.my.fuzzyfinder.buffers()')
 utils.lua_keymap('n', 'f<c-y>', 'vim.my.fuzzyfinder.live_grep()')
 
 utils.lua_keymap('n', '<leader>as', 'vim.my.fuzzyfinder.grep_string()')
+
+utils.command(
+  string.format(
+    '-nargs=1 Grep lua vim.my.fuzzyfinder.grep_string(%s)',
+    vim.inspect({
+      search = '<args>',
+      prompt_title = "Searching: '<args>'"
+    }, {newline='', indent=''})
+  )
+)
