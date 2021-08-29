@@ -64,3 +64,12 @@ endfunction
 function! s:echo(value)
   echo a:value
 endfunction
+
+function! user#ruby#rspec()
+  let g:test#last_position = {
+        \ 'file': 'spec/models/file_spec.rb',
+        \ 'col': 1,
+        \ 'line': 1
+        \ }
+  TestSuite
+endfunction
