@@ -1,5 +1,4 @@
 local devicons = require'nvim-web-devicons'
-local tbl = require'plenary.tbl'
 local api = vim.api
 local fn = vim.fn
 local M = {}

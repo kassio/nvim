@@ -62,6 +62,9 @@ utils.command(
     vim.inspect({
       search = '<args>',
       prompt_title = "Searching: '<args>'"
-    }, {newline='', indent=''})
+    }, {
+      newline='',
+      indent=''
+    })
   )
 )
