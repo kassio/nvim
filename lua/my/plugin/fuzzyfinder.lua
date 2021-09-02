@@ -37,6 +37,14 @@ vim.my.fuzzyfinder = {
   end,
   grep_string = builtin.grep_string,
   live_grep = builtin.live_grep,
+  visual_grep = function()
+    local text = utils.get_visual()
+
+    builtin.grep_string({
+      search = text,
+      prompt_title = "Searching: '"..text.."'"
+    })
+  end,
   buffers = builtin.buffers,
   current_buffer_fuzzy_find = function()
     builtin.current_buffer_fuzzy_find(require'telescope.themes'.get_dropdown())
@@ -55,6 +63,7 @@ utils.lua_keymap('n', 'f<c-k>', 'vim.my.fuzzyfinder.buffers()')
 utils.lua_keymap('n', 'f<c-y>', 'vim.my.fuzzyfinder.live_grep()')
 
 utils.lua_keymap('n', '<leader>as', 'vim.my.fuzzyfinder.grep_string()')
+utils.keymap('v', '<leader>as', ':<c-u>lua vim.my.fuzzyfinder.visual_grep()<cr>')
 
 utils.command(
   string.format(
@@ -62,9 +71,6 @@ utils.command(
     vim.inspect({
       search = '<args>',
       prompt_title = "Searching: '<args>'"
-    }, {
-      newline='',
-      indent=''
-    })
+    }, { newline='', indent='' })
   )
 )
