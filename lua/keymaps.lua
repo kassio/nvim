@@ -54,3 +54,8 @@ lua_keymap('n', '<leader>bd', 'vim.api.nvim_buf_delete(0, { force = true })')
 lua_keymap('n', '<leader>da', 'vim.my.buffers.delete_all()')
 -- delete unloaded buffers
 lua_keymap('n', '<leader>wa', 'vim.my.utils.clean_buffers_and_windows()')
+
+-- moving selected text down
+keymap('v', '<c-j>', ":m '>+1<CR>gv=gv")
+-- moving selected text up
+keymap('v', '<c-k>', ":m '<-2<CR>gv=gv")
