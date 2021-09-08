@@ -35,6 +35,7 @@ vim.my.fuzzyfinder = {
   find_files = function()
     builtin.find_files({ find_command = { 'files' } })
   end,
+  git_files = builtin.git_files,
   grep_string = builtin.grep_string,
   live_grep = builtin.live_grep,
   buffers = builtin.buffers,
@@ -54,6 +55,7 @@ end
 
 utils.lua_keymap('n', 'f<c-f>', 'vim.my.fuzzyfinder.builtin()')
 utils.lua_keymap('n', 'f<c-p>', 'vim.my.fuzzyfinder.find_files()')
+utils.lua_keymap('n', 'f<c-g>', 'vim.my.fuzzyfinder.git_files()')
 utils.lua_keymap('n', 'f<c-o>', 'vim.my.fuzzyfinder.oldfiles()')
 utils.lua_keymap('n', 'f<c-h>', 'vim.my.fuzzyfinder.highlights()')
 
