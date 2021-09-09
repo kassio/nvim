@@ -100,14 +100,8 @@ M.load = function()
       use {
         'tpope/vim-fugitive',
         {
-          'ruifm/gitlinker.nvim',
-          requires = 'nvim-lua/plenary.nvim',
-        },
-        {
           'lewis6991/gitsigns.nvim',
-          requires = {
-            'nvim-lua/plenary.nvim'
-          }
+          requires = 'nvim-lua/plenary.nvim'
         },
       }
 
