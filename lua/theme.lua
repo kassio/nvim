@@ -1,44 +1,34 @@
+local Color, colors, Group, groups, styles = require('colorbuddy').setup()
+
+local sign_define = function(name, sign)
+  vim.cmd(string.format('sign define %s texthl=%s text=%s', name, name, sign))
+end
+
 vim.cmd('colorscheme palenight')
 
-local cmd_options = function(cmd, args, opts)
-  local arguments = table.concat(args, ' ')
-  local options = ''
-  for k, v in pairs(opts) do
-    options = string.format('%s %s=%s', options, k, v)
-  end
+Color.new('myError', '#CA1243')
+Color.new('myWarning', '#F7C154')
+Color.new('myInformation', '#6699CC')
+Color.new('myHint', '#50A14F')
+Color.new('myIgnore', '#CCCCCC')
 
-  vim.cmd(string.format('%s %s %s', cmd, arguments, options))
-end
+-- Group.new = function(name, fg, bg, style, guisp, blend)
+Group.new('SpellBad', colors.none, colors.none, styles.underline)
+Group.link('SpellCap', groups.SpellBad)
+Group.link('SpellRare', groups.SpellBad)
+Group.link('SpellLocal', groups.SpellBad)
 
-local hi = function(name, opts)
-  cmd_options('hi!', { name }, opts)
-end
+Group.new('LspDiagnosticsSignError', colors.myError, colors.none)
+Group.new('LspDiagnosticsSignWarning', colors.myWarning, colors.none)
+Group.new('LspDiagnosticsSignInformation', colors.myInformation, colors.none)
+Group.new('LspDiagnosticsSignHint', colors.myHint, colors.none)
 
-local hi_link = function(lhs, rhs)
-  vim.cmd(string.format('hi! link %s %s', lhs, rhs))
-end
+Group.new('LspDiagnosticsVirtualTextError', colors.myError:dark(), colors.none, styles.italic)
+Group.new('LspDiagnosticsVirtualTextWarning', colors.myWarning:dark(), colors.none, styles.italic)
+Group.new('LspDiagnosticsVirtualTextInformation', colors.myInformation:dark(), colors.none, styles.italic)
+Group.new('LspDiagnosticsVirtualTextHint', colors.myHint:dark(), colors.none, styles.italic)
 
-local sign_define = function(name, opts)
-  cmd_options('sign define', { name }, opts)
-end
-
-hi('StatusError', { guifg = '#CA1243', gui = 'bold' })
-hi('StatusWarning', { guifg = '#F7C154', gui = 'bold' })
-hi('StatusInfo', { guifg = '#6699CC', gui = 'bold' })
-hi('StatusSuccess', { guifg = '#50A14F', gui = 'bold' })
-hi('StatusIgnore', { guifg = '#CCCCCC', gui = 'bold' })
-
-hi('SpellBad', { guifg = 'NONE', guibg = 'NONE', gui = 'underline' })
-hi_link('SpellCap', 'SpellBad')
-hi_link('SpellRare', 'SpellBad')
-hi_link('SpellLocal', 'SpellBad')
-
-hi_link('LspDiagnosticsSignError', 'StatusError')
-hi_link('LspDiagnosticsSignWarning', 'StatusWarning')
-hi_link('LspDiagnosticsSignInformation', 'StatusInfo')
-hi_link('LspDiagnosticsSignHint', 'StatusSuccess')
-
-sign_define('LspDiagnosticsSignError', { texthl = 'LspDiagnosticsSignError', text = vim.g.sign_error })
-sign_define('LspDiagnosticsSignWarning', { texthl = 'LspDiagnosticsSignWarning', text = vim.g.sign_warning })
-sign_define('LspDiagnosticsSignInformation', { texthl = 'LspDiagnosticsSignInformation', text = vim.g.sign_info })
-sign_define('LspDiagnosticsSignHint', { texthl = 'LspDiagnosticsSignHint', text = vim.g.sign_hint })
+sign_define('LspDiagnosticsSignError', vim.my.signs.error)
+sign_define('LspDiagnosticsSignWarning', vim.my.signs.warning)
+sign_define('LspDiagnosticsSignInformation', vim.my.signs.info)
+sign_define('LspDiagnosticsSignHint', vim.my.signs.hint)

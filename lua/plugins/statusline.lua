@@ -1,4 +1,3 @@
-local g = vim.g
 local lualine = R('lualine')
 
 local mode = R('plugins.statusline.mode')

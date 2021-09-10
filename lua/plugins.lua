@@ -139,6 +139,8 @@ M.load = function()
 
       -- Highlight colors
       use 'norcalli/nvim-colorizer.lua'
+      -- Colors helpers
+      use 'tjdevries/colorbuddy.nvim'
 
       -- Theme
       use 'drewtempelmeyer/palenight.vim'

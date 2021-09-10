@@ -64,7 +64,7 @@ local get_limit = function(labels, columns)
   return limit
 end
 
-vim.tabline = function()
+vim.my.tabline = function()
   local current = api.nvim_get_current_tabpage()
   local current_nr = api.nvim_tabpage_get_number(current)
   local labels = get_labels(current)
@@ -101,4 +101,4 @@ vim.tabline = function()
   end
 end
 
-vim.o.tabline = '%!v:lua.vim.tabline()'
+vim.o.tabline = '%!v:lua.vim.my.tabline()'
