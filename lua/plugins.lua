@@ -131,6 +131,9 @@ M.load = function()
         'norcalli/nvim-terminal.lua'
       }
 
+      -- Split/Join commands
+      use 'AndrewRadev/splitjoin.vim'
+
       -- Test runner
       use 'janko-m/vim-test'
 
