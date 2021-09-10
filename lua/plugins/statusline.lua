@@ -11,7 +11,7 @@ lualine.setup{
     R('plugins.statusline.extensions.filetree')
   },
   options = {
-    theme = 'onedark',
+    theme = 'material-nvim',
     icons_enabled = true,
   },
   sections = {

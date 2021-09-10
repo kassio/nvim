@@ -80,6 +80,9 @@ M.load = function()
         }
       }
 
+      -- Indentation marks
+      use 'lukas-reineke/indent-blankline.nvim'
+
       -- Treesitter
       use {
         { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
@@ -126,10 +129,7 @@ M.load = function()
       }
 
       -- terminal handling
-      use {
-        'kassio/neoterm',
-        'norcalli/nvim-terminal.lua'
-      }
+      use 'kassio/neoterm'
 
       -- Split/Join commands
       use 'AndrewRadev/splitjoin.vim'
@@ -137,13 +137,13 @@ M.load = function()
       -- Test runner
       use 'janko-m/vim-test'
 
-      -- Highlight colors
-      use 'norcalli/nvim-colorizer.lua'
-      -- Colors helpers
-      use 'tjdevries/colorbuddy.nvim'
-
-      -- Theme
-      use 'drewtempelmeyer/palenight.vim'
+      -- Colors
+      use {
+        'marko-cerovac/material.nvim', -- Theme
+        'norcalli/nvim-colorizer.lua', -- Highlight color strings
+        'norcalli/nvim-terminal.lua', -- Fix terminal colors
+        'tjdevries/colorbuddy.nvim', -- Colors helpers
+      }
 
       -- Better language support
       use 'euclidianAce/BetterLua.vim' -- Lua

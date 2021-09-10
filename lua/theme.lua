@@ -1,15 +1,25 @@
--- Colorize color strings
+-- Highlight color strings
 R('colorizer').setup()
 -- Fix terminal colors
 R('terminal').setup()
+-- Theme helpers
+local theme = R('material')
+-- Color helpers
+local colorbuddy = R('colorbuddy')
+-- Highlight helpers
+local Color, colors, Group, groups, styles = colorbuddy.setup()
 
-local Color, colors, Group, groups, styles = require('colorbuddy').setup()
+vim.g.material_style = 'palenight'
+theme.setup({
+  borders = true,
+  italics = { comments = true }
+})
+
+colorbuddy.colorscheme('material')
 
 local sign_define = function(name, sign)
   vim.cmd(string.format('sign define %s texthl=%s text=%s', name, name, sign))
 end
-
-vim.cmd('colorscheme palenight')
 
 Color.new('myError', '#CA1243')
 Color.new('myWarning', '#F7C154')
