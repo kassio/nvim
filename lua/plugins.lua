@@ -55,6 +55,9 @@ M.load = function()
       -- Comment management
       use 'tpope/vim-commentary'
 
+      -- Replace variantions of a word
+      use 'tpope/vim-abolish'
+
       -- Surround chars handling
       use {
         'tpope/vim-surround',
