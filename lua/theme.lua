@@ -1,3 +1,8 @@
+-- Colorize color strings
+R('colorizer').setup()
+-- Fix terminal colors
+R('terminal').setup()
+
 local Color, colors, Group, groups, styles = require('colorbuddy').setup()
 
 local sign_define = function(name, sign)
