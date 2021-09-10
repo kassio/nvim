@@ -145,6 +145,7 @@ M.load = function()
       use 'google/vim-jsonnet' -- Jsonnet
       use 'jparise/vim-graphql' -- Graphql
       use 'stephenway/postcss.vim' -- Postcss
+      use 'tpope/vim-git' -- Postcss
     end,
     config = {
       display = { open_fn = R('packer.util').float }
