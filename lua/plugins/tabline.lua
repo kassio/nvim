@@ -30,6 +30,19 @@ local get_name = function(tab)
   end
 end
 
+local label_for = function(tabnr, name, current)
+  local text = string.format('%%%dT %d %s', tabnr, tabnr, name)
+
+  if current then
+    -- Ensure current tab text has at least 13chars and at most 50chars
+    text = '%13.50(%#TabLineSel#'..text..' %*%)▌'
+  else
+    text = text .. '▐'
+  end
+
+  return text
+end
+
 local get_labels = function(current)
   local tabs = api.nvim_list_tabpages()
 
@@ -37,14 +50,7 @@ local get_labels = function(current)
     local tabnr = api.nvim_tabpage_get_number(tab)
     local name = get_name(tab)
 
-    local label = string.format('%%%dT %d %s ', tabnr, tabnr, name)
-
-    if tab == current then
-      -- Ensure current tab label has at least 13chars and at most 50chars
-      label = '%13.50(%#TabLineSel#'..label..'%*%)'
-    end
-
-    return label
+    return label_for(tabnr, name, tab == current)
   end, tabs)
 end
 
@@ -78,7 +84,6 @@ vim.my.tabline = function()
     -- get hidden. To ensure the current tab, and its surrounds is always
     -- visible, hide only tabs before the current or farther ahead of the
     -- current tab
-    -- local limit = current_nr + math.max(math.floor(#labels/2), 1)
     local limit = math.min(current_nr + get_limit(labels, vim.o.columns), #labels)
 
     return table.concat{
