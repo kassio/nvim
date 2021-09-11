@@ -1,6 +1,7 @@
 local M = {}
 local utils = R('my.utils')
 local api = vim.api
+local fn = vim.fn
 
 M.delete_all = function()
   for _, buf in ipairs(api.nvim_list_bufs()) do
@@ -26,6 +27,12 @@ M.trim = function()
   end)
 
   vim.opt.hlsearch = hlsearch
+end
+
+M.restore_cursor_position = function()
+  if fn.line("'\"") > 0 and fn.line("'\"") <= fn.line('$') then
+    vim.cmd('normal! g`"')
+  end
 end
 
 M.autosave = function()
