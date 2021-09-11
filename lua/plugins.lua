@@ -83,9 +83,6 @@ M.load = function()
         }
       }
 
-      -- Indentation marks
-      use 'lukas-reineke/indent-blankline.nvim'
-
       -- Treesitter
       use {
         { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
@@ -142,10 +139,11 @@ M.load = function()
 
       -- Colors
       use {
-        'marko-cerovac/material.nvim', -- Theme
+        -- 'marko-cerovac/material.nvim', -- Theme
         'norcalli/nvim-colorizer.lua', -- Highlight color strings
         'norcalli/nvim-terminal.lua', -- Fix terminal colors
         'tjdevries/colorbuddy.nvim', -- Colors helpers
+        'Th3Whit3Wolf/onebuddy' -- Theme
       }
 
       -- Better language support

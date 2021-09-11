@@ -2,12 +2,12 @@ require('globals')
 
 R('my')
 R('options')
-R('theme')
 R('commands')
 R('autocommands')
 R('keymaps')
 
 R('plugins').setup()
+R('plugins.highlight')
 R('plugins.statusline')
 R('plugins.tabline')
 R('plugins.git')
