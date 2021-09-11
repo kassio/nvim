@@ -24,3 +24,15 @@ count_nkeymap('<leader>te', '%sT exit')
 count_nkeymap('<leader>tl', '%sTclear')
 count_nkeymap('<leader>tL', '%sTclear!')
 count_nkeymap('<leader>tk', '%sTkill')
+
+local options = {
+  'nonumber',
+  'scrolloff=0',
+  'norelativenumber',
+  'nocursorline',
+  'bufhidden=hide'
+}
+
+vim.my.utils.augroup('user:terminal', {
+  { 'TermOpen', '*', 'setlocal '..table.concat(options, ' ') }
+})
