@@ -78,4 +78,16 @@ M.fileicon = function(filetype, filename)
   return R('nvim-web-devicons').get_icon(filename, extension, { default = true })
 end
 
+M.copy_filename = function(external_clipboard)
+  local filename = vim.fn.expand('%:.')
+
+  if external_clipboard == '!' then
+    vim.fn.setreg('*', filename)
+    print(string.format('"%s" copied to system clipboard', filename))
+  else
+    vim.fn.setreg('"', filename)
+    print(string.format('"%s" copied to clipboard', filename))
+  end
+end
+
 return M
