@@ -78,8 +78,23 @@ M.fileicon = function(filetype, filename)
   return R('nvim-web-devicons').get_icon(filename, extension, { default = true })
 end
 
-M.copy_filename = function(external_clipboard)
-  local filename = vim.fn.expand('%:.')
+local valid_flag = function(flag)
+  return vim.tbl_contains({ 'p', 'h', 't', 'r', 'e', '.', '~' }, flag)
+end
+
+local ensure_valid_file_flag = function(flag)
+  flag = string.gsub(string.lower(tostring(flag)), '[:%%]', '')
+  if valid_flag(flag) then
+    return '%:'..flag
+  else
+    return '%:.'
+  end
+end
+
+M.copy_filename = function(external_clipboard, flag)
+  flag = ensure_valid_file_flag(flag)
+  P{ final_flag = flag }
+  local filename = vim.fn.expand(flag)
 
   if external_clipboard == '!' then
     vim.fn.setreg('*', filename)
