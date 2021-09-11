@@ -1,7 +1,5 @@
 require('globals')
 
--- Ensure to have packer installed
-
 R('my')
 R('options')
 R('theme')
