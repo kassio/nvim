@@ -1,6 +1,6 @@
 local treesitter = R('nvim-treesitter.configs')
 
-treesitter.setup{
+treesitter.setup {
   ensure_installed = 'maintained',
   highlight = {
     enable = true

@@ -5,7 +5,7 @@ local utils = vim.my.utils
 
 telescope.load_extension'fzy_native'
 
-telescope.setup{
+telescope.setup {
   extensions = {
     fzy_native = {
       override_generic_sorter = false,

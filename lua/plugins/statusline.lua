@@ -6,7 +6,7 @@ local bufnr = function()
   return tostring(vim.api.nvim_get_current_buf())
 end
 
-lualine.setup{
+lualine.setup {
   extensions = {
     R('plugins.statusline.extensions.filetree')
   },

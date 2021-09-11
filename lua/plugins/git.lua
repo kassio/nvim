@@ -1,4 +1,4 @@
-R('gitsigns').setup{ numhl = true }
+R('gitsigns').setup { numhl = true }
 
 local git = function(args, fn)
   vim.fn.jobstart('git '..args , {

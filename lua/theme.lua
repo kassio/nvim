@@ -10,10 +10,10 @@ local colorbuddy = R('colorbuddy')
 local Color, colors, Group, groups, styles = colorbuddy.setup()
 
 vim.g.material_style = 'palenight'
-theme.setup({
+theme.setup {
   borders = true,
   italics = { comments = true }
-})
+}
 
 colorbuddy.colorscheme('material')
 
