@@ -39,9 +39,9 @@ M.lua_buf_keymap = function(buffer, mode, lhs, rhs)
   M.buf_keymap(buffer, mode, lhs, '<cmd>lua '..rhs..'<cr>')
 end
 
-M.preserve = function(fn)
+M.preserve = function(callback)
   local position = vim.api.nvim_win_get_cursor(0)
-  fn()
+  callback()
   pcall(vim.api.nvim_win_set_cursor, 0, position)
 end
 

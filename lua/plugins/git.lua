@@ -1,9 +1,9 @@
 R('gitsigns').setup { numhl = true }
 
-local git = function(args, fn)
+local git = function(args, callback)
   vim.fn.jobstart('git '..args , {
     stdout_buffered = true,
-    on_stdout = function(_, data) fn(data[1]) end
+    on_stdout = function(_, data) callback(data[1]) end
   })
 end
 
