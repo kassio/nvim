@@ -12,7 +12,7 @@ keymap('n', 'j', 'gj')
 keymap('n', 'k', 'gk')
 
 -- Use <c-l> to clear the highlighting of :set hlsearch.
-keymap('n', '<c-l>', ':mode | nohlsearch<cr>')
+keymap('n', '<c-l>', ':silent! mode | nohlsearch<cr>')
 
 -- faster esc
 keymap('i', '<esc>', '<c-c>')
