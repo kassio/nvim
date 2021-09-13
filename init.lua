@@ -1,7 +1,7 @@
 require('globals')
 
-R('my')
-R('options')
+R('options') -- vim options
+R('my') -- my plugins
 R('commands')
 R('autocommands')
 R('keymaps')

@@ -2,6 +2,7 @@ vim.my = {}
 vim.my.utils = R('my.utils')
 vim.my.buffers = R('my.buffers')
 vim.my.windows = R('my.windows')
+vim.my.sessions = R('my.sessions')
 
 vim.my.signs = {
   error = '×',

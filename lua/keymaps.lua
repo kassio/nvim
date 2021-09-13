@@ -59,3 +59,8 @@ lua_keymap('n', '<leader>wa', 'vim.my.utils.clean_buffers_and_windows()')
 keymap('v', '<c-j>', ":m '>+1<CR>gv=gv")
 -- moving selected text up
 keymap('v', '<c-k>', ":m '<-2<CR>gv=gv")
+
+-- session management
+lua_keymap('n', '<leader>ss', 'vim.my.sessions.save()')
+lua_keymap('n', '<leader>sl', 'vim.my.sessions.load()')
+lua_keymap('n', '<leader>sd', 'vim.my.sessions.destroy()')
