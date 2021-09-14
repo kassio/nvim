@@ -51,4 +51,4 @@ end
 
 vim.my.utils.command('Gremote lua vim.my.git.remote()')
 vim.my.utils.command('GremoteMain lua vim.my.git.remote(true)')
-vim.my.utils.command('Grt G restore %')
+vim.my.utils.command('Grt G restore % | redraw!')
