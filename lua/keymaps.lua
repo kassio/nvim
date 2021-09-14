@@ -64,3 +64,11 @@ keymap('v', '<c-k>', ":m '<-2<CR>gv=gv")
 lua_keymap('n', '<leader>ss', 'vim.my.sessions.save()')
 lua_keymap('n', '<leader>sl', 'vim.my.sessions.load()')
 lua_keymap('n', '<leader>sd', 'vim.my.sessions.destroy()')
+
+-- select current line (inner)
+keymap('x', 'il', ':<c-u>normal! g_v_<cr>')
+keymap('o', 'il', ':<c-u>normal! vil')
+
+-- select current line (outer)
+keymap('x', 'al', ':<c-u>normal! g_v0<cr>')
+keymap('o', 'al', ':<c-u>normal! val')
