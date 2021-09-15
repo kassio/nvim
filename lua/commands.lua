@@ -14,3 +14,7 @@ command('-nargs=? SessionSave lua vim.my.sessions.save("<args>")')
 command('SessionLoad lua vim.my.sessions.load()')
 command('SessionDestroy lua vim.my.sessions.destroy()')
 command('SessionDestroyAll lua vim.my.sessions.destroy_all()')
+
+-- ruby specific
+command('-bang RubyNamespace lua print(vim.my.ruby.namespace())')
+command('-bang RubyCopyNamespace lua vim.my.ruby.copy_namespace("<bang>")')
