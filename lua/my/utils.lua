@@ -91,18 +91,21 @@ local ensure_valid_file_flag = function(flag)
   end
 end
 
+M.to_clipboard = function(text, external_clipboard)
+  if #external_clipboard > 0 then
+    vim.fn.setreg('*', text)
+    print(string.format('"%s" copied to system clipboard', text))
+  else
+    vim.fn.setreg('"', text)
+    print(string.format('"%s" copied to clipboard', text))
+  end
+end
+
 M.copy_filename = function(external_clipboard, flag)
   flag = ensure_valid_file_flag(flag)
-  P{ final_flag = flag }
   local filename = vim.fn.expand(flag)
 
-  if external_clipboard == '!' then
-    vim.fn.setreg('*', filename)
-    print(string.format('"%s" copied to system clipboard', filename))
-  else
-    vim.fn.setreg('"', filename)
-    print(string.format('"%s" copied to clipboard', filename))
-  end
+  M.to_clipboard(filename, external_clipboard)
 end
 
 return M
