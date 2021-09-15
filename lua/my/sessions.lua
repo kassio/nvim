@@ -85,6 +85,10 @@ M.save = function(prefix)
     end
 
     prefix = vim.fn.input(question..': ')
+
+    if #prefix == 0 and #default > 0 then
+      prefix = default
+    end
   end
 
   -- All sessions require a prefix
