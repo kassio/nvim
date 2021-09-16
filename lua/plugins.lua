@@ -152,10 +152,7 @@ M.load = function()
       use 'jparise/vim-graphql' -- Graphql
       use 'stephenway/postcss.vim' -- Postcss
       use 'tpope/vim-git' -- Postcss
-    end,
-    config = {
-      display = { open_fn = R('packer.util').float }
-    }
+    end
   }
 end
 
