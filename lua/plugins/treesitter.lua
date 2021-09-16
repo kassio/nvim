@@ -2,6 +2,7 @@ local treesitter = R('nvim-treesitter.configs')
 
 treesitter.setup {
   ensure_installed = 'maintained',
+  ignore_install = { 'kotlin' },
   highlight = {
     enable = true
   },
