@@ -1,9 +1,6 @@
 local keymap = vim.my.utils.keymap
 local lua_keymap = vim.my.utils.lua_keymap
 
--- make Y behave like C and D
-keymap('n', 'Y', 'y$')
-
 -- disable ex mode
 keymap('n', [[Q]], [[<nop>]])
 
@@ -11,14 +8,10 @@ keymap('n', [[Q]], [[<nop>]])
 keymap('n', 'j', 'gj')
 keymap('n', 'k', 'gk')
 
--- Use <c-l> to clear the highlighting of :set hlsearch.
-keymap('n', '<c-l>', ':silent! mode | nohlsearch<cr>')
-
 -- faster esc
 keymap('i', '<esc>', '<c-c>')
 
 -- undo breakpoints
-keymap('i', '<c-u>', '<c-g>u<c-u>')
 keymap('i', ',', ',<c-g>u')
 keymap('i', '.', '.<c-g>u')
 keymap('i', '!', '!<c-g>u')
@@ -46,6 +39,7 @@ keymap('n', '9gt', ':tablast<cr>')
 
 -- search current word
 lua_keymap('n', '!', 'vim.my.utils.highlight{current = true}')
+lua_keymap('v', '!', 'vim.my.utils.highlight{selected = true}')
 lua_keymap('n', '<leader>ff', 'vim.my.buffers.indent()')
 
 -- delete current buffer

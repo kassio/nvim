@@ -2,6 +2,7 @@ local opt = vim.opt
 local g = vim.g
 
 opt.autowriteall = true
+opt.backup = false
 opt.cindent = true
 opt.colorcolumn = { 80, 100, 120 }
 opt.complete = { '.', 'w', 'b', 'u' }
@@ -13,26 +14,14 @@ opt.diffopt = { 'internal', 'filler', 'closeoff', 'vertical' }
 opt.expandtab = true
 opt.fileencodings = { 'utf8', 'nobomb' }
 opt.fileformats = { 'unix', 'mac' }
-opt.fillchars = 'vert:│'
+opt.foldenable = false
 opt.foldmethod = 'manual'
 opt.ignorecase = true
 opt.inccommand = 'nosplit'
 opt.infercase = true
 opt.list = true
-opt.listchars = {
-  tab = '> ',
-  trail = '-',
-  nbsp = '+',
-  precedes = '<',
-  extends = '>'
-}
+opt.listchars = opt.listchars + { precedes = '<', extends = '>' }
 opt.mouse = 'a'
-opt.backup = false
-opt.foldenable = false
-opt.showmode = false
-opt.swapfile = false
-opt.wrap = false
-opt.writebackup = false
 opt.number = true
 opt.numberwidth = 5
 opt.relativenumber = true
@@ -43,6 +32,7 @@ opt.shiftround = true
 opt.shiftwidth = 2
 opt.shortmess = 'actToOFI'
 opt.showmatch = true
+opt.showmode = false
 opt.showtabline = 2
 opt.signcolumn = 'yes'
 opt.smartcase = true
@@ -52,6 +42,7 @@ opt.spell = true
 opt.spelllang = 'en'
 opt.splitbelow = true
 opt.splitright = true
+opt.swapfile = false
 opt.switchbuf = { 'useopen', 'usetab', 'split' }
 opt.tabstop = 2
 opt.tags = ''
@@ -64,13 +55,11 @@ opt.undolevels = 10000
 opt.undoreload = 10000
 opt.virtualedit = 'block'
 opt.wildignorecase = true
-opt.wildoptions = 'pum'
+opt.wrap = false
+opt.writebackup = false
 
 -- Space as map leader
 g.mapleader = ' '
-
--- Highlight lua within vim
-g.vimsyn_embed = 'l'
 
 -- Disable standard plugins
 g.loaded_gzip = 1
