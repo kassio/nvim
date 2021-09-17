@@ -1,5 +1,6 @@
 local M = {}
 local cmd = vim.cmd
+local api = vim.api
 
 M.augroup = function(name, autocmds)
   cmd('augroup ' .. name)
@@ -24,15 +25,15 @@ local keymap_default_opts = function(opts)
 end
 
 M.keymap = function(mode, lhs, rhs, opts)
-  vim.api.nvim_set_keymap(mode, lhs, rhs, keymap_default_opts(opts))
+  api.nvim_set_keymap(mode, lhs, rhs, keymap_default_opts(opts))
 end
 
 M.lua_keymap = function(mode, lhs, rhs)
-  M.keymap(mode, lhs, '<cmd>lua '..rhs..'<cr>')
+  M.keymap(mode, lhs, ':<c-u>lua '..rhs..'<cr>')
 end
 
 M.buf_keymap = function(buffer, mode, lhs, rhs, opts)
-  vim.api.nvim_buf_set_keymap(buffer, mode, lhs, rhs, keymap_default_opts(opts))
+  api.nvim_buf_set_keymap(buffer, mode, lhs, rhs, keymap_default_opts(opts))
 end
 
 M.lua_buf_keymap = function(buffer, mode, lhs, rhs)
@@ -40,9 +41,34 @@ M.lua_buf_keymap = function(buffer, mode, lhs, rhs)
 end
 
 M.preserve = function(callback)
-  local position = vim.api.nvim_win_get_cursor(0)
+  local position = api.nvim_win_get_cursor(0)
   callback()
-  pcall(vim.api.nvim_win_set_cursor, 0, position)
+  pcall(api.nvim_win_set_cursor, 0, position)
+end
+
+local get_visual_region = function()
+  local pos_start = api.nvim_buf_get_mark(0, '<')
+  local pos_end = api.nvim_buf_get_mark(0, '>')
+  local regtype = vim.fn.visualmode()
+
+  return vim.region(0, pos_start, pos_end, regtype, true)
+end
+
+M.selected_text = function()
+  local text = {}
+  local region = get_visual_region()
+  region = get_visual_region()
+  local line_numbers = vim.tbl_keys(region)
+  table.sort(line_numbers)
+
+  for _, n in ipairs(line_numbers) do
+    local portion = region[n]
+    local line = vim.fn.getline(n)
+
+    table.insert(text, string.sub(line, portion[1] + 1, portion[2]))
+  end
+
+  return table.concat(text, '\n')
 end
 
 M.highlight = function(opts)
@@ -51,13 +77,16 @@ M.highlight = function(opts)
     text = opts
   elseif opts.current then
     text = vim.fn.expand('<cword>')
+  elseif opts.selected then
+    text = M.selected_text()
   end
 
-  text = vim.fn.escape(text, ' *^$./[]')
-  vim.fn.setreg('/', text)
+  if #text > 0 then
+    vim.fn.setreg('/', '\\V'..text, 'v')
 
-  vim.api.nvim_set_vvar('hlsearch', 1)
-  vim.opt.hlsearch = true
+    api.nvim_set_vvar('hlsearch', 1)
+    vim.opt.hlsearch = true
+  end
 end
 
 M.clean_buffers_and_windows = function ()
