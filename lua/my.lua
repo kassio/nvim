@@ -6,10 +6,10 @@ vim.my.sessions = R('my.sessions')
 vim.my.ruby = R('my.ruby')
 
 vim.my.signs = {
-  error = '×',
-  hint = '☺',
-  info = 'ⅰ',
-  warning = '⚠',
+  error = '',
+  warning = '',
+  hint = '',
+  info = '',
   ignore = ''
 }
 
