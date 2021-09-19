@@ -1,6 +1,6 @@
 local treesitter = R('nvim-treesitter.configs')
 
-treesitter.setup {
+treesitter.setup({
   ensure_installed = 'maintained',
   ignore_install = { 'kotlin' },
   highlight = {
@@ -49,7 +49,7 @@ treesitter.setup {
     use_virtual_text = true,
     lint_events = {'BufWrite', 'CursorHold'},
   }
-}
+})
 
 R('spellsitter').setup {
   hl = 'SpellBad',

@@ -65,7 +65,7 @@ local load_customization = function(customizations)
   end
 end
 
-load_customization{
+load_customization({
   lua = {
     settings = {
       Lua = {
@@ -191,4 +191,4 @@ load_customization{
       },
     },
   }
-}
+})

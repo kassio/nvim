@@ -33,9 +33,9 @@ M.load = function()
 
   local packer = require('packer')
 
-  packer.init{ compile_path = vim.fn.stdpath('data')..'/site/plugin/packer.vim' }
+  packer.init({ compile_path = vim.fn.stdpath('data')..'/site/plugin/packer.vim' })
 
-  return packer.startup{
+  return packer.startup({
     function(use)
       -- Packer can manage itself
       use { 'wbthomason/packer.nvim', opt = true }
@@ -150,7 +150,7 @@ M.load = function()
       use 'stephenway/postcss.vim' -- Postcss
       use 'tpope/vim-git' -- Postcss
     end
-  }
+  })
 end
 
 return M
