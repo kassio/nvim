@@ -52,3 +52,8 @@ end
 vim.my.utils.command('Gremote lua vim.my.git.remote()')
 vim.my.utils.command('GremoteMain lua vim.my.git.remote(true)')
 vim.my.utils.command('Grt G restore % | redraw!')
+
+vim.my.utils.cabbrev('Gblame', 'G blame')
+vim.my.utils.cabbrev('Gb', 'G blame')
+vim.my.utils.cabbrev('Gdiff', 'Gdiffsplit')
+vim.my.utils.cabbrev('Gd', 'Gdiffsplit')

@@ -15,6 +15,10 @@ M.command = function(args)
   vim.cmd('command! '..args)
 end
 
+M.cabbrev = function(lhs, rhs)
+  vim.cmd(string.format('cabbrev %s %s', lhs, rhs))
+end
+
 local keymap_default_opts = function(opts)
   opts = opts or {}
   setmetatable(opts, { __index = {
