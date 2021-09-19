@@ -35,7 +35,7 @@ keymap('n', 'J,', 'mzJ`z')
 keymap('t', [[<esc><esc>]], [[<c-\><c-n>]])
 
 -- move to the last tab
-keymap('n', '9gt', ':tablast<cr>')
+keymap('n', '9gt', '<cmd>tablast<cr>')
 
 -- search current word
 lua_keymap('n', '!', 'vim.my.utils.highlight{current = true}')
@@ -50,9 +50,9 @@ lua_keymap('n', '<leader>da', 'vim.my.buffers.delete_all()')
 lua_keymap('n', '<leader>wa', 'vim.my.utils.clean_buffers_and_windows()')
 
 -- moving selected text down
-keymap('v', '<c-j>', ":m '>+1<CR>gv=gv")
+keymap('v', '<c-j>', "<cmd>m '>+1<CR>gv=gv")
 -- moving selected text up
-keymap('v', '<c-k>', ":m '<-2<CR>gv=gv")
+keymap('v', '<c-k>', "<cmd>m '<-2<CR>gv=gv")
 
 -- session management
 lua_keymap('n', '<leader>ss', 'vim.my.sessions.save()')
