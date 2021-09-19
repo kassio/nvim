@@ -45,6 +45,9 @@ Group.new('GitSignAddLineNr', colors.myHint:light(), colors.none)
 Group.new('GitSignChangeLineNr', colors.myWarning:light(), colors.none)
 Group.new('GitSignDeleteLineNr', colors.myError:light(), colors.none)
 
+Group.new('TSDefinition', colors.none, colors.myShadow:dark())
+Group.link('TSDefinitionUsage', groups.TSDefinition)
+
 Group.new('LspDiagnosticsVirtualTextError', colors.myError:dark(), colors.none, styles.italic)
 Group.new('LspDiagnosticsVirtualTextWarning', colors.myWarning:dark(), colors.none, styles.italic)
 Group.new('LspDiagnosticsVirtualTextInformation', colors.myInformation:dark(), colors.none, styles.italic)
