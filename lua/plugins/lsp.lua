@@ -13,28 +13,41 @@ lsp.handlers['textDocument/publishDiagnostics'] = lsp.with(
   }
 )
 
-local nnoremap = function(lhs, rhs)
+local nmap = function(lhs, rhs)
   utils.lua_buf_keymap(0, 'n', lhs, rhs)
 end
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(
-  lsp.protocol.make_client_capabilities()
-)
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
 local attacher = function(client)
-  nnoremap('gD', 'vim.lsp.buf.declaration()')
-  nnoremap('gd', 'vim.lsp.buf.definition()')
-  nnoremap('gr', 'vim.lsp.buf.references()')
-  nnoremap('K', 'vim.lsp.buf.hover()')
+  nmap('gD', 'vim.lsp.buf.declaration()')
+  nmap('gd', 'vim.lsp.buf.definition()')
+  nmap('gr', 'vim.lsp.buf.references()')
+  nmap('K', 'vim.lsp.buf.hover()')
 
-  nnoremap('<leader>ee', 'vim.lsp.diagnostic.show_line_diagnostics()')
-  nnoremap('<leader>ea', 'vim.lsp.diagnostic.set_loclist()')
+  nmap('<leader>ee', 'vim.lsp.diagnostic.show_line_diagnostics()')
+  nmap('<leader>ea', 'vim.lsp.diagnostic.set_loclist()')
 
-  nnoremap('<leader>FF', 'vim.lsp.buf.formatting()')
+  nmap('<leader>FF', 'vim.lsp.buf.formatting()')
 
   print('LSP: ' .. client.name)
 end
+
+-- Add additional capabilities supported by nvim-cmp
+local protocol = vim.lsp.protocol
+local capabilities = R('cmp_nvim_lsp').update_capabilities(
+  protocol.make_client_capabilities()
+)
+local completionItem = capabilities.textDocument.completion.completionItem
+completionItem.documentationFormat = { 'markdown', 'plaintext' }
+completionItem.snippetSupport = true
+completionItem.preselectSupport = true
+completionItem.insertReplaceSupport = true
+completionItem.labelDetailsSupport = true
+completionItem.deprecatedSupport = true
+completionItem.commitCharactersSupport = true
+completionItem.tagSupport = { valueSet = { 1 } }
+completionItem.resolveSupport = {
+  properties = { 'documentation', 'detail', 'additionalTextEdits' }
+}
 
 local servers = installer.installed_servers()
 local load_customization = function(customizations)

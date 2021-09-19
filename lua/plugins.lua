@@ -108,12 +108,6 @@ M.load = function()
         },
       }
 
-      -- Snippets
-      use {
-        'hrsh7th/vim-vsnip',
-        'rafamadriz/friendly-snippets',
-      }
-
       -- Completion
       use {
         'hrsh7th/nvim-cmp',
@@ -122,9 +116,12 @@ M.load = function()
           'hrsh7th/cmp-buffer',
           'hrsh7th/cmp-path',
           'hrsh7th/cmp-nvim-lua',
-          'hrsh7th/cmp-vsnip',
           'f3fora/cmp-spell',
-          'onsails/lspkind-nvim'
+          'onsails/lspkind-nvim',
+          -- snippets
+          'L3MON4D3/LuaSnip',
+          'saadparwaiz1/cmp_luasnip',
+          'rafamadriz/friendly-snippets',
         }
       }
 
