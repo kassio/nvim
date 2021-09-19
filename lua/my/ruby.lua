@@ -56,8 +56,4 @@ M.namespace = function()
   return table.concat(namespace, '::')
 end
 
-M.copy_namespace = function(external_clipboard)
-  utils.to_clipboard(M.current_namespace(), external_clipboard)
-end
-
 return M

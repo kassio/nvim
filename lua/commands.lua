@@ -17,4 +17,4 @@ command('SessionDestroyAll lua vim.my.sessions.destroy_all()')
 
 -- ruby specific
 command('-bang RubyNamespace lua print(vim.my.ruby.namespace())')
-command('-bang RubyCopyNamespace lua vim.my.ruby.copy_namespace("<bang>")')
+command('-bang RubyNamespaceCopy lua vim.my.utils.to_clipboard(vim.my.ruby.namespace(), "<bang>")')
