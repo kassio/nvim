@@ -2,14 +2,13 @@
 Traverse the AST from the node under the cursor up to the current tree root.
 For each 'module' or 'class' node, get the constants text for the node.
 --]]
-local utils = R('my.utils')
 local ts_utils = R('nvim-treesitter.ts_utils')
 
-local is_namespace = function(node, extra)
+local is_namespace = function(node)
   return vim.tbl_contains({'module', 'class'}, node:type())
 end
 
-function namespace_list(current_node, list)
+local function namespace_list(current_node, list)
   list = list or {}
 
   if current_node then
@@ -24,7 +23,7 @@ function namespace_list(current_node, list)
   end
 end
 
-function namespace_constants(node, constants)
+local function namespace_constants(node, constants)
   constants = constants or {}
 
   for i = node:named_child_count() - 1, 0, -1 do

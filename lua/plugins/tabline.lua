@@ -35,9 +35,9 @@ local label_for = function(tabnr, name, current)
 
   if current then
     -- Ensure current tab text has at least 13chars and at most 50chars
-    text = '%13.50(%#TabLineSel#'..text..' %*%)▌'
+    text = '%13.50(%#TabLineSel#'..text..' %*%) '
   else
-    text = text .. '▐'
+    text = text..' '
   end
 
   return text
