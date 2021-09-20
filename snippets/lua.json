@@ -1,0 +1,34 @@
+{
+  "require": {
+    "prefix": "req",
+    "body": "require(\"${1:module}\")"
+  },
+  "assigment": {
+    "prefix": "ll",
+    "body": "local ${1:varName} = ${0:value}"
+  },
+  "if": {
+    "prefix": "if",
+    "body": [
+      "if ${1:true} then",
+      "\t${0:${TM_SELECTED_TEXT}}",
+      "end"
+    ]
+  },
+  "for": {
+    "prefix": "for",
+    "body": [
+      "for ${1:i} do",
+      "\t${0:${TM_SELECTED_TEXT}}",
+      "end"
+    ]
+  },
+  "function": {
+    "prefix": ["fun", "func", "function"],
+    "body": [
+      "function ${1:name}($2)",
+      "\t${0:${TM_SELECTED_TEXT}}",
+      "end"
+    ]
+  }
+}

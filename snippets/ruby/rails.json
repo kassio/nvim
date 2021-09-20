@@ -1,0 +1,6 @@
+{
+  "params": {
+    "prefix": "pa",
+    "body": "params[$1]"
+  }
+}

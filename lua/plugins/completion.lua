@@ -1,10 +1,17 @@
+local fn = vim.fn
 local luasnip = R('luasnip')
 local cmp = R('cmp')
 
+local termcoded = function(key)
+  return vim.api.nvim_replace_termcodes(key, true, true, true)
+end
+
 local feedkeys = function(key, mode)
   mode = mode or ''
-  vim.fn.feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode)
+  fn.feedkeys(termcoded(key), mode)
 end
+
+luasnip.config.setup({ store_selection_keys = '<tab>' })
 
 cmp.setup({
   snippet = {
@@ -15,19 +22,16 @@ cmp.setup({
   mapping = {
     ['<c-p>'] = cmp.mapping.select_prev_item(),
     ['<c-n>'] = cmp.mapping.select_next_item(),
-    ['<c-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<c-f>'] = cmp.mapping.scroll_docs(4),
     ['<c-space>'] = cmp.mapping.complete(),
     ['<c-e>'] = cmp.mapping.close(),
-    ['<cr>'] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    }),
     ['<tab>'] = function(fallback)
       if luasnip.expand_or_jumpable() then
         feedkeys('<Plug>luasnip-expand-or-jump')
-      elseif vim.fn.pumvisible() == 1 then
-        feedkeys('<C-n>')
+      elseif fn.pumvisible() == 1 then
+        cmp.mapping.confirm({
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = true,
+        })
       else
         fallback()
       end
@@ -35,8 +39,6 @@ cmp.setup({
     ['<s-tab>'] = function(fallback)
       if luasnip.jumpable(-1) then
         feedkeys('<Plug>luasnip-jump-prev')
-      elseif vim.fn.pumvisible() == 1 then
-        feedkeys('<C-p>')
       else
         fallback()
       end
@@ -66,4 +68,8 @@ cmp.setup({
     { name = 'path' },
     { name = 'spell' },
   },
+})
+
+require('luasnip/loaders/from_vscode').lazy_load({
+  paths = { fn.stdpath('config') .. '/snippets' },
 })

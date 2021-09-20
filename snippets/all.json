@@ -1,0 +1,9 @@
+{
+  "shebang": {
+    "prefix": "#!",
+    "body": [
+      "#!/usr/bin/env ${0:bash}",
+      ""
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "before": {
+    "prefix": ["be", "bef", "before"],
+    "body": [
+      "before $1 do",
+      "\t${0:${TM_SELECTED_TEXT}}",
+      "end"
+    ]
+  },
+  "context": {
+    "prefix": ["co", "con", "context"],
+    "body": [
+      "context $1 do",
+      "\t${0:${TM_SELECTED_TEXT}}",
+      "end"
+    ]
+  },
+  "describe": {
+    "prefix": ["de", "des", "desc", "describe"],
+    "body": [
+      "describe $1 do",
+      "\t${0:${TM_SELECTED_TEXT}}",
+      "end"
+    ]
+  },
+  "expectation": {
+    "prefix": ["exp", "expect"],
+    "body": "expect($1).${2:to} $3"
+  },
+  "expectation for block": {
+    "prefix": ["expb", "expectb"],
+    "body": "expect{ ${0:${TM_SELECTED_TEXT}} }.${2:to} $3"
+
+  },
+  "it": {
+    "prefix": "it",
+    "body": [
+      "it $1 do",
+      "\t${0:${TM_SELECTED_TEXT}}",
+      "end"
+    ]
+  },
+  "let": {
+    "prefix": "let",
+    "body": "let($1) { ${0:${TM_SELECTED_TEXT}} }"
+  },
+  "let_it_be": {
+    "prefix": "leti",
+    "body": "let_it_be($1) { ${0:${TM_SELECTED_TEXT}} }"
+  },
+  "rspec": {
+    "prefix": "rspec",
+    "body": [
+      "RSpec.describe $1 do",
+      "\t${0:${TM_SELECTED_TEXT}}",
+      "end"
+    ]
+  }
+}

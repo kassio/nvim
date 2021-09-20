@@ -1,0 +1,70 @@
+{
+  "block": {
+    "prefix": "do",
+    "body": [
+      "do",
+      "\t$0",
+      "end"
+    ]
+  },
+  "block with parameters": {
+    "prefix": "dop",
+    "body": [
+      "do |$1|",
+      "\t$0",
+      "end"
+    ]
+  },
+  "class": {
+    "prefix": "class",
+    "body": [
+      "class ${1:ClassName}",
+      "\t${0:${TM_SELECTED_TEXT}}",
+      "end"
+    ]
+  },
+  "debug": {
+    "prefix": "deb",
+    "body": "require 'byebug'; byebug"
+  },
+  "debugging block": {
+    "prefix": "hr",
+    "body": [
+      "puts '${1:*}' * 80",
+      "p ${0:${TM_SELECTED_TEXT}}",
+      "puts '$1' * 80"
+    ]
+  },
+  "frozen": {
+    "prefix": "#f",
+    "body": [
+      "# frozen_string_literal: true",
+      ""
+    ]
+  },
+  "method": {
+    "prefix": ["d", "def"],
+    "body": [
+      "def $1",
+      "\t${0:${TM_SELECTED_TEXT}}",
+      "end"
+    ]
+  },
+  "module": {
+    "prefix": ["mod", "module"],
+    "body": [
+      "module $1",
+      "\t${0:${TM_SELECTED_TEXT}}",
+      "end"
+    ]
+  },
+  "pry": {
+    "prefix": "pry",
+    "body": "binding.pry"
+
+  },
+  "rubocop": {
+    "prefix": ["rubo", "rubocop"],
+    "body": "# rubocop: ${1:disable} ${0:CodeReuse/ActiveRecord}"
+  }
+}
