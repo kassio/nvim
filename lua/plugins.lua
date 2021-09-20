@@ -126,6 +126,9 @@ M.load = function()
         },
       })
 
+      -- floating registers on demand
+      use 'tversteeg/registers.nvim'
+
       -- terminal handling
       use('kassio/neoterm')
 
