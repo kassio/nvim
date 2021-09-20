@@ -1,10 +1,6 @@
 local g = vim.g
 local count_nkeymap = function(key, command)
-  vim.my.utils.keymap(
-    'n',
-    key,
-    ':<c-u>exec printf("'..command..'", v:count)<cr>'
-  )
+  vim.my.utils.keymap('n', key, ':<c-u>exec printf("' .. command .. '", v:count)<cr>')
 end
 
 g.neoterm_default_mod = 'botright'
@@ -14,7 +10,7 @@ g.neoterm_autoscroll = 1
 g.neoterm_callbacks = {
   before_exec = function()
     vim.cmd('wall')
-  end
+  end,
 }
 
 count_nkeymap('<leader>tt', '%sTtoggle')
@@ -30,9 +26,9 @@ local options = {
   'scrolloff=0',
   'norelativenumber',
   'nocursorline',
-  'bufhidden=hide'
+  'bufhidden=hide',
 }
 
 vim.my.utils.augroup('user:terminal', {
-  { 'TermOpen', '*', 'setlocal '..table.concat(options, ' ') }
+  { 'TermOpen', '*', 'setlocal ' .. table.concat(options, ' ') },
 })

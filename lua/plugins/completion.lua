@@ -6,7 +6,7 @@ local feedkeys = function(key, mode)
   vim.fn.feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode)
 end
 
-cmp.setup {
+cmp.setup({
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -19,10 +19,10 @@ cmp.setup {
     ['<c-f>'] = cmp.mapping.scroll_docs(4),
     ['<c-space>'] = cmp.mapping.complete(),
     ['<c-e>'] = cmp.mapping.close(),
-    ['<cr>'] = cmp.mapping.confirm {
+    ['<cr>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
-    },
+    }),
     ['<tab>'] = function(fallback)
       if luasnip.expand_or_jumpable() then
         feedkeys('<Plug>luasnip-expand-or-jump')
@@ -52,7 +52,7 @@ cmp.setup {
         luasnip = '[Snip]',
         nvim_lsp = '[LSP]',
         nvim_lua = '[Lua]',
-        spell = '[Spell]'
+        spell = '[Spell]',
       })[entry.source.name]
 
       return vim_item
@@ -65,5 +65,5 @@ cmp.setup {
     { name = 'buffer' },
     { name = 'path' },
     { name = 'spell' },
-  }
-}
+  },
+})

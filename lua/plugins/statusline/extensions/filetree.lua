@@ -21,5 +21,5 @@ end
 
 return {
   sections = { lualine_a = { current_line } },
-  filetypes = { 'NvimTree' }
+  filetypes = { 'NvimTree' },
 }

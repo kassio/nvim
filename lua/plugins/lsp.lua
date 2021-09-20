@@ -3,15 +3,13 @@ local installer = R('plugins.lsp.installer')
 local lsp = vim.lsp
 local utils = vim.my.utils
 
-lsp.handlers['textDocument/publishDiagnostics'] = lsp.with(
-  lsp.diagnostic.on_publish_diagnostics, {
-    signs = true,
-    update_in_insert = true,
+lsp.handlers['textDocument/publishDiagnostics'] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
+  signs = true,
+  update_in_insert = true,
 
-    virtual_text = false,
-    underline = false
-  }
-)
+  virtual_text = false,
+  underline = false,
+})
 
 local nmap = function(lhs, rhs)
   utils.lua_buf_keymap(0, 'n', lhs, rhs)
@@ -33,9 +31,7 @@ end
 
 -- Add additional capabilities supported by nvim-cmp
 local protocol = vim.lsp.protocol
-local capabilities = R('cmp_nvim_lsp').update_capabilities(
-  protocol.make_client_capabilities()
-)
+local capabilities = R('cmp_nvim_lsp').update_capabilities(protocol.make_client_capabilities())
 local completionItem = capabilities.textDocument.completion.completionItem
 completionItem.documentationFormat = { 'markdown', 'plaintext' }
 completionItem.snippetSupport = true
@@ -46,22 +42,16 @@ completionItem.deprecatedSupport = true
 completionItem.commitCharactersSupport = true
 completionItem.tagSupport = { valueSet = { 1 } }
 completionItem.resolveSupport = {
-  properties = { 'documentation', 'detail', 'additionalTextEdits' }
+  properties = { 'documentation', 'detail', 'additionalTextEdits' },
 }
 
 local servers = installer.installed_servers()
 local load_customization = function(customizations)
   for _, server in pairs(servers) do
-    lspconfig[server].setup(
-      vim.tbl_extend(
-        'keep',
-        customizations[server] or {},
-        {
-          on_attach = attacher ,
-          capabilities = capabilities
-        }
-      )
-    )
+    lspconfig[server].setup(vim.tbl_extend('keep', customizations[server] or {}, {
+      on_attach = attacher,
+      capabilities = capabilities,
+    }))
   end
 end
 
@@ -70,14 +60,14 @@ load_customization({
     settings = {
       Lua = {
         diagnostics = {
-          globals = { 'vim' }
-        }
-      }
-    }
+          globals = { 'vim' },
+        },
+      },
+    },
   },
 
   sqlls = {
-    cmd = {'$HOME/.asdf/shims/sql-language-server', 'up', '--method', 'stdio'};
+    cmd = { '$HOME/.asdf/shims/sql-language-server', 'up', '--method', 'stdio' },
   },
 
   solargraph = {
@@ -91,8 +81,8 @@ load_customization({
         hover = false,
         references = false,
         rename = false,
-        useBundler = false
-      }
+        useBundler = false,
+      },
     },
   },
 
@@ -100,7 +90,7 @@ load_customization({
     filetypes = {
       'markdown',
       'ruby',
-      'sh'
+      'sh',
     },
 
     init_options = {
@@ -117,7 +107,7 @@ load_customization({
           args = {
             '--config',
             '.markdownlint.json',
-            '%filepath'
+            '%filepath',
           },
           formatLines = 1,
           formatPattern = {
@@ -128,11 +118,11 @@ load_customization({
               line = 2,
               column = 3,
               message = 4,
-            }
+            },
           },
           securities = {
-            undefined = 'warning'
-          }
+            undefined = 'warning',
+          },
         },
         rubocop = {
           sourceName = 'rubocop',
@@ -161,8 +151,8 @@ load_customization({
             warning = 'warning',
             convention = 'info',
             refactor = 'info',
-            info = 'info'
-          }
+            info = 'info',
+          },
         },
         shellcheck = {
           sourceName = 'shellcheck',
@@ -171,7 +161,7 @@ load_customization({
           args = {
             '--format',
             'json',
-            '-'
+            '-',
           },
           parseJson = {
             line = 'line',
@@ -179,16 +169,16 @@ load_customization({
             endLine = 'endLine',
             endColumn = 'endColumn',
             message = '[${code}]\n${message}',
-            security = 'level'
+            security = 'level',
           },
           securities = {
             error = 'error',
             warning = 'warning',
             info = 'info',
-            style = 'hint'
-          }
+            style = 'hint',
+          },
         },
       },
     },
-  }
+  },
 })

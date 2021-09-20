@@ -14,7 +14,7 @@ R = function(name)
   if status then
     return result -- package
   else
-    print('Failed to load '..name)
+    print('Failed to load ' .. name)
     print(result) -- error message
   end
 end

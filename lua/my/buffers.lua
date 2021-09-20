@@ -11,7 +11,7 @@ end
 
 M.delete_unloaded = function()
   for _, buf in ipairs(api.nvim_list_bufs()) do
-    if not(api.nvim_buf_is_loaded(buf)) or not(api.nvim_buf_is_valid(buf)) then
+    if not (api.nvim_buf_is_loaded(buf)) or not (api.nvim_buf_is_valid(buf)) then
       api.nvim_buf_delete(buf, { force = true })
     end
   end

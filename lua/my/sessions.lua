@@ -20,12 +20,7 @@ local prefix_from = function(session)
 end
 
 local session_for = function(prefix)
-  return string.format(
-    '%s/%s+%s',
-    M.session_dir,
-    prefix,
-    M.escaped_file_path
-  )
+  return string.format('%s/%s+%s', M.session_dir, prefix, M.escaped_file_path)
 end
 
 local session_list = function()
@@ -76,7 +71,7 @@ local delete_session = function(session)
 end
 
 M.save = function(prefix)
-  if not(prefix) then
+  if not prefix then
     local question = 'Choose the session name'
     local default = prefix_from(vim.api.nvim_get_vvar('this_session'))
 
@@ -84,7 +79,7 @@ M.save = function(prefix)
       question = string.format('%s (default %s)', question, default)
     end
 
-    prefix = vim.fn.input(question..': ')
+    prefix = vim.fn.input(question .. ': ')
 
     if #prefix == 0 and #default > 0 then
       prefix = default
@@ -112,7 +107,7 @@ M.load = function()
     vim.notify('Session loaded', vim.log.levels.INFO)
   end)
 
-  if not(session) then
+  if not session then
     vim.notify('No sessions available', vim.log.levels.INFO)
   end
 end
@@ -120,7 +115,7 @@ end
 M.destroy = function()
   return with_session(function(session)
     delete_session(session)
-    print(" ")
+    print(' ')
     vim.notify('Session destroyed', vim.log.levels.INFO)
   end)
 end

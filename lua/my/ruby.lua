@@ -5,7 +5,7 @@ For each 'module' or 'class' node, get the constants text for the node.
 local ts_utils = R('nvim-treesitter.ts_utils')
 
 local is_namespace = function(node)
-  return vim.tbl_contains({'module', 'class'}, node:type())
+  return vim.tbl_contains({ 'module', 'class' }, node:type())
 end
 
 local function namespace_list(current_node, list)

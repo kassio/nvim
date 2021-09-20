@@ -20,6 +20,6 @@ return function()
   return table.concat({
     vim.my.utils.fileicon(vim.bo.filetype, vim.fn.expand('%:t')),
     filename(),
-    modified()
+    modified(),
   }, ' ')
 end

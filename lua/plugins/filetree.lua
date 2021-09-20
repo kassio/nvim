@@ -22,7 +22,7 @@ g.nvim_tree_ignore = {
   'dump.rdb',
   '.byebug_history',
   '.vscode',
-  '.idea'
+  '.idea',
 }
 
 utils.keymap('n', '<leader>p', ':NvimTreeToggle<CR>')

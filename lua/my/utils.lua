@@ -12,7 +12,7 @@ M.augroup = function(name, autocmds)
 end
 
 M.command = function(args)
-  vim.cmd('command! '..args)
+  vim.cmd('command! ' .. args)
 end
 
 M.cabbrev = function(lhs, rhs)
@@ -21,10 +21,7 @@ end
 
 local keymap_default_opts = function(opts)
   opts = opts or {}
-  setmetatable(opts, { __index = {
-    noremap = true,
-    silent = true
-  }})
+  setmetatable(opts, { __index = { noremap = true, silent = true, } })
   return opts
 end
 
@@ -33,7 +30,7 @@ M.keymap = function(mode, lhs, rhs, opts)
 end
 
 M.lua_keymap = function(mode, lhs, rhs)
-  M.keymap(mode, lhs, ':<c-u>lua '..rhs..'<cr>')
+  M.keymap(mode, lhs, ':<c-u>lua ' .. rhs .. '<cr>')
 end
 
 M.buf_keymap = function(buffer, mode, lhs, rhs, opts)
@@ -41,7 +38,7 @@ M.buf_keymap = function(buffer, mode, lhs, rhs, opts)
 end
 
 M.lua_buf_keymap = function(buffer, mode, lhs, rhs)
-  M.buf_keymap(buffer, mode, lhs, '<cmd>lua '..rhs..'<cr>')
+  M.buf_keymap(buffer, mode, lhs, '<cmd>lua ' .. rhs .. '<cr>')
 end
 
 M.preserve = function(callback)
@@ -86,14 +83,14 @@ M.highlight = function(opts)
   end
 
   if #text > 0 then
-    vim.fn.setreg('/', '\\V'..text, 'v')
+    vim.fn.setreg('/', '\\V' .. text, 'v')
 
     api.nvim_set_vvar('hlsearch', 1)
     vim.opt.hlsearch = true
   end
 end
 
-M.clean_buffers_and_windows = function ()
+M.clean_buffers_and_windows = function()
   R('my.windows').delete_orphan_floating()
   R('my.buffers').delete_unloaded()
 end
@@ -103,7 +100,7 @@ M.fileicon = function(filetype, filename)
     ruby = 'rb',
     sh = 'sh',
     bash = 'bash',
-    zsh = 'zsh'
+    zsh = 'zsh',
   }
 
   local extension = filetype_extensions[filetype] or vim.fn.fnamemodify(filename, ':e')
@@ -118,7 +115,7 @@ end
 local ensure_valid_file_flag = function(flag)
   flag = string.gsub(string.lower(tostring(flag)), '[:%%]', '')
   if valid_flag(flag) then
-    return '%:'..flag
+    return '%:' .. flag
   else
     return '%:.'
   end

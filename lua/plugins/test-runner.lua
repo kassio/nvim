@@ -14,11 +14,11 @@ vim.my.test_runner = {
     vim.g['test#last_position'] = {
       file = 'spec/models/file_spec.rb',
       col = 1,
-      line = 1
+      line = 1,
     }
 
     vim.cmd('TestSuite')
-  end
+  end,
 }
 
 vim.my.utils.command('RSpec lua vim.my.test_runner.rspec()')

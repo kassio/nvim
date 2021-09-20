@@ -10,7 +10,7 @@ vim.my.signs = {
   warning = '',
   hint = '',
   info = '',
-  ignore = ''
+  ignore = '',
 }
 
 vim.my.reload = function()

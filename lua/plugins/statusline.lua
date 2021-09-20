@@ -6,9 +6,9 @@ local bufnr = function()
   return tostring(vim.api.nvim_get_current_buf())
 end
 
-lualine.setup {
+lualine.setup({
   extensions = {
-    R('plugins.statusline.extensions.filetree')
+    R('plugins.statusline.extensions.filetree'),
   },
   options = {
     theme = 'onedark',
@@ -18,30 +18,30 @@ lualine.setup {
     lualine_a = { mode },
     lualine_b = {
       { bufnr },
-      { filename }
+      { filename },
     },
     lualine_c = {
       {
         'diagnostics',
         sources = { 'nvim_lsp' },
-        sections = { 'error', 'warn', 'info' }
-      }
+        sections = { 'error', 'warn', 'info' },
+      },
     },
     lualine_x = { 'diff' },
     lualine_y = {
       'encoding',
-      'fileformat'
+      'fileformat',
     },
     lualine_z = {
-      { '[[%3l:%-2c  %L]]' }
+      { '[[%3l:%-2c  %L]]' },
     },
   },
   inactive_sections = {
-    lualine_a = { },
+    lualine_a = {},
     lualine_b = { bufnr },
     lualine_c = { filename },
-    lualine_x = { },
-    lualine_y = { },
-    lualine_z = { }
-  }
-}
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {},
+  },
+})

@@ -3,22 +3,22 @@ local actions = R('telescope.actions')
 local builtin = R('telescope.builtin')
 local utils = vim.my.utils
 
-telescope.load_extension'fzy_native'
+telescope.load_extension('fzy_native')
 
-telescope.setup {
+telescope.setup({
   extensions = {
     fzy_native = {
       override_generic_sorter = false,
       override_file_sorter = true,
-    }
+    },
   },
   defaults = {
     mappings = {
       i = {
         ['<C-j>'] = actions.move_selection_next,
         ['<C-k>'] = actions.move_selection_previous,
-        ['<C-u>'] = { "<c-u>", type = "command" }
-      }
+        ['<C-u>'] = { '<c-u>', type = 'command' },
+      },
     },
     layout_config = {
       prompt_position = 'top',
@@ -27,9 +27,9 @@ telescope.setup {
     selection_caret = '› ',
     set_env = { ['COLORTERM'] = 'truecolor' },
     sorting_strategy = 'ascending',
-    winblend = 0
-  }
-}
+    winblend = 0,
+  },
+})
 
 vim.my.fuzzyfinder = {
   find_files = function()
@@ -47,9 +47,9 @@ vim.my.fuzzyfinder = {
 }
 
 local nnoremap = function(lhs, rhs)
-  vim.api.nvim_set_keymap('n', lhs, '<cmd>lua '..rhs..'<cr>', {
+  vim.api.nvim_set_keymap('n', lhs, '<cmd>lua ' .. rhs .. '<cr>', {
     noremap = true,
-    silent = true
+    silent = true,
   })
 end
 
@@ -65,12 +65,10 @@ utils.lua_keymap('n', 'f<c-y>', 'vim.my.fuzzyfinder.live_grep()')
 
 utils.lua_keymap('n', '<leader>as', 'vim.my.fuzzyfinder.grep_string()')
 
-vim.cmd(
-  string.format(
-    'command! -nargs=1 Grep lua vim.my.fuzzyfinder.grep_string(%s)',
-    vim.inspect({
-      search = '<args>',
-      prompt_title = "Searching: '<args>'"
-    }, { newline='', indent='' })
-  )
-)
+vim.cmd(string.format(
+  'command! -nargs=1 Grep lua vim.my.fuzzyfinder.grep_string(%s)',
+  vim.inspect({
+    search = '<args>',
+    prompt_title = "Searching: '<args>'",
+  }, { newline = '', indent = '' })
+))

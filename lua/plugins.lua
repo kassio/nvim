@@ -24,7 +24,9 @@ M.upgrade = function(opts)
 
   if (opts.lsp or '') ~= '' then
     local ok, lspinstaller = pcall(require, 'plugins.lsp.installer')
-    if ok then lspinstaller.installAll() end
+    if ok then
+      lspinstaller.installAll()
+    end
   end
 end
 
@@ -33,83 +35,83 @@ M.load = function()
 
   local packer = require('packer')
 
-  packer.init({ compile_path = vim.fn.stdpath('data')..'/site/plugin/packer.vim' })
+  packer.init({ compile_path = vim.fn.stdpath('data') .. '/site/plugin/packer.vim' })
 
   return packer.startup({
     function(use)
       -- Packer can manage itself
-      use { 'wbthomason/packer.nvim', opt = true }
+      use({ 'wbthomason/packer.nvim', opt = true })
 
       -- Statusline
-      use 'hoob3rt/lualine.nvim'
+      use('hoob3rt/lualine.nvim')
 
       -- Project management
-      use 'tpope/vim-projectionist'
+      use('tpope/vim-projectionist')
 
       -- Load configs from .editorconfig
-      use 'editorconfig/editorconfig'
+      use('editorconfig/editorconfig')
 
       -- Open file with file_path:line:path
-      use 'wsdjeg/vim-fetch'
+      use('wsdjeg/vim-fetch')
 
       -- Comment management
-      use 'tpope/vim-commentary'
+      use('tpope/vim-commentary')
 
       -- Replace variantions of a word
-      use 'tpope/vim-abolish'
+      use('tpope/vim-abolish')
 
       -- Surround chars handling
-      use {
+      use({
         'tpope/vim-surround',
-        'wellle/targets.vim'
-      }
+        'wellle/targets.vim',
+      })
 
       -- File tree
-      use {
+      use({
         'kyazdani42/nvim-tree.lua',
-        requires = 'kyazdani42/nvim-web-devicons'
-      }
+        requires = 'kyazdani42/nvim-web-devicons',
+      })
 
       -- Icons
-      use 'kyazdani42/nvim-web-devicons'
+      use('kyazdani42/nvim-web-devicons')
 
       -- Fuzzy Finder
-      use {
+      use({
         'nvim-telescope/telescope.nvim',
         requires = {
           'nvim-lua/popup.nvim',
           'nvim-lua/plenary.nvim',
-          'nvim-telescope/telescope-fzy-native.nvim'
-        }
-      }
+          'nvim-telescope/telescope-fzy-native.nvim',
+        },
+      })
 
       -- Treesitter
-      use {
+      use({
         { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
         'nvim-treesitter/nvim-treesitter-textobjects',
         'nvim-treesitter/nvim-treesitter-refactor',
         'nvim-treesitter/playground',
-        'lewis6991/spellsitter.nvim'
-      }
+        'lewis6991/spellsitter.nvim',
+      })
 
       -- LSP
-      use {
+      use({
         'neovim/nvim-lspconfig',
         -- 'kabouzeid/nvim-lspinstall'
-        'kassio/nvim-lspinstall'
-      }
+        'kassio/nvim-lspinstall',
+      })
 
       -- Git
-      use {
+      use({
         'tpope/vim-fugitive',
         {
           'lewis6991/gitsigns.nvim',
-          requires = 'nvim-lua/plenary.nvim'
+          requires = 'nvim-lua/plenary.nvim',
         },
-      }
+      })
 
       -- Completion
-      use {
+      use({
         'hrsh7th/nvim-cmp',
         requires = {
           'hrsh7th/cmp-nvim-lsp',
@@ -122,34 +124,34 @@ M.load = function()
           'L3MON4D3/LuaSnip',
           'saadparwaiz1/cmp_luasnip',
           'rafamadriz/friendly-snippets',
-        }
-      }
+        },
+      })
 
       -- terminal handling
-      use 'kassio/neoterm'
+      use('kassio/neoterm')
 
       -- Split/Join commands
-      use 'AndrewRadev/splitjoin.vim'
+      use('AndrewRadev/splitjoin.vim')
 
       -- Test runner
-      use 'janko-m/vim-test'
+      use('janko-m/vim-test')
 
       -- Colors
-      use {
+      use({
         -- 'marko-cerovac/material.nvim', -- Theme
         'norcalli/nvim-colorizer.lua', -- Highlight color strings
         'norcalli/nvim-terminal.lua', -- Fix terminal colors
         'tjdevries/colorbuddy.nvim', -- Colors helpers
-        'Th3Whit3Wolf/onebuddy' -- Theme
-      }
+        'Th3Whit3Wolf/onebuddy', -- Theme
+      })
 
       -- Better language support
-      use 'euclidianAce/BetterLua.vim' -- Lua
-      use 'google/vim-jsonnet' -- Jsonnet
-      use 'jparise/vim-graphql' -- Graphql
-      use 'stephenway/postcss.vim' -- Postcss
-      use 'tpope/vim-git' -- Postcss
-    end
+      use('euclidianAce/BetterLua.vim') -- Lua
+      use('google/vim-jsonnet') -- Jsonnet
+      use('jparise/vim-graphql') -- Graphql
+      use('stephenway/postcss.vim') -- Postcss
+      use('tpope/vim-git') -- Postcss
+    end,
   })
 end
 
