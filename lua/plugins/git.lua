@@ -1,4 +1,4 @@
-R('gitsigns').setup({ numhl = true })
+local gitsigns = R('gitsigns')
 
 local git = function(args, callback)
   vim.fn.jobstart('git ' .. args, {
@@ -38,6 +38,17 @@ local open_ref = function(file, line)
     end
   end)
 end
+
+gitsigns.setup{
+  signs = {
+    add = { hl = 'GitSignAdd', numhl = 'GitSignAddLineNr', text = '│' },
+    change = { hl = 'GitSignChange', numhl = 'GitSignChangeLineNr', text = '│' },
+    delete = { hl = 'GitSignDelete', numhl = 'GitSignDeleteLineNr', text = '│' },
+    topdelete = { hl = 'GitSignDelete', numhl = 'GitSignDeleteLineNr', text = '‾' },
+    changedelete = { hl = 'GitSignDelete', numhl = 'GitSignDeleteLineNr', text = '│' }
+  },
+  numhl = true
+}
 
 vim.my.git = {}
 vim.my.git.remote = function(main)
