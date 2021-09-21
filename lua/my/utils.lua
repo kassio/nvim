@@ -21,7 +21,9 @@ end
 
 local keymap_default_opts = function(opts)
   opts = opts or {}
-  setmetatable(opts, { __index = { noremap = true, silent = true } })
+  opts['noremap'] = opts['noremap'] and true
+  opts['silent'] = opts['silent'] and true
+
   return opts
 end
 
@@ -30,7 +32,7 @@ M.keymap = function(mode, lhs, rhs, opts)
 end
 
 M.lua_keymap = function(mode, lhs, rhs)
-  M.keymap(mode, lhs, ':<c-u>lua ' .. rhs .. '<cr>')
+  M.keymap(mode, lhs, ':<c-u>silent lua ' .. rhs .. '<cr>')
 end
 
 M.buf_keymap = function(buffer, mode, lhs, rhs, opts)
@@ -38,7 +40,7 @@ M.buf_keymap = function(buffer, mode, lhs, rhs, opts)
 end
 
 M.lua_buf_keymap = function(buffer, mode, lhs, rhs)
-  M.buf_keymap(buffer, mode, lhs, '<cmd>lua ' .. rhs .. '<cr>')
+  M.buf_keymap(buffer, mode, lhs, ':<c-u>silent lua ' .. rhs .. '<cr>')
 end
 
 M.preserve = function(callback)
