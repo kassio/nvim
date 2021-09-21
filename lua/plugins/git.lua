@@ -39,16 +39,16 @@ local open_ref = function(file, line)
   end)
 end
 
-gitsigns.setup{
+gitsigns.setup({
   signs = {
     add = { hl = 'GitSignAdd', numhl = 'GitSignAddLineNr', text = '│' },
     change = { hl = 'GitSignChange', numhl = 'GitSignChangeLineNr', text = '│' },
     delete = { hl = 'GitSignDelete', numhl = 'GitSignDeleteLineNr', text = '│' },
     topdelete = { hl = 'GitSignDelete', numhl = 'GitSignDeleteLineNr', text = '‾' },
-    changedelete = { hl = 'GitSignDelete', numhl = 'GitSignDeleteLineNr', text = '│' }
+    changedelete = { hl = 'GitSignDelete', numhl = 'GitSignDeleteLineNr', text = '│' },
   },
-  numhl = true
-}
+  numhl = true,
+})
 
 vim.my.git = {}
 vim.my.git.remote = function(main)

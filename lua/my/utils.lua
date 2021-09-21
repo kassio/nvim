@@ -21,7 +21,7 @@ end
 
 local keymap_default_opts = function(opts)
   opts = opts or {}
-  setmetatable(opts, { __index = { noremap = true, silent = true, } })
+  setmetatable(opts, { __index = { noremap = true, silent = true } })
   return opts
 end
 

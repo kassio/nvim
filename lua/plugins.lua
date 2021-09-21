@@ -99,7 +99,7 @@ M.load = function()
         'neovim/nvim-lspconfig',
         -- 'kabouzeid/nvim-lspinstall'
         'kassio/nvim-lspinstall',
-        'ray-x/lsp_signature.nvim'
+        'ray-x/lsp_signature.nvim',
       })
 
       -- Git
@@ -128,7 +128,7 @@ M.load = function()
       })
 
       -- floating registers on demand
-      use 'tversteeg/registers.nvim'
+      use('tversteeg/registers.nvim')
 
       -- terminal handling
       use('kassio/neoterm')
