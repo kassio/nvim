@@ -30,7 +30,7 @@ M.trim = function()
 end
 
 M.restore_cursor_position = function()
-  if fn.line("'\"") > 0 and fn.line("'\"") <= fn.line('$') then
+  if fn.line([['\"]]) > 0 and fn.line([['\"]]) <= fn.line('$') then
     vim.cmd('normal! g`"')
   end
 end
