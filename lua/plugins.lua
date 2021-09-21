@@ -99,6 +99,7 @@ M.load = function()
         'neovim/nvim-lspconfig',
         -- 'kabouzeid/nvim-lspinstall'
         'kassio/nvim-lspinstall',
+        'ray-x/lsp_signature.nvim'
       })
 
       -- Git
