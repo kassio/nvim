@@ -26,7 +26,16 @@ lualine.setup({
       {
         'diagnostics',
         sources = { 'nvim_lsp' },
-        sections = { 'error', 'warn', 'info' },
+        symbols = {
+          error = vim.my.signs.error,
+          warn = vim.my.signs.warn,
+          hint = vim.my.signs.hint,
+          info = vim.my.signs.info,
+        },
+        color_error = vim.my.colors.error,
+        color_warn = vim.my.colors.warn,
+        color_hint = vim.my.colors.hint,
+        color_info = vim.my.colors.info,
       },
     },
     lualine_x = { 'diff' },
