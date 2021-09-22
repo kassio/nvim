@@ -3,9 +3,8 @@ local M = {}
 
 lspinstall.post_install_hook = function(jid)
   local channel_info = vim.api.nvim_get_chan_info(jid)
-  local winid = vim.fn.bufwinid(channel_info.buffer)
 
-  pcall(vim.api.nvim_win_close, winid, true)
+  pcall(vim.api.nvim_buf_delete, channel_info.buffer, { force = true })
 end
 
 lspinstall.setup()
