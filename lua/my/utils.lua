@@ -22,7 +22,7 @@ end
 local keymap_default_opts = function(opts)
   return vim.tbl_extend('keep', opts or {}, {
     noremap = true,
-    silent = true
+    silent = true,
   })
 end
 
