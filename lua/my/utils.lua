@@ -1,6 +1,7 @@
 local M = {}
 local cmd = vim.cmd
 local api = vim.api
+local fn = vim.fn
 
 M.augroup = function(name, autocmds)
   cmd('augroup ' .. name)
@@ -43,15 +44,15 @@ M.lua_buf_keymap = function(buffer, mode, lhs, rhs)
 end
 
 M.preserve = function(callback)
-  local position = api.nvim_win_get_cursor(0)
+  local saved_view = fn.winsaveview()
   callback()
-  pcall(api.nvim_win_set_cursor, 0, position)
+  fn.winrestview(saved_view)
 end
 
 local get_visual_region = function()
   local pos_start = api.nvim_buf_get_mark(0, '<')
   local pos_end = api.nvim_buf_get_mark(0, '>')
-  local regtype = vim.fn.visualmode()
+  local regtype = fn.visualmode()
 
   return vim.region(0, pos_start, pos_end, regtype, true)
 end
@@ -64,7 +65,7 @@ M.selected_text = function()
 
   for _, n in ipairs(line_numbers) do
     local portion = region[n]
-    local line = vim.fn.getline(n)
+    local line = fn.getline(n)
 
     table.insert(text, string.sub(line, portion[1] + 1, portion[2]))
   end
@@ -81,7 +82,7 @@ M.highlight = function(opts)
   elseif opts.text then
     text = opts.text
   elseif opts.current then
-    text = vim.fn.expand('<cword>')
+    text = fn.expand('<cword>')
   elseif opts.selected then
     text = M.selected_text()
   end
@@ -97,7 +98,7 @@ M.highlight = function(opts)
       text = '\\<' .. text .. '\\>'
     end
 
-    vim.fn.setreg('/', '\\V' .. text, 'v')
+    fn.setreg('/', '\\V' .. text, 'v')
 
     api.nvim_set_vvar('hlsearch', 1)
     vim.opt.hlsearch = true
@@ -117,7 +118,7 @@ M.fileicon = function(filetype, filename)
     zsh = 'zsh',
   }
 
-  local extension = filetype_extensions[filetype] or vim.fn.fnamemodify(filename, ':e')
+  local extension = filetype_extensions[filetype] or fn.fnamemodify(filename, ':e')
 
   return R('nvim-web-devicons').get_icon(filename, extension, { default = true })
 end
@@ -137,17 +138,17 @@ end
 
 M.to_clipboard = function(text, external_clipboard)
   if #external_clipboard > 0 then
-    vim.fn.setreg('*', text)
+    fn.setreg('*', text)
     print(string.format('"%s" copied to system clipboard', text))
   else
-    vim.fn.setreg('"', text)
+    fn.setreg('"', text)
     print(string.format('"%s" copied to clipboard', text))
   end
 end
 
 M.copy_filename = function(external_clipboard, flag)
   flag = ensure_valid_file_flag(flag)
-  local filename = vim.fn.expand(flag)
+  local filename = fn.expand(flag)
 
   M.to_clipboard(filename, external_clipboard)
 end
