@@ -75,9 +75,13 @@ M.selected_text = function()
 end
 
 M.highlight = function(opts)
+  opts = opts or {}
+
   local text = ''
   if type(opts) == 'string' then
     text = opts
+  elseif opts.text then
+    text = opts.text
   elseif opts.current then
     text = vim.fn.expand('<cword>')
   elseif opts.selected then
@@ -85,6 +89,16 @@ M.highlight = function(opts)
   end
 
   if #text > 0 then
+    if opts.sensitive_case then
+      text = '\\C' .. text
+    else
+      text = '\\c' .. text
+    end
+
+    if opts.exclusive then
+      text = '\\<' .. text .. '\\>'
+    end
+
     vim.fn.setreg('/', '\\V' .. text, 'v')
 
     api.nvim_set_vvar('hlsearch', 1)

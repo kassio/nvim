@@ -53,9 +53,27 @@ keymap('v', '<c-j>', "<cmd>m '>+1<CR>gv=gv")
 -- moving selected text up
 keymap('v', '<c-k>', "<cmd>m '<-2<CR>gv=gv")
 
--- search current word
+-- search current word (ignore case)
 lua_keymap('n', '!', 'vim.my.utils.highlight{current = true}')
+-- search current selection (ignore case)
 lua_keymap('v', '!', 'vim.my.utils.highlight{selected = true}')
+
+-- search current word (sensitive case)
+lua_keymap('n', '<leader>!', 'vim.my.utils.highlight{current = true, sensitive_case = true}')
+-- search current selection (sensitive case)
+lua_keymap('v', '<leader>!', 'vim.my.utils.highlight{selected = true, sensitive_case = true}')
+
+-- search current word (ignore case, exclusive)
+lua_keymap('n', 'g!', 'vim.my.utils.highlight{current = true, exclusive = true}')
+-- search current selection (ignore case, exclusive)
+lua_keymap('v', 'g!', 'vim.my.utils.highlight{selected = true, exclusive = true}')
+
+-- search current word (sensitive case, exclusive)
+lua_keymap('n', '<leader>g!', 'vim.my.utils.highlight{current = true, sensitive_case = true, exclusive = true}')
+-- search current selection (sensitive case, exclusive)
+lua_keymap('v', '<leader>g!', 'vim.my.utils.highlight{selected = true, sensitive_case = true, exclusive = true}')
+
+-- indent current buffer
 lua_keymap('n', '<leader>ff', 'vim.my.buffers.indent()')
 
 -- delete current buffer
