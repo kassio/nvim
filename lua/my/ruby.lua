@@ -10,21 +10,6 @@ h.is_namespace = function(node)
   return vim.tbl_contains({ 'module', 'class' }, node:type())
 end
 
-h.namespace_list = function(current_node, list)
-  list = list or {}
-
-  if current_node then
-    if h.is_namespace(current_node) then
-      table.insert(list, h.namespace_constants(current_node))
-      list = vim.tbl_flatten(list)
-    end
-
-    return h.namespace_list(current_node:parent(), list)
-  else
-    return list
-  end
-end
-
 h.namespace_constants = function(node, constants)
   constants = constants or {}
 
@@ -39,6 +24,21 @@ h.namespace_constants = function(node, constants)
   end
 
   return constants
+end
+
+h.namespace_list = function(current_node, list)
+  list = list or {}
+
+  if current_node then
+    if h.is_namespace(current_node) then
+      table.insert(list, h.namespace_constants(current_node))
+      list = vim.tbl_flatten(list)
+    end
+
+    return h.namespace_list(current_node:parent(), list)
+  else
+    return list
+  end
 end
 
 local M = {}
