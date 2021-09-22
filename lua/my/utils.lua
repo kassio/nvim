@@ -60,7 +60,6 @@ end
 M.selected_text = function()
   local text = {}
   local region = get_visual_region()
-  region = get_visual_region()
   local line_numbers = vim.tbl_keys(region)
   table.sort(line_numbers)
 
