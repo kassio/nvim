@@ -20,11 +20,10 @@ M.cabbrev = function(lhs, rhs)
 end
 
 local keymap_default_opts = function(opts)
-  opts = opts or {}
-  opts['noremap'] = opts['noremap'] and true
-  opts['silent'] = opts['silent'] and true
-
-  return opts
+  return vim.tbl_extend('keep', opts or {}, {
+    noremap = true,
+    silent = true
+  })
 end
 
 M.keymap = function(mode, lhs, rhs, opts)
