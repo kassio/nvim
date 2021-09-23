@@ -4,11 +4,15 @@ For each 'module' or 'class' node, get the constants text for the node.
 --]]
 local ts_utils = R('nvim-treesitter.ts_utils')
 
-local h = {}
-
-h.is_namespace = function(node)
-  return vim.tbl_contains({ 'module', 'class' }, node:type())
+local node_identifier = function(current_node)
+  for _, node in ipairs(ts_utils.get_named_children(current_node)) do
+    if node:type() == 'identifier' then
+      return vim.treesitter.get_node_text(node, 0)
+    end
+  end
 end
+
+local h = {}
 
 h.namespace_constants = function(node, constants)
   constants = constants or {}
@@ -30,7 +34,7 @@ h.namespace_list = function(current_node, list)
   list = list or {}
 
   if current_node then
-    if h.is_namespace(current_node) then
+    if vim.tbl_contains({ 'module', 'class' }, current_node:type()) then
       table.insert(list, h.namespace_constants(current_node))
       list = vim.tbl_flatten(list)
     end
@@ -38,6 +42,20 @@ h.namespace_list = function(current_node, list)
     return h.namespace_list(current_node:parent(), list)
   else
     return list
+  end
+end
+
+h.least_namespace = function(current_node)
+  if current_node == nil then
+    return ""
+  elseif vim.tbl_contains({ 'module', 'class' }, current_node:type()) then
+    return table.concat(h.namespace_constants(current_node), '::')
+  elseif current_node:type() == 'singleton_method' then
+    return '.'..node_identifier(current_node)
+  elseif current_node:type() == 'method' then
+    return '#'..node_identifier(current_node)
+  else
+    return h.least_namespace(current_node:parent())
   end
 end
 
@@ -55,6 +73,11 @@ M.namespace = function()
   end
 
   return table.concat(namespace, '::')
+end
+
+
+M.least_namespace = function()
+  return h.least_namespace(ts_utils.get_node_at_cursor(0))
 end
 
 return M

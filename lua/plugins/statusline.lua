@@ -37,6 +37,7 @@ lualine.setup({
         color_hint = vim.my.colors.hint,
         color_info = vim.my.colors.info,
       },
+      { vim.my.ruby.least_namespace },
     },
     lualine_x = { 'diff' },
     lualine_y = {
