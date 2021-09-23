@@ -26,8 +26,6 @@ local attacher = function(client)
 
   nmap('<leader>FF', 'vim.lsp.buf.formatting()')
 
-  require('lsp_signature').on_attach()
-
   print('LSP: ' .. client.name)
 end
 
