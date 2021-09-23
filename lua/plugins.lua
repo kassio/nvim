@@ -135,6 +135,9 @@ M.load = function()
       -- Split/Join commands
       use('AndrewRadev/splitjoin.vim')
 
+      -- Better pairs matching
+      use('andymass/vim-matchup')
+
       -- Test runner
       use('janko-m/vim-test')
 
