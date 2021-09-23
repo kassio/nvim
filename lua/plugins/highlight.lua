@@ -48,15 +48,12 @@ Group.new('GitSignDeleteLineNr', colors.myError:light(), colors.none)
 Group.new('TSDefinition', colors.none, colors.myShadow:dark())
 Group.link('TSDefinitionUsage', groups.TSDefinition)
 
-Group.new('LspDiagnosticsVirtualTextError', colors.myError:dark(), colors.none, styles.italic)
-Group.new('LspDiagnosticsVirtualTextWarn', colors.myWarn:dark(), colors.none, styles.italic)
-Group.new('LspDiagnosticsVirtualTextInfo', colors.myInfo:dark(), colors.none, styles.italic)
-Group.new('LspDiagnosticsVirtualTextHint', colors.myHint:dark(), colors.none, styles.italic)
-
 Group.new('DiagnosticSignError', colors.myError, colors.none)
 Group.new('DiagnosticSignWarn', colors.myWarn, colors.none)
 Group.new('DiagnosticSignInfo', colors.myInfo, colors.none)
 Group.new('DiagnosticSignHint', colors.myHint, colors.none)
+
+Group.new('MatchParen', colors.none, colors.none, styles.bold)
 
 sign_define('DiagnosticSignError', vim.my.signs.error)
 sign_define('DiagnosticSignWarn', vim.my.signs.warn)
