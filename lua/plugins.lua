@@ -92,6 +92,7 @@ M.load = function()
         'nvim-treesitter/nvim-treesitter-refactor',
         'nvim-treesitter/playground',
         'lewis6991/spellsitter.nvim',
+        'kassio/nvim-gps',
       })
 
       -- LSP

@@ -1,4 +1,5 @@
 local treesitter = R('nvim-treesitter.configs')
+local command = vim.my.utils.command
 
 treesitter.setup({
   ensure_installed = 'maintained',
@@ -55,3 +56,33 @@ R('spellsitter').setup({
   hl = 'SpellBad',
   captures = { 'comment', 'string' },
 })
+
+local gps = R('nvim-gps')
+gps.setup({
+  icons = {
+    ['class-name'] = ' ',
+    ['function-name'] = ' ',
+    ['method-name'] = ' ',
+    ['container-name'] = ' ',
+    ['tag-name'] = ' ',
+    ['ruby'] = {
+      ['class-name'] = '::',
+      ['function-name'] = '.',
+      ['method-name'] = '#',
+      ['container-name'] = '::',
+      ['tag-name'] = '',
+    },
+  },
+  separator = {
+    default = ' › ',
+    ruby = '',
+  },
+})
+
+vim.my.treesitter = {
+  current_namespace = gps.get_location,
+  current_namespace_available = gps.is_available,
+}
+
+command('-bang TSNamespace lua print(vim.my.treesitter.current_namespace())')
+command('-bang TSNamespaceCopy lua vim.my.utils.to_clipboard(vim.my.treesitter.current_namespace(), "<bang>")')
