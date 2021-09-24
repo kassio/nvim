@@ -60,12 +60,14 @@ R('spellsitter').setup({
 local gps = R('nvim-gps')
 gps.setup({
   icons = {
-    ['class-name'] = ' ',
-    ['function-name'] = ' ',
-    ['method-name'] = ' ',
-    ['container-name'] = ' ',
-    ['tag-name'] = ' ',
-    ['ruby'] = {
+    default = {
+      ['class-name'] = ' ',
+      ['function-name'] = ' ',
+      ['method-name'] = ' ',
+      ['container-name'] = ' ',
+      ['tag-name'] = ' ',
+    },
+    ruby = {
       ['class-name'] = '::',
       ['function-name'] = '.',
       ['method-name'] = '#',
