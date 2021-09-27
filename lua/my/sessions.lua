@@ -71,7 +71,7 @@ local delete_session = function(session)
 end
 
 M.save = function(prefix)
-  if not prefix then
+  if string.len(prefix or '') == 0 then
     local question = 'Choose the session name'
     local default = prefix_from(vim.api.nvim_get_vvar('this_session'))
 

@@ -49,9 +49,9 @@ keymap('o', 'al', ':<c-u>normal! val')
 keymap('v', '<leader>p', '"_dP')
 
 -- moving selected text down
-keymap('v', '<c-j>', "<cmd>m '>+1<CR>gv=gv")
+keymap('v', '<c-j>', ":m '>+1<CR>gv=gv")
 -- moving selected text up
-keymap('v', '<c-k>', "<cmd>m '<-2<CR>gv=gv")
+keymap('v', '<c-k>', ":m '<-2<CR>gv=gv")
 
 -- search current word (ignore case)
 lua_keymap('n', '!', 'vim.my.utils.highlight{current = true}')
@@ -84,6 +84,6 @@ lua_keymap('n', '<leader>da', 'vim.my.buffers.delete_all()')
 lua_keymap('n', '<leader>wa', 'vim.my.utils.clean_buffers_and_windows()')
 
 -- session management
-lua_keymap('n', '<leader>ss', 'vim.my.sessions.save()')
-lua_keymap('n', '<leader>sl', 'vim.my.sessions.load()')
-lua_keymap('n', '<leader>sd', 'vim.my.sessions.destroy()')
+keymap('n', '<leader>ss', '<cmd>SessionSave<cr>')
+keymap('n', '<leader>sl', '<cmd>SessionLoad<cr>')
+keymap('n', '<leader>sd', '<cmd>SessionDestroy<cr>')
