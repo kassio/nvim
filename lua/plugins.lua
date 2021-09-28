@@ -49,7 +49,7 @@ M.load = function()
       use('tpope/vim-projectionist')
 
       -- Load configs from .editorconfig
-      use('editorconfig/editorconfig')
+      use('gpanders/editorconfig.nvim')
 
       -- Open file with file_path:line:path
       use('wsdjeg/vim-fetch')
