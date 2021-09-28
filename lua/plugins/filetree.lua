@@ -1,5 +1,5 @@
 local g = vim.g
-local utils = vim.my.utils
+local keymap = vim.my.utils.keymap
 
 g.nvim_tree_git_hl = 1
 g.nvim_tree_hide_dotfiles = 1
@@ -12,23 +12,22 @@ g.nvim_tree_show_icons = {
   files = 1,
 }
 
-g.nvim_tree_gitignore = 0
-g.nvim_tree_ignore = {
-  '.git',
-  'node_modules',
-  'dump.rdb',
-  '.byebug_history',
-  '.vscode',
-  '.idea',
-}
-
 require('nvim-tree').setup({
   view = {
     width = 32,
     side = 'right',
   },
   lsp_diagnostics = true,
+  update_focused_file = { enable = true },
+  ignore_ft_on_setup  = {
+    '.git',
+    'node_modules',
+    'dump.rdb',
+    '.byebug_history',
+    '.vscode',
+    '.idea',
+  },
 })
 
-utils.keymap('n', '<leader>p', ':NvimTreeToggle<CR>')
-utils.keymap('n', '<leader>fl', ':NvimTreeFindFile<CR>')
+keymap('n', '<leader>p', ':NvimTreeToggle<CR>')
+keymap('n', '<leader>fl', ':NvimTreeFindFile<CR>')
