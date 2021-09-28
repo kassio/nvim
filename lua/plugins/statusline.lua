@@ -39,7 +39,7 @@ lualine.setup({
       },
       {
         vim.my.treesitter.current_namespace,
-        condition = vim.my.treesitter.current_namespace_available
+        condition = vim.my.treesitter.current_namespace_available,
       },
     },
     lualine_x = { 'diff' },
