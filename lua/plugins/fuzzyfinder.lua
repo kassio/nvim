@@ -45,6 +45,7 @@ vim.my.fuzzyfinder = {
     builtin.current_buffer_fuzzy_find(R('telescope.themes').get_dropdown())
   end,
   oldfiles = builtin.oldfiles,
+  treesitter = builtin.treesitter,
   builtin = builtin.builtin,
 }
 
@@ -55,6 +56,7 @@ utils.lua_keymap('n', 'f<c-o>', 'vim.my.fuzzyfinder.oldfiles()')
 utils.lua_keymap('n', 'f<c-h>', 'vim.my.fuzzyfinder.highlights()')
 
 utils.lua_keymap('n', 'f<c-n>', 'vim.my.fuzzyfinder.current_buffer_fuzzy_find()')
+utils.lua_keymap('n', 'f<c-t>', 'vim.my.fuzzyfinder.treesitter()')
 utils.lua_keymap('n', 'f<c-k>', 'vim.my.fuzzyfinder.buffers()')
 utils.lua_keymap('n', 'f<c-y>', 'vim.my.fuzzyfinder.live_grep()')
 
