@@ -18,3 +18,6 @@ R('plugins.treesitter')
 R('plugins.completion')
 R('plugins.lsp')
 R('plugins.statusline')
+
+-- langs
+R('plugins.ruby')
