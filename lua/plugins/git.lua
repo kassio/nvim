@@ -1,4 +1,6 @@
 local gitsigns = R('gitsigns')
+local command  = vim.my.utils.command
+local cabbrev  = vim.my.utils.cabbrev
 
 local git = function(args, callback)
   vim.fn.jobstart('git ' .. args, {
@@ -62,11 +64,11 @@ vim.my.git.remote = function(main)
   end
 end
 
-vim.my.utils.command('Gremote lua vim.my.git.remote()')
-vim.my.utils.command('GremoteMain lua vim.my.git.remote(true)')
-vim.my.utils.command('Grt G restore % | redraw!')
+command('Gremote lua vim.my.git.remote()')
+command('GremoteMain lua vim.my.git.remote(true)')
+command('Grt G restore % | mode')
 
-vim.my.utils.cabbrev('Gblame', 'G blame')
-vim.my.utils.cabbrev('Gb', 'G blame')
-vim.my.utils.cabbrev('Gdiff', 'Gdiffsplit')
-vim.my.utils.cabbrev('Gd', 'Gdiffsplit')
+cabbrev('Gblame', 'G blame')
+cabbrev('Gb', 'G blame')
+cabbrev('Gdiff', 'Gdiffsplit')
+cabbrev('Gd', 'Gdiffsplit')
