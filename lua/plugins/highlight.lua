@@ -35,6 +35,9 @@ Group.link('SpecialKey', groups.NonText)
 Group.link('SpecialChar', groups.NonText)
 Group.link('EndOfBuffer', groups.NonText)
 
+Group.new('MatchParen', colors.none, colors.none, styles.bold)
+
+-- Git
 Group.new('GitSignsCurrentLineBlame', colors.myShadow:light(), colors.none, styles.italic)
 
 Group.new('GitSignAdd', colors.myHint, colors.none)
@@ -45,15 +48,18 @@ Group.new('GitSignAddLineNr', colors.myHint:light(), colors.none)
 Group.new('GitSignChangeLineNr', colors.myWarn:light(), colors.none)
 Group.new('GitSignDeleteLineNr', colors.myError:light(), colors.none)
 
+-- Filetree
+Group.new('NvimTreeOpenedFile', colors.none, colors.none, styles.undercurl)
+
+-- Treesitter
 Group.new('TSDefinition', colors.none, colors.myShadow:dark())
 Group.link('TSDefinitionUsage', groups.TSDefinition)
 
+-- LSP
 Group.new('DiagnosticSignError', colors.myError, colors.none)
 Group.new('DiagnosticSignWarn', colors.myWarn, colors.none)
 Group.new('DiagnosticSignInfo', colors.myInfo, colors.none)
 Group.new('DiagnosticSignHint', colors.myHint, colors.none)
-
-Group.new('MatchParen', colors.none, colors.none, styles.bold)
 
 sign_define('DiagnosticSignError', vim.my.signs.error)
 sign_define('DiagnosticSignWarn', vim.my.signs.warn)
