@@ -1,6 +1,6 @@
 local g = vim.g
 local count_nkeymap = function(key, command)
-  vim.my.utils.keymap('n', key, ':<c-u>exec printf("' .. command .. '", v:count)<cr>')
+  vim.my.utils.keymap('n', key, ':<c-u>exec printf("silent ' .. command .. '", v:count)<cr>')
 end
 
 g.neoterm_default_mod = 'botright'
