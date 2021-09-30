@@ -8,7 +8,7 @@ g.nvim_tree_highlight_opened_files = 3
 g.nvim_tree_show_icons = {
   git = 1,
   folders = 1,
-  folder_arrows = 1,
+  folder_arrows = 0,
   files = 1,
 }
 
