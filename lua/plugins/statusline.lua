@@ -39,7 +39,7 @@ lualine.setup({
       },
       {
         vim.my.treesitter.gps.location,
-        condition = vim.my.treesitter.gps.available
+        condition = vim.my.treesitter.gps.available,
       },
     },
     lualine_x = { 'diff' },
