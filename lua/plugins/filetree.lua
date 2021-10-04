@@ -19,7 +19,7 @@ require('nvim-tree').setup({
   },
   lsp_diagnostics = true,
   update_focused_file = { enable = true },
-  ignore_ft_on_setup  = {
+  ignore_ft_on_setup = {
     '.git',
     'node_modules',
     'dump.rdb',

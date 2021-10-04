@@ -1,6 +1,6 @@
 local gitsigns = R('gitsigns')
-local command  = vim.my.utils.command
-local cabbrev  = vim.my.utils.cabbrev
+local command = vim.my.utils.command
+local cabbrev = vim.my.utils.cabbrev
 
 local git = function(args, callback)
   vim.fn.jobstart('git ' .. args, {
