@@ -13,7 +13,7 @@ syn keyword Brewfile_mas mas
 
 hi def link Brewfile_tap Statement
 hi def link Brewfile_brew Function
-hi def link Brewfile_cask Constant
+hi def link Brewfile_cask Number
 hi def link Brewfile_mas Keyword
 
 let b:current_syntax = 'brewfile'
