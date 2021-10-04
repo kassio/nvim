@@ -11,7 +11,7 @@
     "prefix": "if",
     "body": [
       "if ${1:true} then",
-      "\t${0:${TM_SELECTED_TEXT}}",
+      "\t$SELECT_RAW$0",
       "end"
     ]
   },
@@ -19,7 +19,7 @@
     "prefix": "for",
     "body": [
       "for ${1:i} do",
-      "\t${0:${TM_SELECTED_TEXT}}",
+      "\t$SELECT_RAW$0",
       "end"
     ]
   },
@@ -27,7 +27,7 @@
     "prefix": ["fun", "func", "function"],
     "body": [
       "function ${1:name}($2)",
-      "\t${0:${TM_SELECTED_TEXT}}",
+      "\t$SELECT_RAW$0",
       "end"
     ]
   }

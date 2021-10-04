@@ -18,8 +18,8 @@
   "class": {
     "prefix": "class",
     "body": [
-      "class ${1:ClassName}",
-      "\t${0:${TM_SELECTED_TEXT}}",
+      "class $TM_FILENAME_BASE$1",
+      "\t$SELECT_RAW$0",
       "end"
     ]
   },
@@ -31,7 +31,7 @@
     "prefix": "hr",
     "body": [
       "puts '${1:*}' * 80",
-      "p ${0:${TM_SELECTED_TEXT}}",
+      "p $SELECT_RAW$0",
       "puts '$1' * 80"
     ]
   },
@@ -46,15 +46,15 @@
     "prefix": ["d", "def"],
     "body": [
       "def $1",
-      "\t${0:${TM_SELECTED_TEXT}}",
+      "\t$SELECT_RAW$0",
       "end"
     ]
   },
   "module": {
     "prefix": ["mod", "module"],
     "body": [
-      "module $1",
-      "\t${0:${TM_SELECTED_TEXT}}",
+      "module $TM_FILENAME_BASE$1",
+      "\t$SELECT_RAW$0",
       "end"
     ]
   },

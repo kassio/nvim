@@ -3,7 +3,7 @@
     "prefix": ["be", "bef", "before"],
     "body": [
       "before $1 do",
-      "\t${0:${TM_SELECTED_TEXT}}",
+      "\t$SELECT_RAW$0",
       "end"
     ]
   },
@@ -11,7 +11,7 @@
     "prefix": ["co", "con", "context"],
     "body": [
       "context $1 do",
-      "\t${0:${TM_SELECTED_TEXT}}",
+      "\t$SELECT_RAW$0",
       "end"
     ]
   },
@@ -19,7 +19,7 @@
     "prefix": ["de", "des", "desc", "describe"],
     "body": [
       "describe $1 do",
-      "\t${0:${TM_SELECTED_TEXT}}",
+      "\t$SELECT_RAW$0",
       "end"
     ]
   },
@@ -29,30 +29,30 @@
   },
   "expectation for block": {
     "prefix": ["expb", "expectb"],
-    "body": "expect{ ${0:${TM_SELECTED_TEXT}} }.${2:to} $3"
+    "body": "expect{ $SELECT_RAW$0 }.${2:to} $3"
 
   },
   "it": {
     "prefix": "it",
     "body": [
       "it $1 do",
-      "\t${0:${TM_SELECTED_TEXT}}",
+      "\t$SELECT_RAW$0",
       "end"
     ]
   },
   "let": {
     "prefix": "let",
-    "body": "let($1) { ${0:${TM_SELECTED_TEXT}} }"
+    "body": "let($1) { $SELECT_RAW$0 }"
   },
   "let_it_be": {
     "prefix": "leti",
-    "body": "let_it_be($1) { ${0:${TM_SELECTED_TEXT}} }"
+    "body": "let_it_be($1) { $SELECT_RAW$0 }"
   },
   "rspec": {
     "prefix": "rspec",
     "body": [
       "RSpec.describe $1 do",
-      "\t${0:${TM_SELECTED_TEXT}}",
+      "\t$SELECT_RAW$0",
       "end"
     ]
   }
