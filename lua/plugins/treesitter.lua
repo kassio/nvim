@@ -60,30 +60,20 @@ R('spellsitter').setup({
 local gps = R('nvim-gps')
 gps.setup({
   icons = {
-    default = {
-      ['class-name'] = ' ',
-      ['function-name'] = ' ',
-      ['method-name'] = ' ',
-      ['container-name'] = ' ',
-      ['tag-name'] = ' ',
-    },
-    ruby = {
-      ['class-name'] = '::',
-      ['function-name'] = '.',
-      ['method-name'] = '#',
-      ['container-name'] = '::',
-      ['tag-name'] = '',
-    },
+    ['class-name'] = ' ',
+    ['function-name'] = ' ',
+    ['method-name'] = ' ',
+    ['container-name'] = ' ',
+    ['tag-name'] = ' ',
   },
-  separator = {
-    default = ' › ',
-    ruby = '',
-  },
+  separator = ' › ',
 })
 
 vim.my.treesitter = {
-  current_namespace = gps.get_location,
-  current_namespace_available = gps.is_available,
+  gps = {
+    location = gps.get_location,
+    available = gps.is_available,
+  },
 }
 
 command('-bang TSNamespace lua print(vim.my.treesitter.current_namespace())')

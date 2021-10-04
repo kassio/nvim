@@ -38,8 +38,8 @@ lualine.setup({
         color_info = vim.my.colors.info,
       },
       {
-        vim.my.treesitter.current_namespace,
-        condition = vim.my.treesitter.current_namespace_available,
+        vim.my.treesitter.gps.location,
+        condition = vim.my.treesitter.gps.available
       },
     },
     lualine_x = { 'diff' },
