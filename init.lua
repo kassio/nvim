@@ -7,6 +7,7 @@ R('autocommands')
 R('keymaps')
 
 R('plugins').setup()
+R('plugins.notification')
 R('plugins.highlight')
 R('plugins.tabline')
 R('plugins.git')
