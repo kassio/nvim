@@ -3,9 +3,23 @@ local M = {
   path_replacer = '_',
 }
 
-M.escaped_file_path = (function()
-  return string.gsub(vim.fn.getcwd(), '[/%.]', M.path_replacer)
-end)()
+local escaped_file_path = string.gsub(vim.fn.getcwd(), '[/%.]', M.path_replacer)
+
+local notify = function(msg, level)
+  vim.notify(msg, level, { title = 'Session Manager' })
+end
+
+local info = function(msg)
+  notify(msg, vim.log.levels.INFO)
+end
+
+local warn = function(msg)
+  notify(msg, vim.log.levels.WARN)
+end
+
+local error = function(msg)
+  notify(msg, vim.log.levels.ERROR)
+end
 
 local prefix_from = function(session)
   session = vim.fn.split(session, '/')
@@ -20,7 +34,7 @@ local prefix_from = function(session)
 end
 
 local session_for = function(prefix)
-  return string.format('%s/%s+%s', M.session_dir, prefix, M.escaped_file_path)
+  return string.format('%s/%s+%s', M.session_dir, prefix, escaped_file_path)
 end
 
 local session_list = function()
@@ -95,20 +109,20 @@ M.save = function(prefix)
     vim.api.nvim_set_vvar('this_session', session)
 
     vim.cmd(string.format('silent! mksession! %s | redraw!', session))
-    vim.notify('Session created', vim.log.levels.INFO)
+    info('Session created')
   else
-    vim.notify('Session Error: prefix required', vim.log.levels.ERROR)
+    error('Session prefix required!')
   end
 end
 
 M.load = function()
   local session = with_session(function(session)
     vim.cmd(string.format('silent! source %s | redraw!', session))
-    vim.notify('Session loaded', vim.log.levels.INFO)
+    info('Session loaded')
   end)
 
   if not session then
-    vim.notify('No sessions available', vim.log.levels.INFO)
+    warn('No sessions available!')
   end
 end
 
@@ -116,7 +130,7 @@ M.destroy = function()
   return with_session(function(session)
     delete_session(session)
     print(' ')
-    vim.notify('Session destroyed', vim.log.levels.INFO)
+    info('Session destroyed')
   end)
 end
 
