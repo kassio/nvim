@@ -17,6 +17,14 @@ M.delete_unloaded = function()
   end
 end
 
+M.delete_hidden = function()
+  for _, buf in ipairs(api.nvim_list_bufs()) do
+    if vim.fn.bufwinid(buf) == -1 then
+      api.nvim_buf_delete(buf, { force = true })
+    end
+  end
+end
+
 M.trim = function()
   local hlsearch = vim.opt_global.hlsearch:get()
   vim.opt.hlsearch = false
