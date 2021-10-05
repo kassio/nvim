@@ -19,7 +19,7 @@ end
 
 M.delete_hidden = function()
   for _, buf in ipairs(api.nvim_list_bufs()) do
-    if vim.fn.bufwinid(buf) == -1 then
+    if vim.tbl_isempty(vim.fn.win_findbuf(buf)) then
       api.nvim_buf_delete(buf, { force = true })
     end
   end
