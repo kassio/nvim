@@ -1,7 +1,7 @@
 local utils = require('my.utils')
 local M = {}
 
-range_cmd = function(line1, line2, command)
+local range_cmd = function(line1, line2, command)
   utils.preserve(function()
     vim.cmd(string.format('silent %s,%s%s', line1, line2, command))
   end)
