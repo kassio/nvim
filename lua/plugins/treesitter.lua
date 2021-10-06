@@ -1,5 +1,7 @@
-local treesitter = R('nvim-treesitter.configs')
 local command = vim.my.utils.command
+local treesitter = R('nvim-treesitter.configs')
+local spellsitter = R('spellsitter')
+local gps = R('nvim-gps')
 
 treesitter.setup({
   ensure_installed = 'maintained',
@@ -52,21 +54,32 @@ treesitter.setup({
   },
 })
 
-R('spellsitter').setup({
+spellsitter.setup({
   hl = 'SpellBad',
   captures = { 'comment', 'string' },
 })
 
-local gps = R('nvim-gps')
 gps.setup({
+  separator = ' › ',
   icons = {
     ['class-name'] = ' ',
+    ['container-name'] = ' ',
     ['function-name'] = ' ',
     ['method-name'] = ' ',
-    ['container-name'] = ' ',
     ['tag-name'] = ' ',
   },
-  separator = ' › ',
+  languages = {
+    ruby = {
+      icons = {
+        ['class-name'] = '::',
+        ['container-name'] = '::',
+        ['function-name'] = '.',
+        ['method-name'] = '#',
+        ['tag-name'] = '',
+      },
+      separator = '',
+    },
+  },
 })
 
 vim.my.treesitter = {
@@ -76,5 +89,5 @@ vim.my.treesitter = {
   },
 }
 
-command('-bang TSNamespace lua print(vim.my.treesitter.current_namespace())')
-command('-bang TSNamespaceCopy lua vim.my.utils.to_clipboard(vim.my.treesitter.current_namespace(), "<bang>")')
+command('-bang TSGPSLocation lua print(vim.my.treesitter.gps.location())')
+command('-bang TSGPSLocationCopy lua vim.my.utils.to_clipboard(vim.my.treesitter.gps.location(), "<bang>")')
