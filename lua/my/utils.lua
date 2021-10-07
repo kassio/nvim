@@ -88,6 +88,8 @@ M.highlight = function(opts)
   end
 
   if #text > 0 then
+    fn.setreg('h', text)
+
     if opts.sensitive_case then
       text = '\\C' .. text
     else
@@ -98,7 +100,7 @@ M.highlight = function(opts)
       text = '\\<' .. text .. '\\>'
     end
 
-    fn.setreg('/', '\\V' .. text, 'v')
+    fn.setreg('/', '\\V' .. text)
 
     api.nvim_set_vvar('hlsearch', 1)
     vim.opt.hlsearch = true
