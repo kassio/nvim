@@ -20,10 +20,11 @@ cmp.setup({
     end,
   },
   mapping = {
-    ['<c-p>'] = cmp.mapping.select_prev_item(),
-    ['<c-n>'] = cmp.mapping.select_next_item(),
+    ['<c-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+    ['<c-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
     ['<c-space>'] = cmp.mapping.complete(),
     ['<c-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
     ['<tab>'] = function(fallback)
       if luasnip.expand_or_jumpable() then
         feedkeys('<Plug>luasnip-expand-or-jump')
