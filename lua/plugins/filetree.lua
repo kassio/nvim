@@ -17,7 +17,15 @@ require('nvim-tree').setup({
     width = 32,
     side = 'right',
   },
-  lsp_diagnostics = true,
+  diagnostics = {
+    enable = true,
+    icons = {
+      hint = vim.my.signs.hint,
+      info = vim.my.signs.info,
+      warning = vim.my.signs.warn,
+      error = vim.my.signs.error,
+    },
+  },
   update_focused_file = { enable = true },
   ignore_ft_on_setup = {
     '.git',
