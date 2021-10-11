@@ -1,5 +1,4 @@
 local utils = require('my.utils')
-local M = {}
 
 local range_cmd = function(line1, line2, command)
   utils.preserve(function()
@@ -7,10 +6,10 @@ local range_cmd = function(line1, line2, command)
   end)
 end
 
-M.modernizy_hash_symbol_keys = function(line1, line2)
-  range_cmd(line1, line2, [[s/:\(\w\+\)\s*=>\ze/\1:\ ]])
-end
-
-vim.my.ruby = M
+vim.my.ruby = {
+  modernizy_hash_symbol_keys = function(line1, line2)
+    range_cmd(line1, line2, [[s/:\(\w\+\)\s*=>\ze/\1:\ ]])
+  end
+}
 
 utils.command('-range RubyModernizeHashSymbolKeys lua vim.my.ruby.modernizy_hash_symbol_keys("<line1>", "<line2>")')
