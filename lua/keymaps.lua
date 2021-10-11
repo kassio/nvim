@@ -1,6 +1,23 @@
 local keymap = vim.my.utils.keymap
 local lua_keymap = vim.my.utils.lua_keymap
 
+------------------------------------------------------------
+-- Operation pending maps need to be passed as string
+-- expressions to vim, hence the double quote
+--
+-- select current line (inner)
+keymap('x', 'il', ':<c-u>normal! g_v_<cr>')
+keymap('o', 'il', '":normal vil<cr>"', { expr = true })
+
+-- select current line (outer)
+keymap('x', 'al', ':<c-u>normal! g_v0<cr>')
+keymap('o', 'al', '":normal val<cr>"', { expr = true })
+
+-- select all lines
+keymap('x', 'aF', ':<c-u>keepjumps normal! GVgg0<cr>')
+keymap('o', 'aF', '":normal vaF<cr>"', { expr = true })
+------------------------------------------------------------
+
 -- disable ex mode
 keymap('n', [[Q]], [[<nop>]])
 
@@ -36,14 +53,6 @@ keymap('t', [[<esc><esc>]], [[<c-\><c-n>]])
 
 -- move to the last tab
 keymap('n', '9gt', '<cmd>tablast<cr>')
-
--- select current line (inner)
-keymap('x', 'il', ':<c-u>normal! g_v_<cr>')
-keymap('o', 'il', ':<c-u>normal! vil')
-
--- select current line (outer)
-keymap('x', 'al', ':<c-u>normal! g_v0<cr>')
-keymap('o', 'al', ':<c-u>normal! val')
 
 -- paste without replacing the " register
 keymap('v', '<leader>p', '"_dP')
