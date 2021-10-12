@@ -13,8 +13,8 @@ cmp.setup({
     end,
   },
   mapping = {
-    ['<c-space>'] = cmp.mapping.complete(),
-    ['<cr>'] = cmp.mapping.confirm({ select = true }),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<c-y>'] = cmp.mapping.confirm({ select = true }),
   },
   formatting = {
     format = function(entry, vim_item)
