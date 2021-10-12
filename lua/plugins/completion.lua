@@ -24,26 +24,8 @@ cmp.setup({
     ['<c-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
     ['<c-space>'] = cmp.mapping.complete(),
     ['<c-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    ['<tab>'] = function(fallback)
-      if luasnip.expand_or_jumpable() then
-        feedkeys('<Plug>luasnip-expand-or-jump')
-      elseif fn.pumvisible() == 1 then
-        cmp.mapping.confirm({
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = true,
-        })
-      else
-        fallback()
-      end
-    end,
-    ['<s-tab>'] = function(fallback)
-      if luasnip.jumpable(-1) then
-        feedkeys('<Plug>luasnip-jump-prev')
-      else
-        fallback()
-      end
-    end,
+    ['<cr>'] = cmp.mapping.confirm({ select = true }),
+    ['<tab>'] = cmp.mapping.confirm({ select = true })
   },
   formatting = {
     format = function(entry, vim_item)
