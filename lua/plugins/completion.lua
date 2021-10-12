@@ -2,16 +2,9 @@ local fn = vim.fn
 local luasnip = R('luasnip')
 local cmp = R('cmp')
 
-local termcoded = function(key)
-  return vim.api.nvim_replace_termcodes(key, true, true, true)
-end
-
-local feedkeys = function(key, mode)
-  mode = mode or ''
-  fn.feedkeys(termcoded(key), mode)
-end
-
-luasnip.config.setup({ store_selection_keys = '<tab>' })
+luasnip.config.setup({
+  store_selection_keys = '<tab>'
+})
 
 cmp.setup({
   snippet = {
@@ -20,12 +13,8 @@ cmp.setup({
     end,
   },
   mapping = {
-    ['<c-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-    ['<c-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
     ['<c-space>'] = cmp.mapping.complete(),
-    ['<c-e>'] = cmp.mapping.close(),
     ['<cr>'] = cmp.mapping.confirm({ select = true }),
-    ['<tab>'] = cmp.mapping.confirm({ select = true })
   },
   formatting = {
     format = function(entry, vim_item)
