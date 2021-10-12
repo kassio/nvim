@@ -34,11 +34,11 @@ cmp.setup({
   },
   sources = {
     { name = 'luasnip' },
-    { name = 'buffer' },
-    { name = 'spell' },
-    { name = 'path' },
     { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
+    { name = 'buffer', keyword_length = 5, max_item_count = 3 },
+    { name = 'spell', keyword_length = 3, max_item_count = 3 },
+    { name = 'path', keyword_length = 4, max_item_count = 5 },
   },
 })
 
