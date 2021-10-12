@@ -130,9 +130,6 @@ M.load = function()
       -- fancy notification
       use('rcarriga/nvim-notify')
 
-      -- floating registers on demand
-      use('tversteeg/registers.nvim')
-
       -- terminal handling
       use('kassio/neoterm')
 
