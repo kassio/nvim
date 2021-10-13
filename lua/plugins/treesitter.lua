@@ -3,6 +3,10 @@ local treesitter = R('nvim-treesitter.configs')
 local spellsitter = R('spellsitter')
 local gps = R('nvim-gps')
 
+-- vim-matchup plugin, uses treesitter
+-- Do not show the not visible matching context on statusline
+vim.g.matchup_matchparen_offscreen = {}
+
 treesitter.setup({
   ensure_installed = 'maintained',
   ignore_install = { 'kotlin' },
