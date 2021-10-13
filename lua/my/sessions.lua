@@ -109,7 +109,7 @@ M.save = function(prefix)
     vim.api.nvim_set_vvar('this_session', session)
 
     vim.cmd(string.format('silent! mksession! %s | redraw!', session))
-    info('Session created')
+    info(string.format('Session "%s" created', prefix))
   else
     error('Session prefix required!')
   end
@@ -118,7 +118,7 @@ end
 M.load = function()
   local session = with_session(function(session)
     vim.cmd(string.format('silent! source %s | redraw!', session))
-    info('Session loaded')
+    info(string.format('Session "%s" loaded', prefix_from(session)))
   end)
 
   if not session then
@@ -130,7 +130,7 @@ M.destroy = function()
   return with_session(function(session)
     delete_session(session)
     print(' ')
-    info('Session destroyed')
+    info(string.format('Session "%s" deleted', prefix_from(session)))
   end)
 end
 
