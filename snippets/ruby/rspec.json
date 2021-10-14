@@ -29,7 +29,7 @@
   },
   "expectation for block": {
     "prefix": ["expb", "expectb"],
-    "body": "expect{ $SELECT_RAW$0 }.${2:to} $3"
+    "body": "expect { $SELECT_RAW$0 }.${2:to} $3"
 
   },
   "it": {
