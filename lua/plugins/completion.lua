@@ -2,6 +2,15 @@ local fn = vim.fn
 local luasnip = R('luasnip')
 local cmp = R('cmp')
 
+local termcoded = function(key)
+  return vim.api.nvim_replace_termcodes(key, true, true, true)
+end
+
+local feedkeys = function(key, mode)
+  mode = mode or ''
+  fn.feedkeys(termcoded(key), mode)
+end
+
 luasnip.config.setup({
   store_selection_keys = '<tab>'
 })
@@ -15,6 +24,20 @@ cmp.setup({
   mapping = {
     ['<C-e>'] = cmp.mapping.close(),
     ['<c-y>'] = cmp.mapping.confirm({ select = true }),
+    ['<tab>'] = function(fallback)
+      if luasnip.jumpable(1) then
+        feedkeys('<Plug>luasnip-jump-next')
+      else
+        fallback()
+      end
+    end,
+    ['<s-tab>'] = function(fallback)
+      if luasnip.jumpable(-1) then
+        feedkeys('<Plug>luasnip-jump-prev')
+      else
+        fallback()
+      end
+    end,
   },
   formatting = {
     format = function(entry, vim_item)
