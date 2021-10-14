@@ -8,7 +8,7 @@ end
 
 vim.my.ruby = {
   modernizy_hash_symbol_keys = function(line1, line2)
-    range_cmd(line1, line2, [[s/:\(\w\+\)\s*=>\ze/\1:\ ]])
+    range_cmd(line1, line2, [[s/:\(\w\+\)\s*=>\s*\ze/\1:\ ]])
   end
 }
 
