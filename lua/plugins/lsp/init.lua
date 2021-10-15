@@ -80,8 +80,7 @@ load_customization({
         hover = true,
         references = true,
         rename = true,
-
-        useBundler = false,
+        useBundler = true,
       },
     },
   },
