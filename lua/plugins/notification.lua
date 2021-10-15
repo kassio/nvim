@@ -9,6 +9,7 @@ require('notify').setup({
     DEBUG = vim.my.signs.bug,
     TRACE = vim.my.signs.bug,
   },
+  background_colour = vim.my.colors.background,
 })
 
 vim.notify = notify

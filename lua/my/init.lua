@@ -5,6 +5,7 @@ vim.my.windows = R('my.windows')
 vim.my.sessions = R('my.sessions')
 
 vim.my.colors = {
+  background = '#282C34',
   error = '#CA1243',
   warn = '#F7C154',
   info = '#6699CC',
