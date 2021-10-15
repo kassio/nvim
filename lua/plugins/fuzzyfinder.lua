@@ -61,7 +61,7 @@ vim.my.fuzzyfinder = {
   builtin = builtin.builtin,
   dash = function()
     dash.search('!')
-  end
+  end,
 }
 
 utils.lua_keymap('n', 'f<c-f>', 'vim.my.fuzzyfinder.builtin()')
