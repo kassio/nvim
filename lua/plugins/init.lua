@@ -85,6 +85,14 @@ M.load = function()
         },
       })
 
+      -- Dash integration
+      use({
+        'mrjones2014/dash.nvim',
+        requires = {
+          'nvim-telescope/telescope.nvim',
+        },
+      })
+
       -- Treesitter
       use({
         { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },

@@ -1,10 +1,21 @@
 local telescope = R('telescope')
 local actions = R('telescope.actions')
 local builtin = R('telescope.builtin')
+local dash = R('dash')
+
 local utils = vim.my.utils
 
 telescope.setup({
   extensions = {
+    dash = {
+      file_type_keywords = {
+        dashboard = false,
+        NvimTree = false,
+        TelescopePrompt = false,
+        terminal = false,
+        packer = false,
+      },
+    },
     fzf = {
       fuzzy = true,
       override_generic_sorter = true,
@@ -32,6 +43,7 @@ telescope.setup({
 })
 
 telescope.load_extension('fzf')
+telescope.load_extension('dash')
 
 vim.my.fuzzyfinder = {
   find_files = function()
@@ -47,6 +59,9 @@ vim.my.fuzzyfinder = {
   oldfiles = builtin.oldfiles,
   treesitter = builtin.treesitter,
   builtin = builtin.builtin,
+  dash = function()
+    dash.search('!')
+  end
 }
 
 utils.lua_keymap('n', 'f<c-f>', 'vim.my.fuzzyfinder.builtin()')
@@ -54,11 +69,11 @@ utils.lua_keymap('n', 'f<c-p>', 'vim.my.fuzzyfinder.find_files()')
 utils.lua_keymap('n', 'f<c-g>', 'vim.my.fuzzyfinder.git_files()')
 utils.lua_keymap('n', 'f<c-o>', 'vim.my.fuzzyfinder.oldfiles()')
 utils.lua_keymap('n', 'f<c-h>', 'vim.my.fuzzyfinder.highlights()')
-
 utils.lua_keymap('n', 'f<c-n>', 'vim.my.fuzzyfinder.current_buffer_fuzzy_find()')
 utils.lua_keymap('n', 'f<c-t>', 'vim.my.fuzzyfinder.treesitter()')
 utils.lua_keymap('n', 'f<c-k>', 'vim.my.fuzzyfinder.buffers()')
 utils.lua_keymap('n', 'f<c-y>', 'vim.my.fuzzyfinder.live_grep()')
+utils.lua_keymap('n', 'f<c-d>', 'vim.my.fuzzyfinder.dash()')
 
 utils.lua_keymap('n', '<leader>as', 'vim.my.fuzzyfinder.grep_string()')
 
