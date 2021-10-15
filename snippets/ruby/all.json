@@ -43,9 +43,17 @@
     ]
   },
   "method": {
-    "prefix": ["d", "def"],
+    "prefix": "def",
     "body": [
       "def $1",
+      "\t$SELECT_RAW$0",
+      "end"
+    ]
+  },
+  "initialize": {
+    "prefix": "defi",
+    "body": [
+      "def initialize$1",
       "\t$SELECT_RAW$0",
       "end"
     ]
