@@ -11,9 +11,34 @@ local feedkeys = function(key, mode)
   fn.feedkeys(termcoded(key), mode)
 end
 
-luasnip.config.setup({
-  store_selection_keys = '<tab>'
-})
+local M = {}
+
+M.sources = {
+  luasnip = { name = 'luasnip', keyword_length = 3, max_item_count = 3 },
+  nvim_lua = { name = 'nvim_lua', keyword_length = 3, max_item_count = 3 },
+  nvim_lsp = { name = 'nvim_lsp', keyword_length = 3, max_item_count = 3 },
+  treesitter = { name = 'treesitter', keyword_length = 3, max_item_count = 3 },
+  buffer = {
+    name = 'buffer',
+    keyword_length = 5,
+    max_item_count = 3,
+    opts = { get_bufnrs = vim.api.nvim_list_bufs },
+  },
+  spell = { name = 'spell', keyword_length = 3, max_item_count = 3 },
+  path = { name = 'path', keyword_length = 4, max_item_count = 5 },
+}
+
+M.buffer = {
+  completion_sources = function(names)
+    cmp.setup.buffer({
+      sources = vim.tbl_map(function(name)
+        return M.sources[name]
+      end, names),
+    })
+  end,
+}
+
+vim.my.completion = M
 
 cmp.setup({
   snippet = {
@@ -45,23 +70,31 @@ cmp.setup({
       vim_item.kind = string.format('%s %s', icon, vim_item.kind)
 
       vim_item.menu = ({
-        buffer = '[Buffer]',
-        luasnip = '[Snip]',
-        nvim_lsp = '[LSP]',
-        nvim_lua = '[Lua]',
-        spell = '[Spell]',
+        buffer = '﬘',
+        luasnip = '',
+        nvim_lsp = 'ﲳ',
+        nvim_lua = '',
+        path = 'ﱮ',
+        spell = '暈',
+        treesitter = '',
       })[entry.source.name]
 
       return vim_item
     end,
   },
+  experimental = {
+    ghost_text = true,
+  },
+  documentation = {
+    border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+  },
   sources = {
-    { name = 'luasnip' },
-    { name = 'nvim_lua' },
-    { name = 'nvim_lsp' },
-    { name = 'buffer', keyword_length = 5, max_item_count = 3 },
-    { name = 'spell', keyword_length = 3, max_item_count = 3 },
-    { name = 'path', keyword_length = 4, max_item_count = 5 },
+    vim.my.completion.sources.luasnip,
+    vim.my.completion.sources.nvim_lua,
+    vim.my.completion.sources.nvim_lsp,
+    vim.my.completion.sources.buffer,
+    vim.my.completion.sources.spell,
+    vim.my.completion.sources.path,
   },
 })
 

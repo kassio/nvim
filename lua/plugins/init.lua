@@ -129,6 +129,7 @@ M.load = function()
           'hrsh7th/cmp-nvim-lua',
           'f3fora/cmp-spell',
           'onsails/lspkind-nvim',
+          'ray-x/cmp-treesitter',
           -- snippets
           'L3MON4D3/LuaSnip',
           'saadparwaiz1/cmp_luasnip',
