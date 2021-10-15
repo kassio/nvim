@@ -16,6 +16,7 @@ vim.my.signs = {
   warn = '',
   hint = '',
   info = '',
+  bug = ''
 }
 
 vim.my.reload = function()
