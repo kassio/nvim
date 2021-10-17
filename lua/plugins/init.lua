@@ -64,6 +64,7 @@ M.load = function()
       use({
         'tpope/vim-surround',
         'wellle/targets.vim',
+        'tpope/vim-repeat', -- Enables repeat surround movements
       })
 
       -- File tree
