@@ -15,7 +15,7 @@ vim.my.colors = {
 vim.my.signs = {
   error = '',
   warn = '',
-  hint = '',
+  hint = '',
   info = '',
   bug = '',
 }
