@@ -5,7 +5,7 @@ opt.autowriteall = true
 opt.backup = false
 opt.cindent = true
 opt.colorcolumn = { 80, 100, 120 }
-opt.complete = { '.', 'w', 'b', 'u' }
+opt.complete:remove('t')
 opt.completeopt = { 'menuone', 'noinsert', 'noselect' }
 opt.confirm = true
 opt.copyindent = true
@@ -14,7 +14,6 @@ opt.diffopt = { 'internal', 'filler', 'closeoff', 'vertical' }
 opt.expandtab = true
 opt.fileencodings = { 'utf8', 'nobomb' }
 opt.fileformats = { 'unix', 'mac' }
-opt.fillchars = 'vert:│'
 opt.foldenable = false
 opt.foldmethod = 'manual'
 opt.ignorecase = true
@@ -55,15 +54,11 @@ opt.undolevels = 10000
 opt.undoreload = 10000
 opt.virtualedit = 'block'
 opt.wildignorecase = true
-opt.wildoptions = 'pum'
 opt.wrap = false
 opt.writebackup = false
 
 -- Space as map leader
 g.mapleader = ' '
-
--- Highlight lua within vim
-g.vimsyn_embed = 'l'
 
 -- Disable standard plugins
 g.loaded_gzip = 1
