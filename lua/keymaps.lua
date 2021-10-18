@@ -18,6 +18,9 @@ keymap('x', 'aF', ':<c-u>keepjumps normal! GVgg0<cr>')
 keymap('o', 'aF', '":normal vaF<cr>"', { expr = true })
 ------------------------------------------------------------
 
+-- make Y behave like C and D
+lua_keymap('v', '!', 'vim.my.utils.highlight{selected = true}')
+
 -- disable ex mode
 keymap('n', [[Q]], [[<nop>]])
 
