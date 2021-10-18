@@ -2,6 +2,16 @@
 R('colorizer').setup()
 -- Fix terminal colors
 R('terminal').setup()
+-- Prettier quickfix/location list windows
+R('pqf').setup({
+  signs = {
+    error = vim.my.signs.error,
+    warning = vim.my.signs.warn,
+    info = vim.my.signs.info,
+    hint = vim.my.signs.hint,
+  },
+})
+
 -- Color helpers
 local colorbuddy = R('colorbuddy')
 -- Highlight helpers
