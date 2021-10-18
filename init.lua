@@ -19,3 +19,6 @@ R('plugins.treesitter')
 R('plugins.completion')
 R('plugins.lsp')
 R('plugins.statusline')
+
+-- TODO: remove when upgrade to nvim 6
+R('nvim6-fallbacks')

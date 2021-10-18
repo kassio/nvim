@@ -18,16 +18,6 @@ keymap('x', 'aF', ':<c-u>keepjumps normal! GVgg0<cr>')
 keymap('o', 'aF', '":normal vaF<cr>"', { expr = true })
 ------------------------------------------------------------
 
--- Future defaults (https://github.com/neovim/neovim/pull/15401)
--- make Y behave like C and D
-keymap('n', 'Y', 'y$')
--- make <c-l> clean the screen and highlights
-keymap('n', '<c-l>', '<cmd>nohlsearch<bar>diffupdate<cr><c-l>')
--- undo breakpoint for <c-u>
-keymap('i', '<c-u>', '<c-g>u<c-u>')
--- undo breakpoint for <c-w>
-keymap('i', '<c-w>', '<c-g>u<c-w>')
-
 -- disable ex mode
 keymap('n', [[Q]], [[<nop>]])
 
