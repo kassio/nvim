@@ -19,6 +19,14 @@ vim.my.ruby = {
   modernizy_hash_symbol_keys = function(line1, line2)
     range_cmd(line1, line2, [[s/:\(\w\+\)\s*=>\s*\ze/\1:\ ]])
   end,
+  let_to_var = function(line1, line2)
+    range_cmd(line1, line2, [[s/let\%(\w\+\)\?(:\(\w\+\))\s*{\s*\(.\{-\}\)\s*}/\1 = \2]])
+  end,
+  var_to_let= function(line1, line2)
+    range_cmd(line1, line2, [[s/@\?\(\w\+\)\s*=\s*\(.*\)/let(:\1) { \2 }]])
+  end
 }
 
 utils.command('-range RubyModernizeHashSymbolKeys lua vim.my.ruby.modernizy_hash_symbol_keys("<line1>", "<line2>")')
+utils.command('-range RubyLetToVar lua vim.my.ruby.let_to_var("<line1>", "<line2>")')
+utils.command('-range RubyVarToLet lua vim.my.ruby.var_to_let("<line1>", "<line2>")')
