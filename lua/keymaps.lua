@@ -89,8 +89,9 @@ lua_keymap('n', '<leader>ff', 'vim.my.buffers.indent()')
 lua_keymap('n', '<leader>bd', 'vim.api.nvim_buf_delete(0, { force = true })')
 -- delete all buffers
 lua_keymap('n', '<leader>da', 'vim.my.buffers.delete_all()')
--- delete unloaded buffers
-lua_keymap('n', '<leader>wa', 'vim.my.utils.clean_buffers_and_windows()')
+
+-- close floating windows
+lua_keymap('n', '<leader>wa', 'vim.my.windows.close_floating()')
 
 -- session management
 keymap('n', '<leader>ss', '<cmd>SessionSave<cr>')

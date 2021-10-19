@@ -107,12 +107,6 @@ M.highlight = function(opts)
   end
 end
 
-M.clean_buffers_and_windows = function()
-  R('my.windows').delete_orphan_floating()
-  R('my.buffers').delete_hidden()
-  R('my.buffers').delete_unloaded()
-end
-
 M.fileicon = function(filetype, filename)
   local filetype_extensions = {
     ruby = 'rb',
