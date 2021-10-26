@@ -43,7 +43,7 @@ M.load = function()
       use({ 'wbthomason/packer.nvim', opt = true })
 
       -- Statusline
-      use('hoob3rt/lualine.nvim')
+      use('nvim-lualine/lualine.nvim')
 
       -- Project management
       use('tpope/vim-projectionist')

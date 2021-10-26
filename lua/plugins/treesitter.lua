@@ -88,8 +88,13 @@ gps.setup({
 
 vim.my.treesitter = {
   gps = {
-    location = gps.get_location,
-    available = gps.is_available,
+    location = function()
+      if gps.is_available() then
+        return gps.get_location()
+      else
+        return ''
+      end
+    end
   },
 }
 
