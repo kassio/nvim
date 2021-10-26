@@ -1,6 +1,7 @@
 local telescope = R('telescope')
 local actions = R('telescope.actions')
 local builtin = R('telescope.builtin')
+local themes = R('telescope.themes')
 local dash = R('dash')
 
 local utils = vim.my.utils
@@ -54,7 +55,7 @@ vim.my.fuzzyfinder = {
   live_grep = builtin.live_grep,
   buffers = builtin.buffers,
   current_buffer_fuzzy_find = function()
-    builtin.current_buffer_fuzzy_find(R('telescope.themes').get_dropdown())
+    builtin.current_buffer_fuzzy_find(themes.get_dropdown())
   end,
   oldfiles = builtin.oldfiles,
   treesitter = builtin.treesitter,
