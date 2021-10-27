@@ -1,7 +1,6 @@
 local telescope = R('telescope')
 local actions = R('telescope.actions')
 local builtin = R('telescope.builtin')
-local themes = R('telescope.themes')
 local dash = R('dash')
 
 local utils = vim.my.utils
@@ -30,16 +29,18 @@ telescope.setup({
         ['<C-j>'] = actions.move_selection_next,
         ['<C-k>'] = actions.move_selection_previous,
         ['<C-u>'] = { '<c-u>', type = 'command' },
+        ['<C-Down>'] = actions.cycle_history_next,
+        ['<C-Up>'] = actions.cycle_history_prev,
       },
     },
-    layout_config = {
-      prompt_position = 'top',
-    },
+    dynamic_preview_title = true,
+    layout_strategy = 'flex',
+    layout_config = { prompt_position = 'top' },
+    sorting_strategy = 'ascending',
+    winblend = 0,
     prompt_prefix = '› ',
     selection_caret = '› ',
     set_env = { ['COLORTERM'] = 'truecolor' },
-    sorting_strategy = 'ascending',
-    winblend = 0,
   },
 })
 
@@ -55,11 +56,13 @@ vim.my.fuzzyfinder = {
   live_grep = builtin.live_grep,
   buffers = builtin.buffers,
   current_buffer_fuzzy_find = function()
-    builtin.current_buffer_fuzzy_find(themes.get_dropdown())
+    builtin.current_buffer_fuzzy_find({ previewer = false })
   end,
   oldfiles = builtin.oldfiles,
   treesitter = builtin.treesitter,
-  builtin = builtin.builtin,
+  builtin = function()
+    builtin.builtin({ previewer = false })
+  end,
   dash = function()
     dash.search('!')
   end,
@@ -82,6 +85,6 @@ utils.command(string.format(
   '-nargs=1 Grep lua vim.my.fuzzyfinder.grep_string(%s)',
   vim.inspect({
     search = '<args>',
-    prompt_title = "Searching: '<args>'",
+    prompt_title = 'Searching: "<args>"',
   }, { newline = '', indent = '' })
 ))
