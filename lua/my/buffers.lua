@@ -48,4 +48,12 @@ M.indent = function()
   end)
 end
 
+M.fileicon = function()
+  if not vim.b.fileicon then
+    vim.b.fileicon = vim.my.utils.fileicon(vim.bo.filetype, vim.fn.expand('%:t'))
+  end
+
+  return vim.b.fileicon
+end
+
 return M

@@ -18,7 +18,7 @@ end
 
 return function()
   return table.concat({
-    vim.my.utils.fileicon(vim.bo.filetype, vim.fn.expand('%:t')),
+    vim.my.buffers.fileicon(),
     filename(),
     modified(),
   }, ' ')

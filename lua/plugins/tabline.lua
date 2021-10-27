@@ -17,7 +17,7 @@ local get_name = function(tab)
     return '[No name]'
   else
     local name = vim.fn.fnamemodify(fullname, ':t')
-    local icon = get_icon(bufnr, name)
+    local icon = vim.my.buffers.fileicon()
 
     -- To ensure a tab label limit of 50chars
     -- Truncate the file name if it's too long
