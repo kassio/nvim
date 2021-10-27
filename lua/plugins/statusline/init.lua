@@ -38,7 +38,7 @@ lualine.setup({
         color_info = vim.my.colors.info,
       },
       {
-        vim.my.treesitter.gps.location
+        vim.my.treesitter.gps.location,
       },
     },
     lualine_x = { 'diff' },

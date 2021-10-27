@@ -160,7 +160,7 @@ M.load = function()
         'norcalli/nvim-terminal.lua', -- Fix terminal colors
         'tjdevries/colorbuddy.nvim', -- Colors helpers
         'Th3Whit3Wolf/onebuddy', -- Theme
-        'https://gitlab.com/yorickpeterse/nvim-pqf.git' -- Prettier qf/loc windows
+        'https://gitlab.com/yorickpeterse/nvim-pqf.git', -- Prettier qf/loc windows
       })
 
       -- Better language support

@@ -94,7 +94,7 @@ vim.my.treesitter = {
       else
         return ''
       end
-    end
+    end,
   },
 }
 
