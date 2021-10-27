@@ -11,20 +11,33 @@ local git = function(args, callback)
   })
 end
 
-local open_remote = function(ref, file, line)
+local open = function(url)
+  vim.fn.jobstart({ 'open', url })
+end
+
+local open_repository = function()
+  return git('remote get-url origin', function(url)
+    url = string.gsub(url, '^git@', 'https://')
+    url = string.gsub(url, '%.git$', '')
+
+    open(url)
+  end)
+end
+
+local open_remote_file = function(ref, file, line)
   git('remote get-url origin', function(url)
     url = string.gsub(url, '^git@', 'https://')
     url = string.gsub(url, '%.git$', '')
 
     url = string.format('%s/blob/%s/%s#L%s', url, ref, file, line)
 
-    vim.fn.jobstart({ 'open', url })
+    open(url)
   end)
 end
 
 local open_main = function(file, line)
   git('branch-main', function(ref)
-    open_remote(ref, file, line)
+    open_remote_file(ref, file, line)
   end)
 end
 
@@ -34,7 +47,7 @@ local open_ref = function(file, line)
 
   git(cmd, function(ref)
     if ref ~= '' then
-      open_remote(ref, file, line)
+      open_remote_file(ref, file, line)
     else
       open_main(file, line)
     end
@@ -52,20 +65,25 @@ gitsigns.setup({
   numhl = true,
 })
 
-vim.my.git = {}
-vim.my.git.remote = function(main)
-  local file = vim.fn.expand('%:.')
-  local line = vim.fn.line('.')
 
-  if main then
-    open_main(file, line)
-  else
-    open_ref(file, line)
-  end
-end
+vim.my.git = {
+  open_remote_file = function(opts)
+    local branch = opts.branch or 'current'
+    local file = vim.fn.expand('%:.')
+    local line = vim.fn.line('.')
 
-command('Gremote lua vim.my.git.remote()')
-command('GremoteMain lua vim.my.git.remote(true)')
+    if branch == 'main' then
+      open_main(file, line)
+    else
+      open_ref(file, line)
+    end
+  end,
+  open_repository = open_repository,
+}
+
+command('GopenRepository lua vim.my.git.open_repository()')
+command('GopenRemoteFile lua vim.my.git.open_remote_file()')
+command('GopenRemoteFileOnMain lua vim.my.git.open_remote_file({branch = "main"})')
 command('Grt G restore % | mode')
 
 cabbrev('Gblame', 'G blame')
