@@ -85,6 +85,11 @@ lua_keymap('v', '<leader>g!', 'vim.my.utils.highlight{selected = true, sensitive
 -- indent current buffer
 lua_keymap('n', '<leader>ff', 'vim.my.buffers.indent()')
 
+-- delete current buffer
+lua_keymap('n', '<leader>bd', 'vim.api.nvim_buf_delete(0, { force = true })')
+-- delete all buffers
+lua_keymap('n', '<leader>da', 'vim.my.buffers.delete_all()')
+
 -- close floating windows
 lua_keymap('n', '<leader>wa', 'vim.my.windows.close_floating()')
 
