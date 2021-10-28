@@ -58,9 +58,9 @@ keymap('n', '9gt', '<cmd>tablast<cr>')
 keymap('v', '<leader>p', '"_dP')
 
 -- moving selected text down
-keymap('v', '<c-j>', ":m '>+1<CR>gv=gv")
+keymap('v', '<c-j>', ":m '>+1<cr>gv=gv")
 -- moving selected text up
-keymap('v', '<c-k>', ":m '<-2<CR>gv=gv")
+keymap('v', '<c-k>', ":m '<-2<cr>gv=gv")
 
 -- search current word (ignore case)
 lua_keymap('n', '!', 'vim.my.utils.highlight{current = true}')
@@ -86,9 +86,7 @@ lua_keymap('v', '<leader>g!', 'vim.my.utils.highlight{selected = true, sensitive
 lua_keymap('n', '<leader>ff', 'vim.my.buffers.indent()')
 
 -- delete current buffer
-lua_keymap('n', '<leader>bd', 'vim.api.nvim_buf_delete(0, { force = true })')
--- delete all buffers
-lua_keymap('n', '<leader>da', 'vim.my.buffers.delete_all()')
+keymap('n', '<leader>bd', '<cmd>bw!<cr>')
 
 -- close floating windows
 lua_keymap('n', '<leader>wa', 'vim.my.windows.close_floating()')

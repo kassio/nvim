@@ -14,6 +14,3 @@ command('-nargs=? SessionSave lua vim.my.sessions.save("<args>")')
 command('SessionLoad lua vim.my.sessions.load()')
 command('SessionDestroy lua vim.my.sessions.destroy()')
 command('SessionDestroyAll lua vim.my.sessions.destroy_all()')
-
--- buffers management
-command('DeleteHidden lua vim.my.buffers.delete_hidden()')
