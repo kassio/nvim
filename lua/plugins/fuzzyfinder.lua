@@ -9,21 +9,29 @@ telescope.setup({
   extensions = {
     dash = {
       file_type_keywords = {
-        dashboard = false,
         NvimTree = false,
         TelescopePrompt = false,
-        terminal = false,
+        dashboard = false,
         packer = false,
+        terminal = false,
       },
     },
     fzf = {
-      fuzzy = true,
-      override_generic_sorter = true,
-      override_file_sorter = true,
       case_mode = 'smart_case',
+      fuzzy = true,
+      override_file_sorter = true,
+      override_generic_sorter = true,
     },
   },
   defaults = {
+    borderchars = {
+      preview = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+      prompt = { '─', ' ', ' ', ' ', '─', '─', ' ', ' ' },
+      results = { ' ' },
+    },
+    dynamic_preview_title = true,
+    layout_config = { prompt_position = 'top' },
+    layout_strategy = 'bottom_pane',
     mappings = {
       i = {
         ['<C-j>'] = actions.move_selection_next,
@@ -33,14 +41,13 @@ telescope.setup({
         ['<C-n>'] = actions.cycle_history_next,
       },
     },
-    dynamic_preview_title = true,
-    layout_strategy = 'flex',
-    layout_config = { prompt_position = 'top' },
-    sorting_strategy = 'ascending',
-    winblend = 0,
+    path_display = { 'smart' },
+    preview_title = '',
     prompt_prefix = '› ',
     selection_caret = '› ',
     set_env = { ['COLORTERM'] = 'truecolor' },
+    sorting_strategy = 'ascending',
+    winblend = 0,
   },
 })
 
@@ -53,11 +60,12 @@ vim.my.fuzzyfinder = {
   end,
   git_files = builtin.git_files,
   grep_string = builtin.grep_string,
+  grep_selected = function()
+    builtin.grep_string({ search = utils.selected_text() })
+  end,
   live_grep = builtin.live_grep,
   buffers = builtin.buffers,
-  current_buffer_fuzzy_find = function()
-    builtin.current_buffer_fuzzy_find({ previewer = false })
-  end,
+  current_buffer_fuzzy_find = builtin.current_buffer_fuzzy_find,
   oldfiles = builtin.oldfiles,
   treesitter = builtin.treesitter,
   help_tags = builtin.help_tags,
@@ -81,6 +89,7 @@ utils.lua_keymap('n', 'f<c-y>', 'vim.my.fuzzyfinder.live_grep()')
 utils.lua_keymap('n', 'f<c-d>', 'vim.my.fuzzyfinder.dash()')
 
 utils.lua_keymap('n', '<leader>as', 'vim.my.fuzzyfinder.grep_string()')
+utils.lua_keymap('v', '<leader>as', 'vim.my.fuzzyfinder.grep_selected()')
 
 utils.command(string.format(
   '-nargs=1 Grep lua vim.my.fuzzyfinder.grep_string(%s)',
