@@ -132,7 +132,6 @@ load_customization({
             '--format',
             'json',
             '--force-exclusion',
-            '--stdin',
             '%filepath',
           },
           parseJson = {
@@ -148,8 +147,8 @@ load_customization({
             fatal = 'error',
             error = 'error',
             warning = 'warning',
-            convention = 'info',
-            refactor = 'info',
+            convention = 'hint',
+            refactor = 'hint',
             info = 'info',
           },
         },
