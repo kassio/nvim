@@ -2,7 +2,6 @@ local g = vim.g
 local keymap = vim.my.utils.keymap
 
 g.nvim_tree_git_hl = 1
-g.nvim_tree_hide_dotfiles = 1
 g.nvim_tree_indent_markers = 1
 g.nvim_tree_highlight_opened_files = 3
 g.nvim_tree_show_icons = {
@@ -13,10 +12,6 @@ g.nvim_tree_show_icons = {
 }
 
 require('nvim-tree').setup({
-  view = {
-    width = 32,
-    side = 'right',
-  },
   diagnostics = {
     enable = true,
     icons = {
@@ -26,7 +21,9 @@ require('nvim-tree').setup({
       error = vim.my.signs.error,
     },
   },
-  update_focused_file = { enable = true },
+  filters = {
+    dotfiles = false
+  },
   ignore_ft_on_setup = {
     '.git',
     'node_modules',
@@ -34,6 +31,11 @@ require('nvim-tree').setup({
     '.byebug_history',
     '.vscode',
     '.idea',
+  },
+  update_focused_file = { enable = true },
+  view = {
+    width = 32,
+    side = 'right',
   },
 })
 
