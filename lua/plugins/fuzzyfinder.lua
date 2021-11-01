@@ -25,9 +25,9 @@ telescope.setup({
   },
   defaults = {
     borderchars = {
-      prompt =  { '─', '│', ' ', '│', '┌', '┬', '│', '│' },
-      results = { '─', '│', '─', '│', '├', '┤', '┴', '└' },
-      preview = { '─', '│', '─', ' ', '─', '┐', '┘', '─' },
+      prompt = { '─', '│', '─', '│', '╭', '┬', '┤', '├' },
+      results = { '━', '│', '─', '│', '┝', '┥', '┴', '╰' },
+      preview = { '─', '│', '─', ' ', '─', '╮', '╯', '─' },
     },
     dynamic_preview_title = true,
     layout_config = { prompt_position = 'top' },
