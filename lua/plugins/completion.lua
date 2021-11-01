@@ -14,7 +14,7 @@ end
 local M = {}
 
 M.sources = {
-  luasnip = { name = 'luasnip', keyword_length = 3, max_item_count = 3 },
+  luasnip = { name = 'luasnip', keyword_length = 2, max_item_count = 3 },
   nvim_lua = { name = 'nvim_lua', keyword_length = 3, max_item_count = 3 },
   nvim_lsp = { name = 'nvim_lsp', keyword_length = 3, max_item_count = 3 },
   treesitter = { name = 'treesitter', keyword_length = 3, max_item_count = 3 },
