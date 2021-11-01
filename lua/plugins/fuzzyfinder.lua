@@ -25,13 +25,13 @@ telescope.setup({
   },
   defaults = {
     borderchars = {
-      preview = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
-      prompt = { '─', ' ', ' ', ' ', '─', '─', ' ', ' ' },
-      results = { ' ' },
+      prompt =  { '─', '│', ' ', '│', '┌', '┬', '│', '│' },
+      results = { '─', '│', '─', '│', '├', '┤', '┴', '└' },
+      preview = { '─', '│', '─', ' ', '─', '┐', '┘', '─' },
     },
     dynamic_preview_title = true,
     layout_config = { prompt_position = 'top' },
-    layout_strategy = 'bottom_pane',
+    layout_strategy = 'horizontal',
     mappings = {
       i = {
         ['<C-j>'] = actions.move_selection_next,
