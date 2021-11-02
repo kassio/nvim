@@ -41,28 +41,11 @@ M.buffer = {
 vim.my.completion = M
 
 cmp.setup({
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
+  completion = {
+    completeopt = 'menu,menuone,noinsert',
   },
-  mapping = {
-    ['<C-e>'] = cmp.mapping.close(),
-    ['<c-y>'] = cmp.mapping.confirm({ select = true }),
-    ['<tab>'] = function(fallback)
-      if luasnip.jumpable(1) then
-        feedkeys('<Plug>luasnip-jump-next')
-      else
-        fallback()
-      end
-    end,
-    ['<s-tab>'] = function(fallback)
-      if luasnip.jumpable(-1) then
-        feedkeys('<Plug>luasnip-jump-prev')
-      else
-        fallback()
-      end
-    end,
+  documentation = {
+    border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
   },
   formatting = {
     format = function(entry, vim_item)
@@ -82,11 +65,36 @@ cmp.setup({
       return vim_item
     end,
   },
-  experimental = {
-    ghost_text = false,
+  mapping = {
+    ['<c-space>'] = cmp.mapping.complete(),
+    ['<c-y>'] = cmp.mapping.confirm({ select = true }),
+    ['<c-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+    ['<c-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+    ['<down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+    ['<up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+    ['<c-e>'] = cmp.mapping({
+      i = cmp.mapping.abort(),
+      c = cmp.mapping.close(),
+    }),
+    ['<tab>'] = function(fallback)
+      if cmp.visible() then
+        feedkeys('<plug>luasnip-jump-next')
+      else
+        fallback()
+      end
+    end,
+    ['<s-tab>'] = function(fallback)
+      if cmp.visible() then
+        feedkeys('<plug>luasnip-jump-prev')
+      else
+        fallback()
+      end
+    end,
   },
-  documentation = {
-    border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
   },
   sources = {
     vim.my.completion.sources.luasnip,
