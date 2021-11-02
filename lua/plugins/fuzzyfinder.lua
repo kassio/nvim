@@ -24,19 +24,25 @@ telescope.setup({
     },
   },
   defaults = {
-    borderchars = {
-      prompt = { '─', '│', '─', '│', '╭', '┬', '┤', '├' },
-      results = { '━', '│', '─', '│', '┝', '┥', '┴', '╰' },
-      preview = { '─', '│', '─', ' ', '─', '╮', '╯', '─' },
-    },
     dynamic_preview_title = true,
     layout_config = {
       prompt_position = 'top',
-      horizontal = {
-        preview_width = 115,
+      flex = {
+        flip_columns = 250,
+        flip_lines = 50,
+        vertical = {
+          height = 0.99,
+          width = 0.7,
+          mirror = true,
+        },
+        horizontal = {
+          height = 0.99,
+          width = 0.99,
+          mirror = false,
+        },
       },
     },
-    layout_strategy = 'horizontal',
+    layout_strategy = 'flex',
     mappings = {
       i = {
         ['<C-j>'] = actions.move_selection_next,
