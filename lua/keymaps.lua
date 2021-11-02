@@ -57,11 +57,6 @@ keymap('n', '9gt', '<cmd>tablast<cr>')
 -- paste without replacing the " register
 keymap('v', '<leader>p', '"_dP')
 
--- moving selected text down
-keymap('v', '<c-j>', ":m '>+1<cr>gv=gv")
--- moving selected text up
-keymap('v', '<c-k>', ":m '<-2<cr>gv=gv")
-
 -- search current word (ignore case)
 lua_keymap('n', '!', 'vim.my.utils.highlight{current = true}')
 -- search current selection (ignore case)

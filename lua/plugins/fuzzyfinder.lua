@@ -30,15 +30,20 @@ telescope.setup({
       preview = { '─', '│', '─', ' ', '─', '╮', '╯', '─' },
     },
     dynamic_preview_title = true,
-    layout_config = { prompt_position = 'top' },
+    layout_config = {
+      prompt_position = 'top',
+      horizontal = {
+        preview_width = 125,
+      },
+    },
     layout_strategy = 'horizontal',
     mappings = {
       i = {
         ['<C-j>'] = actions.move_selection_next,
         ['<C-k>'] = actions.move_selection_previous,
-        ['<C-u>'] = { '<c-u>', type = 'command' }, -- delete inputted text
-        ['<C-p>'] = actions.cycle_history_prev,
         ['<C-n>'] = actions.cycle_history_next,
+        ['<C-p>'] = actions.cycle_history_prev,
+        ['<C-u>'] = { '<c-u>', type = 'command' }, -- delete inputted text
       },
     },
     path_display = { 'smart' },
@@ -98,3 +103,7 @@ utils.command(string.format(
     prompt_title = 'Searching: "<args>"',
   }, { newline = '', indent = '' })
 ))
+
+utils.augroup('user:fuzzyfinder', {
+  { 'User', 'TelescopePreviewerLoaded', 'setlocal wrap number numberwidth=5' },
+})
