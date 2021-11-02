@@ -11,6 +11,16 @@ local feedkeys = function(key, mode)
   fn.feedkeys(termcoded(key), mode)
 end
 
+local check_back_space = function()
+  local col = fn.col('.') - 1
+
+  if col == 0 or fn.getline('.'):sub(col, col):match('%s') then
+    return true
+  else
+    return false
+  end
+end
+
 local M = {}
 
 M.sources = {
@@ -68,26 +78,26 @@ cmp.setup({
   mapping = {
     ['<c-space>'] = cmp.mapping.complete(),
     ['<c-y>'] = cmp.mapping.confirm({ select = true }),
-    ['<c-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-    ['<c-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-    ['<down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-    ['<up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+    ['<c-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+    ['<c-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
     ['<c-e>'] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
-    ['<tab>'] = function(fallback)
-      if cmp.visible() then
-        feedkeys('<plug>luasnip-jump-next')
+    ['<tab>'] = function()
+      if luasnip and luasnip.expand_or_jumpable() then
+        return feedkeys('<plug>luasnip-expand-or-jump')
+      elseif check_back_space() then
+        return feedkeys('<tab>')
       else
-        fallback()
+        cmp.complete()
       end
     end,
-    ['<s-tab>'] = function(fallback)
-      if cmp.visible() then
-        feedkeys('<plug>luasnip-jump-prev')
+    ['<s-tab>'] = function()
+      if luasnip and luasnip.jumpable(-1) then
+        return feedkeys('<plug>luasnip-jump-prev')
       else
-        fallback()
+        return feedkeys('<s-tab>')
       end
     end,
   },
