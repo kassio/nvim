@@ -110,6 +110,8 @@ M.load = function()
         'neovim/nvim-lspconfig',
         -- 'kabouzeid/nvim-lspinstall'
         'kassio/nvim-lspinstall',
+        -- deferring of all neovim diagnostics
+        'https://gitlab.com/yorickpeterse/nvim-dd.git',
       })
 
       -- Git

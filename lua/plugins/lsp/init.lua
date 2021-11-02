@@ -3,6 +3,9 @@ local installer = R('plugins.lsp.installer')
 local lsp = vim.lsp
 local utils = vim.my.utils
 
+-- deferring of all neovim diagnostics
+R('dd').setup()
+
 lsp.handlers['textDocument/publishDiagnostics'] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
   signs = true,
   update_in_insert = true,
