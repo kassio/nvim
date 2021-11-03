@@ -1,0 +1,61 @@
+extends ruby, ruby-rails, ruby-minitest, ruby-rspec
+
+snippet #f
+	# frozen_string_literal: true
+
+snippet cla
+	class ${1:ClassName}${2}
+		${0:${VISUAL}}
+	end
+
+snippet defi
+	def initialize${1:(${2})}
+	end
+
+snippet deb
+	require 'byebug'; byebug
+
+snippet pry
+	binding.pry
+
+snippet def
+	def ${1:name${2:(${3})}}
+		${0:${VISUAL}}
+	end
+
+snippet do
+	do
+	${0:${VISUAL}}
+	end
+
+snippet dop
+	do |${1:param}|
+	${0:${VISUAL}}
+	end
+
+snippet mod
+	module ${1:ModuleName}
+	${0:${VISUAL}}
+	end
+
+snippet hri
+	puts '${1:-}' * 80
+
+snippet hr
+	puts '${1:*}' * 80
+	p ${0:${VISUAL}}
+	puts '$1' * 80
+
+snippet if
+	if $1
+		${0:${VISUAL}}
+	end
+
+snippet JSON
+	JSON.parse(${0:${VISUAL}}${1:, symbolize_names: true})
+
+snippet rubo
+	# rubocop: disable CodeReuse/ActiveRecord
+
+snippet tap
+	tap { |x| p x }

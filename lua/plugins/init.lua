@@ -120,8 +120,8 @@ M.load = function()
           'onsails/lspkind-nvim',
           'ray-x/cmp-treesitter',
           -- snippets
-          'L3MON4D3/LuaSnip',
-          'saadparwaiz1/cmp_luasnip',
+          'dcampos/nvim-snippy',
+          'dcampos/cmp-snippy',
         },
       })
 

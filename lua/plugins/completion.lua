@@ -1,14 +1,18 @@
-local fn = vim.fn
-local luasnip = R('luasnip')
 local cmp = R('cmp')
+local types = R('cmp.types')
+local mapping = cmp.mapping
+local snippets = R('snippy')
+local fn = vim.fn
+local api = vim.api
 
 local termcoded = function(key)
-  return vim.api.nvim_replace_termcodes(key, true, true, true)
+  return api.nvim_replace_termcodes(key, true, true, true)
 end
 
 local feedkeys = function(key, mode)
   mode = mode or ''
-  fn.feedkeys(termcoded(key), mode)
+
+  return fn.feedkeys(termcoded(key), mode)
 end
 
 local check_back_space = function()
@@ -21,38 +25,22 @@ local check_back_space = function()
   end
 end
 
-local M = {}
-
-M.sources = {
-  luasnip = { name = 'luasnip', keyword_length = 2, max_item_count = 3 },
-  nvim_lua = { name = 'nvim_lua', keyword_length = 3, max_item_count = 3 },
-  nvim_lsp = { name = 'nvim_lsp', keyword_length = 3, max_item_count = 3 },
-  treesitter = { name = 'treesitter', keyword_length = 3, max_item_count = 3 },
-  buffer = {
-    name = 'buffer',
-    keyword_length = 5,
-    max_item_count = 3,
-    opts = { get_bufnrs = vim.api.nvim_list_bufs },
+snippets.setup({
+  snippet_dirs = fn.stdpath('config') .. '/snippets',
+  mappings = {
+    is = {
+      ['<tab>'] = 'expand_or_advance',
+      ['<s-tab>'] = 'previous',
+    },
+    nx = {
+      ['<tab>'] = 'cut_text',
+    },
   },
-  spell = { name = 'spell', keyword_length = 3, max_item_count = 3 },
-  path = { name = 'path', keyword_length = 4, max_item_count = 5 },
-}
-
-M.buffer = {
-  completion_sources = function(names)
-    cmp.setup.buffer({
-      sources = vim.tbl_map(function(name)
-        return M.sources[name]
-      end, names),
-    })
-  end,
-}
-
-vim.my.completion = M
+})
 
 cmp.setup({
   completion = {
-    completeopt = 'menu,menuone,noinsert',
+    completeopt = 'menuone,noinsert,noselect',
   },
   documentation = {
     border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
@@ -63,11 +51,11 @@ cmp.setup({
       vim_item.kind = string.format('%s %s', icon, vim_item.kind)
 
       vim_item.menu = ({
-        buffer = '﬘',
-        luasnip = '',
-        nvim_lsp = 'ﲳ',
+        buffer = '',
+        snippets = '',
+        nvim_lsp = '',
         nvim_lua = '',
-        path = 'ﱮ',
+        path = 'פּ',
         spell = '暈',
         treesitter = '',
       })[entry.source.name]
@@ -76,46 +64,41 @@ cmp.setup({
     end,
   },
   mapping = {
-    ['<c-space>'] = cmp.mapping.complete(),
-    ['<c-y>'] = cmp.mapping.confirm({ select = true }),
-    ['<c-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-    ['<c-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-    ['<c-e>'] = cmp.mapping({
-      i = cmp.mapping.abort(),
-      c = cmp.mapping.close(),
-    }),
-    ['<tab>'] = function()
-      if luasnip and luasnip.expand_or_jumpable() then
-        return feedkeys('<plug>luasnip-expand-or-jump')
+    ['<c-space>'] = mapping(mapping.complete(), { 'i', 'c' }),
+    ['<c-n>'] = mapping(mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Select }), { 'i', 'c', 's' }),
+    ['<c-p>'] = mapping(mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Select }), { 'i', 'c', 's' }),
+    ['<c-y>'] = mapping.confirm({ select = true }),
+    ['<cr>'] = mapping.confirm({ select = true }),
+    ['<c-e>'] = mapping.abort(),
+    ['<tab>'] = mapping(function()
+      if snippets.can_expand_or_advance() then
+        return feedkeys('<plug>(snippy-expand-or-next)')
       elseif check_back_space() then
         return feedkeys('<tab>')
       else
         cmp.complete()
       end
-    end,
-    ['<s-tab>'] = function()
-      if luasnip and luasnip.jumpable(-1) then
-        return feedkeys('<plug>luasnip-jump-prev')
+    end, { 'i', 'c', 's' }),
+    ['<s-tab>'] = mapping(function()
+      if snippets.can_jump(-1) then
+        return feedkeys('<plug>(snippy-previous)')
       else
         return feedkeys('<s-tab>')
       end
-    end,
+    end, { 'i', 'c', 's' }),
   },
   snippet = {
     expand = function(args)
-      luasnip.lsp_expand(args.body)
+      snippets.expand_snippet(args.body)
     end,
   },
   sources = {
-    vim.my.completion.sources.luasnip,
-    vim.my.completion.sources.nvim_lua,
-    vim.my.completion.sources.nvim_lsp,
-    vim.my.completion.sources.buffer,
-    vim.my.completion.sources.spell,
-    vim.my.completion.sources.path,
+    { name = 'snippy', max_item_count = 5 },
+    { name = 'treesitter', keyword_length = 2, max_item_count = 5 },
+    { name = 'nvim_lsp', keyword_length = 2, max_item_count = 3 },
+    { name = 'nvim_lua', keyword_length = 2, max_item_count = 3 },
+    { name = 'buffer', keyword_length = 3, max_item_count = 3, opts = { get_bufnrs = api.nvim_list_bufs } },
+    { name = 'spell', keyword_length = 3, max_item_count = 5 },
+    { name = 'path', max_item_count = 10 },
   },
-})
-
-require('luasnip/loaders/from_vscode').lazy_load({
-  paths = { fn.stdpath('config') .. '/snippets' },
 })
