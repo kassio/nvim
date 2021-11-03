@@ -1,7 +1,46 @@
 local lspconfig = R('lspconfig')
-local installer = R('plugins.lsp.installer')
+local installer = R('nvim-lsp-installer')
+local customizations = R('plugins.lsp.customizations')
 local lsp = vim.lsp
 local utils = vim.my.utils
+
+installer.settings({
+  ui = {
+    icons = {
+      server_installed = vim.my.signs.info,
+      server_pending = vim.my.signs.warn,
+      server_uninstalled = vim.my.signs.error,
+    },
+  },
+})
+
+vim.my.lsp = {
+  installer = {
+    installAll = function()
+      local languages = {
+        'bashls',
+        'cssls',
+        'diagnosticls',
+        'gopls',
+        'graphql',
+        'html',
+        'jsonls',
+        'solargraph',
+        'sqlls',
+        'sqls',
+        'sumneko_lua',
+        'tailwindcss',
+        'vimls',
+        'vuels',
+        'yamlls',
+      }
+
+      for _, language in ipairs(languages) do
+        installer.install(language)
+      end
+    end,
+  },
+}
 
 lsp.handlers['textDocument/publishDiagnostics'] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
   signs = true,
@@ -10,6 +49,22 @@ lsp.handlers['textDocument/publishDiagnostics'] = lsp.with(lsp.diagnostic.on_pub
   virtual_text = false,
   underline = false,
 })
+
+-- Add additional capabilities supported by nvim-cmp
+local protocol = vim.lsp.protocol
+local capabilities = R('cmp_nvim_lsp').update_capabilities(protocol.make_client_capabilities())
+local completionItem = capabilities.textDocument.completion.completionItem
+completionItem.documentationFormat = { 'markdown', 'plaintext' }
+completionItem.snippetSupport = true
+completionItem.preselectSupport = true
+completionItem.insertReplaceSupport = true
+completionItem.labelDetailsSupport = true
+completionItem.deprecatedSupport = true
+completionItem.commitCharactersSupport = true
+completionItem.tagSupport = { valueSet = { 1 } }
+completionItem.resolveSupport = {
+  properties = { 'documentation', 'detail', 'additionalTextEdits' },
+}
 
 local nmap = function(lhs, rhs)
   utils.lua_buf_keymap(0, 'n', lhs, rhs)
@@ -29,154 +84,11 @@ local attacher = function(client)
   print('LSP: ' .. client.name)
 end
 
--- Add additional capabilities supported by nvim-cmp
-local protocol = vim.lsp.protocol
-local capabilities = R('cmp_nvim_lsp').update_capabilities(protocol.make_client_capabilities())
-local completionItem = capabilities.textDocument.completion.completionItem
-completionItem.documentationFormat = { 'markdown', 'plaintext' }
-completionItem.snippetSupport = true
-completionItem.preselectSupport = true
-completionItem.insertReplaceSupport = true
-completionItem.labelDetailsSupport = true
-completionItem.deprecatedSupport = true
-completionItem.commitCharactersSupport = true
-completionItem.tagSupport = { valueSet = { 1 } }
-completionItem.resolveSupport = {
-  properties = { 'documentation', 'detail', 'additionalTextEdits' },
-}
+installer.on_server_ready(function(server)
+  server:setup(vim.tbl_extend('keep', customizations[server_name] or {}, {
+    on_attach = attacher,
+    capabilities = capabilities,
+  }))
+end)
 
-local servers = installer.installed_servers()
-local load_customization = function(customizations)
-  for _, server in pairs(servers) do
-    lspconfig[server].setup(vim.tbl_extend('keep', customizations[server] or {}, {
-      on_attach = attacher,
-      capabilities = capabilities,
-    }))
-  end
-end
-
-load_customization({
-  lua = {
-    settings = {
-      Lua = {
-        diagnostics = {
-          globals = { 'vim' },
-        },
-      },
-    },
-  },
-
-  sqlls = {
-    cmd = { '$HOME/.asdf/shims/sql-language-server', 'up', '--method', 'stdio' },
-  },
-
-  solargraph = {
-    settings = {
-      solargraph = {
-        completion = true,
-        symbols = true,
-        diagnostics = true,
-        definitions = true,
-        hover = true,
-        references = true,
-        rename = true,
-        useBundler = true,
-      },
-    },
-  },
-
-  diagnosticls = {
-    filetypes = {
-      'markdown',
-      'ruby',
-      'sh',
-    },
-
-    init_options = {
-      filetypes = {
-        markdown = 'markdownlint',
-        ruby = 'rubocop',
-        sh = 'shellcheck',
-      },
-      linters = {
-        markdownlint = {
-          sourceName = 'markdownlint',
-          isStderr = true,
-          command = 'mdl',
-          args = {
-            '--config',
-            '.markdownlint.json',
-            '%filepath',
-          },
-          formatLines = 1,
-          formatPattern = {
-            '^([^:]+):(\\d+):(\\d+)?\\s*(.*)$',
-            {
-              sourceName = 1,
-              sourceNameFilter = true,
-              line = 2,
-              column = 3,
-              message = 4,
-            },
-          },
-          securities = {
-            undefined = 'warning',
-          },
-        },
-        rubocop = {
-          sourceName = 'rubocop',
-          command = 'bundle',
-          args = {
-            'exec',
-            'rubocop',
-            '--format',
-            'json',
-            '--force-exclusion',
-            '%filepath',
-          },
-          parseJson = {
-            errorsRoot = 'files[0].offenses',
-            line = 'location.start_line',
-            endLine = 'location.last_line',
-            column = 'location.start_column',
-            endColumn = 'location.end_column',
-            message = '[${cop_name}]\n${message}',
-            security = 'severity',
-          },
-          securities = {
-            fatal = 'error',
-            error = 'error',
-            warning = 'warning',
-            convention = 'hint',
-            refactor = 'hint',
-            info = 'info',
-          },
-        },
-        shellcheck = {
-          sourceName = 'shellcheck',
-          debounce = 100,
-          command = 'shellcheck',
-          args = {
-            '--format',
-            'json',
-            '-',
-          },
-          parseJson = {
-            line = 'line',
-            column = 'column',
-            endLine = 'endLine',
-            endColumn = 'endColumn',
-            message = '[${code}]\n${message}',
-            security = 'level',
-          },
-          securities = {
-            error = 'error',
-            warning = 'warning',
-            info = 'info',
-            style = 'hint',
-          },
-        },
-      },
-    },
-  },
-})
+vim.my.utils.command('LspInstallAll lua vim.my.lsp.installer.installAll()')

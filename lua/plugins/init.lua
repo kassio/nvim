@@ -11,23 +11,11 @@ M.setup = function()
     vim.cmd('qall!')
   end
 
-  vim.my.utils.command("-bang Upgrade lua R('plugins').upgrade({ lsp = '<bang>' })")
+  vim.my.utils.command("Upgrade lua R('plugins').upgrade()")
 end
 
--- Upgrade plugins
-M.upgrade = function(opts)
-  opts = opts or {}
-
-  M.load()
-
-  require('packer').sync()
-
-  if (opts.lsp or '') ~= '' then
-    local ok, lspinstaller = pcall(require, 'plugins.lsp.installer')
-    if ok then
-      lspinstaller.installAll()
-    end
-  end
+M.upgrade = function()
+  M.load().sync()
 end
 
 M.load = function()
@@ -108,8 +96,7 @@ M.load = function()
       -- LSP
       use({
         'neovim/nvim-lspconfig',
-        -- 'kabouzeid/nvim-lspinstall'
-        'kassio/nvim-lspinstall',
+        'williamboman/nvim-lsp-installer',
       })
 
       -- Git
@@ -170,7 +157,11 @@ M.load = function()
       use('stephenway/postcss.vim') -- Postcss
       use('tpope/vim-git') -- Postcss
     end,
-  })
+    config = {
+      display = {
+        open_fn = require('packer.util').float,
+      }
+    }})
 end
 
 return M
