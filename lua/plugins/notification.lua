@@ -1,15 +1,16 @@
 local notify = R('notify')
+local theme = vim.my.theme
 
 require('notify').setup({
   timeout = 1250,
   icons = {
-    ERROR = vim.my.signs.error,
-    WARN = vim.my.signs.warn,
-    INFO = vim.my.signs.info,
-    DEBUG = vim.my.signs.bug,
-    TRACE = vim.my.signs.bug,
+    ERROR = theme.signs.error,
+    WARN = theme.signs.warn,
+    INFO = theme.signs.info,
+    DEBUG = theme.signs.bug,
+    TRACE = theme.signs.bug,
   },
-  background_colour = vim.my.colors.background,
+  background_colour = theme.colors.background,
 })
 
 vim.notify = notify

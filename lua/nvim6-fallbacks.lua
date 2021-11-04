@@ -1,4 +1,5 @@
 local keymap = vim.my.utils.keymap
+local theme = vim.my.theme
 local colorbuddy = R('colorbuddy')
 local _Color, colors, Group, groups, _styles = colorbuddy.setup()
 
@@ -30,7 +31,7 @@ Group.link('LspDiagnosticsSignWarning', groups.DiagnosticWarn)
 Group.link('LspDiagnosticsSignInformation', groups.DiagnosticInfo)
 Group.link('LspDiagnosticsSignHint', groups.DiagnosticHint)
 -- Signs/Icons definition
-sign_define('LspDiagnosticsSignError', vim.my.signs.error)
-sign_define('LspDiagnosticsSignWarning', vim.my.signs.warn)
-sign_define('LspDiagnosticsSignInformation', vim.my.signs.info)
-sign_define('LspDiagnosticsSignHint', vim.my.signs.hint)
+sign_define('LspDiagnosticsSignError', theme.signs.error)
+sign_define('LspDiagnosticsSignWarning', theme.signs.warn)
+sign_define('LspDiagnosticsSignInformation', theme.signs.info)
+sign_define('LspDiagnosticsSignHint', theme.signs.hint)

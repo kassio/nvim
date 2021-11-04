@@ -1,4 +1,5 @@
 local lualine = R('lualine')
+local theme = vim.my.theme
 
 local mode = R('plugins.statusline.mode')
 local filename = R('plugins.statusline.filename')
@@ -11,7 +12,7 @@ lualine.setup({
     R('plugins.statusline.extensions.filetree'),
   },
   options = {
-    theme = 'onedark',
+    theme = theme.colorscheme,
     icons_enabled = true,
     section_separators = '',
     component_separators = '│',
@@ -27,19 +28,17 @@ lualine.setup({
         'diagnostics',
         sources = { 'nvim_lsp' },
         symbols = {
-          error = vim.my.signs.error,
-          warn = vim.my.signs.warn,
-          hint = vim.my.signs.hint,
-          info = vim.my.signs.info,
+          error = theme.signs.error,
+          warn = theme.signs.warn,
+          hint = theme.signs.hint,
+          info = theme.signs.info,
         },
-        color_error = vim.my.colors.error,
-        color_warn = vim.my.colors.warn,
-        color_hint = vim.my.colors.hint,
-        color_info = vim.my.colors.info,
+        color_error = theme.colors.error,
+        color_warn = theme.colors.warn,
+        color_hint = theme.colors.hint,
+        color_info = theme.colors.info,
       },
-      {
-        vim.my.treesitter.gps.location,
-      },
+      { vim.my.treesitter.gps.location },
     },
     lualine_x = { 'diff' },
     lualine_y = {

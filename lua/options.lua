@@ -57,6 +57,12 @@ opt.wildignorecase = true
 opt.wrap = false
 opt.writebackup = false
 
+if vim.env.THEME == 'light' then
+  opt.background = 'light'
+else
+  opt.background =  'dark'
+end
+
 -- Space as map leader
 g.mapleader = ' '
 

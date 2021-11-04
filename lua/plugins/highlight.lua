@@ -1,3 +1,5 @@
+local theme = vim.my.theme
+
 -- Highlight color strings
 R('colorizer').setup()
 -- Fix terminal colors
@@ -5,10 +7,10 @@ R('terminal').setup()
 -- Prettier quickfix/location list windows
 R('pqf').setup({
   signs = {
-    error = vim.my.signs.error,
-    warning = vim.my.signs.warn,
-    info = vim.my.signs.info,
-    hint = vim.my.signs.hint,
+    error = theme.signs.error,
+    warning = theme.signs.warn,
+    info = theme.signs.info,
+    hint = theme.signs.hint,
   },
 })
 
@@ -17,18 +19,19 @@ local colorbuddy = R('colorbuddy')
 -- Highlight helpers
 local Color, colors, Group, groups, styles = colorbuddy.setup()
 -- Set theme
-colorbuddy.colorscheme('onebuddy')
+colorbuddy.colorscheme('onebuddy', vim.o.background == 'light')
 
 local sign_define = function(name, sign)
   vim.cmd(string.format('sign define %s texthl=%s text=%s', name, name, sign))
 end
 
-Color.new('myError', vim.my.colors.error)
-Color.new('myWarn', vim.my.colors.warn)
-Color.new('myInfo', vim.my.colors.info)
-Color.new('myHint', vim.my.colors.hint)
-Color.new('myIgnore', '#CCCCCC')
-Color.new('myShadow', '#282E34')
+Color.new('myError', theme.colors.error)
+Color.new('myWarn', theme.colors.warn)
+Color.new('myInfo', theme.colors.info)
+Color.new('myHint', theme.colors.hint)
+Color.new('myIgnore', theme.colors.ignore)
+Color.new('myShadow', theme.colors.shadow)
+Color.new('myBackground', theme.colors.background)
 
 -- Group.new = function(name, fg, bg, style, guisp, blend)
 -- Spell
@@ -40,7 +43,7 @@ Group.link('SpellLocal', groups.SpellBad)
 -- Spacing/Visual clues
 Group.new('ColorColumn', colors.none, colors.myShadow)
 
-Group.new('NonText', colors.myShadow:light(), colors.none, styles.none)
+Group.new('NonText', colors.myShadow, colors.none, styles.none)
 Group.link('VertSplit', groups.NonText)
 Group.link('Whitespace', groups.NonText)
 Group.link('SpecialKey', groups.NonText)
@@ -61,13 +64,13 @@ Group.link('DiagnosticSignWarn', groups.DiagnosticWarn)
 Group.link('DiagnosticSignInfo', groups.DiagnosticInfo)
 Group.link('DiagnosticSignHint', groups.DiagnosticHint)
 -- Signs/Icons definition
-sign_define('DiagnosticSignError', vim.my.signs.error)
-sign_define('DiagnosticSignWarn', vim.my.signs.warn)
-sign_define('DiagnosticSignInfo', vim.my.signs.info)
-sign_define('DiagnosticSignHint', vim.my.signs.hint)
+sign_define('DiagnosticSignError', theme.signs.error)
+sign_define('DiagnosticSignWarn', theme.signs.warn)
+sign_define('DiagnosticSignInfo', theme.signs.info)
+sign_define('DiagnosticSignHint', theme.signs.hint)
 
 -- Git
-Group.new('GitSignsCurrentLineBlame', colors.myShadow:light(), colors.none, styles.italic)
+Group.new('GitSignsCurrentLineBlame', colors.myShadow, colors.none, styles.italic)
 
 Group.new('GitSignAdd', colors.myHint, colors.none)
 Group.new('GitSignChange', colors.myWarn, colors.none)
@@ -81,5 +84,5 @@ Group.new('GitSignDeleteLineNr', colors.myError:light(), colors.none)
 Group.new('NvimTreeOpenedFile', colors.none, colors.none, styles.undercurl)
 
 -- Treesitter
-Group.new('TSDefinition', colors.none, colors.myShadow:dark())
+Group.new('TSDefinition', colors.none, colors.myShadow)
 Group.link('TSDefinitionUsage', groups.TSDefinition)

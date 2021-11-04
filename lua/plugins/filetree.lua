@@ -1,4 +1,5 @@
 local g = vim.g
+local theme = vim.my.theme
 local keymap = vim.my.utils.keymap
 
 g.nvim_tree_git_hl = 1
@@ -15,10 +16,10 @@ require('nvim-tree').setup({
   diagnostics = {
     enable = true,
     icons = {
-      hint = vim.my.signs.hint,
-      info = vim.my.signs.info,
-      warning = vim.my.signs.warn,
-      error = vim.my.signs.error,
+      hint = theme.signs.hint,
+      info = theme.signs.info,
+      warning = theme.signs.warn,
+      error = theme.signs.error,
     },
   },
   filters = {

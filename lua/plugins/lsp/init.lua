@@ -3,13 +3,14 @@ local installer = R('nvim-lsp-installer')
 local customizations = R('plugins.lsp.customizations')
 local lsp = vim.lsp
 local utils = vim.my.utils
+local theme = vim.my.theme
 
 installer.settings({
   ui = {
     icons = {
-      server_installed = vim.my.signs.info,
-      server_pending = vim.my.signs.warn,
-      server_uninstalled = vim.my.signs.error,
+      server_installed = theme.signs.info,
+      server_pending = theme.signs.warn,
+      server_uninstalled = theme.signs.error,
     },
   },
 })
