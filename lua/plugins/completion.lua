@@ -65,8 +65,8 @@ cmp.setup({
   },
   mapping = {
     ['<c-space>'] = mapping(mapping.complete(), { 'i', 'c' }),
-    ['<c-n>'] = mapping(mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Select }), { 'i', 'c', 's' }),
-    ['<c-p>'] = mapping(mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Select }), { 'i', 'c', 's' }),
+    ['<c-n>'] = mapping(mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Select }), { 'i', 's' }),
+    ['<c-p>'] = mapping(mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Select }), { 'i', 's' }),
     ['<c-y>'] = mapping.confirm({ select = true }),
     ['<cr>'] = mapping.confirm({ select = true }),
     ['<c-e>'] = mapping.abort(),
@@ -78,14 +78,14 @@ cmp.setup({
       else
         cmp.complete()
       end
-    end, { 'i', 'c', 's' }),
+    end, { 'i', 's' }),
     ['<s-tab>'] = mapping(function()
       if snippets.can_jump(-1) then
         return feedkeys('<plug>(snippy-previous)')
       else
         return feedkeys('<s-tab>')
       end
-    end, { 'i', 'c', 's' }),
+    end, { 'i', 's' }),
   },
   snippet = {
     expand = function(args)
