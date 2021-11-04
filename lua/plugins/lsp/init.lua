@@ -1,4 +1,3 @@
-local lspconfig = R('lspconfig')
 local installer = R('nvim-lsp-installer')
 local customizations = R('plugins.lsp.customizations')
 local lsp = vim.lsp
@@ -16,31 +15,29 @@ installer.settings({
 })
 
 vim.my.lsp = {
-  installer = {
-    installAll = function()
-      local languages = {
-        'bashls',
-        'cssls',
-        'diagnosticls',
-        'gopls',
-        'graphql',
-        'html',
-        'jsonls',
-        'solargraph',
-        'sqlls',
-        'sqls',
-        'sumneko_lua',
-        'tailwindcss',
-        'vimls',
-        'vuels',
-        'yamlls',
-      }
+  install_servers = function()
+    local servers = {
+      'bashls',
+      'cssls',
+      'diagnosticls',
+      'gopls',
+      'graphql',
+      'html',
+      'jsonls',
+      'solargraph',
+      'sqlls',
+      'sqls',
+      'sumneko_lua',
+      'tailwindcss',
+      'vimls',
+      'vuels',
+      'yamlls',
+    }
 
-      for _, language in ipairs(languages) do
-        installer.install(language)
-      end
-    end,
-  },
+    for _, server in ipairs(servers) do
+      installer.install(server)
+    end
+  end,
 }
 
 lsp.handlers['textDocument/publishDiagnostics'] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
@@ -86,10 +83,10 @@ local attacher = function(client)
 end
 
 installer.on_server_ready(function(server)
-  server:setup(vim.tbl_extend('keep', customizations[server_name] or {}, {
+  server:setup(vim.tbl_extend('keep', customizations[server.name] or {}, {
     on_attach = attacher,
     capabilities = capabilities,
   }))
 end)
 
-vim.my.utils.command('LspInstallAll lua vim.my.lsp.installer.installAll()')
+vim.my.utils.command('LspInstallServers lua vim.my.lsp.install_servers()')

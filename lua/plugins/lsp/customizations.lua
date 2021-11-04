@@ -1,5 +1,5 @@
 return {
-  lua = {
+  sumneko_lua = {
     settings = {
       Lua = {
         diagnostics = {
