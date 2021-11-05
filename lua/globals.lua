@@ -1,6 +1,15 @@
+local inspect_options = {
+  process = function(item, path)
+    if item == nil then
+      return tostring(item)
+    else
+      return item
+    end
+  end
+}
 -- P = Print with inpect
 P = function(anything)
-  print(vim.inspect(anything))
+  print(vim.inspect(anything, inspect_options))
   return anything
 end
 

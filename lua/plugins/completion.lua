@@ -1,32 +1,9 @@
 local cmp = R('cmp')
-local types = R('cmp.types')
 local mapping = cmp.mapping
-local snippets = R('snippy')
-local fn = vim.fn
+local snippy = R('snippy')
 local api = vim.api
 
-local termcoded = function(key)
-  return api.nvim_replace_termcodes(key, true, true, true)
-end
-
-local feedkeys = function(key, mode)
-  mode = mode or ''
-
-  return fn.feedkeys(termcoded(key), mode)
-end
-
-local check_back_space = function()
-  local col = fn.col('.') - 1
-
-  if col == 0 or fn.getline('.'):sub(col, col):match('%s') then
-    return true
-  else
-    return false
-  end
-end
-
-snippets.setup({
-  snippet_dirs = fn.stdpath('config') .. '/snippets',
+snippy.setup({
   mappings = {
     is = {
       ['<tab>'] = 'expand_or_advance',
@@ -42,9 +19,11 @@ cmp.setup({
   completion = {
     completeopt = 'menuone,noinsert,noselect',
   },
+
   documentation = {
     border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
   },
+
   formatting = {
     format = function(entry, vim_item)
       local icon = require('lspkind').presets.default[vim_item.kind]
@@ -52,7 +31,7 @@ cmp.setup({
 
       vim_item.menu = ({
         buffer = '',
-        snippets = '',
+        snippy = '',
         nvim_lsp = '',
         nvim_lua = '',
         path = 'פּ',
@@ -63,37 +42,30 @@ cmp.setup({
       return vim_item
     end,
   },
+
   mapping = {
-    ['<c-space>'] = mapping(mapping.complete(), { 'i', 'c' }),
-    ['<c-n>'] = mapping(mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Select }), { 'i', 's' }),
-    ['<c-p>'] = mapping(mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Select }), { 'i', 's' }),
-    ['<c-y>'] = mapping.confirm({ select = true }),
-    ['<cr>'] = mapping.confirm({ select = true }),
-    ['<c-e>'] = mapping.abort(),
-    ['<tab>'] = mapping(function()
-      if snippets.can_expand_or_advance() then
-        return feedkeys('<plug>(snippy-expand-or-next)')
-      elseif check_back_space() then
-        return feedkeys('<tab>')
-      else
-        cmp.complete()
-      end
-    end, { 'i', 's' }),
-    ['<s-tab>'] = mapping(function()
-      if snippets.can_jump(-1) then
-        return feedkeys('<plug>(snippy-previous)')
-      else
-        return feedkeys('<s-tab>')
-      end
-    end, { 'i', 's' }),
+    ['<c-n>'] = mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+    ['<c-p>'] = mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+    ['<down>'] = mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+    ['<up>'] = mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+    ['<c-d>'] = mapping.scroll_docs(-4),
+    ['<c-f>'] = mapping.scroll_docs(4),
+    ['<c-space>'] = mapping.complete(),
+    ['<c-e>'] = mapping.close(),
+    ['<cr>'] = mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    }),
   },
+
   snippet = {
     expand = function(args)
-      snippets.expand_snippet(args.body)
+      snippy.expand_snippet(args.body)
     end,
   },
+
   sources = {
-    { name = 'snippy', max_item_count = 5 },
+    { name = 'snippy', keyword_length = 2, max_item_count = 5 },
     { name = 'treesitter', keyword_length = 2, max_item_count = 5 },
     { name = 'nvim_lsp', keyword_length = 2, max_item_count = 3 },
     { name = 'nvim_lua', keyword_length = 2, max_item_count = 3 },

@@ -1,15 +1,17 @@
-extends ruby, ruby-rails, ruby-minitest, ruby-rspec
-
-snippet #f
+snippet f frozen_string_literal
 	# frozen_string_literal: true
+
+snippet r rubocop
+	# rubocop: disable CodeReuse/ActiveRecord
 
 snippet cla
 	class ${1:ClassName}${2}
-		${0:${VISUAL}}
+		${VISUAL}
 	end
 
 snippet defi
 	def initialize${1:(${2})}
+		${VISUAL}
 	end
 
 snippet deb
@@ -20,22 +22,22 @@ snippet pry
 
 snippet def
 	def ${1:name${2:(${3})}}
-		${0:${VISUAL}}
+		${VISUAL}
 	end
 
 snippet do
 	do
-	${0:${VISUAL}}
+		${VISUAL}
 	end
 
 snippet dop
 	do |${1:param}|
-	${0:${VISUAL}}
+		${VISUAL}
 	end
 
 snippet mod
 	module ${1:ModuleName}
-	${0:${VISUAL}}
+		${VISUAL}
 	end
 
 snippet hri
@@ -43,19 +45,16 @@ snippet hri
 
 snippet hr
 	puts '${1:*}' * 80
-	p ${0:${VISUAL}}
+	p ${VISUAL}
 	puts '$1' * 80
 
 snippet if
 	if $1
-		${0:${VISUAL}}
+		${VISUAL}
 	end
 
 snippet JSON
-	JSON.parse(${0:${VISUAL}}${1:, symbolize_names: true})
-
-snippet rubo
-	# rubocop: disable CodeReuse/ActiveRecord
+	JSON.parse(${VISUAL}${1:, symbolize_names: true})
 
 snippet tap
 	tap { |x| p x }
