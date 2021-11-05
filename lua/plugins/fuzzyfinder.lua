@@ -23,6 +23,7 @@ telescope.setup({
       override_generic_sorter = true,
     },
   },
+
   defaults = {
     dynamic_preview_title = true,
     layout_config = {
@@ -58,6 +59,15 @@ telescope.setup({
     selection_caret = '› ',
     set_env = { ['COLORTERM'] = 'truecolor' },
     sorting_strategy = 'ascending',
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case'
+    },
     winblend = 0,
   },
 })
