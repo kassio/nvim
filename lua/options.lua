@@ -6,7 +6,7 @@ opt.backup = false
 opt.cindent = true
 opt.colorcolumn = { 80, 100, 120 }
 opt.complete:remove('t')
-opt.completeopt = { 'menuone', 'noinsert', 'noselect' }
+opt.completeopt = { 'menuone' }
 opt.confirm = true
 opt.copyindent = true
 opt.dictionary = '/usr/share/dict/words'

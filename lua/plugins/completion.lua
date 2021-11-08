@@ -17,7 +17,7 @@ snippy.setup({
 
 cmp.setup({
   completion = {
-    completeopt = 'menuone,noinsert,noselect',
+    completeopt = 'menuone',
   },
 
   documentation = {
@@ -65,11 +65,11 @@ cmp.setup({
   },
 
   sources = {
-    { name = 'snippy', keyword_length = 2, max_item_count = 5 },
-    { name = 'treesitter', keyword_length = 2, max_item_count = 5 },
-    { name = 'nvim_lsp', keyword_length = 2, max_item_count = 3 },
-    { name = 'nvim_lua', keyword_length = 2, max_item_count = 3 },
-    { name = 'buffer', keyword_length = 3, max_item_count = 3, opts = { get_bufnrs = api.nvim_list_bufs } },
+    { name = 'snippy', keyword_length = 2, max_item_count = 6 },
+    { name = 'treesitter', keyword_length = 2, max_item_count = 6 },
+    { name = 'nvim_lsp', keyword_length = 2, max_item_count = 4 },
+    { name = 'nvim_lua', keyword_length = 2, max_item_count = 6 },
+    { name = 'buffer', keyword_length = 3, max_item_count = 5, opts = { get_bufnrs = api.nvim_list_bufs } },
     { name = 'spell', keyword_length = 3, max_item_count = 5 },
     { name = 'path', max_item_count = 10 },
   },
