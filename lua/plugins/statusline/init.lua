@@ -57,8 +57,13 @@ lualine.setup({
       { vim.my.treesitter.gps.location },
     },
     lualine_x = {
-      'fileformat',
-      'encoding',
+      {
+        'fileformat',
+        padding = 0,
+      },
+      {
+        'encoding',
+      }
     },
     lualine_y = { 'diff' },
     lualine_z = {
