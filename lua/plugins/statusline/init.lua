@@ -2,10 +2,17 @@ local lualine = R('lualine')
 local theme = vim.my.theme
 
 local mode = R('plugins.statusline.mode')
-local filename = R('plugins.statusline.filename')
 local bufnr = function()
   return tostring(vim.api.nvim_get_current_buf())
 end
+
+local filename = {
+  'filename',
+  file_status = true,
+  path = 1,
+  shorting_target = 40,
+  symbols = { modified = ' +', readonly = ' -' },
+}
 
 lualine.setup({
   extensions = {
@@ -15,13 +22,22 @@ lualine.setup({
     theme = theme.colorscheme,
     icons_enabled = true,
     section_separators = '',
-    component_separators = '│',
+    component_separators = '',
   },
   sections = {
     lualine_a = { mode },
     lualine_b = {
-      { bufnr },
-      { filename },
+      {
+        bufnr,
+        separator = '│ ',
+      },
+      {
+        'filetype',
+        colored = true,
+        icon_only = true,
+        padding = 0,
+      },
+      filename,
     },
     lualine_c = {
       {
@@ -40,13 +56,13 @@ lualine.setup({
       },
       { vim.my.treesitter.gps.location },
     },
-    lualine_x = { 'diff' },
-    lualine_y = {
-      'encoding',
+    lualine_x = {
       'fileformat',
+      'encoding',
     },
+    lualine_y = { 'diff' },
     lualine_z = {
-      { '[[%3l:%-2c  %L]]' },
+      { '[[%3l:%-3c]]' },
     },
   },
   inactive_sections = {
