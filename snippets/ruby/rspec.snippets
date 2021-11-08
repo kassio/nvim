@@ -2,52 +2,40 @@ snippet bef
 	before do
 		${0:${VISUAL}}
 	end
-
 snippet cont
 	context $1 do
 		${0:${VISUAL}}
 	end
-
 snippet desc
 	describe $1 do
 		${0:${VISUAL}}
 	end
-
 snippet scen
 	scenario $1 do
 		${0:${VISUAL}}
 	end
-
 snippet feat
 	feature $1 do
 		${0:${VISUAL}}
 	end
-
 snippet it
 	it $1 do
 		${0:${VISUAL}}
 	end
-
 snippet itb
 	it { ${0:${VISUAL}} }
-
 snippet exp
 	expect($1).${2:to} $3
-
 snippet expb
 	expect { ${0:${VISUAL}} }.${2:to} $3
-
 snippet expn
 	expect_next_instance_of($1) do |$2|
 		$0
 	end
-
 snippet let
 	let($1) $2
-
 snippet leti
 	let_it_be($1) $2
-
 snippet rspec
 	RSpec.describe $1${2:, type: :model} do
 		$0

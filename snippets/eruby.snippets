@@ -2,25 +2,19 @@ extends html, ruby
 
 snippet e
 	<%= ${0:${VISUAL}} %>
-
 snippet er
 	<% ${0:${VISUAL}} %>
-
 snippet end
 	<% end %>
-
 snippet lt
 	<%= link_to ${0:${VISUAL}} %>
-
 snippet frame
 	<% turbo_frame_tag ${1} do %>
 		${0:${VISUAL}}
 	<% end %>
-
 snippet if
 	<% ${1:if $2} %>
 		${0:${VISUAL}}
 	<% end %>
-
 snippet pa
 	params[:${1:id}]
