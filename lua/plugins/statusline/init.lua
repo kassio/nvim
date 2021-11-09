@@ -5,6 +5,9 @@ local mode = R('plugins.statusline.mode')
 local bufnr = function()
   return tostring(vim.api.nvim_get_current_buf())
 end
+local spacer = function()
+  return ' '
+end
 
 local filename = {
   'filename',
@@ -29,7 +32,11 @@ lualine.setup({
     lualine_b = {
       {
         bufnr,
-        separator = '│ ',
+        separator = '│',
+      },
+      {
+        spacer,
+        padding = 0
       },
       {
         'filetype',
@@ -58,11 +65,17 @@ lualine.setup({
     },
     lualine_x = {
       {
+        'encoding',
+        padding = 0,
+        separator = ' ',
+      },
+      {
         'fileformat',
         padding = 0,
       },
       {
-        'encoding',
+        spacer,
+        padding = 0,
       }
     },
     lualine_y = { 'diff' },
