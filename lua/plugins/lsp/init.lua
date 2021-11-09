@@ -1,44 +1,6 @@
-local installer = R('nvim-lsp-installer')
-local customizations = R('plugins.lsp.customizations')
+local installer = R('plugins.lsp.installer')
 local lsp = vim.lsp
 local utils = vim.my.utils
-local theme = vim.my.theme
-
-installer.settings({
-  ui = {
-    icons = {
-      server_installed = theme.signs.info,
-      server_pending = theme.signs.warn,
-      server_uninstalled = theme.signs.error,
-    },
-  },
-})
-
-vim.my.lsp = {
-  install_servers = function()
-    local servers = {
-      'bashls',
-      'cssls',
-      'diagnosticls',
-      'gopls',
-      'graphql',
-      'html',
-      'jsonls',
-      'solargraph',
-      'sqlls',
-      'sqls',
-      'sumneko_lua',
-      'tailwindcss',
-      'vimls',
-      'vuels',
-      'yamlls',
-    }
-
-    for _, server in ipairs(servers) do
-      installer.install(server)
-    end
-  end,
-}
 
 lsp.handlers['textDocument/publishDiagnostics'] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
   signs = true,
@@ -82,11 +44,10 @@ local attacher = function(client)
   print('LSP: ' .. client.name)
 end
 
-installer.on_server_ready(function(server)
-  server:setup(vim.tbl_extend('keep', customizations[server.name] or {}, {
-    on_attach = attacher,
-    capabilities = capabilities,
-  }))
-end)
+installer.setup(attacher, capabilities)
+
+vim.my.lsp = {
+  install_servers = installer.install
+}
 
 vim.my.utils.command('LspInstallServers lua vim.my.lsp.install_servers()')
