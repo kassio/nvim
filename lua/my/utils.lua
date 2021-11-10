@@ -3,6 +3,18 @@ local cmd = vim.cmd
 local api = vim.api
 local fn = vim.fn
 
+M.str = R('my.utils.str')
+
+M.to_clipboard = function(text, external_clipboard)
+  if #external_clipboard > 0 then
+    fn.setreg('*', text)
+    print(string.format('"%s" copied to system clipboard', text))
+  else
+    fn.setreg('"', text)
+    print(string.format('"%s" copied to clipboard', text))
+  end
+end
+
 M.augroup = function(name, autocmds)
   cmd('augroup ' .. name)
   cmd('autocmd!')
@@ -130,16 +142,6 @@ local ensure_valid_file_flag = function(flag)
     return '%:' .. flag
   else
     return '%:.'
-  end
-end
-
-M.to_clipboard = function(text, external_clipboard)
-  if #external_clipboard > 0 then
-    fn.setreg('*', text)
-    print(string.format('"%s" copied to system clipboard', text))
-  else
-    fn.setreg('"', text)
-    print(string.format('"%s" copied to clipboard', text))
   end
 end
 
