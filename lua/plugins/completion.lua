@@ -3,6 +3,22 @@ local mapping = cmp.mapping
 local snippy = R('snippy')
 local api = vim.api
 
+local default_sources = {
+  snippets = { name = 'snippy', keyword_length = 2, max_item_count = 6 },
+  treesitter = { name = 'treesitter', keyword_length = 2, max_item_count = 6 },
+  lsp = { name = 'nvim_lsp', keyword_length = 2, max_item_count = 4 },
+  lua = { name = 'nvim_lua', keyword_length = 2, max_item_count = 6 },
+  buffer = { name = 'buffer', keyword_length = 3, max_item_count = 5, opts = { get_bufnrs = api.nvim_list_bufs } },
+  spell = { name = 'spell', keyword_length = 3, max_item_count = 5 },
+  path = { name = 'path', max_item_count = 10 },
+}
+
+local sources_for = function(names)
+  return vim.tbl_map(function(name)
+    return default_sources[name]
+  end, names)
+end
+
 snippy.setup({
   mappings = {
     is = {
@@ -64,13 +80,15 @@ cmp.setup({
     end,
   },
 
-  sources = {
-    { name = 'snippy', keyword_length = 2, max_item_count = 6 },
-    { name = 'treesitter', keyword_length = 2, max_item_count = 6 },
-    { name = 'nvim_lsp', keyword_length = 2, max_item_count = 4 },
-    { name = 'nvim_lua', keyword_length = 2, max_item_count = 6 },
-    { name = 'buffer', keyword_length = 3, max_item_count = 5, opts = { get_bufnrs = api.nvim_list_bufs } },
-    { name = 'spell', keyword_length = 3, max_item_count = 5 },
-    { name = 'path', max_item_count = 10 },
-  },
+  sources = sources_for({ 'snippets', 'treesitter', 'lsp', 'lua', 'buffer', 'spell', 'path' }),
 })
+
+vim.my.completion = {
+  buffer = {
+    sources = function(names)
+      cmp.setup.buffer({
+        sources = sources_for(names),
+      })
+    end,
+  },
+}
