@@ -68,10 +68,7 @@ cmp.setup({
     ['<c-f>'] = mapping.scroll_docs(4),
     ['<c-space>'] = mapping.complete(),
     ['<c-e>'] = mapping.close(),
-    ['<cr>'] = mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    }),
+    ['<cr>'] = cmp.mapping.confirm({ select = true }),
   },
 
   snippet = {
