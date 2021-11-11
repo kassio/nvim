@@ -7,9 +7,9 @@ local range_cmd = function(line1, line2, command)
 end
 
 vim.my.completion.buffer.sources({
+  'lsp',
   'snippets',
   'treesitter',
-  'lsp',
   'buffer',
   'spell',
   'path',
