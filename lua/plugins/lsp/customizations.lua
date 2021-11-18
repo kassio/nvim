@@ -1,5 +1,10 @@
+local current_dir = function()
+  return '.'
+end
+
 return {
   sumneko_lua = {
+    root_dir = current_dir,
     settings = {
       Lua = {
         diagnostics = {
@@ -12,11 +17,16 @@ return {
     },
   },
 
+  gopls = {
+    root_dir = current_dir,
+  },
+
   sqlls = {
     cmd = { '$HOME/.asdf/shims/sql-language-server', 'up', '--method', 'stdio' },
   },
 
   solargraph = {
+    root_dir = current_dir,
     settings = {
       solargraph = {
         completion = true,
