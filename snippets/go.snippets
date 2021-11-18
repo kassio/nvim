@@ -1,5 +1,15 @@
-snippet p
-	fmt.Printf("[KBM] ${1:%s}\n", $2)
+snippet pac
+	package ${1:main}
+
+	${2:import "fmt"}
+
+	func main() {
+		$0
+	}
+snippet pf
+	fmt.Printf($1, $2)
+snippet pl
+	fmt.Println($1)
 snippet fun
 	func $1($2) {
 		${0:${VISUAL}}
