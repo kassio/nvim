@@ -39,7 +39,7 @@ local attacher = function(client)
   nmap('<leader>ee', 'vim.lsp.diagnostic.show_line_diagnostics()')
   nmap('<leader>ea', 'vim.lsp.diagnostic.set_loclist()')
 
-  nmap('<leader>FF', 'vim.lsp.buf.formatting()')
+  nmap('<leader>fF', 'vim.lsp.buf.formatting()')
 
   print('LSP: ' .. client.name)
 end
