@@ -37,7 +37,7 @@ local attacher = function(client)
   nmap('K', 'vim.lsp.buf.hover()')
 
   nmap('<leader>ee', 'vim.lsp.diagnostic.show_line_diagnostics()')
-  nmap('<leader>ea', 'vim.lsp.diagnostic.set_loclist()')
+  nmap('<leader>ea', 'vim.my.fuzzyfinder.lsp.document_diagnostics()')
 
   nmap('<leader>fF', 'vim.lsp.buf.formatting()')
 

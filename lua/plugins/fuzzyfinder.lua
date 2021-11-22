@@ -96,6 +96,10 @@ vim.my.fuzzyfinder = {
   dash = function()
     dash.search('!')
   end,
+  lsp = {
+    document_diagnostics = builtin.lsp_document_diagnostics,
+    code_actions = builtin.lsp_code_actions,
+  }
 }
 
 utils.lua_keymap('n', 'f<c-f>', 'vim.my.fuzzyfinder.builtin()')
@@ -108,6 +112,8 @@ utils.lua_keymap('n', 'f<c-t>', 'vim.my.fuzzyfinder.treesitter()')
 utils.lua_keymap('n', 'f<c-k>', 'vim.my.fuzzyfinder.buffers()')
 utils.lua_keymap('n', 'f<c-y>', 'vim.my.fuzzyfinder.live_grep()')
 utils.lua_keymap('n', 'f<c-d>', 'vim.my.fuzzyfinder.dash()')
+
+utils.lua_keymap('n', 'f<c-l>a', 'vim.my.fuzzyfinder.lsp.code_actions()')
 
 utils.lua_keymap('n', '<leader>as', 'vim.my.fuzzyfinder.grep_string()')
 utils.lua_keymap('v', '<leader>as', 'vim.my.fuzzyfinder.grep_selected()')
