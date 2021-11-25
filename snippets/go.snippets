@@ -26,6 +26,14 @@ snippet for
 	for ${1} {
 		${0:${VISUAL}}
 	}
+snippet forr
+	for $1 := range $2 {
+		${0:${VISUAL}}
+	}
+snippet fori
+	for ${1:i} := ${2:0}; $1 < $3; $1${4:++}} {
+		${0:${VISUAL}}
+	}
 snippet sel
 	select {
 	case $1:
