@@ -1,6 +1,6 @@
 local keymap = vim.my.utils.keymap
 local theme = vim.my.theme
-local colorbuddy = R('colorbuddy')
+local colorbuddy = require('colorbuddy')
 local _Color, colors, Group, groups, _styles = colorbuddy.setup()
 
 -- TODO: to be removed on nvim 6.0

@@ -1,4 +1,4 @@
-local gitsigns = R('gitsigns')
+local gitsigns = require('gitsigns')
 local command = vim.my.utils.command
 local cabbrev = vim.my.utils.cabbrev
 

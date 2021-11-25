@@ -1,6 +1,6 @@
-local cmp = R('cmp')
+local cmp = require('cmp')
 local mapping = cmp.mapping
-local snippy = R('snippy')
+local snippy = require('snippy')
 local api = vim.api
 
 local default_sources = {

@@ -1,11 +1,11 @@
 local theme = vim.my.theme
 
 -- Highlight color strings
-R('colorizer').setup()
+require('colorizer').setup()
 -- Fix terminal colors
-R('terminal').setup()
+require('terminal').setup()
 -- Prettier quickfix/location list windows
-R('pqf').setup({
+require('pqf').setup({
   signs = {
     error = theme.signs.error,
     warning = theme.signs.warn,
@@ -15,7 +15,7 @@ R('pqf').setup({
 })
 
 -- Color helpers
-local colorbuddy = R('colorbuddy')
+local colorbuddy = require('colorbuddy')
 -- Highlight helpers
 local Color, colors, Group, groups, styles = colorbuddy.setup()
 -- Set theme

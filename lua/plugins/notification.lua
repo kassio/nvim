@@ -1,4 +1,4 @@
-local notify = R('notify')
+local notify = require('notify')
 local theme = vim.my.theme
 
 require('notify').setup({

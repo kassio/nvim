@@ -1,5 +1,5 @@
 local M = {}
-local utils = R('my.utils')
+local utils = require('my.utils')
 local fn = vim.fn
 
 M.trim = function()

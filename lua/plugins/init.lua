@@ -11,7 +11,7 @@ M.setup = function()
     vim.cmd('qall!')
   end
 
-  vim.my.utils.command("Upgrade lua R('plugins').upgrade()")
+  vim.my.utils.command("Upgrade lua require('plugins').upgrade()")
 end
 
 M.upgrade = function()

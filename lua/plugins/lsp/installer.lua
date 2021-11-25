@@ -1,5 +1,5 @@
-local installer = R('nvim-lsp-installer')
-local customizations = R('plugins.lsp.customizations')
+local installer = require('nvim-lsp-installer')
+local customizations = require('plugins.lsp.customizations')
 local theme = vim.my.theme
 
 local M = {}

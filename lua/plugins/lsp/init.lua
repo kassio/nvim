@@ -1,4 +1,4 @@
-local installer = R('plugins.lsp.installer')
+local installer = require('plugins.lsp.installer')
 local lsp = vim.lsp
 local utils = vim.my.utils
 
@@ -12,7 +12,7 @@ lsp.handlers['textDocument/publishDiagnostics'] = lsp.with(lsp.diagnostic.on_pub
 
 -- Add additional capabilities supported by nvim-cmp
 local protocol = vim.lsp.protocol
-local capabilities = R('cmp_nvim_lsp').update_capabilities(protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').update_capabilities(protocol.make_client_capabilities())
 local completionItem = capabilities.textDocument.completion.completionItem
 completionItem.documentationFormat = { 'markdown', 'plaintext' }
 completionItem.snippetSupport = true

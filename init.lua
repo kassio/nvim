@@ -1,24 +1,24 @@
 require('globals')
 
-R('options') -- vim options
-R('my') -- my plugins
-R('commands')
-R('autocommands')
-R('keymaps')
+require('options') -- vim options
+require('my') -- my plugins
+require('commands')
+require('autocommands')
+require('keymaps')
 
-R('plugins').setup()
-R('plugins.notification')
-R('plugins.highlight')
-R('plugins.tabline')
-R('plugins.git')
-R('plugins.filetree')
-R('plugins.terminal')
-R('plugins.test-runner')
-R('plugins.fuzzyfinder')
-R('plugins.treesitter')
-R('plugins.completion')
-R('plugins.lsp')
-R('plugins.statusline')
+require('plugins').setup()
+require('plugins.notification')
+require('plugins.highlight')
+require('plugins.tabline')
+require('plugins.git')
+require('plugins.filetree')
+require('plugins.terminal')
+require('plugins.test-runner')
+require('plugins.fuzzyfinder')
+require('plugins.treesitter')
+require('plugins.completion')
+require('plugins.lsp')
+require('plugins.statusline')
 
 -- TODO: remove when upgrade to nvim 6
-R('nvim6-fallbacks')
+require('nvim6-fallbacks')

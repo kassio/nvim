@@ -1,7 +1,7 @@
 local command = vim.my.utils.command
-local treesitter = R('nvim-treesitter.configs')
-local spellsitter = R('spellsitter')
-local gps = R('nvim-gps')
+local treesitter = require('nvim-treesitter.configs')
+local spellsitter = require('spellsitter')
+local gps = require('nvim-gps')
 
 -- vim-matchup plugin, uses treesitter
 -- Do not show the not visible matching context on statusline

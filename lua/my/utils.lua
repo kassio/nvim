@@ -3,7 +3,7 @@ local cmd = vim.cmd
 local api = vim.api
 local fn = vim.fn
 
-M.str = R('my.utils.str')
+M.str = require('my.utils.str')
 
 M.to_clipboard = function(text, external_clipboard)
   if #external_clipboard > 0 then
@@ -129,7 +129,7 @@ M.fileicon = function(filetype, filename)
 
   local extension = filetype_extensions[filetype] or fn.fnamemodify(filename, ':e')
 
-  return R('nvim-web-devicons').get_icon(filename, extension, { default = true })
+  return require('nvim-web-devicons').get_icon(filename, extension, { default = true })
 end
 
 local valid_flag = function(flag)

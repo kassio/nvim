@@ -1,7 +1,7 @@
-local telescope = R('telescope')
-local actions = R('telescope.actions')
-local builtin = R('telescope.builtin')
-local dash = R('dash')
+local telescope = require('telescope')
+local actions = require('telescope.actions')
+local builtin = require('telescope.builtin')
+local dash = require('dash')
 
 local utils = vim.my.utils
 
