@@ -77,7 +77,15 @@ cmp.setup({
     end,
   },
 
-  sources = sources_for({ 'snippets', 'treesitter', 'lsp', 'lua', 'buffer', 'spell', 'path' }),
+  sources = sources_for({
+    'snippets',
+    'treesitter',
+    'lsp',
+    'lua',
+    'buffer',
+    'spell',
+    'path',
+  }),
 })
 
 vim.my.completion = {

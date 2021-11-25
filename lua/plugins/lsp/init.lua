@@ -31,15 +31,26 @@ local nmap = function(lhs, rhs)
 end
 
 local attacher = function(client)
-  nmap('gD', 'vim.lsp.buf.declaration()')
-  nmap('gd', 'vim.lsp.buf.definition()')
-  nmap('gr', 'vim.lsp.buf.references()')
+  -- Commands
+  utils.command('LspCodeActions lua vim.lsp.buf.code_action()')
+  utils.command('LspFormat lua vim.lsp.buf.formatting()')
+  utils.command('LspFormatSync lua vim.lsp.buf.formatting_sync()')
+
+  -- Keymaps
+  utils.buf_keymap(0, 'n', 'glR', '<cmd>LspRestart<cr>')
+
+  nmap('glD', 'vim.lsp.buf.declaration()')
+  nmap('gld', 'vim.lsp.buf.definition()')
+  nmap('glr', 'vim.lsp.buf.references()')
+  nmap('glh', 'vim.lsp.buf.hover()')
   nmap('K', 'vim.lsp.buf.hover()')
 
-  nmap('<leader>ee', 'vim.lsp.diagnostic.show_line_diagnostics()')
-  nmap('<leader>ea', 'vim.my.fuzzyfinder.lsp.document_diagnostics()')
+  nmap('gla', 'vim.lsp.buf.code_action()')
 
-  nmap('<leader>fF', 'vim.lsp.buf.formatting()')
+  nmap('glf', 'vim.lsp.buf.formatting()')
+
+  nmap('glee', 'vim.lsp.diagnostic.show_line_diagnostics()')
+  nmap('glea', 'vim.my.fuzzyfinder.lsp.document_diagnostics()')
 
   print('LSP: ' .. client.name)
 end
