@@ -10,11 +10,37 @@ snippet pf
 	fmt.Printf($1, $2)
 snippet pl
 	fmt.Println($1)
+snippet fu
+	func $1($2)$3 {
+		${0:${VISUAL}}
+	}
 snippet fun
 	func $1($2)$3 {
 		${0:${VISUAL}}
 	}
+snippet func
+	func $1($2)$3 {
+		${0:${VISUAL}}
+	}
+snippet for
+	for ${1} {
+		${0:${VISUAL}}
+	}
+snippet if
+	if ${1:err != nil} {
+		${0:${VISUAL}}
+	}
 snippet ife
 	if ${1:err != nil} {
-		$0
+		${0:${VISUAL}}
+	} else {
+		$2
+	}
+snippet str
+	type $1 struct {
+		${0:${VISUAL}}
+	}
+snippet inte
+	type $1 interface {
+		${0:${VISUAL}}
 	}
