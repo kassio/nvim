@@ -36,7 +36,7 @@ lualine.setup({
       },
       {
         spacer,
-        padding = 0
+        padding = 0,
       },
       {
         'filetype',
@@ -76,7 +76,7 @@ lualine.setup({
       {
         spacer,
         padding = 0,
-      }
+      },
     },
     lualine_y = { 'diff' },
     lualine_z = {

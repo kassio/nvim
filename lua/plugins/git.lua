@@ -65,7 +65,6 @@ gitsigns.setup({
   numhl = true,
 })
 
-
 vim.my.git = {
   open_remote_file = function(opts)
     local branch = opts.branch or 'current'
@@ -83,7 +82,7 @@ vim.my.git = {
   blame_line = function()
     gitsigns.blame_line(true)
   end,
-  toggle_blame = gitsigns.toggle_current_line_blame
+  toggle_blame = gitsigns.toggle_current_line_blame,
 }
 
 command('GopenRepository lua vim.my.git.open_repository()')

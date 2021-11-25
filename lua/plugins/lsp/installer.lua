@@ -62,5 +62,4 @@ M.install = function()
   end
 end
 
-
 return M

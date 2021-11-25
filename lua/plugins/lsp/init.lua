@@ -58,7 +58,7 @@ end
 installer.setup(attacher, capabilities)
 
 vim.my.lsp = {
-  install_servers = installer.install
+  install_servers = installer.install,
 }
 
 vim.my.utils.command('LspInstallServers lua vim.my.lsp.install_servers()')

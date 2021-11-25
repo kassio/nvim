@@ -160,8 +160,9 @@ M.load = function()
     config = {
       display = {
         open_fn = require('packer.util').float,
-      }
-    }})
+      },
+    },
+  })
 end
 
 return M

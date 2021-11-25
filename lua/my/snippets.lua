@@ -5,9 +5,7 @@ M.filename = function(case)
   filename = vim.fn.fnamemodify(filename, ':t:r')
 
   if case == 'camelcase' then
-    return filename:
-      gsub("_(.)", filename.upper):
-      gsub("^(.)", filename.upper)
+    return filename:gsub('_(.)', filename.upper):gsub('^(.)', filename.upper)
   else
     return filename
   end

@@ -23,7 +23,7 @@ require('nvim-tree').setup({
     },
   },
   filters = {
-    dotfiles = false
+    dotfiles = false,
   },
   ignore_ft_on_setup = {
     '.git',

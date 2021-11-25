@@ -66,7 +66,7 @@ telescope.setup({
       '--with-filename',
       '--line-number',
       '--column',
-      '--smart-case'
+      '--smart-case',
     },
     winblend = 0,
   },
@@ -99,7 +99,7 @@ vim.my.fuzzyfinder = {
   lsp = {
     document_diagnostics = builtin.lsp_document_diagnostics,
     code_actions = builtin.lsp_code_actions,
-  }
+  },
 }
 
 utils.lua_keymap('n', 'f<c-f>', 'vim.my.fuzzyfinder.builtin()')

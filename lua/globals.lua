@@ -5,7 +5,7 @@ local inspect_options = {
     else
       return item
     end
-  end
+  end,
 }
 -- P = Print with inpect
 P = function(anything)

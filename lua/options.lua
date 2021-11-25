@@ -60,7 +60,7 @@ opt.writebackup = false
 if vim.env.ITERM_PROFILE == 'light' then
   opt.background = 'light'
 else
-  opt.background =  'dark'
+  opt.background = 'dark'
 end
 
 -- Space as map leader

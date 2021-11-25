@@ -15,5 +15,5 @@ vim.my.completion.buffer.sources({
 vim.cmd('Tmap clear; go run %')
 
 vim.my.utils.augroup('user:ftplugin:go', {
-  { 'BufWritePre,FileWritePre', '*.go', 'lua vim.lsp.buf.formatting()' }
+  { 'BufWritePre,FileWritePre', '*.go', 'lua vim.lsp.buf.formatting()' },
 })
