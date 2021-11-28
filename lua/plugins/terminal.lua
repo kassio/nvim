@@ -1,7 +1,18 @@
 local g = vim.g
 local count_nkeymap = function(key, command)
-  vim.my.utils.keymap('n', key, ':<c-u>exec printf("silent ' .. command .. '", v:count)<cr>')
+  vim.my.utils.lua_keymap('n', key, 'vim.my.terminal.numbered_cmd("'..command..'")')
 end
+
+vim.my.terminal = {
+  numbered_cmd = function(cmd)
+    local number = vim.v.count
+    if number == 0 then
+      number = vim.b.neoterm_target or ""
+    end
+
+    vim.cmd(string.format(cmd, number))
+  end
+}
 
 g.neoterm_default_mod = 'botright'
 g.neoterm_automap_keys = '<leader>tm'
