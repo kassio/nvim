@@ -1,25 +1,25 @@
-snippet bef
-	before do
+snippet it
+	${1|it,before,context,describe,scenario,feature|} do
+		${0:${VISUAL}}
+	end
+snippet be
+	${1|before,it,context,describe,scenario,feature|} do
 		${0:${VISUAL}}
 	end
 snippet cont
-	context $1 do
+	${1|context,before,it,describe,scenario,feature|} do
 		${0:${VISUAL}}
 	end
 snippet desc
-	describe $1 do
+	${1|describe,context,before,it,scenario,feature|} do
 		${0:${VISUAL}}
 	end
 snippet scen
-	scenario $1 do
+	${1|scenario,describe,context,before,it,feature|} do
 		${0:${VISUAL}}
 	end
 snippet feat
-	feature $1 do
-		${0:${VISUAL}}
-	end
-snippet it
-	it $1 do
+	${1|feature,scenario,describe,context,before,it|} do
 		${0:${VISUAL}}
 	end
 snippet itb
@@ -33,7 +33,7 @@ snippet expn
 		$0
 	end
 snippet let
-	let($1) $2
+	${1|let,let_it_be|}($2) $3
 snippet leti
 	let_it_be($1) $2
 snippet rspec

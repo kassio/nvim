@@ -49,11 +49,11 @@ snippet ife
 	} else {
 		$2
 	}
-snippet str
-	type $1 struct {
+snippet ty
+	type $1 ${2|struct,interface|} {
 		${0:${VISUAL}}
 	}
-snippet inte
-	type $1 interface {
+snippet type
+	type $1 ${2|struct,interface|} {
 		${0:${VISUAL}}
 	}
