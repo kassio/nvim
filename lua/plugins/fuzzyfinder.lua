@@ -76,31 +76,38 @@ telescope.load_extension('fzf')
 telescope.load_extension('dash')
 
 vim.my.fuzzyfinder = {
-  find_files = function()
-    builtin.find_files({ find_command = { 'files' } })
-  end,
-  git_files = builtin.git_files,
-  grep_string = builtin.grep_string,
-  grep_selected = function()
-    builtin.grep_string({ search = utils.selected_text() })
-  end,
-  live_grep = builtin.live_grep,
   buffers = builtin.buffers,
   current_buffer_fuzzy_find = builtin.current_buffer_fuzzy_find,
+  git_files = builtin.git_files,
+  help_tags = builtin.help_tags,
+  live_grep = builtin.live_grep,
   oldfiles = builtin.oldfiles,
   treesitter = builtin.treesitter,
-  help_tags = builtin.help_tags,
-  builtin = function()
-    builtin.builtin({ previewer = false })
-  end,
-  dash = function()
-    dash.search('!')
-  end,
   lsp = {
     document_diagnostics = builtin.lsp_document_diagnostics,
     code_actions = builtin.lsp_code_actions,
   },
 }
+
+vim.my.fuzzyfinder.find_files = function()
+  builtin.find_files({ find_command = { 'files' } })
+end
+
+vim.my.fuzzyfinder.grep_string = function(opts)
+  builtin.grep_string(vim.tbl_extend('keep', opts, { word_match = '-w', only_sort_text = true }))
+end
+
+vim.my.fuzzyfinder.grep_selected = function()
+  vim.my.fuzzyfinder.grep_string({ search = utils.selected_text() })
+end
+
+vim.my.fuzzyfinder.builtin = function()
+  builtin.builtin({ previewer = false })
+end
+
+vim.my.fuzzyfinder.dash = function()
+  dash.search('!')
+end
 
 utils.lua_keymap('n', 'f<c-f>', 'vim.my.fuzzyfinder.builtin()')
 utils.lua_keymap('n', 'f<c-p>', 'vim.my.fuzzyfinder.find_files()')
