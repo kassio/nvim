@@ -52,6 +52,13 @@ telescope.setup({
         ['<C-p>'] = actions.cycle_history_prev,
         ['<C-u>'] = { '<c-u>', type = 'command' }, -- delete inputted text
       },
+      n = {
+        ['<C-j>'] = actions.move_selection_next,
+        ['<C-k>'] = actions.move_selection_previous,
+        ['<C-n>'] = actions.cycle_history_next,
+        ['<C-p>'] = actions.cycle_history_prev,
+        ['<C-u>'] = { '<c-u>', type = 'command' }, -- delete inputted text
+      },
     },
     path_display = { 'smart' },
     preview_title = '',
