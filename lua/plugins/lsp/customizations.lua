@@ -2,7 +2,6 @@ local util = require'lspconfig.util'
 
 return {
   sumneko_lua = {
-    single_file_support = true,
     root_dir = util.root_pattern('.stylua.toml'),
     settings = {
       Lua = {
@@ -17,17 +16,14 @@ return {
   },
 
   gopls = {
-    single_file_support = true,
     root_dir = util.root_pattern('.git', 'go.mod'),
   },
 
   sqlls = {
-    single_file_support = true,
     cmd = { '$HOME/.asdf/shims/sql-language-server', 'up', '--method', 'stdio' },
   },
 
   solargraph = {
-    single_file_support = true,
     root_dir = util.root_pattern('.git', 'Gemfile'),
     settings = {
       solargraph = {

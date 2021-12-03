@@ -50,6 +50,7 @@ M.setup = function(attacher, capabilities)
 
   installer.on_server_ready(function(server)
     server:setup(vim.tbl_extend('keep', customizations[server.name] or {}, {
+      single_file_support = true,
       on_attach = attacher,
       capabilities = capabilities,
     }))
