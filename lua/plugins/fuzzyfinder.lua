@@ -101,6 +101,7 @@ vim.my.fuzzyfinder.find_files = function()
 end
 
 vim.my.fuzzyfinder.grep_string = function(opts)
+  opts = opts or {}
   builtin.grep_string(vim.tbl_extend('keep', opts, { word_match = '-w', only_sort_text = true }))
 end
 
