@@ -19,6 +19,3 @@ require('plugins.treesitter')
 require('plugins.completion')
 require('plugins.lsp')
 require('plugins.statusline')
-
--- TODO: remove when upgrade to nvim 6
-require('nvim6-fallbacks')
