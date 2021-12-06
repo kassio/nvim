@@ -20,7 +20,16 @@ opt.ignorecase = true
 opt.inccommand = 'nosplit'
 opt.infercase = true
 opt.list = true
-opt.listchars:append({ precedes = '<', extends = '>' })
+opt.listchars = {
+  eol = '↴',
+  extends = '>',
+  lead = '·',
+  multispace = '--',
+  nbsp = '·',
+  precedes = '<',
+  tab = '≫ ',
+  trail = '·',
+}
 opt.mouse = 'a'
 opt.number = true
 opt.numberwidth = 5

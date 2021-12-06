@@ -43,12 +43,13 @@ Group.link('SpellLocal', groups.SpellBad)
 -- Spacing/Visual clues
 Group.new('ColorColumn', colors.none, colors.myShadow)
 
-Group.new('NonText', colors.myShadow, colors.none, styles.none)
-Group.link('VertSplit', groups.NonText)
+Group.new('NonText', colors.myShadow:light(), colors.none, styles.none)
 Group.link('Whitespace', groups.NonText)
-Group.link('SpecialKey', groups.NonText)
-Group.link('SpecialChar', groups.NonText)
-Group.link('EndOfBuffer', groups.NonText)
+
+Group.new('VertSplit', colors.myShadow)
+Group.link('SpecialKey', groups.VertSplit)
+Group.link('SpecialChar', groups.VertSplit)
+Group.link('EndOfBuffer', groups.VertSplit)
 
 Group.new('MatchParen', colors.none, colors.none, styles.bold)
 

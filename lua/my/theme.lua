@@ -14,7 +14,7 @@ local colors = {
     info = '#6699CC',
     hint = '#50A14F',
     ignore = '#CCCCCC',
-    shadow = '#282F34',
+    shadow = '#2E3139',
   },
   light = {
     background = '#fafafa',
