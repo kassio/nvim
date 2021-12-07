@@ -85,6 +85,7 @@ lua_keymap('v', '<leader>g!', 'vim.my.utils.highlight{selected = true, sensitive
 lua_keymap('n', '<leader>ff', 'vim.my.buffers.indent()')
 
 -- delete current buffer
+lua_keymap('n', '<leader>bo', 'vim.my.buffers.only()')
 keymap('n', '<leader>bd', '<cmd>bw!<cr>')
 keymap('n', '<leader>da', '<cmd>bufdo bw!<cr>')
 
