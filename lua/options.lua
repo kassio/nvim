@@ -28,7 +28,7 @@ opt.listchars = {
   nbsp = '·',
   precedes = '<',
   tab = '≫ ',
-  trail = '·',
+  trail = '+',
 }
 opt.mouse = 'a'
 opt.number = true
