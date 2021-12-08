@@ -21,10 +21,6 @@ keymap('o', 'aF', '":normal vaF<cr>"', { expr = true })
 -- disable ex mode
 keymap('n', [[Q]], [[<nop>]])
 
--- reselect after indenting
-keymap('v', '<', '<gv')
-keymap('v', '>', '>gv')
-
 -- use gj/gk by default to better navigation on wrapped lines
 keymap('n', 'j', 'gj')
 keymap('n', 'k', 'gk')
