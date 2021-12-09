@@ -84,13 +84,21 @@ Group.new('GitSignDeleteLineNr', colors.myError:light(), colors.none)
 -- Filetree
 Group.new('NvimTreeOpenedFile', colors.none, colors.none, styles.undercurl)
 
--- Treesitter
-Group.new('TSDefinition', colors.none, colors.myShadow)
-Group.link('TSDefinitionUsage', groups.TSDefinition)
-
 -- Ruby with Treesitter
 Group.link('rubyTSType', groups.rubyconstant)
 Group.link('rubyTSLabel', groups.rubyinstancevariable)
 Group.link('rubyTSSymbol', groups.rubysymbol)
-Group.link('rubyTSVariable', groups.Normal)
 Group.link('rubyTSVariableBuiltin', groups.rubypseudovariable)
+
+-- Go with Treesitter
+Group.link('goTSvariable', groups.TSVariable)
+Group.link('goTSfunction_name', groups.TSfunction)
+Group.link('goTSproperty', groups.TSfunction)
+
+-- Treesitter
+Group.new('TSDefinition', colors.none, colors.myShadow)
+Group.link('TSDefinitionUsage', groups.TSDefinition)
+Group.link('TSTypeBuiltin', groups.Type)
+Group.link('TSVariable', groups.Normal)
+Group.link('TSParameter', groups.Normal)
+Group.link('TSFuncBuiltin', groups.Identifier)
