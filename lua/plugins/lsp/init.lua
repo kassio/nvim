@@ -35,6 +35,7 @@ local attacher = function(client)
   utils.command('LspCodeActions lua vim.lsp.buf.code_action()')
   utils.command('LspFormat lua vim.lsp.buf.formatting()')
   utils.command('LspFormatSync lua vim.lsp.buf.formatting_sync()')
+  utils.command('LspRename lua vim.lsp.buf.rename()')
 
   -- Keymaps
   utils.buf_keymap(0, 'n', 'glR', '<cmd>LspRestart<cr>')
