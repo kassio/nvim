@@ -4,10 +4,10 @@ local g = vim.g
 g['test#strategy'] = 'neoterm'
 g['test#go#gotest#executable'] = 'go test -v'
 
-keymap('n', '<leader>ta', ':TestSuite<cr>')
-keymap('n', '<leader>tf', ':TestFile<cr>')
-keymap('n', '<leader>tc', ':TestNearest<cr>')
-keymap('n', '<leader>tr', ':TestLast<cr>')
+keymap('n', '<leader>ta', ':Tclear | TestSuite<cr>')
+keymap('n', '<leader>tf', ':Tclear | TestFile<cr>')
+keymap('n', '<leader>tc', ':Tclear | TestNearest<cr>')
+keymap('n', '<leader>tr', ':Tclear | TestLast<cr>')
 
 vim.my.test_runner = {
   rspec = function()
