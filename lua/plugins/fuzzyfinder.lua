@@ -80,7 +80,9 @@ vim.my.fuzzyfinder = {
   oldfiles = builtin.oldfiles,
   treesitter = builtin.treesitter,
   lsp = {
-    document_diagnostics = builtin.lsp_document_diagnostics,
+    document_diagnostics = function()
+      builtin.diagnostics({ bufnr = 0 })
+    end,
     code_actions = builtin.lsp_code_actions,
   },
 }

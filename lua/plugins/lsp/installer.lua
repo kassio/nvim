@@ -1,5 +1,7 @@
+local lspconfig = require('lspconfig')
 local installer = require('nvim-lsp-installer')
 local customizations = require('plugins.lsp.customizations')
+local generics = require('plugins.lsp.generics')
 local theme = vim.my.theme
 
 local M = {}
@@ -7,7 +9,6 @@ local M = {}
 M.servers = {
   'bashls',
   'cssls',
-  'diagnosticls',
   'gopls',
   'graphql',
   'html',
@@ -36,6 +37,12 @@ local check_installed = function()
 end
 
 M.setup = function(attacher, capabilities)
+  local default_opts = {
+    single_file_support = true,
+    on_attach = attacher,
+    capabilities = capabilities,
+  }
+
   check_installed()
 
   installer.settings({
@@ -49,12 +56,12 @@ M.setup = function(attacher, capabilities)
   })
 
   installer.on_server_ready(function(server)
-    server:setup(vim.tbl_extend('keep', customizations[server.name] or {}, {
-      single_file_support = true,
-      on_attach = attacher,
-      capabilities = capabilities,
-    }))
+    local config = vim.tbl_extend('keep', customizations[server.name] or {}, default_opts)
+
+    server:setup(vim.tbl_extend('keep', config, lspconfig[server.name]))
   end)
+
+  generics.setup(lspconfig, default_opts)
 end
 
 M.install = function()

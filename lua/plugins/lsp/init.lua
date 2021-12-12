@@ -35,7 +35,9 @@ local attacher = function(client)
   utils.command('LspCodeActions lua vim.lsp.buf.code_action()')
   utils.command('LspFormat lua vim.lsp.buf.formatting()')
   utils.command('LspFormatSync lua vim.lsp.buf.formatting_sync()')
+  utils.command('LspHover lua vim.lsp.buf.hover()')
   utils.command('LspRename lua vim.lsp.buf.rename()')
+  utils.command('LspSignatureHelp lua vim.lsp.buf.signature_help()')
 
   -- Keymaps
   utils.buf_keymap(0, 'n', 'glR', '<cmd>LspRestart<cr>')
@@ -56,10 +58,15 @@ local attacher = function(client)
   print('LSP: ' .. client.name)
 end
 
+-- Configure LSPs installed by installer
 installer.setup(attacher, capabilities)
 
 vim.my.lsp = {
   install_servers = installer.install,
+  format_and_save = function()
+    vim.lsp.buf.formatting()
+    vim.cmd('noautocmd write')
+  end,
 }
 
 vim.my.utils.command('LspInstallServers lua vim.my.lsp.install_servers()')

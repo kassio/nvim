@@ -6,3 +6,7 @@ vim.my.completion.buffer.sources({
   'spell',
   'path',
 })
+
+vim.my.utils.augroup('user:ftplugin:lua', {
+  { 'BufWritePre,FileWritePre', '*.lua', 'lua vim.my.lsp.format_and_save()' },
+})

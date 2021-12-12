@@ -33,7 +33,7 @@ snippy.setup({
 
 cmp.setup({
   completion = {
-    completeopt = 'menuone',
+    completeopt = 'menu,menuone,preview',
   },
 
   documentation = {
@@ -68,7 +68,7 @@ cmp.setup({
     ['<c-f>'] = mapping.scroll_docs(4),
     ['<c-space>'] = mapping.complete(),
     ['<c-e>'] = mapping.close(),
-    ['<cr>'] = cmp.mapping.confirm({ select = true }),
+    ['<cr>'] = cmp.mapping.confirm({ select = false }),
   },
 
   snippet = {
