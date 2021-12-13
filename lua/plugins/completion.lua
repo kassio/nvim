@@ -78,10 +78,9 @@ cmp.setup({
   },
 
   sources = sources_for({
+    'lsp',
     'snippets',
     'treesitter',
-    'lsp',
-    'lua',
     'buffer',
     'spell',
     'path',

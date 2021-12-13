@@ -1,5 +1,6 @@
 vim.my.completion.buffer.sources({
   'lua',
+  'lsp',
   'snippets',
   'treesitter',
   'buffer',

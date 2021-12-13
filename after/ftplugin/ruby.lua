@@ -6,15 +6,6 @@ local range_cmd = function(line1, line2, command)
   end)
 end
 
-vim.my.completion.buffer.sources({
-  'lsp',
-  'snippets',
-  'treesitter',
-  'buffer',
-  'spell',
-  'path',
-})
-
 vim.my.ruby = {
   modernize_hash_symbol_key = function(l1, l2)
     range_cmd(l1, l2, [[s/:\(\w\+\)\s*=>\s*\ze/\1:\ ]])
