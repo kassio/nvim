@@ -83,17 +83,24 @@ vim.my.git = {
     gitsigns.blame_line({ full = true, ignore_whitespace = true })
   end,
   toggle_blame = gitsigns.toggle_current_line_blame,
+  restore = function()
+    vim.cmd('execute "!git restore -- %" | mode')
+  end,
+  diff = function(base)
+    gitsigns.diffthis(base)
+  end,
 }
 
 command('GopenRepository lua vim.my.git.open_repository()')
 command('GopenRemoteFile lua vim.my.git.open_remote_file()')
 command('GopenRemoteFileOnMain lua vim.my.git.open_remote_file({branch = "main"})')
-command('Grt G restore % | mode')
 
-command('GpreviewHunk lua vim.my.git.preview_hunk()<cr>')
-command('Gblame lua vim.my.git.blame_line()<cr>')
-command('GtoggleBlame lua vim.my.git.toggle_blame()<cr>')
+command('-nargs=? Gdiff lua vim.my.git.diff("<args>")')
+command('Gblame lua vim.my.git.blame_line()')
+command('GpreviewHunk lua vim.my.git.preview_hunk()')
+command('GtoggleBlame lua vim.my.git.toggle_blame()')
+
+command('Grt lua vim.my.git.restore()')
 
 cabbrev('GblameFile', 'G blame')
-cabbrev('Gdiff', 'Gdiffsplit')
-cabbrev('Gd', 'leftabove Gvdiffsplit')
+cabbrev('Gd', 'Gdiff')
