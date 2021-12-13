@@ -80,7 +80,7 @@ vim.my.git = {
   open_repository = open_repository,
   preview_hunk = gitsigns.preview_hunk,
   blame_line = function()
-    gitsigns.blame_line(true)
+    gitsigns.blame_line({ full = true, ignore_whitespace = true })
   end,
   toggle_blame = gitsigns.toggle_current_line_blame,
 }

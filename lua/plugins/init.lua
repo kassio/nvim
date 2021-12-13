@@ -89,16 +89,13 @@ M.load = function()
         'neovim/nvim-lspconfig',
         'williamboman/nvim-lsp-installer',
         -- generic LSP for diagnostic, formatting, etc
-        'jose-elias-alvarez/null-ls.nvim'
+        'jose-elias-alvarez/null-ls.nvim',
       })
 
       -- Git
       use({
-        'tpope/vim-fugitive',
-        {
-          'lewis6991/gitsigns.nvim',
-          requires = 'nvim-lua/plenary.nvim',
-        },
+        'lewis6991/gitsigns.nvim',
+        requires = 'nvim-lua/plenary.nvim',
       })
 
       -- Completion
