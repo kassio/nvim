@@ -33,7 +33,7 @@ local sources = {
 
 return {
   setup = function(lspconfig, opts)
-    nls.config({
+    nls.setup({
       diagnostics_format = '[#{c}] #{m} (#{s})',
       sources = sources,
       default_timeout = 20000,
