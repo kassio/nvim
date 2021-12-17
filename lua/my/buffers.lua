@@ -51,4 +51,10 @@ M.fileicon = function()
   return vim.b.fileicon
 end
 
+M.ensure_path_and_write = function()
+  local path = vim.fn.expand('%:h')
+  vim.fn.mkdir(path, 'p')
+  vim.cmd('write!')
+end
+
 return M

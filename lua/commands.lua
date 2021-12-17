@@ -7,6 +7,9 @@ command('Reload lua vim.my.reload()')
 -- trim the file
 command('Trim lua vim.my.buffers.trim()')
 
+-- Ensure path exists and writes the file
+command('Write lua vim.my.buffers.ensure_path_and_write()')
+
 -- copy filename
 command('-bang -nargs=? CopyFilename lua vim.my.utils.copy_filename("<bang>", "<args>")')
 
