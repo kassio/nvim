@@ -1,14 +1,5 @@
 local installer = require('plugins.lsp.installer')
-local lsp = vim.lsp
 local utils = vim.my.utils
-
-lsp.handlers['textDocument/publishDiagnostics'] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
-  signs = true,
-  update_in_insert = true,
-
-  virtual_text = false,
-  underline = false,
-})
 
 -- Add additional capabilities supported by nvim-cmp
 local protocol = vim.lsp.protocol
@@ -51,9 +42,6 @@ local attacher = function(client)
   nmap('gla', 'vim.lsp.buf.code_action()')
 
   nmap('glf', 'vim.lsp.buf.formatting()')
-
-  nmap('glee', 'vim.lsp.diagnostic.show_line_diagnostics()')
-  nmap('glea', 'vim.my.fuzzyfinder.lsp.document_diagnostics()')
 
   print('LSP: ' .. client.name)
 end
