@@ -25,6 +25,11 @@ return {
 
   gopls = {
     root_dir = util.root_pattern('.git', 'go.mod'),
+    settings = {
+      gopls = {
+        gofumpt = true,
+      },
+    },
   },
 
   sqlls = {
