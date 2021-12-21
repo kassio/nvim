@@ -13,6 +13,8 @@ g.nvim_tree_show_icons = {
 }
 
 require('nvim-tree').setup({
+  disable_netrw = true,
+  hijack_netrw = true,
   diagnostics = {
     enable = true,
     icons = {
@@ -23,7 +25,11 @@ require('nvim-tree').setup({
     },
   },
   filters = {
-    dotfiles = false,
+    dotfiles = true,
+  },
+  git = {
+    enable = true,
+    ignore = true,
   },
   ignore_ft_on_setup = {
     '.git',
@@ -37,6 +43,10 @@ require('nvim-tree').setup({
   view = {
     width = 32,
     side = 'right',
+    auto_resize = false,
+    number = false,
+    relativenumber = false,
+    signcolumn = 'yes',
   },
 })
 
