@@ -102,3 +102,6 @@ Group.link('TSTypeBuiltin', groups.Type)
 Group.link('TSVariable', groups.Normal)
 Group.link('TSParameter', groups.Normal)
 Group.link('TSFuncBuiltin', groups.Identifier)
+
+-- zsh
+Group.new('zshQuoted', groups.String, groups.String, styles.bold)
