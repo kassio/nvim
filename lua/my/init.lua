@@ -6,6 +6,12 @@ vim.my.theme = require('my.theme')
 vim.my.utils = require('my.utils')
 vim.my.windows = require('my.windows')
 
+vim.my.postinit = function()
+  if string.match(vim.fn.getcwd(), os.getenv('GOPATH')) then
+    vim.cmd('Tmap go run main.go')
+  end
+end
+
 vim.my.reload = function()
   for p, _ in ipairs(package.loaded) do
     package.loaded[p] = nil
