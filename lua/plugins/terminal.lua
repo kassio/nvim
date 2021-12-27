@@ -1,17 +1,17 @@
 local g = vim.g
 local count_nkeymap = function(key, command)
-  vim.my.utils.lua_keymap('n', key, 'vim.my.terminal.numbered_cmd("'..command..'")')
+  vim.my.utils.lua_keymap('n', key, 'vim.my.terminal.numbered_cmd("' .. command .. '")')
 end
 
 vim.my.terminal = {
   numbered_cmd = function(cmd)
     local number = vim.v.count
     if number == 0 then
-      number = vim.b.neoterm_target or ""
+      number = vim.b.neoterm_target or ''
     end
 
     vim.cmd(string.format(cmd, number))
-  end
+  end,
 }
 
 g.neoterm_default_mod = 'botright'
@@ -23,6 +23,8 @@ g.neoterm_callbacks = {
     vim.cmd('wall')
   end,
 }
+
+vim.my.utils.keymap('n', '<leader>tg', ':Tredo<cr>')
 
 count_nkeymap('<leader>tt', '%sTtoggle')
 count_nkeymap('<leader>vt', 'botright vertical %s Ttoggle')
