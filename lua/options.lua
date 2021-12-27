@@ -21,14 +21,13 @@ opt.inccommand = 'nosplit'
 opt.infercase = true
 opt.list = true
 opt.listchars = {
-  eol = '↴',
   extends = '>',
   lead = '·',
-  multispace = '--',
+  multispace = '++',
   nbsp = '·',
   precedes = '<',
-  tab = '≫ ',
-  trail = '+',
+  tab = '≫·',
+  trail = '·',
 }
 opt.mouse = 'a'
 opt.number = true
