@@ -128,7 +128,7 @@ M.load = function()
       use('andymass/vim-matchup')
 
       -- Test runner
-      use('janko-m/vim-test')
+      use('kassio/vim-test')
 
       -- Colors
       use({
