@@ -73,9 +73,17 @@ lua_keymap('n', 'g!', 'vim.my.utils.highlight{current = true, exclusive = true}'
 lua_keymap('v', 'g!', 'vim.my.utils.highlight{selected = true, exclusive = true}')
 
 -- search current word (sensitive case, exclusive)
-lua_keymap('n', '<leader>g!', 'vim.my.utils.highlight{current = true, sensitive_case = true, exclusive = true}')
+lua_keymap(
+  'n',
+  '<leader>g!',
+  'vim.my.utils.highlight{current = true, sensitive_case = true, exclusive = true}'
+)
 -- search current selection (sensitive case, exclusive)
-lua_keymap('v', '<leader>g!', 'vim.my.utils.highlight{selected = true, sensitive_case = true, exclusive = true}')
+lua_keymap(
+  'v',
+  '<leader>g!',
+  'vim.my.utils.highlight{selected = true, sensitive_case = true, exclusive = true}'
+)
 
 -- indent current buffer
 lua_keymap('n', '<leader>ff', 'vim.my.buffers.indent()')

@@ -3,7 +3,9 @@ local utils = vim.my.utils
 
 -- Add additional capabilities supported by nvim-cmp
 local protocol = vim.lsp.protocol
-local capabilities = require('cmp_nvim_lsp').update_capabilities(protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').update_capabilities(
+  protocol.make_client_capabilities()
+)
 local completionItem = capabilities.textDocument.completion.completionItem
 completionItem.documentationFormat = { 'markdown', 'plaintext' }
 completionItem.snippetSupport = true

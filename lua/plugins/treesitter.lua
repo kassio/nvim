@@ -99,4 +99,6 @@ vim.my.treesitter = {
 }
 
 command('-bang TSGPSLocation lua print(vim.my.treesitter.gps.location())')
-command('-bang TSGPSLocationCopy lua vim.my.utils.to_clipboard(vim.my.treesitter.gps.location(), "<bang>")')
+command(
+  '-bang TSGPSLocationCopy lua vim.my.utils.to_clipboard(vim.my.treesitter.gps.location(), "<bang>")'
+)

@@ -8,7 +8,12 @@ local default_sources = {
   treesitter = { name = 'treesitter', keyword_length = 2, max_item_count = 6 },
   lsp = { name = 'nvim_lsp', keyword_length = 2, max_item_count = 10 },
   lua = { name = 'nvim_lua', keyword_length = 2, max_item_count = 6 },
-  buffer = { name = 'buffer', keyword_length = 3, max_item_count = 5, option = { get_bufnrs = api.nvim_list_bufs } },
+  buffer = {
+    name = 'buffer',
+    keyword_length = 3,
+    max_item_count = 5,
+    option = { get_bufnrs = api.nvim_list_bufs },
+  },
   spell = { name = 'spell', keyword_length = 3, max_item_count = 5 },
   path = { name = 'path', max_item_count = 10 },
 }
