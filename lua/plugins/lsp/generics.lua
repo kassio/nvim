@@ -1,19 +1,19 @@
 local nls = require('null-ls')
-local helper = require('null-ls.helpers')
 local builtin = require('null-ls.builtins')
+local conditionals = require('null-ls.utils').make_conditional_utils()
 
-local conditional_rubocop = helper.conditional(function(utils)
+local conditional_rubocop = function()
   local rubocop = builtin.diagnostics.rubocop
 
-  if utils.root_has_file('Gemfile') then
+  if conditionals.root_has_file('Gemfile') then
     return rubocop.with({
       command = 'bundle',
-      args = { 'exec', 'rubocop', '-f', 'json', '$FILENAME' },
+      args = vim.list_extend({ 'exec', 'rubocop' }, rubocop._opts.args),
     })
   else
     return rubocop
   end
-end)
+end
 
 local sources = {
   -- code actions
