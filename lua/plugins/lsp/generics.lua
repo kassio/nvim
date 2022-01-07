@@ -32,7 +32,7 @@ local sources = {
 }
 
 return {
-  setup = function(lspconfig, opts)
+  setup = function()
     nls.setup({
       diagnostics_format = '[#{c}] #{m} (#{s})',
       sources = sources,
@@ -44,7 +44,5 @@ return {
         use_console = 'sync',
       },
     })
-
-    lspconfig['null-ls'].setup(opts)
   end,
 }

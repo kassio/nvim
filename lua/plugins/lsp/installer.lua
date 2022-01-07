@@ -61,7 +61,7 @@ M.setup = function(attacher, capabilities)
     server:setup(vim.tbl_extend('keep', config, lspconfig[server.name]))
   end)
 
-  generics.setup(lspconfig, default_opts)
+  generics.setup()
 end
 
 M.install = function()
