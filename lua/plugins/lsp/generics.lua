@@ -19,9 +19,6 @@ local sources = {
   -- code actions
   builtin.code_actions.gitsigns,
 
-  -- completions
-  builtin.completion.spell,
-
   -- diagnostics
   builtin.diagnostics.markdownlint,
   builtin.diagnostics.shellcheck,
