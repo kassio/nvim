@@ -8,7 +8,7 @@ snippet end
 	<% end %>
 snippet lt
 	<%= link_to ${0:${VISUAL}} %>
-snippet frame
+snippet tframe
 	<% turbo_frame_tag ${1} do %>
 		${0:${VISUAL}}
 	<% end %>
@@ -16,5 +16,5 @@ snippet if
 	<% ${1:if $2} %>
 		${0:${VISUAL}}
 	<% end %>
-snippet pa
+snippet params
 	params[:${1:id}]

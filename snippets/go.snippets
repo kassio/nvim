@@ -6,18 +6,10 @@ snippet pac
 	func main() {
 		$0
 	}
-snippet pf
+snippet printf
 	fmt.Printf($1, $2)
-snippet pl
+snippet println
 	fmt.Println($1)
-snippet fu
-	func $1($2)$3 {
-		${0:${VISUAL}}
-	}
-snippet fun
-	func $1($2)$3 {
-		${0:${VISUAL}}
-	}
 snippet func
 	func $1($2)$3 {
 		${0:${VISUAL}}
@@ -34,11 +26,11 @@ snippet fori
 	for ${1:i} := ${2:0}; $1 < $3; $1${4:++} {
 		${0:${VISUAL}}
 	}
-snippet gofu
+snippet gofunc
 	go func($2)$3 {
 		${0:${VISUAL}}
 	}()
-snippet sel
+snippet select
 	select {
 	case $1:
 		${0:${VISUAL}}
@@ -52,10 +44,6 @@ snippet ife
 		${0:${VISUAL}}
 	} else {
 		$2
-	}
-snippet ty
-	type $1 ${2|struct,interface|} {
-		${0:${VISUAL}}
 	}
 snippet type
 	type $1 ${2|struct,interface|} {

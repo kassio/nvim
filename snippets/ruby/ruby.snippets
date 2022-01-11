@@ -2,7 +2,7 @@ snippet #f
 	# frozen_string_literal: true
 snippet #r
 	# rubocop: disable CodeReuse/ActiveRecord
-snippet cla
+snippet class
 	class ${1:`v:lua.vim.my.snippets.filename('camelcase')`}${2}
 		${0:$VISUAL}
 	end
@@ -16,7 +16,7 @@ snippet pry
 	binding.pry
 snippet prys "pry shell"
 	binding.pry_shell
-snippet de
+snippet def
 	def ${1:name}
 		${0:$VISUAL}
 	end
