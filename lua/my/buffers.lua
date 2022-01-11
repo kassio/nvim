@@ -24,6 +24,14 @@ M.only = function() -- delete all buffers but current
   end
 end
 
+M.delete_hidden = function() -- delete all hidden buffers
+  for _, buf in ipairs(api.nvim_list_bufs()) do
+    if vim.tbl_isempty(fn.win_findbuf(buf)) and api.nvim_buf_is_valid(buf) then
+      api.nvim_buf_delete(buf, { force = true })
+    end
+  end
+end
+
 M.restore_cursor_position = function()
   if fn.line("'\"") > 0 and fn.line("'\"") <= fn.line('$') then
     vim.cmd('normal! g`"')
@@ -45,15 +53,15 @@ end
 
 M.fileicon = function()
   if not vim.b.fileicon then
-    vim.b.fileicon = vim.my.utils.fileicon(vim.bo.filetype, vim.fn.expand('%:t'))
+    vim.b.fileicon = vim.my.utils.fileicon(vim.bo.filetype, fn.expand('%:t'))
   end
 
   return vim.b.fileicon
 end
 
 M.ensure_path_and_write = function()
-  local path = vim.fn.expand('%:h')
-  vim.fn.mkdir(path, 'p')
+  local path = fn.expand('%:h')
+  fn.mkdir(path, 'p')
   vim.cmd('write!')
 end
 

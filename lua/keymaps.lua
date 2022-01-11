@@ -88,9 +88,13 @@ lua_keymap(
 -- indent current buffer
 lua_keymap('n', '<leader>ff', 'vim.my.buffers.indent()')
 
--- delete current buffer
+-- delete all buffers except current
 lua_keymap('n', '<leader>bo', 'vim.my.buffers.only()')
+-- delete all hidden buffers
+lua_keymap('n', '<leader>dh', 'vim.my.buffers.delete_hidden()')
+-- delete current buffer
 keymap('n', '<leader>bd', '<cmd>bw!<cr>')
+-- delete all buffers
 keymap('n', '<leader>da', '<cmd>bufdo bw!<cr>')
 
 -- close floating windows
