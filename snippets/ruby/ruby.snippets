@@ -1,5 +1,6 @@
 snippet #f
 	# frozen_string_literal: true
+
 snippet #r
 	# rubocop: disable CodeReuse/ActiveRecord
 snippet class
@@ -45,4 +46,6 @@ snippet if
 snippet JSON
 	JSON.parse(${0:$VISUAL}${1:, symbolize_names: true})
 snippet tap
-	tap { |x| p x }
+	tap { |$1| ${2:p $1} }
+snippet then
+	then { |$1| ${2:p $1} }
