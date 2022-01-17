@@ -1,4 +1,22 @@
-local mode = function()
+local M = {}
+
+M.filename = {
+  'filename',
+  file_status = true,
+  path = 1,
+  shorting_target = 30,
+  symbols = { modified = ' +', readonly = ' -' },
+}
+
+M.spacer = function()
+  return ' '
+end
+
+M.bufnr = function()
+  return tostring(vim.api.nvim_get_current_buf())
+end
+
+M.mode = function()
   local mode_map = {
     ['n'] = 'N',
     ['no'] = 'O',
@@ -40,4 +58,4 @@ local mode = function()
   return get_mode()
 end
 
-return mode
+return M

@@ -1,25 +1,12 @@
 local lualine = require('lualine')
 local theme = vim.my.theme
 
-local mode = require('plugins.statusline.mode')
-local bufnr = function()
-  return tostring(vim.api.nvim_get_current_buf())
-end
-local spacer = function()
-  return ' '
-end
-
-local filename = {
-  'filename',
-  file_status = true,
-  path = 1,
-  shorting_target = 40,
-  symbols = { modified = ' +', readonly = ' -' },
-}
+local utils = require('plugins.statusline.utils')
 
 lualine.setup({
   extensions = {
     require('plugins.statusline.extensions.filetree'),
+    require('plugins.statusline.extensions.neoterm'),
   },
   options = {
     theme = theme.colorscheme,
@@ -28,14 +15,14 @@ lualine.setup({
     component_separators = '',
   },
   sections = {
-    lualine_a = { mode },
+    lualine_a = { utils.mode },
     lualine_b = {
       {
-        bufnr,
+        utils.bufnr,
         separator = '│',
       },
       {
-        spacer,
+        utils.spacer,
         padding = 0,
       },
       {
@@ -44,7 +31,7 @@ lualine.setup({
         icon_only = true,
         padding = 0,
       },
-      filename,
+      utils.filename,
     },
     lualine_c = {
       {
@@ -74,7 +61,7 @@ lualine.setup({
         padding = 0,
       },
       {
-        spacer,
+        utils.spacer,
         padding = 0,
       },
     },
@@ -85,8 +72,8 @@ lualine.setup({
   },
   inactive_sections = {
     lualine_a = {},
-    lualine_b = { bufnr },
-    lualine_c = { filename },
+    lualine_b = { utils.bufnr },
+    lualine_c = { utils.filename },
     lualine_x = {},
     lualine_y = {},
     lualine_z = {},

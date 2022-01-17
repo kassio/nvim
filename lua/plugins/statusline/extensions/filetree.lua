@@ -3,6 +3,6 @@ local current_line = function()
 end
 
 return {
-  sections = { lualine_a = { current_line } },
+  sections = { lualine_c = { current_line } },
   filetypes = { 'NvimTree' },
 }
