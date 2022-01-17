@@ -7,6 +7,9 @@ local escaped_file_path = string.gsub(vim.fn.getcwd(), '[/%.]', M.path_replacer)
 
 local notify = function(msg, level)
   vim.notify(msg, level, { title = 'Session Manager' })
+
+  -- Clear command UI
+  vim.cmd('echo')
 end
 
 local info = function(msg)
