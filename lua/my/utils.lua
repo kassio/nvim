@@ -43,8 +43,8 @@ M.keymap = function(mode, lhs, rhs, opts)
   api.nvim_set_keymap(mode, lhs, rhs, keymap_default_opts(opts))
 end
 
-M.lua_keymap = function(mode, lhs, rhs)
-  M.keymap(mode, lhs, ':<c-u>silent lua ' .. rhs .. '<cr>')
+M.lua_keymap = function(mode, lhs, rhs, opts)
+  M.keymap(mode, lhs, ':<c-u>lua ' .. rhs .. '<cr>', opts)
 end
 
 M.buf_keymap = function(buffer, mode, lhs, rhs, opts)
@@ -52,7 +52,7 @@ M.buf_keymap = function(buffer, mode, lhs, rhs, opts)
 end
 
 M.lua_buf_keymap = function(buffer, mode, lhs, rhs)
-  M.buf_keymap(buffer, mode, lhs, ':<c-u>silent lua ' .. rhs .. '<cr>')
+  M.buf_keymap(buffer, mode, lhs, ':<c-u>lua ' .. rhs .. '<cr>')
 end
 
 M.preserve = function(callback)

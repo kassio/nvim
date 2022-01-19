@@ -10,7 +10,7 @@ vim.my.terminal = {
       number = vim.b.neoterm_target or ''
     end
 
-    vim.cmd(string.format(cmd, number))
+    vim.cmd(string.gsub(cmd, '{{target}}', number))
   end,
 }
 
@@ -26,13 +26,13 @@ g.neoterm_callbacks = {
 
 vim.my.utils.keymap('n', '<leader>tg', ':Tredo<cr>')
 
-count_nkeymap('<leader>tt', '%sTtoggle')
-count_nkeymap('<leader>vt', 'botright vertical %s Ttoggle')
-count_nkeymap('<leader>ht', 'botright %s Ttoggle')
-count_nkeymap('<leader>te', '%sT exit')
-count_nkeymap('<leader>tl', '%sTclear')
-count_nkeymap('<leader>tL', '%sTclear!')
-count_nkeymap('<leader>tk', '%sTkill')
+count_nkeymap('<leader>tt', '{{target}}Ttoggle')
+count_nkeymap('<leader>vt', 'botright vertical {{target}} Ttoggle')
+count_nkeymap('<leader>ht', 'botright {{target}} Ttoggle')
+count_nkeymap('<leader>te', '{{target}}T exit')
+count_nkeymap('<leader>tl', '{{target}}Tclear')
+count_nkeymap('<leader>tL', '{{target}}Tclear!')
+count_nkeymap('<leader>tk', '{{target}}Tkill')
 
 local options = {
   'nonumber',
