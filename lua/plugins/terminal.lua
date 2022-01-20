@@ -25,7 +25,8 @@ g.neoterm_callbacks = {
   end,
   before_create_window = function(instance)
     if string.match(instance.mod, 'vert') == nil then
-      g.neoterm_size = 30
+      local height = vim.fn.winheight('.')
+      g.neoterm_size = math.floor(height / 3)
     else
       g.neoterm_size = ''
     end
