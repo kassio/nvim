@@ -18,11 +18,19 @@ g.neoterm_default_mod = 'botright'
 g.neoterm_automap_keys = '<leader>tm'
 g.neoterm_use_relative_path = 1
 g.neoterm_autoscroll = 1
-g.neoterm_size = 30
 g.neoterm_fixedsize = 1
 g.neoterm_callbacks = {
   before_exec = function()
     vim.cmd('wall')
+  end,
+  before_create_window = function(instance)
+    if string.match(instance.mod, 'vert') == nil then
+      g.neoterm_size = 30
+    else
+      g.neoterm_size = ''
+    end
+
+    return instance
   end,
 }
 
