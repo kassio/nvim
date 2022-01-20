@@ -7,13 +7,8 @@ end
 return {
   sections = {
     lualine_a = { utils.mode },
-    lualine_b = {
-      {
-        utils.bufnr,
-        separator = '│',
-      },
-      neoterm_id,
-    },
+    lualine_b = { utils.bufnr },
+    lualine_z = { neoterm_id },
   },
   filetypes = { 'neoterm' },
 }
