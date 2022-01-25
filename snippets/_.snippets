@@ -1,8 +1,8 @@
 snippet #!
-	#!/usr/bin/env ${1:bash}
+	#!/usr/bin/env ${1|bash,zsh,ruby|}
 
 snippet vim
-	# vim:${1:ft=zsh}:
+	# vim:${1:ft=${2:zsh}}:
 
 snippet fname
 	${1:`v:lua.vim.my.snippets.filename()`}${2}
