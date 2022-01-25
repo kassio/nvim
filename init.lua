@@ -8,6 +8,7 @@ require('keymaps')
 require('diagnostic')
 
 require('plugins').setup()
+require('plugins.projections')
 require('plugins.notification')
 require('plugins.highlight')
 require('plugins.tabline')
