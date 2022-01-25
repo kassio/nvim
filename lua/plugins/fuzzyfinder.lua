@@ -41,6 +41,8 @@ telescope.setup({
         ['<C-n>'] = actions.cycle_history_next,
         ['<C-p>'] = actions.cycle_history_prev,
         ['<C-u>'] = { '<c-u>', type = 'command' }, -- delete inputted text
+        ['<C-a>'] = { '<home>', type = 'command' }, -- move cursor to the beginning of input
+        ['<C-e>'] = { '<end>', type = 'command' }, -- move cursor to the end of input
       },
       n = {
         ['<C-j>'] = actions.move_selection_next,
@@ -48,6 +50,8 @@ telescope.setup({
         ['<C-n>'] = actions.cycle_history_next,
         ['<C-p>'] = actions.cycle_history_prev,
         ['<C-u>'] = { '<c-u>', type = 'command' }, -- delete inputted text
+        ['<C-a>'] = { '<home>', type = 'command' }, -- move cursor to the beginning of input
+        ['<C-e>'] = { '<end>', type = 'command' }, -- move cursor to the end of input
       },
     },
     path_display = { 'smart' },
