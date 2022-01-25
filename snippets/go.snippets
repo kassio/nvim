@@ -1,5 +1,5 @@
 snippet package
-	package ${1:`v:lua.vim.my.snippets.expand('%:.:h:t')`}
+	package ${1:`v:lua.vim.my.snippets.expand('%:.:h:t', 'main')`}
 
 	${2:import "fmt"}
 
