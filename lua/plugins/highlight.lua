@@ -51,6 +51,7 @@ Group.link('SpecialKey', groups.VertSplit)
 Group.link('SpecialChar', groups.VertSplit)
 Group.link('EndOfBuffer', groups.VertSplit)
 
+-- matching parantheses/blocks marks
 Group.new('MatchParen', colors.none, colors.none, styles.bold)
 
 -- Diagnostics (vim.diagnostic)
@@ -69,6 +70,9 @@ sign_define('DiagnosticSignError', theme.signs.error)
 sign_define('DiagnosticSignWarn', theme.signs.warn)
 sign_define('DiagnosticSignInfo', theme.signs.info)
 sign_define('DiagnosticSignHint', theme.signs.hint)
+
+-- Default special string
+Group.new('TSStringSpecial', groups.TSString, groups.TSSTring, styles.bold)
 
 -- Git
 Group.new('GitSignsCurrentLineBlame', colors.myShadow, colors.none, styles.italic)
