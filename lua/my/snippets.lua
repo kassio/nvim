@@ -11,4 +11,8 @@ M.filename = function(case)
   end
 end
 
+M.expand = function(fmt)
+  return vim.fn.expand(fmt)
+end
+
 return M
