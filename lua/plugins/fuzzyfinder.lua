@@ -1,136 +1,64 @@
-local telescope = require('telescope')
-local actions = require('telescope.actions')
-local builtin = require('telescope.builtin')
-
 local utils = vim.my.utils
 
-telescope.setup({
-  extensions = {
-    fzf = {
-      case_mode = 'smart_case',
-      fuzzy = true,
-      override_file_sorter = true,
-      override_generic_sorter = true,
-    },
-  },
-
-  defaults = {
-    dynamic_preview_title = true,
-    layout_config = {
-      prompt_position = 'top',
-      flex = {
-        flip_columns = 250,
-        flip_lines = 50,
-        vertical = {
-          height = 0.99,
-          width = 0.7,
-          mirror = true,
-        },
-        horizontal = {
-          height = 0.99,
-          width = 0.99,
-          mirror = false,
-        },
-      },
-    },
-    layout_strategy = 'flex',
-    mappings = {
-      i = {
-        ['<C-j>'] = actions.move_selection_next,
-        ['<C-k>'] = actions.move_selection_previous,
-        ['<C-n>'] = actions.cycle_history_next,
-        ['<C-p>'] = actions.cycle_history_prev,
-        ['<C-u>'] = { '<c-u>', type = 'command' }, -- delete inputted text
-        ['<C-a>'] = { '<home>', type = 'command' }, -- move cursor to the beginning of input
-        ['<C-e>'] = { '<end>', type = 'command' }, -- move cursor to the end of input
-      },
-      n = {
-        ['<C-j>'] = actions.move_selection_next,
-        ['<C-k>'] = actions.move_selection_previous,
-        ['<C-n>'] = actions.cycle_history_next,
-        ['<C-p>'] = actions.cycle_history_prev,
-        ['<C-u>'] = { '<c-u>', type = 'command' }, -- delete inputted text
-        ['<C-a>'] = { '<home>', type = 'command' }, -- move cursor to the beginning of input
-        ['<C-e>'] = { '<end>', type = 'command' }, -- move cursor to the end of input
-      },
-    },
-    path_display = { 'smart' },
-    preview_title = '',
-    prompt_prefix = '› ',
-    selection_caret = '› ',
-    set_env = { ['COLORTERM'] = 'truecolor' },
-    sorting_strategy = 'ascending',
-    vimgrep_arguments = {
-      'rg',
-      '--color=never',
-      '--no-heading',
-      '--with-filename',
-      '--line-number',
-      '--column',
-      '--smart-case',
-    },
-    winblend = 0,
-  },
-})
-
-telescope.load_extension('fzf')
-
-vim.my.fuzzyfinder = {
-  buffers = builtin.buffers,
-  current_buffer_fuzzy_find = builtin.current_buffer_fuzzy_find,
-  git_files = builtin.git_files,
-  help_tags = builtin.help_tags,
-  live_grep = builtin.live_grep,
-  oldfiles = builtin.oldfiles,
-  treesitter = builtin.treesitter,
-  lsp = {
-    document_diagnostics = function()
-      builtin.diagnostics({ bufnr = 0 })
-    end,
-    code_actions = builtin.lsp_code_actions,
-  },
+vim.g.fzf_history_dir = '~/.fzf-history'
+vim.g.fzf_buffers_jump = 1
+vim.g.fzf_action = {
+  ['ctrl-t'] = 'tab split',
+  ['ctrl-x'] = 'split',
+  ['ctrl-v'] = 'vsplit',
 }
 
-vim.my.fuzzyfinder.find_files = function()
-  builtin.find_files({ find_command = { 'files' } })
+local cmd_keymap = function(mode, map, cmd)
+  utils.keymap(mode, map, '<cmd>' .. cmd .. '<cr>')
 end
 
-vim.my.fuzzyfinder.grep_string = function(opts)
-  opts = opts or {}
-  builtin.grep_string(vim.tbl_extend('keep', opts, { word_match = '-w', only_sort_text = true }))
+local oldfiles_list = function()
+  local ignore = { 'fugitive:', '^/tmp', '^/private/tmp', '.git$', 'term:' }
+  local files = vim.deepcopy(vim.v['oldfiles'] or {})
+
+  return vim.tbl_filter(function(filename)
+    local include = true
+    for _, pattern in ipairs(ignore) do
+      if string.find(filename, pattern) ~= nil then
+        include = false
+        break
+      end
+    end
+
+    return include
+  end, files)
 end
 
-vim.my.fuzzyfinder.grep_selected = function()
-  vim.my.fuzzyfinder.grep_string({ search = utils.selected_text() })
+local M = {}
+M.oldfiles = function()
+  vim.fn['fzf#run'](vim.fn['fzf#wrap']('MRU', { source = oldfiles_list() }))
 end
 
-vim.my.fuzzyfinder.builtin = function()
-  builtin.builtin({ previewer = false })
+M.grep_selected = function()
+  vim.cmd('Rg ' .. utils.selected_text())
 end
 
-utils.lua_keymap('n', 'f<c-f>', 'vim.my.fuzzyfinder.builtin()')
-utils.lua_keymap('n', 'f<c-p>', 'vim.my.fuzzyfinder.find_files()')
-utils.lua_keymap('n', 'f<c-g>', 'vim.my.fuzzyfinder.git_files()')
+M.grep_string = function()
+  vim.cmd('Rg ' .. vim.fn.expand('<cword>'))
+end
+
+vim.my.fuzzyfinder = M
+
+cmd_keymap('n', 'f<c-p>', 'Files')
+cmd_keymap('n', 'f<c-g>', 'GFiles')
+cmd_keymap('n', 'f<c-o>', 'History')
+cmd_keymap('n', 'f<c-h>', 'Helptags')
+cmd_keymap('n', 'f<c-n>', 'BLines')
+cmd_keymap('n', 'f<c-k>', 'Buffers')
+cmd_keymap('n', 'f<c-y>', 'Rg')
+
 utils.lua_keymap('n', 'f<c-o>', 'vim.my.fuzzyfinder.oldfiles()')
-utils.lua_keymap('n', 'f<c-h>', 'vim.my.fuzzyfinder.help_tags()')
-utils.lua_keymap('n', 'f<c-n>', 'vim.my.fuzzyfinder.current_buffer_fuzzy_find()')
-utils.lua_keymap('n', 'f<c-t>', 'vim.my.fuzzyfinder.treesitter()')
-utils.lua_keymap('n', 'f<c-k>', 'vim.my.fuzzyfinder.buffers()')
-utils.lua_keymap('n', 'f<c-y>', 'vim.my.fuzzyfinder.live_grep()')
-
-utils.lua_keymap('n', 'f<c-l>a', 'vim.my.fuzzyfinder.lsp.code_actions()')
-
+utils.lua_keymap('n', '<leader>as', 'vim.my.fuzzyfinder.grep_selected()')
 utils.lua_keymap('n', '<leader>as', 'vim.my.fuzzyfinder.grep_string()')
-utils.lua_keymap('v', '<leader>as', 'vim.my.fuzzyfinder.grep_selected()')
-
-utils.command(string.format(
-  '-nargs=1 Grep lua vim.my.fuzzyfinder.grep_string(%s)',
-  vim.inspect({
-    search = '<args>',
-    prompt_title = 'Searching: "<args>"',
-  }, { newline = '', indent = '' })
-))
+utils.lua_keymap('v', '<leader>as', 'vim.my.fuzzyfinder.grep_string()')
 
 utils.augroup('user:fuzzyfinder', {
-  { 'User', 'TelescopePreviewerLoaded', 'setlocal wrap number numberwidth=5' },
+  { 'FileType', 'fzf', 'noremap <silent><buffer><nowait> <esc> :<c-u>quit!<cr>' },
+  { 'FileType', 'fzf', 'set signcolumn=no' },
+  { 'BufLeave', 'fzf', 'q!' },
 })
