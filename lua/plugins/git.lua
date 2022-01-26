@@ -1,57 +1,57 @@
 local gitsigns = require('gitsigns')
-local command = vim.my.utils.command
-local cabbrev = vim.my.utils.cabbrev
-
-local git = function(args, callback)
-  vim.fn.jobstart('git ' .. args, {
-    stdout_buffered = true,
-    on_stdout = function(_, data)
-      callback(data[1])
-    end,
-  })
-end
+local fn = vim.fn
+local utils = vim.my.utils
+local command = utils.command
+local cabbrev = utils.cabbrev
 
 local open = function(url)
-  vim.fn.jobstart({ 'open', url })
+  fn.jobstart({ 'open', url })
 end
 
-local open_repository = function()
+local git = function(args, callback)
+  local output = vim.trim(fn.system('git ' .. args .. ' 2>/dev/null'))
+
+  if callback ~= nil then
+    return callback(output)
+  else
+    return output
+  end
+end
+
+local GIT = {}
+
+GIT.get_repository_url = function()
   return git('remote get-url origin', function(url)
     url = string.gsub(url, '^git@', 'https://')
     url = string.gsub(url, '%.git$', '')
 
-    open(url)
+    return url
   end)
 end
 
-local open_remote_file = function(ref, file, line)
-  git('remote get-url origin', function(url)
-    url = string.gsub(url, '^git@', 'https://')
-    url = string.gsub(url, '%.git$', '')
+-- Tries to get git ref for the given file/line
+--   If not found return the main branch
+-- Also returns the main branch if the third parameter is true
+GIT.get_ref = function(file, line, use_main)
+  if not use_main then
+    local pathspec = string.format('-L "%s,%s:%s"', line, line, file)
+    local cmd = string.format('log -1 --no-patch --pretty=format:"%%H" %s', pathspec)
 
-    url = string.format('%s/blob/%s/%s#L%s', url, ref, file, line)
+    local ref = git(cmd)
 
-    open(url)
-  end)
-end
-
-local open_main = function(file, line)
-  git('branch-main', function(ref)
-    open_remote_file(ref, file, line)
-  end)
-end
-
-local open_ref = function(file, line)
-  local pathspec = string.format('-L %s,%s:%s', line, line, file)
-  local cmd = string.format('log --no-patch --pretty=format:"%%H" %s', pathspec)
-
-  git(cmd, function(ref)
     if ref ~= '' then
-      open_remote_file(ref, file, line)
-    else
-      open_main(file, line)
+      return ref
     end
-  end)
+  end
+
+  return git('branch-main')
+end
+
+GIT.get_remote_url = function(file, line, use_main)
+  local ref = GIT.get_ref(file, line, use_main)
+  local repository_url = GIT.get_repository_url()
+
+  return string.format('%s/blob/%s/%s#L%s', repository_url, ref, file, line)
 end
 
 gitsigns.setup({
@@ -67,17 +67,24 @@ gitsigns.setup({
 
 vim.my.git = {
   open_remote_file = function(opts)
-    local branch = opts.branch or 'current'
-    local file = vim.fn.expand('%:.')
-    local line = vim.fn.line('.')
+    opts = opts or {}
+    local use_main = opts.branch == 'main'
+    local file = fn.expand('%:.')
+    local line = fn.line('.')
 
-    if branch == 'main' then
-      open_main(file, line)
-    else
-      open_ref(file, line)
-    end
+    open(GIT.get_remote_url(file, line, use_main))
   end,
-  open_repository = open_repository,
+  copy_remote_file = function(opts)
+    opts = opts or {}
+    local use_main = opts.branch == 'main'
+    local file = fn.expand('%:.')
+    local line = fn.line('.')
+
+    utils.to_clipboard(GIT.get_remote_url(file, line, use_main), opts.clipboard)
+  end,
+  open_repository = function()
+    open(GIT.get_repository_url())
+  end,
   preview_hunk = gitsigns.preview_hunk,
   blame_line = function()
     gitsigns.blame_line({ full = true, ignore_whitespace = true })
@@ -92,8 +99,17 @@ vim.my.git = {
 }
 
 command('GopenRepository lua vim.my.git.open_repository()')
-command('GopenRemoteFile lua vim.my.git.open_remote_file()')
-command('GopenRemoteFileOnMain lua vim.my.git.open_remote_file({branch = "main"})')
+command(vim.fn.join({
+  '-nargs=?',
+  'GopenFileRemoteUrl',
+  'lua vim.my.git.open_remote_file({ref = "<args>"})',
+}))
+command(vim.fn.join({
+  '-bang',
+  '-nargs=?',
+  'GcopyFileRemoteURL',
+  'lua vim.my.git.copy_remote_file({ref = "<args>", clipboard = "<bang>"})',
+}))
 
 command('-nargs=? Gdiff lua vim.my.git.diff("<args>")')
 command('Gblame lua vim.my.git.blame_line()')
