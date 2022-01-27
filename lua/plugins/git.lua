@@ -62,6 +62,9 @@ gitsigns.setup({
     topdelete = { hl = 'GitSignDelete', numhl = 'GitSignDeleteLineNr', text = '‾' },
     changedelete = { hl = 'GitSignDelete', numhl = 'GitSignDeleteLineNr', text = '│' },
   },
+  diff_opts = {
+    vertical = true,
+  },
   numhl = true,
 })
 
