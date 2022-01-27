@@ -2,6 +2,15 @@ local utils = vim.my.utils
 
 vim.g.fzf_history_dir = '~/.fzf-history'
 vim.g.fzf_buffers_jump = 1
+vim.g.fzf_layout = {
+  window = {
+    width = 0.8,
+    height = 0.7,
+    relative = true,
+    yoffset = 0,
+    border = 'rounded',
+  },
+}
 vim.g.fzf_action = {
   ['ctrl-t'] = 'tab split',
   ['ctrl-x'] = 'split',
