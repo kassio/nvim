@@ -4,13 +4,14 @@ vim.g.fzf_history_dir = '~/.fzf-history'
 vim.g.fzf_buffers_jump = 1
 vim.g.fzf_layout = {
   window = {
-    width = 0.8,
+    width = 0.95,
     height = 0.7,
     relative = false,
     yoffset = 0,
     border = 'rounded',
   },
 }
+vim.g.fzf_preview_window = { 'right:60%', 'ctrl-/' }
 vim.g.fzf_action = {
   ['ctrl-t'] = 'tab split',
   ['ctrl-x'] = 'split',
@@ -54,11 +55,14 @@ end
 vim.my.fuzzyfinder = M
 
 cmd_keymap('n', 'f<c-p>', 'Files')
+cmd_keymap('n', 'f<c-f>', 'Files')
 cmd_keymap('n', 'f<c-g>', 'GFiles')
 cmd_keymap('n', 'f<c-o>', 'History')
 cmd_keymap('n', 'f<c-h>', 'Helptags')
 cmd_keymap('n', 'f<c-n>', 'BLines')
 cmd_keymap('n', 'f<c-k>', 'Buffers')
+cmd_keymap('n', 'f<c-n>', 'Commands')
+cmd_keymap('n', 'f<c-m>', 'Maps')
 cmd_keymap('n', 'f<c-y>', 'Rg')
 
 utils.lua_keymap('n', 'f<c-o>', 'vim.my.fuzzyfinder.oldfiles()')
