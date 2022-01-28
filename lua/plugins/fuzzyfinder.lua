@@ -40,26 +40,22 @@ local oldfiles_list = function()
   end, files)
 end
 
-local M = {}
-M.oldfiles = function()
-  vim.fn['fzf#run'](vim.fn['fzf#wrap']('MRU', { source = oldfiles_list() }))
-end
+vim.my.fuzzyfinder = {
+  oldfiles = function()
+    vim.fn['fzf#run'](vim.fn['fzf#wrap']('MRU', { source = oldfiles_list() }))
+  end,
+  grep_selected = function()
+    vim.cmd('Rg ' .. utils.selected_text())
+  end,
+  grep_string = function()
+    vim.cmd('Rg ' .. vim.fn.expand('<cword>'))
+  end,
+  highlights = function()
+    local text = vim.api.nvim_exec('highlight', true)
 
-M.grep_selected = function()
-  vim.cmd('Rg ' .. utils.selected_text())
-end
-
-M.grep_string = function()
-  vim.cmd('Rg ' .. vim.fn.expand('<cword>'))
-end
-
-M.highlights = function()
-  local text = vim.api.nvim_exec('highlight', true)
-
-  vim.fn['fzf#run'](vim.fn['fzf#wrap']({ source = vim.split(text, '\n') }))
-end
-
-vim.my.fuzzyfinder = M
+    vim.fn['fzf#run'](vim.fn['fzf#wrap']('Highlights', { source = vim.split(text, '\n') }))
+  end,
+}
 
 cmd_keymap('n', 'f<c-p>', 'FuzzyFiles')
 cmd_keymap('n', 'f<c-i>', 'FuzzyGFiles')
