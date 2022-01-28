@@ -24,12 +24,16 @@ local cmd_keymap = function(mode, map, cmd)
   utils.keymap(mode, map, '<cmd>' .. cmd .. '<cr>')
 end
 
+local fuzzy_grep = function(text)
+  vim.cmd('FuzzyRg ' .. text)
+end
+
 vim.my.fuzzyfinder = {
   grep_selected = function()
-    vim.cmd('Rg ' .. utils.selected_text())
+    fuzzy_grep(utils.selected_text())
   end,
   grep_string = function()
-    vim.cmd('Rg ' .. vim.fn.expand('<cword>'))
+    fuzzy_grep(vim.fn.expand('<cword>'))
   end,
   highlights = function()
     local text = vim.api.nvim_exec('highlight', true)
