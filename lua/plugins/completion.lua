@@ -37,10 +37,6 @@ snippy.setup({
 })
 
 cmp.setup({
-  completion = {
-    completeopt = 'menu,menuone,preview',
-  },
-
   documentation = {
     border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
   },
