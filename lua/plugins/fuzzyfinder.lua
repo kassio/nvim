@@ -6,7 +6,7 @@ vim.g.fzf_layout = {
   window = {
     width = 0.8,
     height = 0.7,
-    relative = true,
+    relative = false,
     yoffset = 0,
     border = 'rounded',
   },
