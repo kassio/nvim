@@ -1,5 +1,6 @@
 local utils = vim.my.utils
 
+vim.g.fzf_command_prefix = 'Fuzzy'
 vim.g.fzf_history_dir = '~/.fzf-history'
 vim.g.fzf_buffers_jump = 1
 vim.g.fzf_layout = {
@@ -54,16 +55,16 @@ end
 
 vim.my.fuzzyfinder = M
 
-cmd_keymap('n', 'f<c-p>', 'Files')
-cmd_keymap('n', 'f<c-f>', 'Files')
-cmd_keymap('n', 'f<c-g>', 'GFiles')
-cmd_keymap('n', 'f<c-o>', 'History')
-cmd_keymap('n', 'f<c-h>', 'Helptags')
-cmd_keymap('n', 'f<c-n>', 'BLines')
-cmd_keymap('n', 'f<c-k>', 'Buffers')
-cmd_keymap('n', 'f<c-n>', 'Commands')
-cmd_keymap('n', 'f<c-m>', 'Maps')
-cmd_keymap('n', 'f<c-y>', 'Rg')
+cmd_keymap('n', 'f<c-p>', 'FuzzyFiles')
+cmd_keymap('n', 'f<c-f>', 'FuzzyFiles')
+cmd_keymap('n', 'f<c-g>', 'FuzzyGFiles')
+cmd_keymap('n', 'f<c-o>', 'FuzzyHistory')
+cmd_keymap('n', 'f<c-h>', 'FuzzyHelptags')
+cmd_keymap('n', 'f<c-n>', 'FuzzyBLines')
+cmd_keymap('n', 'f<c-k>', 'FuzzyBuffers')
+cmd_keymap('n', 'f<c-n>', 'FuzzyCommands')
+cmd_keymap('n', 'f<c-m>', 'FuzzyMaps')
+cmd_keymap('n', 'f<c-y>', 'FuzzyRg')
 
 utils.lua_keymap('n', 'f<c-o>', 'vim.my.fuzzyfinder.oldfiles()')
 utils.lua_keymap('n', '<leader>as', 'vim.my.fuzzyfinder.grep_selected()')
