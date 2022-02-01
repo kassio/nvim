@@ -8,7 +8,7 @@ require('keymaps')
 require('diagnostic')
 
 require('plugins').setup()
-require('plugins.projections')
+require('plugins.projection')
 require('plugins.notification')
 require('plugins.highlight')
 require('plugins.tabline')
@@ -21,3 +21,7 @@ require('plugins.treesitter')
 require('plugins.completion')
 require('plugins.lsp')
 require('plugins.statusline')
+
+-- fix terminal colors
+-- Have to be called here to avoid conflict with my configs
+require('terminal').setup()
