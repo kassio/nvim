@@ -43,7 +43,7 @@ M.load = function()
       use('wsdjeg/vim-fetch')
 
       -- Comment management
-      use('tpope/vim-commentary')
+      use('numToStr/Comment.nvim')
 
       -- Replace variantions of a word
       use('tpope/vim-abolish')
