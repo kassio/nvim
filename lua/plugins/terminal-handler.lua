@@ -1,3 +1,7 @@
+-- fix terminal colors
+-- Have to be called here to avoid conflict with my configs
+require('terminal').setup()
+
 local g = vim.g
 local count_nkeymap = function(key, command)
   vim.my.utils.lua_keymap('n', key, 'vim.my.terminal.numbered_cmd("' .. command .. '")')

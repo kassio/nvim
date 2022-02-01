@@ -2,8 +2,6 @@ local theme = vim.my.theme
 
 -- Highlight color strings
 require('colorizer').setup()
--- Fix terminal colors
-require('terminal').setup()
 -- Prettier quickfix/location list windows
 require('pqf').setup({
   signs = {
