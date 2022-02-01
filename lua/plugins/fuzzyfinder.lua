@@ -1,4 +1,5 @@
 local g = vim.g
+local fn = vim.fn
 local utils = vim.my.utils
 
 g.fzf_command_prefix = 'Fuzzy'
@@ -29,16 +30,28 @@ local fuzzy_grep = function(text)
 end
 
 vim.my.fuzzyfinder = {
+  buffer_lines = function()
+    local cmd = string.format(
+      'rg --with-filename --column --line-number --no-heading --smart-case . %s',
+      fn.fnameescape(fn.expand('%:p'))
+    )
+
+    local preview = fn['fzf#vim#with_preview']({
+      options = '--layout reverse --with-nth=4.. --delimiter=":"',
+    })
+
+    fn['fzf#vim#grep'](cmd, 1, preview)
+  end,
   grep_selected = function()
     fuzzy_grep(utils.selected_text())
   end,
   grep_string = function()
-    fuzzy_grep(vim.fn.expand('<cword>'))
+    fuzzy_grep(fn.expand('<cword>'))
   end,
   highlights = function()
     local text = vim.api.nvim_exec('highlight', true)
 
-    vim.fn['fzf#run'](vim.fn['fzf#wrap']('Highlights', {
+    fn['fzf#run'](fn['fzf#wrap']('Highlights', {
       source = vim.split(text, '\n'),
       sink = '',
     }))
@@ -49,7 +62,6 @@ cmd_keymap('n', 'f<c-h>', 'FuzzyHelptags')
 cmd_keymap('n', 'f<c-i>', 'FuzzyGFiles')
 cmd_keymap('n', 'f<c-k>', 'FuzzyBuffers')
 cmd_keymap('n', 'f<c-m>', 'FuzzyMaps')
-cmd_keymap('n', 'f<c-n>', 'FuzzyBLines')
 cmd_keymap('n', 'f<c-o>', 'FuzzyHistory')
 cmd_keymap('n', 'f<c-o>', 'FuzzyHistory')
 cmd_keymap('n', 'f<c-p>', 'FuzzyFiles')
@@ -57,6 +69,7 @@ cmd_keymap('n', 'f<c-u>', 'FuzzyCommands')
 cmd_keymap('n', 'f<c-y>', 'FuzzyRg')
 
 utils.lua_keymap('n', 'f<c-l>', 'vim.my.fuzzyfinder.highlights()')
+utils.lua_keymap('n', 'f<c-n>', 'vim.my.fuzzyfinder.buffer_lines()')
 
 utils.lua_keymap('n', '<leader>as', 'vim.my.fuzzyfinder.grep_selected()')
 utils.lua_keymap('n', '<leader>as', 'vim.my.fuzzyfinder.grep_string()')
