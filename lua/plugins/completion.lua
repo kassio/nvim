@@ -46,15 +46,7 @@ cmp.setup({
       local icon = require('lspkind').presets.default[vim_item.kind]
       vim_item.kind = string.format('%s %s', icon, vim_item.kind)
 
-      vim_item.menu = ({
-        buffer = '',
-        snippy = '',
-        nvim_lsp = '',
-        nvim_lua = '',
-        path = 'פּ',
-        spell = '暈',
-        treesitter = '',
-      })[entry.source.name]
+      vim_item.menu = (vim.my.theme.icons)[entry.source.name]
 
       return vim_item
     end,

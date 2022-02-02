@@ -6,6 +6,16 @@ local signs = {
   bug = '',
 }
 
+local icons = {
+  buffer = '',
+  snippy = '',
+  nvim_lsp = '',
+  nvim_lua = '',
+  path = 'פּ',
+  spell = '暈',
+  treesitter = '',
+}
+
 local colors = {
   dark = {
     background = '#282C34',
@@ -39,6 +49,7 @@ local colorschemes = {
 
 local M = {
   signs = signs,
+  icons = icons,
   colors = colors,
 }
 

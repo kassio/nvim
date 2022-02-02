@@ -121,13 +121,14 @@ end
 
 M.fileicon = function(filetype, filename)
   local filetype_extensions = {
+    go = 'go',
     ruby = 'rb',
     sh = 'sh',
     bash = 'bash',
     zsh = 'zsh',
   }
 
-  local extension = filetype_extensions[filetype] or fn.fnamemodify(filename, ':e')
+  local extension = filetype_extensions[filetype] or fn.fnamemodify(filename, ':e') or filetype
 
   return require('nvim-web-devicons').get_icon(filename, extension, { default = true })
 end

@@ -33,7 +33,7 @@ M.delete_hidden = function() -- delete all hidden buffers
 end
 
 M.restore_cursor_position = function()
-  if fn.line("'\"") > 0 and fn.line("'\"") <= fn.line('$') then
+  if fn.line('\'"') > 0 and fn.line('\'"') <= fn.line('$') then
     vim.cmd('normal! g`"')
   end
 end
@@ -49,6 +49,12 @@ M.indent = function()
   utils.preserve(function()
     vim.cmd([[normal! gg=G]])
   end)
+end
+
+M.filetype = function(bufnr)
+  bufnr = bufnr or 0
+
+  return api.nvim_buf_get_option(bufnr, 'filetype')
 end
 
 M.fileicon = function()

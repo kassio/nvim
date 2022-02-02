@@ -5,10 +5,6 @@ local get_bufnr = function(tab)
   return api.nvim_win_get_buf(winnr)
 end
 
-local get_icon = function(bufnr, name)
-  return vim.my.utils.fileicon(api.nvim_buf_get_option(bufnr, 'filetype'), name)
-end
-
 local get_name = function(tab)
   local bufnr = get_bufnr(tab)
   local fullname = api.nvim_buf_get_name(bufnr)
