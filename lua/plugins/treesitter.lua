@@ -9,7 +9,11 @@ vim.g.matchup_matchparen_offscreen = {}
 
 treesitter.setup({
   ensure_installed = 'maintained',
-  ignore_install = { 'kotlin' },
+  ignore_install = {
+    'kotlin',
+    'latex',
+    'norg'
+  },
   highlight = {
     enable = true,
   },
