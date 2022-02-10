@@ -96,6 +96,9 @@ vim.my.git = {
   restore = function()
     vim.cmd('execute "!git restore -- %" | mode')
   end,
+  branch_current = function()
+    print(vim.g.gitsigns_head)
+  end,
   diff = function(base)
     gitsigns.diffthis(base)
   end,
@@ -120,6 +123,7 @@ command('GpreviewHunk lua vim.my.git.preview_hunk()')
 command('GtoggleBlame lua vim.my.git.toggle_blame()')
 
 command('Grt lua vim.my.git.restore()')
+command('GbranchCurrent lua vim.my.git.branch_current()')
 
 cabbrev('GblameFile', 'G blame')
 cabbrev('Gd', 'Gdiff')
