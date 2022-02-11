@@ -12,7 +12,8 @@ treesitter.setup({
   ignore_install = {
     'kotlin',
     'latex',
-    'norg'
+    'norg',
+    'vala',
   },
   highlight = {
     enable = true,
