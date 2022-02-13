@@ -6,9 +6,14 @@ end
 
 return {
   sections = {
-    lualine_a = { utils.mode },
-    lualine_b = { utils.bufnr },
-    lualine_z = { neoterm_id },
+    lualine_a = { utils.bufnr },
+    lualine_b = { neoterm_id },
+    lualine_z = { utils.mode },
+  },
+  inactive_sections = {
+    lualine_a = { utils.bufnr },
+    lualine_b = { neoterm_id },
+    lualine_z = {},
   },
   filetypes = { 'neoterm' },
 }
