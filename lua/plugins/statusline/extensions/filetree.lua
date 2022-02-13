@@ -1,5 +1,5 @@
 local current_line = function()
-  return vim.fn.getline('.'):gsub('[^%a%d%p]', '')
+  return vim.fn.getline('.'):gsub('%.*│ ', '')
 end
 
 return {
