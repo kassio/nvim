@@ -1,15 +1,34 @@
 local M = {}
 
-M.filename = {
-  'filename',
-  file_status = true,
-  path = 1,
-  shorting_target = 30,
-  symbols = { modified = ' +', readonly = ' -' },
+M.spacer = {
+  function()
+    return ' '
+  end,
+  padding = 0,
 }
 
-M.spacer = function()
-  return ' '
+M.filename = function(opts)
+  opts = vim.tbl_extend('keep', opts or {}, {
+    icon_color = true,
+  })
+
+  return {
+    {
+      'filetype',
+      colored = opts.icon_color,
+      icon_only = true,
+      padding = 1,
+    },
+    {
+      'filename',
+      file_status = true,
+      path = 1,
+      shorting_target = 30,
+      symbols = { modified = ' ', readonly = ' ', unnamed = ' [No Name] ' },
+      padding = 0,
+    },
+    M.spacer,
+  }
 end
 
 M.bufnr = function()

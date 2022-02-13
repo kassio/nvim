@@ -15,25 +15,12 @@ lualine.setup({
     component_separators = '',
   },
   sections = {
-    lualine_a = { utils.mode },
-    lualine_b = {
-      {
-        utils.bufnr,
-        separator = '│',
-      },
-      {
-        utils.spacer,
-        padding = 0,
-      },
-      {
-        'filetype',
-        colored = true,
-        icon_only = true,
-        padding = 0,
-      },
-      utils.filename,
-    },
+    lualine_a = { utils.bufnr },
+    lualine_b = utils.filename(),
     lualine_c = {
+      { vim.my.treesitter.gps.location },
+    },
+    lualine_x = {
       {
         'diagnostics',
         sources = { 'nvim_diagnostic' },
@@ -48,18 +35,17 @@ lualine.setup({
         color_hint = theme.colors.hint,
         color_info = theme.colors.info,
       },
-      { vim.my.treesitter.gps.location },
     },
-    lualine_x = {},
     lualine_y = { 'diff' },
     lualine_z = {
       { '[[%3l:%-3c]]' },
+      utils.mode,
     },
   },
   inactive_sections = {
-    lualine_a = {},
-    lualine_b = { utils.bufnr },
-    lualine_c = { utils.filename },
+    lualine_a = { utils.bufnr },
+    lualine_b = utils.filename({ icon_color = false }),
+    lualine_c = {},
     lualine_x = {},
     lualine_y = {},
     lualine_z = {},
