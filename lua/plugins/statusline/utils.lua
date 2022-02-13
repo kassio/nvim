@@ -32,7 +32,11 @@ M.filename = function(opts)
 end
 
 M.bufnr = function()
-  return tostring(vim.api.nvim_get_current_buf())
+  return {
+    function()
+      return tostring(vim.api.nvim_get_current_buf())
+    end,
+  }
 end
 
 M.mode = function()
@@ -74,7 +78,10 @@ M.mode = function()
     end
     return mode_map[mode_code]
   end
-  return get_mode()
+
+  return {
+    get_mode,
+  }
 end
 
 return M

@@ -15,7 +15,7 @@ lualine.setup({
     component_separators = '',
   },
   sections = {
-    lualine_a = { utils.bufnr },
+    lualine_a = { utils.bufnr() },
     lualine_b = utils.filename(),
     lualine_c = {
       { vim.my.treesitter.gps.location },
@@ -39,11 +39,11 @@ lualine.setup({
     lualine_y = { 'diff' },
     lualine_z = {
       { '[[%3l:%-3c]]' },
-      utils.mode,
+      utils.mode(),
     },
   },
   inactive_sections = {
-    lualine_a = { utils.bufnr },
+    lualine_a = { utils.bufnr() },
     lualine_b = utils.filename({ icon_color = false }),
     lualine_c = {},
     lualine_x = {},
