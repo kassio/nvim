@@ -1,6 +1,6 @@
 aug user:configfile
   au!
-  au BufNewFile,BufRead *.conf call s:conffile()
+  au BufNewFile,BufRead *.conf,gitconfig* call s:conffile()
 aug END
 
 function! s:conffile()
