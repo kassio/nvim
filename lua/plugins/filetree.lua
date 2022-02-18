@@ -29,7 +29,7 @@ require('nvim-tree').setup({
   },
   git = {
     enable = true,
-    ignore = true,
+    ignore = false,
   },
   ignore_ft_on_setup = {
     '.git',
