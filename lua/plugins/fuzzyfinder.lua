@@ -14,7 +14,7 @@ g.fzf_layout = {
     border = 'rounded',
   },
 }
-g.fzf_preview_window = { 'right:60%', 'ctrl-/' }
+g.fzf_preview_window = { 'right:60%:+{2}-/2', 'ctrl-/' }
 g.fzf_action = {
   ['ctrl-t'] = 'tab split',
   ['ctrl-x'] = 'split',
