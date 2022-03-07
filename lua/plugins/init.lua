@@ -11,10 +11,14 @@ M.setup = function()
     vim.cmd('qall!')
   end
 
-  vim.my.utils.command("Upgrade lua require('plugins').upgrade()")
+  vim.my.utils.command('-bang Upgrade lua require("plugins").upgrade("<bang>")')
 end
 
-M.upgrade = function()
+M.upgrade = function(bang)
+  if tostring(bang) == '!' then
+    vim.cmd('autocmd User PackerComplete quitall')
+  end
+
   M.load().sync()
 end
 
