@@ -10,6 +10,7 @@ M.servers = {
   'bashls',
   'cssls',
   'gopls',
+  'golangci_lint_ls',
   'graphql',
   'html',
   'jsonls',
