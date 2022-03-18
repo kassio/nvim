@@ -44,10 +44,10 @@ Group.new('ColorColumn', colors.none, colors.myShadow)
 Group.new('NonText', colors.myShadow:light(), colors.none, styles.none)
 Group.link('Whitespace', groups.NonText)
 
-Group.new('VertSplit', colors.myShadow)
-Group.link('SpecialKey', groups.VertSplit)
-Group.link('SpecialChar', groups.VertSplit)
-Group.link('EndOfBuffer', groups.VertSplit)
+Group.new('VertSplit', colors.myIgnore)
+Group.new('SpecialKey', colors.myShadow)
+Group.link('SpecialChar', groups.SpecialKey)
+Group.link('EndOfBuffer', groups.SpecialKey)
 
 -- matching parantheses/blocks marks
 Group.new('MatchParen', colors.none, colors.none, styles.bold)

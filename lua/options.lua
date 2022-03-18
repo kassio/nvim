@@ -19,6 +19,7 @@ opt.foldmethod = 'manual'
 opt.ignorecase = true
 opt.inccommand = 'nosplit'
 opt.infercase = true
+opt.laststatus = 3
 opt.list = true
 opt.listchars = {
   extends = '>',

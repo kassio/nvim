@@ -13,6 +13,7 @@ lualine.setup({
     icons_enabled = true,
     section_separators = '',
     component_separators = '',
+    globalstatus = true,
   },
   sections = {
     lualine_a = { utils.bufnr() },
