@@ -27,8 +27,9 @@ M.filename = function(opts)
       'filetype',
       colored = opts.icon_color,
       icon_only = true,
-      padding = 1,
+      padding = { left = 1, right = 0 },
     },
+    M.spacer,
     {
       'filename',
       file_status = true,
