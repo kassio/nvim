@@ -1,4 +1,13 @@
+local fn = vim.fn
 local M = {}
+
+M.current_line = function()
+  return fn.substitute(fn.getline('.'), '^.*[│└] ', '', '')
+end
+
+M.neoterm_id = function()
+  return 'neoterm-' .. vim.b.neoterm_id
+end
 
 M.spacer = {
   function()
