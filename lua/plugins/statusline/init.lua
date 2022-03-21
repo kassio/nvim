@@ -32,8 +32,12 @@ local sections = {
   },
 }
 
-local filetree_sections = vim.tbl_extend('force', sections, { lualine_b = { utils.current_line } })
-local neoterm_sections =  vim.tbl_extend('force', sections, { lualine_b = { utils.neoterm_id } })
+local filetree_sections = vim.tbl_extend('force', sections, {
+  lualine_b = { utils.filetree_current_file },
+})
+local neoterm_sections = vim.tbl_extend('force', sections, {
+  lualine_b = { utils.neoterm_id },
+})
 
 lualine.setup({
   extensions = {

@@ -1,8 +1,9 @@
 local fn = vim.fn
+local filetree = require('nvim-tree.lib')
 local M = {}
 
-M.current_line = function()
-  return fn.substitute(fn.getline('.'), '^.*[│└] ', '', '')
+M.filetree_current_file = function()
+  return './' .. fn.fnamemodify(filetree.get_node_at_cursor().absolute_path, ':.')
 end
 
 M.neoterm_id = function()
