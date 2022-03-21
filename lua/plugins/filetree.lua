@@ -15,6 +15,10 @@ g.nvim_tree_show_icons = {
 require('nvim-tree').setup({
   disable_netrw = true,
   hijack_netrw = true,
+  hijack_directories = {
+    enable = true,
+    auto_open = true,
+  },
   diagnostics = {
     enable = true,
     icons = {
