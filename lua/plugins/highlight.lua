@@ -44,7 +44,7 @@ Group.new('ColorColumn', colors.none, colors.myShadow)
 Group.new('NonText', colors.myShadow:light(), colors.none, styles.none)
 Group.link('Whitespace', groups.NonText)
 
-Group.new('VertSplit', colors.myIgnore)
+Group.new('VertSplit', colors.myIgnore:dark())
 Group.new('SpecialKey', colors.myShadow)
 Group.link('SpecialChar', groups.SpecialKey)
 Group.link('EndOfBuffer', groups.SpecialKey)
