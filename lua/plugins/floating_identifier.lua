@@ -47,8 +47,8 @@ M.hide = function()
     return
   end
 
-  local buf = vim.api.nvim_win_get_buf(winid)
-  if vim.api.nvim_buf_get_option(buf, 'filetype') == 'floating_identifier' then
+  local ok, buf = pcall(vim.api.nvim_win_get_buf, winid)
+  if ok and vim.api.nvim_buf_get_option(buf, 'filetype') == 'floating_identifier' then
     pcall(vim.api.nvim_win_hide, winid)
   end
 end
