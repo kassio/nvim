@@ -32,7 +32,6 @@ M.show = function()
     row = row,
     col = col,
     win = reference_window,
-    zindex = 999,
     style = 'minimal',
     focusable = false,
     noautocmd = true,
