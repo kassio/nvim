@@ -2,7 +2,7 @@ local keymap = vim.my.utils.keymap
 local g = vim.g
 
 g['test#strategy'] = 'neoterm'
-g['test#go#gotest#executable'] = 'go test -v'
+g['test#go#gotest#executable'] = 'GOFLAGS="-count=1" go test -v'
 
 keymap('n', '<leader>ta', ':Tclear | TestSuite<cr>')
 keymap('n', '<leader>tf', ':Tclear | TestFile<cr>')
