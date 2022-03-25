@@ -1,10 +1,9 @@
 local M = {}
 local last_active = nil
 
-M.show = function(reference_window, set_current)
+M.show = function(reference_window)
   reference_window = reference_window or vim.api.nvim_get_current_win()
   last_active = reference_window
-  set_current = set_current or false
 
   local rbufid = vim.api.nvim_win_get_buf(reference_window)
   if vim.api.nvim_buf_get_option(rbufid, 'buftype') ~= '' then
@@ -24,7 +23,7 @@ M.show = function(reference_window, set_current)
   vim.api.nvim_buf_set_lines(fbufid, 0, -1, true, { identifier })
 
   local reference_width = vim.api.nvim_win_get_width(reference_window)
-  local width = math.min(80, math.floor(reference_width * 0.8))
+  local width = math.min(80, math.floor(#identifier))
   local row = vim.api.nvim_win_get_height(reference_window) - 1
   local col = reference_width - width
 
@@ -41,9 +40,7 @@ M.show = function(reference_window, set_current)
   })
 
   vim.api.nvim_win_set_var(reference_window, 'floating_identifier_winid', floating_identifier_winid)
-  if set_current then
-    vim.api.nvim_set_current_win(reference_window)
-  end
+  vim.api.nvim_set_current_win(reference_window)
 end
 
 M.hide = function()
