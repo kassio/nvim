@@ -1,33 +1,34 @@
 local M = {}
+local api = vim.api
 local last_active = nil
 
 M.show = function(reference_window)
-  reference_window = reference_window or vim.api.nvim_get_current_win()
+  reference_window = reference_window or api.nvim_get_current_win()
   last_active = reference_window
 
-  local rbufid = vim.api.nvim_win_get_buf(reference_window)
-  if vim.api.nvim_buf_get_option(rbufid, 'buftype') ~= '' then
+  local rbufid = api.nvim_win_get_buf(reference_window)
+  if api.nvim_buf_get_option(rbufid, 'buftype') ~= '' then
     return
   end
 
-  fbufid = vim.api.nvim_create_buf(false, true)
-  vim.api.nvim_buf_set_option(fbufid, 'filetype', 'floating_identifier')
+  fbufid = api.nvim_create_buf(false, true)
+  api.nvim_buf_set_option(fbufid, 'filetype', 'floating_identifier')
 
-  local name = vim.api.nvim_buf_get_name(rbufid)
+  local name = api.nvim_buf_get_name(rbufid)
   if name == '' then
     return
   end
 
   identifier = string.format(' %d | %s ', rbufid, vim.fn.fnamemodify(name, ':~:.'))
 
-  vim.api.nvim_buf_set_lines(fbufid, 0, -1, true, { identifier })
+  api.nvim_buf_set_lines(fbufid, 0, -1, true, { identifier })
 
-  local reference_width = vim.api.nvim_win_get_width(reference_window)
+  local reference_width = api.nvim_win_get_width(reference_window)
   local width = math.min(80, math.floor(#identifier))
-  local row = vim.api.nvim_win_get_height(reference_window) - 1
+  local row = api.nvim_win_get_height(reference_window) - 1
   local col = reference_width - width
 
-  floating_identifier_winid = vim.api.nvim_open_win(fbufid, 0, {
+  floating_identifier_winid = api.nvim_open_win(fbufid, 0, {
     relative = 'win',
     height = 1,
     width = width,
@@ -39,33 +40,28 @@ M.show = function(reference_window)
     noautocmd = true,
   })
 
-  vim.api.nvim_win_set_var(reference_window, 'floating_identifier_winid', floating_identifier_winid)
-  vim.api.nvim_set_current_win(reference_window)
+  api.nvim_win_set_var(reference_window, 'floating_identifier_winid', floating_identifier_winid)
+  api.nvim_set_current_win(reference_window)
 end
 
 M.hide = function()
-  local ok, winid = pcall(vim.api.nvim_win_get_var, 0, 'floating_identifier_winid')
+  local ok, winid = pcall(api.nvim_win_get_var, 0, 'floating_identifier_winid')
   if not ok then
     return
   end
 
-  local ok, buf = pcall(vim.api.nvim_win_get_buf, winid)
-  if not ok or vim.api.nvim_buf_get_option(buf, 'filetype') ~= 'floating_identifier' then
+  local ok, buf = pcall(api.nvim_win_get_buf, winid)
+  if not ok or api.nvim_buf_get_option(buf, 'filetype') ~= 'floating_identifier' then
     return
   end
 
-  pcall(vim.api.nvim_win_hide, winid)
+  pcall(api.nvim_win_hide, winid)
 end
 
 M.close_all = function()
-  for _, winid in ipairs(vim.api.nvim_list_wins()) do
-    local ok, config = pcall(vim.api.nvim_win_get_config, winid)
-
-    if ok and config.relative == 'win' and tostring(config.win) == tostring(last_active) then
-      local ok, buf = pcall(vim.api.nvim_win_get_buf, winid)
-      if ok and vim.api.nvim_buf_get_option(buf, 'filetype') == 'floating_identifier' then
-        pcall(vim.api.nvim_buf_delete, buf, { force = true })
-      end
+  for _, buf in ipairs(api.nvim_list_bufs()) do
+    if api.nvim_buf_get_option(buf, 'filetype') == 'floating_identifier' then
+      pcall(api.nvim_buf_delete, buf, { force = true })
     end
   end
 end
@@ -73,17 +69,18 @@ end
 M.reload = function()
   M.close_all()
 
-  local curwin = vim.api.nvim_get_current_win()
+  local curtab = api.nvim_get_current_tabpage()
+  local curwin = api.nvim_get_current_win()
 
-  for _, winid in ipairs(vim.api.nvim_list_wins()) do
-    local ok, config = pcall(vim.api.nvim_win_get_config, winid)
+  for _, winid in ipairs(api.nvim_tabpage_list_wins(curtab)) do
+    local ok, config = pcall(api.nvim_win_get_config, winid)
 
     if curwin ~= winid and ok and config.relative == '' then
       M.show(winid)
     end
   end
 
-  vim.api.nvim_set_current_win(curwin)
+  api.nvim_set_current_win(curwin)
 end
 
 vim.floating_identifier = M
@@ -91,5 +88,5 @@ vim.floating_identifier = M
 vim.my.utils.command('FloatingIdReload lua vim.floating_identifier.reload()')
 
 vim.my.utils.augroup('floating:ids', {
-  { 'WinLeave,WinEnter,SessionLoadPost,VimResized', '*', 'lua vim.floating_identifier.reload()' },
+  { 'TabEnter,WinEnter,VimResized', '*', 'lua vim.floating_identifier.reload()' },
 })
