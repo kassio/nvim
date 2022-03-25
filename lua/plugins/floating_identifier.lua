@@ -78,8 +78,6 @@ M.reload = function()
   for _, winid in ipairs(vim.api.nvim_list_wins()) do
     local ok, config = pcall(vim.api.nvim_win_get_config, winid)
 
-    P({ curwin, winid, curwin ~= winid, ok, config.relative })
-
     if curwin ~= winid and ok and config.relative == '' then
       M.show(winid)
     end
@@ -93,5 +91,5 @@ vim.floating_identifier = M
 vim.my.utils.command('FloatingIdReload lua vim.floating_identifier.reload()')
 
 vim.my.utils.augroup('floating:ids', {
-  { 'WinLeave,WinEnter,VimResized', '*', 'lua vim.floating_identifier.reload()' },
+  { 'WinLeave,WinEnter,SessionLoadPost,VimResized', '*', 'lua vim.floating_identifier.reload()' },
 })
