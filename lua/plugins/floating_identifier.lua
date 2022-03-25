@@ -57,11 +57,11 @@ M.hide = function()
   pcall(vim.api.nvim_win_hide, winid)
 end
 
-M.reload = function()
+M.close_all = function()
   for _, winid in ipairs(vim.api.nvim_list_wins()) do
-    local config = vim.api.nvim_win_get_config(winid)
+    local ok, config = pcall(vim.api.nvim_win_get_config, winid)
 
-    if config.relative == 'win' and tostring(config.win) == tostring(last_active) then
+    if ok and config.relative == 'win' and tostring(config.win) == tostring(last_active) then
       local ok, buf = pcall(vim.api.nvim_win_get_buf, winid)
       if ok and vim.api.nvim_buf_get_option(buf, 'filetype') == 'floating_identifier' then
         pcall(vim.api.nvim_buf_delete, buf, { force = true })
@@ -70,10 +70,28 @@ M.reload = function()
   end
 end
 
+M.reload = function()
+  M.close_all()
+
+  local curwin = vim.api.nvim_get_current_win()
+
+  for _, winid in ipairs(vim.api.nvim_list_wins()) do
+    local ok, config = pcall(vim.api.nvim_win_get_config, winid)
+
+    if curwin ~= winid and ok and config.relative == '' then
+      M.show(winid)
+    end
+  end
+
+  vim.api.nvim_set_current_win(curwin)
+end
+
 vim.floating_identifier = M
+
+vim.my.utils.command('FloatingIdReload lua vim.floating_identifier.reload()')
 
 vim.my.utils.augroup('floating:ids', {
   { 'WinLeave', '*', 'lua vim.floating_identifier.show()' },
   { 'WinEnter', '*', 'lua vim.floating_identifier.hide()' },
-  { 'WinClosed', '*', 'lua vim.floating_identifier.reload()' },
+  { 'WinClosed', '*', 'lua vim.floating_identifier.close_all()' },
 })

@@ -4,13 +4,7 @@ local theme = vim.my.theme
 local utils = require('plugins.statusline.utils')
 
 local sections = {
-  lualine_a = {
-    utils.bufnr(),
-    ' | ',
-    function()
-      return tostring(vim.api.nvim_get_current_win())
-    end,
-  },
+  lualine_a = { utils.bufnr() },
   lualine_b = utils.filename(),
   lualine_c = {
     { vim.my.treesitter.gps.location },
