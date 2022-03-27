@@ -61,6 +61,20 @@ M.preserve = function(callback)
   fn.winrestview(saved_view)
 end
 
+M.define_highlight = function(group, color)
+  if color.link then
+    vim.cmd('highlight! link ' .. group .. ' ' .. color.link)
+  else
+    local style = color.style and 'gui=' .. color.style or 'gui=NONE'
+    local fg = color.fg and 'guifg=' .. color.fg or 'guifg=NONE'
+    local bg = color.bg and 'guibg=' .. color.bg or 'guibg=NONE'
+    local sp = color.sp and 'guisp=' .. color.sp or ''
+    local hl = string.format('highlight %s %s %s %s %s', group, style, fg, bg, sp)
+
+    vim.cmd(hl)
+  end
+end
+
 local get_visual_region = function()
   local pos_start = api.nvim_buf_get_mark(0, '<')
   local pos_end = api.nvim_buf_get_mark(0, '>')
