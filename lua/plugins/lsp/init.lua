@@ -32,6 +32,8 @@ local attacher = function(client)
   utils.command('LspRename lua vim.lsp.buf.rename()')
   utils.command('LspSignatureHelp lua vim.lsp.buf.signature_help()')
 
+  utils.command('-nargs=1 LspWorkspaceSymbols Telescope lsp_workspace_symbols query=<args>')
+
   -- Keymaps
   utils.buf_keymap(0, 'n', 'glR', '<cmd>LspRestart<cr>')
 
