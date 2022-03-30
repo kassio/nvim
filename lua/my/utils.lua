@@ -96,7 +96,7 @@ M.selected_text = function()
     table.insert(text, string.sub(line, portion[1] + 1, portion[2]))
   end
 
-  return table.concat(text, '\n')
+  return vim.fn.escape(table.concat(text, '\n'), ' *^$./\\[]')
 end
 
 M.highlight = function(opts)
