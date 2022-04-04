@@ -71,7 +71,7 @@ gitsigns.setup({
 vim.my.git = {
   open_remote_file = function(opts)
     opts = opts or {}
-    local use_main = opts.branch == 'main'
+    local use_main = opts.ref == 'main' or opts.ref == 'master'
     local file = fn.expand('%:.')
     local line = fn.line('.')
 
@@ -79,7 +79,7 @@ vim.my.git = {
   end,
   copy_remote_file = function(opts)
     opts = opts or {}
-    local use_main = opts.branch == 'main'
+    local use_main = opts.ref == 'main' or opts.ref == 'master'
     local file = fn.expand('%:.')
     local line = fn.line('.')
 
