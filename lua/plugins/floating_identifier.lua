@@ -40,14 +40,15 @@ M.show = function(reference_window)
   local identifier_bufname = string.format(' %s ', vim.fn.fnamemodify(name, ':~:.'))
   local identifier = identifier_bufnr .. identifier_bufname
 
-  api.nvim_buf_set_lines(fbufid, 0, -1, true, { identifier })
-  add_highlight(fbufid, hls.bufnr.name, 0, #identifier_bufnr)
-  add_highlight(fbufid, hls.bufname.name, #identifier_bufnr, #identifier)
-
-  local reference_width = api.nvim_win_get_width(reference_window)
-  local width = math.min(80, math.floor(#identifier))
+  local width = api.nvim_win_get_width(reference_window)
   local row = api.nvim_win_get_height(reference_window) - 1
-  local col = reference_width - width
+  local col = 0
+
+  local leftpadding = string.rep(' ', width - #identifier)
+
+  api.nvim_buf_set_lines(fbufid, 0, -1, true, { leftpadding .. identifier })
+  add_highlight(fbufid, hls.bufnr.name, #leftpadding, #leftpadding + #identifier_bufnr)
+  add_highlight(fbufid, hls.bufname.name, #identifier_bufnr + #leftpadding, width)
 
   floating_identifier_winid = api.nvim_open_win(fbufid, 0, {
     relative = 'win',
