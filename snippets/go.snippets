@@ -36,10 +36,6 @@ snippet package
 	func main() {
 		$0
 	}
-snippet printf
-	fmt.Printf($1, $2)
-snippet println
-	fmt.Println($1)
 snippet select
 	select {
 	case $1:
@@ -54,3 +50,11 @@ snippet type
 	type $1 ${2|struct,interface|} {
 		${0:${VISUAL}}
 	}
+snippet deb
+  fmt.Printf(\`
+
+  >>
+    ${1:HERE}
+  <<
+
+  \`)
