@@ -39,11 +39,7 @@ M.show = function(reference_window)
   local identifier_bufnr = string.format(' %d ', rbufid)
   local identifier_bufname = string.format(' %s ', vim.fn.fnamemodify(name, ':~:.'))
   local identifier = identifier_bufnr .. identifier_bufname
-
   local width = api.nvim_win_get_width(reference_window)
-  local row = api.nvim_win_get_height(reference_window) - 1
-  local col = 0
-
   local leftpadding = string.rep(' ', width - #identifier)
 
   api.nvim_buf_set_lines(fbufid, 0, -1, true, { leftpadding .. identifier })
@@ -54,8 +50,8 @@ M.show = function(reference_window)
     relative = 'win',
     height = 1,
     width = width,
-    row = row,
-    col = col,
+    row = 0,
+    col = 0,
     win = reference_window,
     style = 'minimal',
     focusable = false,
@@ -110,5 +106,5 @@ vim.floating_identifier = M
 vim.my.utils.command('FloatingIdReload lua vim.floating_identifier.reload()')
 
 vim.my.utils.augroup('floating:ids', {
-  { 'TabEnter,WinEnter,VimResized', '*', 'lua vim.floating_identifier.reload()' },
+  { 'TabNew,TabEnter,WinNew,WinEnter,VimResized', '*', 'lua vim.floating_identifier.reload()' },
 })
