@@ -140,6 +140,10 @@ M.load = function()
       -- Test runner
       use('vim-test/vim-test')
 
+      -- Debugger Tooling
+      use('mfussenegger/nvim-dap')
+      use('leoluz/nvim-dap-go')
+
       -- Colors
       use({
         -- 'marko-cerovac/material.nvim', -- Theme
