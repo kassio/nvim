@@ -3,7 +3,7 @@ require('dap-go').setup()
 local dap = require('dap')
 
 local dap_cmd = function(name, fn)
-  vim.api.nvim_add_user_command('Dap' .. name, function(cmd)
+  vim.api.nvim_create_user_command('Dap' .. name, function(cmd)
     fn()
   end, {})
 end
