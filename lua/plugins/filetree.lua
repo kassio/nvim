@@ -3,12 +3,11 @@ local theme = vim.my.theme
 local keymap = vim.my.utils.keymap
 
 g.nvim_tree_git_hl = 1
-g.nvim_tree_indent_markers = 1
 g.nvim_tree_highlight_opened_files = 3
 g.nvim_tree_show_icons = {
   git = 1,
   folders = 1,
-  folder_arrows = 0,
+  folder_arrows = 1,
   files = 1,
 }
 
@@ -44,13 +43,24 @@ require('nvim-tree').setup({
     '.idea',
   },
   update_focused_file = { enable = true },
+  renderer = {
+    indent_markers = {
+      enable = true,
+      icons = {
+        corner = '└ ',
+        edge = '│ ',
+        none = '  ',
+      },
+    },
+  },
   view = {
-    width = 32,
-    side = 'right',
     auto_resize = false,
     number = false,
+    preserve_window_proportions = true,
     relativenumber = false,
+    side = 'right',
     signcolumn = 'yes',
+    width = 32,
   },
 })
 
