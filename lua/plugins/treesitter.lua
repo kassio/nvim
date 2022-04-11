@@ -8,7 +8,7 @@ local gps = require('nvim-gps')
 vim.g.matchup_matchparen_offscreen = {}
 
 treesitter.setup({
-  ensure_installed = 'maintained',
+  ensure_installed = 'all',
   ignore_install = {
     'kotlin',
     'latex',
