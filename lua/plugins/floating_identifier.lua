@@ -107,7 +107,7 @@ vim.floating_identifier = M
 
 vim.my.utils.augroup('floating:ids', {
   {
-    events = 'TabNew,TabEnter,WinNew,WinEnter,VimResized',
+    events = { 'TabNew', 'TabEnter', 'WinNew', 'WinEnter', 'VimResized' },
     pattern = '*',
     callback = vim.floating_identifier.reload,
   },

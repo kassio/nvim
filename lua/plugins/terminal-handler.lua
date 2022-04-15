@@ -53,7 +53,7 @@ count_nkeymap('<leader>tk', '{{target}}Tkill')
 
 vim.my.utils.augroup('user:terminal', {
   {
-    events = 'TermOpen',
+    events = { 'TermOpen' },
     pattern = '*',
     command = 'setlocal ' .. table.concat({
       'nonumber',

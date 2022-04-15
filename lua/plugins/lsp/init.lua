@@ -21,7 +21,7 @@ completionItem.resolveSupport = {
 }
 
 local nmap = function(lhs, rhs)
-  utils.lua_buf_keymap(0, 'n', lhs, rhs)
+  vim.keymap.set('n', lhs, rhs, { buffer = 0, silent = true })
 end
 
 local attacher = function(client)
@@ -38,8 +38,7 @@ local attacher = function(client)
   end, { nargs = 1 })
 
   -- Keymaps
-  utils.buf_keymap(0, 'n', 'glR', '<cmd>LspRestart<cr>')
-
+  nmap('glR', '<cmd>LspRestart<cr>')
   nmap('glD', 'vim.lsp.buf.declaration()')
   nmap('gld', 'vim.lsp.buf.definition()')
   nmap('glr', 'vim.lsp.buf.references()')
@@ -61,3 +60,9 @@ vim.my.lsp = {
 }
 
 command('LspInstallServers', vim.my.lsp.install_servers, {})
+
+-- Auto format files
+vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+  pattern = '*.lua,*.go,*.rb,*.json,*.js',
+  callback = vim.lsp.buf.formatting_sync,
+})

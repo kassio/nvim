@@ -28,22 +28,22 @@ keymap('v', '<leader>as', vim.my.fuzzyfinder.grep_string)
 
 utils.augroup('user:fuzzyfinder', {
   {
-    events = 'User',
+    events = { 'User' },
     pattern = 'TelescopePreviewerLoaded',
     command = 'setlocal wrap number numberwidth=5',
   },
   {
-    events = 'FileType',
+    events = { 'FileType' },
     pattern = 'fzf',
     command = 'noremap <silent><buffer><nowait> <esc> :<c-u>quit!<cr>',
   },
   {
-    events = 'FileType',
+    events = { 'FileType' },
     pattern = 'fzf',
     command = 'set signcolumn=no',
   },
   {
-    events = 'BufLeave',
+    events = { 'BufLeave' },
     pattern = 'fzf',
     command = 'q!',
   },

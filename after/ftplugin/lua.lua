@@ -7,8 +7,3 @@ vim.my.completion.buffer.sources({
   'spell',
   'path',
 })
-
-vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
-  pattern = '*.lua',
-  callback = vim.lsp.buf.formatting_sync,
-})

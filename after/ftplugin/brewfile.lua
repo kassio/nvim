@@ -11,4 +11,4 @@ vim.my.brewfile = {
   end,
 }
 
-utils.command('-buffer Sort lua vim.my.brewfile.sort()')
+vim.api.nvim_buf_create_user_command(0, 'Sort', vim.my.brewfile.sort)
