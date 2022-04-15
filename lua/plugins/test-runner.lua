@@ -21,5 +21,5 @@ vim.my.test_runner = {
   end,
 }
 
-vim.my.utils.command('RSpec lua vim.my.test_runner.rspec()')
+vim.api.nvim_create_user_command('RSpec', vim.my.test_runner.rspec, {})
 vim.cmd('cabbrev Rspec RSpec')

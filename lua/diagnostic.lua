@@ -1,5 +1,5 @@
 local utils = vim.my.utils
-local command = utils.command
+local command = vim.api.nvim_create_user_command
 local icons = vim.my.theme.icons
 
 local severityHighlight = function(value)
@@ -51,7 +51,7 @@ vim.my.diagnostic = {
 vim.keymap.set('n', 'glee', vim.diagnostic.open_float)
 vim.keymap.set('n', 'glea', vim.my.diagnostic.show_buffer)
 
-command('DiagnosticShow lua vim.my.diagnostic.show()')
-command('DiagnosticHide lua vim.my.diagnostic.hide()')
-command('DiagnosticDisable lua vim.my.diagnostic.disable_buffer()')
-command('DiagnosticEnable lua vim.my.diagnostic.enable_buffer()')
+command('DiagnosticShow', vim.my.diagnostic.show, {})
+command('DiagnosticHide', vim.my.diagnostic.hide, {})
+command('DiagnosticDisable', vim.my.diagnostic.disable_buffer, {})
+command('DiagnosticEnable', vim.my.diagnostic.enable_buffer, {})

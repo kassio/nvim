@@ -11,11 +11,11 @@ M.setup = function()
     vim.cmd('qall!')
   end
 
-  vim.my.utils.command('-bang Upgrade lua require("plugins").upgrade("<bang>")')
+  vim.api.nvim_create_user_command('Upgrade', require('plugins').upgrade, {})
 end
 
-M.upgrade = function(bang)
-  if tostring(bang) == '!' then
+M.upgrade = function(cmd)
+  if cmd.bang then
     vim.cmd('autocmd User PackerComplete quitall')
   end
 

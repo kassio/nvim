@@ -1,7 +1,7 @@
 local gitsigns = require('gitsigns')
 local fn = vim.fn
+local command = vim.api.nvim_create_user_command
 local utils = vim.my.utils
-local command = utils.command
 local cabbrev = utils.cabbrev
 
 local open = function(url)
@@ -62,6 +62,12 @@ gitsigns.setup({
     topdelete = { hl = 'GitSignDelete', numhl = 'GitSignDeleteLineNr', text = '‾' },
     changedelete = { hl = 'GitSignDelete', numhl = 'GitSignDeleteLineNr', text = '│' },
   },
+  current_line_blame_opts = {
+    virt_text = true,
+    virt_text_pos = 'right_align',
+    delay = 1000,
+    ignore_whitespace = false,
+  },
   diff_opts = {
     vertical = true,
   },
@@ -69,9 +75,8 @@ gitsigns.setup({
 })
 
 vim.my.git = {
-  open_remote_file = function(opts)
-    opts = opts or {}
-    local use_main = opts.ref == 'main' or opts.ref == 'master'
+  open_remote_file = function(cmd)
+    local use_main = cmd.args == 'main' or cmd.args == 'master'
     local file = fn.expand('%:.')
     local line = fn.line('.')
 
@@ -99,31 +104,22 @@ vim.my.git = {
   branch_current = function()
     print(vim.g.gitsigns_head)
   end,
-  diff = function(base)
-    gitsigns.diffthis(base)
+  diff = function(cmd)
+    gitsigns.diffthis(cmd.args)
   end,
 }
 
-command('GopenRepository lua vim.my.git.open_repository()')
-command(vim.fn.join({
-  '-nargs=?',
-  'GopenFileRemoteUrl',
-  'lua vim.my.git.open_remote_file({ref = "<args>"})',
-}))
-command(vim.fn.join({
-  '-bang',
-  '-nargs=?',
-  'GcopyFileRemoteURL',
-  'lua vim.my.git.copy_remote_file({ref = "<args>", clipboard = "<bang>"})',
-}))
+command('GopenRepository', vim.my.git.open_repository, {})
+command('GopenFileRemoteUrl', vim.my.git.open_remote_file, { nargs = '?' })
+command('GcopyFileRemoteURL', vim.my.git.copy_remote_file, { nargs = '?' })
 
-command('-nargs=? Gdiff lua vim.my.git.diff("<args>")')
-command('Gblame lua vim.my.git.blame_line()')
-command('GpreviewHunk lua vim.my.git.preview_hunk()')
-command('GtoggleBlame lua vim.my.git.toggle_blame()')
+command('Gdiff', vim.my.git.diff, { nargs = '?' })
+command('Gblame', vim.my.git.blame_line, {})
+command('GpreviewHunk', vim.my.git.preview_hunk, {})
+command('GtoggleBlame', vim.my.git.toggle_blame, {})
 
-command('Grt lua vim.my.git.restore()')
-command('GbranchCurrent lua vim.my.git.branch_current()')
+command('Grt', vim.my.git.restore, {})
+command('GbranchCurrent', vim.my.git.branch_current, {})
 
 cabbrev('GblameFile', 'G blame')
 cabbrev('Gd', 'Gdiff')

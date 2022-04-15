@@ -1,4 +1,3 @@
-local command = vim.my.utils.command
 local treesitter = require('nvim-treesitter.configs')
 local spellsitter = require('spellsitter')
 local gps = require('nvim-gps')
@@ -103,7 +102,9 @@ vim.my.treesitter = {
   },
 }
 
-command('-bang TSGPSLocation lua print(vim.my.treesitter.gps.location())')
-command(
-  '-bang TSGPSLocationCopy lua vim.my.utils.to_clipboard(vim.my.treesitter.gps.location(), "<bang>")'
-)
+vim.api.nvim_create_user_command('TSGPSLocation', function()
+  print(vim.my.treesitter.gps.location())
+end, {})
+vim.api.nvim_create_user_command('TSGPSLocationCopy', function(cmd)
+  vim.my.utils.to_clipboard(vim.my.treesitter.gps.location(), cmd.bang)
+end, {})

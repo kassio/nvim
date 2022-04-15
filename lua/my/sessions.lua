@@ -87,7 +87,8 @@ local delete_session = function(session)
   vim.fn.delete(session, 'rf')
 end
 
-M.save = function(prefix)
+M.save = function(cmd)
+  local prefix = cmd.args
   if string.len(prefix or '') == 0 then
     local question = 'Choose the session name'
     local default = prefix_from(vim.api.nvim_get_vvar('this_session'))

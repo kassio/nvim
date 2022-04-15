@@ -1,5 +1,6 @@
 local installer = require('plugins.lsp.installer')
 local utils = vim.my.utils
+local command = vim.api.nvim_create_user_command
 
 -- Add additional capabilities supported by nvim-cmp
 local protocol = vim.lsp.protocol
@@ -25,14 +26,16 @@ end
 
 local attacher = function(client)
   -- Commands
-  utils.command('LspCodeActions lua vim.lsp.buf.code_action()')
-  utils.command('LspFormat lua vim.lsp.buf.formatting()')
-  utils.command('LspFormatSync lua vim.lsp.buf.formatting_sync()')
-  utils.command('LspHover lua vim.lsp.buf.hover()')
-  utils.command('LspRename lua vim.lsp.buf.rename()')
-  utils.command('LspSignatureHelp lua vim.lsp.buf.signature_help()')
+  command('LspCodeActions', vim.lsp.buf.code_action, {})
+  command('LspFormat', vim.lsp.buf.formatting, {})
+  command('LspFormatSync', vim.lsp.buf.formatting_sync, {})
+  command('LspHover', vim.lsp.buf.hover, {})
+  command('LspRename', vim.lsp.buf.rename, {})
+  command('LspSignatureHelp', vim.lsp.buf.signature_help, {})
 
-  utils.command('-nargs=1 LspWorkspaceSymbols Telescope lsp_workspace_symbols query=<args>')
+  command('LspWorkspaceSymbols', function(cmd)
+    vim.cmd('Telescope lsp_workspace_symbols query=' .. cmd.args)
+  end, { nargs = 1 })
 
   -- Keymaps
   utils.buf_keymap(0, 'n', 'glR', '<cmd>LspRestart<cr>')
@@ -57,4 +60,4 @@ vim.my.lsp = {
   install_servers = installer.install,
 }
 
-vim.my.utils.command('LspInstallServers lua vim.my.lsp.install_servers()')
+command('LspInstallServers', vim.my.lsp.install_servers, {})

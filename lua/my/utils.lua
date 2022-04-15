@@ -5,8 +5,8 @@ local fn = vim.fn
 
 M.str = require('my.utils.str')
 
-M.to_clipboard = function(text, external_clipboard)
-  if #external_clipboard > 0 then
+M.to_clipboard = function(text, use_external_clipboard)
+  if use_external_clipboard then
     fn.setreg('*', text)
     print(string.format('"%s" copied to system clipboard', text))
   else
@@ -21,10 +21,6 @@ M.augroup = function(name, autocmds)
     local events = table.removekey(opts, 'events')
     api.nvim_create_autocmd(events, opts)
   end
-end
-
-M.command = function(args)
-  vim.cmd('command! ' .. args)
 end
 
 M.cabbrev = function(lhs, rhs)
@@ -136,11 +132,11 @@ local ensure_valid_file_flag = function(flag)
   end
 end
 
-M.copy_filename = function(external_clipboard, flag)
-  flag = ensure_valid_file_flag(flag)
+M.copy_filename = function(cmd)
+  flag = ensure_valid_file_flag(cmd.args)
   local filename = fn.expand(flag)
 
-  M.to_clipboard(filename, external_clipboard)
+  M.to_clipboard(filename, cmd.bang)
 end
 
 return M

@@ -103,7 +103,7 @@ end
 
 vim.floating_identifier = M
 
-vim.my.utils.command('FloatingIdReload lua vim.floating_identifier.reload()')
+-- vim.my.utils.command('FloatingIdReload lua vim.floating_identifier.reload()')
 
 vim.my.utils.augroup('floating:ids', {
   {
