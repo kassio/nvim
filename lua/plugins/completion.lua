@@ -37,10 +37,6 @@ snippy.setup({
 })
 
 cmp.setup({
-  documentation = {
-    border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
-  },
-
   formatting = {
     format = function(entry, vim_item)
       local icon = require('lspkind').presets.default[vim_item.kind]
@@ -78,6 +74,12 @@ cmp.setup({
     'spell',
     'path',
   }),
+
+  window = {
+    documentation = {
+      border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+    },
+  },
 })
 
 vim.my.completion = {
