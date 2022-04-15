@@ -3,8 +3,11 @@
 require('terminal').setup()
 
 local g = vim.g
+local keymap = vim.keymap.set
 local count_nkeymap = function(key, command)
-  vim.my.utils.lua_keymap('n', key, 'vim.my.terminal.numbered_cmd("' .. command .. '")')
+  keymap('n', key, function()
+    vim.my.terminal.numbered_cmd(command)
+  end)
 end
 
 vim.my.terminal = {
@@ -38,7 +41,7 @@ g.neoterm_callbacks = {
   end,
 }
 
-vim.my.utils.keymap('n', '<leader>tg', ':Tredo<cr>')
+keymap('n', '<leader>tg', ':Tredo<cr>')
 
 count_nkeymap('<leader>tt', '{{target}}Ttoggle')
 count_nkeymap('<leader>vt', 'botright vertical {{target}} Ttoggle')

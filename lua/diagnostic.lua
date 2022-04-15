@@ -1,5 +1,4 @@
 local utils = vim.my.utils
-local lua_keymap = utils.lua_keymap
 local command = utils.command
 local icons = vim.my.theme.icons
 
@@ -49,8 +48,8 @@ vim.my.diagnostic = {
   end,
 }
 
-lua_keymap('n', 'glee', 'vim.diagnostic.open_float()')
-lua_keymap('n', 'glea', 'vim.my.diagnostic.show_buffer()')
+vim.keymap.set('n', 'glee', vim.diagnostic.open_float)
+vim.keymap.set('n', 'glea', vim.my.diagnostic.show_buffer)
 
 command('DiagnosticShow lua vim.my.diagnostic.show()')
 command('DiagnosticHide lua vim.my.diagnostic.hide()')

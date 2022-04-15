@@ -1,5 +1,4 @@
-local keymap = vim.my.utils.keymap
-local lua_keymap = vim.my.utils.lua_keymap
+local keymap = vim.keymap.set
 
 ------------------------------------------------------------
 -- Operation pending maps need to be passed as string
@@ -58,47 +57,39 @@ keymap('n', '9gt', '<cmd>tablast<cr>')
 keymap('v', '<leader>p', '"_dP')
 
 -- search current word (ignore case)
-lua_keymap('n', '!', 'vim.my.utils.highlight{current = true}')
--- search current selection (ignore case)
-lua_keymap('v', '!', 'vim.my.utils.highlight{selected = true}')
+keymap({ 'n', 'v' }, '!', function()
+  vim.my.utils.highlight({ current = true })
+end)
 
 -- search current word (sensitive case)
-lua_keymap('n', '<leader>!', 'vim.my.utils.highlight{current = true, sensitive_case = true}')
--- search current selection (sensitive case)
-lua_keymap('v', '<leader>!', 'vim.my.utils.highlight{selected = true, sensitive_case = true}')
+keymap({ 'n', 'v' }, '<leader>!', function()
+  vim.my.utils.highlight({ current = true, sensitive_case = true })
+end)
 
 -- search current word (ignore case, exclusive)
-lua_keymap('n', 'g!', 'vim.my.utils.highlight{current = true, exclusive = true}')
--- search current selection (ignore case, exclusive)
-lua_keymap('v', 'g!', 'vim.my.utils.highlight{selected = true, exclusive = true}')
+keymap({ 'n', 'v' }, 'g!', function()
+  vim.my.utils.highlight({ current = true, exclusive = true })
+end)
 
 -- search current word (sensitive case, exclusive)
-lua_keymap(
-  'n',
-  '<leader>g!',
-  'vim.my.utils.highlight{current = true, sensitive_case = true, exclusive = true}'
-)
--- search current selection (sensitive case, exclusive)
-lua_keymap(
-  'v',
-  '<leader>g!',
-  'vim.my.utils.highlight{selected = true, sensitive_case = true, exclusive = true}'
-)
+keymap({ 'n', 'v' }, '<leader>g!', function()
+  vim.my.utils.highlight({ current = true, sensitive_case = true, exclusive = true })
+end)
 
 -- indent current buffer
-lua_keymap('n', '<leader>ff', 'vim.my.buffers.indent()')
+keymap('n', '<leader>ff', vim.my.buffers.indent)
 
 -- delete all buffers except current
-lua_keymap('n', '<leader>bo', 'vim.my.buffers.only()')
+keymap('n', '<leader>bo', vim.my.buffers.only)
 -- delete all hidden buffers
-lua_keymap('n', '<leader>dh', 'vim.my.buffers.delete_hidden()')
+keymap('n', '<leader>dh', vim.my.buffers.delete_hidden)
 -- delete current buffer
 keymap('n', '<leader>bd', '<cmd>bw!<cr>')
 -- delete all buffers
 keymap('n', '<leader>da', '<cmd>bufdo bw!<cr>')
 
 -- close floating windows
-lua_keymap('n', '<leader>wa', 'vim.my.windows.close_floating()')
+keymap('n', '<leader>wa', vim.my.windows.close_floating)
 
 -- session management
 keymap('n', '<leader>ss', '<cmd>SessionSave<cr>')

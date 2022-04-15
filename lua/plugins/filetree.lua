@@ -1,6 +1,5 @@
 local g = vim.g
 local theme = vim.my.theme
-local keymap = vim.my.utils.keymap
 
 g.nvim_tree_git_hl = 1
 g.nvim_tree_highlight_opened_files = 3
@@ -64,5 +63,5 @@ require('nvim-tree').setup({
   },
 })
 
-keymap('n', '<leader>p', ':NvimTreeToggle<CR>')
-keymap('n', '<leader>fl', ':NvimTreeFindFile<CR>')
+vim.keymap.set('n', '<leader>p', ':NvimTreeToggle<CR>', { silent = true })
+vim.keymap.set('n', '<leader>fl', ':NvimTreeFindFile<CR>', { silent = true })

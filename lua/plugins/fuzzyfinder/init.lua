@@ -2,9 +2,9 @@ require('plugins.fuzzyfinder.fzf')
 require('plugins.fuzzyfinder.telescope')
 
 local utils = vim.my.utils
-local lua_keymap = utils.lua_keymap
+local keymap = vim.keymap.set
 local cmd_keymap = function(mode, map, cmd)
-  utils.keymap(mode, map, '<cmd>' .. cmd .. '<cr>')
+  keymap(mode, map, '<cmd>' .. cmd .. '<cr>')
 end
 
 cmd_keymap('n', 'f<c-i>', 'FuzzyGFiles')
@@ -20,11 +20,11 @@ cmd_keymap('n', 'f<c-t>', 'Telescope treesitter')
 cmd_keymap('n', 'f<c-u>', 'Telescope commands')
 cmd_keymap('n', 'f<c-n>', 'Telescope current_buffer_fuzzy_find')
 
-lua_keymap('n', '<leader>as', 'vim.my.fuzzyfinder.grep_selected()')
-lua_keymap('v', '<leader>as', 'vim.my.fuzzyfinder.grep_selected()')
+keymap('n', '<leader>as', vim.my.fuzzyfinder.grep_selected)
+keymap('v', '<leader>as', vim.my.fuzzyfinder.grep_selected)
 
-lua_keymap('n', '<leader>as', 'vim.my.fuzzyfinder.grep_string()')
-lua_keymap('v', '<leader>as', 'vim.my.fuzzyfinder.grep_string()')
+keymap('n', '<leader>as', vim.my.fuzzyfinder.grep_string)
+keymap('v', '<leader>as', vim.my.fuzzyfinder.grep_string)
 
 utils.augroup('user:fuzzyfinder', {
   { 'User', 'TelescopePreviewerLoaded', 'setlocal wrap number numberwidth=5' },

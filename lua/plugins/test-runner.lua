@@ -1,4 +1,4 @@
-local keymap = vim.my.utils.keymap
+local keymap = vim.keymap.set
 local g = vim.g
 
 g['test#strategy'] = 'neoterm'
