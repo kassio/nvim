@@ -55,10 +55,6 @@ installer.setup(attacher, capabilities)
 
 vim.my.lsp = {
   install_servers = installer.install,
-  format_and_save = function()
-    vim.lsp.buf.formatting()
-    vim.cmd('noautocmd write')
-  end,
 }
 
 vim.my.utils.command('LspInstallServers lua vim.my.lsp.install_servers()')

@@ -8,7 +8,7 @@ vim.my.completion.buffer.sources({
   'path',
 })
 
-vim.api.nvim_create_autocmd({ 'BufWritePre', 'FileWritePre' }, {
+vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
   pattern = '*.lua',
-  callback = vim.my.lsp.format_and_save,
+  callback = vim.lsp.buf.formatting_sync,
 })
