@@ -1,10 +1,30 @@
 vim.my.utils.augroup('user:autocommands', {
-  { 'BufReadPost', '*', 'lua vim.my.buffers.restore_cursor_position()' },
+  {
+    events = 'BufReadPost',
+    pattern = '*',
+    callback = vim.my.buffers.restore_cursor_position,
+  },
 
-  { 'BufWritePre,FileWritePre', '*', 'lua vim.my.buffers.trim()' },
+  {
+    events = 'BufWritePre,FileWritePre',
+    pattern = '*',
+    callback = vim.my.buffers.trim,
+  },
 
-  { 'WinLeave,FocusLost', '*', 'lua vim.my.buffers.autosave()' },
+  {
+    events = 'WinLeave,FocusLost',
+    pattern = '*',
+    callback = vim.my.buffers.autosave,
+  },
 
-  { 'WinLeave', '*', 'set nocursorline' },
-  { 'WinEnter', '*', 'set cursorline' },
+  {
+    events = 'WinLeave',
+    pattern = '*',
+    command = 'set nocursorline',
+  },
+  {
+    events = 'WinEnter',
+    pattern = '*',
+    command = 'set cursorline',
+  },
 })

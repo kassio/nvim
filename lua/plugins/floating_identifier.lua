@@ -106,5 +106,9 @@ vim.floating_identifier = M
 vim.my.utils.command('FloatingIdReload lua vim.floating_identifier.reload()')
 
 vim.my.utils.augroup('floating:ids', {
-  { 'TabNew,TabEnter,WinNew,WinEnter,VimResized', '*', 'lua vim.floating_identifier.reload()' },
+  {
+    events = 'TabNew,TabEnter,WinNew,WinEnter,VimResized',
+    pattern = '*',
+    callback = vim.floating_identifier.reload,
+  },
 })

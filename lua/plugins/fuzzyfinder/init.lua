@@ -27,8 +27,24 @@ keymap('n', '<leader>as', vim.my.fuzzyfinder.grep_string)
 keymap('v', '<leader>as', vim.my.fuzzyfinder.grep_string)
 
 utils.augroup('user:fuzzyfinder', {
-  { 'User', 'TelescopePreviewerLoaded', 'setlocal wrap number numberwidth=5' },
-  { 'FileType', 'fzf', 'noremap <silent><buffer><nowait> <esc> :<c-u>quit!<cr>' },
-  { 'FileType', 'fzf', 'set signcolumn=no' },
-  { 'BufLeave', 'fzf', 'q!' },
+  {
+    events = 'User',
+    pattern = 'TelescopePreviewerLoaded',
+    command = 'setlocal wrap number numberwidth=5',
+  },
+  {
+    events = 'FileType',
+    pattern = 'fzf',
+    command = 'noremap <silent><buffer><nowait> <esc> :<c-u>quit!<cr>',
+  },
+  {
+    events = 'FileType',
+    pattern = 'fzf',
+    command = 'set signcolumn=no',
+  },
+  {
+    events = 'BufLeave',
+    pattern = 'fzf',
+    command = 'q!',
+  },
 })

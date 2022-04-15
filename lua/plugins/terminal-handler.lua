@@ -51,14 +51,16 @@ count_nkeymap('<leader>tl', '{{target}}Tclear')
 count_nkeymap('<leader>tL', '{{target}}Tclear!')
 count_nkeymap('<leader>tk', '{{target}}Tkill')
 
-local options = {
-  'nonumber',
-  'scrolloff=0',
-  'norelativenumber',
-  'nocursorline',
-  'bufhidden=hide',
-}
-
 vim.my.utils.augroup('user:terminal', {
-  { 'TermOpen', '*', 'setlocal ' .. table.concat(options, ' ') },
+  {
+    events = 'TermOpen',
+    pattern = '*',
+    command = 'setlocal ' .. table.concat({
+      'nonumber',
+      'scrolloff=0',
+      'norelativenumber',
+      'nocursorline',
+      'bufhidden=hide',
+    }, ' '),
+  },
 })

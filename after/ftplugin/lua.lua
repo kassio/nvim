@@ -8,6 +8,7 @@ vim.my.completion.buffer.sources({
   'path',
 })
 
-vim.my.utils.augroup('user:ftplugin:lua', {
-  { 'BufWritePre,FileWritePre', '*.lua', 'lua vim.my.lsp.format_and_save()' },
+vim.api.nvim_create_autocmd({ 'BufWritePre', 'FileWritePre' }, {
+  pattern = '*.lua',
+  callback = vim.my.lsp.format_and_save,
 })

@@ -1,3 +1,5 @@
+require('my.table')
+
 vim.my = {}
 vim.my.buffers = require('my.buffers')
 vim.my.sessions = require('my.sessions')

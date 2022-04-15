@@ -16,12 +16,11 @@ M.to_clipboard = function(text, external_clipboard)
 end
 
 M.augroup = function(name, autocmds)
-  cmd('augroup ' .. name)
-  cmd('autocmd!')
-  for _, autocmd in ipairs(autocmds) do
-    cmd('autocmd ' .. table.concat(autocmd, ' '))
+  local aug = api.nvim_create_augroup(name, { clear = true })
+  for _, opts in ipairs(autocmds) do
+    local events = table.removekey(opts, 'events')
+    api.nvim_create_autocmd(events, opts)
   end
-  cmd('augroup END')
 end
 
 M.command = function(args)
