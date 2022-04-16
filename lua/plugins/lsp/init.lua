@@ -39,15 +39,13 @@ local attacher = function(client)
 
   -- Keymaps
   nmap('glR', '<cmd>LspRestart<cr>')
-  nmap('glD', 'vim.lsp.buf.declaration()')
-  nmap('gld', 'vim.lsp.buf.definition()')
-  nmap('glr', 'vim.lsp.buf.references()')
-  nmap('glh', 'vim.lsp.buf.hover()')
-  nmap('K', 'vim.lsp.buf.hover()')
-
-  nmap('gla', 'vim.lsp.buf.code_action()')
-
-  nmap('glf', 'vim.lsp.buf.formatting()')
+  nmap('glD', vim.lsp.buf.declaration)
+  nmap('gld', vim.lsp.buf.definition)
+  nmap('glr', vim.lsp.buf.references)
+  nmap('glh', vim.lsp.buf.hover)
+  nmap('K', vim.lsp.buf.hover)
+  nmap('gla', vim.lsp.buf.code_action)
+  nmap('glf', vim.lsp.buf.formatting)
 
   print('LSP: ' .. client.name)
 end
