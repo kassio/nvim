@@ -28,6 +28,12 @@ return {
     settings = {
       gopls = {
         gofumpt = false,
+        analyses = {
+          nilness = true,
+          shadow = true,
+          unusedparams = true,
+          unusedwrite = true
+        },
       },
     },
   },
