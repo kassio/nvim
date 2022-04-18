@@ -11,7 +11,7 @@ M.setup = function()
     vim.cmd('qall!')
   end
 
-  vim.api.nvim_create_user_command('Upgrade', require('plugins').upgrade, {})
+  vim.api.nvim_create_user_command('Upgrade', require('plugins').upgrade, { bang = true })
 end
 
 M.upgrade = function(cmd)
