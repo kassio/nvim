@@ -16,7 +16,7 @@ end
 
 M.upgrade = function(cmd)
   if cmd.bang then
-    vim.cmd('autocmd User PackerComplete quitall')
+    vim.cmd('autocmd User PackerComplete quitall!')
   end
 
   M.load().sync()
