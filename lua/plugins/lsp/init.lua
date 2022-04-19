@@ -1,4 +1,5 @@
 local lsp = vim.lsp
+local hdls = lsp.handlers
 local installer = require('plugins.lsp.installer')
 local utils = vim.my.utils
 local command = vim.api.nvim_create_user_command
@@ -21,11 +22,13 @@ completionItem.resolveSupport = {
   properties = { 'documentation', 'detail', 'additionalTextEdits' },
 }
 
-lsp.handlers['textDocument/hover'] = lsp.with(lsp.handlers.hover, { border = 'single' })
+hdls['textDocument/hover'] = lsp.with(hdls.hover, { border = 'single' })
+hdls['textDocument/signatureHelp'] = lsp.with(hdls.signature_help, { border = 'single' })
 
 local nmap = function(lhs, rhs)
   vim.keymap.set('n', lhs, rhs, { buffer = 0, silent = true })
 end
+
 
 local attacher = function(client)
   -- Commands
@@ -40,8 +43,8 @@ local attacher = function(client)
   command('LspListReferences', lsp.buf.references, {})
 
   command('LspWorkspaceSymbols', function(cmd)
-    vim.cmd('Telescope lsp_workspace_symbols query=' .. cmd.args)
-  end, { nargs = 1 })
+    vim.cmd('Telescope lsp_dynamic_workspace_symbols')
+  end, {})
 
   -- Keymaps
   nmap('glR', '<cmd>LspRestart<cr>')

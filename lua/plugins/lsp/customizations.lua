@@ -27,12 +27,17 @@ return {
     root_dir = util.root_pattern('.git', 'go.mod'),
     settings = {
       gopls = {
+        experimentalPostfixCompletions = true,
         gofumpt = false,
+        codelenses = {
+          generate = true,
+          gc_details = true,
+        },
         analyses = {
           nilness = true,
           shadow = true,
           unusedparams = true,
-          unusedwrite = true
+          unusedwrite = true,
         },
       },
     },

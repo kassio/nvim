@@ -119,6 +119,7 @@ M.load = function()
           'f3fora/cmp-spell',
           'onsails/lspkind-nvim',
           'ray-x/cmp-treesitter',
+          'hrsh7th/cmp-nvim-lsp-signature-help',
           -- snippets
           'dcampos/nvim-snippy',
           'dcampos/cmp-snippy',

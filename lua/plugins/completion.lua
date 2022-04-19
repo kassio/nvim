@@ -14,6 +14,7 @@ local default_sources = {
     max_item_count = 5,
     option = { get_bufnrs = api.nvim_list_bufs },
   },
+  signature = { name = 'nvim_lsp_signature_help' },
   spell = { name = 'spell', keyword_length = 3, max_item_count = 5 },
   path = { name = 'path', max_item_count = 10 },
 }
@@ -69,6 +70,7 @@ cmp.setup({
 
   sources = sources_for({
     'lsp',
+    'signature',
     'snippets',
     'treesitter',
     'buffer',
