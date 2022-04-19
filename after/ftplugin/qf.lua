@@ -1,5 +1,5 @@
 local buf_keymap = function(mode, lhs, rhs)
-  vim.keymap.set(mode, lhs, rhs, { buffer = 0, silent = true }
+  vim.keymap.set(mode, lhs, rhs, { buffer = 0, silent = true })
 end
 
 buf_keymap('n', '<c-t>', ':exec "tab cc".line(".")<cr>')
