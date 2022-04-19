@@ -12,98 +12,106 @@ require('pqf').setup({
   },
 })
 
--- Color helpers
-local colorbuddy = require('colorbuddy')
--- Highlight helpers
-local Color, colors, Group, groups, styles = colorbuddy.setup()
--- Set theme
-colorbuddy.colorscheme('onebuddy', vim.o.background == 'light')
-
 local sign_define = function(name, sign)
   vim.cmd(string.format('sign define %s texthl=%s text=%s', name, name, sign))
 end
 
-Color.new('myError', theme.colors.error)
-Color.new('myWarn', theme.colors.warn)
-Color.new('myInfo', theme.colors.info)
-Color.new('myHint', theme.colors.hint)
-Color.new('myIgnore', theme.colors.ignore)
-Color.new('myShadow', theme.colors.shadow)
-Color.new('myBackground', theme.colors.background)
+local hl_def = function(name, opts)
+  vim.api.nvim_set_hl(0, name, opts)
+end
 
--- Group.new = function(name, fg, bg, style, guisp, blend)
+local hl_extend = function(target, source, exts)
+  exts = exts or {}
+  source_hl = vim.api.nvim_get_hl_by_name(source, true)
+
+  local ok = pcall(hl_def, target, vim.tbl_extend('force', source_hl, exts))
+
+  if not ok then
+    P({ source, target, vim.tbl_extend('force', source_hl, exts) })
+  end
+end
+
+vim.cmd('colorscheme ' .. theme.colorscheme)
+vim.opt.background = vim.o.background
+
 -- Spell
-Group.new('SpellBad', colors.none, colors.none, styles.undercurl, colors.myError)
-Group.link('SpellCap', groups.SpellBad)
-Group.link('SpellRare', groups.SpellBad)
-Group.link('SpellLocal', groups.SpellBad)
+hl_def('SpellBad', { foreground = 'NONE', background = 'NONE', undercurl = true })
+hl_extend('SpellCap', 'SpellBad')
+hl_extend('SpellRare', 'SpellBad')
+hl_extend('SpellLocal', 'SpellBad')
 
 -- Spacing/Visual clues
-Group.new('ColorColumn', colors.none, colors.myShadow)
+hl_def('ColorColumn', { foreground = 'NONE', background = theme.colors.shadow })
 
-Group.new('NonText', colors.myShadow:light(), colors.none, styles.none)
-Group.link('Whitespace', groups.NonText)
+hl_def('NonText', { foreground = theme.colors.shadow, background = 'NONE' })
+hl_extend('Whitespace', 'NonText')
 
-Group.new('VertSplit', colors.myIgnore:dark())
-Group.new('SpecialKey', colors.myShadow)
-Group.link('SpecialChar', groups.SpecialKey)
-Group.link('EndOfBuffer', groups.SpecialKey)
+hl_def('VertSplit', { foreground = theme.colors.ignore })
+hl_def('SpecialKey', { foreground = theme.colors.shadow })
+hl_extend('SpecialChar', 'SpecialKey')
+hl_extend('EndOfBuffer', 'SpecialKey')
 
 -- matching parantheses/blocks marks
-Group.new('MatchParen', colors.none, colors.none, styles.bold)
+hl_def('MatchParen', { foreground = 'NONE', background = 'NONE', bold = true })
 
 -- Diagnostics (vim.diagnostic)
 -- Default highlight
-Group.new('DiagnosticError', colors.myError, colors.none)
-Group.new('DiagnosticWarn', colors.myWarn, colors.none)
-Group.new('DiagnosticInfo', colors.myInfo, colors.none)
-Group.new('DiagnosticHint', colors.myHint, colors.none)
+hl_def('DiagnosticError', { foreground = theme.colors.error, background = 'NONE' })
+hl_def('DiagnosticWarn', { foreground = theme.colors.warn, background = 'NONE' })
+hl_def('DiagnosticInfo', { foreground = theme.colors.info, background = 'NONE' })
+hl_def('DiagnosticHint', { foreground = theme.colors.hint, background = 'NONE' })
+
 -- Signs/Icons highlight
-Group.link('DiagnosticSignError', groups.DiagnosticError)
-Group.link('DiagnosticSignWarn', groups.DiagnosticWarn)
-Group.link('DiagnosticSignInfo', groups.DiagnosticInfo)
-Group.link('DiagnosticSignHint', groups.DiagnosticHint)
+hl_extend('DiagnosticSignError', 'DiagnosticError')
+hl_extend('DiagnosticSignWarn', 'DiagnosticWarn')
+hl_extend('DiagnosticSignInfo', 'DiagnosticInfo')
+hl_extend('DiagnosticSignHint', 'DiagnosticHint')
+
 -- Signs/Icons definition
 sign_define('DiagnosticSignError', theme.signs.error)
 sign_define('DiagnosticSignWarn', theme.signs.warn)
 sign_define('DiagnosticSignInfo', theme.signs.info)
 sign_define('DiagnosticSignHint', theme.signs.hint)
 
--- Default special string
-Group.new('TSStringSpecial', groups.TSString, groups.TSSTring, styles.bold)
+-- Default escape string
+hl_extend('TSStringEscape', 'TSString', { bold = true })
 
 -- Git
-Group.new('GitSignsCurrentLineBlame', colors.myShadow, colors.none, styles.italic)
+hl_def('GitSignsCurrentLineBlame', {
+  foreground = theme.colors.shadow,
+  background = 'NONE',
+  italic = true,
+})
 
-Group.new('GitSignAdd', colors.myHint, colors.none)
-Group.new('GitSignChange', colors.myWarn, colors.none)
-Group.new('GitSignDelete', colors.myError, colors.none)
+hl_def('GitSignAdd', { foreground = theme.colors.hint, background = 'NONE' })
+hl_def('GitSignChange', { foreground = theme.colors.warn, background = 'NONE' })
+hl_def('GitSignDelete', { foreground = theme.colors.error, background = 'NONE' })
 
-Group.new('GitSignAddLineNr', colors.myHint:light(), colors.none)
-Group.new('GitSignChangeLineNr', colors.myWarn:light(), colors.none)
-Group.new('GitSignDeleteLineNr', colors.myError:light(), colors.none)
+hl_def('GitSignAddLineNr', { foreground = theme.colors.hint, background = 'NONE' })
+hl_def('GitSignChangeLineNr', { foreground = theme.colors.warn, background = 'NONE' })
+hl_def('GitSignDeleteLineNr', { foreground = theme.colors.error, background = 'NONE' })
 
 -- Filetree
-Group.new('NvimTreeOpenedFile', colors.none, colors.none, styles.undercurl)
-
--- Ruby with Treesitter
-Group.link('rubyTSType', groups.rubyconstant)
-Group.link('rubyTSLabel', groups.rubyinstancevariable)
-Group.link('rubyTSSymbol', groups.rubysymbol)
-Group.link('rubyTSVariableBuiltin', groups.rubypseudovariable)
-
--- Go with Treesitter
-Group.link('goTSvariable', groups.TSVariable)
-Group.link('goTSfunction_name', groups.TSfunction)
-Group.link('goTSproperty', groups.TSfunction)
+hl_def('NvimTreeOpenedFile', { foreground = 'NONE', background = 'NONE', undercurl = true })
 
 -- Treesitter
-Group.new('TSDefinition', colors.none, colors.myShadow)
-Group.link('TSDefinitionUsage', groups.TSDefinition)
-Group.link('TSTypeBuiltin', groups.Type)
-Group.link('TSVariable', groups.Normal)
-Group.link('TSParameter', groups.Normal)
-Group.link('TSFuncBuiltin', groups.Identifier)
+hl_def('TSDefinition', { foreground = 'NONE', background = theme.colors.shadow })
+hl_extend('TSDefinitionUsage', 'TSDefinition')
+hl_extend('TSTypeBuiltin', 'Type')
+hl_extend('TSVariable', 'Normal')
+hl_extend('TSParameter', 'Normal')
+hl_extend('TSFuncBuiltin', 'Identifier')
+
+-- Ruby with Treesitter
+hl_extend('rubyTSType', 'rubyconstant')
+hl_extend('rubyTSLabel', 'rubyinstancevariable')
+hl_extend('rubyTSSymbol', 'rubysymbol')
+hl_extend('rubyTSVariableBuiltin', 'rubypseudovariable')
+
+-- Go with Treesitter
+hl_extend('goTSvariable', 'TSVariable')
+hl_extend('goTSfunction_name', 'TSfunction')
+hl_extend('goTSproperty', 'TSfunction')
 
 -- zsh
-Group.new('zshQuoted', groups.String, groups.String, styles.bold)
+hl_extend('zshQuoted', 'String', { bold = true })

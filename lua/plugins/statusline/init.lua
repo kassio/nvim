@@ -45,7 +45,7 @@ lualine.setup({
     { sections = neoterm_sections, filetypes = { 'neoterm' } },
   },
   options = {
-    theme = theme.colorscheme,
+    theme = theme.statusline,
     icons_enabled = true,
     section_separators = '',
     component_separators = '',
