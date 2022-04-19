@@ -29,6 +29,26 @@ treesitter.setup({
     },
   },
   textobjects = {
+    move = {
+      enable = enable,
+      set_jumps = true,
+      goto_next_start = {
+        [']m'] = '@function.outer',
+        [']]'] = '@class.outer',
+      },
+      goto_next_end = {
+        [']M'] = '@function.outer',
+        [']['] = '@class.outer',
+      },
+      goto_previous_start = {
+        ['[m'] = '@function.outer',
+        ['[['] = '@class.outer',
+      },
+      goto_previous_end = {
+        ['[M'] = '@function.outer',
+        ['[]'] = '@class.outer',
+      },
+    },
     select = {
       enable = true,
       keymaps = {
@@ -38,6 +58,15 @@ treesitter.setup({
         ['im'] = '@function.inner',
         ['aM'] = '@class.outer',
         ['iM'] = '@class.inner',
+      },
+    },
+    swap = {
+      enable = true,
+      swap_next = {
+        ['<leader>a'] = '@parameter.inner',
+      },
+      swap_previous = {
+        ['<leader>A'] = '@parameter.inner',
       },
     },
   },
