@@ -1,6 +1,6 @@
 aug user:brewfile
   au!
-  au BufNewFile,BufRead Brewfile,.Brewfile call s:brewfile()
+  au BufNewFile,BufRead *Brewfile call s:brewfile()
 aug END
 
 function! s:brewfile()
