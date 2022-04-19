@@ -40,18 +40,17 @@ M.show = function(reference_window)
   local identifier_bufname = string.format(' %s ', vim.fn.fnamemodify(name, ':~:.'))
   local identifier = identifier_bufnr .. identifier_bufname
   local width = api.nvim_win_get_width(reference_window)
-  local leftpadding = string.rep(' ', width - #identifier)
 
-  api.nvim_buf_set_lines(fbufid, 0, -1, true, { leftpadding .. identifier })
-  add_highlight(fbufid, hls.bufnr.name, #leftpadding, #leftpadding + #identifier_bufnr)
-  add_highlight(fbufid, hls.bufname.name, #identifier_bufnr + #leftpadding, width)
+  api.nvim_buf_set_lines(fbufid, 0, -1, true, { identifier })
+  add_highlight(fbufid, hls.bufnr.name, 0, #identifier_bufnr)
+  add_highlight(fbufid, hls.bufname.name, #identifier_bufnr, width)
 
   floating_identifier_winid = api.nvim_open_win(fbufid, 0, {
     relative = 'win',
     height = 1,
-    width = width,
+    width = #identifier,
     row = 0,
-    col = 0,
+    col = width - #identifier,
     win = reference_window,
     style = 'minimal',
     focusable = false,
@@ -62,21 +61,7 @@ M.show = function(reference_window)
   api.nvim_set_current_win(reference_window)
 end
 
-M.hide = function()
-  local ok, winid = pcall(api.nvim_win_get_var, 0, prefix('winid'))
-  if not ok then
-    return
-  end
-
-  local ok, buf = pcall(api.nvim_win_get_buf, winid)
-  if not ok or api.nvim_buf_get_option(buf, 'filetype') ~= name then
-    return
-  end
-
-  pcall(api.nvim_win_hide, winid)
-end
-
-M.close_all = function()
+local close_all = function()
   for _, buf in ipairs(api.nvim_list_bufs()) do
     if api.nvim_buf_get_option(buf, 'filetype') == name then
       pcall(api.nvim_buf_delete, buf, { force = true })
@@ -84,8 +69,8 @@ M.close_all = function()
   end
 end
 
-M.reload = function()
-  M.close_all()
+local reload = function()
+  close_all()
 
   local curtab = api.nvim_get_current_tabpage()
   local curwin = api.nvim_get_current_win()
@@ -101,14 +86,12 @@ M.reload = function()
   api.nvim_set_current_win(curwin)
 end
 
-vim.floating_identifier = M
-
--- vim.my.utils.command('FloatingIdReload lua vim.floating_identifier.reload()')
+api.nvim_create_user_command('FloatingIdReload', reload, {})
 
 vim.my.utils.augroup('floating:ids', {
   {
     events = { 'TabNew', 'TabEnter', 'WinNew', 'WinEnter', 'VimResized' },
     pattern = '*',
-    callback = vim.floating_identifier.reload,
+    callback = reload,
   },
 })
