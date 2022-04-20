@@ -34,18 +34,29 @@ M.preserve = function(callback)
   fn.winrestview(saved_view)
 end
 
-M.define_highlight = function(group, color)
-  if color.link then
-    vim.cmd('highlight! link ' .. group .. ' ' .. color.link)
-  else
-    local style = color.style and 'gui=' .. color.style or 'gui=NONE'
-    local fg = color.fg and 'guifg=' .. color.fg or 'guifg=NONE'
-    local bg = color.bg and 'guibg=' .. color.bg or 'guibg=NONE'
-    local sp = color.sp and 'guisp=' .. color.sp or ''
-    local hl = string.format('highlight %s %s %s %s %s', group, style, fg, bg, sp)
+M.highlight_define = function(group, color)
+  vim.api.nvim_set_hl(0, group, color)
+end
 
-    vim.cmd(hl)
+M.highlight_extend = function(target, source, opts)
+  local source_hl = vim.api.nvim_get_hl_by_name(source, true)
+  local exts = vim.tbl_extend('force', source_hl, opts or {})
+  local ok = pcall(M.highlight_define, target, exts)
+
+  if not ok then
+    P(
+      string.format(
+        'Failed to set highlight extension: source %s | target: %s | ext: %s ',
+        source,
+        target,
+        vim.inspect(exts)
+      )
+    )
   end
+end
+
+M.sign_define = function(name, sign)
+  vim.cmd(string.format('sign define %s texthl=%s text=%s', name, name, sign))
 end
 
 local get_visual_region = function()

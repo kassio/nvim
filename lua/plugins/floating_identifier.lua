@@ -12,11 +12,13 @@ local add_highlight = function(bufid, hlname, col_start, col_end)
   api.nvim_buf_add_highlight(bufid, hlnamespace, hlname, 0, col_start, col_end)
 end
 local hls = {
-  bufnr = { name = prefix('BufferNr'), fg = '#98c379', bg = '#3e4452' },
-  bufname = { name = prefix('BufferName'), fg = '#61afef', bg = '#3e4452' },
+  bufnr = { name = prefix('BufferNr'), foreground = '#98c379', background = '#3e4452' },
+  bufname = { name = prefix('BufferName'), foreground = '#61afef', background = '#3e4452' },
 }
 for _, h in pairs(hls) do
-  vim.my.utils.define_highlight(h.name, h)
+  local name = table.removekey(h, 'name')
+  vim.my.utils.highlight_define(name, h)
+  h['name'] = name
 end
 
 M.show = function(reference_window)
