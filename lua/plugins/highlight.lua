@@ -75,6 +75,7 @@ sign_define('DiagnosticSignHint', theme.signs.hint)
 
 -- Default escape string
 hl_extend('TSStringEscape', 'TSString', { bold = true })
+hl_extend('TSStringSpecial', 'TSString', { bold = true })
 
 -- Git
 hl_def('GitSignsCurrentLineBlame', {
