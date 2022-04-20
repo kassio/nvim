@@ -61,6 +61,8 @@ sign_define('DiagnosticSignHint', theme.signs.hint)
 hl_extend('TSStringEscape', 'TSString', { bold = true })
 hl_extend('TSStringSpecial', 'TSString', { bold = true })
 
+hl_def('TSError', { background = 'NONE', undercurl = true, italic = true })
+
 -- Git
 hl_def('GitSignsCurrentLineBlame', {
   foreground = theme.colors.shadow,
