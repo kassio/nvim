@@ -18,14 +18,38 @@ end
 local sources = {
   -- code actions
   builtin.code_actions.gitsigns,
+  builtin.code_actions.refactoring,
+  builtin.code_actions.shellcheck,
+
+  -- completion
+  builtin.completion.spell,
 
   -- diagnostics
+  builtin.diagnostics.codespell,
+  builtin.diagnostics.editorconfig_checker,
+  builtin.diagnostics.golangci_lint,
+  builtin.diagnostics.jsonlint,
+  builtin.diagnostics.luacheck,
   builtin.diagnostics.markdownlint,
+  builtin.diagnostics.misspell,
   builtin.diagnostics.shellcheck,
+  builtin.diagnostics.staticcheck,
+  builtin.diagnostics.tidy,
+  builtin.diagnostics.trail_space,
+  builtin.diagnostics.vint,
+  builtin.diagnostics.zsh,
   conditional_rubocop,
 
-  --formatting
+  -- formatting
+  builtin.formatting.clang_format,
+  builtin.formatting.jq,
+  builtin.formatting.shfmt,
+  builtin.formatting.sqlformat,
   builtin.formatting.stylua,
+  builtin.formatting.tidy,
+
+  -- hover
+  builtin.hover.dictionary,
 }
 
 return {

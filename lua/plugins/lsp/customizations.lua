@@ -6,6 +6,9 @@ return {
     root_dir = util.root_pattern('.stylua.toml'),
     settings = {
       Lua = {
+        format = {
+          enabled = false,
+        },
         diagnostics = {
           globals = {
             'vim',

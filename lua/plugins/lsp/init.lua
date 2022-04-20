@@ -42,7 +42,7 @@ local attacher = function(client)
   command('LspGoToDeclaration', lsp.buf.declaration, {})
   command('LspListReferences', lsp.buf.references, {})
 
-  command('LspWorkspaceSymbols', function(cmd)
+  command('LspWorkspaceSymbols', function()
     vim.cmd('Telescope lsp_dynamic_workspace_symbols')
   end, {})
 
