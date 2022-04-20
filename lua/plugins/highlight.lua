@@ -45,17 +45,11 @@ hl_def('DiagnosticWarn', { foreground = theme.colors.warn, background = 'NONE' }
 hl_def('DiagnosticInfo', { foreground = theme.colors.info, background = 'NONE' })
 hl_def('DiagnosticHint', { foreground = theme.colors.hint, background = 'NONE' })
 
--- Signs/Icons highlight
-hl_extend('DiagnosticSignError', 'DiagnosticError')
-hl_extend('DiagnosticSignWarn', 'DiagnosticWarn')
-hl_extend('DiagnosticSignInfo', 'DiagnosticInfo')
-hl_extend('DiagnosticSignHint', 'DiagnosticHint')
-
 -- Signs/Icons definition
-sign_define('DiagnosticSignError', theme.signs.error)
-sign_define('DiagnosticSignWarn', theme.signs.warn)
-sign_define('DiagnosticSignInfo', theme.signs.info)
-sign_define('DiagnosticSignHint', theme.signs.hint)
+sign_define('DiagnosticSignError', theme.signs.error, 'DiagnosticError')
+sign_define('DiagnosticSignWarn', theme.signs.warn, 'DiagnosticWarn')
+sign_define('DiagnosticSignInfo', theme.signs.info, 'DiagnosticInfo')
+sign_define('DiagnosticSignHint', theme.signs.hint, 'DiagnosticHint')
 
 -- Default escape string
 hl_extend('TSStringEscape', 'TSString', { bold = true })

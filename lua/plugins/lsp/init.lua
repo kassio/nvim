@@ -56,8 +56,6 @@ local attacher = function(client)
   nmap('<c-k>', lsp.buf.signature_help)
   nmap('gla', lsp.buf.code_action)
   nmap('glf', lsp.buf.formatting)
-  nmap('[d', vim.lsp.diagnostic.goto_prev)
-  nmap(']d', vim.lsp.diagnostic.goto_next)
 
   print('LSP: ' .. client.name)
 end
