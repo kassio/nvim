@@ -51,6 +51,7 @@ local attacher = function(client)
   -- Keymaps
   nmap('glR', '<cmd>LspRestart<cr>')
   nmap('glr', '<cmd>LspListReferences<cr>')
+  nmap('gls', '<cmd>LspWorkspaceSymbols<cr>')
   nmap('glD', lsp.buf.declaration)
   nmap('gld', lsp.buf.definition)
   nmap('glh', lsp.buf.hover)
