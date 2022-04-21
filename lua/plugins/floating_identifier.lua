@@ -31,12 +31,13 @@ M.show = function(reference_window)
   local fbufid = api.nvim_create_buf(false, true)
   api.nvim_buf_set_option(fbufid, 'filetype', name)
 
-  if name == api.nvim_buf_get_name(rbufid) then
+  local bufname = api.nvim_buf_get_name(rbufid)
+  if bufname == '' then
     return
   end
 
   local identifier_bufnr = string.format(' %d ', rbufid)
-  local identifier_bufname = string.format(' %s ', vim.fn.fnamemodify(name, ':~:.'))
+  local identifier_bufname = string.format(' %s ', vim.fn.fnamemodify(bufname, ':~:.'))
   local identifier = identifier_bufnr .. identifier_bufname
   local width = api.nvim_win_get_width(reference_window)
 
