@@ -29,7 +29,6 @@ local nmap = function(lhs, rhs)
   vim.keymap.set('n', lhs, rhs, { buffer = 0, silent = true })
 end
 
-
 local attacher = function(client)
   -- Commands
   command('LspCodeActions', lsp.buf.code_action, {})
@@ -40,7 +39,10 @@ local attacher = function(client)
   command('LspSignatureHelp', lsp.buf.signature_help, {})
   command('LspGoToDefinition', lsp.buf.definition, {})
   command('LspGoToDeclaration', lsp.buf.declaration, {})
-  command('LspListReferences', lsp.buf.references, {})
+
+  command('LspListReferences', function()
+    vim.cmd('Telescope lsp_references')
+  end, {})
 
   command('LspWorkspaceSymbols', function()
     vim.cmd('Telescope lsp_dynamic_workspace_symbols')
@@ -48,9 +50,9 @@ local attacher = function(client)
 
   -- Keymaps
   nmap('glR', '<cmd>LspRestart<cr>')
+  nmap('glr', '<cmd>LspListReferences<cr>')
   nmap('glD', lsp.buf.declaration)
   nmap('gld', lsp.buf.definition)
-  nmap('glr', lsp.buf.references)
   nmap('glh', lsp.buf.hover)
   nmap('K', lsp.buf.hover)
   nmap('<c-k>', lsp.buf.signature_help)
