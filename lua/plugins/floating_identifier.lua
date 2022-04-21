@@ -1,6 +1,5 @@
 local M = {}
 local api = vim.api
-local last_active = nil
 
 local name = 'floating_identifier'
 local prefix = function(txt)
@@ -16,25 +15,23 @@ local hls = {
   bufname = { name = prefix('BufferName'), foreground = '#61afef', background = '#3e4452' },
 }
 for _, h in pairs(hls) do
-  local name = table.removekey(h, 'name')
-  vim.my.utils.highlight_define(name, h)
-  h['name'] = name
+  local hl_name = table.removekey(h, 'name')
+  vim.my.utils.highlight_define(hl_name, h)
+  h['name'] = hl_name
 end
 
 M.show = function(reference_window)
   reference_window = reference_window or api.nvim_get_current_win()
-  last_active = reference_window
 
   local rbufid = api.nvim_win_get_buf(reference_window)
   if api.nvim_buf_get_option(rbufid, 'buftype') ~= '' then
     return
   end
 
-  fbufid = api.nvim_create_buf(false, true)
+  local fbufid = api.nvim_create_buf(false, true)
   api.nvim_buf_set_option(fbufid, 'filetype', name)
 
-  local name = api.nvim_buf_get_name(rbufid)
-  if name == '' then
+  if name == api.nvim_buf_get_name(rbufid) then
     return
   end
 
@@ -47,7 +44,7 @@ M.show = function(reference_window)
   add_highlight(fbufid, hls.bufnr.name, 0, #identifier_bufnr)
   add_highlight(fbufid, hls.bufname.name, #identifier_bufnr, width)
 
-  floating_identifier_winid = api.nvim_open_win(fbufid, 0, {
+  local floating_identifier_winid = api.nvim_open_win(fbufid, 0, {
     relative = 'win',
     height = 1,
     width = #identifier,
