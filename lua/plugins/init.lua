@@ -126,6 +126,11 @@ M.load = function()
         },
       })
 
+      use({
+        'folke/todo-comments.nvim',
+        requires = 'nvim-lua/plenary.nvim',
+      })
+
       -- fancy notification
       use('rcarriga/nvim-notify')
 
