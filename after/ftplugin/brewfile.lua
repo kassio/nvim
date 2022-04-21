@@ -5,12 +5,23 @@ local cmd = function(str)
   vim.cmd(cmd_str)
 end
 
-vim.api.nvim_buf_create_user_command(0, 'Sort', function()
+local brew_sort = function()
   utils.preserve(function()
     cmd('normal ggV/^brew<CR>k:sort<CR>')
     cmd('normal gg/^brew<CR>V/^cask<CR>k:sort<CR>')
     cmd('normal gg/^cask<CR>V/^mas<CR>k:sort<CR>')
     cmd('normal gg/^mas<CR>VG:sort<CR>')
+    cmd('normal <c-l>')
     cmd('write!')
   end)
-end, {})
+end
+
+vim.api.nvim_buf_create_user_command(0, 'Sort', brew_sort, {})
+
+vim.my.utils.augroup('user:autocommands', {
+  {
+    events = { 'BufWritePre', 'FileWritePre' },
+    pattern = '*',
+    callback = brew_sort,
+  },
+})
