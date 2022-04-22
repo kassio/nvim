@@ -65,7 +65,7 @@ opt.wildignorecase = true
 opt.wrap = false
 opt.writebackup = false
 
-if vim.env.ITERM_PROFILE == 'light' then
+if vim.fn.readfile(vim.env.HOME .. '/.cache/term_profile')[1] == 'light' then
   opt.background = 'light'
 else
   opt.background = 'dark'
