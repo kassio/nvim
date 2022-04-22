@@ -21,7 +21,7 @@ vim.api.nvim_buf_create_user_command(0, 'Sort', brew_sort, {})
 vim.my.utils.augroup('user:autocommands', {
   {
     events = { 'BufWritePre', 'FileWritePre' },
-    pattern = '*',
+    pattern = 'brewfile',
     callback = brew_sort,
   },
 })
