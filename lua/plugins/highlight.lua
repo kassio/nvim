@@ -24,6 +24,11 @@ local attrs = function(opts)
   })
 end
 
+-- let &t_Cs = "\e[4:3m"
+-- let &t_Ce = "\e[4:0m"
+-- hi SpellBad   guisp=#AB3434    gui=undercurl guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE term=underline cterm=undercurl ctermul=red
+-- set spell spelllang=en_us termguicolors
+
 vim.cmd('colorscheme ' .. theme.colorscheme)
 
 -- Spell
