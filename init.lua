@@ -1,11 +1,6 @@
 require('globals')
 
-require('options') -- vim options
 require('my') -- my plugins
-require('commands')
-require('autocommands')
-require('keymaps')
-require('diagnostic')
 
 require('plugins').setup()
 require('plugins.comment')

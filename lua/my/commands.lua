@@ -2,7 +2,7 @@ local command = vim.api.nvim_create_user_command
 local cabbrev = vim.my.utils.cabbrev
 
 -- reload config
-command('Reload', vim.my.reload, {})
+command('Reload', vim.my.reloader.reload, {})
 
 -- trim the file
 command('Trim', vim.my.buffers.trim, {})
