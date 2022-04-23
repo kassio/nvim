@@ -9,6 +9,9 @@ telescope.setup({
       override_file_sorter = true,
       override_generic_sorter = true,
     },
+    ['ui-select'] = {
+      require('telescope.themes').get_dropdown(),
+    },
   },
 
   defaults = {
@@ -71,3 +74,4 @@ telescope.setup({
 })
 
 telescope.load_extension('fzf')
+telescope.load_extension('ui-select')
