@@ -1,8 +1,5 @@
 local telescope = require('telescope')
 local actions = require('telescope.actions')
-local builtin = require('telescope.builtin')
-
-local utils = vim.my.utils
 
 telescope.setup({
   extensions = {
