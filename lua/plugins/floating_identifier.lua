@@ -1,5 +1,6 @@
 local M = {}
 local api = vim.api
+local theme = vim.my.theme.colors
 
 local name = 'floating_identifier'
 local prefix = function(txt)
@@ -11,8 +12,8 @@ local add_highlight = function(bufid, hlname, col_start, col_end)
   api.nvim_buf_add_highlight(bufid, hlnamespace, hlname, 0, col_start, col_end)
 end
 local hls = {
-  bufnr = { name = prefix('BufferNr'), foreground = '#98c379', background = '#3e4452' },
-  bufname = { name = prefix('BufferName'), foreground = '#61afef', background = '#3e4452' },
+  bufnr = { name = prefix('BufferNr'), foreground = theme.hint, background = theme.shadow },
+  bufname = { name = prefix('BufferName'), foreground = theme.info, background = theme.shadow },
 }
 for _, h in pairs(hls) do
   local hl_name = table.removekey(h, 'name')
