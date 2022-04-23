@@ -75,5 +75,5 @@ command('LspInstallServers', vim.my.lsp.install_servers, {})
 -- Auto format files
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
   pattern = '*.lua,*.go,*.rb,*.json,*.js',
-  callback = lsp.buf.formatting_sync,
+  callback = lsp.buf.formatting_seq_sync,
 })
