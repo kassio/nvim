@@ -1,5 +1,4 @@
 local M = {}
-local cmd = vim.cmd
 local api = vim.api
 local fn = vim.fn
 
@@ -146,7 +145,7 @@ local ensure_valid_file_flag = function(flag)
 end
 
 M.copy_filename = function(cmd)
-  flag = ensure_valid_file_flag(cmd.args)
+  local flag = ensure_valid_file_flag(cmd.args)
   local filename = fn.expand(flag)
 
   M.to_clipboard(filename, cmd.bang)
