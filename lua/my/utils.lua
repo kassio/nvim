@@ -2,8 +2,6 @@ local M = {}
 local api = vim.api
 local fn = vim.fn
 
-M.str = require('my.utils.str')
-
 M.to_clipboard = function(text, use_external_clipboard)
   if use_external_clipboard then
     fn.setreg('*', text)
