@@ -53,8 +53,7 @@ M.highlight_extend = function(target, source, opts)
 end
 
 M.sign_define = function(name, sign, highlight)
-  highlight = highlight or name
-  vim.cmd(string.format('sign define %s texthl=%s text=%s', name, highlight, sign))
+  fn.sign_define(name, { text = sign, texthl = highlight or name })
 end
 
 local get_visual_region = function()

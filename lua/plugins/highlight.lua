@@ -64,6 +64,22 @@ sign_define('DiagnosticSignWarn', theme.signs.warn, 'DiagnosticWarn')
 sign_define('DiagnosticSignInfo', theme.signs.info, 'DiagnosticInfo')
 sign_define('DiagnosticSignHint', theme.signs.hint, 'DiagnosticHint')
 
+-- Debugger
+sign_define('DapBreakpoint', '●')
+hl_def('DapBreakpoint', attrs({ foreground = colors.error }))
+
+sign_define('DapBreakpointCondition', '◆')
+hl_extend('DapBreakpointCondition', 'Number')
+
+sign_define('DapLogPoint', 'Ξ')
+hl_def('DapLogPoint', attrs({ foreground = colors.info }))
+
+sign_define('DapStopped', '▶')
+hl_def('DapStopped', attrs({ foreground = colors.hint }))
+
+sign_define('DapBreakpointRejected', '◎')
+hl_def('DapBreakpointRejected', attrs({ foreground = colors.warn }))
+
 -- Git
 hl_def('GitSignsCurrentLineBlame', attrs({ foreground = colors.shadow, italic = true }))
 

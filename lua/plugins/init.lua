@@ -148,8 +148,12 @@ M.load = function()
       use('vim-test/vim-test')
 
       -- Debugger Tooling
-      use('mfussenegger/nvim-dap')
-      use('leoluz/nvim-dap-go')
+      use({
+        'mfussenegger/nvim-dap', -- debugger
+        'rcarriga/nvim-dap-ui',
+        'theHamsta/nvim-dap-virtual-text',
+        'leoluz/nvim-dap-go', -- go debugger integration
+      })
 
       -- Colors
       use({
