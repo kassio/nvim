@@ -29,8 +29,6 @@ end
 -- hi SpellBad   guisp=#AB3434    gui=undercurl guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE term=underline cterm=undercurl ctermul=red
 -- set spell spelllang=en_us termguicolors
 
-vim.cmd('colorscheme ' .. theme.colorscheme)
-
 -- Spell
 hl_def('SpellBad', attrs({ underline = true, sp = colors.warn }))
 hl_extend('SpellCap', 'SpellBad')

@@ -14,3 +14,5 @@ require('my.commands')
 require('my.autocommands')
 require('my.keymaps')
 require('my.diagnostic')
+
+vim.cmd('colorscheme ' .. vim.my.theme.colorscheme)
