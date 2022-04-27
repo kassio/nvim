@@ -53,7 +53,6 @@ require('nvim-tree').setup({
     },
   },
   view = {
-    auto_resize = false,
     number = false,
     preserve_window_proportions = true,
     relativenumber = false,
