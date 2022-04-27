@@ -111,6 +111,7 @@ hl_extend('rubyTSSymbol', 'rubysymbol')
 hl_extend('rubyTSVariableBuiltin', 'rubypseudovariable')
 
 -- Go with Treesitter
+hl_extend('goTSnamespace', 'TSStrong')
 hl_extend('goTSvariable', 'TSVariable')
 hl_extend('goTSfunction_name', 'TSfunction')
 hl_extend('goTSproperty', 'TSfunction')
