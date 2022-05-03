@@ -114,6 +114,9 @@ vim.my.git = {
   end,
 }
 
+vim.keymap.set('n', ']c', gitsigns.next_hunk)
+vim.keymap.set('n', '[c', gitsigns.prev_hunk)
+
 command('GopenRepository', vim.my.git.open_repository, {})
 command('GopenFileRemoteUrl', vim.my.git.open_remote_file, { nargs = '?' })
 command('GcopyFileRemoteURL', vim.my.git.copy_remote_file, { nargs = '?' })
