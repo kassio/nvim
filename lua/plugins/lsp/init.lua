@@ -1,7 +1,6 @@
 local lsp = vim.lsp
 local hdls = lsp.handlers
 local installer = require('plugins.lsp.installer')
-local utils = vim.my.utils
 local command = vim.api.nvim_create_user_command
 
 -- Add additional capabilities supported by nvim-cmp
@@ -29,44 +28,42 @@ local nmap = function(lhs, rhs)
   vim.keymap.set('n', lhs, rhs, { buffer = 0, silent = true })
 end
 
+local command_map = function(fn, name, map)
+  command(name, fn, {})
+
+  if map ~= nil then
+    nmap(map, string.format('<cmd>%s<cr>', name))
+  end
+end
+
 local attacher = function(client)
   -- Commands
-  command('LspCodeActions', lsp.buf.code_action, {})
-  command('LspFormat', lsp.buf.formatting, {})
-  command('LspFormatSync', lsp.buf.formatting_sync, {})
-  command('LspHover', lsp.buf.hover, {})
-  command('LspRename', lsp.buf.rename, {})
-  command('LspSignatureHelp', lsp.buf.signature_help, {})
-  command('LspGoToDeclaration', lsp.buf.declaration, {})
+  command_map(lsp.buf.code_action, 'LspCodeActions', 'gla')
+  command_map(lsp.buf.hover, 'LspHover', 'K')
+  command_map(lsp.buf.rename, 'LspRename', 'grr')
+  command_map(lsp.buf.signature_help, 'LspSignatureHelp', '<c-k>')
+  command_map(lsp.buf.declaration, 'LspGoToDeclaration', 'glD')
 
-  command('LspGoToDefinition', function()
+  command_map(lsp.buf.format, 'LspFormatSync', 'glF')
+  command_map(function()
+    lsp.buf.format({ async = true })
+  end, 'LspFormat', 'glf')
+
+  command_map(function()
     vim.cmd('Telescope lsp_definitions jump_type=vsplit')
-  end, {})
+  end, 'LspGoToDefinition', 'gld')
 
-  command('LspListReferences', function()
+  command_map(function()
     vim.cmd('Telescope lsp_references')
-  end, {})
+  end, 'LspListReferences', 'glr')
 
-  command('LspDocumentSymbols', function()
+  command_map(function()
     vim.cmd('Telescope lsp_document_symbols')
-  end, {})
+  end, 'LspDocumentSymbols', 'gls')
 
-  command('LspWorkspaceSymbols', function()
+  command_map(function()
     vim.cmd('Telescope lsp_dynamic_workspace_symbols')
-  end, {})
-
-  -- Keymaps
-  nmap('glr', '<cmd>LspListReferences<cr>')
-  nmap('glR', '<cmd>LspRestart<cr>')
-  nmap('gls', '<cmd>LspDocumentSymbols<cr>')
-  nmap('glS', '<cmd>LspWorkspaceSymbols<cr>')
-  nmap('gld', '<cmd>LspGoToDefinition<cr>')
-  nmap('glD', lsp.buf.declaration)
-  nmap('glh', lsp.buf.hover)
-  nmap('K', lsp.buf.hover)
-  nmap('<c-k>', lsp.buf.signature_help)
-  nmap('gla', lsp.buf.code_action)
-  nmap('glf', lsp.buf.formatting)
+  end, 'LspWorkspaceSymbols', 'glS')
 
   print('LSP: ' .. client.name)
 end
@@ -83,5 +80,8 @@ command('LspInstallServers', vim.my.lsp.install_servers, {})
 -- Auto format files
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
   pattern = '*.lua,*.go,*.rb,*.json,*.js',
-  callback = lsp.buf.formatting_seq_sync,
+  callback = function()
+    P(lsp.buf.format)
+    lsp.buf.format({ async = false })
+  end,
 })
