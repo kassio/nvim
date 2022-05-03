@@ -107,6 +107,11 @@ vim.my.git = {
   diff = function(cmd)
     gitsigns.diffthis(cmd.args)
   end,
+  write = function()
+    local file = fn.expand('%:.')
+    vim.cmd('write')
+    git('add ' .. file)
+  end,
 }
 
 command('GopenRepository', vim.my.git.open_repository, {})
@@ -119,7 +124,8 @@ command('GpreviewHunk', vim.my.git.preview_hunk, {})
 command('GtoggleBlame', vim.my.git.toggle_blame, {})
 
 command('Grt', vim.my.git.restore, {})
+command('Gwrite', vim.my.git.write, {})
 command('GbranchCurrent', vim.my.git.branch_current, {})
 
-cabbrev('GblameFile', 'G blame')
 cabbrev('Gd', 'Gdiff')
+cabbrev('Gw', 'Gwrite')
