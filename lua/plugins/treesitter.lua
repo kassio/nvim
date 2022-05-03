@@ -30,7 +30,7 @@ treesitter.setup({
   },
   textobjects = {
     move = {
-      enable = enable,
+      enable = true,
       set_jumps = true,
       goto_next_start = {
         [']m'] = '@function.outer',
