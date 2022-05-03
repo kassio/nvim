@@ -47,6 +47,11 @@ keymap('n', 'n,', 'nzzzv')
 keymap('n', 'N,', 'Nzzzv')
 keymap('n', 'J,', 'mzJ`z')
 
+keymap('n', ']c', ']czz')
+keymap('n', '[c', '[czz')
+keymap('n', ']d', ']dzz')
+keymap('n', '[d', '[dzz')
+
 -- escape from terminal mode with double <esc>
 keymap('t', [[<esc><esc>]], [[<c-\><c-n>]])
 
