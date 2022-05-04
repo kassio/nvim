@@ -17,7 +17,13 @@ M.spacer = {
   padding = 0,
 }
 
+M.go_package = function()
+  if tostring(vim.api.nvim_buf_get_option(0, 'filetype')) ~= 'go' then
+    return ''
+  end
 
+  local package_line = vim.api.nvim_buf_get_lines(0, 0, 1, true)[1]
+  return string.format(' %s ›', vim.split(package_line, ' ')[2])
 end
 
 M.mode = function()

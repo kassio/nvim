@@ -24,7 +24,8 @@ local sections = {
     utils.spacer,
   },
   lualine_c = {
-    { vim.my.treesitter.gps.location },
+    utils.go_package,
+    vim.my.treesitter.gps.location,
   },
   lualine_x = {
     {
