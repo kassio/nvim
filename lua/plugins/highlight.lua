@@ -24,11 +24,6 @@ local attrs = function(opts)
   })
 end
 
--- let &t_Cs = "\e[4:3m"
--- let &t_Ce = "\e[4:0m"
--- hi SpellBad   guisp=#AB3434    gui=undercurl guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE term=underline cterm=undercurl ctermul=red
--- set spell spelllang=en_us termguicolors
-
 -- Spell
 hl_def('SpellBad', attrs({ underline = true, sp = colors.warn }))
 hl_extend('SpellCap', 'SpellBad')
@@ -38,7 +33,7 @@ hl_extend('SpellLocal', 'SpellBad')
 -- Spacing/Visual clues
 hl_def('ColorColumn', attrs({ background = colors.shadow }))
 
-hl_def('NonText', attrs({ foreground = colors.shadow }))
+hl_def('NonText', attrs({ foreground = colors.light_shadow }))
 hl_extend('Whitespace', 'NonText')
 
 hl_def('VertSplit', { foreground = colors.ignore })
@@ -90,10 +85,10 @@ hl_def('GitSignChangeLineNr', attrs({ foreground = colors.warn }))
 hl_def('GitSignDeleteLineNr', attrs({ foreground = colors.error }))
 
 -- Filetree
-hl_def('NvimTreeOpenedFile', attrs({ underline = true, sp = colors.info }))
+hl_def('NvimTreeOpenedFile', attrs({ bold = true, italic = false, bg = colors.shadow }))
 
 -- Treesitter
-hl_def('TSError', attrs({ undercurl = true, italic = true, sp = colors.error }))
+hl_def('TSError', attrs({ undercurl = true, sp = colors.error }))
 -- globals
 hl_def('TSDefinition', attrs({ background = colors.shadow }))
 hl_extend('TSDefinitionUsage', 'TSDefinition')
