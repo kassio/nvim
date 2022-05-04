@@ -25,10 +25,12 @@ local dap_cmd = function(fn, action, map)
   end
 end
 
+dap_cmd(dap.step_back, 'StepBack', '<F4>')
 dap_cmd(dap.continue, 'Continue', '<F5>')
 dap_cmd(dap.step_over, 'StepOver', '<F6>')
 dap_cmd(dap.step_into, 'StepInto', '<F7>')
 dap_cmd(dap.step_out, 'StepOut', '<F8>')
+dap_cmd(dap.close, 'Close', '<F9>')
 dap_cmd(widgets.hover, 'Hover', '<leader>dk')
 dap_cmd(dap.repl.open, 'REPL', '<leader>dr')
 dap_cmd(dap.run_last, 'RunLast', '<leader>dl')
