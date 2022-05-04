@@ -77,11 +77,11 @@ M.load = function()
 
       use({
         'nvim-telescope/telescope.nvim',
+        'nvim-telescope/telescope-ui-select.nvim',
+        { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
         requires = {
           'nvim-lua/popup.nvim',
           'nvim-lua/plenary.nvim',
-          { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-          { 'nvim-telescope/telescope-ui-select.nvim' },
         },
       })
 
@@ -112,19 +112,17 @@ M.load = function()
       -- Completion
       use({
         'hrsh7th/nvim-cmp',
-        requires = {
-          'hrsh7th/cmp-nvim-lsp',
-          'hrsh7th/cmp-buffer',
-          'hrsh7th/cmp-path',
-          'hrsh7th/cmp-nvim-lua',
-          'f3fora/cmp-spell',
-          'onsails/lspkind-nvim',
-          'ray-x/cmp-treesitter',
-          'hrsh7th/cmp-nvim-lsp-signature-help',
-          -- snippets
-          'dcampos/nvim-snippy',
-          'dcampos/cmp-snippy',
-        },
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-nvim-lua',
+        'f3fora/cmp-spell',
+        'onsails/lspkind-nvim',
+        'ray-x/cmp-treesitter',
+        'hrsh7th/cmp-nvim-lsp-signature-help',
+        -- snippets
+        'dcampos/nvim-snippy',
+        'dcampos/cmp-snippy',
       })
 
       use({
