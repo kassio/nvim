@@ -25,7 +25,7 @@ local attrs = function(opts)
 end
 
 -- Spell
-hl_def('SpellBad', attrs({ underline = true, sp = colors.warn }))
+hl_def('SpellBad', attrs({ underdot = true, sp = colors.warn }))
 hl_extend('SpellCap', 'SpellBad')
 hl_extend('SpellRare', 'SpellBad')
 hl_extend('SpellLocal', 'SpellBad')
