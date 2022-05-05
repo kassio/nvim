@@ -1,10 +1,5 @@
 vim.my.utils.augroup('user:autocommands', {
   {
-    events = { 'BufReadPost' },
-    pattern = '*',
-    callback = vim.my.buffers.restore_cursor_position,
-  },
-  {
     events = { 'BufWritePre', 'FileWritePre' },
     pattern = '*',
     callback = vim.my.buffers.trim,

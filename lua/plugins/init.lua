@@ -43,6 +43,9 @@ M.load = function()
       -- Load configs from .editorconfig
       use('gpanders/editorconfig.nvim')
 
+      -- Restore last position
+      use('farmergreg/vim-lastplace')
+
       -- Open file with file_path:line:path
       use('wsdjeg/vim-fetch')
 

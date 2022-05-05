@@ -32,12 +32,6 @@ M.delete_hidden = function() -- delete all hidden buffers
   end
 end
 
-M.restore_cursor_position = function()
-  if fn.line('\'"') > 0 and fn.line('\'"') <= fn.line('$') then
-    vim.cmd('normal! g`"')
-  end
-end
-
 M.autosave = function()
   if vim.opt_local.modified:get() then
     M.trim()
