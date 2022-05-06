@@ -36,9 +36,15 @@ M.highlight_define = function(group, color)
 end
 
 M.highlight_extend = function(target, source, opts)
-  local source_hl = vim.api.nvim_get_hl_by_name(source, true)
+  local ok, source_hl = pcall(vim.api.nvim_get_hl_by_name, source, true)
+  if not ok then
+    P(string.format('Failed to find highlight by name "%s"', source))
+    return
+  end
+
   local exts = vim.tbl_extend('force', source_hl, opts or {})
-  local ok = pcall(M.highlight_define, target, exts)
+
+  ok = pcall(M.highlight_define, target, exts)
 
   if not ok then
     P(

@@ -65,12 +65,6 @@ opt.wildignorecase = true
 opt.wrap = false
 opt.writebackup = false
 
-if vim.fn.readfile(vim.env.HOME .. '/.cache/term_profile')[1] == 'light' then
-  opt.background = 'light'
-else
-  opt.background = 'dark'
-end
-
 -- Space as map leader
 g.mapleader = ' '
 

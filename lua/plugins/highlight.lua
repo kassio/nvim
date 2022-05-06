@@ -4,6 +4,13 @@ local hl_def = vim.my.utils.highlight_define
 local hl_extend = vim.my.utils.highlight_extend
 local sign_define = vim.my.utils.sign_define
 
+if vim.fn.readfile(vim.env.HOME .. '/.cache/term_profile')[1] == 'light' then
+  vim.opt.background = 'light'
+else
+  vim.opt.background = 'dark'
+end
+vim.cmd('colorscheme ' .. vim.my.theme.colorscheme)
+
 -- Highlight color strings
 require('colorizer').setup()
 -- Prettier quickfix/location list windows
@@ -23,26 +30,6 @@ local attrs = function(opts)
     sp = 'NONE',
   })
 end
-
--- Spell
-hl_def('SpellBad', attrs({ underdot = true, sp = colors.warn }))
-hl_extend('SpellCap', 'SpellBad')
-hl_extend('SpellRare', 'SpellBad')
-hl_extend('SpellLocal', 'SpellBad')
-
--- Spacing/Visual clues
-hl_def('ColorColumn', attrs({ background = colors.shadow }))
-
-hl_def('NonText', attrs({ foreground = colors.light_shadow }))
-hl_extend('Whitespace', 'NonText')
-
-hl_def('VertSplit', { foreground = colors.ignore })
-hl_def('SpecialKey', { foreground = colors.shadow })
-hl_extend('SpecialChar', 'SpecialKey')
-hl_extend('EndOfBuffer', 'SpecialKey')
-
--- matching parantheses/blocks marks
-hl_def('MatchParen', attrs({ bold = true }))
 
 -- Diagnostics (vim.diagnostic)
 -- Default highlight
@@ -84,32 +71,53 @@ hl_def('GitSignAddLineNr', attrs({ foreground = colors.hint }))
 hl_def('GitSignChangeLineNr', attrs({ foreground = colors.warn }))
 hl_def('GitSignDeleteLineNr', attrs({ foreground = colors.error }))
 
+-- Spell
+hl_def('SpellBad', attrs({ underdot = true, sp = colors.warn }))
+hl_extend('SpellCap', 'SpellBad')
+hl_extend('SpellRare', 'SpellBad')
+hl_extend('SpellLocal', 'SpellBad')
+
+-- Spacing/Visual clues
+hl_def('ColorColumn', attrs({ background = colors.shadow }))
+
+hl_def('NonText', attrs({ foreground = colors.light_shadow }))
+hl_extend('Whitespace', 'NonText')
+
+hl_def('VertSplit', { foreground = colors.ignore })
+hl_def('SpecialKey', { foreground = colors.shadow })
+hl_extend('SpecialChar', 'SpecialKey')
+hl_extend('EndOfBuffer', 'SpecialKey')
+
+-- matching parantheses/blocks marks
+hl_def('MatchParen', attrs({ bold = true }))
+
 -- Filetree
 hl_def('NvimTreeOpenedFile', attrs({ bold = true, italic = false, bg = colors.shadow }))
 
 -- Treesitter
-hl_def('TSError', attrs({ undercurl = true, sp = colors.error }))
+hl_def('TSCurrentScope', attrs({ background = colors.shadow }))
+
 -- globals
 hl_def('TSDefinition', attrs({ background = colors.shadow }))
-hl_extend('TSDefinitionUsage', 'TSDefinition')
+hl_extend('TSDefinitionUsage', 'Normal')
 hl_extend('TSTypeBuiltin', 'Type')
 hl_extend('TSVariable', 'Normal')
 hl_extend('TSParameter', 'Normal')
 hl_extend('TSFuncBuiltin', 'Identifier')
-hl_extend('TSStringEscape', 'TSString', { bold = true })
-hl_extend('TSStringSpecial', 'TSString', { bold = true })
+hl_extend('TSStringEscape', 'String', { bold = true })
+hl_extend('TSStringSpecial', 'String', { bold = true })
 
 -- Ruby with Treesitter
-hl_extend('rubyTSType', 'rubyconstant')
-hl_extend('rubyTSLabel', 'rubyinstancevariable')
-hl_extend('rubyTSSymbol', 'rubysymbol')
-hl_extend('rubyTSVariableBuiltin', 'rubypseudovariable')
+hl_extend('rubyTSType', 'Type')
+hl_extend('rubyTSLabel', 'Identifier')
+hl_extend('rubyTSSymbol', 'Identifier')
+hl_extend('rubyTSVariableBuiltin', 'Constant')
 
 -- Go with Treesitter
-hl_extend('goTSnamespace', 'TSStrong')
-hl_extend('goTSvariable', 'TSVariable')
-hl_extend('goTSfunction_name', 'TSfunction')
-hl_extend('goTSproperty', 'TSfunction')
+hl_extend('goTSnamespace', 'Normal', { bold = true })
+hl_extend('goTSvariable', 'Normal')
+hl_extend('goTSfunction_name', 'Function')
+hl_extend('goTSproperty', 'Function')
 
 -- zsh
 hl_extend('zshQuoted', 'String', { bold = true })

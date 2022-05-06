@@ -1,6 +1,7 @@
+require('nightfox').setup({})
+
 local M = {
   -- Generic values (independent of the background)
-  colorscheme = 'one-nvim',
   signs = {
     error = '',
     warn = '',
@@ -19,19 +20,21 @@ local M = {
   },
   -- Background dependent values
   dark = {
+    colorscheme = 'nordfox',
     colors = {
-      background = '#282C34',
+      background = '#2F343F',
       error = '#CA1243',
       warn = '#F7C154',
       info = '#6699CC',
       hint = '#50A14F',
-      ignore = '#CCCCCC',
-      shadow = '#2E3139',
-      light_shadow = '#4b5263',
+      ignore = '#51596c',
+      shadow = '#2c313b',
+      light_shadow = '#373d4a',
     },
     statusline = 'onedark',
   },
   light = {
+    colorscheme = 'dayfox',
     colors = {
       background = '#fafafa',
       error = '#CA1243',

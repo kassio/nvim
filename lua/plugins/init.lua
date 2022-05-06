@@ -158,10 +158,9 @@ M.load = function()
 
       -- Colors
       use({
-        -- 'marko-cerovac/material.nvim', -- Theme
+        'EdenEast/nightfox.nvim', -- Theme
         'norcalli/nvim-colorizer.lua', -- Highlight color strings
         'norcalli/nvim-terminal.lua', -- Fix terminal colors
-        'Th3Whit3Wolf/one-nvim', -- Theme
         'https://gitlab.com/yorickpeterse/nvim-pqf.git', -- Prettier qf/loc windows
       })
 
