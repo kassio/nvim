@@ -79,7 +79,7 @@ hl_extend('SpellLocal', 'SpellBad')
 
 -- Spacing/Visual clues
 hl_def('ColorColumn', attrs({ background = colors.shadow }))
-
+hl_extend('CursorLine', 'ColorColumn')
 hl_def('NonText', attrs({ foreground = colors.light_shadow }))
 hl_extend('Whitespace', 'NonText')
 
