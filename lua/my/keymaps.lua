@@ -20,6 +20,9 @@ keymap('o', 'aF', '":normal vaF<cr>"', { expr = true })
 -- disable ex mode
 keymap('n', [[Q]], [[<nop>]])
 
+-- allow gf to open non-existing files
+keymap('n', 'gf', ':e <cfile><cr>')
+
 -- use gj/gk by default to better navigation on wrapped lines
 keymap('n', 'j', 'gj')
 keymap('n', 'k', 'gk')
