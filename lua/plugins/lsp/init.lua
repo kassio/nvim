@@ -75,7 +75,7 @@ vim.my.lsp = {
   install_servers = installer.install,
 }
 
-command('LspInstallServers', vim.my.lsp.install_servers, {})
+command('LspUpdateServers', vim.my.lsp.install_servers, {})
 
 -- Auto format files
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {

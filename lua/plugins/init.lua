@@ -15,9 +15,23 @@ M.setup = function()
 end
 
 M.upgrade = function(cmd)
+  local post_upgrade = {
+    {
+      events = { 'User' },
+      pattern = 'PackerComplete',
+      command = 'LspUpdateServers',
+    },
+  }
+
   if cmd.bang then
-    vim.cmd('autocmd User PackerComplete quitall!')
+    table.insert(post_upgrade, {
+      events = { 'User' },
+      pattern = 'PackerComplete',
+      command = 'quitall!',
+    })
   end
+
+  vim.my.utils.augroup('user:packing', post_upgrade)
 
   M.load().sync()
 end
@@ -173,9 +187,8 @@ M.load = function()
       use('fladson/vim-kitty') -- kitty terminal config
     end,
     config = {
-      display = {
-        open_fn = require('packer.util').float,
-      },
+      autoremove = true,
+      log = { level = 'trace' },
     },
   })
 end
