@@ -9,14 +9,4 @@ vim.my.utils.augroup('user:autocommands', {
     pattern = '*',
     callback = vim.my.buffers.autosave,
   },
-  {
-    events = { 'WinLeave' },
-    pattern = '*',
-    command = 'set nocursorline',
-  },
-  {
-    events = { 'WinEnter' },
-    pattern = '*',
-    command = 'set cursorline',
-  },
 })
