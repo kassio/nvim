@@ -20,16 +20,16 @@ local M = {
   },
   -- Background dependent values
   dark = {
-    colorscheme = 'nordfox',
+    colorscheme = 'nightfox',
     colors = {
-      background = '#2F343F',
+      background = '#1B232F',
       error = '#CA1243',
       warn = '#F7C154',
       info = '#6699CC',
       hint = '#50A14F',
       ignore = '#51596c',
-      shadow = '#2c313b',
-      light_shadow = '#373d4a',
+      shadow = '#181f2a',
+      light_shadow = '#2a374a',
     },
     statusline = 'onedark',
   },

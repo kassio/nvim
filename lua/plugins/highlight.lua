@@ -61,7 +61,14 @@ sign_define('DapBreakpointRejected', '◎')
 hl_def('DapBreakpointRejected', attrs({ foreground = colors.warn }))
 
 -- Git
-hl_def('GitSignsCurrentLineBlame', attrs({ foreground = colors.shadow, italic = true }))
+hl_def(
+  'GitSignsCurrentLineBlame',
+  attrs({
+    background = colors.shadow,
+    foreground = colors.light_shadow,
+    italic = true,
+  })
+)
 
 hl_def('GitSignAdd', attrs({ foreground = colors.hint }))
 hl_def('GitSignChange', attrs({ foreground = colors.warn }))
@@ -80,6 +87,7 @@ hl_extend('SpellLocal', 'SpellBad')
 -- Spacing/Visual clues
 hl_def('ColorColumn', attrs({ background = colors.shadow }))
 hl_extend('CursorLine', 'ColorColumn')
+
 hl_def('NonText', attrs({ foreground = colors.light_shadow }))
 hl_extend('Whitespace', 'NonText')
 
