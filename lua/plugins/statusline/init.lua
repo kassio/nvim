@@ -37,12 +37,6 @@ local sections = {
         hint = theme.signs.hint,
         info = theme.signs.info,
       },
-      diagnostics_color = {
-        error = 'DiagnosticError',
-        warn = 'DiagnosticWarn',
-        hint = 'DiagnosticInfo',
-        info = 'DiagnosticHint',
-      },
     },
   },
   lualine_y = { 'diff' },

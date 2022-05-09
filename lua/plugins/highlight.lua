@@ -33,6 +33,12 @@ hl_def('DiagnosticWarn', attrs({ foreground = colors.warn }))
 hl_def('DiagnosticInfo', attrs({ foreground = colors.info }))
 hl_def('DiagnosticHint', attrs({ foreground = colors.hint }))
 
+-- VirtualText
+hl_def('DiagnosticVirtualTextError', attrs({ foreground = colors.light_error }))
+hl_def('DiagnosticVirtualTextWarn', attrs({ foreground = colors.light_warn }))
+hl_def('DiagnosticVirtualTextInfo', attrs({ foreground = colors.light_info }))
+hl_def('DiagnosticVirtualTextHint', attrs({ foreground = colors.light_hint }))
+
 -- Signs/Icons definition
 sign_define('DiagnosticSignError', theme.signs.error, 'DiagnosticError')
 sign_define('DiagnosticSignWarn', theme.signs.warn, 'DiagnosticWarn')
@@ -86,7 +92,7 @@ hl_extend('CursorLine', 'ColorColumn')
 hl_def('NonText', attrs({ foreground = colors.highlight }))
 hl_extend('Whitespace', 'NonText')
 
-hl_def('VertSplit', { foreground = colors.ignore })
+hl_def('VertSplit', { foreground = colors.highlight })
 hl_def('SpecialKey', { foreground = colors.shadow })
 hl_extend('SpecialChar', 'SpecialKey')
 hl_extend('EndOfBuffer', 'SpecialKey')

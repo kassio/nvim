@@ -1,7 +1,12 @@
 local keymap = vim.keymap.set
+local diagnostic = vim.diagnostic
 
-vim.diagnostic.config({
-  virtual_text = false,
+diagnostic.config({
+  virtual_text = {
+    severity = diagnostic.severity.ERROR,
+    spacing = 8,
+  },
+  underline = false,
   severity_sort = true,
   float = {
     focusable = false,
@@ -13,14 +18,14 @@ vim.diagnostic.config({
   },
 })
 
-keymap('n', 'glee', vim.diagnostic.open_float)
+keymap('n', '[d', diagnostic.goto_prev)
+keymap('n', ']d', diagnostic.goto_next)
+keymap('n', 'glee', diagnostic.open_float)
 keymap('n', 'glea', function()
   vim.cmd('cclose')
-  vim.diagnostic.setloclist()
+  diagnostic.setloclist()
 end)
 keymap('n', 'gleA', function()
   vim.cmd('cclose')
-  vim.diagnostic.setqflist()
+  diagnostic.setqflist()
 end)
-keymap('n', '[d', vim.diagnostic.goto_prev)
-keymap('n', ']d', vim.diagnostic.goto_next)

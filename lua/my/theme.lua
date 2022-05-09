@@ -6,6 +6,17 @@ end
 
 require('nightfox').setup({})
 
+local common_colors = {
+  error = '#CA1243',
+  warn = '#F7C154',
+  info = '#6699CC',
+  hint = '#50A14F',
+  light_error = '#FD83A1',
+  light_warn = '#FFF4A8',
+  light_info = '#A5D0FF',
+  light_hint = '#B5E6CE',
+}
+
 local M = {
   -- Generic values (independent of the background)
   signs = {
@@ -28,30 +39,20 @@ local M = {
   dark = {
     colorscheme = 'nightfox',
     statusline = 'nightfly',
-    colors = {
+    colors = vim.tbl_extend('error', common_colors, {
       background = '#1B232F',
-      error = '#CA1243',
-      warn = '#F7C154',
-      info = '#6699CC',
-      hint = '#50A14F',
-      ignore = '#51596c',
       shadow = '#181F2A',
-      highlight = '#2A374A',
-    },
+      highlight = '#51596c',
+    }),
   },
   light = {
     colorscheme = 'dayfox',
     statusline = 'tomorrow',
-    colors = {
+    colors = vim.tbl_extend('error', common_colors, {
       background = '#EAEAEA',
-      error = '#CA1243',
-      warn = '#F7C154',
-      info = '#6699CC',
-      hint = '#50A14F',
-      ignore = '#CCCCCC',
       shadow = '#D2D2D2',
       highlight = '#ECECEC',
-    },
+    }),
   },
 }
 
