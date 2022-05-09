@@ -21,8 +21,8 @@ completionItem.resolveSupport = {
   properties = { 'documentation', 'detail', 'additionalTextEdits' },
 }
 
-hdls['textDocument/hover'] = lsp.with(hdls.hover, { border = 'single' })
-hdls['textDocument/signatureHelp'] = lsp.with(hdls.signature_help, { border = 'single' })
+hdls['textDocument/hover'] = lsp.with(hdls.hover, { border = 'rounded' })
+hdls['textDocument/signatureHelp'] = lsp.with(hdls.signature_help, { border = 'rounded' })
 
 local nmap = function(lhs, rhs)
   vim.keymap.set('n', lhs, rhs, { buffer = 0, silent = true })

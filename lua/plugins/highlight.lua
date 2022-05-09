@@ -91,6 +91,10 @@ hl_def('SpecialKey', { foreground = colors.shadow })
 hl_extend('SpecialChar', 'SpecialKey')
 hl_extend('EndOfBuffer', 'SpecialKey')
 
+-- Floating window
+hl_def('NormalFloat', { background = colors.background })
+hl_def('FloatShadow', { background = colors.shadow })
+
 -- matching parantheses/blocks marks
 hl_def('MatchParen', attrs({ bold = true }))
 
