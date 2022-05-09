@@ -1,29 +1,6 @@
 local cmp = require('cmp')
 local mapping = cmp.mapping
 local snippy = require('snippy')
-local api = vim.api
-
-local default_sources = {
-  snippets = { name = 'snippy', keyword_length = 2, max_item_count = 6 },
-  treesitter = { name = 'treesitter', keyword_length = 2, max_item_count = 6 },
-  lsp = { name = 'nvim_lsp', keyword_length = 2, max_item_count = 10 },
-  lua = { name = 'nvim_lua', keyword_length = 2, max_item_count = 6 },
-  buffer = {
-    name = 'buffer',
-    keyword_length = 3,
-    max_item_count = 5,
-    option = { get_bufnrs = api.nvim_list_bufs },
-  },
-  signature = { name = 'nvim_lsp_signature_help' },
-  spell = { name = 'spell', keyword_length = 3, max_item_count = 5 },
-  path = { name = 'path', max_item_count = 10 },
-}
-
-local sources_for = function(names)
-  return vim.tbl_map(function(name)
-    return default_sources[name]
-  end, names)
-end
 
 snippy.setup({
   mappings = {
@@ -68,14 +45,18 @@ cmp.setup({
     end,
   },
 
-  sources = sources_for({
-    'lsp',
-    'signature',
-    'snippets',
-    'treesitter',
-    'buffer',
-    'spell',
-    'path',
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'nvim_lua' },
+    { name = 'nvim_lsp_signature_help' },
+  }, {
+    { name = 'snippy' }, -- For snippy users.
+  }, {
+    { name = 'treesitter' },
+    { name = 'spell' },
+    { name = 'buffer' },
+  }, {
+    { name = 'path' },
   }),
 
   window = {
@@ -84,13 +65,3 @@ cmp.setup({
     },
   },
 })
-
-vim.my.completion = {
-  buffer = {
-    sources = function(names)
-      cmp.setup.buffer({
-        sources = sources_for(names),
-      })
-    end,
-  },
-}
