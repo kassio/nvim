@@ -60,7 +60,7 @@ hl_def(
   'GitSignsCurrentLineBlame',
   attrs({
     background = colors.shadow,
-    foreground = colors.light_shadow,
+    foreground = colors.highlight,
     italic = true,
   })
 )
@@ -83,7 +83,7 @@ hl_extend('SpellLocal', 'SpellBad')
 hl_def('ColorColumn', attrs({ background = colors.shadow }))
 hl_extend('CursorLine', 'ColorColumn')
 
-hl_def('NonText', attrs({ foreground = colors.light_shadow }))
+hl_def('NonText', attrs({ foreground = colors.highlight }))
 hl_extend('Whitespace', 'NonText')
 
 hl_def('VertSplit', { foreground = colors.ignore })

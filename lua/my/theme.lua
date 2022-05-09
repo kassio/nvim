@@ -36,7 +36,7 @@ local M = {
       hint = '#50A14F',
       ignore = '#51596c',
       shadow = '#181F2A',
-      light_shadow = '#2A374A',
+      highlight = '#2A374A',
     },
   },
   light = {
@@ -50,7 +50,7 @@ local M = {
       hint = '#50A14F',
       ignore = '#CCCCCC',
       shadow = '#D2D2D2',
-      light_shadow = '#ECECEC',
+      highlight = '#ECECEC',
     },
   },
 }
