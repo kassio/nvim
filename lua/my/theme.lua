@@ -1,3 +1,9 @@
+if vim.fn.readfile(vim.env.HOME .. '/.cache/term_profile')[1] == 'light' then
+  vim.opt.background = 'light'
+else
+  vim.opt.background = 'dark'
+end
+
 require('nightfox').setup({})
 
 local M = {
@@ -21,6 +27,7 @@ local M = {
   -- Background dependent values
   dark = {
     colorscheme = 'nightfox',
+    statusline = 'nightfly',
     colors = {
       background = '#1B232F',
       error = '#CA1243',
@@ -28,24 +35,23 @@ local M = {
       info = '#6699CC',
       hint = '#50A14F',
       ignore = '#51596c',
-      shadow = '#181f2a',
-      light_shadow = '#2a374a',
+      shadow = '#181F2A',
+      light_shadow = '#2A374A',
     },
-    statusline = 'onedark',
   },
   light = {
     colorscheme = 'dayfox',
+    statusline = 'tomorrow',
     colors = {
-      background = '#fafafa',
+      background = '#EAEAEA',
       error = '#CA1243',
       warn = '#F7C154',
       info = '#6699CC',
       hint = '#50A14F',
       ignore = '#CCCCCC',
-      shadow = '#f0f0f0',
-      light_shadow = '#f0f0f0',
+      shadow = '#D2D2D2',
+      light_shadow = '#ECECEC',
     },
-    statusline = 'onelight',
   },
 }
 

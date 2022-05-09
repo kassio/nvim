@@ -4,11 +4,6 @@ local hl_def = vim.my.utils.highlight_define
 local hl_extend = vim.my.utils.highlight_extend
 local sign_define = vim.my.utils.sign_define
 
-if vim.fn.readfile(vim.env.HOME .. '/.cache/term_profile')[1] == 'light' then
-  vim.opt.background = 'light'
-else
-  vim.opt.background = 'dark'
-end
 vim.cmd('colorscheme ' .. vim.my.theme.colorscheme)
 
 -- Highlight color strings
