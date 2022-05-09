@@ -21,9 +21,6 @@ local sources = {
   builtin.code_actions.refactoring,
   builtin.code_actions.shellcheck,
 
-  -- completion
-  builtin.completion.spell,
-
   -- diagnostics
   builtin.diagnostics.codespell,
   builtin.diagnostics.editorconfig_checker,

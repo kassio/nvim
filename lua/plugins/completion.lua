@@ -46,15 +46,15 @@ cmp.setup({
   },
 
   sources = cmp.config.sources({
+    { name = 'snippy' },
     { name = 'nvim_lsp' },
-    { name = 'nvim_lua' },
     { name = 'nvim_lsp_signature_help' },
   }, {
-    { name = 'snippy' }, -- For snippy users.
+    { name = 'nvim_lua' },
   }, {
     { name = 'treesitter' },
-    { name = 'spell' },
     { name = 'buffer' },
+    { name = 'spell' },
   }, {
     { name = 'path' },
   }),
