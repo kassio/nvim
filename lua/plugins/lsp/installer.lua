@@ -46,7 +46,7 @@ M.setup = function(attacher, capabilities)
 
   check_installed()
 
-  installer.settings({
+  installer.setup({
     ui = {
       icons = {
         server_installed = theme.signs.info,
@@ -56,13 +56,13 @@ M.setup = function(attacher, capabilities)
     },
   })
 
-  installer.on_server_ready(function(server)
-    local config = vim.tbl_extend('keep', customizations[server.name] or {}, default_opts)
-
-    server:setup(vim.tbl_extend('keep', config, lspconfig[server.name]))
-  end)
-
   generics.setup()
+
+  for _, server in ipairs(M.servers) do
+    local settings = customizations[server] or {}
+
+    lspconfig[server].setup(vim.tbl_extend('keep', settings, default_opts))
+  end
 end
 
 M.install = function()
