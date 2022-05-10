@@ -31,7 +31,14 @@ local check_installed = function()
 
   for _, server in ipairs(installed) do
     if not vim.tbl_contains(M.servers, server) then
-      vim.notify('LSP servers list missing: ' .. server, vim.log.levels.ERROR)
+      vim.notify('LSP server installed but not registered: ' .. server, vim.log.levels.ERROR)
+      break
+    end
+  end
+
+  for _, server in ipairs(M.servers) do
+    if not vim.tbl_contains(installed, server) then
+      vim.notify('LSP server not installed: ' .. server, vim.log.levels.ERROR)
       break
     end
   end
