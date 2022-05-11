@@ -101,6 +101,10 @@ hl_extend('EndOfBuffer', 'SpecialKey')
 hl_def('NormalFloat', { background = colors.background })
 hl_def('FloatShadow', { background = colors.shadow })
 
+-- FloatingIdentifier
+hl_def('FloatingIdentifierBufferNr', { foreground = colors.hint, background = colors.shadow })
+hl_def('FloatingIdentifierBufferName', { foreground = colors.info, background = colors.shadow })
+
 -- matching parantheses/blocks marks
 hl_def('MatchParen', attrs({ bold = true }))
 

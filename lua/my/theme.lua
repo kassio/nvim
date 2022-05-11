@@ -50,8 +50,8 @@ local M = {
     statusline = 'tomorrow',
     colors = vim.tbl_extend('error', common_colors, {
       background = '#EAEAEA',
-      shadow = '#D2D2D2',
-      highlight = '#ECECEC',
+      shadow = '#DBDBDB',
+      highlight = '#E4ECFF',
     }),
   },
 }

@@ -1,8 +1,7 @@
 local M = {}
 local api = vim.api
-local colors = vim.my.theme.colors
 
-local name = 'floating_identifier'
+local name = 'FloatingIdentifier'
 local prefix = function(txt)
   return name .. txt
 end
@@ -10,15 +9,6 @@ end
 local hlnamespace = api.nvim_create_namespace(name)
 local add_highlight = function(bufid, hlname, col_start, col_end)
   api.nvim_buf_add_highlight(bufid, hlnamespace, hlname, 0, col_start, col_end)
-end
-local hls = {
-  bufnr = { name = prefix('BufferNr'), foreground = colors.hint, background = colors.shadow },
-  bufname = { name = prefix('BufferName'), foreground = colors.info, background = colors.shadow },
-}
-for _, h in pairs(hls) do
-  local hl_name = table.removekey(h, 'name')
-  vim.my.utils.highlight_define(hl_name, h)
-  h['name'] = hl_name
 end
 
 M.show = function(reference_window)
@@ -43,8 +33,8 @@ M.show = function(reference_window)
   local width = api.nvim_win_get_width(reference_window)
 
   api.nvim_buf_set_lines(fbufid, 0, -1, true, { identifier })
-  add_highlight(fbufid, hls.bufnr.name, 0, #identifier_bufnr)
-  add_highlight(fbufid, hls.bufname.name, #identifier_bufnr, width)
+  add_highlight(fbufid, 'FloatingIdentifierBufferNr', 0, #identifier_bufnr)
+  add_highlight(fbufid, 'FloatingIdentifierBufferName', #identifier_bufnr, width)
 
   local floating_identifier_winid = api.nvim_open_win(fbufid, 0, {
     relative = 'win',
