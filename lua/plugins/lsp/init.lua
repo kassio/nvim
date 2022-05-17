@@ -44,13 +44,17 @@ local attacher = function(client)
   command_map(lsp.buf.signature_help, 'LspSignatureHelp', '<c-k>')
   command_map(lsp.buf.declaration, 'LspGoToDeclaration', 'glD')
 
+  command_map(function()
+    vim.cmd('Telescope lsp_implementations jump_type=split')
+  end, 'LspImplementation', 'gli')
+
   command_map(lsp.buf.format, 'LspFormatSync', 'glF')
   command_map(function()
     lsp.buf.format({ async = true })
   end, 'LspFormat', 'glf')
 
   command_map(function()
-    vim.cmd('Telescope lsp_definitions jump_type=vsplit')
+    vim.cmd('Telescope lsp_definitions jump_type=split')
   end, 'LspGoToDefinition', 'gld')
 
   command_map(function()
