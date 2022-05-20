@@ -109,7 +109,7 @@ vim.my.git = {
   end,
   write = function()
     local file = fn.expand('%:.')
-    vim.cmd('write')
+    vim.cmd('update!')
     git('add ' .. file)
   end,
 }

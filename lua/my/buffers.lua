@@ -35,7 +35,7 @@ end
 M.autosave = function()
   if vim.opt_local.modified:get() then
     M.trim()
-    vim.cmd('silent! write!')
+    vim.cmd('silent! update!')
   end
 end
 
@@ -62,7 +62,7 @@ end
 M.ensure_path_and_write = function()
   local path = fn.expand('%:h')
   fn.mkdir(path, 'p')
-  vim.cmd('write!')
+  vim.cmd('update!')
 end
 
 return M
