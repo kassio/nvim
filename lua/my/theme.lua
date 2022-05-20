@@ -1,14 +1,11 @@
-local set_background = function()
-  local config = vim.env.HOME .. '/.config/kitty/themes/current.conf'
+local config = vim.env.HOME .. '/.config/kitty/themes/current.conf'
+local ok, bg = pcall(vim.fn.fnamemodify, vim.fn.resolve(config), ':t:r')
 
-  if vim.fn.filereadable(config) and vim.fn.readfile(config, nil, 1)[1] == '# light' then
-    vim.opt.background = 'light'
-  else
-    vim.opt.background = 'dark'
-  end
+if ok and bg == 'light' then
+  vim.opt.background = 'light'
+else
+  vim.opt.background = 'dark'
 end
-
-set_background()
 
 require('nightfox').setup({})
 
