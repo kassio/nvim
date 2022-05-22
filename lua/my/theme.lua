@@ -54,7 +54,7 @@ local M = {
     colors = vim.tbl_extend('error', common_colors, {
       background = '#EAEAEA',
       shadow = '#DBDBDB',
-      highlight = '#E4ECFF',
+      highlight = '#DDDDDD',
     }),
   },
 }
