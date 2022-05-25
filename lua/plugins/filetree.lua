@@ -26,9 +26,7 @@ require('nvim-tree').setup({
       error = theme.signs.error,
     },
   },
-  filters = {
-    dotfiles = true,
-  },
+  filters = { dotfiles = true },
   git = {
     enable = true,
     ignore = false,
@@ -41,7 +39,7 @@ require('nvim-tree').setup({
     '.vscode',
     '.idea',
   },
-  update_focused_file = { enable = true },
+  update_focused_file = { enable = false },
   renderer = {
     indent_markers = {
       enable = true,
